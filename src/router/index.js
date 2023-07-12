@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// import HomeView from '../views/HomeView.vue'
 import SponsorLocation from '../views/pages/SponsorLocation.vue'
 import Home from '../views/pages/Home.vue'
 import Donate from '../views/pages/Donate.vue'
@@ -21,7 +21,13 @@ const router = createRouter({
       {
         path: '/donate',
         name: 'donate',
-        component: Donate}
+        component: Donate
+      },
+      {
+        path:'/SponsorLocation',
+        name:'SponsorLocation',
+        component:SponsorLocation
+      }
   ]
 })
 

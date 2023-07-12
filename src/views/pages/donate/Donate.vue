@@ -1,5 +1,5 @@
 <script setup>
-import DonateContentCard from '@/view/pages/donate/DonateContentCard'
+// import DonateContentCard from '@/views/pages/donate/DonateContentCard'
 
 </script>
 

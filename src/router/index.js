@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/pages/home/Home.vue'
 import Donate from '../views/pages/donate/Donate.vue'
+import SponsorLocation from '../views/pages/sponsor/SponsorLocation.vue'
 import Login from '../views/pages/login/Login.vue'
+
 
 const router = createRouter({
   history: createWebHistory(
@@ -11,16 +13,20 @@ const router = createRouter({
     name: 'home',
     component: Home
   },
-
   {
-    path: '/login',
-    name: 'login',
-    component: Login
+    path: '/sponsor-location',
+    name: 'sponsor-location',
+    component: SponsorLocation
   },
   {
     path: '/donate',
     name: 'donate',
     component: Donate
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   }
   ]
 })

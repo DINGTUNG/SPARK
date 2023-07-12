@@ -1,6 +1,6 @@
 
 <script setup>
-import { onMounted, onBeforeMount, onBeforeUpdate, reactive, ref} from 'vue';
+import {  onBeforeMount, onBeforeUpdate, reactive, ref} from 'vue';
 
 const h1 = ref("認養地區")
 const searchText = ref('')

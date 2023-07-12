@@ -3,11 +3,9 @@
 
 </script>
 
-<template>
-  <div>
-  星火認養協會
-  </div>
-</template>
+<template></template>
+
+<div class="section_banner"></div>
 
 
 

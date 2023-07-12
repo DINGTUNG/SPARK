@@ -1,4 +1,7 @@
 <script setup>
+import{ RouterView } from 'vue-router'
+
+
 import { reactive } from 'vue'
 const news = reactive(
   [
@@ -81,7 +84,7 @@ const article = reactive([
           </div>
           <div>
             <div class="cardgroup">
-              <div class="newscard" v-for="item in news" :key="index">
+              <div class="newscard" v-for="item in news" :key="item.index">
                 <div class="cardimg">
                   <img src="https://picsum.photos/300/200/?random=10">
                 </div>
@@ -100,8 +103,10 @@ const article = reactive([
     </div>
 
   </div>
+  <RouterView />
 </template>
 
+
 <style scoped lang="scss">
-@import"../../assets/sass/page/_news";
+@import"../../assets/sass/pages/_news";
 </style>

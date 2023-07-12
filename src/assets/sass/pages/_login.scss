@@ -1,0 +1,17 @@
+@import "../base/fonts/fonts";
+@import "../base/color";
+
+div{
+
+    h1{
+        color:$primaryBrandBlue;
+        font-size: $h1Fs_PC;
+    }
+    label{
+        font-size: $h1Fs_PC;
+    }
+    input{
+        font-size: $h1Fs_PC;
+    }
+
+}

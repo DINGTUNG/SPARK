@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 
-
 </script>
 
 <template>
@@ -24,4 +23,5 @@ nav{
   display: flex;
   gap: 50px;
 }
+
 </style>

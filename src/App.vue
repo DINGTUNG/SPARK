@@ -1,9 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import Practice from "./assets/templates/Practice.vue"
-
-
+import Practice from './assets/templates/Practice.vue'
+import Test from './assets/templates/test.vue'
 </script>
 
 <template>
@@ -12,8 +11,9 @@ import Practice from "./assets/templates/Practice.vue"
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <Practice/>
+      <Practice />
 
+      <Test />
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -25,5 +25,4 @@ import Practice from "./assets/templates/Practice.vue"
 </template>
 
 <style scoped>
-
 </style>

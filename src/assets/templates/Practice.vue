@@ -1,7 +1,6 @@
 <script setup>
 //data()
 import { ref, reactive, computed } from 'vue'
-<<<<<<< HEAD
 const count = ref(0);
 
 const tanuki = reactive([{
@@ -12,7 +11,6 @@ const tanuki = reactive([{
   food: "sweet-potato2"
 }]
 );
-=======
 const count = ref(0)
 
 const tanuki = reactive([
@@ -25,28 +23,23 @@ const tanuki = reactive([
     food: 'sweet-potato2'
   }
 ])
->>>>>>> 4d728090b7ebf33d6c7aad546ee1ebd347941d0b
 
 // const catMouth = ref("evil");
 
 // const isCute = computed(() =>{
 // return catMouth.value == "innocent" ? true : false})
 
-<<<<<<< HEAD
 
 //method()
 function plus2() {
   count.value += 2;
-=======
 //method()
 function plus2() {
   count.value += 2
->>>>>>> 4d728090b7ebf33d6c7aad546ee1ebd347941d0b
 }
 
 //enum
 const MOUTH_TYPE = {
-<<<<<<< HEAD
   TRIANGLE: "triangle",
   CATMOUTH: "cat mouth",
   DOGMOUTH: "dog mouth",
@@ -57,7 +50,6 @@ const catMouthSituation = ref(MOUTH_TYPE.TRIANGLE);
 
 const isCute = computed(() => {
   return catMouthSituation.value == MOUTH_TYPE.CATMOUTH || catMouthSituation.value == MOUTH_TYPE.HOLLOW
-=======
   TRIANGLE: 'triangle',
   CATMOUTH: 'cat mouth',
   DOGMOUTH: 'dog mouth',
@@ -70,7 +62,6 @@ const isCute = computed(() => {
   return (
     catMouthSituation.value == MOUTH_TYPE.CATMOUTH || catMouthSituation.value == MOUTH_TYPE.HOLLOW
   )
->>>>>>> 4d728090b7ebf33d6c7aad546ee1ebd347941d0b
 })
 
 function squeezeTanukiChin() {
@@ -80,10 +71,7 @@ function squeezeTanukiChin() {
 function releaseTanukiChin() {
   catMouthSituation.value = MOUTH_TYPE.TRIANGLE
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 4d728090b7ebf33d6c7aad546ee1ebd347941d0b
 </script>
 
 <template>
@@ -95,7 +83,6 @@ function releaseTanukiChin() {
 
     is tanuki cute?{{ isCute }}
 
-<<<<<<< HEAD
 
     <button @mousedown="squeezeTanukiChin" @mouseup="releaseTanukiChin">擠貓嘴</button>
 
@@ -113,7 +100,6 @@ function releaseTanukiChin() {
 <style scoped lang="scss">
 @import "../sass/base/color";
 
-=======
     <button @mousedown="squeezeTanukiChin" @mouseup="releaseTanukiChin">擠貓嘴</button>
 
     <img v-if="isCute" src="../images/tanuki/狸貓幹嘛.png" alt="" />
@@ -126,7 +112,6 @@ function releaseTanukiChin() {
 
 <style scoped lang="scss">
 @import '../sass/base/color';
->>>>>>> 4d728090b7ebf33d6c7aad546ee1ebd347941d0b
 
 .box {
   color: $primaryBrandBlue;

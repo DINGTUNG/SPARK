@@ -1,0 +1,14 @@
+@import'../base/fonts/fonts-mixin';
+@import'../base/box-shadow';
+@import'../base/color';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.section_banner {
+    width: 100%;
+    height: 640px;
+    background-color: $primaryAccentGold;
+}

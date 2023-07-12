@@ -4,14 +4,18 @@ import { RouterLink,RouterView } from 'vue-router'
 
 <template>
     <header>
-        <img alt="Vue logo" class="logo" src="@/assets/logo/logo.svg" width="360"/>
+        <RouterLink to="/" class="link home"><img alt="Vue logo" class="logo" src="@/assets/logo/logo.svg" width="360"/></RouterLink>
         
         <div class="wrapper">
             <nav>
                 <RouterLink to="/about" class="link about">認識星火</RouterLink>
                 <RouterLink to="/service" class="link service">服務內容</RouterLink>
                 <RouterLink to="/result" class="link result">成果佈告欄</RouterLink>
+<<<<<<< HEAD
+                <RouterLink to="/sponsorLocation" class="link sponsor">認養計畫</RouterLink>
+=======
                 <RouterLink to="/sponsor-location" class="link sponsor-location">認養計畫</RouterLink>
+>>>>>>> 684d0e42e27b1f3751aca0450ab3189d6dc2d654
                 <RouterLink to="/donate" class="link donate">捐款專案</RouterLink>
                 <RouterLink to="/contact" class="link contact">聯絡星火</RouterLink>
                 <RouterLink to="/spark-project" class="link spark-project">星火計畫</RouterLink>

@@ -1,0 +1,95 @@
+@import '_buttons.scss';
+
+
+/* 🚩捷徑🚩 */
+
+//桌機 PC buttons 10
+//手機 MB buttons 54
+
+//---------------------------------------------------------------------------------------
+/* ⭐桌機 PC buttons⭐ */
+
+//🔵
+//regular
+@mixin regularBlueBtn_PC {
+  @include regularBtn_PC;
+  color: $btnBlue;
+};
+
+//small
+@mixin smallBlueBtn_PC {
+  @include smallBtn_PC;
+  color: $btnBlue;
+};
+
+
+//⚪
+//regular
+@mixin regularWhiteBtn_PC {
+  @include regularBtn_PC;
+  color: $btnWhite;
+};
+
+//small
+@mixin smallWhiteBtn_PC {
+  @include smallBtn_PC;
+  color: $btnWhite;
+};
+
+
+//🟡
+//regular
+@mixin regularGoldBtn_PC {
+  @include regularBtn_PC;
+  color: $btnGold;
+};
+
+//small
+@mixin smallGoldBtn_PC {
+  @include smallBtn_PC;
+  color: $btnGold;
+}
+
+//---------------------------------------------------------------------------------------
+/* ⭐手機 MB buttons⭐ */
+
+//🔵
+//regular
+@mixin regularBlueBtn_PC {
+  @include regularBtn_MB;
+  color: $btnBlue;
+};
+
+//small
+@mixin smallBlueBtn_PC {
+  @include smallBtn_MB;
+  color: $btnBlue;
+};
+
+
+//⚪
+//regular
+@mixin regularWhiteBtn_PC {
+  @include regularBtn_MB;
+  color: $btnWhite;
+};
+
+//small
+@mixin smallWhiteBtn_PC {
+  @include smallBtn_MB;
+  color: $btnWhite;
+};
+
+
+//🟡
+//regular
+@mixin regularGoldBtn_PC {
+  @include regularBtn_MB;
+  color: $btnGold;
+};
+
+//small
+@mixin smallGoldBtn_PC {
+  @include smallBtn_MB;
+  color: $btnGold;
+};

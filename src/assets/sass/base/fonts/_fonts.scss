@@ -16,6 +16,7 @@ $font-family: 'Noto-Sans';
 //---------------------------------------------------------------------------------------
 /* ⭐字型 font-size⭐ */
 
+//h1-h6_PC
 $h1Fs_PC: 40px;
 $h2Fs_PC: 32px;
 $h3Fs_PC: 28px;
@@ -23,6 +24,7 @@ $h4Fs_PC: 24px;
 $h5Fs_PC: 20px;
 $h6Fs_PC: 16px;
 
+//h1-h6_MB
 $h1Fs_MB: 35px;
 $h2Fs_MB: 28px;
 $h3Fs_MB: 24.5px;
@@ -30,12 +32,25 @@ $h4Fs_MB: 21px;
 $h5Fs_MB: 17.5px;
 $h6Fs_MB: 14px;
 
+
+//button_PC
+
+$regularBtnFs_PC:20px;
+$smallBtnFs_PC:16px;
+
+//button_MB
+
+$regularBtnFs_MB:17.5px;
+$smallBtnFs_MB:16px;
+
+
 //---------------------------------------------------------------------------------------
 /* ⭐字重 font-weight⭐ */
 
 $fWRegular: 400;
 $fWBold: 700;
 
+//h1-h6_PC
 $h1Fw_PC: $fWBold;
 $h2Fw_PC: $fWBold;
 $h3Fw_PC: $fWBold;
@@ -45,6 +60,7 @@ $h5Fw_B_PC: $fWBold; //小標
 $h5Fw_PC: fWRegular;
 $h6Fw_PC: fWRegular;
 
+//h1-h6_MB
 $h1Fw_MB: $fWBold;
 $h2Fw_MB: $fWBold;
 $h3Fw_MB: $fWBold;
@@ -57,12 +73,24 @@ $h6Fw_MB: fWRegular;
 //---------------------------------------------------------------------------------------
 /* ⭐字距 letter-spacing⭐ */
 
+//h1-h6_PC & MB
 $h1Ls: 10%;
 $h2Ls: 10%;
 $h3Ls: 10%;
 $h4Ls: 10%;
 $h5Ls: 5%;
 $h6Ls: 5%;
+
+//button_PC
+
+$regularBtnLs_PC:10%;
+$smallBtnLs_PC:10%;
+
+//button_MB
+
+$regularBtnLs_MB:15%;
+$smallBtnLs_MB:15%;
+
 
 //---------------------------------------------------------------------------------------
 /* ⭐行距 line height⭐ */

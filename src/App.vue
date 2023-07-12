@@ -1,22 +1,18 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 
 
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/images/logo/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+    <img alt="Spark logo" class="logo" src="@/assets/images/logo/logo.svg" width="125" height="125" />
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/">首頁</RouterLink>
+        <RouterLink to="/donate">捐款專案</RouterLink>
+        <RouterLink to="/login">會員登入</RouterLink>
       </nav>
-    </div>
+
   </header>
 
   <RouterView />
@@ -24,4 +20,8 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <style scoped>
 
+nav{
+  display: flex;
+  gap: 50px;
+}
 </style>

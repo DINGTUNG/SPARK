@@ -1,11 +1,11 @@
 <script setup>
-
+import DonateContentCard from '@/view/pages/donate/DonateContentCard'
 
 </script>
 
 <template>
   <div>
-  星火認養協會
+    <DonateContentCard />
   </div>
 </template>
 

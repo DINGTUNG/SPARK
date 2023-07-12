@@ -70,4 +70,12 @@ function releaseTanukiChin() {
 
 
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import "../sass/base/color";
+
+
+.box{
+  color:$primaryBrandBlue;
+}
+
+</style>

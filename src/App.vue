@@ -18,7 +18,7 @@ import RightMenu from '@/assets/layout/RightMenu.vue';
   <RightMenu/>
   <Footer />
 
-  
+  <!-- <RouterView /> -->
 </template>
 
 <style scoped>

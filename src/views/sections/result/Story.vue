@@ -1,9 +1,7 @@
 <script setup></script>
 
 <template>
-  <footer>
-    
-  </footer>
+  <div></div>
 </template>
 
 <style scoped lang="scss"></style>

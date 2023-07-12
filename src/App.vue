@@ -19,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-@import '@/assets/sass/base/fonts';
+@import '@/assets/sass/base/fonts/_fonts.scss';
 
 nav {
   display: flex;

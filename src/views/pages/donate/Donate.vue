@@ -1,5 +1,5 @@
 <script setup>
-// import DonateContentCard from '@/views/pages/donate/DonateContentCard'
+import DonateContentCard from '../../../components/donate/DonateContentCard.vue';
 
 </script>
 

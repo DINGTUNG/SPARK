@@ -80,7 +80,6 @@ const donateContentCardList = reactive([
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/'
 
 
 

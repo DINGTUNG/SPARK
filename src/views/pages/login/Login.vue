@@ -16,7 +16,9 @@
 
 
 <style scoped lang="scss">
-@import"@/assets/sass/base/_font-mixin";
-@import"@/assets/sass/base/_color";
-@import"@/assets/sass/page/login";
+@import "@/assets/sass/base/fonts/fonts-mixin";
+@import "@/assets/sass/base/color";
+@import "@/assets/sass/pages/login";
+
+
 </style>

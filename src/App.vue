@@ -24,9 +24,4 @@ import HelloWorld from './components/HelloWorld.vue'
   <RouterView />
 </template>
 
-<<<<<<< HEAD
 <style scoped></style>
-=======
-<style scoped>
-</style>
->>>>>>> 4d728090b7ebf33d6c7aad546ee1ebd347941d0b

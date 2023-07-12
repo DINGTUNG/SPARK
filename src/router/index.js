@@ -2,12 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/pages/Home.vue'
 import Donate from '../views/pages/Donate.vue'
 import Login from '../views/pages/Login.vue'
+import News from '../views/pages/News.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      
+
       path: '/',
       name: 'home',
       component: Home
@@ -15,11 +16,18 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: Login},
-      {
-        path: '/donate',
-        name: 'donate',
-        component: Donate}
+      component: Login
+    },
+    {
+      path: '/donate',
+      name: 'donate',
+      component: Donate
+    },
+    {
+      path: '/news',
+      name: 'news',
+      component: News
+    },
   ]
 })
 

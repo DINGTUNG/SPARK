@@ -10,6 +10,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/">首頁</RouterLink>
         <RouterLink to="/donate">捐款專案</RouterLink>
         <RouterLink to="/login">會員登入</RouterLink>
+        <RouterLink to="./news">最新消息</RouterLink>
       </nav>
 
   </header>

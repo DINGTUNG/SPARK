@@ -1,0 +1,129 @@
+@import'../base/font-mixin';
+@import'../base/box-shadow';
+@import'../base/color';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main_body {
+    .title_block {
+        display: flex;
+
+        h1 {
+            width: auto;
+            @include h1_PC;
+            color: $primaryBgBlue;
+        }
+
+        .topline {
+            display: flex;
+            align-self: center;
+            width: 70%;
+            margin-left: 50px;
+            height: 1px;
+            border-bottom: 1px solid;
+        }
+    }
+
+    width: 1200px;
+    margin: auto;
+
+    .main_article {
+
+        .article_title {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 0;
+
+            h2 {
+                color: $primaryAccentGold;
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+                padding: 0 20px;
+                color: $functionalLightGrey4;
+            }
+        }
+
+        .article {
+            .article_block {
+                display: flex;
+
+                .imgLeft {
+                    order: 0;
+                }
+
+                .imgRight {
+                    order: 1;
+                }
+
+                .article_block_text {
+                    padding: 0 80px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+
+                    h5 {
+                        @include h5_B_PC;
+                    }
+
+                    p {
+                        @include h6_PC;
+                        color: $basicFontColor;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .more_news {
+        .title_group {
+            h2 {
+                @include h2_PC;
+                color: $primaryBrandBlue;
+                font-weight: 900;
+            }
+
+            .line {
+                margin: 20px 0px;
+                display: flex;
+                width: 100%;
+                height: 4px;
+                align-self: center;
+                background-color: $primaryBgBlue;
+            }
+        }
+
+        .cardgroup {
+            justify-content: center;
+            display: flex;
+            gap: 30px;
+
+            .cardimg {
+                img {
+                    width: 100%
+                }
+            }
+
+            .cardword {
+                padding: 0 20px;
+                @include boxShadow_PC;
+                width: 345px;
+
+                h4 {
+                    @include h4_B_PC;
+                }
+
+                p {
+                    @include h6_PC
+                }
+            }
+        }
+    }
+
+}

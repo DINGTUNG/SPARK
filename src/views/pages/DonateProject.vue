@@ -3,9 +3,11 @@
 
 </script>
 
-<template></template>
+<template>
+  <div class="section_banner"></div>
+</template>
 
-<div class="section_banner"></div>
+
 
 
 

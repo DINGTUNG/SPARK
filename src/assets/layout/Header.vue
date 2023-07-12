@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router'
                 <RouterLink to="/result" class="link result">成果佈告欄</RouterLink>
                 <RouterLink to="/sponsor" class="link sponsor">認養計畫</RouterLink>
                 <RouterLink to="/donate" class="link donate">捐款專案</RouterLink>
-                <RouterLink to="/" class="link">聯絡星火</RouterLink>
+                <RouterLink to="/contact" class="link contact">聯絡星火</RouterLink>
                 <RouterLink to="/spark-project" class="link spark_project">星火計畫</RouterLink>
                 <RouterLink to="/login" class="link login" >會員登入</RouterLink>
             </nav>

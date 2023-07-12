@@ -6,13 +6,13 @@
 /* ⭐背景 background-color⭐ */
 /* ⭐星火計畫⭐ */
 /* ⭐使用說明⭐ */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
 .sassUsageExample {
-  color: #1D3D6C;
+  color: #1d3d6c;
 }
 
 .sassUsageExample {
-  background-color: #1D3D6C;
+  background-color: #1d3d6c;
 }
 
 /* 🚩捷徑🚩 */
@@ -33,4 +33,4 @@
 /* ⭐layout⭐ */
 /* ⭐page⭐ */
 /* ⭐plugin⭐ */
-/* ⭐使用說明⭐ *//*# sourceMappingURL=style.css.map */
+/* ⭐使用說明⭐ */ /*# sourceMappingURL=style.css.map */

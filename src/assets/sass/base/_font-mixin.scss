@@ -1,4 +1,4 @@
-@import "_font.scss";
+@import '_font.scss';
 
 /* 🚩捷徑🚩 */
 
@@ -50,7 +50,6 @@
   letter-spacing: $h5Ls;
   line-height: $h5Lh_PC;
 }
-
 
 @mixin h5_B_PC {
   font-size: $h5Fs_PC;
@@ -111,7 +110,6 @@
   line-height: $h5Lh_MB;
 }
 
-
 @mixin h5_B_MB {
   font-size: $h5Fs_MB;
   font-weight: $h5Fw_B_MB;
@@ -130,9 +128,8 @@
 /* ⭐使用說明⭐ */
 .sassUsageExample {
   @include h4_B_PC;
-  }
-
-.sassUsageExample {
-@include h1_MB;
 }
 
+.sassUsageExample {
+  @include h1_MB;
+}

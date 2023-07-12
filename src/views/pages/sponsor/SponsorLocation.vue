@@ -108,13 +108,13 @@ onBeforeMount(() => updateDisplay())
 </script>
 <template>
     <div class="banner">
-        <img src="../../assets/images/SponsorLocation/banner.png" alt="bannerImage">
+        <img src="@/assets/images/SponsorLocation/banner.png" alt="bannerImage">
     </div>
     <div class="wrap">
         <div class="container">
             <h1>{{ h1 }}</h1>
             <div class="map">
-                <img src="../../assets/images/SponsorLocation/taiwan.png" alt="taiwanMap">
+                <img src="@/assets/images/SponsorLocation/taiwan.png" alt="taiwanMap">
             </div>
             <input type="search" v-model="searchText" class="search-bar">
             <section class="location">
@@ -126,10 +126,10 @@ onBeforeMount(() => updateDisplay())
                     </div>
                 </div>
                 <div class="deco-stars">
-                <img src="../../assets/images/SponsorLocation/stars.png" alt="星星裝飾">
+                <img src="@/assets/images/SponsorLocation/stars.png" alt="星星裝飾">
                 </div>
                 <div class="deco-bigstar">
-                    <img src="../../assets/images/SponsorLocation/bigstar.png" alt="星星裝飾">
+                    <img src="@/assets/images/SponsorLocation/bigstar.png" alt="星星裝飾">
                 </div>
             </section>
         </div>
@@ -138,15 +138,10 @@ onBeforeMount(() => updateDisplay())
 
 
 <style scoped lang="scss">
-@import '../../assets/sass/base/color';
-@import '../../assets/sass/base/font/font-mixin';
-@import '../../assets/sass/base/box-shadow';
-
-*{
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-}
+@import '@/assets/sass/base/color';
+@import '@/assets/sass/base/fonts/fonts-mixin';
+@import '@/assets/sass/base/box-shadow';
+@import "@/assets/sass/base/reset";
 .wrap{
     width: 100%;
     overflow-x: hidden;
@@ -156,6 +151,7 @@ onBeforeMount(() => updateDisplay())
     margin: auto;
 }
 .banner{
+    width: 100%;
     img{
        width: 100%; 
     } 

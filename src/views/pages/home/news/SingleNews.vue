@@ -57,6 +57,7 @@ const article = reactive(
 <template>
   <div>
     <div class="img">
+      <img src="@/assets/images/home/news/single-news-page/banner.png" alt="">
     </div>
     <div class="main_body">
       <div class="title_block">
@@ -109,5 +110,8 @@ const article = reactive(
 
 
 <style scoped lang="scss">
+
 @import"@/assets/sass/pages/home/news/single-news";
+@import"@/assets/sass/base/border-radius"
+
 </style>

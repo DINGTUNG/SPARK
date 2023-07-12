@@ -1,6 +1,6 @@
-@import'../base/fonts/fonts-mixin';
-@import'../base/box-shadow';
-@import'../base/color';
+@import'../../../base/fonts/fonts-mixin';
+@import'../../../base/box-shadow';
+@import'../../../base/color';
 
 * {
     margin: 0;
@@ -66,16 +66,17 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
-
                     h5 {
                         @include h5_B_PC;
                     }
-
                     p {
                         @include h6_PC;
                         color: $basicFontColor;
-
                     }
+                }
+                .imgRight{
+                    order: -1;
+                    @extend .article_block_text 
                 }
             }
         }
@@ -126,4 +127,7 @@
         }
     }
 
+}
+.imgRight{
+    order: -1;
 }

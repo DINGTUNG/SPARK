@@ -1,0 +1,138 @@
+@import "_font.scss";
+
+/* 🚩捷徑🚩 */
+
+//桌機 PC 9
+//手機 MB 9
+/* ⭐使用說明⭐ */
+
+//---------------------------------------------------------------------------------------
+/* ⭐桌機 PC⭐ */
+
+@mixin h1_PC {
+  font-size: $h1Fs_PC;
+  font-weight: $h1Fw_PC;
+  letter-spacing: $h1Ls;
+  line-height: $h1Lh_PC;
+}
+
+@mixin h2_PC {
+  font-size: $h2Fs_PC;
+  font-weight: $h2Fw_PC;
+  letter-spacing: $h2Ls;
+  line-height: $h2Lh_PC;
+}
+
+@mixin h3_PC {
+  font-size: $h3Fs_PC;
+  font-weight: $h3Fw_PC;
+  letter-spacing: $h3Ls;
+  line-height: $h3Lh_PC;
+}
+
+@mixin h4_PC {
+  font-size: $h4Fs_PC;
+  font-weight: $h4Fw_PC;
+  letter-spacing: $h4Ls;
+  line-height: $h4Lh_PC;
+}
+
+@mixin h4_B_PC {
+  font-size: $h4Fs_PC;
+  font-weight: $h4Fw_B_PC;
+  letter-spacing: $h4Ls;
+  line-height: $h4Lh_B_PC;
+}
+
+@mixin h5_PC {
+  font-size: $h5Fs_PC;
+  font-weight: $h5Fw_PC;
+  letter-spacing: $h5Ls;
+  line-height: $h5Lh_PC;
+}
+
+
+@mixin h5_B_PC {
+  font-size: $h5Fs_PC;
+  font-weight: $h5Fw_B_PC;
+  letter-spacing: $h5Ls;
+  line-height: $h5Lh_B_PC;
+}
+
+@mixin h6_PC {
+  font-size: $h6Fs_PC;
+  font-weight: $h6Fw_PC;
+  letter-spacing: $h6Ls;
+  line-height: $h6Lh_PC;
+}
+
+//---------------------------------------------------------------------------------------
+/* ⭐手機 MB⭐ */
+
+@mixin h1_MB {
+  font-size: $h1Fs_MB;
+  font-weight: $h1Fw_MB;
+  letter-spacing: $h1Ls;
+  line-height: $h1Lh_MB;
+}
+
+@mixin h2_MB {
+  font-size: $h2Fs_MB;
+  font-weight: $h2Fw_MB;
+  letter-spacing: $h2Ls;
+  line-height: $h2Lh_MB;
+}
+
+@mixin h3_MB {
+  font-size: $h3Fs_MB;
+  font-weight: $h3Fw_MB;
+  letter-spacing: $h3Ls;
+  line-height: $h3Lh_MB;
+}
+
+@mixin h4_MB {
+  font-size: $h4Fs_MB;
+  font-weight: $h4Fw_MB;
+  letter-spacing: $h4Ls;
+  line-height: $h4Lh_MB;
+}
+
+@mixin h4_B_MB {
+  font-size: $h4Fs_MB;
+  font-weight: $h4Fw_B_MB;
+  letter-spacing: $h4Ls;
+  line-height: $h4Lh_B_MB;
+}
+
+@mixin h5_MB {
+  font-size: $h5Fs_MB;
+  font-weight: $h5Fw_MB;
+  letter-spacing: $h5Ls;
+  line-height: $h5Lh_MB;
+}
+
+
+@mixin h5_B_MB {
+  font-size: $h5Fs_MB;
+  font-weight: $h5Fw_B_MB;
+  letter-spacing: $h5Ls;
+  line-height: $h5Lh_B_MB;
+}
+
+@mixin h6_MB {
+  font-size: $h6Fs_MB;
+  font-weight: $h6Fw_MB;
+  letter-spacing: $h6Ls;
+  line-height: $h6Lh_MB;
+}
+
+//---------------------------------------------------------------------------------------
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  @include h4_B_PC;
+  }
+
+.sassUsageExample {
+@include h1_MB;
+}
+

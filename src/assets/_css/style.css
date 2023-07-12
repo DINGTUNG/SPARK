@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* 🚩捷徑🚩 */
+/* ⭐base⭐ */
+/* 🚩捷徑🚩 */
+/* ⭐色彩計畫 color⭐ */
+/* ⭐背景 background-color⭐ */
+/* ⭐星火計畫⭐ */
+/* ⭐使用說明⭐ */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+.sassUsageExample {
+  color: #1D3D6C;
+}
+
+.sassUsageExample {
+  background-color: #1D3D6C;
+}
+
+/* 🚩捷徑🚩 */
+/* ⭐字體 font-family⭐ */
+/* ⭐字型 font-size⭐ */
+/* ⭐字重 font-weight⭐ */
+/* ⭐字距 letter-spacing⭐ */
+/* ⭐行距 line height⭐ */
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 5%;
+  line-height: 48px;
+}
+
+/* ⭐mixin⭐ */
+/* ⭐layout⭐ */
+/* ⭐page⭐ */
+/* ⭐plugin⭐ */
+/* ⭐使用說明⭐ *//*# sourceMappingURL=style.css.map */

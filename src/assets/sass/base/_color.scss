@@ -1,0 +1,69 @@
+/* 🚩捷徑🚩 */
+
+//色彩計畫 color 9
+//背景顏色 background-color 41
+//星火計畫 57
+//使用說明 62
+
+//---------------------------------------------------------------------------------------
+/* ⭐色彩計畫 color⭐ */
+
+//🔵blue
+$primaryBrandBlue: #1D3D6C;
+$secondaryLightBlue1: #BBD0F7;
+$secondaryLightBlue2: #477DCA;
+$secondaryLightBlue3: #25559A;
+$secondaryDarkBlue: #082B55;
+$tertiaryGradientBlue: linear-gradient(180deg, rgba(29,61,108,1) 0%, rgba(37,85,154,1) 100%);
+
+//⚪white
+$primaryBrandWhite:#FFFFFF;
+
+//🟡gold
+$primaryAccentGold:#D8B06C;
+$secondaryLightGold1:#F2DFBF;
+$secondaryLightGold2:#EBC483;
+
+//💿grey
+$functionalLightGrey1:#F5F4EF;
+$functionalLightGrey2:#E7E6E1;
+$functionalLightGrey3:#D9D8D2;
+$functionalLightGrey4:#C4C3BC;
+
+//decorate
+$decorativeOrange:#FF9737;
+$decorativeYellow:#FFE48B;
+
+//font
+$basicFontColor:#3D3A35;
+
+//---------------------------------------------------------------------------------------
+/* ⭐背景 background-color⭐ */
+
+//⚪white
+$primaryBgWhite:#FFFFFF;
+
+//🔵blue
+$primaryBgBlue: #1D3D6C;
+$secondaryBgDarkBlue: #082B55;
+$tertiaryBgGradientBlue: linear-gradient(180deg, rgba(29,61,108,1) 0%, rgba(37,85,154,1) 100%);
+
+//💿grey
+$functionalBgLightGrey1:#F5F4EF;
+$functionalBgLightGrey2:#E7E6E1;
+$functionalBgLightGrey3:#D9D8D2;
+
+//---------------------------------------------------------------------------------------
+/* ⭐星火計畫⭐ */
+
+
+//---------------------------------------------------------------------------------------
+/* ⭐使用說明⭐ */
+
+.sassUsageExample {
+  color: $primaryBgBlue;
+}
+
+.sassUsageExample {
+  background-color: $primaryBgBlue;
+}

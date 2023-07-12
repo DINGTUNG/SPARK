@@ -12,9 +12,6 @@ const router = createRouter({
     },
     {
       path: '/about',
-<<<<<<< HEAD
-      name: 'about'
-=======
       name: 'about',
       // component: () => import(/* webpackChunkName: "about" */ '@/views/pages/About')
       // route level code-splitting
@@ -27,7 +24,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
->>>>>>> f0525b4730b1d7c6589290084417638c10fd80ae
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.

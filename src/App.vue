@@ -3,7 +3,6 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import Practice from "./assets/templates/Practice.vue"
 
-
 </script>
 
 <template>
@@ -12,7 +11,7 @@ import Practice from "./assets/templates/Practice.vue"
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <Practice/>
+      <Practice />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -24,6 +23,4 @@ import Practice from "./assets/templates/Practice.vue"
   <RouterView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

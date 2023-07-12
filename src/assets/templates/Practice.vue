@@ -57,7 +57,7 @@ function releaseTanukiChin() {
     is tanuki cute?{{ isCute }}
 
 
-    <button @mousedown="squeezeTanukiChin" @mouseup="releaseTanukiChin" >擠貓嘴</button>
+    <button @mousedown="squeezeTanukiChin" @mouseup="releaseTanukiChin">擠貓嘴</button>
 
     <img v-if="isCute" src="../images/tanuki/狸貓幹嘛.png" alt="">
 
@@ -74,8 +74,7 @@ function releaseTanukiChin() {
 @import "../sass/base/color";
 
 
-.box{
-  color:$primaryBrandBlue;
+.box {
+  color: $primaryBrandBlue;
 }
-
 </style>

@@ -1,12 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-<<<<<<< HEAD
-=======
-import Practice from "./assets/templates/Practice.vue"
-import lock from "./assets/templates/lock.vue"
-
->>>>>>> lai
 
 
 </script>
@@ -17,11 +11,6 @@ import lock from "./assets/templates/lock.vue"
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-<<<<<<< HEAD
-=======
-      <Practice/>
-      <lock/>
->>>>>>> lai
 
       <nav>
         <RouterLink to="/">Home</RouterLink>

@@ -1,2 +1,33 @@
 @import "../base/color";
 @import"../base/fonts/fonts";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+footer{
+    display: flex;
+    background-color: blueviolet; //暫時替代
+}
+
+footer .items{
+    display: flex;
+}
+
+footer .items div h5{
+    font-size: $h5Fw_B_PC;
+    color: $primaryBrandWhite ;
+    text-align: center;
+    line-height: $h5Lh_PC;
+}
+
+footer .items div .link{
+    font-size: $h6Fs_PC;
+    color: $primaryBrandWhite ;
+    text-align: center;
+    line-height: $h6Lh_PC;
+    text-decoration: none;
+}
+
+

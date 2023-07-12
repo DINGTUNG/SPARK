@@ -1,11 +1,11 @@
 <script setup>
-
+import DonateContentCard from '@/view/pages/donate/DonateContentCard'
 
 </script>
 
 <template>
   <div>
-  
+    <DonateContentCard />
   </div>
 </template>
 

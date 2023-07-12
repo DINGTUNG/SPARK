@@ -139,7 +139,7 @@ onBeforeMount(() => updateDisplay())
 
 <style scoped lang="scss">
 @import '../../assets/sass/base/color';
-@import '../../assets/sass/base/font-mixin';
+@import '../../assets/sass/base/font/font-mixin';
 @import '../../assets/sass/base/box-shadow';
 
 *{

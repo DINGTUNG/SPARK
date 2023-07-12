@@ -15,7 +15,7 @@ import Footer from '@/assets/layout/Footer.vue';
   <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
   <Footer />
 
-  <RouterView />
+  <!-- <RouterView /> -->
 </template>
 
 <style scoped>

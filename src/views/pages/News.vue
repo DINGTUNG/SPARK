@@ -1,4 +1,7 @@
 <script setup>
+import{ RouterView } from 'vue-router'
+
+
 import { reactive } from 'vue'
 const news = reactive(
   [
@@ -100,8 +103,10 @@ const article = reactive([
     </div>
 
   </div>
+  <RouterView />
 </template>
 
+
 <style scoped lang="scss">
-@import"../../assets/sass/page/_news";
+@import"../../assets/sass/pages/_news";
 </style>

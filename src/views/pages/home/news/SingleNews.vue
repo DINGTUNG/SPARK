@@ -108,5 +108,5 @@ const article = reactive([
 
 
 <style scoped lang="scss">
-@import"../../assets/sass/pages/_news";
+@import"@/assets/sass/pages/home/news/single-news";
 </style>

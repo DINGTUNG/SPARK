@@ -4,6 +4,7 @@
 </script>
 
 <template>
+  <img src="" class="" alt="">
   <div>
     <h1>會員登入</h1>
     <label for="">帳號</label>

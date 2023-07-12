@@ -12,6 +12,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
       <Practice />
 
+      <Test />
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -23,4 +24,9 @@ import HelloWorld from './components/HelloWorld.vue'
   <RouterView />
 </template>
 
+<<<<<<< HEAD
 <style scoped></style>
+=======
+<style scoped>
+</style>
+>>>>>>> 4d728090b7ebf33d6c7aad546ee1ebd347941d0b

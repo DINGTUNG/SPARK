@@ -1,6 +1,4 @@
 <script setup>
-
-
 // defineProps({
 //   msg: {
 //     type: String,
@@ -10,11 +8,7 @@
 </script>
 
 <template>
-  <div class="greetings">
-
-  </div>
+  <div class="greetings"></div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

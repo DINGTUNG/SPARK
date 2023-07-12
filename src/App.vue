@@ -4,6 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 import Header from '@/assets/layout/Header.vue';
 import Footer from '@/assets/layout/Footer.vue';
+import RightMenu from '@/assets/layout/RightMenu.vue';
 
 
 
@@ -12,10 +13,12 @@ import Footer from '@/assets/layout/Footer.vue';
 
 <template>
   <Header />
-  <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
+  <!-- <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink> -->
+  <RouterView />
+  <RightMenu/>
   <Footer />
 
-  <RouterView />
+  
 </template>
 
 <style scoped>

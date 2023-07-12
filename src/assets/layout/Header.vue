@@ -22,6 +22,5 @@ import { RouterLink } from 'vue-router'
 </template>
 
 <style scoped lang="scss">
-
 @import "@/assets/sass/layout/header";
 </style>

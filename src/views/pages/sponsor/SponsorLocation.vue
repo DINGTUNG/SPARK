@@ -142,12 +142,6 @@ onBeforeMount(() => updateDisplay())
 @import '@/assets/sass/base/fonts/fonts-mixin';
 @import '@/assets/sass/base/box-shadow';
 
-* {
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-}
-
 .wrap {
   width: 100%;
   overflow-x: hidden;

@@ -20,7 +20,7 @@ const top = () => {
             我要捐款
         </li>
         <li>
-            <img src="@/assets/icons/right-menu/donate_list-icon.png
+            <img src="@/assets/icons/right-menu/donate_list_icon.png
             " alt="捐款清單icon">
             捐款清單
         </li>

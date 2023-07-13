@@ -2,9 +2,9 @@
 
 import { RouterLink, RouterView } from 'vue-router'
 
-import Header from '@/assets/layout/Header.vue';
-import Footer from '@/assets/layout/Footer.vue';
-import RightMenu from '@/assets/layout/RightMenu.vue';
+import Header from '@/layout/Header.vue';
+import Footer from '@/layout/Footer.vue';
+import RightMenu from '@/layout/RightMenu.vue';
 
 
 
@@ -12,13 +12,17 @@ import RightMenu from '@/assets/layout/RightMenu.vue';
 
 
 <template>
-  <!-- <Header/> -->
-  <!-- <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink> -->
-  <Footer/>
+  <Header />
+  <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
 
-  <!-- <RouterView /> -->
+  <RightMenu />
+
+
+  <Footer />
+
+  <RouterView />
 </template>
-vu
+
 <style scoped>
-@import '@/assets/sass/base/fonts/fonts.scss';
+@import '@/assets/sass/base/fonts/_fonts.scss';
 </style>

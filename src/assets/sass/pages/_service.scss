@@ -1,0 +1,94 @@
+@import '@/assets/sass/base/color';
+@import '@/assets/sass/base/fonts/fonts-mixin';
+@import '@/assets/sass/base/box-shadow';
+@import '@/assets/sass/base/border-radius';
+
+
+.banner{
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+div.wrap{
+    width: 100%;
+    div.container{
+        width: 65%;
+        margin: auto;
+        h1{
+            @include h1_PC;
+            color:$primaryBrandBlue;
+        }
+        section.project_deteils{
+            margin-top: 80px;
+            div.top{
+                display: flex;
+                margin-bottom: 110px;
+                div.left-card{
+                    position: relative;
+                    left: 70px;
+                    top: 175px;
+                    z-index: 22;
+                    width: 514px;
+                    height: 300px;
+                    background-color: $functionalLightGrey1;
+                    border-radius: $br_PC * 2;
+                    padding: 40px;
+                    box-sizing: border-box;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+                img{
+                    position: absolute;
+                    top: -22px;
+                }
+                h2{
+                    color: $primaryBrandBlue;
+                    @include h2_PC;
+                }
+                h3{
+                    color:$basicFontColor ;
+                    @include h3_PC;
+                    margin-bottom: 15px;
+                }
+                p{
+                    color:$basicFontColor ;
+                    @include h6_PC;
+                }
+            }
+            div.right-pic{
+                position: relative;
+                right: 70px;
+                img{
+                    width: 680px;
+                    height: 400px;
+                    object-fit: cover;
+                    object-position: center;
+                    border-radius: $br_PC;
+                }
+
+            }
+            }
+            div.describe{
+                width: 960px;
+                margin: 0 auto 40px;
+                @include h6_PC;
+            }
+            div.illustrate{
+                width: 995px;
+                margin: auto;
+                padding: 40px;
+                box-sizing: border-box;
+                border: 1px solid $functionalLightGrey4;
+                border-radius: $br_PC;
+                @include h6_PC;
+                display: flex;
+                gap: 50px;
+            }
+
+        }
+
+    }
+}

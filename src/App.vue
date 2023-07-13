@@ -20,11 +20,11 @@ import RightMenu from '@/layout/RightMenu.vue';
   <Header/> 
 
   <RightMenu />
-
   <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
+
   <Footer/>
-
-
+ 
+  <!-- <RouterView /> -->
 
 </template>
 

@@ -14,9 +14,10 @@ const login = () => {
     errorAccount.value = '請輸入帳號或密碼';
   } else {
     if (enteredAccount === 'tibame' && enteredPassword === '1234') {
+      errorAccount.value = ''; 
       console.log('登入成功');
       alert('登入成功')
-      errorAccount.value = ''; //清空錯誤訊息沒有效？
+      //清空錯誤訊息沒有效？
     } else {
       console.log('帳號或密碼不正確');
       errorAccount.value = '帳號或密碼不正確';
@@ -47,11 +48,12 @@ const login = () => {
       <input type="text" class="account" v-model="account">
       <label for="">密碼</label>
       <input type="password" class="password" v-model="password">
+      <div v-if="errorAccount" class="errorAccount">
+        {{ errorAccount }}
+      </div>
       <button class="login_button" @click="login">登入</button>
     </div>
-    <div v-if="errorAccount" class="errorAccount">
-      {{ errorAccount }}
-    </div>
+
   </div>
 </template>
 

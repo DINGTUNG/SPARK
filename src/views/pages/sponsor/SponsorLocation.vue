@@ -213,6 +213,7 @@
 @import '@/assets/sass/base/color';
 @import '@/assets/sass/base/fonts/fonts-mixin';
 @import '@/assets/sass/base/box-shadow';
+@import '@/assets/sass/base/border-radius';
 
 div.wrap {
   width: 100%;
@@ -259,8 +260,13 @@ div.map {
         border-radius:50%;
         box-shadow: 0 0 8px 5px $secondaryLightGold1;  
         cursor: pointer;
+        &:hover{
+          background-color:$primaryAccentGold;
+          scale: 1.05; 
+        }
       }
     div.introduce{
+          border-radius:$br_PC; 
           @include boxShadow_PC;
           padding: 40px;
           background-color: $primaryBgWhite;
@@ -275,6 +281,9 @@ div.map {
           }
           i{
             color:$primaryBrandBlue;
+          }
+          p{
+            @include h5_PC;
           }
       }
   }

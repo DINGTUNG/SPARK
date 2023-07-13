@@ -1,22 +1,9 @@
 /* 🚩捷徑🚩 */
 
 //桌機 PC 9
-//手機 MB 9
 //使用說明
 
 //---------------------------------------------------------------------------------------
-/* ⭐桌機 PC⭐ */
-
-// $device:dektop;
-
-// @mixin device {
-//   @include custom-responsive("xs sm")
-// }
-
-// @mixin device {
-//   @include custom-responsive("xl xxl")
-// }
-
 
 table,
 th,
@@ -59,27 +46,7 @@ table.sassUsageExample {
 
   //手機板
   @include custom-responsive("xs sm") {
-
-
-
-
     @include table_MB();
   }
-
-
-}
-
-
-
-div.sassUsageExample {
-  width: 1000px;
-
-  //手機板
-  @include custom-responsive("xs sm") {
-
-    width: 500px;
-
-  }
-
 
 }

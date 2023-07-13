@@ -4,11 +4,6 @@
 @import'../../../base/border-radius';
 
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 .main_body {
     width: 1200px;
     margin: auto;
@@ -61,14 +56,6 @@
 
                 }
 
-                .imgLeft {
-                    order: 0;
-                }
-
-                .imgRight {
-                    order: 1;
-                }
-
                 .article_block_text {
                     padding: 0 0 0 80px;
                     display: flex;
@@ -112,12 +99,12 @@
             }
         }
 
-        .cardgroup {
+        .card_group {
             justify-content: center;
             display: flex;
             gap: 30px;
 
-            .newscard {
+            .news_card {
                 border-radius: $br_PC;
                 @include boxShadow_PC;
 
@@ -127,7 +114,7 @@
 
                 }
 
-                .cardimg {
+                .card_img {
 
                     img {
                         border-radius: $br_PC $br_PC 0 0;
@@ -137,7 +124,7 @@
                     }
                 }
 
-                .cardword {
+                .card_word {
                     padding: 0 20px;
                     width: 345px;
                     h5{

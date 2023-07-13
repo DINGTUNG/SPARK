@@ -4,7 +4,7 @@ import {  } from 'vue-router'
 
 import Header from '@/layout/Header.vue';
 import Footer from '@/layout/Footer.vue';
-import RightMenu from '@/layout/RightMenu.vue';
+import RightMenu from '@/assets/layout/RightMenu.vue';
 
 
 

@@ -11,14 +11,21 @@ import DonateContentCard from '@/components/donate/DonateContentCard.vue';
     </div>
     <div class="section_donate">
       <div class="donate_container">
-        <h1 class="title">捐款內容</h1>
-        <div class="title_line"></div>
+        <div class="title_wrap">
+          <h1 class="title">捐款內容</h1>
+          <div class="titleline"></div>
+        </div>
+        <div class="cardlist">
+
+          <div>
+            <DonateContentCard />
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <div>
-      <DonateContentCard />
-    </div>
+
 
   </div>
 </template>

@@ -92,7 +92,7 @@ const article = reactive(
             <div class="line"></div>
           </div>
           <div>
-            <div class="cardgroup">
+            <div class="card_group">
               <div class="newscard" v-for="item in news" :key="item.index">
                 <div class="cardimg">
                   <img :src="item.img">

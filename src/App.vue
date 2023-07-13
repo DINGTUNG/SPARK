@@ -4,33 +4,24 @@ import {  } from 'vue-router'
 
 import Header from '@/layout/Header.vue';
 import Footer from '@/layout/Footer.vue';
-<<<<<<< HEAD
-
-=======
-import RightMenu from '@/layout/RightMenu.vue';
->>>>>>> d4322363198cc43b49fdecdca15ee54e6e399009
-
-
+import LeftMenu from '@/layout/LeftMenu.vue';
 
 </script>
 
 
 <template>
-  <Header/>
-<<<<<<< HEAD
-
-  <RightMenu />
-
-
+  <!-- <Header/> -->
+  <LeftMenu/>
   <!-- <Footer/> -->
 
-
-
-=======
-  <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
+  
+  
   <RightMenu />
-  <Footer />
->>>>>>> d4322363198cc43b49fdecdca15ee54e6e399009
+
+
+
+
+
 </template>
 
 <style scoped>

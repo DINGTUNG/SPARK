@@ -56,22 +56,42 @@ div.map {
     div.introduce{
           border-radius:$br_PC; 
           @include boxShadow_PC;
-          padding: 40px;
+          padding: 50px 40px 100px 40px;
           background-color: $primaryBgWhite;
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 700px;
+          width: 950px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          &::after{
+            content: '';
+            width: 80%;
+            height: 1px;
+            background-color: $functionalLightGrey3;
+            position: absolute;
+            bottom: 55px;
+          }
           h2{
             @include h2_PC;
             color: $primaryBrandBlue;
+            margin:10px 0 ;
           }
           i{
             color:$primaryBrandBlue;
           }
           p{
             @include h5_PC;
+            margin: 20px 0;
+          }
+          img{
+            width: 358px;
+            height: 358px;
+            border-radius: $br_PC;
+            object-fit: cover;
+            object-position: center;
           }
       }
   }

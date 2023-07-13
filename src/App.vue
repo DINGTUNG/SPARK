@@ -19,6 +19,7 @@ import RightMenu from '@/layout/RightMenu.vue';
 <<<<<<< HEAD
   <Header/>
   <!-- <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink> -->
+<<<<<<< Updated upstream
   <Footer/>
 =======
   <Header />
@@ -28,6 +29,10 @@ import RightMenu from '@/layout/RightMenu.vue';
   <RightMenu />
 
 
+=======
+  <!-- <RouterView /> -->
+  <RightMenu/>
+>>>>>>> Stashed changes
   <Footer />
 
   <RouterView />

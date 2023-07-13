@@ -1,5 +1,5 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref } from 'vue';
   
     const account = ref('');
     const password = ref('');
@@ -19,16 +19,15 @@
         errorAccount.value = '帳號或密碼不正確';
       }
 
-
-      // return {
-      // account,
-      // password,
-      // showError,
-      // login
-      // };
+      return {
+      account,
+      password,
+      showError,
+      login
+      };
     };
 
-
+  
 </script>
 
 <template>

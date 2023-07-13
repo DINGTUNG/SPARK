@@ -10,6 +10,7 @@ import Donate from '../views/pages/donate/Donate.vue'
 import Login from '../views/pages/login/Login.vue'
 import Contact from '../views/pages/contact/Contact.vue'
 import Service from '../views/pages/service/Service.vue'
+import Sponsor from '../views/pages/sponsor/Sponsor.vue'
 
 
 const router = createRouter({
@@ -49,6 +50,11 @@ const router = createRouter({
       path: '/service',
       name: 'service',
       component: Service
+    },
+    {
+      path: '/sponsor',
+      name: 'sponsor',
+      component: Sponsor
     },
   ]
 })

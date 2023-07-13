@@ -8,6 +8,7 @@ import Home from '../views/pages/home/Home.vue'
 import SingleNews from '../views/pages/home/news/SingleNews.vue'
 import Donate from '../views/pages/donate/Donate.vue'
 import Login from '../views/pages/login/Login.vue'
+import Contact from '../views/pages/contact/Contact.vue'
 
 
 const router = createRouter({
@@ -37,7 +38,12 @@ const router = createRouter({
       path: '/single-news',
       name: 'single-news',
       component: SingleNews
-    }
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
+    },
   ]
 })
 

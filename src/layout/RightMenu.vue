@@ -34,51 +34,5 @@ const top = () => {
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/base/color';
-@import '@/assets/sass/base/fonts/fonts-mixin';
-@import '@/assets/sass/base/border-radius';
-
-    .rightMenu{
-        position: fixed;
-        right: 0;
-        top: 55%;
-        transform: translateY(-50%);
-        ul{
-            width: 110px;
-            height: 440px;
-            background-color: $secondaryLightBlue3;
-            list-style: none;
-            color: #fff;
-            border-radius: $smallBtnBr 0  0 $smallBtnBr;
-            @include h6_PC;
-            cursor: pointer;
-            li{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 10px;
-                height: 110px;
-                img{
-                    width: 72px;
-                    &:hover{
-                        scale: 1.1;
-                    }
-                }
-            }
-        }
-        .other{
-            display: flex;
-            flex-direction: column;
-            width: 110px;
-            margin: auto;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            #top{
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-        }
-    }
+    @import '@/assets/sass/layout/right-menu';
 </style>

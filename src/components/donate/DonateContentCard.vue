@@ -4,7 +4,7 @@ import { reactive } from 'vue';
 const donateContentCardList = reactive([
   {
     id: "D001",
-    imgSrc: "",
+    imgSrc: "src/assets/images/donate/donate-content/D001_kids_support.jpg",
     title: "扶幼捐款",
     content: "支持需要幫助的幼兒。通過捐贈金錢，我們能夠提供營養、醫療、教育和其他基本需求，讓這些幼兒擁有更好的生活和未來。"
   },
@@ -66,9 +66,11 @@ const donateContentCardList = reactive([
     <div class="donate_content_card">
 
       <img :src="donateContentCard.imgSrc" :alt="donateContentCard.title">
-      <h3>{{ donateContentCard.title }}</h3>
-      <p>{{ donateContentCard.content }}</p>
-      <button>加入清單</button>
+      <div class="card_text">
+        <h3>{{ donateContentCard.title }}</h3>
+        <p>{{ donateContentCard.content }}</p>
+        <button>加入清單</button>
+      </div>
 
 
     </div>
@@ -80,7 +82,42 @@ const donateContentCardList = reactive([
 </template>
 
 <style scoped lang="scss">
+@import'../../assets/sass/base/fonts/fonts-mixin';
+@import'../../assets/sass/base/color';
+
+div.donate_content_card_list {
+
+  div.donate_content_card {
+    width: 480px;
+
+    img {
+      width: 100%;
+    }
+
+    .card_text {
+      box-sizing: border-box;
+      padding: 45px 50px;
+      outline: solid 1px red;
+
+      h3 {
+        @include h3_PC;
+        color: $primaryBrandBlue;
+        outline: solid 1px red;
+      }
+
+      p {
+        @include h6_PC;
+        color: $basicFontColor;
+        outline: solid 1px red;
+      }
+
+      button {}
+
+    }
 
 
 
+  }
+
+}
 </style>

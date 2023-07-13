@@ -179,7 +179,7 @@ h1 {
 
 .map {
   margin: 50px auto;
-  width: 360px;
+  width: 420px;
 
   img {
     width: 100%;

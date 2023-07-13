@@ -5,7 +5,29 @@ import Login from '../views/pages/login/Login.vue'
 import News from '../views/pages/News.vue'
 
 const router = createRouter({
-      
+  history: createWebHistory(
+    import.meta.env.BASE_URL),
+  routes: [{
+    path: '/',
+    name: 'home',
+    component: Home
+  },
+
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/donate',
+    name: 'donate',
+    component: Donate
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: News
+  }
   ]
 })
 

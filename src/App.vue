@@ -12,9 +12,10 @@ import RightMenu from '@/layout/LeftMenu.vue';
 
 <template>
   <Header />
-  <LeftMenu />
+  <!-- <RouterView/> -->
   <RightMenu />
-  <Footer />
+  <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
+<Footer />
 </template>
 
 <style scoped>

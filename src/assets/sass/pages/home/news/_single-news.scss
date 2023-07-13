@@ -3,12 +3,16 @@
 @import'../../../base/color';
 @import'../../../base/border-radius';
 
-
-.main_body {
+div.title_img{
+    img{
+        max-width: 100%;
+    }
+}
+div.main_body {
     width: 1200px;
     margin: auto;
 
-    .title_block {
+    div.title_block {
         display: flex;
 
         h1 {
@@ -17,23 +21,24 @@
             color: $primaryBgBlue;
         }
 
-        .topline {
+        div.top_line {
             display: flex;
             align-self: center;
             width: 70%;
-            margin-left: 50px;
+            margin-left: 40px;
             height: 1px;
-            border-bottom: 1px solid;
+            border-bottom: 1px solid $functionalLightGrey4;
         }
     }
 
-    .main_article {
-        .article_title {
+    div.main_article {
+        div.article_title {
             display: flex;
             justify-content: space-between;
             padding: 30px 0;
 
             h2 {
+                @include h2_PC;
                 color: $primaryAccentGold;
             }
 
@@ -45,18 +50,18 @@
             }
         }
 
-        .article {
-            .article_block {
+        div.article {
+            div.article_block {
                 display: flex;
 
-                .article_block_img {
+                div.article_block_img {
                     img {
                         border-radius: $br_PC;
                     }
 
                 }
 
-                .article_block_text {
+                div.article_block_text {
                     padding: 0 0 0 80px;
                     display: flex;
                     flex-direction: column;
@@ -72,7 +77,7 @@
                     }
                 }
 
-                .imgRight {
+                div.imgRight {
                     order: -1;
                     @extend .article_block_text;
                     padding: 0 80px 0 0;
@@ -81,15 +86,15 @@
         }
     }
 
-    .more_news {
-        .title_group {
+    div.more_news {
+        div.title_group {
             h2 {
                 @include h2_PC;
                 color: $primaryBrandBlue;
                 font-weight: 900;
             }
 
-            .line {
+            div.line {
                 margin: 20px 0px;
                 display: flex;
                 width: 100%;
@@ -99,12 +104,12 @@
             }
         }
 
-        .card_group {
+        div.card_group {
             justify-content: center;
             display: flex;
             gap: 30px;
 
-            .news_card {
+            div.news_card {
                 border-radius: $br_PC;
                 @include boxShadow_PC;
 
@@ -114,7 +119,7 @@
 
                 }
 
-                .card_img {
+                div.card_img {
 
                     img {
                         border-radius: $br_PC $br_PC 0 0;
@@ -124,7 +129,7 @@
                     }
                 }
 
-                .card_word {
+                div.card_word {
                     padding: 0 20px;
                     width: 345px;
                     h5{

@@ -4,21 +4,21 @@ import { reactive } from 'vue'
 const news = reactive(
   [
     {
-      img: "src/assets/images/home/news/single-news-page/singlenewone.png",
+      img: "~@/assets/images/home/news/single-news-page/singlenewone.png",
       index: 'a',
       title: '星火30，感謝有您',
       article: '星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火...',
       time:'2023.07.23',
     },
     {
-      img: "src/assets/images/home/news/single-news-page/singlenewtwo.png",
+      img: "@/assets/images/home/news/single-news-page/singlenewtwo.png",
       index: '2',
       title: '東部星火服務據點設立',
       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
       time:'2023.07.15',
     },
     {
-      img: "src/assets/images/home/news/single-news-page/singlenewseven.png",
+      img: "@/assets/images/home/news/single-news-page/singlenewseven.png",
       index: '3',
       title: '暑假兒童營養午餐提供',
       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
@@ -77,7 +77,8 @@ const article = reactive(
           <span>2023,07,20</span>
         </div>
         <div class="article">
-          <div class="article_block" v-for="item in article" :key="index">
+          <div class="article_block" v-for="item in article" :key="item.index"> 
+            <!-- TO FIX -->
             <div class="article_block_img">
               <img :src="item.img">
             </div>
@@ -105,7 +106,7 @@ const article = reactive(
                   <h4>{{ item.title }}</h4>
                   <p>{{ item.article }}</p>
                 </div>
-                <img src="/assets/images/" alt="">
+                <!-- <img src="/assets/images/" alt=""> -->
               </a>
               </div>
 
@@ -115,7 +116,7 @@ const article = reactive(
       </div>
     </div>
   </div>
-  <!-- <RouterView /> -->
+  <RouterView />
 </template>
 
 

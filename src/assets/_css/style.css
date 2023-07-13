@@ -164,19 +164,20 @@ header .wrapper nav .login {
 }
 
 footer {
-  background-color: blueviolet;
+  background-image: url("@/assets/decorations/layout/footer.png");
 }
-
-footer .footer_content {
+footer div.footer_content {
   display: flex;
   justify-content: space-around;
 }
-
-footer .logo {
+footer div.footer_content div.logo {
   margin-top: 114px;
   margin-bottom: 58.44px;
 }
-
+footer div.footer_content div.logo img {
+  z-index: 999;
+  color: #ffffff;
+}
 footer .information .business_hours span {
   display: block;
   margin-bottom: 10px;

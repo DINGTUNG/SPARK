@@ -20,18 +20,6 @@ import RightMenu from '@/layout/RightMenu.vue';
 
   <RightMenu/>
   <Footer />
-
-
-  <RightMenu />
-
-
-
-
-=======
-  <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
-  <RightMenu />
-  <Footer />
-
 </template>
 
 <style scoped>

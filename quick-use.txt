@@ -21,13 +21,12 @@ imgUrl:'/src/assets/images/sponsor/sponsor-location/tp_spark.png'
 
 
 ⭐router⭐
-import { RouterLink,RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
 <template>
 
  <RouterLink to="/about" class="link about">認識星火</RouterLink>
 
- <RouterView/>
 <template/>
 
 

@@ -37,9 +37,8 @@ const menuHeight = computed(() => {
     <h2>{{ menuTitle }}</h2>
     <ul>
       <li v-for="item in bulletinList" :key="item.id">
-        <RouterLink :to="item.link" class="link">
+        <RouterLink :to="item.link" class="link"></RouterLink>
           <h3>{{ item.title }}</h3>
-        </RouterLink>
       </li>
     </ul>
   </div>

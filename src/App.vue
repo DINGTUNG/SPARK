@@ -16,24 +16,11 @@ import RightMenu from '@/layout/RightMenu.vue';
 
 
 <template>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-  <Header/>
-  <!-- <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink> -->
-  <Footer/>
-=======
-  <Header />
-  <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
->>>>>>> e9a31f111a0f6ec1cad8978034b1ca6b3d101300
-
-  <RightMenu />
-=======
   <Header/>
   <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
   <!-- <RouterView /> -->
   <RightMenu/>
   <Footer />
->>>>>>> Stashed changes
 
 
 

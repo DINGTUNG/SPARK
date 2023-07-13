@@ -12,17 +12,17 @@ import Footer from '@/layout/Footer.vue';
 import LeftMenu from '@/layout/LeftMenu.vue';
 import RightMenu from '@/layout/LeftMenu.vue';
 
-
-
 </script>
-
 
 <template>
   <Header />
-  <!-- <RouterView/> -->
+
   <RightMenu />
+  <LeftMenu />
   <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
-<Footer />
+
+  <RouterView />
+  <Footer />
 </template>
 
 <style scoped>

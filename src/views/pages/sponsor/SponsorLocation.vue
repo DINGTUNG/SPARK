@@ -126,10 +126,10 @@ onBeforeMount(() => updateDisplay())
           </div>
         </div>
         <div class="deco-stars">
-          <img src="@/assets/images/sponsor/sponsor-location/stars.png" alt="星星裝飾">
+          <img src="@/assets/decorations/illustration/golden_stars.png" alt="星星裝飾">
         </div>
         <div class="deco-bigstar">
-          <img src="@/assets/images/sponsor/sponsor-location/bigstar.png" alt="星星裝飾">
+          <img src="@/assets/characters/star/star_superman.svg" alt="星星裝飾">
         </div>
       </section>
     </div>
@@ -141,12 +141,6 @@ onBeforeMount(() => updateDisplay())
 @import '@/assets/sass/base/color';
 @import '@/assets/sass/base/fonts/fonts-mixin';
 @import '@/assets/sass/base/box-shadow';
-
-* {
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-}
 
 .wrap {
   width: 100%;

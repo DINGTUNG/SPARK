@@ -22,11 +22,4 @@ import RightMenu from '@/layout/LeftMenu.vue';
 <style scoped>
 @import '@/assets/sass/base/fonts/_fonts.scss';
 
-
-body{
-  margin: 0;
-  padding: 0;
-}
-
-
 </style>

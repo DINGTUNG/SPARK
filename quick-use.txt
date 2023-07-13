@@ -1,0 +1,31 @@
+⭐掛載vue檔⭐
+import News from '@/views/sections/home/News.vue';
+
+⭐引入vue語法⭐(暫時不知道怎麼稱呼比較好)
+
+import { onBeforeMount, onBeforeUpdate, reactive, ref, watch, computed} from 'vue';
+
+const ref = ref()
+
+const reactive = reactive()
+
+const method = ()=>{}
+
+const computed = computed(() => {
+  return 三元運算子
+})
+
+⭐router⭐
+import { RouterLink,RouterView } from 'vue-router'
+
+<template>
+
+ <RouterLink to="/about" class="link about">認識星火</RouterLink>
+
+ <RouterView/>
+<template/>
+
+
+
+⭐引入sass⭐
+@import "@/assets/sass/pages/home/news/single-news";

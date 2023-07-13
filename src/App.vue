@@ -8,17 +8,29 @@ import RightMenu from '@/layout/RightMenu.vue';
 
 
 
+
+
 </script>
 
 
 <template>
   <Header/>
+
   <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
-  <!-- <RouterView /> -->
+
   <RightMenu/>
   <Footer />
 
 
+  <RightMenu />
+
+
+
+
+=======
+  <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
+  <RightMenu />
+  <Footer />
 
 </template>
 

@@ -1,0 +1,147 @@
+@import '@/assets/sass/base/color';
+@import '@/assets/sass/base/fonts/fonts-mixin';
+@import '@/assets/sass/base/box-shadow';
+@import '@/assets/sass/base/border-radius';
+
+div.wrap {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+div.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+div.banner {
+  img {
+    width: 100%;
+  }
+}
+
+h1 {
+  @include h1_PC;
+  color: $primaryBrandBlue;
+  margin-left: 100px;
+}
+
+input.search-bar {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  margin: 20px auto;
+}
+
+div.map {
+  margin: 50px auto;
+  width: 420px;
+  position: relative;
+  box-sizing: border-box;
+  div.branchs{
+    button{
+        position: absolute;
+        background-color: $secondaryLightGold2;
+        border: none;
+        width: 15px;
+        height: 15px;
+        padding: 0;
+        border-radius:50%;
+        box-shadow: 0 0 8px 5px $secondaryLightGold1;  
+        cursor: pointer;
+        &:hover{
+          background-color:$primaryAccentGold;
+          scale: 1.05; 
+        }
+      }
+    div.introduce{
+          border-radius:$br_PC; 
+          @include boxShadow_PC;
+          padding: 40px;
+          background-color: $primaryBgWhite;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 700px;
+          h2{
+            @include h2_PC;
+            color: $primaryBrandBlue;
+          }
+          i{
+            color:$primaryBrandBlue;
+          }
+          p{
+            @include h5_PC;
+          }
+      }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.location {
+  position: relative;
+  display: flex;
+  width: 974px;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: start;
+  gap: 50px;
+  align-content: space-around;
+
+  .card {
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column;
+    width: 290px;
+    background-color: $primaryBrandBlue;
+    color: #fff;
+    @include h6_PC;
+    transition: .3s;
+
+    &:hover {
+      background-color: $secondaryLightBlue1;
+      color: $basicFontColor;
+      @include boxShadow_PC;
+      cursor: pointer;
+    }
+
+    .tag {
+      @include h4_PC;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      @include h2_PC;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .people {
+        @include h6_PC;
+
+        span {
+          @include h5_PC;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}
+
+div.deco-stars {
+  position: absolute;
+  top: -100px;
+  left: -230px;
+}
+
+div.deco-bigstar {
+  position: absolute;
+  bottom: 400px;
+  right: -350px;
+}

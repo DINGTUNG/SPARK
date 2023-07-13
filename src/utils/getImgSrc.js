@@ -1,10 +1,8 @@
 const getImgSrc = (name) => {
-  // if ( name === 'undefined') return 'error'
-  const path = `/src/assets/${name}`;
-
-  const modules = import.meta.globEager('/src/assets/images/*.(jpg|JPG|png|PNG|svg)', { as: "url", eager: true });
-  
-  return modules[path]?.default
+    if (typeof name === 'undefined') return 'error.png'
+    const path = `/src/assets/images/${name}.png`
+    const modules = import.meta.globEager('/src/assets/images/*')
+    return modules[path]?.default
 }
 
 export default getImgSrc

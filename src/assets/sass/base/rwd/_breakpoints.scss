@@ -1,0 +1,112 @@
+@mixin custom-responsive($layouts) {
+
+  @if str-index($layouts, "xs") {
+    @include layout-xs-responsive {
+      @content;
+    }
+  }
+
+  @if str-index($layouts, "sm") {
+    @include layout-sm-responsive {
+      @content;
+    }
+  }
+
+  @if str-index($layouts, "md") {
+    @include layout-md-responsive {
+      @content;
+    }
+  }
+
+  @if str-index($layouts, "lg") {
+    @include layout-lg-responsive {
+      @content;
+    }
+  }
+
+  @if str-index($layouts, "xl") {
+    @include layout-xl-responsive {
+      @content;
+    }
+  }
+
+
+  @if str-index($layouts, "xxl") {
+    @include layout-xxl-responsive {
+      @content;
+    }
+  }
+
+}
+
+
+@mixin layout-xs-responsive {
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media (min-width: 0px) {
+    @content;
+  }
+}
+
+@mixin layout-sm-responsive {
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin layout-md-responsive {
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin layout-lg-responsive {
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin layout-xl-responsive {
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin layout-xxl-responsive {
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+
+  @include custom-responsive("xs") {
+    height: 60%; // logo圖片大小調整
+    margin: auto;
+  }
+  
+  @include custom-responsive("sm md lg") {
+    height: 70%; // logo圖片大小調整
+    margin: auto;
+  }
+  
+  @include custom-responsive("xl xxl") {
+    height: 80%; // logo圖片大小調整
+    margin: 0 2% 0 5%;
+  }
+
+}
+
+

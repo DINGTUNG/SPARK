@@ -11,13 +11,21 @@
       const enteredPassword = password.value;
 
       // 進行驗證
-      if (enteredAccount === 'tibame' && enteredPassword === '1234') {
+      if (enteredAccount === '' || enteredPassword === '') {
+        errorAccount.value = '請輸入帳號或密碼';
+      }else{
+        if (enteredAccount === 'tibame' && enteredPassword === '1234') {
         console.log('登入成功');
-        errorMessage.value = ''; //清空錯誤訊息沒有效？
+        alert('登入成功')
+        errorAccount.value = ''; //清空錯誤訊息沒有效？
       } else {
         console.log('帳號或密碼不正確');
         errorAccount.value = '帳號或密碼不正確';
       }
+      }
+
+
+  
 
       return {
       account,

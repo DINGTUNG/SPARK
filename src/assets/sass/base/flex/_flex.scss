@@ -1,0 +1,20 @@
+//垂直置中
+@mixin flex_vm() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+//水平置中
+@mixin flex_hm() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  @include flex_hm();
+}

@@ -1,0 +1,85 @@
+/* 🚩捷徑🚩 */
+
+//桌機 PC 9
+//手機 MB 9
+//使用說明
+
+//---------------------------------------------------------------------------------------
+/* ⭐桌機 PC⭐ */
+
+// $device:dektop;
+
+// @mixin device {
+//   @include custom-responsive("xs sm")
+// }
+
+// @mixin device {
+//   @include custom-responsive("xl xxl")
+// }
+
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+
+@mixin table_PC {
+
+  tr,
+  th {
+    height: 55px;
+  }
+
+  th {
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+@mixin table_MB {
+
+  tr,
+  th {
+    height: 45px;
+  }
+
+  th {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+
+
+/* ⭐使用說明⭐ */
+table.sassUsageExample {
+  //桌機板
+  @include table_PC();
+
+  //手機板
+  @include custom-responsive("xs sm") {
+
+
+
+
+    @include table_MB();
+  }
+
+
+}
+
+
+
+div.sassUsageExample {
+  width: 1000px;
+
+  //手機板
+  @include custom-responsive("xs sm") {
+
+    width: 500px;
+
+  }
+
+
+}

@@ -1,109 +1,169 @@
 
 <script setup>
-import { onBeforeMount, onBeforeUpdate, reactive, ref } from 'vue';
+  import { onBeforeMount, onBeforeUpdate, reactive, ref, watch} from 'vue';
 
-const h1 = ref("認養地區")
-const searchText = ref('')
-let locations = reactive([
-  {
-    area: '北區',
-    name: '基隆',
-    people: '2,167'
-  },
-  {
-    area: '北區',
-    name: '台北',
-    people: '1,844'
-  },
-  {
-    area: '北區',
-    name: '新北',
-    people: '3,112'
-  },
-  {
-    area: '北區',
-    name: '桃園',
-    people: '2,675'
-  },
-  {
-    area: '北區',
-    name: '新竹',
-    people: '1,755'
-  },
-  {
-    area: '中區',
-    name: '苗栗',
-    people: '1,657'
-  },
-  {
-    area: '中區',
-    name: '台中',
-    people: '2,675'
-  },
-  {
-    area: '中區',
-    name: '彰化',
-    people: '1,907'
-  },
-  {
-    area: '中區',
-    name: '南投',
-    people: '1,677'
-  },
-  {
-    area: '中區',
-    name: '雲林',
-    people: '1,300'
-  },
-  {
-    area: '中區',
-    name: '嘉義',
-    people: '2,437'
-  },
-  {
-    area: '南區',
-    name: '台南',
-    people: '1,543'
-  },
-  {
-    area: '南區',
-    name: '高雄',
-    people: '1,377'
-  },
-  {
-    area: '南區',
-    name: '屏東',
-    people: '1,722'
-  },
-  {
-    area: '東區',
-    name: '宜蘭',
-    people: '1,244'
-  },
-  {
-    area: '東區',
-    name: '花蓮',
-    people: '1,763'
-  },
-  {
-    area: '東區',
-    name: '台東',
-    people: '1,763'
-  },
-])
-let locationDisplay = reactive([])
+  const h1 = ref("認養地區")
+  const searchText = ref('')
+  let locations = reactive([
+    {
+      area: '北區',
+      name: '基隆',
+      people: '2,167'
+    },
+    {
+      area: '北區',
+      name: '台北',
+      people: '1,844'
+    },
+    {
+      area: '北區',
+      name: '新北',
+      people: '3,112'
+    },
+    {
+      area: '北區',
+      name: '桃園',
+      people: '2,675'
+    },
+    {
+      area: '北區',
+      name: '新竹',
+      people: '1,755'
+    },
+    {
+      area: '中區',
+      name: '苗栗',
+      people: '1,657'
+    },
+    {
+      area: '中區',
+      name: '台中',
+      people: '2,675'
+    },
+    {
+      area: '中區',
+      name: '彰化',
+      people: '1,907'
+    },
+    {
+      area: '中區',
+      name: '南投',
+      people: '1,677'
+    },
+    {
+      area: '中區',
+      name: '雲林',
+      people: '1,300'
+    },
+    {
+      area: '中區',
+      name: '嘉義',
+      people: '2,437'
+    },
+    {
+      area: '南區',
+      name: '台南',
+      people: '1,543'
+    },
+    {
+      area: '南區',
+      name: '高雄',
+      people: '1,377'
+    },
+    {
+      area: '南區',
+      name: '屏東',
+      people: '1,722'
+    },
+    {
+      area: '東區',
+      name: '宜蘭',
+      people: '1,244'
+    },
+    {
+      area: '東區',
+      name: '花蓮',
+      people: '1,763'
+    },
+    {
+      area: '東區',
+      name: '台東',
+      people: '1,763'
+    },
+  ])
+  let locationDisplay = reactive([])
 
-const updateDisplay = () => {
-  if (searchText.value == '') {
-    locationDisplay = locations;
+  const updateDisplay = () => {
+    if (searchText.value == '') {
+      locationDisplay = locations;
+    }
   }
-}
 
-onBeforeUpdate(() => locationDisplay = locations.filter(item => item.name.includes(searchText.value)))
+  onBeforeUpdate(() => locationDisplay = locations.filter(item => item.name.includes(searchText.value)))
 
-onBeforeMount(() => updateDisplay())
+  onBeforeMount(() => updateDisplay())
 
+  const branches = reactive([
+    {
+      id:'taipei',
+      name : '台北星火中心',
+      address:'100台北市中正區忠孝西路一段 100 號',
+      phoneNumber: '02-12345678',
+      email:'tp@spark.org.tw'
+    },
+    {
+      id:'taichung',
+      name : '台中星火中心',
+      address:'403台中市西區中港路 100 號',
+      phoneNumber: '04-12345678',
+      email:'tc@spark.org.tw'
+    },
+    {
+      id:'tainan',
+      name : '台南星火中心',
+      address:'700台南市中西區民權路 100 號',
+      phoneNumber: '06-12345678',
+      email:'tn@spark.org.tw'
+    },
+    {
+      id:'taitung',
+      name : '台東星火中心',
+      address:'950台東市中正路 100 號',
+      phoneNumber: '089-12345678',
+      email:'td@spark.org.tw'
+    }
+  ])
+  const selectedBranch = ref(null);
+  const container = ref(null);
 
+  const selectBranch = (index) => {
+      selectedBranch.value = index;
+    }
+
+  const getButtonStyle = (index) => {
+      const positions = [
+        { top: '50px', right: '70px' },
+        { top: '160px', left: '220px' },
+        { bottom: '180px', left: '150px' },
+        { bottom: '190px', right: '120px' }
+      ];
+      return positions[index];
+    }
+  
+  const handleClickOutside = (event) => {
+    if (!container.value.contains(event.target)) {
+      selectedBranch.value = null;
+    }
+  }
+  watch(() => selectedBranch.value, () => {
+      if (selectedBranch.value !== null) {
+        // Selected a branch, add event listener
+        document.addEventListener('click', handleClickOutside);
+      } else {
+        // No branch selected, remove event listener
+        document.removeEventListener('click', handleClickOutside);
+      }
+    });
 
 </script>
 <template>
@@ -115,6 +175,18 @@ onBeforeMount(() => updateDisplay())
       <h1>{{ h1 }}</h1>
       <div class="map">
         <img src="@/assets/images/sponsor/sponsor-location/taiwan.png" alt="taiwanMap">
+        <div class="branchs" ref="container" @click="handleClickOutside">
+
+          <button v-for="(branch, index) in branches" :key="index" @click="selectBranch(index)" :style=getButtonStyle(index)>
+          </button>
+          <div class="introduce" v-if="selectedBranch !== null">
+            <h2>{{ branches[selectedBranch].name }}</h2>
+            <p><i class="fa-solid fa-location-dot"></i>：{{ branches[selectedBranch].address }}</p>
+            <p><i class="fa-solid fa-phone"></i>：{{ branches[selectedBranch].phoneNumber }}</p>
+            <p><i class="fa-solid fa-envelope"></i>：{{ branches[selectedBranch].email }}</p>
+          </div>
+
+        </div>
       </div>
       <input type="search" v-model="searchText" class="search-bar">
       <section class="location">
@@ -138,110 +210,5 @@ onBeforeMount(() => updateDisplay())
 
 
 <style scoped lang="scss">
-@import '@/assets/sass/base/color';
-@import '@/assets/sass/base/fonts/fonts-mixin';
-@import '@/assets/sass/base/box-shadow';
-
-.wrap {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.banner {
-  img {
-    width: 100%;
-  }
-}
-
-h1 {
-  @include h1_PC;
-  color: $primaryBrandBlue;
-  margin-left: 100px;
-}
-
-.search-bar {
-  width: 300px;
-  height: 50px;
-  display: flex;
-  margin: 20px auto;
-}
-
-.map {
-  margin: 50px auto;
-  width: 420px;
-
-  img {
-    width: 100%;
-  }
-}
-
-.location {
-  position: relative;
-  display: flex;
-  width: 974px;
-  flex-wrap: wrap;
-  margin: auto;
-  justify-content: start;
-  gap: 50px;
-  align-content: space-around;
-
-  .card {
-    box-sizing: border-box;
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-flow: column;
-    width: 290px;
-    background-color: $primaryBrandBlue;
-    color: #fff;
-    @include h6_PC;
-    transition: .3s;
-
-    &:hover {
-      background-color: $secondaryLightBlue1;
-      color: $basicFontColor;
-      @include boxShadow_PC;
-      cursor: pointer;
-    }
-
-    .tag {
-      @include h4_PC;
-      margin-bottom: 20px;
-    }
-
-    .name {
-      @include h2_PC;
-      display: flex;
-      flex-flow: row;
-      justify-content: space-between;
-      align-items: center;
-
-      .people {
-        @include h6_PC;
-
-        span {
-          @include h5_PC;
-          padding: 0 5px;
-        }
-      }
-    }
-  }
-}
-
-.deco-stars {
-  position: absolute;
-  top: -100px;
-  left: -230px;
-}
-
-.deco-bigstar {
-  position: absolute;
-  bottom: 400px;
-  right: -350px;
-}
+@import '@/assets/sass/pages/sponsor-location';
 </style>

@@ -66,7 +66,6 @@ const news = reactive(
 );
 </script>
 <template>
-  <div>
     <div class="title_img">
       <img src="@/assets/images/home/news/single-news-page/banner.png" alt="">
     </div>
@@ -118,7 +117,7 @@ const news = reactive(
         </div>
       </div>
     </div>
-  </div>
+
 
 </template>
 

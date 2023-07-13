@@ -56,6 +56,7 @@ div.main_body {
 
             img {
                 width: 35%;
+                border-radius: $br_PC;
             }
 
             .contact_text {
@@ -83,6 +84,7 @@ div.main_body {
 
         div.map {
             h2 {
+                padding: 50px 0 30px;
                 @include h2_PC;
                 color: $primaryBgBlue;
             }

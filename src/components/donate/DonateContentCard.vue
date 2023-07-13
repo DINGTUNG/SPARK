@@ -16,13 +16,13 @@ const donateContentCardList = reactive([
   },
   {
     id: "D003",
-    imgSrc: "src/assets/images/donate/donate-content/D003_kids_sponsor.png",
+    imgSrc: "src/assets/images/donate/donate-content/D003_kids_sponsor.jpg",
     title: "助養召集令",
     content: "提供受助者孩童所需的經濟援助，為受助者提供穩定的支持，幫助他們改善生活狀況，獲得更好的教育和醫療資源，並提供更積極的未來展望。"
   },
   {
     id: "D004",
-    imgSrc: "src/assets/images/donate/donate-content/D004_scholarship.png",
+    imgSrc: "src/assets/images/donate/donate-content/D004_scholarship.jpg",
     title: "獎助學金",
     content: "支持有潛力但經濟困難的學生，幫助他們實現教育目標並追求更好的未來。您可以資助學生的學費、教材、住宿費用或其他與教育相關的費用。"
   },
@@ -41,8 +41,8 @@ const donateContentCardList = reactive([
   {
     id: "D007",
     imgSrc: "src/assets/images/donate/donate-content/D007_spark_project.jpg",
-    title: "認養人",
-    content: "通過認養人捐款，您將能夠建立一種特殊的連結和關係。您的捐款將直接用於改善受助者的生活條件，幫助他們應對日常生活所需的費用。"
+    title: "星火計畫",
+    content: "讓孩子們探索自我，提出他們的夢想計畫，並邀請您投給您最愛的組別，為該組爭取「夢想成真」獎金！讓我們一同以熱情激勵，為孩子們的夢想點燃璀璨星火。"
   }
 ])
 
@@ -56,14 +56,10 @@ const donateContentCardList = reactive([
       <div class="card_content">
         <h3>{{ donateContentCard.title }}</h3>
         <p>{{ donateContentCard.content }}</p>
-        <button>加入清單</button>
+        <button>加 入 清 單</button>
       </div>
 
-
     </div>
-
-
-
 
   </div>
 </template>
@@ -72,6 +68,8 @@ const donateContentCardList = reactive([
 <style scoped lang="scss">
 @import'../../assets/sass/base/fonts/fonts-mixin';
 @import'../../assets/sass/base/color';
+@import'../../assets/sass/base/border-radius';
+@import'../../assets/sass/base/box-shadow';
 @import'../../assets/sass/components/fucn-items/buttons/buttons-mixin';
 @import'../../assets/sass/components/fucn-items/buttons/buttons';
 
@@ -79,16 +77,20 @@ div.donate_content_card_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  outline: solid 1px blue;
+  gap: 45px 0;
 
   div.donate_content_card {
-    width: 45%;
+    width: 46%;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
-    outline: solid 1px red;
+    border-radius: $br_PC;
+    @include boxShadow_PC;
+    // outline: solid 1px red;
 
     img {
       width: 100%;
+      border-radius: $br_PC $br_PC 0 0;
     }
 
     .card_content {
@@ -101,17 +103,28 @@ div.donate_content_card_list {
       h3 {
         @include h3_PC;
         color: $primaryBrandBlue;
+        padding-bottom: 15px;
       }
 
       p {
         @include h6_PC;
         color: $basicFontColor;
-
+        padding-bottom: 80px;
       }
 
       button {
         @include smallBlueBtn_PC;
+        border: none;
         margin-top: auto;
+        margin-left: auto;
+        transition: .3s;
+
+        &:hover {
+          background-color: $secondaryLightBlue3;
+          @include boxShadow_PC;
+          cursor: pointer;
+        }
+
       }
 
     }

@@ -13,7 +13,7 @@ div.body {
 }
 
 div.section_donate {
-
+position: relative;
     div.donate_content {
         width: 50%;
         margin: auto;
@@ -22,6 +22,7 @@ div.section_donate {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 95px 0 70px;
 
             h1 {
                 @include h1_PC;
@@ -39,8 +40,15 @@ div.section_donate {
 
         }
 
+    }
+    .deco_flowering {
+        position: absolute;
+        left: 3%;
+        bottom: -6%;
 
-
+        img {
+            width: 90%;
+        }
     }
 
 }

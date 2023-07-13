@@ -1,6 +1,8 @@
 @import'../../../base/fonts/fonts-mixin';
 @import'../../../base/box-shadow';
 @import'../../../base/color';
+@import'../../../base/border-radius';
+
 
 * {
     margin: 0;
@@ -74,8 +76,12 @@
                     p {
                         @include h6_PC;
                         color: $basicFontColor;
-
                     }
+                }
+
+                .imgRight {
+                    order: -1;
+                    @extend .article_block_text
                 }
             }
         }
@@ -104,26 +110,35 @@
             display: flex;
             gap: 30px;
 
-            .cardimg {
-                img {
-                    width: 100%
-                }
-            }
-
-            .cardword {
-                padding: 0 20px;
+            .newscard {
+                border-radius: $br_PC;
                 @include boxShadow_PC;
-                width: 345px;
 
-                h4 {
-                    @include h4_B_PC;
+                .cardimg {
+                    
+                    img {
+                        border-radius:$br_PC  $br_PC 0 0;
+                        width: 100%;
+                        overflow: hidden;
+                        vertical-align:bottom;
+                    }
                 }
 
-                p {
-                    @include h6_PC
+                .cardword {
+                    padding: 0 20px;
+                    width: 345px;
+
+                    h4 {
+                        @include h4_B_PC;
+                    }
+
+                    p {
+                        @include h6_PC
+                    }
                 }
             }
-        }
-    }
 
+        }
+
+    }
 }

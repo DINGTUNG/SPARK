@@ -1,17 +1,37 @@
 @import "../base/fonts/fonts";
 @import "../base/color";
 
-div{
+.login{
 
     h1{
         color:$primaryBrandBlue;
         font-size: $h1Fs_PC;
     }
     label{
-        font-size: $h1Fs_PC;
+        display: block;
+        color:$basicFontColor;
+        font-size: $h5Fs_PC;
     }
     input{
         font-size: $h1Fs_PC;
+        border: 1px solid $functionalLightGrey4;
+        border-radius: 10px;
+        margin: 0 0 20px 0;
     }
-
+    .login{
+        display: block;
+        background-color:$primaryAccentGold;
+        color:$primaryBrandWhite;
+        border-radius: 100px;
+        border:1px solid $primaryBrandWhite;
+        width: 380px;
+        height: 45px;
+        font-size: $h5Fs_PC;
+        letter-spacing: 2px;
+        // padding: 5px;
+    }
+}
+.errorAccount{
+    color: red;
+    margin-top: 10px;
 }

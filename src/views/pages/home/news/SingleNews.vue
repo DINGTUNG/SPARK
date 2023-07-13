@@ -105,7 +105,7 @@ const article = reactive(
                   <h4>{{ item.title }}</h4>
                   <p>{{ item.article }}</p>
                 </div>
-                <img src="/assets/images/" alt="">
+                <!-- <img src="/assets/images/" alt=""> -->
               </a>
               </div>
 

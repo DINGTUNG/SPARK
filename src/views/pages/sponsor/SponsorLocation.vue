@@ -105,24 +105,28 @@
 
   const branches = reactive([
     {
+      id:'taipei',
       name : '台北星火中心',
       address:'100台北市中正區忠孝西路一段 100 號',
       phoneNumber: '02-12345678',
       email:'tp@spark.org.tw'
     },
     {
+      id:'taichung',
       name : '台中星火中心',
       address:'403台中市西區中港路 100 號',
       phoneNumber: '04-12345678',
       email:'tc@spark.org.tw'
     },
     {
+      id:'tainan',
       name : '台南星火中心',
       address:'700台南市中西區民權路 100 號',
       phoneNumber: '06-12345678',
       email:'tn@spark.org.tw'
     },
     {
+      id:'taitung',
       name : '台東星火中心',
       address:'950台東市中正路 100 號',
       phoneNumber: '089-12345678',

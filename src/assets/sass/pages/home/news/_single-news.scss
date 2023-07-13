@@ -10,6 +10,9 @@
 }
 
 .main_body {
+    width: 1200px;
+    margin: auto;
+
     .title_block {
         display: flex;
 
@@ -29,11 +32,7 @@
         }
     }
 
-    width: 1200px;
-    margin: auto;
-
     .main_article {
-
         .article_title {
             display: flex;
             justify-content: space-between;
@@ -55,6 +54,13 @@
             .article_block {
                 display: flex;
 
+                .article_block_img {
+                    img {
+                        border-radius: $br_PC;
+                    }
+
+                }
+
                 .imgLeft {
                     order: 0;
                 }
@@ -64,7 +70,7 @@
                 }
 
                 .article_block_text {
-                    padding: 0 80px;
+                    padding: 0 0 0 80px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
@@ -81,7 +87,8 @@
 
                 .imgRight {
                     order: -1;
-                    @extend .article_block_text
+                    @extend .article_block_text;
+                    padding: 0 80px 0 0;
                 }
             }
         }
@@ -114,26 +121,38 @@
                 border-radius: $br_PC;
                 @include boxShadow_PC;
 
+                a {
+                    list-style: none;
+                    text-decoration: none;
+
+                }
+
                 .cardimg {
-                    
+
                     img {
-                        border-radius:$br_PC  $br_PC 0 0;
+                        border-radius: $br_PC $br_PC 0 0;
                         width: 100%;
                         overflow: hidden;
-                        vertical-align:bottom;
+                        vertical-align: bottom;
                     }
                 }
 
                 .cardword {
                     padding: 0 20px;
                     width: 345px;
+                    h5{
+                        @include h5_PC;
+                        color: $functionalLightGrey4;
+                    }
 
                     h4 {
                         @include h4_B_PC;
+                        color: $primaryBrandBlue;
                     }
 
                     p {
-                        @include h6_PC
+                        @include h6_PC;
+                        color: $basicFontColor;
                     }
                 }
             }

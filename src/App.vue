@@ -20,5 +20,5 @@ import RightMenu from '@/assets/layout/RightMenu.vue';
 </template>
 vu
 <style scoped>
-@import '@/assets/sass/base/fonts/_fonts.scss';
+@import '@/assets/sass/base/fonts/fonts.scss';
 </style>

@@ -14,28 +14,6 @@ const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
   routes: [{
-<<<<<<< HEAD
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
-  },
-  {
-    path: '/donate',
-    name: 'donate',
-    component: Donate
-  },
-  {
-    path: '/news',
-    name: 'news',
-    component: News
-  }
-=======
       path: '/',
       name: 'home',
       component: Home
@@ -60,7 +38,6 @@ const router = createRouter({
       name: 'single-news',
       component: SingleNews
     }
->>>>>>> 09591cf6a2ecab8b3467303a0c3a3f22fd5dd82f
   ]
 })
 

@@ -12,18 +12,13 @@ import RightMenu from '@/assets/layout/RightMenu.vue';
 
 
 <template>
-  <Header />
+  <!-- <Header/> -->
   <!-- <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink> -->
-<<<<<<< HEAD
-=======
-  <RouterView />
-  <RightMenu/>
->>>>>>> 9cca6787101dc906c1f2c569973e756379137ae5
-  <Footer />
+  <Footer/>
 
   <!-- <RouterView /> -->
 </template>
-
+vu
 <style scoped>
 @import '@/assets/sass/base/fonts/_fonts.scss';
 </style>

@@ -8,8 +8,9 @@ const top = () => {
   <div class="rightMenu">
     <ul>
         <li>
+          <RouterLink to="/sponsor" class="link sponsor">
             <img src="@/assets/icons/right-menu/sponsor_icon.png" alt="領養icon">
-            我要認養
+            我要認養</RouterLink>
         </li>
         <li>
             <img src="@/assets/icons/right-menu/sponsor_list_icon.png" alt="領養清單icon">

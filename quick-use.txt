@@ -15,6 +15,11 @@ const computed = computed(() => {
   return 三元運算子
 })
 
+
+⭐data傳入圖片⭐
+imgUrl:'/src/assets/images/sponsor/sponsor-location/tp_spark.png'
+
+
 ⭐router⭐
 import { RouterLink,RouterView } from 'vue-router'
 
@@ -27,5 +32,9 @@ import { RouterLink,RouterView } from 'vue-router'
 
 
 
-⭐引入sass⭐
+⭐vue引入sass⭐
 @import "@/assets/sass/pages/home/news/single-news";
+
+
+⭐sass引入sass⭐
+@import"../base/fonts/fonts-mixin";

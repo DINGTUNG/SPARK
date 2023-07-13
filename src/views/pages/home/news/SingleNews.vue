@@ -1,19 +1,14 @@
 <script setup>
-import { RouterView } from 'vue-router'
 import { reactive } from 'vue'
-
-// import { inject } from 'vue'
-// const getImgSrc = inject('getImgSrc')
-// console.log(getImgSrc);
 
 const article = reactive(
   [
     {
       index: 1,
-      img: "../../../../../public/assets/小狸貓可愛愛.png",
+      img: "/assets/小狸貓可愛愛.png",
       // img: "assets/小狸貓可愛愛.png",
       h5: '親愛的星火兒童認養協會的家人們：',
-      article: '我們非常興奮地宣布，星火兒童認養協會迎來了30週年的重要里程碑！在這個特殊的時刻，我們想要向所有支持者、志願者、捐助者和合作夥伴表達最深深的感謝之情。',
+      article: '我們非常興奮地宣布，星火兒童認養協會迎來了30週年的重要里程碑!在這個特殊的時刻，我們想要向所有支持者、志願者、捐助者和合作夥伴表達最深深的感謝之情。',
       article_two: '自1985年成立以來，星火一直致力於關愛孤兒和弱勢兒童，為他們提供溫暖、關懷和希望。這30年來，我們見證了無數個家庭的連結、孩子的笑容和夢想的實現。',
       position: 'article_block_text'
 
@@ -49,6 +44,7 @@ const news = reactive(
       title: '星火30，感謝有您',
       article: '星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火...',
       time: '2023.07.23',
+      href:'#'
     },
     {
       img: "/src/assets/images/home/news/single-news-page/singlenewtwo.png",
@@ -56,6 +52,7 @@ const news = reactive(
       title: '東部星火服務據點設立',
       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
       time: '2023.07.15',
+      href:'#'
     },
     {
       img: "/src/assets/images/home/news/single-news-page/singlenewseven.png",
@@ -63,13 +60,14 @@ const news = reactive(
       title: '暑假兒童營養午餐提供',
       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
       time: '2023.06.30',
+      href:'#'
     }
   ]
 );
 </script>
 <template>
   <div>
-    <div class="img">
+    <div class="title_img">
       <img src="@/assets/images/home/news/single-news-page/banner.png" alt="">
     </div>
     <div class="main_body">
@@ -96,8 +94,6 @@ const news = reactive(
           </div>
         </div>
         <div class="more_news">
-
-
           <div class="title_group">
             <h2>相關消息</h2>
             <div class="line"></div>
@@ -105,7 +101,7 @@ const news = reactive(
           <div>
             <div class="card_group">
               <div class="news_card" v-for="item in news" :key="item.index">
-                <a href="">
+                <a :href="item.href">
                   <div class="card_img">
                     <img :src="item.img">
                   </div>
@@ -114,7 +110,6 @@ const news = reactive(
                     <h4>{{ item.title }}</h4>
                     <p>{{ item.article }}</p>
                   </div>
-                  <!-- <img src="/assets/images/" alt=""> -->
                 </a>
               </div>
 
@@ -124,7 +119,7 @@ const news = reactive(
       </div>
     </div>
   </div>
-  <RouterView />
+
 </template>
 
 

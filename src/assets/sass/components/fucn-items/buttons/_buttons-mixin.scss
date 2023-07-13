@@ -13,13 +13,15 @@
 //regular
 @mixin regularBlueBtn_PC {
   @include regularBtn_PC;
-  color: $btnBlue;
+   color: $btnWhite;
+   background-color: $btnBlue;
 };
 
 //small
 @mixin smallBlueBtn_PC {
   @include smallBtn_PC;
-  color: $btnBlue;
+   color: $btnWhite;
+   background-color: $btnBlue;
 };
 
 

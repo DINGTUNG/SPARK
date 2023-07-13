@@ -1,10 +1,17 @@
 <script setup>
 
-import { RouterLink, RouterView } from 'vue-router'
+import { } from 'vue-router'
+
+import { provide } from 'vue'
+import getImgSrc from './utils/getImgSrc.js'
+
+provide('getImgSrc', getImgSrc)
 
 import Header from '@/layout/Header.vue';
 import Footer from '@/layout/Footer.vue';
 import RightMenu from '@/layout/RightMenu.vue';
+
+
 
 
 
@@ -13,16 +20,19 @@ import RightMenu from '@/layout/RightMenu.vue';
 
 <template>
   <Header />
+
   <RouterLink to="/single-news" class="link single-news">最新消息</RouterLink>
 
   <RightMenu />
-
-
   <Footer />
-
-  <!-- <RouterView /> -->
 </template>
 
 <style scoped>
 @import '@/assets/sass/base/fonts/_fonts.scss';
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
 </style>

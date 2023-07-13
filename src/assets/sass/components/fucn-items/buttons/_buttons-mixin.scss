@@ -55,13 +55,13 @@
 
 //🔵
 //regular
-@mixin regularBlueBtn_PC {
+@mixin regularBlueBtn_MB {
   @include regularBtn_MB;
   color: $btnBlue;
 };
 
 //small
-@mixin smallBlueBtn_PC {
+@mixin smallBlueBtn_MB {
   @include smallBtn_MB;
   color: $btnBlue;
 };
@@ -69,13 +69,13 @@
 
 //⚪
 //regular
-@mixin regularWhiteBtn_PC {
+@mixin regularWhiteBtn_MB {
   @include regularBtn_MB;
   color: $btnWhite;
 };
 
 //small
-@mixin smallWhiteBtn_PC {
+@mixin smallWhiteBtn_MB {
   @include smallBtn_MB;
   color: $btnWhite;
 };
@@ -83,13 +83,13 @@
 
 //🟡
 //regular
-@mixin regularGoldBtn_PC {
+@mixin regularGoldBtn_MB {
   @include regularBtn_MB;
   color: $btnGold;
 };
 
 //small
-@mixin smallGoldBtn_PC {
+@mixin smallGoldBtn_MB {
   @include smallBtn_MB;
   color: $btnGold;
 };

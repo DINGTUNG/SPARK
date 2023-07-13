@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink,RouterView } from 'vue-router';
+import { RouterLink } from 'vue-router';
 import { ref, computed} from 'vue';
 
 const menuTitle = ref("成果佈告欄");

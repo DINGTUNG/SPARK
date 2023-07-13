@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
 
 </script>
@@ -10,7 +10,6 @@ import { RouterLink, RouterView } from 'vue-router'
     <RouterLink to="/single-news" class="link single_news">單一消息頁</RouterLink>
 
   </div>
-  <RouterView />
 </template>
 
 <style scoped lang="scss"></style>

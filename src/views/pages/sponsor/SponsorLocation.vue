@@ -1,10 +1,6 @@
 
 <script setup>
   import { onBeforeMount, onBeforeUpdate, reactive, ref, watch} from 'vue';
-  import tpSparkImg from '@/assets/images/sponsor/sponsor-location/tp_spark.png';
-  import tcSparkImg from '@/assets/images/sponsor/sponsor-location/tc_spark.jpg';
-  import tnSparkImg from '@/assets/images/sponsor/sponsor-location/tn_spark.jpg';
-  import tdSparkImg from '@/assets/images/sponsor/sponsor-location/td_spark.png';
 
   const h1 = ref("認養地區")
   const searchText = ref('')
@@ -114,7 +110,7 @@
       address:'100台北市中正區忠孝西路一段 100 號',
       phoneNumber: '02-12345678',
       email:'tp@spark.org.tw',
-      imgUrl:tpSparkImg
+      imgUrl:'/src/assets/images/sponsor/sponsor-location/tp_spark.png'
     },
     {
       id:'taichung',
@@ -122,7 +118,7 @@
       address:'403台中市西區中港路 100 號',
       phoneNumber: '04-12345678',
       email:'tc@spark.org.tw',
-      imgUrl:tcSparkImg
+      imgUrl:'/src/assets/images/sponsor/sponsor-location/tc_spark.jpg'
     },
     {
       id:'tainan',
@@ -130,7 +126,7 @@
       address:'700台南市中西區民權路 100 號',
       phoneNumber: '06-12345678',
       email:'tn@spark.org.tw',
-      imgUrl:tnSparkImg
+      imgUrl:'/src/assets/images/sponsor/sponsor-location/tn_spark.jpg'
     },
     {
       id:'taitung',
@@ -138,7 +134,7 @@
       address:'950台東市中正路 100 號',
       phoneNumber: '089-12345678',
       email:'td@spark.org.tw',
-      imgUrl:tdSparkImg
+      imgUrl:'/src/assets/images/sponsor/sponsor-location/tt_spark.png'
     }
   ])
   const selectedBranch = ref(null);
@@ -185,7 +181,7 @@
         <img src="@/assets/images/sponsor/sponsor-location/taiwan.png" alt="taiwanMap">
         <div class="branchs" ref="container" @click="handleClickOutside">
 
-          <button v-for="(branch, index) in branches" :key="index" @click="selectBranch(index)" :style=getButtonStyle(index)>
+          <button v-for="(branch, index) in branches" :key="branch.id" @click="selectBranch(index)" :style=getButtonStyle(index)>
           </button>
           <div class="introduce" v-if="selectedBranch !== null">
             <div class="text">

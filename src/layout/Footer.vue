@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router'
       <div class="information">
 
         <div class="logo">
-          <img src="@assets/logo/logo.svg" alt="Vue logo" width="360">
+          <img src="@/assets/logo/logo.svg" alt="Vue logo" width="360">
         </div>
 
         <div class="business_hours">

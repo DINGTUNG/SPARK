@@ -60,11 +60,6 @@
   line-height: 48px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 header {
   width: fit-content;
   margin: 60px 0 0 82px;
@@ -74,7 +69,7 @@ header {
   top: 0;
   z-index: 99;
 }
-header .wrapper nav {
+header div.wrapper nav {
   width: 1096px;
   padding: 15px 0px 15px 30px;
   box-sizing: border-box;
@@ -84,13 +79,13 @@ header .wrapper nav {
   align-items: center;
   justify-content: space-around;
 }
-header .wrapper nav .link {
+header div.wrapper nav .link {
   text-decoration: none;
   color: #1d3d6c;
   font-size: 20px;
   font-weight: 700;
 }
-header .wrapper nav .login {
+header div.wrapper nav .login {
   background-color: #ebc483;
   border-radius: 100px;
   padding: 15px 40px;
@@ -164,19 +159,20 @@ header .wrapper nav .login {
 }
 
 footer {
-  background-color: blueviolet;
+  background-image: url("@/assets/decorations/layout/footer.png");
 }
-
-footer .footer_content {
+footer div.footer_content {
   display: flex;
   justify-content: space-around;
 }
-
-footer .logo {
+footer div.footer_content div.logo {
   margin-top: 114px;
   margin-bottom: 58.44px;
 }
-
+footer div.footer_content div.logo img {
+  z-index: 999;
+  color: #ffffff;
+}
 footer .information .business_hours span {
   display: block;
   margin-bottom: 10px;

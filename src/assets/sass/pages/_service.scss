@@ -4,7 +4,7 @@
 @import '@/assets/sass/base/border-radius';
 
 
-.banner{
+div.banner{
     width: 100%;
     img{
         width: 100%;
@@ -15,6 +15,7 @@ div.wrap{
     div.container{
         width: 65%;
         margin: auto;
+        position: relative;
         h1{
             @include h1_PC;
             color:$primaryBrandBlue;
@@ -89,6 +90,8 @@ div.wrap{
             }
 
         }
-
+        div.deco{
+            position: absolute;
+        }
     }
 }

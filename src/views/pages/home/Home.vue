@@ -1,14 +1,15 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 import News from '@/views/sections/home/News.vue';
-import Test from '@/templates/Test.vue';
 
 </script>
 
 <template>
   <div>
 
-<News/>
-<Test/>
+    <RouterLink to="/test">測試頁面</RouterLink>
+
+    <News />
 
   </div>
 </template>

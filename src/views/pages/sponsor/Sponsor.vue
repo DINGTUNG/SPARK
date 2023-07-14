@@ -24,6 +24,18 @@ const area = reactive(
     }
   ]
 )
+const minus = (index) => {
+  if (area[index].count === 0) {
+    area[index].count = 0;
+  } else {
+    area[index].count--;
+  }
+
+};
+
+const plus = (index) => {
+  area[index].count++;
+};
 </script>
 
 
@@ -59,9 +71,9 @@ const area = reactive(
               <h5>{{ item.area }}</h5>
             </div>
             <div class="card_count">
-              <span @click="minus">-</span>
+              <span @click="minus(index)">-</span>
               {{ item.count }}
-              <span @click="plus">+</span>
+              <span @click="plus(index)">+</span>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from 'vue'
 
+
 const article = reactive(
   [
     {

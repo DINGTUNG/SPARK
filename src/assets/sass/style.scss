@@ -26,6 +26,15 @@ img {
 //使用說明 38
 
 //---------------------------------------------------------------------------------------
+/* ⭐字體 font-family⭐ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
+$font-family: 'Noto-Sans';
+
+
+
+//---------------------------------------------------------------------------------------
 /* ⭐base⭐ */
 
 @import 'base/color';

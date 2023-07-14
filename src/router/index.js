@@ -53,9 +53,6 @@ const router = createRouter({
       // component: Donate
       component: () => import('../views/pages/work-result/WorkResult.vue')
     },
-   
-   
-    
 
     {
       path: '/contact',

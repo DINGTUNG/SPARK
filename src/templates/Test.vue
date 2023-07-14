@@ -7,6 +7,8 @@
 
     <button class="test_btn">呼叫狸貓</button>
 
+    <button class="test_btn2">呼叫狸貓</button>
+
     <p>狸貓，星龜</p>
   </div>
 </template>
@@ -27,5 +29,9 @@
 button.test_btn {
   @include smallGoldBtn_PC;
 
+}
+
+.test_btn2{
+  @include regularWhiteBtn_PC;
 }
 </style>

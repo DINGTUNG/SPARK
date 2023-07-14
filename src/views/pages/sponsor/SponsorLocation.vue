@@ -1,174 +1,196 @@
 
 <script setup>
-  import { onBeforeMount, onBeforeUpdate, reactive, ref, watch} from 'vue';
+    import { onBeforeMount, onBeforeUpdate, reactive, ref, watch} from 'vue';
+    // import 'animate.css';
 
-  const h1 = ref("認養地區")
-  const searchText = ref('')
-  let locations = reactive([
-    {
-      area: '北區',
-      name: '基隆',
-      people: '2,167'
-    },
-    {
-      area: '北區',
-      name: '台北',
-      people: '1,844'
-    },
-    {
-      area: '北區',
-      name: '新北',
-      people: '3,112'
-    },
-    {
-      area: '北區',
-      name: '桃園',
-      people: '2,675'
-    },
-    {
-      area: '北區',
-      name: '新竹',
-      people: '1,755'
-    },
-    {
-      area: '中區',
-      name: '苗栗',
-      people: '1,657'
-    },
-    {
-      area: '中區',
-      name: '台中',
-      people: '2,675'
-    },
-    {
-      area: '中區',
-      name: '彰化',
-      people: '1,907'
-    },
-    {
-      area: '中區',
-      name: '南投',
-      people: '1,677'
-    },
-    {
-      area: '中區',
-      name: '雲林',
-      people: '1,300'
-    },
-    {
-      area: '中區',
-      name: '嘉義',
-      people: '2,437'
-    },
-    {
-      area: '南區',
-      name: '台南',
-      people: '1,543'
-    },
-    {
-      area: '南區',
-      name: '高雄',
-      people: '1,377'
-    },
-    {
-      area: '南區',
-      name: '屏東',
-      people: '1,722'
-    },
-    {
-      area: '東區',
-      name: '宜蘭',
-      people: '1,244'
-    },
-    {
-      area: '東區',
-      name: '花蓮',
-      people: '1,763'
-    },
-    {
-      area: '東區',
-      name: '台東',
-      people: '1,893'
-    },
-  ])
-  let locationDisplay = reactive([])
+    const h1 = ref("認養地區")
+    const searchText = ref('')
+    let locations = reactive([
+      { 
+        id:'0',
+        area: '北區',
+        name: '基隆',
+        people: '2,167'
+      },
+      {
+        id:'0',
+        area: '北區',
+        name: '台北',
+        people: '1,844'
+      },
+      {
+        id:'0',
+        area: '北區',
+        name: '新北',
+        people: '3,112'
+      },
+      {
+        id:'0',
+        area: '北區',
+        name: '桃園',
+        people: '2,675'
+      },
+      {
+        id:'0',
+        area: '北區',
+        name: '新竹',
+        people: '1,755'
+      },
+      {
+        id:'1',
+        area: '中區',
+        name: '苗栗',
+        people: '1,657'
+      },
+      {
+        id:'1',
+        area: '中區',
+        name: '台中',
+        people: '2,675'
+      },
+      {
+        id:'1',
+        area: '中區',
+        name: '彰化',
+        people: '1,907'
+      },
+      {
+        id:'1',
+        area: '中區',
+        name: '南投',
+        people: '1,677'
+      },
+      {
+        id:'1',
+        area: '中區',
+        name: '雲林',
+        people: '1,300'
+      },
+      {
+        id:'1',
+        area: '中區',
+        name: '嘉義',
+        people: '2,437'
+      },
+      {
+        id:'2',
+        area: '南區',
+        name: '台南',
+        people: '1,543'
+      },
+      {
+        id:'2',
+        area: '南區',
+        name: '高雄',
+        people: '1,377'
+      },
+      {
+        id:'2',
+        area: '南區',
+        name: '屏東',
+        people: '1,722'
+      },
+      {
+        id:'2',
+        area: '東區',
+        name: '宜蘭',
+        people: '1,244'
+      },
+      {
+        id:'2',
+        area: '東區',
+        name: '花蓮',
+        people: '1,763'
+      },
+      {
+        id:'2',
+        area: '東區',
+        name: '台東',
+        people: '1,893'
+      },
+    ])
+    let locationDisplay = reactive([])
 
-  const updateDisplay = () => {
-    if (searchText.value == '') {
-      locationDisplay = locations;
-    }
-  }
-
-  onBeforeUpdate(() => locationDisplay = locations.filter(item => item.name.includes(searchText.value)))
-
-  onBeforeMount(() => updateDisplay())
-
-  const branches = reactive([
-    {
-      id:'taipei',
-      name : '台北星火中心',
-      address:'100台北市中正區忠孝西路一段 100 號',
-      phoneNumber: '02-12345678',
-      email:'tp@spark.org.tw',
-      imgUrl:'assets/images/sponsor/sponsor-location/tp_spark.png'
-    },
-    {
-      id:'taichung',
-      name : '台中星火中心',
-      address:'403台中市西區中港路 100 號',
-      phoneNumber: '04-12345678',
-      email:'tc@spark.org.tw',
-      imgUrl:'assets/images/sponsor/sponsor-location/tc_spark.jpg'
-    },
-    {
-      id:'tainan',
-      name : '台南星火中心',
-      address:'700台南市中西區民權路 100 號',
-      phoneNumber: '06-12345678',
-      email:'tn@spark.org.tw',
-      imgUrl:'assets/images/sponsor/sponsor-location/tn_spark.jpg'
-    },
-    {
-      id:'taitung',
-      name : '台東星火中心',
-      address:'950台東市中正路 100 號',
-      phoneNumber: '089-12345678',
-      email:'td@spark.org.tw',
-      imgUrl:'assets/images/sponsor/sponsor-location/tt_spark.png'
-    }
-  ])
-  const selectedBranch = ref(null);
-  const container = ref(null);
-
-  const selectBranch = (index) => {
-      selectedBranch.value = index;
+    const updateDisplay = () => {
+      if (searchText.value == '' && selectedValue.value == '') {
+        locationDisplay = locations;
+      }
     }
 
-  const getButtonStyle = (index) => {
-      const positions = [
-        { top: '10%', right: '18%' },
-        { top: '28%', left: '52%' },
-        { bottom: '26%', left: '38%' },
-        { bottom: '30%', right: '30%' }
-      ];
-      return positions[index];
-    }
-  
-  const handleClickOutside = (event) => {
+    onBeforeUpdate(() => locationDisplay = locations.filter(item => item.name.includes(searchText.value)))
+    onBeforeMount(() => updateDisplay())
+
+    const branches = reactive([
+      {
+        id:'taipei',
+        name : '台北星火中心',
+        address:'100台北市中正區忠孝西路一段 100 號',
+        phoneNumber: '02-12345678',
+        email:'tp@spark.org.tw',
+        imgUrl:'assets/images/sponsor/sponsor-location/tp_spark.png'
+      },
+      {
+        id:'taichung',
+        name : '台中星火中心',
+        address:'403台中市西區中港路 100 號',
+        phoneNumber: '04-12345678',
+        email:'tc@spark.org.tw',
+        imgUrl:'assets/images/sponsor/sponsor-location/tc_spark.jpg'
+      },
+      {
+        id:'tainan',
+        name : '台南星火中心',
+        address:'700台南市中西區民權路 100 號',
+        phoneNumber: '06-12345678',
+        email:'tn@spark.org.tw',
+        imgUrl:'assets/images/sponsor/sponsor-location/tn_spark.jpg'
+      },
+      {
+        id:'taitung',
+        name : '台東星火中心',
+        address:'950台東市中正路 100 號',
+        phoneNumber: '089-12345678',
+        email:'td@spark.org.tw',
+        imgUrl:'assets/images/sponsor/sponsor-location/tt_spark.png'
+      }
+    ])
+    const selectedBranch = ref(null);
+    const container = ref(null);
+
+    const selectBranch = (index) => {
+        selectedBranch.value = index;
+      }
+
+    const getButtonStyle = (index) => {
+        const positions = [
+          { top: '10%', right: '18%' },
+          { top: '28%', left: '52%' },
+          { bottom: '26%', left: '38%' },
+          { bottom: '30%', right: '30%' }
+        ];
+        return positions[index];
+      }
+    
+    const handleClickOutside = (event) => {
     if (!container.value.contains(event.target)) {
       selectedBranch.value = null;
     }
-  }
-  watch(() => selectedBranch.value, () => {
-      if (selectedBranch.value !== null) {
-        // Selected a branch, add event listener
-        document.addEventListener('click', handleClickOutside);
-      } else {
-        // No branch selected, remove event listener
-        document.removeEventListener('click', handleClickOutside);
-      }
-    });
-
+    };
+    watch(() => selectedBranch.value, () => {
+        if (selectedBranch.value !== null) {
+          // Selected a branch, add event listener
+          document.addEventListener('click', handleClickOutside);
+        } else {
+          // No branch selected, remove event listener
+          document.removeEventListener('click', handleClickOutside);
+        }
+      });
+    
+    const  selectedValue = ref('')
+    const  filterDistrict = ( ) => {
+      selectBranch(selectedValue.value);
+      locationDisplay = locations.filter(item => item.id = selectedValue);
+    } 
 </script>
 <template>
   <div class="banner">
@@ -180,18 +202,28 @@
       <div class="map">
         <img :src="'assets/images/sponsor/sponsor-location/taiwan.png'" alt="taiwanMap">
         <div class="branchs" ref="container" @click="handleClickOutside">
-
-          <button v-for="(branch, index) in branches" :key="branch.id" @click="selectBranch(index)" :style=getButtonStyle(index)>
+          <select class="filterDistrict" v-model="selectedValue" @change="filterDistrict">
+            <option>全部</option>
+            <option value="0">北部</option>
+            <option value="1">中部</option>
+            <option value="2">南部</option>
+            <option value="3">東部</option>
+          </select>
+          <!-- 點擊時，將index傳入selectBranch => selectedBranch.value = index;
+          {{ }} branches[index].property-->
+          <button v-for="(branch, index) in branches" :key="branch.id" @click="selectBranch(index)" :style=getButtonStyle(index)> 
           </button>
-          <div class="introduce" v-if="selectedBranch !== null">
-            <div class="text">
-              <h2>{{ branches[selectedBranch].name }}</h2>
-              <p><i class="fa-solid fa-location-dot"></i>：{{ branches[selectedBranch].address }}</p>
-              <p><i class="fa-solid fa-phone"></i>：{{ branches[selectedBranch].phoneNumber }}</p>
-              <p><i class="fa-solid fa-envelope"></i>：{{ branches[selectedBranch].email }}</p>
+          <transition>
+            <div class="branch-details" v-if="selectedBranch !== null">
+              <div class="text">
+                <h2>{{ branches[selectedBranch].name }}</h2>
+                <p><i class="fa-solid fa-location-dot"></i>：{{ branches[selectedBranch].address }}</p>
+                <p><i class="fa-solid fa-phone"></i>：{{ branches[selectedBranch].phoneNumber }}</p>
+                <p><i class="fa-solid fa-envelope"></i>：{{ branches[selectedBranch].email }}</p>
+              </div>
+              <div class="pic"><img :src="branches[selectedBranch].imgUrl" alt="據點示意圖片"></div>
             </div>
-            <div class="pic"><img :src="branches[selectedBranch].imgUrl" alt="據點示意圖片"></div>
-          </div>
+          </transition>
 
         </div>
       </div>

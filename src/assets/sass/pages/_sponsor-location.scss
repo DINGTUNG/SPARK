@@ -32,6 +32,19 @@ div.container {
       width: 35%;
       position: relative;
       box-sizing: border-box;
+      select.filterDistrict{
+        position:absolute;
+        top: -10%;
+        right: -50%;
+        display: inline-block;
+        width: 30%;
+        padding: 5%;
+        @include h5_PC;
+        border-radius: $br_PC;
+        background-color:$primaryBrandBlue ;
+        outline: none;
+        color:$primaryBrandWhite ;
+      }
       div.branchs{
         button{
             position: absolute;
@@ -48,7 +61,7 @@ div.container {
               scale: 1.05; 
             }
           }
-        div.introduce{
+        div.branch-details{
               border-radius:$br_PC; 
               @include boxShadow_PC;
               padding: 15% 10% 20% 10%;
@@ -163,8 +176,19 @@ div.container {
     }
   }
 }
+.v-enter-active,
+.v-leave-active {
+  transition: opacity .5s; 
+}
 
-
+.v-enter-from,
+.v-leave-to {
+  opacity: 0; 
+}
+.v-enter-to,
+.v-leave-from {
+  opacity: 1; 
+}
 
 
 

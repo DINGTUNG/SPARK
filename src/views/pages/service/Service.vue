@@ -1,8 +1,5 @@
 <script setup>
 import { reactive } from "vue";
-import Support from '@/assets/images/service/support.png';
-import Protect from '@/assets/images/service/protect.png';
-import Placement from '@/assets/images/service/placement.png';
 const projectDeteils = reactive([
   {
     title:'家庭扶助',
@@ -37,15 +34,15 @@ const projectDeteils = reactive([
 
 <template>
   <div class="banner">
-    <img src="@/assets/images/service/banner.png" alt="service-banner">
+    <img :src="assets/images/service/banner.png" alt="service-banner">
   </div>
   <div class="wrap">
     <div class="container">
-      <img class="deco" src="@/assets/decorations/illustration/star-series/reading.svg" alt="看書的星星~">
-      <img class="deco" src="@/assets/decorations/illustration/shooting_stars.svg" alt="流星~">
-      <img class="deco" src="@/assets/decorations/illustration/people/hugStar.svg" alt="抱著星星">
-      <img class="deco" src="@/assets/decorations/illustration/planet.png" alt="星球">
-      <img class="deco" src="@/assets/decorations/illustration/decorative_line.png" alt="裝飾線">
+      <img class="deco" :src="assets/decorations/character/star/star_reading.svg" alt="看書的星星~">
+      <img class="deco" :src="assets/decorations/illustration/shooting_stars.svg" alt="流星~">
+      <img class="deco" :src="assets/decorations/character/girl_hugging_star.svg" alt="抱著星星">
+      <img class="deco" :src="assets/decorations/illustration/planet.png" alt="星球">
+      <img class="deco" :src="assets/decorations/illustration/decorative_line.png" alt="裝飾線">
       <h1>服務內容</h1>
       <section class="project_deteils" v-for="(item, index) in projectDeteils" :key="index">
         <div class="top">

@@ -1,25 +1,90 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { ref, computed} from 'vue';
+import { ref, computed, defineProps} from 'vue'; 
 
-const menuTitle = ref("成果佈告欄");
-const bulletinList = ref([
-  {
-    id: 1,
-    title: "故事藝廊",
-    link: "/"
+// const menuTitle = ref("成果佈告欄");
+// const bulletinList = ref([
+//   {
+//     id: 1,
+//     title: "故事藝廊",
+//     link: "/"
+//   },
+//   {
+//     id: 2,
+//     title: "歷年報告",
+//     link: "/"
+//   },
+//   {
+//     id: 3,
+//     title: "服務里程碑",
+//     link: "/"
+//   },
+// ]);
+
+
+const props = defineProps({
+  page: {
+    type: String,
+    default: "home",
   },
-  {
-    id: 2,
-    title: "歷年報告",
-    link: "/"
-  },
-  {
-    id: 3,
-    title: "服務里程碑",
-    link: "/"
-  },
-]);
+});
+
+const menuTitle = ref("");
+const bulletinList = ref([]);
+
+if (props.page === "home") {
+  menuTitle.value = "成果佈告欄";
+  bulletinList.value = [
+    {
+      id: 1,
+      title: "故事藝廊",
+      link: "/",
+    },
+    {
+      id: 2,
+      title: "歷年報告",
+      link: "/",
+    },
+    {
+      id: 3,
+      title: "服務里程碑",
+      link: "/",
+    },
+  ];
+} else if (props.page === "about") {
+  menuTitle.value = "關於我們";
+  bulletinList.value = [
+    {
+      id: 1,
+      title: "公司簡介",
+      link: "/",
+    },
+    {
+      id: 2,
+      title: "團隊成員",
+      link: "/",
+    },
+    {
+      id: 3,
+      title: "使命與價值觀",
+      link: "/",
+    },
+  ];
+} else if (props.page === "contact") {
+  menuTitle.value = "聯絡我們";
+  bulletinList.value = [
+    {
+      id: 1,
+      title: "聯絡方式",
+      link: "/",
+    },
+    {
+      id: 2,
+      title: "地理位置",
+      link: "/",
+    },
+  ];
+}
 
 const menuHeight = computed(() => {
   // 初始高度
@@ -37,8 +102,7 @@ const menuHeight = computed(() => {
     <h2>{{ menuTitle }}</h2>
     <ul>
       <li v-for="item in bulletinList" :key="item.id">
-        <RouterLink :to="item.link" class="link"></RouterLink>
-          <h3>{{ item.title }}</h3>
+        <RouterLink :to="item.link" class="link"><h3>{{ item.title }}</h3></RouterLink>
       </li>
     </ul>
   </div>

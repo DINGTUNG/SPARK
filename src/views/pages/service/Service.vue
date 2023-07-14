@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from "vue";
-import Support from '@/assets/images/service/support.webp';
+import Support from '@/assets/images/service/support.png';
 import Protect from '@/assets/images/service/protect.png';
 import Placement from '@/assets/images/service/placement.png';
 const projectDeteils = reactive([
@@ -44,6 +44,8 @@ const projectDeteils = reactive([
       <img class="deco" src="@/assets/decorations/illustration/star-series/reading.svg" alt="看書的星星~">
       <img class="deco" src="@/assets/decorations/illustration/shooting_stars.svg" alt="流星~">
       <img class="deco" src="@/assets/decorations/illustration/people/hugStar.svg" alt="抱著星星">
+      <img class="deco" src="@/assets/decorations/illustration/planet.png" alt="星球">
+      <img class="deco" src="@/assets/decorations/illustration/decorative_line.png" alt="裝飾線">
       <h1>服務內容</h1>
       <section class="project_deteils" v-for="(item, index) in projectDeteils" :key="index">
         <div class="top">

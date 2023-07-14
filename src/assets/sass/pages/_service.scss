@@ -19,6 +19,7 @@ div.wrap{
         h1{
             @include h1_PC;
             color:$primaryBrandBlue;
+            margin-left: 100px;
         }
         section.project_deteils{
             margin-top: 80px;
@@ -90,8 +91,30 @@ div.wrap{
             }
 
         }
-        div.deco{
+        img.deco{
             position: absolute;
+            z-index: 0;
+            &:nth-child(1){
+                top:0;
+                left: -250px;
+            }
+            &:nth-child(2){
+                top: 600px;
+                right: -250px;
+            }
+            &:nth-child(3){
+                bottom: 0;
+                right: -250px;
+                transform: scaleX(-1);
+            }
+            &:nth-child(4){
+                bottom: 400px;
+                left: -150px;
+            }
+            &:nth-child(5){
+                top: 25px;
+                left: 300px;
+            }
         }
     }
 }

@@ -17,13 +17,37 @@
  
  // 監聽當前路徑的變化，更新各陣列的內容
  watch(() => currentRoute.name, (newRouteName) => {
-   if (newRouteName === "sponsor") {
-     menuTitle.value = "認養計畫";
+   if (newRouteName === "home") {
+     menuTitle.value = "服務里程碑";
      bulletinList.value = [
        {
          id: 1,
          title: "認養地區",
          routeName: "",
+       },
+       {
+         id: 2,
+         title: "捐款善心榜",
+         routeName: "",
+       },
+       {
+         id: 3,
+         title: "捐款善心榜",
+         routeName: "",
+       },
+       {
+         id: 4,
+         title: "捐款善心榜",
+         routeName: "",
+       },
+     ];
+   } else if (newRouteName === "sponsor") {
+     menuTitle.value = "認養計畫";
+     bulletinList.value = [
+       {
+         id: 1,
+         title: "認養地區",
+         routeName: ""
        },
        {
          id: 2,
@@ -59,7 +83,7 @@
          routeName: "",
        },
      ];
-   }
+   } 
  });
  
  </script>

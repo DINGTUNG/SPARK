@@ -1,13 +1,27 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 /* 🚩捷徑🚩 */
+/* ⭐字體 font-family⭐ */
 /* ⭐base⭐ */
 /* 🚩捷徑🚩 */
 /* ⭐色彩計畫 color⭐ */
 /* ⭐背景 background-color⭐ */
 /* ⭐button color⭐ */
 /* ⭐使用說明⭐ */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
 .sassUsageExample {
   color: #1d3d6c;
 }
@@ -17,7 +31,6 @@
 }
 
 /* 🚩捷徑🚩 */
-/* ⭐字體 font-family⭐ */
 /* ⭐字型 font-size⭐ */
 /* ⭐字重 font-weight⭐ */
 /* ⭐字距 letter-spacing⭐ */
@@ -45,7 +58,6 @@
 }
 
 /* 🚩捷徑🚩 */
-/* ⭐字體 font-family⭐ */
 /* ⭐字型 font-size⭐ */
 /* ⭐字重 font-weight⭐ */
 /* ⭐字距 letter-spacing⭐ */
@@ -90,12 +102,169 @@ header div.wrapper nav .login {
   box-sizing: border-box;
 }
 
-/* ⭐page⭐ */
-/* ⭐plugin⭐ */
-/* ⭐reset⭐ */
-* {
-  margin: 0;
-  padding: 0;
+/* 🚩捷徑🚩 */
+/* ⭐色彩計畫 color⭐ */
+/* ⭐背景 background-color⭐ */
+/* ⭐button color⭐ */
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  color: #1d3d6c;
 }
 
+.sassUsageExample {
+  background-color: #1d3d6c;
+}
+
+/* 🚩捷徑🚩 */
+/* ⭐字型 font-size⭐ */
+/* ⭐字重 font-weight⭐ */
+/* ⭐字距 letter-spacing⭐ */
+/* ⭐行距 line height⭐ */
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 5%;
+  line-height: 48px;
+}
+
+/* 🚩捷徑🚩 */
+/* ⭐使用說明⭐ */
+/* ⭐桌機 PC⭐ */
+/* ⭐手機 MB⭐ */
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 10%;
+  line-height: 48px;
+}
+
+.sassUsageExample {
+  font-size: 2.1875rem;
+  font-weight: 700;
+  letter-spacing: 10%;
+  line-height: auto;
+}
+
+footer {
+  background-image: url("/assets/decorations/layout/footer.png");
+}
+footer div.footer_content {
+  display: flex;
+  justify-content: space-around;
+}
+footer div.footer_content div.information div.logo {
+  margin-top: 114px;
+  margin-bottom: 58.44px;
+}
+footer div.footer_content div.information div.logo img {
+  z-index: 999;
+  color: #ffffff;
+}
+footer .information .business_hours span {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+footer .information .business_hours .service_hours {
+  font-weight: 700;
+}
+
+footer .information .business_hours .time {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+footer .information .location {
+  margin-top: 40px;
+  color: #ffffff;
+}
+
+footer .information .location .headquarters {
+  display: block;
+  margin-bottom: 17px;
+  font-weight: 700;
+}
+
+footer .information .location i {
+  margin-bottom: 17px;
+  margin-right: 18px;
+}
+
+footer .items .list {
+  display: flex;
+}
+
+footer .items .list div {
+  margin-top: 143px;
+  margin-right: 62px;
+}
+
+footer .items div h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 5%;
+  line-height: auto;
+  color: #ffffff;
+  margin-bottom: 21px;
+}
+
+footer .items .list div h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 5%;
+  line-height: 30px;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+footer .items .list div .link {
+  text-decoration: none;
+}
+
+footer .items .newsletter {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-top: 84px;
+}
+
+footer .items .newsletter input {
+  display: block;
+  width: 348px;
+  margin-top: 10px;
+  border-radius: 100px;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+footer .items .newsletter input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+  text-indent: 10px;
+}
+
+footer .items .newsletter input:focus {
+  outline: none;
+  text-indent: 10px;
+}
+
+footer .footer_copyright {
+  margin-top: 66px;
+  border-top: 0.5px solid #ffffff;
+}
+
+footer .footer_copyright .copyright {
+  display: flex;
+  justify-content: end;
+  padding: 30px;
+  box-sizing: border-box;
+  margin-right: 182px;
+  color: #ffffff;
+}
+
+/* ⭐page⭐ */
+/* ⭐plugin⭐ */
 /* ⭐使用說明⭐ *//*# sourceMappingURL=style.css.map */

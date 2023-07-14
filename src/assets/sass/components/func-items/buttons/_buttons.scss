@@ -1,11 +1,22 @@
-@import '../../../base/color';
-@import '../../../base/fonts/fonts';
-@import '../../../base/border-radius';
+@import '@/assets/sass/base/color';
+@import '@/assets/sass/base/fonts/fonts';
+@import '@/assets/sass/base/border-radius';
+//---------------------------------------------------------------------------------------
 
-/* 🚩捷徑🚩 */
 
-//桌機 PC buttons 7
-//手機 MB buttons 12
+button {
+  cursor: pointer;
+  font-weight: $fWRegular;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+  }
+
+}
 
 
 //---------------------------------------------------------------------------------------
@@ -44,32 +55,32 @@
 @mixin regularBtn_PC {
   @include regularButtonSize_PC;
   border-radius: $regularBtnBr;
-  font-size:$regularBtnFs_PC;
+  font-size: $regularBtnFs_PC;
 }
 
 @mixin smallBtn_PC {
   @include smallButtonSize_PC;
   border-radius: $smallBtnBr;
-  font-size:$smallBtnFs_PC;
+  font-size: $smallBtnFs_PC;
 }
 
 
 //MB
-@mixin regularBtn_MB{
+@mixin regularBtn_MB {
   @include regularButtonSize_MB;
   border-radius: $regularBtnBr;
-  font-size:$regularBtnFs_MB;
+  font-size: $regularBtnFs_MB;
 }
 
 @mixin smallBtn_MB {
   @include smallButtonSize_MB;
   border-radius: $smallBtnBr;
-  font-size:$smallBtnFs_MB;
+  font-size: $smallBtnFs_MB;
 }
 
 
 
 /* ⭐使用說明⭐ */
 .sassUsageExample {
-//不示範了
+  //不示範了
 }

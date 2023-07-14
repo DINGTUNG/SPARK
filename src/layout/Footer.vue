@@ -28,7 +28,6 @@ const footerItemList = reactive(
     ]
   }
 
-
 )
 
 
@@ -74,7 +73,7 @@ const footerItemList = reactive(
               </RouterLink>
             </h6>
 
-            
+
           </div>
         </div>
 
@@ -145,6 +144,15 @@ const footerItemList = reactive(
       </div>
     </div>
   </footer>
+
+
+
+
+
+
+
+
+
 </template>
 
 
@@ -152,3 +160,11 @@ const footerItemList = reactive(
 <style scoped lang="scss">
 @import "@/assets/sass/layout/footer";
 </style>
+
+
+
+
+
+
+
+

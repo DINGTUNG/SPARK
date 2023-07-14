@@ -26,5 +26,6 @@ export default defineConfig({
       ]
     }
   },
+  //發生問題回報
   base: "/SPARK/"
 })

@@ -2,6 +2,7 @@
 @import "@/assets/sass/base/fonts/_fonts.scss";
 @import "@/assets/sass/base/fonts/_fonts-mixin.scss";
 @import "@/assets/sass/base/_box-shadow.scss";
+@import '@/assets/sass/base/rwd/breakpoints';
 
 // div.left_menu{
 //     margin-top: 759px;
@@ -32,28 +33,72 @@
 //     }
 // }
 
+// @include custom-responsive("xs") {
+//     div.left_menu_container{
+//         display: none;}
+//   }
+
+//   @include custom-responsive("xl ") {
+//     div.left_menu_container{
+//         margin-top: 40%;
+//         width: 18vw;
+//         border-radius: 0px 25px 25px 0px;
+//         @include boxShadow_PC;
+//         h2{
+//             font-size: $h2Fs_PC;
+//             color: $primaryBrandBlue;
+//             font-weight: $fWBold;
+//             padding: 60px 105px 30px 60px;
+//             box-sizing: border-box;
+//         }
+//         li{
+//             list-style: none;
+//             .link{
+//                 text-decoration: none;
+//                 h3{
+//                     width: 49%;
+//                     font-size: $h3Fs_PC;
+//                     color: $primaryBrandBlue;
+//                     font-weight: $fWRegular;
+//                     padding: 15px 0px 15px;
+//                     box-sizing: border-box;
+//                     margin-left: 17%;
+//                     border-bottom: 1px solid $functionalLightGrey3;
+//                 }
+//             }
+//         }
+//     } 
+//   }
+
+
+
     div.left_menu_container{
-        margin-top: 39.53%;
-        width: 17.96vw;
+        position: absolute;
+        top: 800px;
+        left: 0;
+        // margin-top: 40%;
+        width: 18vw;
         border-radius: 0px 25px 25px 0px;
         @include boxShadow_PC;
         h2{
             font-size: $h2Fs_PC;
             color: $primaryBrandBlue;
             font-weight: $fWBold;
-            padding: 17.10% 30.43% 8.98% 17.68%;
+            padding: 60px 105px 30px 60px;
+            box-sizing: border-box;
         }
         li{
             list-style: none;
             .link{
                 text-decoration: none;
                 h3{
-                    width: 48.69%;
+                    width: 49%;
                     font-size: $h3Fs_PC;
                     color: $primaryBrandBlue;
                     font-weight: $fWRegular;
-                    padding: 4.63% 0% 4.63%;
-                    margin-left: 17.10%;
+                    padding: 15px 0px 15px;
+                    box-sizing: border-box;
+                    margin-left: 17%;
                     border-bottom: 1px solid $functionalLightGrey3;
                 }
             }

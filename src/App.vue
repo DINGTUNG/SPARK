@@ -24,18 +24,6 @@ import RightMenu from '@/layout/RightMenu.vue';
 
   <RouterView />
   <!-- <Footer/> -->
-<<<<<<< HEAD
-  <RightMenu/>
-
-  <!-- <LeftMenu /> -->
-
-  <RightMenu />
-  <!-- <Footer /> -->
-
-  <RouterView/>
-
-=======
->>>>>>> 08438a64d32184d7f42129ca1c1c47d583eda041
 </template>
 
 <style scoped>

@@ -36,11 +36,11 @@ const projectDeteils = reactive([
   <div class="banner">
     <img :src="'assets/images/service/banner.png'" alt="service-banner">
   </div>
-  <div class="wrap">
-    <div class="container">
-      <img class="deco" :src="'assets/character/star/star_reading.svg'" alt="看書的星星~">
+  <div class="container">
+    <div class="main_body">
+      <img class="deco" :src="'assets/characters/star/star_reading.svg'" alt="看書的星星~">
       <img class="deco" :src="'assets/decorations/illustration/shooting_stars.svg'" alt="流星~">
-      <img class="deco" :src="'assets/character/girl/girl_hugging_star.svg'" alt="抱著星星">
+      <img class="deco" :src="'assets/characters/girl/girl_hugging_star.svg'" alt="抱著星星">
       <img class="deco" :src="'assets/decorations/illustration/planet.png'" alt="星球">
       <img class="deco" :src="'assets/decorations/illustration/decorative_line.png'" alt="裝飾線">
       <h1>服務內容</h1>

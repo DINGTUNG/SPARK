@@ -70,8 +70,8 @@ const donateContentCardList = reactive([
 @import'@/assets/sass/base/color';
 @import'@/assets/sass/base/border-radius';
 @import'@/assets/sass/base/box-shadow';
-@import'@/assets/sass/components/fucn-items/buttons/buttons-mixin';
-@import'@/assets/sass/components/fucn-items/buttons/buttons';
+@import'@/assets/sass/components/func-items/buttons/buttons-mixin';
+@import'@/assets/sass/components/func-items/buttons/buttons';
 
 div.donate_content_card_list {
   display: flex;

@@ -10,7 +10,7 @@
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/components/func-items/button-mixin';
+@import '@/assets/sass/components/func-items/buttons/_buttons-mixin';
 
 .test_btn{
 @include regularBlueBtn_MB

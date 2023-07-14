@@ -1,4 +1,3 @@
-
 @import'@/assets/sass/base/border-radius';
 @import'@/assets/sass/base/color';
 @import'@/assets/sass/base/fonts/fonts-mixin';
@@ -144,16 +143,17 @@ div.container {
 
             h3 {
                 color: $primaryBgBlue;
+
                 @include custom-responsive(" xs sm") {
-                    @include h6_MB;
+                    @include h3_MB;
                 }
 
                 @include custom-responsive(" xl xxl") {
                     @include h3_PC;
                 }
+
                 padding: 0 0 20px;
-                
-                
+
             }
 
             div.sponsor_area_inner {
@@ -166,13 +166,31 @@ div.container {
                     width: 130px;
                     height: 130px;
                     background-color: $primaryBgBlue;
-                    border-radius: $br_PC;
-                    margin-right: 30px;
                     color: $primaryBrandWhite;
+
+                    @include custom-responsive(" xs sm") {
+                        @include h5_B_MB;
+                        border-radius: $br_MB;
+                        margin: 0 10px 20px;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        @include h5_B_PC;
+                        border-radius: $br_PC;
+                        margin-right: 30px;
+                    }
 
                     .card_title {
                         h5 {
-                            @include h5_B_PC;
+
+                            @include custom-responsive(" xs sm") {
+                                @include h5_B_MB;
+                            }
+
+                            @include custom-responsive(" xl xxl") {
+                                @include h5_B_PC;
+                            }
+
                         }
                     }
                 }
@@ -196,20 +214,37 @@ div.container {
             @include flex_hm();
 
             button.back {
-                @include smallBlueBtn_PC;
                 border: 1px transparent;
                 margin: 0 10px;
-                @include h5_MB;
+
+                @include custom-responsive(" xs sm") {
+                    @include smallBlueBtn_MB;
+                    @include h5_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include smallBlueBtn_PC;
+                    @include h5_PC;
+                }
 
 
             }
 
             button.pay_list {
                 color: $primaryBgBlue !important;
-                @include smallWhiteBtn_PC;
+
                 border: 1px transparent;
                 margin: 0 10px;
-                @include h5_MB;
+
+                @include custom-responsive(" xs sm") {
+                    @include smallWhiteBtn_MB;
+                    @include h5_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include smallWhiteBtn_PC;
+                    @include h5_PC;
+                }
             }
 
             div.icon_img {

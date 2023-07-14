@@ -3,8 +3,68 @@
 @import '@/assets/sass/base/border-radius';
 @import '@/assets/sass/base/rwd/breakpoints';
 
-@include custom-responsive("xl"){
+@include custom-responsive("xs"){
     .rightMenu{
+        display: none;
+    }
+    .rightMenu_MB{
+        width: 90vw;
+        position: fixed;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%);
+        #top{
+            background: none;
+            border: none;
+            cursor: pointer;
+            position:absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            img{
+                width: 110%;
+            }
+        }
+        ul{
+            margin: auto;
+            display: flex;
+            padding: 3%;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $primaryBrandBlue; 
+            border-radius: $br_MB;
+            li{ 
+                display: flex;
+                width: 38%;
+                justify-content: space-around;
+                position: relative;
+                a{
+                    color: $primaryBgWhite;
+                    text-decoration: none;
+                }
+
+            }
+        }
+        a + a::before{
+            content: '';
+            width: .5px;
+            height: 80%;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+}
+@include custom-responsive("md"){
+    .rightMenu_MB{
+        display: none;
+    }
+    .rightMenu{
+        display: block;
         position: fixed;
         z-index: 22;
         right: 0;
@@ -61,7 +121,6 @@
             }
         }
     }
-
 }
 @include custom-responsive("xxl"){
     .rightMenu{

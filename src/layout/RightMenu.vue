@@ -43,6 +43,28 @@ const top = () => {
         <div class="icon"><button id="top" @click="top"><img :src="'assets/icons/right-menu/TOP_icon.png'" alt="TOP"></button></div>
     </div>
   </div>
+  <div class="rightMenu_MB">
+    <ul>
+        <li>
+            <RouterLink to="/sponsor" class="link sponsor">
+            我要<br>認養
+            </RouterLink>
+            <a href="">
+                認養<br>清單
+            </a>
+        </li>
+        <li>
+            <a href="">
+                    我要<br>捐款
+                
+            </a>
+            <a href="">
+                捐款<br>清單
+            </a>
+        </li>
+    </ul>
+        <button id="top" @click="top"><img :src="'assets/icons/right-menu/TOP_icon.png'" alt="TOP"></button>
+  </div>
 </template>
 
 <style scoped lang="scss">

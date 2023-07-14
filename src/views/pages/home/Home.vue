@@ -1,5 +1,6 @@
 <script setup>
 import News from '@/views/sections/home/News.vue';
+import Test from '@/templates/Test.vue';
 
 </script>
 
@@ -7,6 +8,7 @@ import News from '@/views/sections/home/News.vue';
   <div>
 
 <News/>
+<Test/>
 
   </div>
 </template>

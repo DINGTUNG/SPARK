@@ -23,5 +23,5 @@
 
 
 <style scoped lang="scss">
-@import "@/assets/sass/pages/about";
+// @import "@/assets/sass/pages/about";
 </style>

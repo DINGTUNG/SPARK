@@ -7,6 +7,8 @@
     <RouterLink to="/test" class="link test">測試頁面</RouterLink>
 
     <button class="test_btn">呼叫狸貓</button>
+
+    <p>狸貓，星龜</p>
   </div>
 </template>
 

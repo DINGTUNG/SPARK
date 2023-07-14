@@ -16,8 +16,13 @@ const computed = computed(() => {
 })
 
 
-⭐data傳入圖片⭐
-imgUrl:'/src/assets/images/sponsor/sponsor-location/tp_spark.png'
+⭐傳入圖片(全部掛給vue)⭐
+
+//data()
+imgUrl:'assets/小狸貓可愛愛.png'
+
+//一般img標籤
+ <img :src="'assets/小狸貓可愛愛.png'" alt="">
 
 
 ⭐router⭐

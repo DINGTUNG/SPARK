@@ -3,165 +3,172 @@
 @import '@/assets/sass/base/box-shadow';
 @import '@/assets/sass/base/border-radius';
 
-div.wrap {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-div.container {
-  max-width: 1200px;
-  margin: auto;
-}
-
 div.banner {
   img {
     width: 100%;
   }
 }
 
-h1 {
-  @include h1_PC;
-  color: $primaryBrandBlue;
-  margin-left: 100px;
-}
 
-input.search-bar {
-  width: 300px;
-  height: 50px;
-  display: flex;
-  margin: 20px auto;
-}
-
-div.map {
-  margin: 50px auto;
-  width: 420px;
-  position: relative;
-  box-sizing: border-box;
-  div.branchs{
-    button{
-        position: absolute;
-        background-color: $secondaryLightGold2;
-        border: none;
-        width: 15px;
-        height: 15px;
-        padding: 0;
-        border-radius:50%;
-        box-shadow: 0 0 8px 5px $secondaryLightGold1;  
-        cursor: pointer;
-        &:hover{
-          background-color:$primaryAccentGold;
-          scale: 1.05; 
-        }
-      }
-    div.introduce{
-          border-radius:$br_PC; 
-          @include boxShadow_PC;
-          padding: 50px 40px 100px 40px;
-          background-color: $primaryBgWhite;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 950px;
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          &::after{
-            content: '';
-            width: 80%;
-            height: 1px;
-            background-color: $functionalLightGrey3;
-            position: absolute;
-            bottom: 55px;
-          }
-          h2{
-            @include h2_PC;
-            color: $primaryBrandBlue;
-            margin:10px 0 ;
-          }
-          i{
-            color:$primaryBrandBlue;
-          }
-          p{
-            @include h5_PC;
-            margin: 20px 0;
-          }
-          img{
-            width: 358px;
-            height: 358px;
-            border-radius: $br_PC;
-            object-fit: cover;
-            object-position: center;
-          }
-      }
-  }
-
-  img {
-    width: 100%;
-  }
-}
-
-.location {
-  position: relative;
-  display: flex;
-  width: 974px;
-  flex-wrap: wrap;
+div.container {
+  width: 100%;
   margin: auto;
-  justify-content: start;
-  gap: 50px;
-  align-content: space-around;
-
-  .card {
-    box-sizing: border-box;
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-flow: column;
-    width: 290px;
-    background-color: $primaryBrandBlue;
-    color: #fff;
-    @include h6_PC;
-    transition: .3s;
-
-    &:hover {
-      background-color: $secondaryLightBlue1;
-      color: $basicFontColor;
-      @include boxShadow_PC;
-      cursor: pointer;
+  div.main_body{
+    width: 62.5vw;
+    margin: auto;
+    h1 {
+      @include h1_PC;
+      color: $primaryBrandBlue;
+      margin-left: 10%;
     }
-
-    .tag {
-      @include h4_PC;
-      margin-bottom: 20px;
-    }
-
-    .name {
-      @include h2_PC;
+    input.search-bar {
+      width: 20%;
+      height: 50px;
       display: flex;
-      flex-flow: row;
-      justify-content: space-between;
-      align-items: center;
+      margin: 20px auto;
+    }
+    div.map {
+      margin: 5% auto;
+      width: 35%;
+      position: relative;
+      box-sizing: border-box;
+      div.branchs{
+        button{
+            position: absolute;
+            background-color: $secondaryLightGold2;
+            border: none;
+            width: 15px;
+            height: 15px;
+            padding: 0;
+            border-radius:50%;
+            box-shadow: 0 0 8px 5px $secondaryLightGold1;  
+            cursor: pointer;
+            &:hover{
+              background-color:$primaryAccentGold;
+              scale: 1.05; 
+            }
+          }
+        div.introduce{
+              border-radius:$br_PC; 
+              @include boxShadow_PC;
+              padding: 15% 10% 20% 10%;
+              background-color: $primaryBgWhite;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 85vh;
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+              &::after{
+                content: '';
+                width: 80%;
+                height: 1px;
+                background-color: $functionalLightGrey3;
+                position: absolute;
+                bottom: 55px;
+              }
+              h2{
+                @include h2_PC;
+                color: $primaryBrandBlue;
+              }
+              i{
+                color:$primaryBrandBlue;
+              }
+              p{
+                @include h5_PC;
+                margin: 8% 0;
+              }
+              div.pic{
+                width: 50%;
+                height: 50%;
+                  img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: $br_PC;
+                    object-fit: cover;
+                    object-position: center;
+                  }
+              }
 
-      .people {
+          }
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+    section.location {
+      position: relative;
+      display: flex;
+      width: 90%;
+      flex-wrap: wrap;
+      margin: auto;
+      gap: 2%;
+      justify-content: center;
+
+      .card {
+        box-sizing: border-box;
+        padding: 2%;
+        margin: 1%;
+        border-radius: 15px;
+        display: flex;
+        flex-flow: column;
+        width: 26%;
+        background-color: $primaryBrandBlue;
+        color: #fff;
         @include h6_PC;
+        transition: .3s;
 
-        span {
-          @include h5_PC;
-          padding: 0 5px;
+        &:hover {
+          background-color: $secondaryLightBlue1;
+          color: $basicFontColor;
+          @include boxShadow_PC;
+          cursor: pointer;
+        }
+
+        .tag {
+          @include h4_PC;
+          margin-bottom: 8%;
+        }
+
+        .name {
+          @include h2_PC;
+          display: flex;
+          flex-flow: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .people {
+            @include h6_PC;
+
+            span {
+              @include h5_PC;
+            }
+          }
         }
       }
+    }
+    div.deco-stars {
+      position: absolute;
+      top: -12%;
+      left: -22%;
+    }
+
+    div.deco-bigstar {
+      position: absolute;
+      bottom: 20%;
+      right: -28%;
     }
   }
 }
 
-div.deco-stars {
-  position: absolute;
-  top: -100px;
-  left: -230px;
-}
 
-div.deco-bigstar {
-  position: absolute;
-  bottom: 400px;
-  right: -350px;
-}
+
+
+
+
+
+
+

@@ -1,12 +1,7 @@
 @import "../base/color";
-@import"../base/fonts/fonts";
-@import"../base/fonts/fonts-mixin";
+@import '../base/fonts/fonts-mixin';
 
-* {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-}
+
 
 footer {
   background-image: url("@/assets/decorations/layout/footer.png");
@@ -16,62 +11,75 @@ footer {
     display: flex;
     justify-content: space-around;
 
-    //information
+    div.information {
 
-    div.logo {
+      div.logo {
+        margin-top: 114px;
+        margin-bottom: 58.44px;
 
-      margin-top: 114px;
-      margin-bottom: 58.44px;
+        img {
+          z-index: 999;
+          color: $primaryBrandWhite;
+        }
+
+      }
+
+      div.business_hours {
+
+        span.service_hours {}
+
+        span.time {}
+
+        span.date {}
+
+      }
 
 
-      img {
-        z-index: 999;
-        color: $primaryBrandWhite;
+      div.location {
+
+        span.headquarters {}
+
+        span.time {}
+
+        span.date {}
+
       }
 
     }
 
-    div.business_hours {
+    div.items {
+      div.list {
+        div.about {
 
-      span.service_hours{}
-      span.time{}
-      span.date{}
+          h5 {}
 
+          .link {}
+        }
+
+        div.service {
+
+          h5 {}
+
+          .link {}
+        }
+
+
+        div.result {
+
+          h5 {}
+
+          .link {}
+        }
+
+
+
+      }
     }
-
-    
-    div.location {
-
-      span.headquarters{}
-      span.time{}
-      span.date{}
-
-    }
-
-
-
-
-
 
 
   }
 
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
 
 
 
@@ -118,13 +126,13 @@ footer .items .list div {
 }
 
 footer .items div h5 {
-  @include h5_B_PC;
+  @include h5_B_PC();
   color: $primaryBrandWhite;
   margin-bottom: 21px;
 }
 
 footer .items .list div h6 {
-  @include h6_PC;
+  @include h6_PC();
   color: $primaryBrandWhite;
   margin-bottom: 5px;
 }
@@ -174,7 +182,3 @@ footer .footer_copyright .copyright {
   margin-right: 182px;
   color: $primaryBrandWhite;
 }
-
-
-
-

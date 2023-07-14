@@ -2,6 +2,36 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
+import { reactive } from 'vue';
+const footerItemList = reactive(
+  {
+    id: "about",
+    mainItem:
+    {
+      mainTitle: "認識星火",
+      mainRoutingName: "about"
+    },
+    subItem: [
+      {
+        subTitle: "星火緣起",
+        subRoutingName: "about"
+      }, {
+        subTitle: "星火願景",
+        subRoutingName: "about"
+      }, {
+        subTitle: "服務據點",
+        subRoutingName: "about"
+      }, {
+        subTitle: "認養/捐款Q&A",
+        subRoutingName: "about"
+      }
+    ]
+  }
+
+
+)
+
+
 </script>
 
 <template>
@@ -29,47 +59,81 @@ import { RouterLink } from 'vue-router'
 
       <div class="items">
         <div class="list">
-          <div class="about">
-            <h5>認識星火</h5>
-            <RouterLink to="/" class="link about"><h6>星火緣起</h6></RouterLink>
-            <RouterLink to="/" class="link about"><h6>星火願景</h6></RouterLink>
-            <RouterLink to="/" class="link about"><h6>服務據點</h6></RouterLink>
-            <RouterLink to="/" class="link about"><h6>認養/捐款Q&A</h6></RouterLink>
-          </div>
 
-          <div class="service">
-            <h5>服務據點</h5>
-            <RouterLink to="/" class="link service"><h6>服務內容</h6></RouterLink>
-          </div>
+          <div v-for="footerItem in footerItemList" :key="footerItem.id" :class="footerItem.id">
 
-          <div class="result">
-            <h5>成果佈告欄</h5>
-            <RouterLink to="/" class="link result"><h6>故事藝廊</h6></RouterLink>
-            <RouterLink to="/" class="link result"><h6>歷年報告</h6></RouterLink>
-            <RouterLink to="/" class="link result"><h6>服務里程碑</h6></RouterLink>
-          </div>
+            <h5 v-for="mainItem in footerItem" :key="mainItem.mainTitle">
+              <RouterLink :to="mainItem.mainRoutingName" :class="mainItem.mainRoutingName" class="link">
+                {{ mainItem.mainTitle }}
+              </RouterLink>
+            </h5>
 
-          <div class="sponsor">
-            <h5>認養計畫</h5>
-            <RouterLink to="/" class="link sponsor"><h6>認養據點</h6></RouterLink>
-            <RouterLink to="/" class="link sponsor"><h6>我要認養</h6></RouterLink>
-          </div>
+            <h6 v-for="subItem in footerItem" :key="subItem.subTitle">
+              <RouterLink :to="subItem.subRoutingName" :class="subItem.subRoutingName" class="link">
+                {{ subItem.subTitle }}
+              </RouterLink>
+            </h6>
 
-          <div class="donate">
-            <h5>捐款專案</h5>
-            <RouterLink to="/" class="link donate"><h6>捐款內容</h6></RouterLink>
-            <RouterLink to="/" class="link donate"><h6>捐款善心榜</h6></RouterLink>
-          </div>
-
-          <div class="contact">
-            <h5>聯絡星火</h5>
-            <RouterLink to="/" class="link contact"><h6>友會介紹</h6></RouterLink>
-            <RouterLink to="/" class="link contact"><h6>總部地點</h6></RouterLink>
+            
           </div>
         </div>
 
+
+        <div class="service">
+          <h5>服務據點</h5>
+          <RouterLink to="/" class="link service">
+            <h6>服務內容</h6>
+          </RouterLink>
+        </div>
+
+        <div class="result">
+          <h5>成果佈告欄</h5>
+          <RouterLink to="/" class="link result">
+            <h6>故事藝廊</h6>
+          </RouterLink>
+          <RouterLink to="/" class="link result">
+            <h6>歷年報告</h6>
+          </RouterLink>
+          <RouterLink to="/" class="link result">
+            <h6>服務里程碑</h6>
+          </RouterLink>
+        </div>
+
+        <div class="sponsor">
+          <h5>認養計畫</h5>
+          <RouterLink to="/" class="link sponsor">
+            <h6>認養據點</h6>
+          </RouterLink>
+          <RouterLink to="/" class="link sponsor">
+            <h6>我要認養</h6>
+          </RouterLink>
+        </div>
+
+        <div class="donate">
+          <h5>捐款專案</h5>
+          <RouterLink to="/" class="link donate">
+            <h6>捐款內容</h6>
+          </RouterLink>
+          <RouterLink to="/" class="link donate">
+            <h6>捐款善心榜</h6>
+          </RouterLink>
+        </div>
+
+        <div class="contact">
+          <h5>聯絡星火</h5>
+          <RouterLink to="/" class="link contact">
+            <h6>友會介紹</h6>
+          </RouterLink>
+          <RouterLink to="/" class="link contact">
+            <h6>總部地點</h6>
+          </RouterLink>
+        </div>
+
+
         <div class="newsletter">
-          <label for=""><h6>星火電子報</h6></label>
+          <label for="">
+            <h6>星火電子報</h6>
+          </label>
           <input type="email" name="" id="" placeholder="E-mail" style="border:1px solid rgba(255,255,255,0.45)">
         </div>
       </div>

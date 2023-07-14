@@ -13,15 +13,16 @@ div.body {
 }
 
 div.section_donate {
-
+position: relative;
     div.donate_content {
-        width: 996px;
+        width: 1200px;
         margin: auto;
 
         div.title_wrap {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 95px 0 70px;
 
             h1 {
                 @include h1_PC;
@@ -31,7 +32,7 @@ div.section_donate {
             }
 
             div.titleline {
-                width: 793px;
+                width: 78%;
                 height: 1px;
                 background-color: $primaryBrandBlue;
 
@@ -39,8 +40,15 @@ div.section_donate {
 
         }
 
+    }
+    .deco_flowering {
+        position: absolute;
+        left: 3%;
+        bottom: -6%;
 
-
+        img {
+            width: 90%;
+        }
     }
 
 }

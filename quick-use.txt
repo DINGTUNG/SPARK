@@ -1,0 +1,39 @@
+⭐掛載vue檔⭐
+import News from '@/views/sections/home/News.vue';
+
+⭐引入vue語法⭐(暫時不知道怎麼稱呼比較好)
+
+import { onBeforeMount, onBeforeUpdate, reactive, ref, watch, computed} from 'vue';
+
+const ref = ref()
+
+const reactive = reactive()
+
+const method = ()=>{}
+
+const computed = computed(() => {
+  return 三元運算子
+})
+
+
+⭐data傳入圖片⭐
+imgUrl:'/src/assets/images/sponsor/sponsor-location/tp_spark.png'
+
+
+⭐router⭐
+import { RouterLink } from 'vue-router'
+
+<template>
+
+ <RouterLink to="/about" class="link about">認識星火</RouterLink>
+
+<template/>
+
+
+
+⭐vue引入sass⭐
+@import "@/assets/sass/pages/home/news/single-news";
+
+
+⭐sass引入sass⭐
+@import"../base/fonts/fonts-mixin";

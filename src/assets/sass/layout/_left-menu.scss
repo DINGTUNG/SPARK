@@ -1,0 +1,33 @@
+@import "@/assets/sass/base/_color.scss";
+@import "@/assets/sass/base/fonts/_fonts.scss";
+@import "@/assets/sass/base/fonts/_fonts-mixin.scss";
+@import "@/assets/sass/base/_box-shadow.scss";
+
+div.left_menu{
+    margin-top: 759px;
+    width: 345px;
+    height: 400px;
+    border-radius: 0px 25px 25px 0px;
+    @include boxShadow_PC;
+    h2{
+        font-size: $h2Fs_PC;
+        color: $primaryBrandBlue;
+        font-weight: $fWBold;
+        padding: 59px 105px 31px 61px;
+    }
+    li{
+        list-style: none;
+        .link{
+            text-decoration: none;
+            h3{
+                width: 168px;
+                font-size: $h3Fs_PC;
+                color: $primaryBrandBlue;
+                font-weight: $fWRegular;
+                padding: 16px 0px 16px;
+                margin-left: 61px;
+                border-bottom: 1px solid $functionalLightGrey3;
+            }
+        }
+    }
+}

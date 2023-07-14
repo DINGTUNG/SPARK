@@ -1,37 +1,55 @@
-@import "../base/fonts/fonts";
-@import "../base/color";
+@import"../../../assets/sass/reset";
+@import "@/assets/sass/base/fonts/fonts-mixin";
+@import "@/assets/sass/base/color";
+@import"@/assets/sass/base/border-radius";
+@import"@/assets/sass/components/fucn-items/buttons/buttons-mixin";
 
-.login{
+.main_body {
+    height: 1000px;
+    display: flex;
 
-    h1{
-        color:$primaryBrandBlue;
-        font-size: $h1Fs_PC;
+    img {
+        width: 50%;
     }
-    label{
-        display: block;
-        color:$basicFontColor;
-        font-size: $h5Fs_PC;
+
+    .login {
+        width: 100%;
+        padding: 200px 100px;
+
+        h1 {
+            color: $primaryBrandBlue;
+            font-size: $h1Fs_PC;
+            padding: 50px 0px;
+        }
+
+        label {
+            display: block;
+            color: $basicFontColor;
+            font-size: $h5Fs_PC;
+        }
+
+        input {
+            font-size: $h1Fs_PC;
+            border: 1px solid $functionalLightGrey4;
+            border-radius: 10px;
+            margin: 0 0 20px 0;
+        }
+
+        .login_button {
+            @include regularGoldBtn_PC;
+            display: block;
+            background-color: $primaryAccentGold;
+            color: $primaryBrandWhite;
+            border-radius: $br_PC;
+            border: 1px solid $primaryBrandWhite;
+            font-size: $h5Fs_PC;
+            letter-spacing: 2px;
+            // padding: 5px;
+        }
     }
-    input{
-        font-size: $h1Fs_PC;
-        border: 1px solid $functionalLightGrey4;
-        border-radius: 10px;
-        margin: 0 0 20px 0;
+
+    .errorAccount {
+        color: red;
+        margin-top: 10px;
     }
-    .login{
-        display: block;
-        background-color:$primaryAccentGold;
-        color:$primaryBrandWhite;
-        border-radius: 100px;
-        border:1px solid $primaryBrandWhite;
-        width: 380px;
-        height: 45px;
-        font-size: $h5Fs_PC;
-        letter-spacing: 2px;
-        // padding: 5px;
-    }
-}
-.errorAccount{
-    color: red;
-    margin-top: 10px;
 }

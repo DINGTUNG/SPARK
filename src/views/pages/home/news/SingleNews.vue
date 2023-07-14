@@ -67,7 +67,7 @@ const news = reactive(
 </script>
 <template>
     <div class="title_img">
-      <img src="/public/assets/小狸貓可愛愛.png" alt="">
+      <img :src="assets/小狸貓可愛愛.png" alt="">
     </div>
     <div class="main_body">
       <div class="title_block">

@@ -3,14 +3,8 @@ import {
   createWebHistory
 } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
-import SponsorLocation from '../views/pages/sponsor/SponsorLocation.vue'
 import Home from '../views/pages/home/Home.vue'
-import SingleNews from '../views/pages/home/news/SingleNews.vue'
-import Donate from '../views/pages/donate/Donate.vue'
-import Login from '../views/pages/login/Login.vue'
-import Contact from '../views/pages/contact/Contact.vue'
-import Service from '../views/pages/service/Service.vue'
-import Sponsor from '../views/pages/sponsor/Sponsor.vue'
+
 
 
 const router = createRouter({
@@ -24,38 +18,44 @@ const router = createRouter({
     {
       path: '/sponsor-location',
       name: 'sponsor-location',
-      component: SponsorLocation
-      // component: () => import('../views/pages/sponsor/SponsorLocation.vue')
+      // component: SponsorLocation
+      component: () => import('../views/pages/sponsor/SponsorLocation.vue')
     },
     {
       path: '/donate',
       name: 'donate',
-      component: Donate
+      // component: Donate
+      component: () => import('../views/pages/donate/Donate.vue')
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      // component: Login
+      component: () => import('../views/pages/login/Login.vue')
     },
     {
       path: '/single-news',
       name: 'single-news',
-      component: SingleNews
+      // component: SingleNews
+      component: () => import('../views/pages/home/news/SingleNews.vue')
     },
     {
       path: '/contact',
       name: 'contact',
-      component: Contact
+      // component: Contact
+      component: () => import('../views/pages/contact/Contact.vue')
     },
     {
       path: '/service',
       name: 'service',
-      component: Service
+      // component: Service
+      component: () => import('../views/pages/service/Service.vue')
     },
     {
       path: '/sponsor',
       name: 'sponsor',
-      component: Sponsor
+      // component: Sponsor
+      component: () => import('../views/pages/sponsor/Sponsor.vue')
     },
   ]
 })

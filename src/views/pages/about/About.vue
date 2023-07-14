@@ -1,12 +1,12 @@
 <script setup>
 
-import { ref } from 'vue';
-const h1 = ref("認識星火")
+// import { ref } from 'vue';
+// const h1 = ref("認識星火")
 
 </script>
 
 <template>
-  <div class="about_countainer">
+  <div class="about_container">
     <div class="main_body">
       <div class="about_banner">
         <img :src="'assets/images/about/banner.jpg'" alt="認識星火封面">
@@ -19,21 +19,9 @@ const h1 = ref("認識星火")
 
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-  </div>
 </template>
 
 
 <style scoped lang="scss">
-@import "@/assets/sass/pages/about";
+// @import "@/assets/sass/pages/about";
 </style>

@@ -25,6 +25,7 @@ const router = createRouter({
       path: '/sponsor-location',
       name: 'sponsor-location',
       component: SponsorLocation
+      // component: () => import('../views/pages/sponsor/SponsorLocation.vue')
     },
     {
       path: '/donate',

@@ -3,24 +3,24 @@ import { reactive } from 'vue'
 const area = reactive(
   [
     {
-      index:1,
-      area:'台北星火',
-      count:1,
+      index: 1,
+      area: '台北星火',
+      count: 1,
     },
     {
-      index:2,
-      area:'台中星火',
-      count:1,
+      index: 2,
+      area: '台中星火',
+      count: 1,
     },
     {
-      index:3,
-      area:'台南星火',
-      count:1,
+      index: 3,
+      area: '台南星火',
+      count: 1,
     },
     {
-      index:4,
-      area:'台東星火',
-      count:1,
+      index: 4,
+      area: '台東星火',
+      count: 1,
     }
   ]
 )
@@ -29,8 +29,9 @@ const area = reactive(
 
 <template>
   <div class="title_img">
-    <img src="@/assets/images/sponsor/banner.png" alt="">
+    <img :src="'/assets/images/sponsor/banner.png'" alt="">
   </div>
+  <div class="container">
   <div class="main_body">
     <div class="title_block">
       <h1>我要認養</h1>
@@ -38,7 +39,7 @@ const area = reactive(
     </div>
     <div class="sponsor_block">
       <div class="sponsor_img">
-        <img src="@/assets/images/sponsor/introduction.jpg" alt="">
+        <img :src="'../../../../public/assets/images/sponsor/introduction.jpg'" alt="">
       </div>
       <div class="sponsor_text">
         <h4>認養兒童方案</h4>
@@ -50,26 +51,26 @@ const area = reactive(
       </div>
     </div>
     <div class="line"></div>
-    
     <div class="sponsor_area">
       <h3>認養地區</h3>
-      
-      <div class="area_card" v-for="(item, index) in area" :key="index">
-        <div class="card_title">
-          <h5>{{ item.area }}</h5>
+      <div class="sponsor_area_inner">
+        <div class="area_card" v-for="(item, index) in area" :key="index">
+          <div class="card_title">
+            <h5>{{ item.area }}</h5>
+          </div>
+          <div class="card_count">
+            <span @click="minus">-</span>
+            {{ item.count }}
+            <span @click="plus">+</span>
+          </div>
         </div>
-        <div class="card_count">
-          <button>-</button>
-        {{ item.count }}
-        <button>+</button>
-        </div>
-       
       </div>
     </div>
     <div class="button">
       <button class="back">回上頁</button>
       <button class="pay_list">加入認養清單</button>
     </div>
+  </div>
   </div>
 </template>
 <style scoped lang="scss">

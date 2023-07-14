@@ -10,38 +10,38 @@ div.banner{
         width: 100%;
     }
 }
-div.wrap{
+div.container{
     width: 100%;
-    div.container{
-        width: 65%;
+    div.main_body{
+        width: 62.5vw;
         margin: auto;
         position: relative;
         h1{
             @include h1_PC;
             color:$primaryBrandBlue;
-            margin-left: 100px;
+            margin-left: 8%;
         }
         section.project_deteils{
-            margin-top: 80px;
+            margin-top: 5%;
             div.top{
                 display: flex;
-                margin-bottom: 110px;
+                align-items: flex-start;
                 div.left-card{
                     position: relative;
-                    left: 70px;
-                    top: 175px;
+                    left: 5%;
+                    top: 16vh;
                     z-index: 22;
-                    width: 514px;
-                    height: 300px;
+                    width: 45%;
                     background-color: $functionalLightGrey1;
                     border-radius: $br_PC * 2;
-                    padding: 40px;
+                    padding: 5%;
                     box-sizing: border-box;
                     position: relative;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     gap: 10px;
+                    margin-bottom: 17%;
                 img{
                     position: absolute;
                     top: -22px;
@@ -59,28 +59,28 @@ div.wrap{
                     color:$basicFontColor ;
                     @include h6_PC;
                 }
-            }
-            div.right-pic{
-                position: relative;
-                right: 70px;
-                img{
-                    width: 680px;
-                    height: 400px;
-                    object-fit: cover;
-                    object-position: center;
-                    border-radius: $br_PC;
                 }
+                div.right-pic{
+                    position: relative;
+                    width: 60%;
+                    right: 5%;
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        border-radius: $br_PC;
+                    }
 
-            }
+                }
             }
             div.describe{
-                width: 960px;
-                margin: 0 auto 40px;
+                width: 85%;
+                margin: auto;
                 @include h6_PC;
             }
             div.illustrate{
-                width: 995px;
-                margin: auto;
+                width: 85%;
+                margin: 4% auto;
                 padding: 40px;
                 box-sizing: border-box;
                 border: 1px solid $functionalLightGrey4;

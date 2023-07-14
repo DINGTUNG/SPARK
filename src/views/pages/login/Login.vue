@@ -1,13 +1,5 @@
 <script setup>
-<<<<<<< HEAD
-  import { ref } from 'vue';
-  
-    const account = ref('');
-    const password = ref('');
-    const errorAccount = ref('');
-=======
 import { ref } from 'vue'
->>>>>>> bb0aea1d1bf373ee1e93e8aca1bfc8ab07faffc7
 
 const account = ref('');
 const password = ref('');
@@ -34,15 +26,6 @@ const login = () => {
 
 
 
-<<<<<<< HEAD
-      return {
-      account,
-      password,
-      showError,
-      login
-      };
-    };
-=======
 
 
   // return {
@@ -52,7 +35,6 @@ const login = () => {
   // login
   // };
 };
->>>>>>> bb0aea1d1bf373ee1e93e8aca1bfc8ab07faffc7
 
   
 </script>

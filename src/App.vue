@@ -16,14 +16,22 @@ import RightMenu from '@/layout/RightMenu.vue';
 
 <template>
   <Header />
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ChenXi
 
   <RightMenu />
   <!-- <LeftMenu /> -->
 
+<<<<<<< HEAD
   <RouterView />
   <!-- <Footer /> -->
+=======
+  <RightMenu />
+  <Footer />
+>>>>>>> ChenXi
 </template>
 
 <style scoped>

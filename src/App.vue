@@ -19,13 +19,11 @@ import RightMenu from '@/layout/RightMenu.vue';
 
 
 
-<<<<<<< HEAD
   <RightMenu />
   <LeftMenu />
 
   <RouterView />
   <!-- <Footer/> -->
-=======
   <RightMenu/>
 
   <!-- <LeftMenu /> -->
@@ -34,7 +32,6 @@ import RightMenu from '@/layout/RightMenu.vue';
   <!-- <Footer /> -->
 
   <RouterView/>
->>>>>>> a5e7a25c891dd73b2c67b0bbe238bb688142d6ad
 </template>
 
 <style scoped>

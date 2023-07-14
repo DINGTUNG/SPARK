@@ -5,7 +5,7 @@ const article = reactive(
   [
     {
       index: 1,
-      img: "/assets/小狸貓可愛愛.png",
+      img: "assets/小狸貓可愛愛.png",
       // img: "assets/小狸貓可愛愛.png",
       h5: '親愛的星火兒童認養協會的家人們：',
       article: '我們非常興奮地宣布，星火兒童認養協會迎來了30週年的重要里程碑!在這個特殊的時刻，我們想要向所有支持者、志願者、捐助者和合作夥伴表達最深深的感謝之情。',
@@ -67,7 +67,7 @@ const news = reactive(
 </script>
 <template>
     <div class="title_img">
-      <img src="@/assets/images/home/news/single-news-page/banner.png" alt="">
+      <img src="assets/小狸貓可愛愛.png" alt="">
     </div>
     <div class="main_body">
       <div class="title_block">

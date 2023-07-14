@@ -9,7 +9,7 @@ import { RouterView } from 'vue-router'
 
 import Header from '@/layout/Header.vue';
 // import Footer from '@/layout/Footer.vue';
-// import LeftMenu from '@/layout/LeftMenu.vue';
+import LeftMenu from '@/layout/LeftMenu.vue';
 import RightMenu from '@/layout/RightMenu.vue';
 
 </script>
@@ -19,6 +19,13 @@ import RightMenu from '@/layout/RightMenu.vue';
 
 
 
+<<<<<<< HEAD
+  <RightMenu />
+  <LeftMenu />
+
+  <RouterView />
+  <!-- <Footer/> -->
+=======
   <RightMenu/>
 
   <!-- <LeftMenu /> -->
@@ -27,6 +34,7 @@ import RightMenu from '@/layout/RightMenu.vue';
   <!-- <Footer /> -->
 
   <RouterView/>
+>>>>>>> a5e7a25c891dd73b2c67b0bbe238bb688142d6ad
 </template>
 
 <style scoped>

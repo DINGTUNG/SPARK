@@ -18,7 +18,7 @@ const computed = computed(() => {
 
 ⭐傳入圖片(全部掛給vue)⭐
 
-//data()
+//reactive()
 imgUrl:'assets/小狸貓可愛愛.png'
 
 //一般img標籤

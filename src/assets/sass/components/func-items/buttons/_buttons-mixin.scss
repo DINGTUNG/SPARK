@@ -13,45 +13,63 @@
 //regular
 @mixin regularBlueBtn_PC {
   @include regularBtn_PC;
-   color: $btnWhite;
-   background-color: $btnBlue;
-};
+  background-color: $btnBlue;
+  color: $btnWhite;
+  border: 0;
+}
+
+;
 
 //small
 @mixin smallBlueBtn_PC {
   @include smallBtn_PC;
-   color: $btnWhite;
-   background-color: $btnBlue;
-};
+  background-color: $btnBlue;
+  color: $btnWhite;
+  border: 0;
+}
+
+;
 
 
 //⚪
 //regular
 @mixin regularWhiteBtn_PC {
   @include regularBtn_PC;
-  color: $btnWhite;
-  border:1px solid $btnBlue;
-};
+  background-color: $btnWhite;
+  color: $btnBlue;
+  border: 1px solid $btnBlue;
+}
+
+;
 
 //small
 @mixin smallWhiteBtn_PC {
   @include smallBtn_PC;
-  color: $btnWhite;
-  border:1px solid $btnBlue;
-};
+  background-color: $btnWhite;
+  color: $btnBlue;
+  border: 1px solid $btnBlue;
+}
+
+;
 
 
 //🟡
 //regular
 @mixin regularGoldBtn_PC {
   @include regularBtn_PC;
-  color: $btnGold;
-};
+  background-color: $btnGold;
+  color: $btnWhite;
+  border: 0;
+}
+
+;
 
 //small
 @mixin smallGoldBtn_PC {
   @include smallBtn_PC;
-  color: $btnGold;
+  background-color: $btnGold;
+  color: $btnWhite;
+  border: 0;
 }
 
 //---------------------------------------------------------------------------------------
@@ -61,41 +79,63 @@
 //regular
 @mixin regularBlueBtn_MB {
   @include regularBtn_MB;
-  color: $btnBlue;
-};
+  background-color: $btnBlue;
+  color: $btnWhite;
+  border: 0;
+}
+
+;
 
 //small
 @mixin smallBlueBtn_MB {
   @include smallBtn_MB;
-  color: $btnBlue;
-};
+  background-color: $btnBlue;
+  color: $btnWhite;
+  border: 0;
+}
+
+;
 
 
 //⚪
 //regular
 @mixin regularWhiteBtn_MB {
   @include regularBtn_MB;
-  color: $btnWhite;
-  border:1px solid $btnBlue;
-};
+  background-color: $btnWhite;
+  color: $btnBlue;
+  border: 1px solid $btnBlue;
+}
+
+;
 
 //small
 @mixin smallWhiteBtn_MB {
   @include smallBtn_MB;
-  color: $btnWhite;
-  border:1px solid $btnBlue; 
-};
+  background-color: $btnWhite;
+  color: $btnBlue;
+  border: 1px solid $btnBlue;
+}
+
+;
 
 
 //🟡
 //regular
 @mixin regularGoldBtn_MB {
   @include regularBtn_MB;
-  color: $btnGold;
-};
+  background-color: $btnGold;
+  color: $btnWhite;
+  border: 0;
+}
+
+;
 
 //small
 @mixin smallGoldBtn_MB {
   @include smallBtn_MB;
-  color: $btnGold;
-};
+  background-color: $btnGold;
+  color: $btnWhite;
+  border: 0;
+}
+
+;

@@ -1,43 +1,43 @@
-@import "../base/color";
-@import"../base/fonts/fonts";
+@import "@/assets/sass/base/color";
+@import"@/assets/sass/base/fonts/fonts";
 
-header{
-    width: fit-content;
-    margin: 60px 0 0 82px;
-    display: flex;
-    gap: 300px;
-    position: fixed;
-    top:0;
-    z-index: 99;
-    div.wrapper{
-        nav{
-            width: 1096px;
-            padding: 15px 0px 15px 30px;
-            box-sizing: border-box;
-            border-radius: 100px;
-            background-color: $functionalLightGrey1;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
+header {
+  width: fit-content;
+  margin: 60px 0 0 82px;
+  display: flex;
+  gap: 300px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
 
-            .link{
-                text-decoration: none;
-                color: $primaryBrandBlue; 
-                font-size: 20px;
-                font-weight: $fWBold; 
-            }
-            
-            .login{
-                background-color: $secondaryLightGold2;
-                border-radius: 100px;
-                padding: 15px 40px;
-                box-sizing: border-box;
-            }
-        }
+  div.wrapper {
+    nav {
+      width: 1096px;
+      padding: 15px 0px 15px 30px;
+      box-sizing: border-box;
+      border-radius: 100px;
+      background-color: $functionalLightGrey1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .link {
+        text-decoration: none;
+        color: $primaryBrandBlue;
+        font-size: 20px;
+        font-weight: $fWBold;
+      }
+
+      .login {
+        background-color: $secondaryLightGold2;
+        border-radius: 100px;
+        padding: 15px 40px;
+        box-sizing: border-box;
+      }
     }
+  }
 }
 
-
-
-
-
+img {
+  width: 360px
+}

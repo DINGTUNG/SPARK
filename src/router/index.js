@@ -3,13 +3,15 @@ import {
   createWebHistory
 } from 'vue-router'
 
+import Home from '../views/pages/home/Home.vue';
+
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
   routes: [{
       path: '/',
       name: 'home',
-      component: () => import('../views/pages/home/Home.vue')
+      component: Home,
     },
     {
       path: '/single-news',
@@ -60,7 +62,7 @@ const router = createRouter({
       // component: Contact
       component: () => import('../views/pages/contact/Contact.vue')
     },
-   
+
     {
       path: '/login',
       name: 'login',
@@ -70,7 +72,7 @@ const router = createRouter({
     {
       path: '/test',
       name: 'test',
-      // component: Login
+      // component: Test
       component: () => import('../templates/Test.vue')
     },
   ]

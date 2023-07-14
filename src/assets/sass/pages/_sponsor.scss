@@ -120,7 +120,7 @@ div.container {
         .button {
             @include flex_hm();
 
-            .back {
+            button.back {
                 @include smallBlueBtn_PC;
                 border: 1px transparent;
                 margin: 0 10px;
@@ -129,12 +129,16 @@ div.container {
 
             }
 
-            .pay_list {
+            button.pay_list {
                 color: $primaryBgBlue !important;
                 @include smallWhiteBtn_PC;
                 border: 1px transparent;
                 margin: 0 10px;
                 @include h5_MB;
+            }
+            div.icon_img{
+               position: relative;
+               left: 300px;
             }
         }
     }

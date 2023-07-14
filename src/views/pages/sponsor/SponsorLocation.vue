@@ -88,7 +88,7 @@
     {
       area: '東區',
       name: '台東',
-      people: '1,763'
+      people: '1,893'
     },
   ])
   let locationDisplay = reactive([])
@@ -146,10 +146,10 @@
 
   const getButtonStyle = (index) => {
       const positions = [
-        { top: '50px', right: '70px' },
-        { top: '160px', left: '220px' },
-        { bottom: '180px', left: '150px' },
-        { bottom: '190px', right: '120px' }
+        { top: '10%', right: '18%' },
+        { top: '28%', left: '52%' },
+        { bottom: '26%', left: '38%' },
+        { bottom: '30%', right: '30%' }
       ];
       return positions[index];
     }
@@ -174,8 +174,8 @@
   <div class="banner">
     <img :src="'assets/images/sponsor/sponsor-location/banner.png'" alt="bannerImage">
   </div>
-  <div class="wrap">
-    <div class="container">
+  <div class="container">
+    <div class="main_body">
       <h1>{{ h1 }}</h1>
       <div class="map">
         <img :src="'assets/images/sponsor/sponsor-location/taiwan.png'" alt="taiwanMap">
@@ -201,7 +201,7 @@
           <div class="tag">{{ item.area }}</div>
           <div class="name">
             {{ item.name }}
-            <div class="people">扶養<span>{{ item.people }}</span>人</div>
+            <div class="people">扶養&nbsp;<span>{{ item.people }}</span>&nbsp;人</div>
           </div>
         </div>
         <div class="deco-stars">

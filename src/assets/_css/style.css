@@ -152,7 +152,7 @@ header div.wrapper nav .login {
 }
 
 footer {
-  background-image: url("@/assets/decorations/layout/footer.png");
+  background-image: url("/assets/decorations/layout/footer.png");
 }
 footer div.footer_content {
   display: flex;

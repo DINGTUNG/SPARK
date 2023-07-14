@@ -172,13 +172,13 @@
 </script>
 <template>
   <div class="banner">
-    <img :src="assets/images/sponsor/sponsor-location/banner.png" alt="bannerImage">
+    <img :src="'assets/images/sponsor/sponsor-location/banner.png'" alt="bannerImage">
   </div>
   <div class="wrap">
     <div class="container">
       <h1>{{ h1 }}</h1>
       <div class="map">
-        <img :src="assets/images/sponsor/sponsor-location/taiwan.png" alt="taiwanMap">
+        <img :src="'assets/images/sponsor/sponsor-location/taiwan.png'" alt="taiwanMap">
         <div class="branchs" ref="container" @click="handleClickOutside">
 
           <button v-for="(branch, index) in branches" :key="branch.id" @click="selectBranch(index)" :style=getButtonStyle(index)>
@@ -205,10 +205,10 @@
           </div>
         </div>
         <div class="deco-stars">
-          <img :src="assets/decorations/illustration/golden_stars.png" alt="星星裝飾">
+          <img :src="'assets/decorations/illustration/golden_stars.png'" alt="星星裝飾">
         </div>
         <div class="deco-bigstar">
-          <img :src="assets/characters/star/star_superman.svg" alt="星星裝飾">
+          <img :src="'assets/characters/star/star_superman.svg'" alt="星星裝飾">
         </div>
       </section>
     </div>

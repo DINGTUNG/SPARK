@@ -29,7 +29,7 @@ const area = reactive(
 
 <template>
   <div class="title_img">
-    <img :src="assets/images/sponsor/banner.png" alt="">
+    <img :src="'assets/images/sponsor/banner.png'" alt="">
   </div>
   <div class="container">
   <div class="main_body">
@@ -39,7 +39,7 @@ const area = reactive(
     </div>
     <div class="sponsor_block">
       <div class="sponsor_img">
-        <img :src="assets/images/sponsor/introduction.jpg" alt="">
+        <img :src="'assets/images/sponsor/introduction.jpg'" alt="">
       </div>
       <div class="sponsor_text">
         <h4>認養兒童方案</h4>

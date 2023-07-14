@@ -33,7 +33,7 @@ const contact = reactive(
 
 <template>
   <div class="title_img">
-    <img :src="assets/images/contact/banner.png" alt="">
+    <img :src="'assets/images/contact/banner.png'" alt="">
   </div>
   <div class="main_body">
     <div class="title_block">

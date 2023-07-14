@@ -8,19 +8,20 @@ import { RouterView } from 'vue-router'
 // provide('getImgSrc', getImgSrc)
 
 import Header from '@/layout/Header.vue';
-// import Footer from '@/layout/Footer.vue';
+import Footer from '@/layout/Footer.vue';
 import LeftMenu from '@/layout/LeftMenu.vue';
 import RightMenu from '@/layout/RightMenu.vue';
 
 </script>
 
 <template>
-
-  <Header/>
+  <Header />
   <RightMenu />
   <LeftMenu />
-  <!-- <Footer /> -->
-  <RouterView/>
+
+  
+  <RouterView />
+  <Footer />
 
 </template>
 

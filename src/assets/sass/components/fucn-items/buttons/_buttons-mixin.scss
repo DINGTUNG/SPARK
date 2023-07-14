@@ -30,12 +30,14 @@
 @mixin regularWhiteBtn_PC {
   @include regularBtn_PC;
   color: $btnWhite;
+  border:1px solid $btnBlue;
 };
 
 //small
 @mixin smallWhiteBtn_PC {
   @include smallBtn_PC;
   color: $btnWhite;
+  border:1px solid $btnBlue;
 };
 
 
@@ -74,12 +76,14 @@
 @mixin regularWhiteBtn_MB {
   @include regularBtn_MB;
   color: $btnWhite;
+  border:1px solid $btnBlue;
 };
 
 //small
 @mixin smallWhiteBtn_MB {
   @include smallBtn_MB;
   color: $btnWhite;
+  border:1px solid $btnBlue; 
 };
 
 

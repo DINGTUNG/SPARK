@@ -15,15 +15,13 @@ import RightMenu from '@/layout/RightMenu.vue';
 </script>
 
 <template>
-  <Header />
 
-
-
+  <Header/>
   <RightMenu />
   <LeftMenu />
+  <!-- <Footer /> -->
+  <RouterView/>
 
-  <RouterView />
-  <!-- <Footer/> -->
 </template>
 
 <style scoped>

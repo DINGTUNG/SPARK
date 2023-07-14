@@ -9,34 +9,61 @@ const top = () => {
     <ul>
         <li>
           <RouterLink to="/sponsor" class="link sponsor">
-            <img :src="'assets/icons/right-menu/sponsor_icon.png'" alt="領養icon">
+            <div class="icon"><img :src="'assets/icons/right-menu/sponsor_icon.png'" alt="領養icon"></div>
             我要認養</RouterLink>
         </li>
         <li>
             <a href="">
-                <img :src="'assets/icons/right-menu/sponsor_list_icon.png'" alt="領養清單icon">
+                <div class="icon"><img :src="'assets/icons/right-menu/sponsor_list_icon.png'" alt="領養清單icon"></div>
                 認養清單
             </a>
         </li>
         <li>
             <a href="">
-                <img :src="'assets/icons/right-menu/donate_icon.png'" alt="捐款icon">
-                我要捐款
+                <div class="icon">
+                    <img :src="'assets/icons/right-menu/donate_icon.png'" alt="捐款icon">
+                </div>
+                    我要捐款
+                
             </a>
         </li>
         <li>
             <a href="">
-                <img :src="'assets/icons/right-menu/donate_list_icon.png'
-                " alt="捐款清單icon">
+                <div class="icon">
+                    <img :src="'assets/icons/right-menu/donate_list_icon.png'
+                    " alt="捐款清單icon">
+                </div>
                 捐款清單
             </a>
         </li>
     </ul>
     <div class="other">
-        <img :src="'assets/icons/right-menu/letter.png'" alt="感謝信">
-        <img :src="'assets/icons/right-menu/message.png'" alt="message">
-        <button id="top" @click="top"><img :src="'assets/icons/right-menu/TOP_icon.png'" alt="TOP"></button>
+        <div class="icon"><img :src="'assets/icons/right-menu/letter.png'" alt="感謝信"></div>
+        <div class="icon"><img :src="'assets/icons/right-menu/message.png'" alt="message"></div>
+        <div class="icon"><button id="top" @click="top"><img :src="'assets/icons/right-menu/TOP_icon.png'" alt="TOP"></button></div>
     </div>
+  </div>
+  <div class="rightMenu_MB">
+    <ul>
+        <li>
+            <RouterLink to="/sponsor" class="link sponsor">
+            我要<br>認養
+            </RouterLink>
+            <a href="">
+                認養<br>清單
+            </a>
+        </li>
+        <li>
+            <a href="">
+                    我要<br>捐款
+                
+            </a>
+            <a href="">
+                捐款<br>清單
+            </a>
+        </li>
+    </ul>
+        <button id="top" @click="top"><img :src="'assets/icons/right-menu/TOP_icon.png'" alt="TOP"></button>
   </div>
 </template>
 

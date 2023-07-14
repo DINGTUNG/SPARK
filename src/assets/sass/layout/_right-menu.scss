@@ -1,53 +1,119 @@
 @import '@/assets/sass/base/color';
 @import '@/assets/sass/base/fonts/fonts-mixin';
 @import '@/assets/sass/base/border-radius';
+@import '@/assets/sass/base/rwd/breakpoints';
 
+@include custom-responsive("xs"){
     .rightMenu{
+        display: none;
+    }
+    .rightMenu_MB{
+        width: 90vw;
+        position: fixed;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%);
+        #top{
+            background: none;
+            border: none;
+            cursor: pointer;
+            position:absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            img{
+                width: 110%;
+            }
+        }
+        ul{
+            margin: auto;
+            display: flex;
+            padding: 3%;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $primaryBrandBlue; 
+            border-radius: $br_MB;
+            li{ 
+                display: flex;
+                width: 38%;
+                justify-content: space-around;
+                position: relative;
+                a{
+                    color: $primaryBgWhite;
+                    text-decoration: none;
+                }
+
+            }
+        }
+        a + a::before{
+            content: '';
+            width: .5px;
+            height: 80%;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+}
+@include custom-responsive("md"){
+    .rightMenu_MB{
+        display: none;
+    }
+    .rightMenu{
+        display: block;
         position: fixed;
         z-index: 22;
         right: 0;
         top: 55%;
         transform: translateY(-50%);
+        width: 7vw;
         ul{
             background-color: $secondaryLightBlue3;
             list-style: none;
             color: #fff;
             border-radius: 20px 0  0 20px;
-            @include h6_PC;
-            cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5%;
-
-            li{            
-                padding: 10%;
+            li{     
                 a{
                     text-decoration: none;                
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    gap: 10px;
-                    @include h5_B_PC;
+                    @include h6_PC;
                     color: $primaryBgWhite;
                 }
-                img{
-                    max-width: 72px;
-                    &:hover{
-                        scale: 1.1;
+                div.icon{
+                    width: 10%;
+                    img{
+                        width: 100%;
+                        &:hover{
+                            scale: 1.1;
                     }
                 }
+                }
+
             }
         }
-        .other{
+        div.other{
             display: flex;
             flex-direction: column;
-            width: 110px;
-            margin: 20px auto 0;
+            margin: 2vh auto 0;
             align-items: center;
-            gap: 15px;
+            gap: 1vh;
             cursor: pointer;
+            .icon{
+                width: 50%;
+                img{
+                    width: 100%;
+                }
+            }
             #top{
                 background: none;
                 border: none;
@@ -55,3 +121,41 @@
             }
         }
     }
+}
+@include custom-responsive("xxl"){
+    .rightMenu{
+        width: 6vw;
+        ul{     
+            padding: 0;   
+            li{     
+                padding: 8%;
+                width: 100%;
+                div.icon{
+                    width: 60%;
+                    img{
+                        width: 100%;
+                        &:hover{
+                            scale: 1.1;
+                    }
+                }
+                }
+
+            }
+        }
+        div.other{
+            margin: 2vh auto 0;
+            gap: 1vh;
+            .icon{
+                width: 50%;
+                img{
+                    width: 100%;
+                }
+                button{
+                    width: 100%;
+                }
+            }
+        }
+}
+    
+}
+    

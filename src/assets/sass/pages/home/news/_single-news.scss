@@ -232,11 +232,13 @@ div.container {
                         h5 {
                             color: $functionalLightGrey4;
 
-                            @include custom-responsive("sm md ") {
+                            @include custom-responsive("xs sm ") {
+                                padding: 10px 0;
                                 @include h5_MB;
                             }
 
                             @include custom-responsive("xl xxl") {
+                                padding: 0;
                                 @include h5_PC;
                             }
 

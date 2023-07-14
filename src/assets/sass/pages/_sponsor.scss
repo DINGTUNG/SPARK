@@ -1,9 +1,16 @@
-@import'../../sass/reset';
-@import'../../sass/base/border-radius';
-@import'../../sass/base/color';
-@import'../../sass/base/fonts/fonts-mixin';
-@import'../../sass/base/flex/flex';
-@import'../../sass/components/func-items/buttons/buttons-mixin';
+@import'@/assets/sass/reset';
+@import'@/assets/sass/base/border-radius';
+@import'@/assets/sass/base/color';
+@import'@/assets/sass/base/fonts/fonts-mixin';
+@import'@/assets/sass/base/flex/flex';
+@import'@/assets/sass/components/func-items/buttons/buttons-mixin';
+@import'@/assets/sass/base/rwd/breakpoints';
+
+div.title_img {
+    img {
+        max-width: 100%;
+    }
+}
 
 div.container {
     width: 100%;
@@ -15,49 +22,108 @@ div.container {
         div.title_block {
             display: flex;
 
+            @include custom-responsive(" xs sm") {
+                justify-content: center;
+            }
+
+            @include custom-responsive(" xl xxl") {
+                justify-content: start;
+            }
+
+
             h1 {
                 width: auto;
-                @include h1_PC;
                 color: $primaryBgBlue;
+
+                @include custom-responsive(" xs sm") {
+                    @include h1_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include h1_PC;
+                }
+
             }
 
             div.top_line {
-                display: flex;
-                align-self: center;
-                width: 70%;
-                margin-left: 40px;
-                height: 1px;
-                border-bottom: 1px solid $functionalLightGrey4;
 
+
+                @include custom-responsive(" xs sm") {
+                    display: none;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include h1_PC;
+                    display: flex;
+                    align-self: center;
+                    width: 70%;
+                    margin-left: 40px;
+                    height: 1px;
+                    border-bottom: 1px solid $functionalLightGrey4;
+                }
             }
-
         }
 
         div.sponsor_block {
-            display: flex;
             padding: 50px 0;
+
+            @include custom-responsive(" xs sm") {
+                @include h1_MB;
+            }
+
+            @include custom-responsive(" xl xxl") {
+                display: flex;
+            }
 
             .sponsor_img {
                 img {
-                    border-radius: $br_PC;
-                    width: 500px;
-                    //這裡有問題
+                    @include custom-responsive(" xs sm") {
+                        width: 100%;
+                        border-radius: $br_MB;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        border-radius: $br_PC;
+                        width: 500px;
+                    }
                 }
             }
 
             .sponsor_text {
-                width: 40%;
-                padding-left: 50px;
-                display: flex;
-                flex-direction: column;
+
+                @include custom-responsive(" xs sm") {
+                    width: 100%;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    width: 40%;
+                    padding-left: 50px;
+                    display: flex;
+                    flex-direction: column;
+                }
 
                 h4 {
-                    @include h4_B_PC;
+
+                    @include custom-responsive(" xs sm") {
+                        padding: 10px;
+                        @include h4_B_MB;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        @include h4_B_PC;
+                    }
                 }
 
                 p {
-                    @include h6_PC;
                     flex-grow: 1;
+
+                    @include custom-responsive(" xs sm") {
+                        @include h6_MB;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        @include h6_PC;
+                    }
                 }
 
                 span.price {
@@ -77,13 +143,22 @@ div.container {
             padding: 20px 0 100px;
 
             h3 {
-                padding: 0 0 20px;
-                @include h3_PC;
                 color: $primaryBgBlue;
+                @include custom-responsive(" xs sm") {
+                    @include h6_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include h3_PC;
+                }
+                padding: 0 0 20px;
+                
+                
             }
 
             div.sponsor_area_inner {
                 display: flex;
+                flex-wrap: wrap;
 
                 div.area_card {
                     @include flex_hm();
@@ -136,9 +211,15 @@ div.container {
                 margin: 0 10px;
                 @include h5_MB;
             }
-            div.icon_img{
-               position: relative;
-               left: 300px;
+
+            div.icon_img {
+                position: relative;
+                left: 300px;
+
+                @include custom-responsive(" xs sm") {
+                    display: none;
+                }
+
             }
         }
     }

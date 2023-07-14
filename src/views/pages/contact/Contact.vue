@@ -33,9 +33,10 @@ const contact = reactive(
 
 <template>
   <div class="title_img">
-    <img :src="'assets/images/contact/banner.png'" alt="">
+    <img :src="'assets/images/contact/banner.png.png'" alt="">
   </div>
-  <div class="main_body">
+  <div class="container">
+    <div class="main_body">
     <div class="title_block">
       <h1>星火之友</h1>
       <div class="top_line"></div>
@@ -61,6 +62,9 @@ const contact = reactive(
       </div>
     </div>
   </div>
+
+  </div>
+ 
 </template>
 
 <style scoped lang="scss">

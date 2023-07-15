@@ -26,11 +26,14 @@ $font-family: 'Noto-Sans';
 @import 'base/fonts/fonts-mixin';
 @import 'base/border-radius';
 @import 'base/box-shadow';
+@import 'base/flex';
+@import 'base/rwd/_breakpoints';
 
 //---------------------------------------------------------------------------------------
 /* ⭐components⭐ */
 
 @import 'components/func-items/buttons/buttons-mixin';
+@import 'components/func-items/table/table';
 
 
 //---------------------------------------------------------------------------------------

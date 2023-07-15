@@ -5,85 +5,73 @@
 @import '@/assets/sass/base/rwd/breakpoints';
 
 
-div.banner {
-  img {
-    width: 100%;
-  }
-}
-
 @include custom-responsive('xs') {
+  div.banner {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
   div.container {
     width: 100%;
     margin: auto;
+    overflow-x: hidden;
 
     div.main_body {
       width: 100vw;
       margin: auto;
-
+      position: relative;
       h1 {
-        @include h1_PC;
+        @include h1_MB;
         color: $primaryBrandBlue;
-        margin-left: 10%;
-      }
-
-      input.search-bar {
-        width: 20%;
-        height: 50px;
-        display: flex;
-        margin: 20px auto;
+        margin: 0 auto 22%;
+        width: fit-content;
       }
 
       div.map {
-        margin: 5% auto;
-        width: 35%;
+        margin: 10% auto;
+        width: 60%;
         position: relative;
         box-sizing: border-box;
 
         select.filterDistrict {
           position: absolute;
-          top: -10%;
-          right: -50%;
+          top: -6vh;
+          left: 50%;
+          transform: translate(-50%, -50%);
           display: inline-block;
-          width: 30%;
+          width: 18vw;
           padding: 5%;
-          @include h5_PC;
-          border-radius: $br_PC;
+          @include h5_MB;
+          border-radius: $br_MB;
           background-color: $primaryBrandBlue;
           outline: none;
           color: $primaryBrandWhite;
+          appearance: none;
+          text-align: center;
+          cursor: pointer;
         }
 
         div.branchs {
           button {
-            position: absolute;
-            background-color: $secondaryLightGold2;
-            border: none;
-            width: 15px;
-            height: 15px;
-            padding: 0;
-            border-radius: 50%;
-            box-shadow: 0 0 8px 5px $secondaryLightGold1;
-            cursor: pointer;
-
-            &:hover {
-              background-color: $primaryAccentGold;
-              scale: 1.05;
-            }
+            display: none;
           }
 
           div.branch-details {
-            border-radius: $br_PC;
+            border-radius: $br_MB;
             @include boxShadow_PC;
             padding: 15% 10% 20% 10%;
             background-color: $primaryBgWhite;
             position: absolute;
+            z-index: 10;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 85vh;
+            width: 70vw;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            justify-content: space-around;
+            justify-content: center;
 
             &::after {
               content: '';
@@ -91,11 +79,11 @@ div.banner {
               height: 1px;
               background-color: $functionalLightGrey3;
               position: absolute;
-              bottom: 55px;
+              bottom: 6%;
             }
 
             h2 {
-              @include h2_PC;
+              @include h2_MB;
               color: $primaryBrandBlue;
             }
 
@@ -104,13 +92,13 @@ div.banner {
             }
 
             p {
-              @include h5_PC;
+              @include h5_MB;
               margin: 8% 0;
             }
 
             div.pic {
-              width: 50%;
-              height: 50%;
+              width: 60%;
+              height: 60%;
 
               img {
                 width: 100%;
@@ -137,30 +125,25 @@ div.banner {
         margin: auto;
         gap: 2%;
         justify-content: center;
-
         .card {
+          position: relative;
+          z-index: 2;
           box-sizing: border-box;
-          padding: 2%;
-          margin: 1%;
+          padding: 5%;
+          margin: 2%;
           border-radius: 15px;
           display: flex;
-          flex-flow: column;
-          width: 26%;
+          flex-direction: column;
+          width: 70%;
           background-color: $primaryBrandBlue;
           color: #fff;
           @include h6_PC;
           transition: .3s;
-
-          &:hover {
-            background-color: $secondaryLightBlue1;
-            color: $basicFontColor;
-            @include boxShadow_PC;
-            cursor: pointer;
-          }
+          justify-content: center;
 
           .tag {
             @include h4_PC;
-            margin-bottom: 8%;
+            margin-bottom: 4%;
           }
 
           .name {
@@ -182,199 +165,154 @@ div.banner {
       }
 
       div.deco-stars {
-        position: absolute;
-        top: -12%;
-        left: -22%;
+        display: none;
       }
 
       div.deco-bigstar {
-        position: absolute;
-        bottom: 20%;
-        right: -28%;
+        display: none;
       }
     }
   }
 }
 
-div.container {
-  width: 100%;
-  margin: auto;
-
-  div.main_body {
-    width: 62.5vw;
-    margin: auto;
-
-    h1 {
-      @include h1_PC;
-      color: $primaryBrandBlue;
-      margin-left: 10%;
-    }
-
-    input.search-bar {
-      width: 20%;
-      height: 50px;
-      display: flex;
-      margin: 20px auto;
-    }
-
-    div.map {
-      margin: 5% auto;
-      width: 35%;
-      position: relative;
-      box-sizing: border-box;
-
-      select.filterDistrict {
-        position: absolute;
-        top: -10%;
-        right: -50%;
-        display: inline-block;
-        width: 30%;
-        padding: 5%;
-        @include h5_PC;
-        border-radius: $br_PC;
-        background-color: $primaryBrandBlue;
-        outline: none;
-        color: $primaryBrandWhite;
+@include custom-responsive('md'){
+  div.container {
+    overflow: hidden;
+    div.main_body{
+      h1{
+        margin-left:20%;
       }
-
-      div.branchs {
-        button {
-          position: absolute;
-          background-color: $secondaryLightGold2;
-          border: none;
-          width: 15px;
-          height: 15px;
-          padding: 0;
-          border-radius: 50%;
-          box-shadow: 0 0 8px 5px $secondaryLightGold1;
-          cursor: pointer;
-
-          &:hover {
-            background-color: $primaryAccentGold;
-            scale: 1.05;
-          }
-        }
-
-        div.branch-details {
-          border-radius: $br_PC;
-          @include boxShadow_PC;
-          padding: 15% 10% 20% 10%;
-          background-color: $primaryBgWhite;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 85vh;
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-
-          &::after {
-            content: '';
-            width: 80%;
-            height: 1px;
-            background-color: $functionalLightGrey3;
+      div.map {
+        margin: 12% auto;
+        width: 45%;
+        div.branchs{
+          button{
+            display: block;
             position: absolute;
-            bottom: 55px;
-          }
-
-          h2 {
-            @include h2_PC;
-            color: $primaryBrandBlue;
-          }
-
-          i {
-            color: $primaryBrandBlue;
-          }
-
-          p {
-            @include h5_PC;
-            margin: 8% 0;
-          }
-
-          div.pic {
-            width: 50%;
-            height: 50%;
-
-            img {
-              width: 100%;
-              height: 100%;
-              border-radius: $br_PC;
-              object-fit: cover;
-              object-position: center;
+            background-color: $secondaryLightGold2;
+            border: none;
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            flex-wrap: nowrap;
+            border-radius:50%;
+            box-shadow: 0 0 8px 5px $secondaryLightGold1;  
+            cursor: pointer;
+            &:hover{
+              background-color:$primaryAccentGold;
+              scale: 1.05; 
+            } 
             }
-          }
-
+          div.branch-details{
+            width: 130%;
+                div.pic{
+                  width: 60%;
+                  height: 60%;
+                }
+  
+            }
+        }
+        select.filterDistrict {
+          top: -30%;
+          left: 100%;
+        }
+        img {
+          width: 100%;
         }
       }
-
-      img {
-        width: 100%;
-      }
-    }
-
-    section.location {
-      position: relative;
-      display: flex;
-      width: 90%;
-      flex-wrap: wrap;
-      margin: auto;
-      gap: 2%;
-      justify-content: center;
-
-      .card {
-        box-sizing: border-box;
-        padding: 2%;
-        margin: 1%;
-        border-radius: 15px;
-        display: flex;
-        flex-flow: column;
-        width: 26%;
-        background-color: $primaryBrandBlue;
-        color: #fff;
-        @include h6_PC;
-        transition: .3s;
-
-        &:hover {
-          background-color: $secondaryLightBlue1;
-          color: $basicFontColor;
-          @include boxShadow_PC;
-          cursor: pointer;
-        }
-
-        .tag {
-          @include h4_PC;
-          margin-bottom: 8%;
-        }
-
-        .name {
-          @include h2_PC;
+      section.location {
+        justify-content: start;
+        .card {
+          position: relative;
+          box-sizing: border-box;
+          padding: 2%;
+          margin: 2%;
+          border-radius: 15px;
           display: flex;
-          flex-flow: row;
-          justify-content: space-between;
-          align-items: center;
-
-          .people {
-            @include h6_PC;
-
-            span {
-              @include h5_PC;
+          flex-flow: column;
+          width: 45%;
             }
           }
         }
       }
-    }
 
+}
+@include custom-responsive('xl'){
+  div.container {
+    div.main_body{
+      padding-top:5%;
+      h1 {
+        @include h1_PC;
+        margin: 0 0 0 24%;
+      }
+      div.map{
+        width: 28%;
+        margin: 5% auto;
+        select.filterDistrict{
+          top: -15%;
+          left: 120%;
+          width: 20%;
+          padding: 1%;
+          @include h6_PC;
+          border-radius: $br_PC;
+        }
+        div.branchs {
+          div.branch-details {
+            border-radius: $br_PC;
+            @include boxShadow_PC;
+            width: 125%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            h2 {
+              @include h2_PC;
+            }
+
+            p {
+              @include h5_PC;
+              margin: 8% 0;
+            }
+
+            div.pic {
+              width: 55%;
+              height: 55%;
+            }
+
+          }
+        }
+
+      }
+
+      section.location {
+        width: 55%;
+        .card {
+          width: 28%;
+          &:hover {
+            background-color: $secondaryLightBlue1;
+            color: $basicFontColor;
+            @include boxShadow_PC;
+            cursor: pointer;
+          }
+        }
+
+      }
+    }
     div.deco-stars {
       position: absolute;
-      top: -12%;
-      left: -22%;
+      display: block!important;
+      top: 40%;
+      left: 10%;
     }
-
     div.deco-bigstar {
+      display: block!important;
+      img{
+        width: 70%;
+        z-index: 0;
+      }
       position: absolute;
-      bottom: 20%;
-      right: -28%;
+      bottom: 0;
+      right: 0;
     }
   }
 }

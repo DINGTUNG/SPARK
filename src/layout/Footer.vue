@@ -47,18 +47,18 @@ const linkSectionList = reactive(
       main:
       {
         title: "成果佈告欄",
-        routingName: "/work_result"
+        routingName: "/work-result"
       },
       sub: [
         {
           title: "故事藝廊",
-          routingName: "/work_result"
+          routingName: "/work-result"
         }, {
           title: "歷年報告",
-          routingName: "/work_result"
+          routingName: "/work-result"
         }, {
           title: "服務里程碑",
-          routingName: "/work_result"
+          routingName: "/work-result"
         }
       ]
     },

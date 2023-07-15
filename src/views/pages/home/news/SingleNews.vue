@@ -44,7 +44,7 @@ const news = reactive(
       title: '星火30，感謝有您',
       article: '星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火...',
       time: '2023.07.23',
-      href:'#'
+      href: '#'
     },
     {
       img: "pictures/images/home/news/single-news-page/singlenewtwo.png",
@@ -52,7 +52,7 @@ const news = reactive(
       title: '東部星火服務據點設立',
       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
       time: '2023.07.15',
-      href:'#'
+      href: '#'
     },
     {
       img: "pictures/images/home/news/single-news-page/singlenewseven.png",
@@ -60,7 +60,7 @@ const news = reactive(
       title: '暑假兒童營養午餐提供',
       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
       time: '2023.06.30',
-      href:'#'
+      href: '#'
     }
   ]
 );
@@ -117,8 +117,6 @@ const news = reactive(
         </div>
       </div>
     </div>
-
-
 </template>
 
 

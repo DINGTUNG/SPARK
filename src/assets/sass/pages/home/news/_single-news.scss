@@ -2,154 +2,263 @@
 @import'@/assets/sass/base/box-shadow';
 @import'@/assets/sass/base/color';
 @import'@/assets/sass/base/border-radius';
+@import'@/assets/sass/base/rwd/breakpoints';
 
-div.title_img{
-    img{
+div.title_img {
+    img {
         max-width: 100%;
     }
 }
-div.main_body {
-    width: 1200px;
-    margin: auto;
 
-    div.title_block {
-        display: flex;
+div.container {
+    width: 100%;
 
-        h1 {
-            width: auto;
-            @include h1_PC;
-            color: $primaryBgBlue;
-        }
+    div.main_body {
+        width: 62.5vw;
+        margin: auto;
 
-        div.top_line {
+        div.title_block {
             display: flex;
-            align-self: center;
-            width: 70%;
-            margin-left: 40px;
-            height: 1px;
-            border-bottom: 1px solid $functionalLightGrey4;
-        }
-    }
 
-    div.main_article {
-        div.article_title {
-            display: flex;
-            justify-content: space-between;
-            padding: 30px 0;
 
-            h2 {
-                @include h2_PC;
-                color: $primaryAccentGold;
+            @include custom-responsive(" xs sm") {
+                justify-content: center;
             }
 
-            span {
-                display: flex;
-                align-items: center;
-                padding: 0 20px;
-                color: $functionalLightGrey4;
+            @include custom-responsive(" xl xxl") {
+                justify-content: start;
             }
-        }
 
-        div.article {
-            div.article_block {
-                display: flex;
 
-                div.article_block_img {
-                    img {
-                        border-radius: $br_PC;
-                    }
+            h1 {
+                width: auto;
+                color: $primaryBgBlue;
+
+                @include custom-responsive(" xs sm") {
+                    @include h1_MB;
 
                 }
 
-                div.article_block_text {
-                    padding: 0 0 0 80px;
+                @include custom-responsive(" xl xxl") {
+                    @include h1_PC;
+                }
+
+            }
+
+            div.top_line {
+
+
+                @include custom-responsive(" xs sm") {
+                    display: none;
+                }
+
+                @include custom-responsive(" xl xxl") {
                     display: flex;
-                    flex-direction: column;
-                    justify-content: space-around;
-
-                    h5 {
-                        @include h5_B_PC;
-                    }
-
-                    p {
-                        @include h6_PC;
-                        color: $basicFontColor;
-                    }
-                }
-
-                div.imgRight {
-                    order: -1;
-                    @extend .article_block_text;
-                    padding: 0 80px 0 0;
+                    align-self: center;
+                    width: 70%;
+                    margin-left: 40px;
+                    height: 1px;
+                    border-bottom: 1px solid $functionalLightGrey4;
                 }
             }
         }
-    }
 
-    div.more_news {
-        div.title_group {
-            h2 {
-                @include h2_PC;
-                color: $primaryBrandBlue;
-                font-weight: 900;
-            }
-
-            div.line {
-                margin: 20px 0px;
+        div.main_article {
+            div.article_title {
                 display: flex;
-                width: 100%;
-                height: 4px;
-                align-self: center;
-                background-color: $primaryBgBlue;
+                justify-content: space-between;
+                padding: 30px 0;
+
+                @include custom-responsive(" xs sm") {
+                    flex-direction: column
+                }
+
+                h2 {
+
+                    color: $primaryAccentGold;
+
+                    @include custom-responsive(" xs sm") {
+                        @include h2_MB;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        @include h2_PC;
+                    }
+                }
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    color: $functionalLightGrey4;
+
+                    @include custom-responsive(" xs sm") {
+                        padding: 20px 0;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        padding: 0 20px;
+                    }
+                }
+            }
+
+            div.article {
+                div.article_block {
+
+                    @include custom-responsive(" xl xxl") {
+                        display: flex;
+                    }
+
+
+                    div.article_block_img {
+                        img {
+
+                            @include custom-responsive(" xs sm") {
+                                border-radius: $br_MB;
+                                width: 100%;
+                            }
+
+                            @include custom-responsive(" xl xxl") {
+                                border-radius: $br_PC;
+                                width: auto;
+                            }
+
+                        }
+
+                    }
+
+                    div.article_block_text {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+
+                        @include custom-responsive(" xl xxl") {
+                            padding: 0 0 0 80px;
+                        }
+
+                        h5 {
+                            @include custom-responsive(" xs sm") {
+                                @include h5_B_MB;
+                            }
+
+                            @include custom-responsive(" xl xxl") {
+                                @include h5_B_PC;
+                            }
+                        }
+
+                        p {
+                            @include h6_PC;
+                            color: $basicFontColor;
+                        }
+                    }
+
+                    div.imgRight {
+                        order: -1;
+                        @extend .article_block_text;
+
+                        @include custom-responsive(" xl xxl") {
+                            padding: 0 80px 0 0;
+                        }
+                    }
+                }
             }
         }
 
-        div.card_group {
-            justify-content: center;
-            display: flex;
-            gap: 30px;
+        div.more_news {
+            div.title_group {
+                padding-top: 20px;
 
-            div.news_card {
-                border-radius: $br_PC;
-                @include boxShadow_PC;
+                h2 {
+                    color: $primaryBrandBlue;
 
-                a {
-                    list-style: none;
-                    text-decoration: none;
+                    @include custom-responsive("sm md ") {
+                        @include h2_MB;
+                    }
 
+                    @include custom-responsive("xl xxl") {
+                        @include h2_PC;
+                    }
                 }
 
-                div.card_img {
+                div.line {
+                    margin: 20px 0px;
+                    display: flex;
+                    width: 100%;
+                    height: 4px;
+                    align-self: center;
+                    background-color: $primaryBgBlue;
+                }
+            }
 
-                    img {
-                        border-radius: $br_PC $br_PC 0 0;
+            div.card_group {
+                justify-content: center;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+
+                div.news_card {
+                    @include custom-responsive("xs sm") {
                         width: 100%;
-                        overflow: hidden;
-                        vertical-align: bottom;
+                        border-radius: $br_PC;
+                        @include boxShadow_PC;
+                    }
+
+                    @include custom-responsive(" lg xl") {
+                        width: 50%;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        width: 30%;
+                    }
+
+                    a {
+                        list-style: none;
+                        text-decoration: none;
+
+                    }
+
+                    div.card_img {
+
+                        img {
+                            border-radius: $br_PC $br_PC 0 0;
+                            width: 100%;
+                            overflow: hidden;
+                            vertical-align: bottom;
+                        }
+                    }
+
+                    div.card_word {
+                        padding: 0 20px;
+
+                        h5 {
+                            color: $functionalLightGrey4;
+
+                            @include custom-responsive("xs sm ") {
+                                padding: 10px 0;
+                                @include h5_MB;
+                            }
+
+                            @include custom-responsive("xl xxl") {
+                                padding: 0;
+                                @include h5_PC;
+                            }
+
+
+                        }
+
+                        h4 {
+                            @include h4_B_PC;
+                            color: $primaryBrandBlue;
+                        }
+
+                        p {
+                            @include h6_PC;
+                            color: $basicFontColor;
+                        }
                     }
                 }
 
-                div.card_word {
-                    padding: 0 20px;
-                    width: 345px;
-                    h5{
-                        @include h5_PC;
-                        color: $functionalLightGrey4;
-                    }
-
-                    h4 {
-                        @include h4_B_PC;
-                        color: $primaryBrandBlue;
-                    }
-
-                    p {
-                        @include h6_PC;
-                        color: $basicFontColor;
-                    }
-                }
             }
 
         }
-
     }
 }

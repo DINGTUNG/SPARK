@@ -1,10 +1,16 @@
-@import "../base/color";
-@import '../base/fonts/fonts-mixin';
+@import "@/assets/sass/base/color";
+@import '@/assets/sass/base/fonts/fonts-mixin';
 
 
 
 footer {
-  background-image: url("/assets/decorations/layout/footer.png");
+  width: 100%;
+  background-image: url("/assets/decorations/layout/footer.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  bottom: 0;
+  left: 0;
 
 
   div.footer_content {
@@ -14,13 +20,9 @@ footer {
     div.information {
 
       div.logo {
+        width: 360px;
         margin-top: 114px;
         margin-bottom: 58.44px;
-
-        img {
-          z-index: 999;
-          color: $primaryBrandWhite;
-        }
 
       }
 

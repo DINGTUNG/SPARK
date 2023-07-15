@@ -3,8 +3,7 @@
 @import'../base/color';
 
 
-div.body {
-    .section_banner {
+.banner {
         width: 100%;
 
         img {
@@ -12,10 +11,11 @@ div.body {
         }
 }
 
-div.section_donate {
-position: relative;
-    div.donate_content {
-        width: 1200px;
+div.donate_container {
+    position: relative;
+
+    div.main_body {
+        width: 62.5vw;
         margin: auto;
 
         div.title_wrap {
@@ -51,5 +51,4 @@ position: relative;
         }
     }
 
-}
 }

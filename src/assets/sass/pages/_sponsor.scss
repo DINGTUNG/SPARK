@@ -14,49 +14,108 @@ div.container {
         div.title_block {
             display: flex;
 
+            @include custom-responsive(" xs sm") {
+                justify-content: center;
+            }
+
+            @include custom-responsive(" xl xxl") {
+                justify-content: start;
+            }
+
+
             h1 {
                 width: auto;
-                @include h1_PC;
                 color: $primaryBgBlue;
+
+                @include custom-responsive(" xs sm") {
+                    @include h1_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include h1_PC;
+                }
+
             }
 
             div.top_line {
-                display: flex;
-                align-self: center;
-                width: 70%;
-                margin-left: 40px;
-                height: 1px;
-                border-bottom: 1px solid $functionalLightGrey4;
 
+
+                @include custom-responsive(" xs sm") {
+                    display: none;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include h1_PC;
+                    display: flex;
+                    align-self: center;
+                    width: 70%;
+                    margin-left: 40px;
+                    height: 1px;
+                    border-bottom: 1px solid $functionalLightGrey4;
+                }
             }
-
         }
 
         div.sponsor_block {
-            display: flex;
             padding: 50px 0;
+
+            @include custom-responsive(" xs sm") {
+                @include h1_MB;
+            }
+
+            @include custom-responsive(" xl xxl") {
+                display: flex;
+            }
 
             .sponsor_img {
                 img {
-                    border-radius: $br_PC;
-                    width: 500px;
-                    //這裡有問題
+                    @include custom-responsive(" xs sm") {
+                        width: 100%;
+                        border-radius: $br_MB;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        border-radius: $br_PC;
+                        width: 500px;
+                    }
                 }
             }
 
             .sponsor_text {
-                width: 40%;
-                padding-left: 50px;
-                display: flex;
-                flex-direction: column;
+
+                @include custom-responsive(" xs sm") {
+                    width: 100%;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    width: 40%;
+                    padding-left: 50px;
+                    display: flex;
+                    flex-direction: column;
+                }
 
                 h4 {
-                    @include h4_B_PC;
+
+                    @include custom-responsive(" xs sm") {
+                        padding: 10px;
+                        @include h4_B_MB;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        @include h4_B_PC;
+                    }
                 }
 
                 p {
-                    @include h6_PC;
                     flex-grow: 1;
+
+                    @include custom-responsive(" xs sm") {
+                        @include h6_MB;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        @include h6_PC;
+                    }
                 }
 
                 span.price {
@@ -76,13 +135,23 @@ div.container {
             padding: 20px 0 100px;
 
             h3 {
-                padding: 0 0 20px;
-                @include h3_PC;
                 color: $primaryBgBlue;
+
+                @include custom-responsive(" xs sm") {
+                    @include h3_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include h3_PC;
+                }
+
+                padding: 0 0 20px;
+
             }
 
             div.sponsor_area_inner {
                 display: flex;
+                flex-wrap: wrap;
 
                 div.area_card {
                     @include flex_hm();
@@ -90,13 +159,31 @@ div.container {
                     width: 130px;
                     height: 130px;
                     background-color: $primaryBgBlue;
-                    border-radius: $br_PC;
-                    margin-right: 30px;
                     color: $primaryBrandWhite;
+
+                    @include custom-responsive(" xs sm") {
+                        @include h5_B_MB;
+                        border-radius: $br_MB;
+                        margin: 0 10px 20px;
+                    }
+
+                    @include custom-responsive(" xl xxl") {
+                        @include h5_B_PC;
+                        border-radius: $br_PC;
+                        margin-right: 30px;
+                    }
 
                     .card_title {
                         h5 {
-                            @include h5_B_PC;
+
+                            @include custom-responsive(" xs sm") {
+                                @include h5_B_MB;
+                            }
+
+                            @include custom-responsive(" xl xxl") {
+                                @include h5_B_PC;
+                            }
+
                         }
                     }
                 }
@@ -119,21 +206,48 @@ div.container {
         .button {
             @include flex_hm();
 
-            .back {
-                @include smallBlueBtn_PC;
+            button.back {
                 border: 1px transparent;
                 margin: 0 10px;
-                @include h5_MB;
+
+                @include custom-responsive(" xs sm") {
+                    @include smallBlueBtn_MB;
+                    @include h5_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include smallBlueBtn_PC;
+                    @include h5_PC;
+                }
 
 
             }
 
-            .pay_list {
+            button.pay_list {
                 color: $primaryBgBlue !important;
-                @include smallWhiteBtn_PC;
+
                 border: 1px transparent;
                 margin: 0 10px;
-                @include h5_MB;
+
+                @include custom-responsive(" xs sm") {
+                    @include smallWhiteBtn_MB;
+                    @include h5_MB;
+                }
+
+                @include custom-responsive(" xl xxl") {
+                    @include smallWhiteBtn_PC;
+                    @include h5_PC;
+                }
+            }
+
+            div.icon_img {
+                position: relative;
+                left: 300px;
+
+                @include custom-responsive(" xs sm") {
+                    display: none;
+                }
+
             }
         }
     }

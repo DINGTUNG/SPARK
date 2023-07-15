@@ -5,7 +5,7 @@
 
 footer {
   width: 100%;
-  background-image: url("/assets/decorations/layout/footer.svg");
+  background-image: url("/pictures/decorations/layout/footer.svg");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -20,9 +20,14 @@ footer {
     div.information {
 
       div.logo {
-        width: 360px;
+
         margin-top: 114px;
         margin-bottom: 58.44px;
+
+        img {
+          width: 500px;
+        }
+
 
       }
 

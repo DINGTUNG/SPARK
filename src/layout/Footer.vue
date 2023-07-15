@@ -125,7 +125,7 @@ const linkSectionList = reactive(
       <div class="information">
 
         <div class="logo">
-          <img :src="'assets/logo/logo_white.svg'" alt="Spark logo" >
+          <img :src="'pictures/logo/logo_white.svg'" alt="Spark logo" >
         </div>
 
         <div class="business_hours">
@@ -183,7 +183,7 @@ const linkSectionList = reactive(
 
 
 <style scoped lang="scss">
-@import "@/assets/sass/layout/footer";
+@import "@/assets/sass/layout/_footer";
 </style>
 
 

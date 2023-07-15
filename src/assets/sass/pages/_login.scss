@@ -3,7 +3,7 @@
 @import"@/assets/sass/base/border-radius";
 @import"@/assets/sass/components/func-items/buttons/buttons-mixin";
 
-.main_body {
+div.main_body {
     height: 1000px;
     display: flex;
 
@@ -11,7 +11,7 @@
         width: 50%;
     }
 
-    .login {
+    div.login {
         width: 100%;
         padding: 200px 100px;
 
@@ -34,7 +34,7 @@
             margin: 0 0 20px 0;
         }
 
-        .login_button {
+        button.login_button {
             @include regularGoldBtn_PC;
             display: block;
             background-color: $primaryAccentGold;
@@ -47,7 +47,7 @@
         }
     }
 
-    .errorAccount {
+    div.errorAccount {
         color: red;
         margin-top: 10px;
     }

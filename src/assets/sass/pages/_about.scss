@@ -1,0 +1,67 @@
+@import '@/assets/sass/base/color';
+@import '@/assets/sass/base/fonts/fonts-mixin';
+@import '@/assets/sass/base/box-shadow';
+@import '@/assets/sass/base/border-radius';
+@import '@/assets/sass/base/rwd/breakpoints';
+
+div.container {
+    width: 100%;
+
+    div.main_body {
+        width: 62.5vw;
+        margin: auto;
+
+        div.title_block {
+            display: flex;
+
+            h1 {
+                @include h1_PC;
+                color: $primaryBgBlue;
+            }
+        }
+        div.title_text{
+            @include h6_PC;
+        }
+        div.card_wrapper{
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+          
+            .about_card_1, .about_card_2, .about_card_3 {
+              margin-right: 20px;
+          
+              img {
+                width: 100%;
+                height: auto;
+              }
+            }
+        }
+        div.origin_title{
+            display: flex;
+
+            h2{
+                @include h2_PC;
+                color: $primaryBgBlue;
+            }
+        }
+        div.origin_text{
+            margin: 20px auto;
+            @include h6_PC;
+        }
+        div.vision_title{
+            display: flex;
+
+            h2{
+                @include h2_PC;
+                color: $primaryBgBlue;
+            }
+        }
+        div.vision_text{
+            margin: 20px auto;
+            @include h6_PC;
+        }
+
+
+
+    }
+}

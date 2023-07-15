@@ -191,13 +191,21 @@
     watch(() => selectedValue.value, () => {
         //如果 selectedValue.value 的值有改變，就把它傳進 selectBranch 裡 => 顯示該 index 的資料。
         selectBranch(selectedValue.value);
-        window.scrollTo({ top: 750, behavior: 'smooth' });
         updateDisplay()
+        if( window.innerWidth >= 1200){
+          window.scrollTo({ top: 1000, behavior: 'smooth' });
+        }
+        console.log(window);
+        
+        
     })
 
     const branchDisplay = (key) => {
       selectBranch(locationDisplay[key].id);
-      window.scrollTo({ top: 600, behavior: 'smooth' });
+      if( window.innerWidth >= 1200){
+        window.scrollTo({ top: 600, behavior: 'smooth' });
+      }
+      
     }
 </script>
 <template>
@@ -243,13 +251,13 @@
             <div class="people">扶養&nbsp;<span>{{ item.people }}</span>&nbsp;人</div>
           </div>
         </div>
-        <div class="deco-stars">
+      </section>
+      <div class="deco-stars">
           <img :src="'pictures/decorations/illustration/golden_stars.png'" alt="星星裝飾">
         </div>
         <div class="deco-bigstar">
           <img :src="'pictures/characters/star/star_superman.svg'" alt="星星裝飾">
         </div>
-      </section>
     </div>
   </div>
 </template>

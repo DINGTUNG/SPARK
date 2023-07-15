@@ -1,74 +1,70 @@
-@import '@/assets/sass/base/color';
-@import '@/assets/sass/base/fonts/fonts-mixin';
-@import '@/assets/sass/base/box-shadow';
-@import '@/assets/sass/base/border-radius';
 
-
-div.banner{
-    width: 100%;
-    img{
+@include custom-responsive('xs'){
+    div.banner{
         width: 100%;
+        img.MB{
+            width: 100%;
+        }
+        img.PC{
+            display: none;
+        }
     }
-}
-div.container{
-    width: 100%;
+    div.container{
+        width: 100%;
+        overflow: hidden;
     div.main_body{
-        width: 62.5vw;
+        width: 90vw;
         margin: auto;
         position: relative;
         h1{
-            @include h1_PC;
+            @include h1_MB;
             color:$primaryBrandBlue;
-            margin-left: 8%;
+            margin:10% auto;
+            width: fit-content;
         }
         section.project_deteils{
-            margin-top: 5%;
+            margin-top: 10%;
             div.top{
-                display: flex;
-                align-items: flex-start;
                 div.left-card{
+                    width: 100%;
+                    bottom: 40px;
                     position: relative;
-                    left: 5%;
-                    top: 16vh;
-                    z-index: 22;
-                    width: 45%;
+                    z-index: 3;
                     background-color: $functionalLightGrey1;
-                    border-radius: $br_PC * 2;
-                    padding: 5%;
+                    border-radius: $br_MB * 2;
+                    padding: 8%;
                     box-sizing: border-box;
                     position: relative;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     gap: 10px;
-                    margin-bottom: 17%;
                 img{
                     position: absolute;
                     top: -22px;
                 }
                 h2{
                     color: $primaryBrandBlue;
-                    @include h2_PC;
+                    @include h2_MB;
                 }
                 h3{
                     color:$basicFontColor ;
-                    @include h3_PC;
+                    @include h3_MB;
                     margin-bottom: 15px;
                 }
                 p{
                     color:$basicFontColor ;
-                    @include h6_PC;
+                    @include h6_MB;
                 }
                 }
                 div.right-pic{
                     position: relative;
-                    width: 60%;
+                    width: 110%;
                     right: 5%;
                     img{
                         width: 100%;
                         object-fit: cover;
                         object-position: center;
-                        border-radius: $br_PC;
                     }
 
                 }
@@ -76,24 +72,26 @@ div.container{
             div.describe{
                 width: 85%;
                 margin: auto;
-                @include h6_PC;
+                @include h6_MB;
             }
             div.illustrate{
-                width: 85%;
+                width: 100%;
                 margin: 4% auto;
                 padding: 40px;
                 box-sizing: border-box;
                 border: 1px solid $functionalLightGrey4;
-                border-radius: $br_PC;
+                border-radius: $br_MB;
                 @include h6_PC;
                 display: flex;
-                gap: 50px;
+                flex-direction: column;
+                gap: 20px;
             }
 
         }
         img.deco{
             position: absolute;
             z-index: 0;
+            display: none;
             &:nth-child(1){
                 top:0;
                 left: -250px;
@@ -112,9 +110,144 @@ div.container{
                 left: -150px;
             }
             &:nth-child(5){
+                display: none;
                 top: 25px;
                 left: 300px;
             }
         }
     }
 }
+}
+@include custom-responsive('md'){
+    div.banner{
+        img.MB{
+            display: none;
+        }
+        img.PC{
+            display: block;
+            width: 100%;
+        }
+    }
+}
+@include custom-responsive('lg'){
+    div.container{
+        width: 100%;
+        div.main_body{
+            width: 62.5vw;
+            margin: auto;
+            position: relative;
+            h1{
+                @include h1_PC;
+                color:$primaryBrandBlue;
+                margin:0 0 0 8%;
+            }
+            section.project_deteils{
+                div.top{
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: row-reverse;
+                    div.left-card{
+                        position: relative;
+                        left: 5%;
+                        top: 13vh;
+                        z-index: 22;
+                        width: 48%;
+                        background-color: $functionalLightGrey1;
+                        border-radius: $br_PC * 2;
+                        padding: 4%;
+                        box-sizing: border-box;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        gap: 0px;
+                        margin-bottom: 17%;
+                    img{
+                        position: absolute;
+                        top: -22px;
+                    }
+                    h2{
+                        color: $primaryBrandBlue;
+                        @include h2_PC;
+                    }
+                    h3{
+                        color:$basicFontColor ;
+                        @include h3_PC;
+                        margin-bottom: 15px;
+                    }
+                    p{
+                        color:$basicFontColor ;
+                        @include h6_PC;
+                    }
+                    }
+                    div.right-pic{
+                        position: relative;
+                        width: 60%;
+                        right: 5%;
+                        img{
+                            width: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                            border-radius: $br_PC;
+                        }
+
+                    }
+                }
+                div.describe{
+                    width: 85%;
+                    margin: auto;
+                    @include h6_PC;
+                }
+                div.illustrate{
+                    width: 85%;
+                    margin: 4% auto;
+                    padding: 40px;
+                    box-sizing: border-box;
+                    border: 1px solid $functionalLightGrey4;
+                    border-radius: $br_PC;
+                    @include h6_PC;
+                    display: flex;
+                    gap: 50px;
+                }
+
+            }
+            img.deco{
+                display: block;
+                position: absolute;
+                z-index: 0;
+                &:nth-child(1){
+                    width: 20%;
+                    top:0;
+                    left: -200px;
+                }
+                &:nth-child(2){
+                    width: 28%;
+                    top: 600px;
+                    right: -180px;
+                }
+                &:nth-child(3){
+                    bottom: 0;
+                    width: 28%;
+                    right: -200px;
+                    transform: scaleX(-1);
+                }
+                &:nth-child(4){
+                    bottom: 400px;
+                    left: -150px;
+                }
+                &:nth-child(5){
+                    top: 25px;
+                    left: 300px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+

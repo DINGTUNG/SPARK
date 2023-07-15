@@ -9,6 +9,7 @@ const h1 = ref("捐款內容")
   <div class="banner">
     <img :src="'pictures/images/donate/donate-content/banner.jpg'" alt="捐款內容封面">
   </div>
+
   <div class="donate_container">
     <div class="main_body">
       <div class="title_wrap">
@@ -27,5 +28,5 @@ const h1 = ref("捐款內容")
 
 
 <style scoped lang="scss">
-@import "@/assets/sass/pages/donate";
+@import "@/assets/sass/pages/donate/donate";
 </style>

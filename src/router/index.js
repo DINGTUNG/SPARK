@@ -64,6 +64,13 @@ const router = createRouter({
     },
 
     {
+      path: '/spark-project',
+      name: 'spark-project',
+      // component: Contact
+      component: () => import('../views/pages/spark-project/SparkProject.vue')
+    },
+
+    {
       path: '/login',
       name: 'login',
       // component: Login

@@ -12,17 +12,6 @@ img {
   -ms-user-select: none;
 }
 
-
-
-/* 🚩捷徑🚩 */
-
-//base 11
-//mixin 17
-//layout 22
-//page 28
-//plugin 33
-//使用說明 38
-
 //---------------------------------------------------------------------------------------
 /* ⭐字體 font-family⭐ */
 
@@ -34,7 +23,15 @@ $font-family: 'Noto-Sans';
 /* ⭐base⭐ */
 
 @import 'base/color';
-@import 'base/fonts/fonts';
+@import 'base/fonts/fonts-mixin';
+@import 'base/border-radius';
+@import 'base/box-shadow';
+
+//---------------------------------------------------------------------------------------
+/* ⭐components⭐ */
+
+@import 'components/func-items/buttons/buttons-mixin';
+
 
 //---------------------------------------------------------------------------------------
 

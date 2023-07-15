@@ -14,7 +14,6 @@ img {
   -ms-user-select: none;
 }
 
-/* 🚩捷徑🚩 */
 /* ⭐字體 font-family⭐ */
 /* ⭐base⭐ */
 /* 🚩捷徑🚩 */
@@ -43,7 +42,65 @@ img {
   line-height: 48px;
 }
 
-/* ⭐layout⭐ */
-/* ⭐page⭐ */
+/* 🚩捷徑🚩 */
+/* ⭐使用說明⭐ */
+/* ⭐桌機 PC⭐ */
+/* ⭐手機 MB⭐ */
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 10%;
+  line-height: 48px;
+}
+
+.sassUsageExample {
+  font-size: 2.1875rem;
+  font-weight: 700;
+  letter-spacing: 10%;
+  line-height: auto;
+}
+
+/* 🚩捷徑🚩 */
+/* ⭐桌機 PC border-radius⭐ */
+/* ⭐手機 MB border-radius⭐ */
+/* ⭐regular buttons⭐ */
+/* ⭐small buttons⭐ */
+/* ⭐使用說明⭐ */
+.sassUsageExample {
+  border-radius: 30px;
+}
+
+/* 🚩捷徑🚩 */
+/* ⭐桌機 box-shadow PC⭐ */
+/* ⭐手機 box-shadow MB⭐*/
+/* ⭐使用說明⭐*/
+.sassUsageExample {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1490196078);
+}
+
+.sassUsageExample {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1803921569);
+}
+
+/* ⭐components⭐ */
+button {
+  cursor: pointer;
+  font-weight: 400;
+}
+button:hover {
+  opacity: 0.8;
+}
+button:active {
+  transform: translate(2px, 2px);
+}
+
+/* ⭐regular buttons size⭐ */
+/* ⭐small buttons size⭐ */
+/* ⭐repeat variables⭐ */
+/* ⭐使用說明⭐ */
+/* 🚩捷徑🚩 */
+/* ⭐桌機 PC buttons⭐ */
+/* ⭐手機 MB buttons⭐ */
 /* ⭐plugin⭐ */
 /* ⭐使用說明⭐ *//*# sourceMappingURL=style.css.map */

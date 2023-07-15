@@ -35,6 +35,9 @@ const h1 = ref("捐款內容")
             <img :src="'assets/characters/boy/boy_flowering.png'" alt="男孩澆花">
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 

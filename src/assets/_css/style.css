@@ -136,6 +136,38 @@ img {
   }
 }
 
+/* ⭐使用說明⭐ */
+.main_body {
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  /* Medium devices (landscape tablets, 768px and up) */
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+}
+@media (min-width: 0px) {
+  .main_body {
+    width: 90vw;
+    margin: auto;
+  }
+}
+@media (min-width: 576px) {
+  .main_body {
+    width: 90vw;
+    margin: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .main_body {
+    width: 62.5vw;
+    margin: auto;
+  }
+}
+@media (min-width: 1400px) {
+  .main_body {
+    width: 62.5vw;
+    margin: auto;
+  }
+}
+
 /* ⭐components⭐ */
 button {
   cursor: pointer;

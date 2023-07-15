@@ -1,0 +1,23 @@
+@mixin body_space_PC {
+  width: 62.5vw;
+  margin: auto;
+}
+
+@mixin body_space_MB {
+  width: 90vw;
+  margin: auto;
+}
+
+//==================
+/* ⭐使用說明⭐ */
+
+.main_body {
+  @include custom-responsive("xs sm") {
+    @include body_space_MB
+  }
+
+  @include custom-responsive("xl xxl") {
+    @include body_space_PC
+  }
+
+}

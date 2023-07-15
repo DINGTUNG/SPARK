@@ -12,37 +12,33 @@ img {
   -ms-user-select: none;
 }
 
+//---------------------------------------------------------------------------------------
+/* ⭐字體 font-family⭐ */
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
 
-
-
-/* 🚩捷徑🚩 */
-
-//base 11
-//mixin 17
-//layout 22
-//page 28
-//plugin 33
-//使用說明 38
+$font-family: 'Noto-Sans';
 
 //---------------------------------------------------------------------------------------
 /* ⭐base⭐ */
 
 @import 'base/color';
-@import 'base/fonts/fonts';
+@import 'base/fonts/fonts-mixin';
+@import 'base/border-radius';
+@import 'base/box-shadow';
+@import 'base/flex';
+@import 'base/rwd/_breakpoints';
+@import 'base/body-space';
 
 //---------------------------------------------------------------------------------------
-/* ⭐layout⭐ */
+/* ⭐components⭐ */
 
-@import 'layout/header';
-@import 'layout/footer';
+@import 'components/func-items/buttons/buttons-mixin';
+@import 'components/func-items/table/table';
 
-//---------------------------------------------------------------------------------------
-/* ⭐page⭐ */
-
-@import 'pages/index';
 
 //---------------------------------------------------------------------------------------
+
 /* ⭐plugin⭐ */
 
 

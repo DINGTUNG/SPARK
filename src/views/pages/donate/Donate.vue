@@ -15,14 +15,26 @@ const h1 = ref("捐款內容")
         <h1 class="title">{{ h1 }}</h1>
         <div class="titleline">
 
+          <div class="section_banner">
+            <img :src="'pictures/images/donate/donate-content/banner.jpg'" alt="捐款內容封面">
+          </div>
+          <div class="section_donate">
+            <div class="donate_content">
+              <div class="title_wrap">
+                <h1 class="title">{{ h1 }}</h1>
+                <div class="titleline"></div>
+              </div>
+              <DonateContentCard />
+            </div>
+            <div class="deco_flowering">
+              <img :src="'pictures/characters/boy/boy_flowering.png'" alt="男孩澆花">
+            </div>
+            <DonateContentCard />
+          </div>
+          <div class="deco_flowering">
+            <img :src="'assets/characters/boy/boy_flowering.png'" alt="男孩澆花">
+          </div>
         </div>
-      </div>
-      <DonateContentCard />
-    </div>
-    <div class="deco_flowering">
-      <img :src="'assets/characters/boy/boy_flowering.png'" alt="男孩澆花">
-    </div>
-  </div>
 </template>
 
 

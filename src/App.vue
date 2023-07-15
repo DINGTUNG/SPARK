@@ -8,7 +8,7 @@ import { RouterView } from 'vue-router'
 // provide('getImgSrc', getImgSrc)
 
 import Header from '@/layout/Header.vue';
-// import Footer from '@/layout/Footer.vue';
+import Footer from '@/layout/Footer.vue';
 import LeftMenu from '@/layout/LeftMenu.vue';
 import RightMenu from '@/layout/RightMenu.vue';
 
@@ -18,10 +18,12 @@ import RightMenu from '@/layout/RightMenu.vue';
   <Header />
   <RightMenu />
   <LeftMenu />
-  <!-- <Footer /> -->
+
+  
   <RouterView />
+  <Footer />
+
 </template>
 
-<style scoped>
-@import '@/assets/sass/base/fonts/_fonts.scss';
+<style lang="scss">
 </style>

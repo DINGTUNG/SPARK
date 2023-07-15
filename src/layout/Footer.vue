@@ -183,7 +183,7 @@ const linkSectionList = reactive(
 
 
 <style scoped lang="scss">
-@import "@/assets/sass/layout/footer";
+@import "@/assets/sass/layout/_footer";
 </style>
 
 

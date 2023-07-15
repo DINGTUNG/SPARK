@@ -25,12 +25,19 @@
   background-color:$primaryBrandBlue;
 }
 
-// button.test_btn {
-//   @include smallGoldBtn_PC;
+button.test_btn {
 
-// }
+  @include custom-responsive("xs") {
+    @include smallGoldBtn_PC;
+  }
+  
+  @include custom-responsive("xxl") {
+    @include regularWhiteBtn_PC;
+  }
 
-// .test_btn2{
-//   @include regularWhiteBtn_PC;
-// }
+}
+
+.test_btn2{
+  @include regularWhiteBtn_PC;
+}
 </style>

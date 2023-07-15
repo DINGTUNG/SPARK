@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 
 <template>
     <header>
-        <RouterLink to="/" class="link home"><img alt="Spark logo" class="logo" :src="'/pictures/logo/logo_blue.svg'"/></RouterLink>
+        <RouterLink to="/" class="link home"><img alt="Spark logo" class="logo" :src="'pictures/logo/logo_blue.svg'"/></RouterLink>
         
         <div class="wrapper">
             <nav>

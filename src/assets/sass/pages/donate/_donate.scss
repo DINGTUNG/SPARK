@@ -10,8 +10,14 @@ div.donate_container {
     position: relative;
 
     div.main_body {
-        width: 62.5vw;
         margin: auto;
+        @include custom-responsive("xs sm") {
+            @include body_space_MB
+        }
+
+        @include custom-responsive("xl xxl") {
+            @include body_space_PC
+        }
 
         div.title_wrap {
             display: flex;

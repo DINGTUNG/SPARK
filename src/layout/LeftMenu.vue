@@ -88,20 +88,6 @@
  
  </script>
 
-
-
- <!-- <template>
-  <div class="left_menu" :style="{ height: menuHeight + 'px' }">
-    <h2>{{ menuTitle }}</h2>
-    <ul>
-      <li v-for="item in bulletinList" :key="item.id">
-        <RouterLink :to="{ name: item.routeName }" class="link"><h3>{{ item.title }}</h3></RouterLink>
-      </li>
-    </ul>
-  </div>
-</template> -->
-
-
 <template>
     <div class="left_menu_container" :style="{ height: menuHeight + 'px' }">
       <h2>{{ menuTitle }}</h2>

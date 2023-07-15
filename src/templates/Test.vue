@@ -5,11 +5,9 @@
 <template>
   <div class="container">
 
-    <button class="test_btn">呼叫狸貓</button>
 
-    <button class="test_btn2">呼叫狸貓</button>
 
-    <p>狸貓，星龜</p>
+    
   </div>
 </template>
 
@@ -19,25 +17,9 @@
   top: 300px;
   width: 1200px;
   height: 500px;
-  margin:auto;
+  margin: auto;
   padding: 50px;
   border: 1px solid #000;
-  background-color:$primaryBrandBlue;
-}
-
-button.test_btn {
-
-  @include custom-responsive("xs") {
-    @include smallGoldBtn_PC;
-  }
-  
-  @include custom-responsive("xxl") {
-    @include regularWhiteBtn_PC;
-  }
-
-}
-
-.test_btn2{
-  @include regularWhiteBtn_PC;
+  background-color: $primaryBrandBlue;
 }
 </style>

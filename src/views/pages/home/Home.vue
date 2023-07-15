@@ -8,6 +8,8 @@ import News from '@/views/sections/home/News.vue';
   <div>
 
     <RouterLink to="/test">測試頁面</RouterLink>
+    <br>
+    <RouterLink to="/donate-checkout">donate-checkout</RouterLink>
 
     <News />
 

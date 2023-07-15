@@ -34,7 +34,8 @@ const projectDeteils = reactive([
 
 <template>
   <div class="banner">
-    <img :src="'pictures/images/service/banner.png'" alt="service-banner">
+    <img class="PC" :src="'pictures/images/service/banner.png'" alt="service-banner">
+    <img class="MB" :src="'pictures/images/service/banner_MB.png'" alt="手機板 banner">
   </div>
   <div class="container">
     <div class="main_body">
@@ -46,14 +47,14 @@ const projectDeteils = reactive([
       <h1>服務內容</h1>
       <section class="project_deteils" v-for="(item, index) in projectDeteils" :key="index">
         <div class="top">
+          <div class="right-pic">
+            <img :src="item.imgUrl" alt="家庭扶助示意照片">
+          </div>
           <div class="left-card">
             <img :src="'pictures/images/service/elliot-folder.png'" alt="裝飾">
             <h2>{{item.title}}</h2>
             <h3>{{item.subtitle}}</h3>
             <p>{{item.text}}</p>
-          </div>
-          <div class="right-pic">
-            <img :src="item.imgUrl" alt="家庭扶助示意照片">
           </div>
         </div>
         <div class="describe">{{item.describe}}</div>

@@ -50,6 +50,10 @@
           appearance: none;
           text-align: center;
           cursor: pointer;
+          option{
+            background-color: $secondaryLightBlue3;
+            cursor: pointer;
+          }
         }
 
         div.branchs {

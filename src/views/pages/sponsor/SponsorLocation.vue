@@ -1,6 +1,6 @@
 
 <script setup>
-    import { reactive, ref, watch} from 'vue';
+    import { reactive, ref, watch,onMounted} from 'vue';
 
     const h1 = ref("認養地區")
     let locations = reactive([
@@ -116,6 +116,9 @@
         locationDisplay = locations.filter(item => item.id == selectedValue.value)
       }
     }
+    onMounted(() => {
+      updateDisplay();
+    });
     const branches = reactive([
       {
         id:'taipei',
@@ -176,7 +179,7 @@
     };
     watch(() => selectedBranch.value, () => { //監看 selectedBranch.value => 有改變就執行下方函式
         if (selectedBranch.value !== null) {
-          // 如果有選擇某一點，增加 addEventListener => 點擊 container 外 -> selectedBranch.value = null; (據點談窗關閉)
+          // 如果有選擇，增加 addEventListener => 點擊 container 外 -> selectedBranch.value = null; (據點彈窗關閉)
           document.addEventListener('click', handleClickOutside);
         } else {
           //如果沒有選擇，移除 addEventListener
@@ -184,11 +187,26 @@
         }
       });
 
-    const  selectedValue = ref(null)
+    const  selectedValue = ref("null")
     watch(() => selectedValue.value, () => {
+        //如果 selectedValue.value 的值有改變，就把它傳進 selectBranch 裡 => 顯示該 index 的資料。
         selectBranch(selectedValue.value);
         updateDisplay()
+        if( window.innerWidth >= 1200){
+          window.scrollTo({ top: 1000, behavior: 'smooth' });
+        }
+        console.log(window);
+        
+        
     })
+
+    const branchDisplay = (key) => {
+      selectBranch(locationDisplay[key].id);
+      if( window.innerWidth >= 1200){
+        window.scrollTo({ top: 600, behavior: 'smooth' });
+      }
+      
+    }
 </script>
 <template>
   <div class="banner">
@@ -226,20 +244,20 @@
         </div>
       </div>
       <section class="location">
-        <div class="card" v-for="(item, key) in locationDisplay" :key="key">
+        <div class="card" v-for="(item, key) in locationDisplay" :key="key" @click="branchDisplay(key)">
           <div class="tag">{{ item.area }}</div>
           <div class="name">
             {{ item.name }}
             <div class="people">扶養&nbsp;<span>{{ item.people }}</span>&nbsp;人</div>
           </div>
         </div>
-        <div class="deco-stars">
+      </section>
+      <div class="deco-stars">
           <img :src="'pictures/decorations/illustration/golden_stars.png'" alt="星星裝飾">
         </div>
         <div class="deco-bigstar">
           <img :src="'pictures/characters/star/star_superman.svg'" alt="星星裝飾">
         </div>
-      </section>
     </div>
   </div>
 </template>

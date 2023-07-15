@@ -3,30 +3,117 @@
 import { RouterLink } from 'vue-router'
 
 import { reactive } from 'vue';
-const footerItemList = reactive(
-  {
-    id: "about",
-    mainItem:
+const linkSectionList = reactive(
+  [
     {
-      mainTitle: "認識星火",
-      mainRoutingName: "about"
-    },
-    subItem: [
+      id: "about",
+      main:
       {
-        subTitle: "星火緣起",
-        subRoutingName: "about"
-      }, {
-        subTitle: "星火願景",
-        subRoutingName: "about"
-      }, {
-        subTitle: "服務據點",
-        subRoutingName: "about"
-      }, {
-        subTitle: "認養/捐款Q&A",
-        subRoutingName: "about"
-      }
-    ]
-  }
+        title: "認識星火",
+        routingName: "/about"
+      },
+      sub: [
+        {
+          title: "星火緣起",
+          routingName: "/about"
+        }, {
+          title: "星火願景",
+          routingName: "/about"
+        }, {
+          title: "服務據點",
+          routingName: "/about"
+        }, {
+          title: "認養/捐款Q&A",
+          routingName: "/about"
+        }
+      ]
+    },
+    {
+      id: "service",
+      main:
+      {
+        title: "星火服務",
+        routingName: "/service"
+      },
+      sub: [
+        {
+          title: "服務內容",
+          routingName: "/service"
+        }
+      ]
+    },
+    {
+      id: "work_result",
+      main:
+      {
+        title: "成果佈告欄",
+        routingName: "/work-result"
+      },
+      sub: [
+        {
+          title: "故事藝廊",
+          routingName: "/work-result"
+        }, {
+          title: "歷年報告",
+          routingName: "/work-result"
+        }, {
+          title: "服務里程碑",
+          routingName: "/work-result"
+        }
+      ]
+    },
+    {
+      id: "sponsor",
+      main:
+      {
+        title: "認養計畫",
+        routingName: "/sponsor"
+      },
+      sub: [
+        {
+          title: "認養據點",
+          routingName: "/sponsor-location"
+        }, {
+          title: "我要認養",
+          routingName: "/sponsor"
+        }
+      ]
+    },
+    {
+      id: "donate",
+      main:
+      {
+        title: "捐款專案",
+        routingName: "/donate"
+      },
+      sub: [
+        {
+          title: "捐款內容",
+          routingName: "/donate"
+        }, {
+          title: "捐款善心榜",
+          routingName: "/donate"
+        }
+      ]
+    },
+    {
+      id: "about",
+      main:
+      {
+        title: "星火之友",
+        routingName: "/contact"
+      },
+      sub: [
+        {
+          title: "友會介紹",
+          routingName: "/contact"
+        }, {
+          title: "總部地點",
+          routingName: "/contact"
+        }
+      ]
+    }
+  ]
 )
 
 
@@ -38,7 +125,7 @@ const footerItemList = reactive(
       <div class="information">
 
         <div class="logo">
-          <img :src="'assets/logo/logo.svg'" alt="Vue logo" width="360">
+          <img :src="'pictures/logo/logo_white.svg'" alt="Spark logo" >
         </div>
 
         <div class="business_hours">
@@ -58,73 +145,21 @@ const footerItemList = reactive(
       <div class="items">
         <div class="list">
 
-          <div v-for="footerItem in footerItemList" :key="footerItem.id" :class="footerItem.id">
+          <div v-for="linkSection in linkSectionList" :key="linkSection.id" >
 
-            <h5 v-for="mainItem in footerItem" :key="mainItem.mainTitle">
-              <RouterLink :to="mainItem.mainRoutingName" :class="mainItem.mainRoutingName" class="link">
-                {{ mainItem.mainTitle }}
+            <h5>
+              <RouterLink :to="linkSection.main.routingName"  class="link">
+                {{ linkSection.main.title }}
               </RouterLink>
             </h5>
 
-            <h6 v-for="subItem in footerItem" :key="subItem.subTitle">
-              <RouterLink :to="subItem.subRoutingName" :class="subItem.subRoutingName" class="link">
-                {{ subItem.subTitle }}
+            <h6 v-for="subEle in linkSection.sub" :key="subEle.title">
+              <RouterLink :to="subEle.routingName" class="link">
+                {{ subEle.title }}
               </RouterLink>
             </h6>
 
-
           </div>
-        </div>
-
-
-        <div class="service">
-          <h5>服務據點</h5>
-          <RouterLink to="/" class="link service">
-            <h6>服務內容</h6>
-          </RouterLink>
-        </div>
-
-        <div class="result">
-          <h5>成果佈告欄</h5>
-          <RouterLink to="/" class="link result">
-            <h6>故事藝廊</h6>
-          </RouterLink>
-          <RouterLink to="/" class="link result">
-            <h6>歷年報告</h6>
-          </RouterLink>
-          <RouterLink to="/" class="link result">
-            <h6>服務里程碑</h6>
-          </RouterLink>
-        </div>
-
-        <div class="sponsor">
-          <h5>認養計畫</h5>
-          <RouterLink to="/" class="link sponsor">
-            <h6>認養據點</h6>
-          </RouterLink>
-          <RouterLink to="/" class="link sponsor">
-            <h6>我要認養</h6>
-          </RouterLink>
-        </div>
-
-        <div class="donate">
-          <h5>捐款專案</h5>
-          <RouterLink to="/" class="link donate">
-            <h6>捐款內容</h6>
-          </RouterLink>
-          <RouterLink to="/" class="link donate">
-            <h6>捐款善心榜</h6>
-          </RouterLink>
-        </div>
-
-        <div class="contact">
-          <h5>聯絡星火</h5>
-          <RouterLink to="/" class="link contact">
-            <h6>友會介紹</h6>
-          </RouterLink>
-          <RouterLink to="/" class="link contact">
-            <h6>總部地點</h6>
-          </RouterLink>
         </div>
 
 
@@ -143,14 +178,12 @@ const footerItemList = reactive(
       </div>
     </div>
   </footer>
-
-
 </template>
 
 
 
 <style scoped lang="scss">
-@import "@/assets/sass/layout/footer";
+@import "@/assets/sass/layout/_footer";
 </style>
 
 

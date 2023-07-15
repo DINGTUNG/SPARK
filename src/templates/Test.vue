@@ -14,8 +14,6 @@
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/components/func-items/buttons/_buttons-mixin';
-
 .container {
   position: relative;
   top: 300px;
@@ -24,14 +22,15 @@
   margin:auto;
   padding: 50px;
   border: 1px solid #000;
+  background-color:$primaryBrandBlue;
 }
 
-button.test_btn {
-  @include smallGoldBtn_PC;
+// button.test_btn {
+//   @include smallGoldBtn_PC;
 
-}
+// }
 
-.test_btn2{
-  @include regularWhiteBtn_PC;
-}
+// .test_btn2{
+//   @include regularWhiteBtn_PC;
+// }
 </style>

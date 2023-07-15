@@ -11,6 +11,11 @@ import News from '@/views/sections/home/News.vue';
 
     <News />
 
+    <!-- 撐開頁面之臨時空間 -->
+    <br v-for="n in 100" :key="n">
+
+
+
   </div>
 </template>
 

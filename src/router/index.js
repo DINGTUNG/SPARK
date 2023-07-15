@@ -69,7 +69,7 @@ const router = createRouter({
     {
       path: '/donate-checkout',
       name: 'donate-checkout',
-      component: () => import('../views/pages/donate/donateCheckout.vue')
+      component: () => import('../views/pages/donate/DonateCheckout.vue')
     },
     {
       path: '/test',

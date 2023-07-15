@@ -246,5 +246,5 @@
 
 
 <style scoped lang="scss">
-@import '@/assets/sass/pages/sponsor-location';
+@import '@/assets/sass/pages/sponsor/sponsor-location';
 </style>

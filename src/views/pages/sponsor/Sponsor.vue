@@ -95,5 +95,5 @@ const plus = (index) => {
   </div>  
 </template>
 <style scoped lang="scss">
-@import'@/assets/sass/pages/sponsor'
+@import'@/assets/sass/pages/sponsor/sponsor'
 </style>

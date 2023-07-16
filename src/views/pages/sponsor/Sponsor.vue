@@ -5,22 +5,22 @@ const area = reactive(
     {
       index: 1,
       area: '台北星火',
-      count: 1,
+      count: 0,
     },
     {
       index: 2,
       area: '台中星火',
-      count: 1,
+      count: 0,
     },
     {
       index: 3,
       area: '台南星火',
-      count: 1,
+      count: 0,
     },
     {
       index: 4,
       area: '台東星火',
-      count: 1,
+      count: 0,
     }
   ]
 )

@@ -89,7 +89,6 @@ div.container {
                 }
 
                 @include custom-responsive(" xl xxl") {
-                    width: 40%;
                     padding-left: 50px;
                     display: flex;
                     flex-direction: column;

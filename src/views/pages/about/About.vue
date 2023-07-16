@@ -88,7 +88,7 @@
       
       <div class="title_block">
         <h1>認識星火</h1>
-        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="title_text">
         <p>星火兒童協會是一個致力於幫助弱勢兒童的非營利組織。我們以教育、健康和福利支援為核心，點燃希望之星。透過資源整合、社區合作和創新計畫，我們提升兒童的生活品質，培養他們的潛能與自信，成為未來堅強有影響力的領袖。關愛、教育和社會參與是我們創造美好世界的使命，讓我們攜手為每個孩子的未來點亮一道光芒。</p>
@@ -100,7 +100,7 @@
       </div>
       <div class="origin_title">
         <h2>緣起</h2>
-        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="origin_text">
         <p>民國82年，星火協會在台灣成立，我們的創立者深受對兒童福祉的關懷和熱情所驅使；而當時社會中許多弱勢兒童面臨著困境，這些弱勢兒童不是無助的，他們擁有無限的潛能和夢想，我們決心為他們提供支援和改變的機會。</p>
@@ -112,7 +112,7 @@
       </div>
       <div class="vision_title">
         <h2>願景</h2>
-        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="vision_text">
         <p>
@@ -134,7 +134,7 @@
 
       <div class="branch_title">
         <h2>服務據點</h2>
-        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="branch_card_wrapper">
         <div class="branch_card" v-for="branch in branches" :key="branch.id">
@@ -150,7 +150,7 @@
 
       <div class="faq_title">
         <h2>認養/捐款 Q&A</h2>
-        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="faq_field_wrapper">
         <div class="faq_field" v-for="(faq, i) in faqBase" :key="i">

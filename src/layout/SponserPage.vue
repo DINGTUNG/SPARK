@@ -1,8 +1,8 @@
 <script setup>
-import { ref } from 'vue'
- const open = ref(
-   openSidebar = false,
- )
+// import { ref } from 'vue'
+//  const open = ref(
+//    openSidebar = false,
+//  )
 </script>
 
 <template>

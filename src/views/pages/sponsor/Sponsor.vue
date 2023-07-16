@@ -1,5 +1,6 @@
 <script setup>
-import { reactive , } from 'vue';
+import { reactive} from 'vue';
+import SponsorPage from '@/layout/SponserPage.vue';
 
 const area = reactive([
   {
@@ -87,13 +88,12 @@ const plus = (index) => {
         <button class="back">回上頁</button>
         <button class="pay_list"  @click="openSidebar = true">加入認養清單</button>
         <div class="icon_img">
-          <img :src="'assets/characters/star/star_sleeping.svg'" alt="">
+          <img :src="'pictures/characters/star/star_sleeping.svg'" alt="">
         </div>
       </div>
     </div>
-    <SponsorPage ></SponsorPage>
   </div>
-  
+  <SponsorPage></SponsorPage>
 </template>
 
 <style scoped lang="scss">

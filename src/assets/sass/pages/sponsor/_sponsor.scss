@@ -4,7 +4,7 @@ div.container {
     div.main_body {
         width: 62.5vw;
         margin: auto;
-
+        
         div.title_block {
             display: flex;
 
@@ -241,6 +241,9 @@ div.container {
                     display: none;
                 }
 
+                @include custom-responsive(" xl xxl") {
+                    display: block;
+                }
             }
         }
     }

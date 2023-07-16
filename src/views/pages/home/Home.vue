@@ -10,6 +10,8 @@ import News from '@/views/sections/home/News.vue';
     <RouterLink to="/test">測試頁面</RouterLink>
     <br>
     <RouterLink to="/donate-checkout">donate-checkout</RouterLink>
+    <br>
+    <RouterLink to="/resultreport">resultreport</RouterLink>
 
     <div class="banner">
       <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg">

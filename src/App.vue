@@ -15,7 +15,7 @@ import RightMenu from '@/layout/RightMenu.vue';
 </script>
 
 <template>
-  <Header />
+  <!-- <Header /> -->
   <RightMenu />
   <LeftMenu />
 

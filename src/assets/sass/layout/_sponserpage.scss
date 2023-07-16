@@ -1,0 +1,72 @@
+div.SponserPage {
+    position: absolute;
+    right: -100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100vh;
+    background-color: aqua;
+    order: 99;
+    border-radius: 30px 0 0 30px;
+    z-index: 100;
+    transition: right 3s ease-in-out;   
+}
+
+div.title {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+   
+    h2 {
+        @include h2_PC;
+    }
+}
+
+div.sponser_inner {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    h5{
+        @include h5_PC;
+    }
+    .card_count{
+        display: flex;
+        p{
+            padding: 0 20px;
+        }
+    }
+  
+}
+
+div.sponser_total {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 0 0 0 30px;
+    height: 20%;
+    background-color: $functionalLightGrey1;
+    div.tatol_price{
+        padding-top: 20px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        h5{
+            @include h5_PC;
+        }
+    }
+    div.price_button{
+        display: flex;
+        justify-content: center;
+
+    }
+    button{
+        @include flex_hm();
+        margin-top: 20px;
+        @include regularBlueBtn_PC;
+        
+     }
+
+}
+

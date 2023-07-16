@@ -1,41 +1,41 @@
 <script setup>
-import { reactive } from 'vue'
-const area = reactive(
-  [
-    {
-      index: 1,
-      area: '台北星火',
-      count: 0,
-    },
-    {
-      index: 2,
-      area: '台中星火',
-      count: 0,
-    },
-    {
-      index: 3,
-      area: '台南星火',
-      count: 0,
-    },
-    {
-      index: 4,
-      area: '台東星火',
-      count: 0,
-    }
-  ]
-)
+import { reactive , } from 'vue';
+
+const area = reactive([
+  {
+    index: 1,
+    area: '台北星火',
+    count: 0,
+  },
+  {
+    index: 2,
+    area: '台中星火',
+    count: 0,
+  },
+  {
+    index: 3,
+    area: '台南星火',
+    count: 0,
+  },
+  {
+    index: 4,
+    area: '台東星火',
+    count: 0,
+  },
+]);
+
 const minus = (index) => {
   if (area[index].count === 0) {
     area[index].count = 0;
   } else {
     area[index].count--;
   }
-
 };
 
 const plus = (index) => {
   area[index].count++;
 };
+
 </script>
 
 
@@ -85,15 +85,17 @@ const plus = (index) => {
       </div>
       <div class="button">
         <button class="back">回上頁</button>
-        <button class="pay_list">加入認養清單</button>
+        <button class="pay_list"  @click="openSidebar = true">加入認養清單</button>
         <div class="icon_img">
           <img :src="'assets/characters/star/star_sleeping.svg'" alt="">
         </div>
       </div>
-
     </div>
+    <SponsorPage ></SponsorPage>
   </div>
+  
 </template>
+
 <style scoped lang="scss">
-@import'@/assets/sass/pages/sponsor/sponsor'
+@import'@/assets/sass/pages/sponsor/sponsor';
 </style>

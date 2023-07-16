@@ -1,0 +1,23 @@
+.banner {
+    width: 100%;
+    position: relative;
+    outline: red solid 1px;
+    img {
+        width: 100%;
+    }
+    .keyviual {
+position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    .white_moon {
+        width: 100%;
+    }
+    }
+
+    .home_banner_cloud {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}

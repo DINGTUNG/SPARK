@@ -13,8 +13,16 @@ import News from '@/views/sections/home/News.vue';
 
     <div class="banner">
       <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg">
-      <div class="keyviual">
-        <img :src="'pictures/decorations/illustration/white_moon.png'" alt="white_moon" class="white_moon">
+      <div class="banner_center">
+        <img :src="'pictures/decorations/illustration/white_moon.svg'" alt="white_moon" class="white_moon">
+        <img :src="'pictures/decorations/handwriting/ignite_the_night.svg'" alt="ignite_the_night"
+          class="ignite_the_night">
+        <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="boy_lighting_up_white"
+          class="boy_lighting_up_white">
+        <img :src="'pictures/characters/girl/girl_hugging_star_white.svg'" alt="girl_hugging_star_white"
+          class="girl_hugging_star_white">
+        <img :src="'pictures/decorations/illustration/orange_asterisk_single.png'" alt="orange_asterisk_single"
+          class="orange_asterisk_single">
 
       </div>
 

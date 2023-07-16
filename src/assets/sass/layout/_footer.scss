@@ -1,191 +1,155 @@
-// @import "@/assets/sass/base/color";
-// @import '@/assets/sass/base/fonts/fonts-mixin';
+@import "@/assets/sass/base/color";
+@import '@/assets/sass/base/fonts/fonts-mixin';
+@import '@/assets/sass/base/rwd/breakpoints';
 
 
 
-// footer {
-//   width: 100%;
-//   background-image: url("/pictures/decorations/layout/footer.svg");
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   position: relative;
-//   bottom: 0;
-//   left: 0;
+@include custom-responsive("xs xm"){
+  footer{
 
+    div.footer_content{
 
-//   div.footer_content {
-//     display: flex;
-//     justify-content: space-around;
+      div.items{
+          
+      }
+    }
+  }
+}
 
-//     div.information {
+footer{
+  width: 100%;
+  background-image: url("/pictures/decorations/layout/footer.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  bottom: 0;
+  left: 0;
 
-//       div.logo {
+  div.footer_content{
+    display: flex;
+    justify-content: space-around;
 
-//         margin-top: 114px;
-//         margin-bottom: 58.44px;
+    div.information{
+      margin-left: 2vw;
+      margin-right: 2vw;
 
-//         img {
-//           width: 500px;
-//         }
+      div.logo{
+        margin-top: 50%; 
+        margin-bottom: 20%; 
+      }
 
+      div.business_hours{
 
-//       }
+        span{
+          display: block;
+          margin-bottom: 10px;
+          color: $primaryBrandWhite;
+        }
+  
+        span.service_hours{
+          font-weight: $fWBold;
+        }
+  
+        span.time{
+          font-size: 32px;
+          font-weight: $fWRegular;
+        }
+      }
+  
+      div.location{
+        margin-top: 40px;
+        color: $primaryBrandWhite;
+  
+        span.headquarters{
+          display: block;
+          margin-bottom: 17px;
+          font-weight: $fWBold;
+        }
+  
+        i{
+          margin-bottom: 17px;
+          margin-right: 18px;
+        }
+      }
+    }
 
-//       div.business_hours {
+    div.items{
 
-//         span.service_hours {}
+      div.list{
+        display: flex;
 
-//         span.time {}
+        div{
+          margin-top: 27%;
+          margin-right: 2vw;
 
-//         span.date {}
+          h5{
+            @include h5_B_PC();
+            margin-bottom: 21px;
 
-//       }
+            .link{
+              color: $primaryBrandWhite;
+              text-decoration: none;
+            }
+          }
 
+          h6{
+            @include h6_PC();
+            margin-bottom: 5px;
 
-//       div.location {
+            .link{
+              color: $primaryBrandWhite;
+              text-decoration: none;
+            }
+          }
+        }
+      }
 
-//         span.headquarters {}
+      div.newsletter{
+        margin-top: 84px;
+        
+        label{
 
-//         span.time {}
+          h6{
+            font-size: $h6Fs_PC;
+            color: $primaryBrandWhite;
+          }
+        }
 
-//         span.date {}
+        input{
+          display: block;
+          width: 39%;
+          margin-top: 10px;
+          border-radius: 100px;
+          padding: 15px;
+          box-sizing: border-box;
+          background-color: transparent;
+          color: $primaryBrandWhite;
 
-//       }
+          &::placeholder{
+            color: rgba(255, 255, 255, 0.45);
+            text-indent: 10px;
+          }
 
-//     }
+          &:focus{
+            outline: none;
+            text-indent: 10px;
+          }
+        }
+      }
+    }
+  }
 
-//     div.items {
-//       div.list {
-//         div.about {
+  div.footer_copyright{
+    margin-top: 66px;
+    border-top: 0.5px solid $primaryBrandWhite;
 
-//           h5 {}
-
-//           .link {}
-//         }
-
-//         div.service {
-
-//           h5 {}
-
-//           .link {}
-//         }
-
-
-//         div.result {
-
-//           h5 {}
-
-//           .link {}
-//         }
-
-
-
-//       }
-//     }
-
-
-//   }
-
-// }
-
-
-
-// footer .information .business_hours span {
-//   display: block;
-//   margin-bottom: 10px;
-//   color: $primaryBrandWhite;
-// }
-
-// footer .information .business_hours .service_hours {
-//   font-weight: $fWBold;
-// }
-
-// footer .information .business_hours .time {
-//   font-size: 32px;
-//   font-weight: $fWRegular;
-// }
-
-// footer .information .location {
-//   margin-top: 40px;
-//   color: $primaryBrandWhite;
-// }
-
-// footer .information .location .headquarters {
-//   display: block;
-//   margin-bottom: 17px;
-//   font-weight: $fWBold;
-// }
-
-// footer .information .location i {
-//   margin-bottom: 17px;
-//   margin-right: 18px;
-// }
-
-
-// //items
-// footer .items .list {
-//   display: flex;
-// }
-
-// footer .items .list div {
-//   margin-top: 143px;
-//   margin-right: 62px;
-// }
-
-// footer .items div h5 {
-//   @include h5_B_PC();
-//   color: $primaryBrandWhite;
-//   margin-bottom: 21px;
-// }
-
-// footer .items .list div h6 {
-//   @include h6_PC();
-//   color: $primaryBrandWhite;
-//   margin-bottom: 5px;
-// }
-
-// footer .items .list div .link {
-//   text-decoration: none;
-// }
-
-// footer .items .newsletter {
-//   font-size: $h6Fs_PC;
-//   color: $primaryBrandWhite;
-//   margin-top: 84px;
-// }
-
-// footer .items .newsletter input {
-//   display: block;
-//   width: 348px;
-//   margin-top: 10px;
-//   border-radius: 100px;
-//   padding: 15px;
-//   box-sizing: border-box;
-//   background-color: transparent;
-//   color: $primaryBrandWhite;
-// }
-
-// footer .items .newsletter input::placeholder {
-//   color: rgba(255, 255, 255, 0.45);
-//   text-indent: 10px;
-// }
-
-// footer .items .newsletter input:focus {
-//   outline: none;
-//   text-indent: 10px;
-// }
-
-// //copyright
-// footer .footer_copyright {
-//   margin-top: 66px;
-//   border-top: 0.5px solid $primaryBrandWhite;
-// }
-
-// footer .footer_copyright .copyright {
-//   display: flex;
-//   justify-content: end;
-//   padding: 30px;
-//   box-sizing: border-box;
-//   margin-right: 182px;
-//   color: $primaryBrandWhite;
-// }
+    div.copyright{
+      display: flex;
+      justify-content: end;
+      padding: 30px;
+      box-sizing: border-box;
+      margin-right: 182px;
+      color: $primaryBrandWhite;
+    }
+  }
+}

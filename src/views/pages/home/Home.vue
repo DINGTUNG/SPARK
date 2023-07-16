@@ -11,10 +11,40 @@ import News from '@/views/sections/home/News.vue';
     <br>
     <RouterLink to="/donate-checkout">donate-checkout</RouterLink>
 
-    <News />
+    <div class="banner">
+      <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg">
+      <div class="keyviual">
+        <img :src="'pictures/decorations/illustration/white_moon.png'" alt="white_moon" class="white_moon">
+
+      </div>
+
+      <img :src="'pictures/images/home/home_banner_cloud.png'" alt="home_banner_cloud" class="home_banner_cloud">
+    </div>
+
+    <div class="home_container">
+      <div class="section_intro">
+        <div class="intro">
+          <div class="intro_title">
+            <img :src="'pictures/decorations/illustration/pigeon.svg'" alt="pigeon">
+            <h1>星火30，感謝有您</h1>
+          </div>
+          <div class="intro_text">
+            30年前，星火成立，三十年來，風風雨雨，在愛心捐助與認養兒童的這份慈善事業中，星火一直致力於這份偉大的事業中，只為了讓社會中每顆幼小的火苗能成為照亮自己和他人的燎原之光，在這三十年間，幫助了數以千計的孩子找到合適的認養人，並且在提升弱勢兒童的福祉上努力的不落人後，如今星火成立30年，感謝各界的善心支持，願你我能讓星火能永遠相傳。
+          </div>
+        </div>
+        <div class="intro_map"></div>
+      </div>
+
+      <div class="section_news">
+        <News />
+      </div>
+
+    </div>
+
+
 
     <!-- 撐開頁面之臨時空間 -->
-    <br v-for="n in 100" :key="n">
+    <!-- <br v-for="n in 100" :key="n"> -->
 
 
 
@@ -23,4 +53,6 @@ import News from '@/views/sections/home/News.vue';
 
 
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import "@/assets/sass/pages/home/home";
+</style>

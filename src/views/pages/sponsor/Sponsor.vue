@@ -66,33 +66,33 @@ const plus = (index) => {
             <h4>每月 <span class="price">$ 2,000 </span>認養費</h4>
           </div>
         </div>
-        <div class="line"></div>
-        <div class="sponsor_area">
-          <h3>認養地區</h3>
-          <div class="sponsor_area_inner">
-            <div class="area_card" v-for="(item, index) in area" :key="index">
-              <div class="card_title">
-                <h5>{{ item.area }}</h5>
-              </div>
-              <div class="card_count">
-                <span @click="minus(index)">-</span>
-                {{ item.count }}
-                <span @click="plus(index)">+</span>
-              </div>
+      </div>
+      <div class="line"></div>
+      <div class="sponsor_area">
+        <h3>認養地區</h3>
+        <div class="sponsor_area_inner">
+          <div class="area_card" v-for="(item, index) in area" :key="index">
+            <div class="card_title">
+              <h5>{{ item.area }}</h5>
+            </div>
+            <div class="card_count">
+              <span @click="minus(index)">-</span>
+              {{ item.count }}
+              <span @click="plus(index)">+</span>
             </div>
           </div>
         </div>
-        <div class="button">
-          <button class="back">回上頁</button>
-          <button class="pay_list">加入認養清單</button>
-          <div class="icon_img">
-            <img :src="'assets/characters/star/star_sleeping.svg'" alt="">
-          </div>
-        </div>
-
       </div>
+      <div class="button">
+        <button class="back">回上頁</button>
+        <button class="pay_list">加入認養清單</button>
+        <div class="icon_img">
+          <img :src="'assets/characters/star/star_sleeping.svg'" alt="">
+        </div>
+      </div>
+
     </div>
-  </div>  
+  </div>
 </template>
 <style scoped lang="scss">
 @import'@/assets/sass/pages/sponsor/sponsor'

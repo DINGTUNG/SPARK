@@ -6,7 +6,7 @@ const article = reactive(
   [
     {
       index: 1,
-      img: "assets/images/home/news/single-news-page/singlenewfour.png",
+      img: "pictures/images/home/news/single-news-page/singlenewfour.png",
       h5: '親愛的星火兒童認養協會的家人們：',
       article: '我們非常興奮地宣布，星火兒童認養協會迎來了30週年的重要里程碑!在這個特殊的時刻，我們想要向所有支持者、志願者、捐助者和合作夥伴表達最深深的感謝之情。',
       article_two: '自1985年成立以來，星火一直致力於關愛孤兒和弱勢兒童，為他們提供溫暖、關懷和希望。這30年來，我們見證了無數個家庭的連結、孩子的笑容和夢想的實現。',
@@ -69,7 +69,8 @@ const news = reactive(
     <div class="title_img">
       <img :src="'pictures/images/home/news/single-news-page/banner.png'" alt="">
     </div>
-    <div class="main_body">
+    <div class="container">
+      <div class="main_body">
       <div class="title_block">
         <h1>消息內容</h1>
         <div class="top_line"></div>
@@ -117,6 +118,8 @@ const news = reactive(
         </div>
       </div>
     </div>
+    </div>
+   
 </template>
 
 

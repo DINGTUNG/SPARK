@@ -9,14 +9,39 @@ import News from '@/views/sections/home/News.vue';
 
     <RouterLink to="/test">測試頁面</RouterLink>
     <br>
-    <RouterLink to="/donate-checkout">donate-checkout</RouterLink>
+    <RouterLink to="/sponsor-checkout-step-1">sponsor-checkout-step-1</RouterLink>
+    <br>
+    <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
+
 
     <div class="banner">
       <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg">
-      <div class="keyviual">
-        <img :src="'pictures/decorations/illustration/white_moon.png'" alt="white_moon" class="white_moon">
-
+      <div class="banner_center">
+        <img :src="'pictures/decorations/illustration/white_moon.svg'" alt="white_moon" class="white_moon">
+        <img :src="'pictures/decorations/handwriting/ignite_the_night.svg'" alt="ignite_the_night"
+          class="ignite_the_night">
+        <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="boy_lighting_up_white"
+          class="boy_lighting_up_white">
+        <img :src="'pictures/characters/girl/girl_hugging_star_white.svg'" alt="girl_hugging_star_white"
+          class="girl_hugging_star_white">
+        <img :src="'pictures/decorations/illustration/orange_asterisk_single.svg'" alt="orange_asterisk_single"
+          class="orange_asterisk_single">
+        <img :src="'pictures/decorations/illustration/golden_star_single_2.svg'" alt="golden_star_single_2"
+          class="golden_star_single_2">
+        <img :src="'pictures/decorations/illustration/golden_star_single_3.svg'" alt="golden_star_single_3"
+          class="golden_star_single_3">
+        <img :src="'pictures/decorations/illustration/golden_star_2.svg'" alt="golden_star_2" class="golden_star_2">
+        <img :src="'pictures/decorations/illustration/golden_star_2.svg'" alt="golden_star_2" class="golden_star_2">
       </div>
+      <img :src="'pictures/decorations/illustration/orange_stars.svg'" alt="orange_stars" class="orange_stars">
+      <img :src="'pictures/decorations/illustration/golden_star_single.svg'" alt="golden_star_single"
+        class="golden_star_single">
+      <img :src="'pictures/decorations/illustration/shooting_star_white.svg'" alt="shooting_star_white"
+        class="shooting_star_white">
+      <img :src="'pictures/decorations/illustration/shooting_star_white_2.svg'" alt="shooting_star_white_2"
+        class="shooting_star_white_2">
+      <img :src="'pictures/decorations/illustration/shooting_star_white_group.svg'" alt="shooting_star_white_group"
+        class="shooting_star_white_group">
 
       <img :src="'pictures/images/home/home_banner_cloud.png'" alt="home_banner_cloud" class="home_banner_cloud">
     </div>
@@ -43,8 +68,6 @@ import News from '@/views/sections/home/News.vue';
 
 
 
-    <!-- 撐開頁面之臨時空間 -->
-    <!-- <br v-for="n in 100" :key="n"> -->
 
 
 

@@ -67,9 +67,39 @@ const router = createRouter({
       component: () => import('../views/pages/login/Login.vue')
     },
     {
-      path: '/donate-checkout',
-      name: 'donate-checkout',
-      component: () => import('../views/pages/donate/DonateCheckout.vue')
+      path: '/sponsor-checkout-step-1',
+      name: 'sponsor-checkout-step-1',
+      component: () => import('../views/pages/sponsor/checkout/SponsorCheckoutStep1.vue')
+    },
+    {
+      path: '/sponsor-checkout-step-2',
+      name: 'sponsor-checkout-step-2',
+      component: () => import('../views/pages/sponsor/checkout/SponsorCheckoutStep2.vue')
+    },
+    {
+      path: '/sponsor-checkout-step-3',
+      name: 'sponsor-checkout-step-3',
+      component: () => import('../views/pages/sponsor/checkout/SponsorCheckoutStep3.vue')
+    },
+    {
+      path: '/sponsor-checkout-overview',
+      name: 'sponsor-checkout-overview',
+      component: () => import('../views/pages/sponsor/checkout/SponsorCheckoutOverview.vue')
+    },
+    {
+      path: '/donate-checkout-step-1',
+      name: 'donate-checkout-step-1',
+      component: () => import('../views/pages/donate/checkout/DonateCheckoutStep1.vue')
+    },
+    {
+      path: '/donate-checkout-step-2',
+      name: 'donate-checkout-step-2',
+      component: () => import('../views/pages/donate/checkout/DonateCheckoutStep2.vue')
+    },
+    {
+      path: '/donate-checkout-overview',
+      name: 'donate-checkout-overview',
+      component: () => import('../views/pages/donate/checkout/DonateCheckoutOverview.vue')
     },
     {
       path: '/test',

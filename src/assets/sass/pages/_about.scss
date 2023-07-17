@@ -1,10 +1,15 @@
-@import '@/assets/sass/base/color';
-@import '@/assets/sass/base/fonts/fonts-mixin';
-@import '@/assets/sass/base/box-shadow';
-@import '@/assets/sass/base/border-radius';
-@import '@/assets/sass/base/rwd/breakpoints';
+*{
+    outline: 1px solid rgb(255, 183, 183);
+}
 
-div.container {
+div.about_banner{
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+
+div.about_container {
     width: 100%;
 
     div.main_body {
@@ -13,55 +18,288 @@ div.container {
 
         div.title_block {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 35px;
 
             h1 {
                 @include h1_PC;
-                color: $primaryBgBlue;
+                color: $primaryBrandBlue;
+                display: inline-block;
             }
+            img.deco_line{
+                width: 78%;
+            }
+
         }
         div.title_text{
             @include h6_PC;
+            color: $basicFontColor;
         }
+
+        //3張展開的照片
         div.card_wrapper{
             margin: auto;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            margin: 50px 0;
+            
           
-            .about_card_1, .about_card_2, .about_card_3 {
-              margin-right: 20px;
+            .about_card_1 {
+                width: 25%;
+                transform: rotate(-10deg);
           
               img {
                 width: 100%;
                 height: auto;
+                border-radius: $br_PC;
               }
             }
+            .about_card_2 {
+                width: 40%;
+          
+              img {
+                width: 100%;
+                height: auto;
+                border-radius: $br_PC;
+              }
+            }
+            .about_card_3 {
+                width: 25%;
+                transform: rotate(10deg);
+          
+              img {
+                width: 100%;
+                height: auto;
+                border-radius: $br_PC;
+              }
+            }
+            
         }
+
+        //緣起
         div.origin_title{
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 35px;
 
             h2{
                 @include h2_PC;
-                color: $primaryBgBlue;
+                color:$primaryBrandBlue;
+                display: inline-block;
+            }
+            img.deco_line{
+                width: 90%;
             }
         }
         div.origin_text{
-            margin: 20px auto;
             @include h6_PC;
+            color: $basicFontColor;
+            margin: 0 0 50px 0;
+
+            p{
+                padding: 15px 0;
+            }
         }
+
+        //願景
         div.vision_title{
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 35px;
 
             h2{
                 @include h2_PC;
-                color: $primaryBgBlue;
+                color:$primaryBrandBlue;
+                display: inline-block;
+            }
+            img.deco_line{
+                width: 90%;
             }
         }
         div.vision_text{
-            margin: 20px auto;
             @include h6_PC;
+            color: $basicFontColor;
+        }
+        div.vision_house{
+            margin: 70px 0;
+
+                div.bgc_primaryblue{
+                    background-color: $primaryBrandBlue;
+                }
+
+                div.vision_content{
+                    @include h6_PC;
+                    display: flex;
+                    align-items: center;
+                    color: $primaryBrandWhite;
+                    padding: 20px 100px;
+
+                    div.icon_title{
+                        @include h4_PC;
+                        width: 20%;
+                        margin-right: 80px;
+                        color: $primaryBrandWhite;
+                        text-align: center;
+
+
+                        h4{
+                            white-space: nowrap;
+                        }
+                    }
+                }
+
+                img.roof{
+                width: 100%;
+                }
         }
 
+        //服務據點
+        div.branch_title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 35px;
+
+            h2{
+                @include h2_PC;
+                color:$primaryBrandBlue;
+                display: inline-block;
+            }
+            img.deco_line{
+                width: 85%;
+            }
+        }
+        div.branch_card_wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding-top: 50px;
+
+            div.branch_card{
+                background-color: $functionalLightGrey1;
+                border-radius: $br_PC;
+                width: 30%;
+                margin: 0 40px 40px 0;
+                transition: .2s;
+                position: relative;
+
+                &:hover {
+                    background-color: $primaryBrandBlue;
+                }
+                &:hover h5{
+                    color: $primaryBrandWhite;
+                }
+                &:hover p{
+                    color: $primaryBrandWhite;
+                }
+                &:hover i.fa-solid{
+                    color: $primaryBrandWhite;
+                }
+                &:hover img.telescope{
+                    transform: translateY(40%);
+                }
+            }
+                
+            div.branch_info{
+                padding: 35px;
+ 
+                h5{
+                    @include h5_B_PC;
+                    color: $basicFontColor;
+                    padding: 0 0 20px 0;
+                }
+                p{
+                    @include h6_PC;
+                    color: $basicFontColor;
+                    padding: 5px 0;
+
+                    i.fa-solid{
+                        color:$primaryBrandBlue;
+                        width: 10%;
+                        font-size: $h5Fs_PC;
+                    }
+                }           
+            }
+            img.telescope{
+                color: $primaryBrandWhite;
+                position: absolute;
+                bottom: 40px;
+                width: 30%;
+                right: 5%;
+                transition: transform 0.3s ease; 
+                transform: translateY(200%); 
+            }
+        }
+
+        //faq
+        div.faq_title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 0 35px;
+
+            h2{
+                @include h2_PC;
+                color:$primaryBrandBlue;
+                display: inline-block;
+            }
+            img.deco_line{
+                width: 75%;
+            }
+        }
+        div.faq_wrapper{
+           margin-top: 30px;
+
+            div.faq_field{
+                margin: 20px 0;
 
 
+                div.open_faq{
+                    width: 85%;
+                    // margin: auto;
+                    cursor: pointer;
+                    border: 1px solid $primaryBrandBlue;
+                    border-radius: 100px;
+
+                    h5{
+                        @include h5_PC;
+                        width: 90%;
+                        color: $primaryBrandBlue;
+                        display: flex;
+                        align-items: center;     
+                        margin: auto;
+                        justify-content: space-between;
+                        padding: 10px 50px;
+                        margin: 10px 0;           
+
+                        
+                        .fa-plus{
+                            color: $primaryBrandBlue;
+                            transition: transform 0.3s;
+                        }
+                        .rotate{
+                            transform: rotate(45deg);
+                        }
+                    }
+                    p.invisible{
+                        visibility: hidden;
+                        opacity: 0;
+                        height: 0;
+                        transition: opacity 3s, height 3s, padding 0.3s, visibility 3s;
+                    }
+                    .visible {
+                        visibility: visible;
+                        height: 65px;
+                        opacity: 1;
+                        padding: 10px 20px;
+                    }
+                }
+            }
+        }
+      
     }
 }

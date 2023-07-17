@@ -21,5 +21,5 @@ import CheckOutButtons from '@/components/buttons/CheckOutButtons.vue'
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/pages/donate/checkout/donate-checkout-overview';
+// @import '@/assets/sass/pages/donate/checkout/donate-checkout-overview';
 </style>

@@ -3,6 +3,14 @@ import { useRoute } from 'vue-router';
 import { ref, reactive, watch, computed } from 'vue';
 
 const tableTitle = ref("");
+
+const tableHeader = reactive([
+  ["認養地區", "認養人數", "金額"]
+  ,
+  ["捐款專案", "金額"]]
+)
+
+
 const sponsorPrice = ref(2000);
 
 const tableDataList = reactive([
@@ -46,17 +54,18 @@ watch(() => {
 
 
 
-</script> -->
+</script>
 
 <template>
- <table>
-  <!-- <caption>{{tableTitle.value}}</caption> -->
-  <tr>
-    <td>Emil</td>
-    <td>Tobias</td>
-    <td>Linus</td>
-  </tr>
-</table>
+  <table class="checkout_table">
+    <caption class="caption"><h2>{{ tableTitle }}</h2></caption>
+    <tr>
+      <th>{{tableHeader[0][0]}}</th>
+      <th>{{tableHeader[0][1]}}</th>
+      <th>{{tableHeader[0][2]}}</th>
+
+    </tr>
+  </table>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss"></style> -->

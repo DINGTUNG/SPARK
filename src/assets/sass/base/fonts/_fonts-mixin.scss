@@ -14,6 +14,7 @@
   font-weight: $h1Fw_PC;
   letter-spacing: $h1Ls;
   line-height: $h1Lh_PC;
+  font-family: $font-family;
 }
 
 @mixin h2_PC {
@@ -21,6 +22,7 @@
   font-weight: $h2Fw_PC;
   letter-spacing: $h2Ls;
   line-height: $h2Lh_PC;
+  font-family: $font-family;
 }
 
 @mixin h3_PC {
@@ -28,6 +30,7 @@
   font-weight: $h3Fw_PC;
   letter-spacing: $h3Ls;
   line-height: $h3Lh_PC;
+  font-family: $font-family;
 }
 
 @mixin h4_PC {
@@ -35,6 +38,7 @@
   font-weight: $h4Fw_PC;
   letter-spacing: $h4Ls;
   line-height: $h4Lh_PC;
+  font-family: $font-family;
 }
 
 @mixin h4_B_PC {
@@ -42,6 +46,7 @@
   font-weight: $h4Fw_B_PC;
   letter-spacing: $h4Ls;
   line-height: $h4Lh_B_PC;
+  font-family: $font-family;
 }
 
 @mixin h5_PC {
@@ -49,6 +54,7 @@
   font-weight: $h5Fw_PC;
   letter-spacing: $h5Ls;
   line-height: $h5Lh_PC;
+  font-family: $font-family;
 }
 
 @mixin h5_B_PC {
@@ -56,6 +62,7 @@
   font-weight: $h5Fw_B_PC;
   letter-spacing: $h5Ls;
   line-height: $h5Lh_B_PC;
+  font-family: $font-family;
 }
 
 @mixin h6_PC {
@@ -63,6 +70,7 @@
   font-weight: $h6Fw_PC;
   letter-spacing: $h6Ls;
   line-height: $h6Lh_PC;
+  font-family: $font-family;
 }
 
 //---------------------------------------------------------------------------------------
@@ -73,6 +81,7 @@
   font-weight: $h1Fw_MB;
   letter-spacing: $h1Ls;
   line-height: $h1Lh_MB;
+  font-family: $font-family;
 }
 
 @mixin h2_MB {
@@ -80,6 +89,7 @@
   font-weight: $h2Fw_MB;
   letter-spacing: $h2Ls;
   line-height: $h2Lh_MB;
+  font-family: $font-family;
 }
 
 @mixin h3_MB {
@@ -87,6 +97,7 @@
   font-weight: $h3Fw_MB;
   letter-spacing: $h3Ls;
   line-height: $h3Lh_MB;
+  font-family: $font-family;
 }
 
 @mixin h4_MB {
@@ -94,6 +105,7 @@
   font-weight: $h4Fw_MB;
   letter-spacing: $h4Ls;
   line-height: $h4Lh_MB;
+  font-family: $font-family;
 }
 
 @mixin h4_B_MB {
@@ -101,6 +113,7 @@
   font-weight: $h4Fw_B_MB;
   letter-spacing: $h4Ls;
   line-height: $h4Lh_B_MB;
+  font-family: $font-family;
 }
 
 @mixin h5_MB {
@@ -108,6 +121,7 @@
   font-weight: $h5Fw_MB;
   letter-spacing: $h5Ls;
   line-height: $h5Lh_MB;
+  font-family: $font-family;
 }
 
 @mixin h5_B_MB {
@@ -115,6 +129,7 @@
   font-weight: $h5Fw_B_MB;
   letter-spacing: $h5Ls;
   line-height: $h5Lh_B_MB;
+  font-family: $font-family;
 }
 
 @mixin h6_MB {
@@ -122,6 +137,7 @@
   font-weight: $h6Fw_MB;
   letter-spacing: $h6Ls;
   line-height: $h6Lh_MB;
+  font-family: $font-family;
 }
 
 //---------------------------------------------------------------------------------------

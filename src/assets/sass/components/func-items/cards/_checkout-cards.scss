@@ -17,7 +17,8 @@ div.check_out_card {
   div.checkout_datalist {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    gap: 15px;
 
 
     div.check_out_data {

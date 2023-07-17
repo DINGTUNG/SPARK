@@ -1,0 +1,29 @@
+div.check_out_buttons_container {
+  @include flex_hm;
+  gap: 25px;
+
+  button.prev {
+
+    @include custom-responsive("xs sm") {
+      @include checkoutCardsWhiteBtn_MB
+    }
+
+    @include custom-responsive("xl xxl") {
+      @include checkoutCardsWhiteBtn_PC
+    }
+  }
+
+
+
+  button.next {
+    @include custom-responsive("xs sm") {
+      @include checkoutCardsBlueBtn_MB
+    }
+
+    @include custom-responsive("xl xxl") {
+      @include checkoutCardsBlueBtn_PC
+    }
+
+
+  }
+}

@@ -1,6 +1,6 @@
 
 <script setup>
-    import { reactive, ref, watch,onMounted} from 'vue';
+    import { reactive, ref, watch} from 'vue';
 
     const h1 = ref("認養地區")
     let locations = reactive([
@@ -107,7 +107,7 @@
         people: '1,893'
       },
     ])
-    let locationDisplay = reactive([])
+    let locationDisplay = reactive(locations)
 
     const updateDisplay = () => {
       if (selectedBranch.value == null) {
@@ -116,9 +116,6 @@
         locationDisplay = locations.filter(item => item.id == selectedValue.value)
       }
     }
-    onMounted(() => {
-      updateDisplay();
-    });
     const branches = reactive([
       {
         id:'taipei',

@@ -261,6 +261,11 @@
           border-radius: $br_PC;
         }
         div.branchs {
+          button{
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+          }
           div.branch-details {
             border-radius: $br_PC;
             @include boxShadow_PC;

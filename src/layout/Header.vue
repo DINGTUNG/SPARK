@@ -116,30 +116,4 @@ const hideImage = () => {
 
 
 
-<!-- <template>
-  <header>
-    <RouterLink to="/" class="link_home">
-      <img alt="Spark logo" class="logo" :src="'pictures/logo/logo_blue.svg'" />
-    </RouterLink>
-
-    <div class="wrapper">
-      <nav>
-        <ul>
-          <li v-for="(item, index) in menuItems" :key="index">
-            <RouterLink v-if="item.route" :to="item.route" :class="['link', {'member_login': item.label === '會員登入'}]" @mouseover="showSubMenu(index)" @mouseleave="hideSubMenu">{{ item.label }}</RouterLink>
-            <a v-else :href="item.route" class="link">{{ item.label }}</a>
-            <ul v-if="item.submenu" class="submenu" :class="{ 'active': activeSubMenu === index }">
-              <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
-                <RouterLink :to="subItem.route" class="link">{{ subItem.label }}</RouterLink>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-</template> -->
-
-
-
 

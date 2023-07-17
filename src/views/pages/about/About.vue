@@ -191,6 +191,7 @@
         </div>
       </div>
 
+      <!-- FAQ -->
       <div class="faq_title">
         <h2>認養/捐款 Q&A</h2>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">

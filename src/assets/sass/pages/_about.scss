@@ -1,5 +1,5 @@
 *{
-    outline: 1px solid rgb(255, 183, 183);
+    // outline: 1px solid rgb(255, 183, 183);
 }
 
 div.about_banner{
@@ -183,7 +183,7 @@ div.about_container {
                 background-color: $functionalLightGrey1;
                 border-radius: $br_PC;
                 width: 30%;
-                margin: 0 40px 40px 0;
+                margin: 0 35px 40px 0;
                 transition: .2s;
                 position: relative;
 
@@ -263,7 +263,7 @@ div.about_container {
                     // margin: auto;
                     cursor: pointer;
                     border: 1px solid $primaryBrandBlue;
-                    border-radius: 100px;
+                    border-radius: $br_PC;
 
                     h5{
                         @include h5_PC;
@@ -276,7 +276,7 @@ div.about_container {
                         padding: 10px 50px;
                         margin: 10px 0;           
 
-                        
+
                         .fa-plus{
                             color: $primaryBrandBlue;
                             transition: transform 0.3s;
@@ -293,7 +293,7 @@ div.about_container {
                     }
                     .visible {
                         visibility: visible;
-                        height: 65px;
+                        height: 150px;
                         opacity: 1;
                         padding: 10px 20px;
                     }

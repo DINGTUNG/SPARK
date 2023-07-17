@@ -1,28 +1,44 @@
 <script setup>
-import { RouterLink } from 'vue-router';
-import {reactive } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { computed } from 'vue';
 
-const stepRouterLink = reactive(
-  [
-    "donate-checkout-step-1",
+const router = useRouter()
+const currentRoute = useRoute()
+
+const prev = () => {
+  router.go(-1)
+}
 
 
-  ]
+const next = () => {
+  if (currentRoute.name === "sponsor-checkout-step-1") {
+    router.push({ path: '/sponsor-checkout-step-2' })
+  } else if (currentRoute.name === "sponsor-checkout-step-2") {
+    router.push({ path: '/sponsor-checkout-step-3' })
+
+  } else if (currentRoute.name === "sponsor-checkout-step-3") {
+    router.push({ path: '/sponsor-checkout-step-overview' })
+
+  } else if (currentRoute.name === "donate-checkout-step-1") {
+    router.push({ path: '/donate-checkout-step-2' })
+
+  } else if (currentRoute.name === "donate-checkout-step-2") {
+    router.push({ path: '/donate-checkout-overview' })
+  }
+}
+
+const buttonAppearance = computed(() => {
+  return currentRoute.name === "sponsor-checkout-overview" || currentRoute.name === "donate-checkout-overview" ? false : true
+}
 )
-
-// const currentRoute = useRoute();
-// console.log(currentRoute.name);
-
-
 
 </script>
 
 <template>
-  <div class="check_out_buttons_container">
+  <div v-show="buttonAppearance" class="check_out_buttons_container">
 
-    <RouterLink :to="{ name: stepRouterLink.routeName }" class="link"><button class="prev">上一步</button></RouterLink>
-    <RouterLink :to="{ name: stepRouterLink.routeName }"><button class="next">下一步</button></RouterLink>
-
+    <button @click="prev" class="prev">上一步</button>
+    <button @click="next" class="next">下一步</button>
   </div>
 </template>
 

@@ -2,6 +2,7 @@
 @import '@/assets/sass/base/fonts/fonts-mixin';
 @import '@/assets/sass/base/rwd/breakpoints';
 
+
 @include custom-responsive("xs"){
   div.footer_content{
     margin-left: 5vw;
@@ -87,6 +88,7 @@
 
       span{
         font-size: 14px;
+        
       }
     }
   } 
@@ -302,11 +304,21 @@ footer{
 
         span.service_hours{
           font-weight: $fWBold;
+          letter-spacing: $h6Ls;
+          font-family:  "Noto Sans TC";
         }
 
         span.time{
           font-weight: $fWRegular;
+          letter-spacing: $h2Ls;
+          font-family: "Lato",;
         }
+
+        span.date{
+          letter-spacing: $h6Ls;
+          font-family:  "Noto Sans TC";
+        }
+
       }
 
       div.location{
@@ -317,10 +329,18 @@ footer{
           display: block;
           margin-bottom: 2vh;
           font-weight: $fWBold;
+          letter-spacing: $h6Ls;
+          font-family:  "Noto Sans TC";
+        }
+
+        span{
+          letter-spacing: $h6Ls;
+          font-family:  "Noto Sans TC";
         }
 
         i{
           margin-bottom: 2vh;
+          
         }
       }
     }
@@ -331,13 +351,12 @@ footer{
         display: flex;
 
         div{
-          margin-right: 2vw;
-         
+          margin-right: 1.5vw;
 
           h5{
             @include h5_B_PC();
             margin-bottom: 3vh;
-
+            
             .link{
               color: $primaryBrandWhite;
               text-decoration: none;
@@ -363,7 +382,7 @@ footer{
         label{
           
           h6{
- 
+            letter-spacing: $h6Ls;
           }
         }
 
@@ -397,7 +416,11 @@ footer{
       display: flex;
       box-sizing: border-box;
       color: $primaryBrandWhite;
+      letter-spacing: $h6Ls;
     }
   }
 }
+
+
+
 

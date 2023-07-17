@@ -1,4 +1,5 @@
 <script setup>
+import SponsorPage from '@/layout/SponserPage.vue';
 const top = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -50,6 +51,7 @@ const top = () => {
             我要<br>認養
             </RouterLink>
             <a href="">
+                <SponsorPage/>
                 認養<br>清單
             </a>
         </li>

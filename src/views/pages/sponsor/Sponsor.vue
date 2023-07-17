@@ -1,5 +1,5 @@
 <script setup>
-import { reactive ,ref} from 'vue';
+import { reactive ,ref,computed} from 'vue';
 import SponsorPage from '@/layout/SponserPage.vue';
 
 const area = reactive([
@@ -37,6 +37,10 @@ const minus = (index) => {
 const plus = (index) => {
   area[index].count++;
 };
+
+const totalQuantity = computed(() => {
+  return area.reduce((total, item) => total + item.count, 0);
+});
 </script>
 
 <template>
@@ -76,23 +80,23 @@ const plus = (index) => {
               <h5>{{ item.area }}</h5>
             </div>
             <div class="card_count">
-              <span @click="minus(index)">-</span>
+              <i class="fa-solid fa-minus" @click="minus(index)"></i>
               {{ item.count }}
-              <span @click="plus(index)">+</span>
+              <i class="fa-solid fa-plus" @click="plus(index)"></i>
             </div>
           </div>
         </div>
       </div>
       <div class="button">
         <button class="back">回上頁</button>
-        <button class="pay_list"  @click="openSidebar = true">加入認養清單</button>
+        <button class="pay_list"  @click="openSidebar=true">加入認養清單</button>
         <div class="icon_img">
           <img :src="'pictures/characters/star/star_sleeping.svg'" alt="">
         </div>
       </div>
     </div>
-    <SponsorPage :sidebarOpen="openSidebar"/>
   </div>
+  <SponsorPage :sidebarOpen="openSidebar" :count="totalQuantity" :area="area" />
 </template>
 
 <style scoped lang="scss">

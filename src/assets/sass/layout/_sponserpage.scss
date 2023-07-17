@@ -11,10 +11,15 @@ div.SponserPage {
     border-radius: 30px 0 0 30px;
     z-index: 100;
     transition: right 1s ease-in-out;
-    border: 1px solid;   
+    border: 1px solid;
     &.active{
         right: 0;
+        position: fixed;
       }
+
+    
+
+
 }
 
 div.title {
@@ -23,7 +28,11 @@ div.title {
     justify-content: space-between;
    
     h2 {
+        color:$basicFontColor;
         @include h2_PC;
+    }
+    .fa-circle-xmark{
+        font-size: 30px;
     }
 }
 
@@ -33,11 +42,13 @@ div.sponser_inner {
     display: flex;
     justify-content: space-between;
     h5{
+        color:$basicFontColor;
         @include h5_PC;
     }
     .card_count{
         display: flex;
         p{
+            color:$basicFontColor;
             padding: 0 20px;
         }
     }
@@ -57,6 +68,7 @@ div.sponser_total {
         display: flex;
         justify-content: space-between;
         h5{
+            color:$basicFontColor;
             @include h5_PC;
         }
     }
@@ -73,4 +85,20 @@ div.sponser_total {
      }
 
 }
+
+.v-enter-from
+.v-leave-from{
+    transition: right 1s ease-in-out;
+    right: -100%;
+}
+.v-enter-active 
+.v-leave-active{
+
+}
+.v-enter-to 
+.v-leave-to{
+
+}
+
+
 

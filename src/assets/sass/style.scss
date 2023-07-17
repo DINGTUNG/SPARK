@@ -1,24 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  user-drag: none;
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
 //---------------------------------------------------------------------------------------
 /* ⭐字體 font-family⭐ */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
-$font-family: 'Lato','Noto Sans TC';
+$font-family: 'Lato',
+'Noto Sans TC';
 
 //---------------------------------------------------------------------------------------
 /* ⭐base⭐ */
@@ -52,3 +39,29 @@ $font-family: 'Lato','Noto Sans TC';
 // @import 'example/example';
 
 // </style>
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $basicFontColor
+}

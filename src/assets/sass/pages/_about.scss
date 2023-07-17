@@ -1,5 +1,5 @@
 *{
-    outline: 1px solid rgb(255, 183, 183);
+    // outline: 1px solid rgb(255, 183, 183);
 }
 
 div.about_banner{
@@ -127,8 +127,32 @@ div.about_container {
         div.vision_house{
             margin: 70px 0;
 
-                div.bgc_primaryblue{
-                    background-color: $primaryBrandBlue;
+            div.bgc_primaryblue{
+                background-color: $primaryBrandBlue;
+                padding-bottom: 5px;
+
+                div.bottom_line::before{
+                    position: absolute;
+                    content: '';
+                    margin-top: -197px;
+                    width: 100%;
+                    height: 1px;
+                    background-color: rgb(255, 255, 255, 0.3);
+                }              
+                div.bottom_line{
+                    position: relative;
+                    margin: 20px auto;
+                    width: 82%;
+                    height: 1px;
+                    background-color: rgb(255, 255, 255, 0.3);
+                }
+                div.bottom_line::after{
+                    position: absolute;
+                    content: '';
+                    margin-top: -412px;
+                    width: 100%;
+                    height: 1px;
+                    background-color: rgb(255, 255, 255, 0.3);
                 }
 
                 div.vision_content{
@@ -136,7 +160,8 @@ div.about_container {
                     display: flex;
                     align-items: center;
                     color: $primaryBrandWhite;
-                    padding: 20px 100px;
+                    padding: 65px 100px 0;
+                    
 
                     div.icon_title{
                         @include h4_PC;
@@ -149,8 +174,10 @@ div.about_container {
                         h4{
                             white-space: nowrap;
                         }
-                    }
+                    }                   
                 }
+            }
+                
 
                 img.roof{
                 width: 100%;
@@ -170,7 +197,7 @@ div.about_container {
                 display: inline-block;
             }
             img.deco_line{
-                width: 85%;
+                width: 80%;
             }
         }
         div.branch_card_wrapper{
@@ -183,12 +210,13 @@ div.about_container {
                 background-color: $functionalLightGrey1;
                 border-radius: $br_PC;
                 width: 30%;
-                margin: 0 40px 40px 0;
+                margin: 0 35px 40px 0;
                 transition: .2s;
                 position: relative;
 
                 &:hover {
                     background-color: $primaryBrandBlue;
+                    transform: scale(1.05);
                 }
                 &:hover h5{
                     color: $primaryBrandWhite;
@@ -228,8 +256,8 @@ div.about_container {
                 color: $primaryBrandWhite;
                 position: absolute;
                 bottom: 40px;
-                width: 30%;
-                right: 5%;
+                width: 25%;
+                right: 7%;
                 transition: transform 0.3s ease; 
                 transform: translateY(200%); 
             }
@@ -252,7 +280,7 @@ div.about_container {
             }
         }
         div.faq_wrapper{
-           margin-top: 30px;
+           margin: 30px 0 150px;
 
             div.faq_field{
                 margin: 20px 0;
@@ -260,23 +288,20 @@ div.about_container {
 
                 div.open_faq{
                     width: 85%;
-                    // margin: auto;
                     cursor: pointer;
                     border: 1px solid $primaryBrandBlue;
-                    border-radius: 100px;
+                    border-radius: $br_PC;
 
                     h5{
                         @include h5_PC;
-                        width: 90%;
                         color: $primaryBrandBlue;
                         display: flex;
                         align-items: center;     
-                        margin: auto;
                         justify-content: space-between;
                         padding: 10px 50px;
                         margin: 10px 0;           
 
-                        
+
                         .fa-plus{
                             color: $primaryBrandBlue;
                             transition: transform 0.3s;
@@ -285,17 +310,27 @@ div.about_container {
                             transform: rotate(45deg);
                         }
                     }
+
                     p.invisible{
-                        visibility: hidden;
+                        @include h6_PC;
+                        
+                        padding: 0px 50px;
                         opacity: 0;
+                        color: $basicFontColor;
+                        visibility: hidden;
                         height: 0;
-                        transition: opacity 3s, height 3s, padding 0.3s, visibility 3s;
+                        transition: opacity .3s, height .3s, padding 0.3s, visibility .3s;
                     }
-                    .visible {
-                        visibility: visible;
-                        height: 65px;
+                    p.visible {
+                        @include h6_PC;
+                        padding: 20px 50px 0;
                         opacity: 1;
-                        padding: 10px 20px;
+                        color: $basicFontColor;
+                        visibility: visible;
+                        height: 80px;
+                        transition: opacity .3s, height .3s, padding 0.3s, visibility .3s;
+                        background-color: $functionalLightGrey1;
+                        border-radius:0 0 30px 30px;               
                     }
                 }
             }

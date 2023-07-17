@@ -16,12 +16,18 @@
         width: 90vw;
         margin: auto;
         position: relative;
-        h1{
-            @include h1_MB;
-            color:$primaryBrandBlue;
-            margin:10% auto;
-            width: fit-content;
+        div.title{
+            h1{
+                @include h1_MB;
+                color:$primaryBrandBlue;
+                margin:10% auto;
+                width: fit-content;
+            }
+            div.decorative_line{
+                display: none;
+            }
         }
+
         section.project_deteils{
             margin-top: 10%;
             div.top{
@@ -109,11 +115,6 @@
                 bottom: 400px;
                 left: -150px;
             }
-            &:nth-child(5){
-                display: none;
-                top: 25px;
-                left: 300px;
-            }
         }
     }
 }
@@ -136,11 +137,25 @@
             width: 62.5vw;
             margin: auto;
             position: relative;
-            h1{
-                @include h1_PC;
-                color:$primaryBrandBlue;
-                margin:0 0 0 8%;
+            div.title{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                position: relative;
+                
+                h1{
+                    @include h1_PC;
+                    color:$primaryBrandBlue;
+                    margin: 0;
+                }
+                div.decorative_line{
+                    display: block;
+                    img{
+                      width: 100%;
+                    }
+                  }
             }
+
             section.project_deteils{
                 div.top{
                     display: flex;

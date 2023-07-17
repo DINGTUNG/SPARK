@@ -1,7 +1,32 @@
+// ----------BANNER的一些動畫------------
+@keyframes star_shine {
+    0% {
+        opacity: 0.5;
+    }
+    20% {
+        opacity: 1;
+    }
+    60% {
+        filter: drop-shadow(0 0 0 rgba(250, 230, 126, 0));
+    }
+    100% {
+        // opacity: 1;
+        filter: drop-shadow(0 0 8px rgba(250, 230, 126, 0.9));
+    }
+    }
+@mixin shine($name, $duration, $delay)  {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+  }
+
+// ----------BANNER------------
 .banner {
     width: 100%;
     position: relative;
-    outline: red solid 1px;
     img {
         width: 100%;
     }
@@ -12,7 +37,17 @@
         transform: translate(-50%, -50%);
     .white_moon {
         width: 100%;
+        animation: moon 3s ease-in-out infinite alternate;
     }
+        @keyframes moon {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.04);
+        }
+        }
+
     .ignite_the_night {
         width: 45%;
         position: absolute;
@@ -24,21 +59,112 @@
         width: 85%;
         position: absolute;
         left: -100%;
-        top: 30%;
+        // top: 30%;
+        animation: girl_float 1.9s ease-in-out infinite alternate;
     }
+    @keyframes girl_float {
+        0% {
+            top: 27%;
+        }
+        100% {
+            top: 34%;
+            transform: rotate(3deg);
+        }
+    }
+
     .boy_lighting_up_white {
         width: 85%;
         position: absolute;
         left: 125%;
-        top: -10%;
+        // top: -10%;
+        animation: boy_float 1.9s 1s ease-in-out infinite alternate;
+    }
+        @keyframes boy_float {
+        0% {
+            top: -14%;
+            transform: rotate(2deg);
+        }
+
+        100% {
+            top: -7%;
+            transform: rotate(-3deg);
+        }
     }
     .orange_asterisk_single {
-        width: 12%;
+        width: 14%;
         position: absolute;
         left: 3%;
         top: 110%;
+        @include shine(star_shine, 4s, 0);
     }
-
+    .golden_star_single_2 {
+        width: 8%;
+        position: absolute;
+        left: 7%;
+        top: -5%;
+        @include shine(star_shine, 3s, 0.5s);
+    }
+    .golden_star_single_3 {
+        width: 6%;
+        position: absolute;
+        left: 96%;
+        top: 92%;
+        @include shine(star_shine, 3s, 1s);
+    }
+    .golden_star_2 {
+        width: 18%;
+        position: absolute;
+        left: 112%;
+        top: 75%;
+        @include shine(star_shine, 4s, 0);
+    }
+    }
+    .orange_stars {
+        width: 4%;
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        @include shine(star_shine, 2.5s, 0.5s);
+    }
+    .golden_star_single {
+        width: 1.5%;
+        position: absolute;
+        left: 91%;
+        top: 55%;
+        @include shine(star_shine, 2.5s, 1s);
+    }
+    .shooting_star_white {
+        width: 4.8%;
+        position: absolute;
+        // left: 15%;
+        // top: 20%;
+        animation: shooting_star 6s 1s ease-in-out infinite;
+    }
+    @keyframes shooting_star {
+        0% {
+            top: -10%;
+            left: 55%;
+        }
+        75% {
+            top: -10%;
+            left: 55%;
+        }
+        100% {
+            top: 50%;
+            left: -15%;
+        }
+    }
+    .shooting_star_white_2 {
+        width: 4.8%;
+        position: absolute;
+        left: 35%;
+        top: 28%;
+    }
+    .shooting_star_white_group {
+        width: 6%;
+        position: absolute;
+        left: 83%;
+        top: 24%;
     }
 
     .home_banner_cloud {
@@ -46,4 +172,39 @@
         left: 0;
         bottom: 0;
     }
+}
+
+// ----------SECTION INTRO------------
+.section_intro {
+    background-color: $functionalLightGrey1;
+    .intro {
+        width: 62.5vw;
+        margin: auto;
+
+        .intro_title {
+            // width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 8%;
+            }
+            h1 {
+                color: $primaryBrandBlue;
+                padding: 0 0 0 2%;
+                @include h1_PC;
+            }
+        }
+
+        .intro_text {
+            width: 80%;
+            margin: auto;
+            color: basicFontColor;
+            @include h5_PC;
+
+        }
+    }
+
+
+
 }

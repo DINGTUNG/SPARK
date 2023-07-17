@@ -14,18 +14,20 @@ const checkOutData = reactive({
 const paymentTitle = ref("");
 
 const currentRoute = useRoute();
+console.log(currentRoute.name);
 
-watch(() => currentRoute.name, (newRouteName) => {
-  if (newRouteName === "sponsor-checkout-step-1" || newRouteName === "sponsor-checkout-step-2" || newRouteName === "sponsor-checkout-step-3") {
+watch(() => {
+  if (currentRoute.name === "sponsor-checkout-step-1" || currentRoute.name === "sponsor-checkout-step-2" || currentRoute.name  === "sponsor-checkout-step-3") {
     checkOutOverviewTitle.value = "認養總覽";
     paymentTitle.value = "認養費(月)";
 
-  } else if (newRouteName === "donate-checkout-step-1" || newRouteName === "donate-checkout-step-2") {
+  } else if (currentRoute.name === "donate-checkout-step-1" || currentRoute.name === "donate-checkout-step-2")  {
     checkOutOverviewTitle.value = "捐款總覽";
     paymentTitle.value = "總計";
 
   }
-})
+}
+)
 
 
 
@@ -38,8 +40,8 @@ watch(() => currentRoute.name, (newRouteName) => {
 
     <div class="check_out_data">
       <span>{{ checkOutData.sponsorLocation }}地區</span>
-      <span>共{{ checkOutData.sponsorCount }}位</span>
-      <span>NTD{{ checkOutData.sponsorPrice }}</span>
+      <span>共 {{ checkOutData.sponsorCount }} 位</span>
+      <span>NTD {{ checkOutData.sponsorPrice }}</span>
     </div>
 
     <h4>{{ paymentTitle }}</h4>
@@ -58,7 +60,8 @@ div.check_out_card {
   border-radius: $br_PC;
 
   div.check_out_data {
-    @include flex_hm;
+    display: flex;
+    justify-content: space-evenly;
     gap: 20px;
 
 

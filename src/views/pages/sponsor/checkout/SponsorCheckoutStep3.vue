@@ -1,6 +1,6 @@
 <script setup>
-import CheckOutCards from '@/components/cards/CheckOutCards.vue'
-import CheckOutButtons from '@/components/buttons/CheckOutButtons.vue'
+import CheckoutCards from '@/components/func-items/cards/CheckoutCards.vue'
+import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 
 </script>
@@ -10,8 +10,8 @@ import CheckOutButtons from '@/components/buttons/CheckOutButtons.vue'
 
 
 
-    <CheckOutCards />
-    <CheckOutButtons/>
+    <CheckoutCards />
+    <CheckoutButtons/>
 
 
     <!-- 撐開頁面之臨時空間 -->

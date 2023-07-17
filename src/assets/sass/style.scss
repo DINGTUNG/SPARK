@@ -23,6 +23,7 @@ $font-family: 'Lato',
 
 @import 'components/func-items/buttons/buttons-mixin';
 @import 'components/func-items/table/table';
+@import 'components/func-items/blocks/blocks';
 
 
 //---------------------------------------------------------------------------------------
@@ -44,6 +45,7 @@ $font-family: 'Lato',
 * {
   margin: 0;
   padding: 0;
+  font-family: $font-family;
 }
 
 img {
@@ -64,4 +66,88 @@ h4,
 h5,
 h6 {
   color: $basicFontColor
+}
+
+h1 {
+  @include custom-responsive("xs sm") {
+    @include h1_MB
+  }
+
+  @include custom-responsive("md lg") {}
+
+  @include custom-responsive("xl xxl") {
+    @include h1_PC
+  }
+}
+
+h2 {
+  @include custom-responsive("xs sm") {
+    @include h2_MB
+  }
+
+  @include custom-responsive("md lg") {}
+
+  @include custom-responsive("xl xxl") {
+    @include h2_PC
+  }
+}
+
+h3 {
+  @include custom-responsive("xs sm") {
+    @include h3_MB
+  }
+
+  @include custom-responsive("md lg") {}
+
+  @include custom-responsive("xl xxl") {
+    @include h3_PC
+  }
+}
+
+h4 {
+  @include custom-responsive("xs sm") {
+    @include h4_MB
+  }
+
+  @include custom-responsive("md lg") {}
+
+  @include custom-responsive("xl xxl") {
+    @include h4_PC
+  }
+}
+
+h5 {
+  @include custom-responsive("xs sm") {
+    @include h5_MB
+  }
+
+  @include custom-responsive("md lg") {}
+
+  @include custom-responsive("xl xxl") {
+    @include h5_PC
+  }
+}
+
+h6 {
+  @include custom-responsive("xs sm") {
+    @include h6_MB
+  }
+
+  @include custom-responsive("md lg") {}
+
+  @include custom-responsive("xl xxl") {
+    @include h6_PC
+  }
+}
+
+p {
+  @include custom-responsive("xs sm") {
+    @include h6_MB
+  }
+
+  @include custom-responsive("md lg") {}
+
+  @include custom-responsive("xl xxl") {
+    @include h6_PC
+  }
 }

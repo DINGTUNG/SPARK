@@ -2,125 +2,73 @@
 @import"@/assets/sass/base/fonts/fonts";
 
 
-
-
-
-// header{
-//   width: fit-content;
-//   margin: 60px 0 0 82px;
-//   display: flex;
-//   gap: 300px;
-//   position: fixed;
-//   top: 0;
-//   z-index: 99;
-
-//   div.wrapper {
-//     nav {
-//       width: 1096px;
-//       padding: 15px 0px 15px 30px;
-//       box-sizing: border-box;
-//       border-radius: 100px;
-//       background-color: $functionalLightGrey1;
-//       display: flex;
-//       align-items: center;
-//       justify-content: space-around;
-
-//       .link {
-//         text-decoration: none;
-//         color: $primaryBrandBlue;
-//         font-size: 20px;
-//         font-weight: $fWBold;
-//       }
-
-//       .login {
-//         background-color: $secondaryLightGold2;
-//         border-radius: 100px;
-//         padding: 15px 40px;
-//         box-sizing: border-box;
-//       }
-//     }
-//   }
-// }
-
 header {
-    position: absolute;    //位置新增
-    top: 5%; //位置新增
-    left: 0; //位置新增
-    right: 0; //位置新增
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    right: 1%;
     display: flex;
-    justify-content: space-around;   //新增   //原先是space-around
+    justify-content: space-between;
     align-items: center;
   
     .link_home {
+
       img.logo {
-        width: 360px;
+        width: 300px;
+        vertical-align: top;
       }
     }
   
     div.wrapper {
-        
+      
       nav {
-        width: max-content;  //原先1096
-        // padding: 15px 0px 15px 30px;    //先暫時刪除
-        // box-sizing: border-box;
+        width: max-content; 
         border-radius: 100px;
         background-color: $functionalLightGrey1;
-        // display: flex;
-        // align-items: center;
-        // justify-content: space-around;
         
-  
         ul {
           list-style-type: none;
-        //   padding: 0;
-        //   margin: 0;
           display: flex;
           margin-left: 20px;
-         
-        
   
           li {
             position: relative;
             cursor: pointer;
-            padding: 20px;  //有修改
-            box-sizing: border-box;  //新增
-            // margin-left: 20px;   //新增
-  
+            padding: 20px;
+            box-sizing: border-box; 
+            
             a.link {
               text-decoration: none;
               color: $primaryBrandBlue;
               font-size: 20px;
               font-weight: $fWBold;
             }
-
-            // &:hover::before {   //  等等刪除
-            // content: "";
-            // display: inline-block;
-            // width: 20px;
-            // height: 20px;
-            // background-image: url("public/pictures/decorations/layout/little_star.png");
-            // background-size: cover;
-            // margin-right: 10px;
-            // }
   
             a.member_login {
-                background-color: $secondaryLightGold2; //
-                border-radius: 100px;   //
-                // padding: 15px 40px;  //
+                background-color: $secondaryLightGold2;
+                border-radius: 100px; 
                 padding:15px 40px 15px 40px;
-                box-sizing: border-box;   //
+                box-sizing: border-box;
             }
   
             .submenu {
               position: absolute;
               top: 100%;
               left: 50%;
-              transform: translateX(-65%);  //新增  //原先50%
+              transform: translateX(-65%);
               display: none;
               background-color: $primaryBrandWhite;
-              border-radius: 15px; //新增
-              width: max-content;  //新增
+              border-radius: 15px;
+              width: max-content;  
               text-align: center;
+
+              li{
+
+                &:hover{
+                  background-color: $functionalLightGrey1;
+                  border-radius: 15px;
+                }
+              }
             }
   
             &:hover .submenu {

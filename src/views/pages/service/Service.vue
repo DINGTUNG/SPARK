@@ -43,8 +43,13 @@ const projectDeteils = reactive([
       <img class="deco" :src="'pictures/decorations/illustration/shooting_stars.svg'" alt="流星~">
       <img class="deco" :src="'pictures/characters/girl/girl_hugging_star.svg'" alt="抱著星星">
       <img class="deco" :src="'pictures/decorations/illustration/planet.png'" alt="星球">
-      <img class="deco" :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
-      <h1>服務內容</h1>
+      <div class="title">
+        <h1>服務內容</h1>
+        <div class="decorative_line">
+            <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
+        </div>
+      </div>
+      
       <section class="project_deteils" v-for="(item, index) in projectDeteils" :key="index">
         <div class="top">
           <div class="right-pic">

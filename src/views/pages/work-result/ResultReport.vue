@@ -69,13 +69,13 @@ let years = reactive([
           </div>
         </div>
         <div class="financial_report">
-          <img class="flower" src="pictures/decorations/illustration/flower.svg" alt="">
+          <img class="flower" :src="'pictures/decorations/illustration/flower.svg'" alt="">
           <h2>財務報告</h2>
           <div class="financial_inner">
             <div class="financial_card" v-for="(item, index) in years" :key="item.id">
               <div class="financial_card_inner">
                 <div class="financial_img">
-                  <img :src="'public/pictures/decorations/illustration/book.svg'" alt="">
+                  <img :src="'pictures/decorations/illustration/book.svg'" alt="">
                 </div>
                 <div class="financial_text">
                   <p>{{ item.year }}年</p>

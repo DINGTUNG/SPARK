@@ -9,9 +9,11 @@ import News from '@/views/sections/home/News.vue';
 
     <RouterLink to="/test">測試頁面</RouterLink>
     <br>
-    <RouterLink to="/donate-checkout">donate-checkout</RouterLink>
+    <RouterLink to="/sponsor-checkout-step-1">sponsor-checkout-step-1</RouterLink>
     <br>
+    <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
     <RouterLink to="/resultreport">resultreport</RouterLink>
+
 
     <div class="banner">
       <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg">
@@ -50,14 +52,6 @@ import News from '@/views/sections/home/News.vue';
       </div>
 
     </div>
-
-
-
-    <!-- 撐開頁面之臨時空間 -->
-    <!-- <br v-for="n in 100" :key="n"> -->
-
-
-
   </div>
 </template>
 

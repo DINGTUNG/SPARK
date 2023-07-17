@@ -1,12 +1,15 @@
 <script setup>
-// import { ref } from 'vue'
-//  const open = ref(
-//    openSidebar = false,
-//  )
+import { defineProps } from 'vue';
+const props = defineProps({
+  sidebarOpen: {
+    type: Boolean,
+    default: false,
+  }
+})
 </script>
 
 <template>
-  <div class="SponserPage"  :sidebarOpen="openSidebar">
+  <div class="SponserPage" :class="{ active: sidebarOpen }">
     <div class="title">
       <h2>我要認養</h2>
       <span>x</span>
@@ -33,5 +36,5 @@
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/layout/_sponserpage'
+@import'@/assets/sass/layout/_sponserpage';
 </style>

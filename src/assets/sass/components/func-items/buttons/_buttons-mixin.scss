@@ -139,3 +139,42 @@
 }
 
 ;
+
+
+
+//---------------------------------------------------------------------------------------
+/* ⭐checkout-cards buttons⭐ */
+
+//PC
+
+@mixin checkoutCardsBlueBtn_PC {
+  @include checkoutCardsBtn_PC;
+  background-color: $btnBlue;
+  color: $btnWhite;
+  border: 0;
+}
+
+
+@mixin checkoutCardsWhiteBtn_PC {
+  @include checkoutCardsBtn_PC;
+  background-color: $btnWhite;
+  color: $btnBlue;
+  border: 1px solid $btnBlue;
+}
+
+//MB
+
+@mixin checkoutCardsBlueBtn_MB {
+  @include checkoutCardsBtn_MB;
+  background-color: $btnBlue;
+  color: $btnWhite;
+  border: 0;
+}
+
+
+@mixin checkoutCardsWhiteBtn_MB {
+  @include checkoutCardsBtn_MB;
+  background-color: $btnWhite;
+  color: $btnBlue;
+  border: 1px solid $btnBlue;
+}

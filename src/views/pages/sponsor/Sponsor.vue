@@ -1,5 +1,5 @@
 <script setup>
-import { reactive} from 'vue';
+import { reactive ,ref} from 'vue';
 import SponsorPage from '@/layout/SponserPage.vue';
 
 const area = reactive([
@@ -24,6 +24,7 @@ const area = reactive([
     count: 0,
   },
 ]);
+const openSidebar =ref(false)
 
 const minus = (index) => {
   if (area[index].count === 0) {
@@ -36,9 +37,7 @@ const minus = (index) => {
 const plus = (index) => {
   area[index].count++;
 };
-
 </script>
-
 
 <template>
   <div class="title_img">
@@ -92,8 +91,8 @@ const plus = (index) => {
         </div>
       </div>
     </div>
+    <SponsorPage :sidebarOpen="openSidebar"/>
   </div>
-  <SponsorPage></SponsorPage>
 </template>
 
 <style scoped lang="scss">

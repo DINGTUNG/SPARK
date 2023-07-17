@@ -197,7 +197,7 @@ div.about_container {
                 display: inline-block;
             }
             img.deco_line{
-                width: 85%;
+                width: 80%;
             }
         }
         div.branch_card_wrapper{
@@ -288,7 +288,6 @@ div.about_container {
 
                 div.open_faq{
                     width: 85%;
-                    // margin: auto;
                     cursor: pointer;
                     border: 1px solid $primaryBrandBlue;
                     border-radius: $br_PC;
@@ -324,13 +323,14 @@ div.about_container {
                     }
                     p.visible {
                         @include h6_PC;
-                        padding: 0px 50px;
+                        padding: 20px 50px 0;
                         opacity: 1;
                         color: $basicFontColor;
                         visibility: visible;
                         height: 80px;
                         transition: opacity .3s, height .3s, padding 0.3s, visibility .3s;
-                     
+                        background-color: $functionalLightGrey1;
+                        border-radius:0 0 30px 30px;               
                     }
                 }
             }

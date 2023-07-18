@@ -1,6 +1,6 @@
-*{
-    // outline: 1px solid rgb(255, 183, 183);
-}
+// *{
+// //     outline: 1px solid red;
+// // }
 
 div.about_banner{
     width: 100%;
@@ -13,29 +13,85 @@ div.about_container {
     width: 100%;
 
     div.main_body {
-        width: 62.5vw;
         margin: auto;
+        position: relative;
+        @include custom-responsive("xs sm") {
+            @include body_space_MB;
+        }
 
+        @include custom-responsive("xl xxl") {
+            @include body_space_PC;
+        }
+
+        img.deco{
+            position: absolute;
+            &:nth-child(1){
+                right: -380px;
+                top: 1330px;
+            }
+            &:nth-child(2){
+                width: 15%;
+                top: 1550px;
+                right: -180px;
+            }
+            &:nth-child(3){
+                bottom: 800px;
+                left: -340px;
+            }
+            &:nth-child(4){
+                top: 700px;
+                left: -340px;
+            }
+
+            @include custom-responsive(" xs sm"){
+                display: none;
+            }
+            @include custom-responsive(" xl xxl") {
+                display: block;
+            }
+        }
+
+        //認識星火
         div.title_block {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0 35px;
+            @include custom-responsive(" xs sm") {
+                padding: 20px 0 30px;
+                align-items: center;
+                justify-content: center;
+            }
+            @include custom-responsive(" md lg") {
+                justify-content: space-between;
+            }
+            @include custom-responsive(" xl xxl") {
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
+            }
 
             h1 {
-                @include h1_PC;
                 color: $primaryBrandBlue;
-                display: inline-block;
+
             }
             img.deco_line{
-                width: 78%;
-            }
 
+                @include custom-responsive(" xs sm") {                   
+                    display: none;
+                }
+                @include custom-responsive("md") {
+                    width: 70%;
+                    display: block;
+                }
+                @include custom-responsive("lg") {
+                    display: block;
+                }
+                @include custom-responsive(" xl xxl") {                 
+                    display: block;
+                }
+            }
         }
-        div.title_text{
-            @include h6_PC;
-            color: $basicFontColor;
-        }
+        // div.title_text{
+
+        // }
 
         //3張展開的照片
         div.card_wrapper{
@@ -43,61 +99,114 @@ div.about_container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 50px 0;
+            @include custom-responsive(" xs sm") {
+                margin: 30px 0 40px;
+              }
+              @include custom-responsive(" xl xxl") {
+                margin: 50px 0;
+              }
             
           
             .about_card_1 {
-                width: 25%;
-                transform: rotate(-10deg);
+            
+              transform: rotate(-10deg);
           
               img {
-                width: 100%;
-                height: auto;
+                width: 100%;   
                 border-radius: $br_PC;
+              }
+              @include custom-responsive(" xs sm") {
+                display: none;
+              }
+              @include custom-responsive(" md lg") {
+                width: 25%;
+                display: block;
+              }
+              @include custom-responsive(" xl xxl") {
+                display: block;
               }
             }
             .about_card_2 {
-                width: 40%;
           
-              img {
-                width: 100%;
-                height: auto;
+                img {
+                width: 100%;          
                 border-radius: $br_PC;
-              }
+                }
+                @include custom-responsive(" xs sm") {
+                width: 100%;
+                margin: auto;
+                }
+                @include custom-responsive(" md lg xl xxl") {
+                width: 40%;
+                display: block;
+                }
             }
             .about_card_3 {
-                width: 25%;
                 transform: rotate(10deg);
           
-              img {
+                img {
                 width: 100%;
-                height: auto;
                 border-radius: $br_PC;
-              }
-            }
+                }
+                @include custom-responsive(" xs sm") {
+                display: none;
+                }
+                @include custom-responsive(" md lg") {
+                width: 25%;
+                display: block;
+                }
+                @include custom-responsive(" xl xxl") {
+                display: block;
+                }
             
+            }         
         }
 
         //緣起
         div.origin_title{
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0 35px;
+            @include custom-responsive(" xs sm") {
+                padding: 20px 0 20px;
+                align-items: center;
+                justify-content: center;
+            }
+            @include custom-responsive(" md lg") {
+                justify-content: space-between;
+            }
+            @include custom-responsive(" xl xxl") {
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
+            }
 
             h2{
                 @include h2_PC;
                 color:$primaryBrandBlue;
-                display: inline-block;
+               
             }
             img.deco_line{
-                width: 90%;
+                
+                @include custom-responsive(" xs sm") {                   
+                    display: none;
+                }
+                @include custom-responsive("md") {
+                    width: 80%;
+                    height: 100%;
+                    display: block;
+                }
+                @include custom-responsive("lg") {
+                    height: 100%;
+                    display: block;
+                }
+                @include custom-responsive(" xl xxl") {                 
+                    display: block;
+                }
             }
         }
         div.origin_text{
-            @include h6_PC;
             color: $basicFontColor;
-            margin: 0 0 50px 0;
+            margin: 0 0 40px 0;
+            text-align: justify;
 
             p{
                 padding: 15px 0;
@@ -107,38 +216,75 @@ div.about_container {
         //願景
         div.vision_title{
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0 35px;
 
+            @include custom-responsive(" xs sm") {
+                padding: 20px 0 30px;
+                align-items: center;
+                justify-content: center;
+            }
+            @include custom-responsive(" md lg") {
+                justify-content: space-between;
+            }
+            @include custom-responsive(" xl xxl") {
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
+            }
             h2{
                 @include h2_PC;
                 color:$primaryBrandBlue;
                 display: inline-block;
             }
             img.deco_line{
-                width: 90%;
+                            
+                @include custom-responsive(" xs sm") {                   
+                    display: none;
+                }
+                @include custom-responsive("md") {
+                    width: 80%;
+                    display: block;
+                }
+                @include custom-responsive("lg xl xxl") {
+                    display: block;
+                }
             }
         }
         div.vision_text{
             @include h6_PC;
-            color: $basicFontColor;
         }
+
         div.vision_house{
-            margin: 70px 0;
+
+            @include custom-responsive(" xs sm") {
+                margin: 20px 0 50px 0;
+            }
+            @include custom-responsive("md lg xl xxl") {
+                margin: 40px 0 60px 0;
+            }
+
 
             div.bgc_primaryblue{
                 background-color: $primaryBrandBlue;
                 padding-bottom: 5px;
 
-                div.bottom_line::before{
-                    position: absolute;
-                    content: '';
-                    margin-top: -197px;
-                    width: 100%;
-                    height: 1px;
-                    background-color: rgb(255, 255, 255, 0.3);
-                }              
+                // div.bottom_line::before{
+                //     position: absolute;
+                //     content: '';
+                //     width: 100%;
+                //     height: 1px;
+                //     background-color: rgb(255, 255, 255, 0.3);
+
+                //     @include custom-responsive(" xs sm") {
+                //        display: none;
+                //     }
+                //     @include custom-responsive(" md lg") {
+                //         margin-top: -170px;
+                //     }
+                //     @include custom-responsive(" xl xxl") {
+                //         margin-top: -197px;
+                  
+                //     }
+                // }              
                 div.bottom_line{
                     position: relative;
                     margin: 20px auto;
@@ -146,73 +292,147 @@ div.about_container {
                     height: 1px;
                     background-color: rgb(255, 255, 255, 0.3);
                 }
-                div.bottom_line::after{
-                    position: absolute;
-                    content: '';
-                    margin-top: -412px;
-                    width: 100%;
-                    height: 1px;
-                    background-color: rgb(255, 255, 255, 0.3);
-                }
+                // div.bottom_line::after{
+                //     position: absolute;
+                //     content: '';
+                //     width: 100%;
+                //     height: 1px;
+                //     background-color: rgb(255, 255, 255, 0.3);
+
+                //     @include custom-responsive(" xs sm") {
+                //         display: none;
+                //     }
+                //     @include custom-responsive(" md lg") {
+                //         margin-top: -360px;
+                //     }
+                //     @include custom-responsive(" xl xxl") {
+                //         margin-top: -412px;
+                  
+                //     }
+                // }
 
                 div.vision_content{
-                    @include h6_PC;
-                    display: flex;
-                    align-items: center;
                     color: $primaryBrandWhite;
-                    padding: 65px 100px 0;
-                    
 
+                    @include custom-responsive(" xs sm") {
+                        padding: 30px 50px;
+                    }
+                    @include custom-responsive(" md lg") {
+                        align-items: center;
+                        display: flex;
+                        padding: 50px 70px 0;
+                    }
+                    @include custom-responsive(" xl xxl") {
+                        align-items: center;
+                        display: flex;
+                        padding: 65px 100px 0;               
+                    }
+                    
                     div.icon_title{
                         @include h4_PC;
-                        width: 20%;
-                        margin-right: 80px;
-                        color: $primaryBrandWhite;
                         text-align: center;
 
+                        @include custom-responsive(" xs sm") {
+                            margin: auto;
+                            margin-bottom: 20px;
+                            width: 100%;
+                        }
+                        @include custom-responsive(" md lg xl xxl") {
+                            margin-right: 80px;
+                            width: 20%;
+                        }
 
                         h4{
+                            @include h4_B_PC;
                             white-space: nowrap;
+                            @include custom-responsive(" xs sm") {
+                                color:$primaryAccentGold;
+                            }
+                            @include custom-responsive(" md lg xl xxl") {
+                                color: $primaryBrandWhite;
+                            }
                         }
-                    }                   
+                    }  
+                    p{
+                        text-align: justify;
+                        
+                        @include custom-responsive(" xs sm") {
+                            color: $primaryBrandWhite;
+                        }
+                    }                 
                 }
             }
-                
-
-                img.roof{
+            img.roof{
                 width: 100%;
-                }
+            }
         }
 
         //服務據點
         div.branch_title{
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0 35px;
 
+            @include custom-responsive(" xs sm") {
+                padding: 20px 0 40px;
+                align-items: center;
+                justify-content: center;
+            }
+            @include custom-responsive(" md lg") {
+                justify-content: space-between;
+            }
+            @include custom-responsive(" xl xxl") {
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
+            }
             h2{
                 @include h2_PC;
                 color:$primaryBrandBlue;
                 display: inline-block;
             }
+
             img.deco_line{
-                width: 80%;
+               
+                @include custom-responsive(" xs sm") {                   
+                    display: none;
+                }
+                @include custom-responsive("md") {
+                    width: 70%;    
+                    display: block;
+                }
+                @include custom-responsive("lg xl xxl") {
+                    display: block;
+                }
             }
         }
         div.branch_card_wrapper{
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
-            padding-top: 50px;
+
+            @include custom-responsive(" xs sm") {
+                justify-content: center;
+                gap: 30px;
+            }
+            @include custom-responsive(" md lg xl xxl") {
+                justify-content: flex-start;
+                padding-top: 20px;
+                gap: 40px;
+            }
+            
 
             div.branch_card{
                 background-color: $functionalLightGrey1;
                 border-radius: $br_PC;
-                width: 30%;
-                margin: 0 35px 40px 0;
                 transition: .2s;
                 position: relative;
+                @include custom-responsive(" xs sm") {
+                    width: 100%;
+                }
+                @include custom-responsive(" md lg") {
+                    width: 40%;
+                }
+                @include custom-responsive(" xl xxl") {                 
+                    width: 30%;
+                }
 
                 &:hover {
                     background-color: $primaryBrandBlue;
@@ -247,7 +467,7 @@ div.about_container {
 
                     i.fa-solid{
                         color:$primaryBrandBlue;
-                        width: 10%;
+                        width: 12%;
                         font-size: $h5Fs_PC;
                     }
                 }           
@@ -256,19 +476,31 @@ div.about_container {
                 color: $primaryBrandWhite;
                 position: absolute;
                 bottom: 40px;
-                width: 25%;
                 right: 7%;
+                width: 25%;
                 transition: transform 0.3s ease; 
                 transform: translateY(200%); 
+
             }
         }
 
         //faq
         div.faq_title {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 50px 0 35px;
+          
+            @include custom-responsive(" xs sm") {
+                padding: 60px 0 10px;
+                align-items: center;
+                justify-content: center;
+            }
+            @include custom-responsive(" md lg") {
+                justify-content: space-between;
+            }
+            @include custom-responsive(" xl xxl") {
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
+            }
 
             h2{
                 @include h2_PC;
@@ -276,32 +508,46 @@ div.about_container {
                 display: inline-block;
             }
             img.deco_line{
-                width: 75%;
+               
+                @include custom-responsive(" xs sm") {                   
+                    display: none;
+                }
+                @include custom-responsive("md") {
+                    width: 65%;
+                    display: block;
+                }
+                @include custom-responsive("lg xl xxl") {
+                    display: block;
+                }
             }
         }
         div.faq_wrapper{
-           margin: 30px 0 150px;
+
+            @include custom-responsive(" xs sm") {
+                margin: 0 0 100px;
+            }
+            @include custom-responsive(" xl xxl") {                 
+                margin: 30px 0 150px;
+            }
 
             div.faq_field{
                 margin: 20px 0;
 
 
                 div.open_faq{
-                    width: 85%;
+                    width: 100%;
                     cursor: pointer;
                     border: 1px solid $primaryBrandBlue;
                     border-radius: $br_PC;
 
                     h5{
-                        @include h5_PC;
                         color: $primaryBrandBlue;
                         display: flex;
                         align-items: center;     
                         justify-content: space-between;
                         padding: 10px 50px;
-                        margin: 10px 0;           
-
-
+                        margin: 10px 0;    
+                      
                         .fa-plus{
                             color: $primaryBrandBlue;
                             transition: transform 0.3s;
@@ -309,6 +555,13 @@ div.about_container {
                         .rotate{
                             transform: rotate(45deg);
                         }
+
+                        @include custom-responsive(" xs sm") {
+                            @include h6_PC;
+                        }
+                        @include custom-responsive(" xl xxl") {                 
+                        @include h5_PC;
+                        }     
                     }
 
                     p.invisible{
@@ -327,10 +580,19 @@ div.about_container {
                         opacity: 1;
                         color: $basicFontColor;
                         visibility: visible;
-                        height: 80px;
                         transition: opacity .3s, height .3s, padding 0.3s, visibility .3s;
                         background-color: $functionalLightGrey1;
-                        border-radius:0 0 30px 30px;               
+                        border-radius:0 0 30px 30px;  
+
+                        @include custom-responsive(" xs sm") {
+                          height: 170px;
+                        }
+                        @include custom-responsive(" md lg") {
+                          height: 105px;
+                        }
+                        @include custom-responsive(" xl xxl") {                 
+                           height: 80px;
+                        }                  
                     }
                 }
             }

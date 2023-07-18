@@ -129,6 +129,12 @@
   <div class="about_container">
     <div class="main_body">
       
+      <img class="deco" :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星裝飾">
+      <img class="deco" :src="'pictures/decorations/illustration/planet.svg'" alt="行星裝飾">
+      <img class="deco" :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星裝飾2">
+      <img class="deco" :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星裝飾3">
+
+    
       <div class="title_block">
         <h1>認識星火</h1>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
@@ -161,6 +167,7 @@
         <p>
         星火協會的願景是建立充滿希望和公平的社會，讓每個兒童擁有發展潛能，為兒童提供綜合支援和服務，改善生活品質和及促進未來發展是我們的使命，我們也也希望每個兒童都能成為社會的中堅力量，為建立更美好的未來做出貢獻。這是我們堅定的使命和承諾。</p>
       </div>
+
       <div class="vision_house">     
           <img class="roof" :src="'pictures/decorations/illustration/roof.svg'" alt="屋頂背景">
           <div class="bgc_primaryblue">

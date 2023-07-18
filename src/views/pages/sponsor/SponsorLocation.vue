@@ -174,8 +174,11 @@
       //如果 event.target 不是 container.value(就是 class branchs)的子節點(顯示據點資訊的框框內) => selectedBranch.value = null; => 不顯示資訊  tips:驚嘆號反轉布林值，因此 container.value.contains(event.target) 為 false 時執行函式(點 container 內部不會關閉彈窗)
     }
     };
-    watch(() => selectedBranch.value, () => { //監看 selectedBranch.value => 有改變就執行下方函式
+    watch(() => selectedBranch.value, () => { 
+      //() => selectedBranch.value 會回傳當前的值
+      //監看 selectedBranch.value => 有改變就執行下方函式
         if (selectedBranch.value !== null) {
+          console.log(selectedBranch.value);
           // 如果有選擇，增加 addEventListener => 點擊 container 外 -> selectedBranch.value = null; (據點彈窗關閉)
           document.addEventListener('click', handleClickOutside);
         } else {
@@ -241,7 +244,7 @@
         </div>
       </div>
       <section class="location">
-        <div class="card" v-for="(item, key) in locationDisplay" :key="key" @click="branchDisplay(key)">
+        <div class="card" v-for="(item, index) in locationDisplay" :key="index" @click="branchDisplay(index)">
           <div class="tag">{{ item.area }}</div>
           <div class="name">
             {{ item.name }}

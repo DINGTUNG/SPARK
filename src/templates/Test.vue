@@ -3,12 +3,12 @@
 </script>
 
 <template>
-  <div class="SponserPage">
+  <div class="SponsorPage">
     <div class="title">
       <h2>我要認養</h2>
       <span>x</span>
     </div>
-    <div class="sponser_inner">
+    <div class="sponsor_inner">
       <h5>台南市</h5>
       <div class="card_count">
         <span @click="minus(index)">-</span>
@@ -17,8 +17,8 @@
       </div>
       <h5>$2000</h5>
     </div>
-    <div class="sponser_total">
-      <div class="tatol_price">
+    <div class="sponsor_total">
+      <div class="total_price">
         <h5>認養費用</h5>
         <h5>$2000</h5>
       </div>
@@ -31,5 +31,5 @@
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/layout/_sponserpage'
+@import'@/assets/sass/layout/checkout-side-list/sponsor-checkout-side-list';
 </style>

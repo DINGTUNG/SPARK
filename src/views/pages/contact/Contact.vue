@@ -33,13 +33,15 @@ const contact = reactive(
 
 <template>
   <div class="title_img">
-    <img :src="'pictures/images/contact/banner.png'" alt="">
+    <img :src="'public/pictures/images/contact/banner.png.png'" alt="">
   </div>
   <div class="container">
     <div class="main_body">
     <div class="title_block">
       <h1>星火之友</h1>
-      <div class="top_line"></div>
+      <div class="top_line">
+        <img src="../../../../public/pictures/decorations/illustration/decorative_line.svg" alt="">
+      </div>
     </div>
     <div class="title_text">
       <p>星星之火，可以燎原，星火協會一直以來致力於促進貧困兒童的福祉促進，歷盡大小風雨，在這過程中的背後，少不了各界善心人士的各方支持幫忙，如今的星火能夠成長茁壯，少不了這些友會的共同努力~</p>
@@ -61,10 +63,10 @@ const contact = reactive(
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.249180523268!2d121.22015178247104!3d24.957635420794894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1689271174007!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
+    <img src="public/pictures/characters/star/star_superman.svg" alt="星星超人" class="superman">
+    <img src="public/pictures/decorations/illustration/contact_star.svg" alt="碎星" class="contact_star">
   </div>
-
   </div>
- 
 </template>
 
 <style scoped lang="scss">

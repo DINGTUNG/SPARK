@@ -42,7 +42,7 @@ const news = reactive(
       img: "pictures/images/home/news/single-news-page/singlenewone.png",
       index: 1,
       title: '星火30，感謝有您',
-      article: '星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火...',
+      article: '星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火感謝各界人士的鼎力相助，願我們能一同往前，迎接更美好的明天。',
       time: '2023.07.23',
       href: '#'
     },
@@ -50,7 +50,7 @@ const news = reactive(
       img: "pictures/images/home/news/single-news-page/singlenewtwo.png",
       index: 2,
       title: '東部星火服務據點設立',
-      article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
+      article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，一同於東部創辦中心，提供服務。',
       time: '2023.07.15',
       href: '#'
     },
@@ -58,7 +58,7 @@ const news = reactive(
       img: "pictures/images/home/news/single-news-page/singlenewseven.png",
       index: 3,
       title: '暑假兒童營養午餐提供',
-      article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助......',
+      article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，希望各方善心人士能一起參與這項活動，為偏鄉兒童提供豐富美味的午餐',
       time: '2023.06.30',
       href: '#'
     }
@@ -73,7 +73,9 @@ const news = reactive(
       <div class="main_body">
       <div class="title_block">
         <h1>消息內容</h1>
-        <div class="top_line"></div>
+        <div class="top_line">
+          <img src="public/pictures/decorations/illustration/decorative_line.svg" alt="">
+        </div>
       </div>
       <div class="main_article">
         <div class="article_title">
@@ -82,7 +84,6 @@ const news = reactive(
         </div>
         <div class="article">
           <div class="article_block" v-for="item in article" :key="item.index">
-            <!-- TO FIX -->
             <div class="article_block_img">
               <img :src="item.img">
             </div>
@@ -104,6 +105,7 @@ const news = reactive(
                 <a :href="item.href">
                   <div class="card_img">
                     <img :src="item.img">
+                    <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
                   </div>
                   <div class="card_word">
                     <h5>{{ item.time }}</h5>

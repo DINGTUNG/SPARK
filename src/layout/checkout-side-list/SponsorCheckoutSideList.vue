@@ -19,20 +19,14 @@ const goToCheckoutPage = () => {
       <i class="fa-regular fa-circle-xmark" @click="sponsorCartStore.hideSideList"></i>
     </div>
 
-
     <div class="location_card" v-for="location in sponsorCartStore.locationList" :key="location.id">
       <div v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0" class="sponsor_inner">
         <h5>{{ location.name }}</h5>
         <div class="card_count">
-
-          <i class="fa-solid fa-minus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
-
-          {{ sponsorCartStore.getCurrentCountInCart(location.id) }}
-
-          <i class="fa-solid fa-plus" @click="sponsorCartStore.addToCart(location.id, 1)"></i>
-
+          <i class="fa-solid fa-circle-minus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
+          <p>{{ sponsorCartStore.getCurrentCountInCart(location.id) }}</p>
+          <i class="fa-solid fa-circle-plus" @click="sponsorCartStore.addToCart(location.id, 1)"></i>
         </div>
-
         <h5>NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</h5>
       </div>
     </div>

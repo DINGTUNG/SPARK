@@ -1,4 +1,3 @@
-
 div.title_img {
     img {
         max-width: 100%;
@@ -50,10 +49,7 @@ div.container {
                 @include custom-responsive(" xl xxl") {
                     display: flex;
                     align-self: center;
-                    width: 70%;
                     margin-left: 40px;
-                    height: 1px;
-                    border-bottom: 1px solid $functionalLightGrey4;
                 }
             }
         }
@@ -85,13 +81,14 @@ div.container {
                     display: flex;
                     align-items: center;
                     color: $functionalLightGrey4;
+                    @include h5_B_PC;
 
                     @include custom-responsive(" xs sm") {
                         padding: 20px 0;
                     }
 
                     @include custom-responsive(" xl xxl") {
-                        padding: 0 20px;
+                        // padding: 0 20px;
                     }
                 }
             }
@@ -141,8 +138,17 @@ div.container {
                         }
 
                         p {
-                            @include h6_PC;
                             color: $basicFontColor;
+
+                            @include custom-responsive(" xs sm") {
+                                @include h6_MB;
+                            }
+
+                            @include custom-responsive(" xl xxl") {
+                                @include h6_PC;
+                            }
+
+
                         }
                     }
 
@@ -212,17 +218,56 @@ div.container {
                     }
 
                     div.card_img {
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: $br_PC $br_PC 0 0;
 
                         img {
-                            border-radius: $br_PC $br_PC 0 0;
+
+
                             width: 100%;
                             overflow: hidden;
                             vertical-align: bottom;
                         }
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: $primaryBrandBlue;
+                            opacity: 0;
+                            transition: .2s;
+                        }
+
+                        &::after {
+                            content: "READ NEWS";
+                            position: absolute;
+                            top: -10%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            font-size: 18px;
+                            letter-spacing: 0.4rem;
+                            color: #fff;
+                            transition: .2s;
+                        }
+
+                        .card_hover_pic {
+                            width: 66%;
+                            position: absolute;
+                            top: 40%;
+                            left: 100%;
+                            transform-origin: bottom left;
+                            transition: .2s;
+                        }
                     }
 
                     div.card_word {
-                        padding: 0 20px;
+                        padding: 1vw 1.8vw 1.6vw;
+
+
 
                         h5 {
                             color: $functionalLightGrey4;
@@ -236,24 +281,53 @@ div.container {
                                 padding: 0;
                                 @include h5_PC;
                             }
-
-
                         }
 
                         h4 {
-                            @include h4_B_PC;
                             color: $primaryBrandBlue;
+
+                            @include custom-responsive("xs sm ") {
+                                @include h4_B_MB;
+                            }
+
+                            @include custom-responsive("xl xxl") {
+                                @include h4_B_PC;
+                            }
+
+                        }
+                        p {
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            color: $basicFontColor;
+
+                            @include custom-responsive("xs sm ") {
+                                @include h6_MB;
+                            }
+
+                            @include custom-responsive("xl xxl") {
+                                @include h6_PC;
+
+                            }
                         }
 
-                        p {
-                            @include h6_PC;
-                            color: $basicFontColor;
+                        &:hover .card_img::before {
+                            opacity: .6;
+                        }
+
+                        &:hover .card_img::after {
+                            top: 45%;
+                        }
+
+                        &:hover .card_hover_pic {
+                            transform: rotate(-43deg);
                         }
                     }
+
                 }
 
             }
-
         }
     }
 }

@@ -47,7 +47,7 @@ const menuItems = ref([
   },
   {
     label: '星火之友',
-    route: '/service',
+    route: '/contact',
     img: 'pictures/decorations/layout/little_star.png'
   },
   {

@@ -112,7 +112,7 @@ const router = createRouter({
       component: () => import('@/templates/Test.vue')
     },
     {
-      path: '/resultreport',
+      path: '/result',
       name: 'rest',
       component: () => import('@/views/pages/work-result/ResultReport.vue')
     },

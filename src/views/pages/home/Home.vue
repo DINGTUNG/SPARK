@@ -12,7 +12,8 @@ import News from '@/views/sections/home/News.vue';
     <RouterLink to="/sponsor-checkout-step-1">sponsor-checkout-step-1</RouterLink>
     <br>
     <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
-    <RouterLink to="/resultreport">resultreport</RouterLink>
+    <br>
+    <RouterLink to="/result">result</RouterLink>
 
 
     <div class="banner">

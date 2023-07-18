@@ -1,14 +1,26 @@
-
-div.container{
+div.banner{
+  width: 100%;
+  img{
     width: 100%;
-    
-    div.banner{
-      overflow: hidden;
-      width: 100%;
-      img{
-          width:100%;
+    @include custom-responsive("xs sm") {
+      &:nth-child(1){
+        display: none;
       }
     }
+    @include custom-responsive("xl xxl"){
+      &:nth-child(2){
+        display: none;
+      }
+      &:nth-child(1){
+        display: block;
+      }
+    }
+  }
+}
+div.container{
+    width: 100%;
+    margin: auto;
+
   div.main_body {
     @include custom-responsive("xs sm") {
       @include body_space_MB
@@ -22,6 +34,7 @@ div.container{
       button{
         @include custom-responsive("xs sm"){
           @include h3_MB;
+          margin: 8% 0;
           &:nth-child(1){
             @include regularBlueBtn_MB;
           }
@@ -45,45 +58,73 @@ div.container{
      
     }
     section.cover-story{
-      margin: 3% 0;
-      position: relative;
+        margin: 3% 0;
+        position: relative;
       div.title{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        @include custom-responsive("xl xxl"){
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
         h1{
           color: $primaryBrandBlue;
           @include custom-responsive("xs sm"){
             @include h1_MB;
+            margin: auto;
+            width: fit-content;
           }
           @include custom-responsive("xl xxl") {
               @include h1_PC;
           }
         }
         div.decorative_line{
-          img{
-            width: 100%;
+          @include custom-responsive("xs sm"){
+            display: none;
           }
+          @include custom-responsive("xl xxl"){
+            img{
+              width: 100%;
+            }
+            display: block;
+          }
+
         }
       }
       div.story{
         margin: 6% 0;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+        @include custom-responsive("xl xxl") {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+
         div.pic{
+          @include custom-responsive("xs sm") {
+             width: 90%;
+             margin: auto;
+          }
           @include custom-responsive("xl xxl"){
-            max-width: 100%;
-            
-            img{
+            width: 50%;
+          }
+          img{
+            @include custom-responsive("xs sm") {
               width: 100%;
+              border-radius:$br_MB;
+            }
+            @include custom-responsive("xl xxl") {
               border-radius:$br_PC;
             }
+            
           }
+          
 
         }
         div.text{
           color: $basicFontColor;
+          @include custom-responsive("xs sm") {
+            width: 90%;
+            margin:3% auto;
+          }
           @include custom-responsive("xl xxl"){
             width: 40%;
           }
@@ -109,12 +150,22 @@ div.container{
 
     }
     section.warm-story{
+
       div.title{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        position: relative;
-        margin-bottom: 6%;
+        @include custom-responsive("xs sm") {
+          margin: 18% auto;
+          width: fit-content;
+      }
+
+        @include custom-responsive("xl xxl") {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          position: relative;
+          margin:6% 0;
+          width: 100%;
+        }
+
         div.name{
           width: fit-content;
           position: relative;
@@ -132,16 +183,23 @@ div.container{
           }
           img.title_decorate{
             position: absolute;
-            top: -20px;
+            top: -16px;
             left: -50px;
             z-index: 0;
           }
         }
 
         div.decorative_line{
-          img{
-            width: 100%;
+          @include custom-responsive("xs sm"){
+            display: none;
           }
+          @include custom-responsive("xl xxl"){
+            img{
+              width: 100%;
+            }
+            display: block;
+          }
+
         }
       }
       div.story-list{
@@ -149,29 +207,55 @@ div.container{
         flex-wrap: wrap;
         justify-content: space-evenly;
         div.card{
-          margin:2% 0;
-          width: 28%;
-          display: flex;
-          flex-direction: column;
-          @include boxShadow_PC;
-          border-radius: $br_PC;
+          @include custom-responsive("xs sm") {
+            width: 85%;
+            @include boxShadow_MB;
+            border-radius: $br_MB;
+            margin:4% 0;
+          }
+          @include custom-responsive("xl xxl") {
+            margin:2% 0;
+            width: 28%;
+            display: flex;
+            flex-direction: column;
+            @include boxShadow_PC;
+            border-radius: $br_PC;
+          }
           div.pic{
             width: 100%;
-            img{
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              object-position: center;
+            height: 50%;
+            @include custom-responsive("xs sm") {
+              border-radius: $br_MB $br_MB 0 0;
+            }
+            @include custom-responsive("xl xxl") {
               border-radius: $br_PC $br_PC 0 0;
+            }
+            img{
+              @include custom-responsive("xs sm"){
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                border-radius: $br_MB $br_MB 0 0;
+              }
+              @include custom-responsive("xl xxl"){
+                border-radius: $br_PC $br_PC 0 0;
+              }
+              
           }
           }
           div.text{
-            width: 100%;
-            height: 100%;
-            background-color: $functionalLightGrey1;
-            box-sizing: border-box;
-            padding: 8%;
-            border-radius:0 0  $br_PC $br_PC;
+            @include custom-responsive("xl xxl") {
+              width: 100%;
+              height: 100%;
+              border-radius:0 0  $br_PC $br_PC;
+            }
+            @include custom-responsive("xs sm") {
+              background-color: $functionalLightGrey1;
+              box-sizing: border-box;
+              padding: 8%;
+              border-radius:0 0  $br_MB $br_MB;
+            }
             div.date{
               color: $primaryAccentGold;
               margin: 1% 0;
@@ -197,11 +281,17 @@ div.container{
       }
     }
     div.change-page{
-      width: 30%;
-      margin: 3% auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
+      @include custom-responsive("xs sm") {
+        display: none;
+      }
+      @include custom-responsive("xl xxl") {
+        width: 30%;
+        margin: 3% auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
       i{
         color:$primaryBrandBlue;
         cursor: pointer;
@@ -222,13 +312,21 @@ div.container{
       }
     }
     section.photo-album{
-      margin-bottom: 5%;
+      margin: 10% 0;
       div.title{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        position: relative;
-        margin-bottom: 6%;
+        @include custom-responsive("xs sm") {
+          margin: 18% auto;
+          width: fit-content;
+      }
+        @include custom-responsive("xl xxl") {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          position: relative;
+          margin:6% 0;
+          width: 100%;
+        }
+
         div.name{
           width: fit-content;
           position: relative;
@@ -253,27 +351,52 @@ div.container{
         }
 
         div.decorative_line{
-          img{
-            width: 100%;
+          @include custom-responsive("xs sm"){
+            display: none;
           }
+          @include custom-responsive("xl xxl"){
+            img{
+              width: 100%;
+            }
+            display: block;
+          }
+
         }
       }
       div.photoDisplay{
-        display: flex;
-        align-items: center;
-        width: 100%;
-        justify-content: space-around;
-        margin-bottom: 3%;
+        @include custom-responsive("xs sm") {
+        }
+        @include custom-responsive("xl xxl") {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          justify-content: space-around;
+          margin-bottom: 3%;
+        }
+
         div.pic{
-          width: 55%;
-          height: 25vw;
-          position: relative;
+          @include custom-responsive("xs sm") {
+            width: 85%;
+            position: relative;
+            margin: auto;
+          }
+          @include custom-responsive("xl xxl") {
+            width: 55%;
+            height: 25vw;
+            position: relative;
+          }
+
           img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: $br_PC*3 $br_PC*3 0 0;
+            @include custom-responsive("xl xxl") {
+              border-radius: $br_PC*3 $br_PC*3 0 0;
+            }
+            @include custom-responsive("xs sm") {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              border-radius: $br_MB*3 $br_MB*3 0 0;
+            }
           }
           &::after{
             content: '';
@@ -286,9 +409,19 @@ div.container{
           }
         }
         div.text{
-          width: 30%;
           color: $basicFontColor;
+          @include custom-responsive("xs sm") {
+            width: 90%;
+            margin: auto;
+          }
+          @include custom-responsive("xl xxl") {
+            width: 30%;
+          }
+
           div.branch-name{
+            @include custom-responsive("xs sm") {
+              @include h4_B_MB;
+            }
             @include h4_B_PC;
             padding-bottom: 10%;
             position: relative;
@@ -303,25 +436,45 @@ div.container{
             }
           }
           h4{
+            @include custom-responsive("xs sm") {
+              @include h4_B_MB;
+            }
             @include h4_B_PC;
             padding-bottom: 3%;
             color: $primaryAccentGold;
           }
           p{
+            @include custom-responsive("xs sm"){
+              @include h5_MB;
+            }
             @include h5_PC;
           }
         }
       }
       div.photoSelect{
-        display: flex;
-        justify-content: space-evenly;
-        width: 100%;
-        margin: auto;
+        @include custom-responsive("xs sm") {
+          justify-content: space-between;
+          display: flex;
+          width: 100%;
+          margin: auto;
+        }
+        @include custom-responsive("xl xxl") {
+          justify-content: space-evenly;
+        }
+        
+
         div.pic{
-          width: 21%;
-          height: 20vh;
-          position: relative;
-          z-index: 0;
+          @include custom-responsive("xs sm") {
+            width: 22%;
+            height: 15vh;
+            position: relative;
+            z-index: 0;
+          }
+          @include custom-responsive("xl xxl") {
+            width: 21%;
+            height: 20vh;
+          }
+
           img{
             border-radius: $br_PC*2 $br_PC*2 0 0;
             width: 100%;

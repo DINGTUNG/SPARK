@@ -99,10 +99,12 @@ import { reactive, ref} from "vue";
 
 <template>
   <div class="banner">
-    <img :src="'pictures/images/results/story-gallery/banner.jpg'" alt="banner">
+    <img class="PC" :src="'pictures/images/results/story-gallery/banner.jpg'" alt="banner">
+    <img class="MB" :src="'pictures/images/results/story-gallery/banner_MB.png'" alt="banner">
   </div>
   <div class="container">
     <div class="main_body">
+        
         <div class="switch-button">
             <button type="button">星火點滴</button>
             <button type="button">星火寫真</button>
@@ -111,7 +113,7 @@ import { reactive, ref} from "vue";
             <div class="title">
                 <h1>本月封面故事</h1>
                 <div class="decorative_line">
-                    <img :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+                    <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
                 </div>
             </div>
             <div class="story" v-for="(story, id) in coverStory" :key="id">
@@ -134,7 +136,7 @@ import { reactive, ref} from "vue";
                 </div>
 
                 <div class="decorative_line">
-                    <img :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+                    <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
                 </div>
             </div>
 
@@ -167,7 +169,7 @@ import { reactive, ref} from "vue";
                     <img class="title_decorate" :src="'pictures/images/results/story-gallery/story/title_decorate.png'" alt="標題裝飾">  
                 </div>
                 <div class="decorative_line">
-                    <img :src="'pictures/decorations/illustration/decorative_line.png'" alt="裝飾線">
+                    <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
                 </div>
             </div>
             <transition>

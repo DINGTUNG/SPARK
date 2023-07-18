@@ -1,17 +1,11 @@
-@import'@/assets/sass/base/border-radius';
-@import'@/assets/sass/base/color';
-@import'@/assets/sass/base/fonts/fonts-mixin';
-@import'@/assets/sass/base/flex';
-@import'@/assets/sass/components/func-items/buttons/buttons-mixin';
-@import'@/assets/sass/base/rwd/breakpoints';
-
 div.container {
     width: 100%;
-
+    position: relative;
+    overflow: hidden;
     div.main_body {
         width: 62.5vw;
         margin: auto;
-
+        
         div.title_block {
             display: flex;
 
@@ -89,7 +83,6 @@ div.container {
                 }
 
                 @include custom-responsive(" xl xxl") {
-                    width: 40%;
                     padding-left: 50px;
                     display: flex;
                     flex-direction: column;
@@ -249,6 +242,9 @@ div.container {
                     display: none;
                 }
 
+                @include custom-responsive(" xl xxl") {
+                    display: block;
+                }
             }
         }
     }

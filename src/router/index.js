@@ -106,6 +106,13 @@ const router = createRouter({
       name: 'test',
       component: () => import('../templates/Test.vue')
     },
+    {
+      path: '/resultreport',
+      name: 'rest',
+      component: () => import('../views/pages/work-result/ResultReport.vue')
+    },
+    
+    
   ]
 })
 

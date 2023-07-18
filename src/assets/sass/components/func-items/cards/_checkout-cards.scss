@@ -1,0 +1,61 @@
+div.check_out_card {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  @include boxShadow_PC;
+  border-radius: $br_PC;
+
+
+  h2.check_out_overview_title {
+    @include h2_PC;
+    color: $primaryBrandBlue;
+
+    margin: 40px 50px 20px;
+
+  }
+
+  div.checkout_datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+
+
+    div.check_out_data {
+      display: flex;
+      justify-content: space-evenly;
+
+
+
+      span {
+        @include h5_PC
+      }
+
+    }
+
+  }
+
+  div.payment {
+
+    div.payment_info {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      position: absolute;
+      bottom: 0;
+      width: 500px;
+      height: 150px;
+      background-color: $functionalLightGrey1;
+      border-radius: 0 0 $br_PC $br_PC;
+
+      span.payment_title,
+      span.total_price {
+        @include h3_PC
+      }
+
+    }
+  }
+
+
+}

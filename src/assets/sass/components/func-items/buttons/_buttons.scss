@@ -88,13 +88,13 @@ button {
 
 @mixin checkoutCardsBtn_PC {
   @include checkoutCardsBtnSize_PC;
-  border-radius: $checkOutBtnBr_PC;
+  border-radius: $checkoutBtnBr_PC;
   font-size: $regularBtnFs_PC;
 }
 
 @mixin checkoutCardsBtn_MB {
   @include checkoutCardsBtnSize_MB;
-  border-radius: $checkOutBtnBr_MB;
+  border-radius: $checkoutBtnBr_MB;
   font-size: $smallBtnFs_MB;
 }
 

@@ -1,45 +1,45 @@
 <script setup>
-import { reactive ,ref,computed} from 'vue';
-import SponsorPage from '@/layout/SponserPage.vue';
+import { reactive, ref, computed } from 'vue';
+import SponsorPage from '@/layout/SponsorPage.vue';
 
-const area = reactive([
+const sponsorLocationList = reactive([
   {
     index: 1,
-    area: '台北星火',
+    locationName: '台北星火',
     count: 0,
   },
   {
     index: 2,
-    area: '台中星火',
+    locationName: '台中星火',
     count: 0,
   },
   {
     index: 3,
-    area: '台南星火',
+    locationName: '台南星火',
     count: 0,
   },
   {
     index: 4,
-    area: '台東星火',
+    locationName: '台東星火',
     count: 0,
   },
 ]);
-const openSidebar =ref(false)
+const openSidebar = ref(true)
 
 const minus = (index) => {
-  if (area[index].count === 0) {
-    area[index].count = 0;
+  if (sponsorLocationList[index - 1].count != 0) {
+    sponsorLocationList[index - 1].count--;
   } else {
-    area[index].count--;
+    sponsorLocationList[index - 1].count = 0;
   }
 };
 
 const plus = (index) => {
-  area[index].count++;
+  sponsorLocationList[index - 1].count++;
 };
 
 const totalQuantity = computed(() => {
-  return area.reduce((total, item) => total + item.count, 0);
+  return sponsorLocationList.reduce((total, sponsorLocationList) => total + sponsorLocationList.count, 0);
 });
 </script>
 
@@ -75,28 +75,28 @@ const totalQuantity = computed(() => {
       <div class="sponsor_area">
         <h3>認養地區</h3>
         <div class="sponsor_area_inner">
-          <div class="area_card" v-for="(item, index) in area" :key="index">
+          <div class="area_card" v-for="sponsorLocation in sponsorLocationList" :key="sponsorLocation.index">
             <div class="card_title">
-              <h5>{{ item.area }}</h5>
+              <h5>{{ sponsorLocation.locationName }}</h5>
             </div>
             <div class="card_count">
-              <i class="fa-solid fa-minus" @click="minus(index)"></i>
-              {{ item.count }}
-              <i class="fa-solid fa-plus" @click="plus(index)"></i>
+              <i class="fa-solid fa-plus" @click="minus(sponsorLocation.index)"></i>
+              {{ sponsorLocation.count }}
+              <i class="fa-solid fa-plus" @click="plus(sponsorLocation.index)"></i>
             </div>
           </div>
         </div>
       </div>
       <div class="button">
         <button class="back">回上頁</button>
-        <button class="pay_list"  @click="openSidebar=true">加入認養清單</button>
+        <button class="pay_list" @click="openSidebar = true">加入認養清單</button>
         <div class="icon_img">
           <img :src="'pictures/characters/star/star_sleeping.svg'" alt="">
         </div>
       </div>
     </div>
   </div>
-  <SponsorPage :sidebarOpen="openSidebar" :count="totalQuantity" :area="area" />
+  <SponsorPage :sidebarOpen="openSidebar" :count="totalQuantity" :locationName="locationName" />
 </template>
 
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <script setup>
-import SponsorPage from '@/layout/SponserPage.vue';
+import SponsorPage from '@/layout/SponsorPage.vue';
 const top = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }

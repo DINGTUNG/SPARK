@@ -132,9 +132,9 @@
       <img class="deco" :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星裝飾">
       <img class="deco" :src="'pictures/decorations/illustration/planet.svg'" alt="行星裝飾">
       <img class="deco" :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星裝飾2">
+      <img class="deco" :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星裝飾3">
 
-      
-      
+    
       <div class="title_block">
         <h1>認識星火</h1>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">

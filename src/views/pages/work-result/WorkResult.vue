@@ -45,26 +45,89 @@
 @import '@/assets/sass/pages/work-result/work-result';
 </style>
 <template>
-  <div class="bulletinBoard">
-    <swiper
-    :slidesPerView="5"
-    :spaceBetween="30"
-    :loop="true"
-    :autoplay="{
-      delay: 1500,
-      disableOnInteraction: false,
-    }"
-    :pagination="false"
-    :navigation="true"
-    :modules="modules"
-    class="bulletinBoard1"
-  > 
+    <div class="result_display">
+      <div class="result_title">
+        <img :src="'pictures/decorations/illustration/orange_asterisk_single_2.svg'" alt="裝飾">
+        <h1>成果佈告欄</h1>
+      </div>
+        <swiper
+        :slidesPerView="5"
+        :spaceBetween="15"
+        :loop="true"
+        :autoplay="{
+          delay: 0,
+          disableOnInteraction: false,
+        }"
+        :pagination="false"
+        :navigation="false"
+        :modules="modules"
+        class="bulletinBoard"
+      > 
 
-        <swiper-slide v-for="(img, index) in bulletinBoard1" :key="index">
-          <img :src="img" alt="成果布告欄示意圖片">
-        </swiper-slide>
+            <swiper-slide v-for="(img, index) in bulletinBoard1" :key="index" class="swiper-item">
+              <img :src="img" alt="成果布告欄示意圖片">
+            </swiper-slide>
 
-    </swiper>
+        </swiper>
+        <swiper
+        :slidesPerView="5"
+        :spaceBetween="15"
+        :loop="true"
+        :autoplay="{
+          delay: 0,
+          disableOnInteraction: false,
+        }"
+        :pagination="false"
+        :navigation="false"
+        :modules="modules"
+        class="bulletinBoard"
+      > 
+
+            <swiper-slide v-for="(img, index) in bulletinBoard2" :key="index" class="swiper-item">
+              <img :src="img" alt="成果布告欄示意圖片">
+            </swiper-slide>
+
+        </swiper>
+        <swiper
+        :slidesPerView="5"
+        :spaceBetween="15"
+        :loop="true"
+        :autoplay="{
+          delay: 0,
+          disableOnInteraction: false,
+        }"
+        :pagination="false"
+        :navigation="false"
+        :modules="modules"
+        class="bulletinBoard"
+      > 
+
+            <swiper-slide v-for="(img, index) in bulletinBoard3" :key="index" class="swiper-item">
+              <img :src="img" alt="成果布告欄示意圖片">
+            </swiper-slide>
+
+        </swiper>
+        <div class="story">
+          <div class="story_title">
+            <h2>故事藝廊</h2>
+            <img :src="'pictures/decorations/illustration/golden_asterisk.svg'" alt="裝飾">
+          </div>
+          <div class="bottom">
+            <div class="text">
+            在故事藝廊中，每張照片都是一個獨特的完整故事，這些故事是珍貴的見證，展示了愛的力量與兒童在溫暖和關愛環境中的成長過程。這些故事將觸動您的心靈。星火希望，通過分享這些溫馨故事，能夠促進對於認養兒童的支持和關注，為每個孩子創造機會和幸福。
+          </div>
+          <RouterLink to="/story-gallery" class="link story-gallery">
+             點我前往
+          </RouterLink>
+          </div>
+        </div>
+    </div>
+  <div class="container">
+    <div class="main_body">
+
+    </div>
+
   </div>
+
 
 </template>

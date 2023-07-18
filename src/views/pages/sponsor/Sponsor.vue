@@ -49,7 +49,7 @@ const sponsorCartStore = useSponsorCartStore();
               <h5>{{ location.name }}</h5>
             </div>
             <div class="card_count">
-              <i class="fa-solid fa-plus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
+              <i class="fa-solid fa-minus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
               {{ sponsorCartStore.getCurrentCountInCart(location.id) }}
               <i class="fa-solid fa-plus" @click="sponsorCartStore.addToCart(location.id, 1)"></i>
             </div>

@@ -31,5 +31,5 @@
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/layout/_sponsor-page'
+@import'@/assets/sass/layout/checkout-side-list/sponsor-checkout-side-list';
 </style>

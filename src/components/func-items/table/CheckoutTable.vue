@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { useRoute } from 'vue-router';
 import { ref, reactive, watch, computed } from 'vue';
 
@@ -68,4 +68,4 @@ watch(() => {
   </table>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss"></style> -->

@@ -7,9 +7,7 @@ div.check_out_card {
 
 
   h2.check_out_overview_title {
-    @include h2_PC;
     color: $primaryBrandBlue;
-
     margin: 40px 50px 20px;
 
   }

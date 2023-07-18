@@ -1,5 +1,7 @@
 <script setup>
-import SponsorPage from '@/layout/SponsorPage.vue';
+
+import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
+import { ref, onMounted,  } from 'vue';
 const top = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -51,7 +53,7 @@ const top = () => {
             我要<br>認養
             </RouterLink>
             <a href="">
-                <SponsorPage/>
+                <SponsorCheckoutSideList/>
                 認養<br>清單
             </a>
         </li>

@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { useRoute } from 'vue-router';
 import { ref, reactive, watch, computed } from 'vue';
 
@@ -54,17 +54,17 @@ watch(() => {
 
 
 
-</script>
+</script> -->
 
 <template>
   <table class="checkout_table">
-    <caption class="caption"><h2>{{ tableTitle }}</h2></caption>
+    <!-- <caption class="caption"><h2>{{ tableTitle }}</h2></caption>
     <tr>
       <th>{{tableHeader[0][0]}}</th>
       <th>{{tableHeader[0][1]}}</th>
       <th>{{tableHeader[0][2]}}</th>
 
-    </tr>
+    </tr> -->
   </table>
 </template>
 

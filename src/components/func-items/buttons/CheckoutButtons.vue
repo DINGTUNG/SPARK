@@ -17,7 +17,7 @@ const next = () => {
     router.push({ path: '/sponsor-checkout-step-3' })
 
   } else if (currentRoute.name === "sponsor-checkout-step-3") {
-    router.push({ path: '/sponsor-checkout-step-overview' })
+    router.push({ path: '/sponsor-checkout-overview' })
 
   } else if (currentRoute.name === "donate-checkout-step-1") {
     router.push({ path: '/donate-checkout-step-2' })

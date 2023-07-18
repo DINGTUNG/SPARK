@@ -21,5 +21,5 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 </template>
 
 <style scoped lang="scss">
-// @import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-soverview';
+// @import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-overview';
 </style>

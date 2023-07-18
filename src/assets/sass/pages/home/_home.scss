@@ -177,17 +177,20 @@
 // ----------SECTION INTRO------------
 .section_intro {
     background-color: $functionalLightGrey1;
+    position: relative;
     .intro {
         width: 62.5vw;
         margin: auto;
+        padding: 6% 0;
 
         .intro_title {
-            // width: 80%;
             display: flex;
             align-items: center;
             justify-content: center;
+
             img {
                 width: 8%;
+                transform: scaleX(-1);
             }
             h1 {
                 color: $primaryBrandBlue;
@@ -197,14 +200,33 @@
         }
 
         .intro_text {
-            width: 80%;
+            width: 65%;
             margin: auto;
+            padding: 4% 0 2%;
             color: basicFontColor;
             @include h5_PC;
-
+            line-height: 3rem;
         }
     }
+.intro_map {
+padding: 0 0 8%;
+    img {
+        display: block;
+        width: 28%;
+        margin: auto;
 
-
-
+    }
+}
+.girl_bubbling {
+    width: 24%;
+    position: absolute;
+    bottom: 0;
+    right: 8%;
+    transform: scaleX(-1);
+}
+}
+.section_news {
+    width: 62.5vw;
+    margin: auto;
+padding: 6% 0;
 }

@@ -13,6 +13,7 @@ const prev = () => {
 const next = () => {
   if (currentRoute.name === "sponsor-checkout-step-1") {
     router.push({ path: '/sponsor-checkout-step-2' })
+    
   } else if (currentRoute.name === "sponsor-checkout-step-2") {
     router.push({ path: '/sponsor-checkout-step-3' })
 

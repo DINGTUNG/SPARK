@@ -20,7 +20,7 @@ div.banner{
 div.container{
     width: 100%;
     margin: auto;
-
+    overflow: hidden;
   div.main_body {
     @include custom-responsive("xs sm") {
       @include body_space_MB
@@ -60,17 +60,25 @@ div.container{
     section.cover-story{
         margin: 3% 0;
         position: relative;
-      div.title{
+        div.deco{
+          position: absolute;
+          top: 15%;
+          right: 10%;
+          img{
+            width: 5vw;
+          }
+        }
+        div.title{
+
         @include custom-responsive("xl xxl"){
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-around;
         }
         h1{
           color: $primaryBrandBlue;
           @include custom-responsive("xs sm"){
             @include h1_MB;
-            margin: auto;
             width: fit-content;
           }
           @include custom-responsive("xl xxl") {
@@ -82,6 +90,7 @@ div.container{
             display: none;
           }
           @include custom-responsive("xl xxl"){
+            width: 40vw;
             img{
               width: 100%;
             }
@@ -91,7 +100,7 @@ div.container{
         }
       }
       div.story{
-        margin: 6% 0;
+        margin: 8% 0;
         @include custom-responsive("xl xxl") {
           display: flex;
           justify-content: space-evenly;
@@ -99,34 +108,49 @@ div.container{
         }
 
         div.pic{
+          position: relative;
           @include custom-responsive("xs sm") {
              width: 90%;
              margin: auto;
           }
           @include custom-responsive("xl xxl"){
             width: 50%;
+            height: 40vh;
           }
-          img{
-            @include custom-responsive("xs sm") {
+            img{
+              position: relative;
+              z-index: 2;
+              @include boxShadow_PC;
+              @include custom-responsive("xs sm") {
+                width: 100%;
+                border-radius:$br_MB;
+              }
+              @include custom-responsive("xl xxl") {
+                border-radius:$br_PC;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+              }
+              
+            }
+            div.pic_under{
+              position: absolute;
               width: 100%;
-              border-radius:$br_MB;
+              height: 100%;
+              top: 10%;
+              left: -10%;
+              z-index: 0;
             }
-            @include custom-responsive("xl xxl") {
-              border-radius:$br_PC;
-            }
-            
-          }
-          
 
         }
         div.text{
           color: $basicFontColor;
           @include custom-responsive("xs sm") {
             width: 90%;
-            margin:3% auto;
+            margin:10% auto;
           }
           @include custom-responsive("xl xxl"){
-            width: 40%;
+            width: 35%;
           }
           h4{
             @include custom-responsive("xl xxl"){
@@ -150,7 +174,20 @@ div.container{
 
     }
     section.warm-story{
-
+      position: relative;
+      div.deco{
+        position: absolute;
+        width: 10vw;
+        bottom:5%;
+        left: -15%;
+        img{
+          width: 100%;
+        }
+        &:nth-child(2){
+          top: 10%;
+          left: 100%;
+        }
+      }
       div.title{
         @include custom-responsive("xs sm") {
           margin: 18% auto;
@@ -183,9 +220,15 @@ div.container{
           }
           img.title_decorate{
             position: absolute;
-            top: -16px;
-            left: -50px;
             z-index: 0;
+            @include custom-responsive("xs sm") {
+              top: -15px;
+              left: -55px;
+            }
+            @include custom-responsive("xl xxl") {
+              top: -15px;
+              left: -45px;
+            }
           }
         }
 
@@ -194,6 +237,7 @@ div.container{
             display: none;
           }
           @include custom-responsive("xl xxl"){
+            width: 40vw;
             img{
               width: 100%;
             }
@@ -209,6 +253,8 @@ div.container{
         div.card{
           @include custom-responsive("xs sm") {
             width: 85%;
+            height: fit-content;
+            background-color: $functionalLightGrey1;
             @include boxShadow_MB;
             border-radius: $br_MB;
             margin:4% 0;
@@ -246,12 +292,10 @@ div.container{
           }
           div.text{
             @include custom-responsive("xl xxl") {
-              width: 100%;
-              height: 100%;
               border-radius:0 0  $br_PC $br_PC;
             }
             @include custom-responsive("xs sm") {
-              background-color: $functionalLightGrey1;
+              
               box-sizing: border-box;
               padding: 8%;
               border-radius:0 0  $br_MB $br_MB;
@@ -312,7 +356,29 @@ div.container{
       }
     }
     section.photo-album{
-      margin: 10% 0;
+      @include custom-responsive("xs sm"){
+        margin: 10% 0 45vh 0;
+      }
+      @include custom-responsive("xl xxl"){
+        margin: 10% 0;
+      }
+      
+      position: relative;
+      div.deco{
+        @include custom-responsive("xs sm") {
+          display: none;
+        }
+        @include custom-responsive("xl xxl") {
+          position: absolute;
+          width: 20vw;
+          bottom: 0;
+          left: -25%;
+          img{
+            width: 100%;
+          }
+        }
+
+      }
       div.title{
         @include custom-responsive("xs sm") {
           margin: 18% auto;
@@ -344,9 +410,15 @@ div.container{
           }
           img.title_decorate{
             position: absolute;
-            top: -20px;
-            left: -50px;
             z-index: 0;
+            @include custom-responsive("xs sm") {
+              top: -15px;
+              left: -55px;
+            }
+            @include custom-responsive("xl xxl") {
+              top: -15px;
+              left: -45px;
+            }
           }
         }
 
@@ -355,6 +427,7 @@ div.container{
             display: none;
           }
           @include custom-responsive("xl xxl"){
+            width: 40vw;
             img{
               width: 100%;
             }
@@ -384,6 +457,7 @@ div.container{
             width: 55%;
             height: 25vw;
             position: relative;
+            margin: 0;
           }
 
           img{
@@ -413,9 +487,19 @@ div.container{
           @include custom-responsive("xs sm") {
             width: 90%;
             margin: auto;
+            position: absolute;
+            top: 145%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+          }
+          @include custom-responsive("sm"){
+            top: 125%;
           }
           @include custom-responsive("xl xxl") {
+            position: static;
             width: 30%;
+            transform: translate(0, 0);
+            margin: 0;
           }
 
           div.branch-name{
@@ -455,11 +539,16 @@ div.container{
         @include custom-responsive("xs sm") {
           justify-content: space-between;
           display: flex;
-          width: 100%;
-          margin: auto;
+          width: 110%;
+          margin: 5% auto 0;
+          position: relative;
+          right: 5%;
         }
         @include custom-responsive("xl xxl") {
           justify-content: space-evenly;
+          position: static;
+          margin: 0 auto;
+          width: 100%;
         }
         
 
@@ -515,17 +604,22 @@ div.container{
         cursor: pointer;
       }
 }
-.v-enter-active,
-.v-leave-active {
-  transition: opacity .5s;
+.fade-enter-from{
+  opacity:0
+}
+.fade-enter-to{
+  opacity:1
+}
+.fade-enter-active{
+  transition: opacity 5s ease-in;
 }
 
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
+.fade-leave-from{
+  opacity:1
 }
-
-.v-enter-to,
-.v-leave-from {
-  opacity: 1;
+.fade-leave-to{
+  opacity:0
+}
+.fade-leave-active{
+  transition: opacity 2s ease-in;
 }

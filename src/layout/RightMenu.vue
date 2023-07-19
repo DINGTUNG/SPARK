@@ -1,5 +1,7 @@
 <script setup>
+
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
+import { ref, onMounted,  } from 'vue';
 const top = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }

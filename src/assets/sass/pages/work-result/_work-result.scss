@@ -1,0 +1,115 @@
+.result_display{
+    width: 100%;
+    background-image: url(../../../../../public/pictures/images/results/work-result/background_image.png);
+    background-position: center top;
+    padding:8% 0;
+    div.result_title{
+        position: relative;
+        margin: 4% 4% 4% 15%;
+        width: fit-content;
+        &::after{
+            content: '';
+            width: 55vw;
+            height: 1px;
+            background-color: $primaryBrandWhite;
+            position: absolute;
+            top: 50%;
+            left: 120%;
+        }
+        h1{
+            @include h1_PC;
+            color: $primaryBrandWhite;
+
+        }
+        img{
+            position: absolute;
+            top: 0;
+            left: -80px;
+        }
+    }
+    .bulletinBoard{
+        margin: 2% auto;
+        width:100%;
+        .swiper-item{
+                width: 100%;
+                height: 28vh;
+                img{
+                    border-radius: $br_PC;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    
+                }
+            }
+    }
+    div.story{
+        width: 62.5vw;
+        margin: 2% auto 0;
+        div.story_title{
+            position: relative;
+            margin: 4% 4% 4% 15%;
+            width: fit-content;
+            h2{
+                @include h2_PC;
+                color: $primaryBrandWhite;
+    
+            }
+            img{
+                position: absolute;
+                top: 0;
+                left: -80px;
+            }
+        }
+        div.bottom{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            .text{
+                color: $primaryBrandWhite;
+                @include h6_PC;
+                width: 60%;
+            }
+            .story-gallery{
+                @include regularWhiteBtn_PC;
+                text-decoration: none;
+                text-align: center;
+                line-height: 55px;
+            }
+        }
+    }
+}
+div.bottom_wrap{
+    width: 100%;
+    margin: 3% 0;
+    div.link{
+        display: flex;
+        justify-content: center;
+        gap: 6%;
+        div.item{
+            background-color: $functionalLightGrey1;
+            width: 15%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3%;
+            border-radius: $br_PC;
+            h2{
+                @include h2_PC;
+                color:$primaryBrandBlue;
+                margin-bottom:10% ;
+            }
+            i{
+                color: $primaryAccentGold;
+                font-size: 6vw;
+                margin-bottom:15%;
+            }
+            a{
+                @include smallBlueBtn_PC;
+                text-decoration: none;
+                text-align: center;
+                line-height: 50px;
+            }
+        }
+    }
+}

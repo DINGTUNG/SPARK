@@ -9,7 +9,7 @@ import {
 } from 'vue';
 
 
-export const useSponsorCartStore = defineStore('sponsor-cart', () => {
+export const useDonateCartStore = defineStore('donate-cart', () => {
 
 
   const isSideListShow = ref(false);

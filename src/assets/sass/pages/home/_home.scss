@@ -209,12 +209,77 @@
         }
     }
 .intro_map {
-padding: 0 0 8%;
+    position: relative;
+    padding: 0 0 8%;
     img {
         display: block;
         width: 28%;
         margin: auto;
+        padding-right: 8%;
 
+    }
+
+    .branch_dot {
+            position: absolute;
+            top: 47%;
+            left: 50%;
+            background-color: $primaryAccentGold;
+            border: 5px solid $secondaryLightGold1;
+            width: 10px;
+            height: 10px;
+            border-radius:50%;
+            // box-shadow: 0 0 8px 5px $secondaryLightGold1;  
+            cursor: pointer;
+    }
+    
+            .branch_dot:nth-child(2) {
+                top: 5%;
+                left: 55%;
+            }
+            .branch_dot:nth-child(3) {
+                top: 22%;
+                left: 46%;
+            }
+            .branch_dot:nth-child(4) {
+                top: 44%;
+                left: 42%;
+            }
+
+    // span {
+    //     font-size: 50px;
+    //     color: red;
+    //     position: absolute;
+    //     top: 40%;
+    //     left: 54%;
+    // }
+
+
+    .branch_info {
+        width: 18%;
+        position: absolute;
+        top: 34%;
+        left: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding-bottom: 10px;
+        border-bottom: 3px solid $functionalLightGrey3;
+
+        .branch_title {
+            .area {
+                @include h5_PC;
+            }
+            .name {
+                @include h5_B_PC;
+            }
+        }
+        .branch_number p{
+            @include h5_B_PC;
+        }
+        .branch_number span{
+            font-size: 30px;
+            color: $decorativeOrange;
+        }
     }
 }
 .girl_bubbling {
@@ -228,5 +293,5 @@ padding: 0 0 8%;
 .section_news {
     width: 62.5vw;
     margin: auto;
-padding: 6% 0;
+    padding: 6% 0;
 }

@@ -46,7 +46,12 @@ const router = createRouter({
     {
       path: '/work-result',
       name: 'work-result',
-      component: () => import('@/views/pages/work-result/StoryGallery.vue')
+      component: () => import('../views/pages/work-result/WorkResult.vue')
+    },
+    {
+      path: '/story-gallery',
+      name: 'story-gallery',
+      component: () => import('../views/pages/work-result/StoryGallery.vue')
     },
 
     {

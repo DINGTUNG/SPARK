@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
 
+const router=useRouter();
 const account = ref('');
 const password = ref('');
 const errorAccount = ref('');
@@ -16,17 +18,14 @@ const login = () => {
     if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = ''; 
       console.log('登入成功');
-      alert('登入成功')
-      //清空錯誤訊息沒有效？
+      alert('登入成功');
+      router.push({ path: '/' });
+      //跳轉頁面失效
     } else {
       console.log('帳號或密碼不正確');
       errorAccount.value = '帳號或密碼不正確';
     }
   }
-
-
-
-
 
   // return {
   // account,

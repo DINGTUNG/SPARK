@@ -16,7 +16,7 @@ const sponsorCartStore = useSponsorCartStore();
       <div class="title_block">
         <h1>我要認養</h1>
         <div class="top_line">
-          <img src="public/pictures/decorations/illustration/decorative_line.svg" alt="">
+          <img :src="'public/pictures/decorations/illustration/decorative_line.svg'" alt="">
         </div>
       </div>
       <div class="sponsor_block">

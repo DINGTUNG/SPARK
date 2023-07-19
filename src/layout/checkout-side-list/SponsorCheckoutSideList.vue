@@ -6,6 +6,7 @@ const sponsorCartStore = useSponsorCartStore();
 
 
 const router = useRouter()
+
 const goToCheckoutPage = () => {
   router.push({ path: '/sponsor-checkout-step-1' })
 }

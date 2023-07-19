@@ -4,6 +4,7 @@ import SponsorCheckoutCards from '@/components/func-items/cards/SponsorCheckoutC
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 
+
 </script>
 
 <template>
@@ -25,11 +26,9 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
         </div>
       </div>
 
+      <img src="pictures/decorations/illustration/rocket_with_gold_fire.svg"  :class="filter-gold" alt="">
 
     </div>
-
-
-
 
 
   </div>
@@ -37,6 +36,4 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
 <style scoped lang="scss">
 @import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-1';
-
-
 </style>

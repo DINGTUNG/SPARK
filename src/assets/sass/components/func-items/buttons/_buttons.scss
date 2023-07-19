@@ -13,6 +13,17 @@ button {
 }
 
 
+@mixin btnEffect {
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+  }
+}
+
+
 //---------------------------------------------------------------------------------------
 /* ⭐regular buttons size⭐ */
 
@@ -42,12 +53,12 @@ button {
 }
 
 
-@mixin checkoutCardsBtnSize_PC{
+@mixin checkoutCardsBtnSize_PC {
   width: 180px;
   height: 50px;
 }
 
-@mixin checkoutCardsBtnSize_MB{
+@mixin checkoutCardsBtnSize_MB {
   width: 150px;
   height: 35px;
 }

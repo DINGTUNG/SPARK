@@ -3,6 +3,8 @@ div.sponsor_checkout_container {
   position: relative;
 
   div.main_body {
+    position: relative;
+
     @include custom-responsive("xs sm") {
       @include body_space_MB
     }
@@ -13,22 +15,38 @@ div.sponsor_checkout_container {
 
     div.checkout_wrap {
       position: relative;
-      top: -100px;
+      top: -150px;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
+      align-items: flex-start;
       gap: 100px;
 
-      div.checkout_table_wrap {
-
-      }
+      div.checkout_table_wrap {}
 
       div.checkout_overview_wrap {
         @include flex_vm;
         gap: 40px;
-
-
       }
+    }
 
+    img {
+      position: absolute;
+      left: -10vw;
+      top: 30vh;
+      animation-name: rocket;
+
+    }
+
+    @keyframes rocket {
+
+      0%   {background-color: red;}
+      25%  {background-color: yellow;}
+      50%  {background-color: blue;}
+      100% {background-color: green;}
+    }
+
+    .filter-gold {
+      filter: invert(73%) sepia(60%) saturate(311%) hue-rotate(357deg) brightness(90%) contrast(86%);
     }
   }
 }

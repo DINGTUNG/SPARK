@@ -9,15 +9,17 @@ const branches = ref([
   { area: "南部", name: "台南星火中心", num: 1900 },
   { area: "東部", name: "台東星火中心", num: 900 },
 ]);
+const curIndex = ref(null)
 
-const curBranchName = ref("");
-const curArea = ref("");
-const curNum = ref("");
+// const curBranchName = ref("");
+// const curArea = ref("");
+// const curNum = ref("");
 
-const showBranch = (index, isShow) => {
-  curBranchName.value = isShow ? `${branches.value[index].name}` : "";
-  curArea.value = isShow ? `${branches.value[index].area}` : "";
-  curNum.value = isShow ? `${branches.value[index].num}` : "";
+const showBranch = (index) => {
+  curIndex.value = index;
+  // curBranchName.value = isShow ? `${branches.value[index].name}` : "";
+  // curArea.value = isShow ? `${branches.value[index].area}` : "";
+  // curNum.value = isShow ? `${branches.value[index].num}` : "";
 };
 
 </script>
@@ -81,18 +83,20 @@ const showBranch = (index, isShow) => {
         <div class="intro_map">
           <img :src="'pictures/images/home/blue_taiwan.svg'" alt="blue_taiwan">
 
-          <div class="branch_dot" v-for="(branch, index) in branches" @mouseover="showBranch(index, true)"></div>
+          <div class="branch_dot" v-for="(branch, index) in branches" @mouseover="showBranch(index)"></div>
 
 
-          <div class="branch_info">
-            <div class="branch_title">
-              <p class="area">{{ curArea }}</p>
-              <p class="name">{{ curBranchName }}</p>
+          <transition>
+            <div class="branch_info" v-if="curIndex != null">
+              <div class="branch_title">
+                <p class="area">{{ branches[curIndex].area }}</p>
+                <p class="name">{{ branches[curIndex].name }}</p>
+              </div>
+              <div class="branch_number">
+                <p>服務人數 <span>{{ branches[curIndex].num }}</span> 人</p>
+              </div>
             </div>
-            <div class="branch_number">
-              <p>服務人數 <span>{{ curNum }}</span> 人</p>
-            </div>
-          </div>
+          </transition>
 
         </div>
         <img :src="'pictures/characters/girl/girl_bubbling.svg'" alt="girl_bubbling" class="girl_bubbling">

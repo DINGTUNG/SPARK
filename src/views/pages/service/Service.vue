@@ -42,7 +42,7 @@ const projectDeteils = reactive([
       <img class="deco" :src="'pictures/characters/star/star_reading.svg'" alt="看書的星星~">
       <img class="deco" :src="'pictures/decorations/illustration/shooting_stars.svg'" alt="流星~">
       <img class="deco" :src="'pictures/characters/girl/girl_hugging_star.svg'" alt="抱著星星">
-      <img class="deco" :src="'pictures/decorations/illustration/planet.png'" alt="星球">
+      <img class="deco" :src="'pictures/decorations/illustration/planet.svg'" alt="星球">
       <div class="title">
         <h1>服務內容</h1>
         <div class="decorative_line">

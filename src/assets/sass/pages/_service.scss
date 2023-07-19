@@ -150,6 +150,7 @@
                 }
                 div.decorative_line{
                     display: block;
+                    width: 40vw;
                     img{
                       width: 100%;
                     }
@@ -166,7 +167,7 @@
                         left: 5%;
                         top: 13vh;
                         z-index: 22;
-                        width: 48%;
+                        width: 55%;
                         background-color: $functionalLightGrey1;
                         border-radius: $br_PC * 2;
                         padding: 4%;
@@ -223,6 +224,7 @@
                     @include h6_PC;
                     display: flex;
                     gap: 50px;
+                    flex-direction: row;
                 }
 
             }

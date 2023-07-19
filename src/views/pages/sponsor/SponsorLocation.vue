@@ -178,7 +178,6 @@
       //() => selectedBranch.value 會回傳當前的值
       //監看 selectedBranch.value => 有改變就執行下方函式
         if (selectedBranch.value !== null) {
-          console.log(selectedBranch.value);
           // 如果有選擇，增加 addEventListener => 點擊 container 外 -> selectedBranch.value = null; (據點彈窗關閉)
           document.addEventListener('click', handleClickOutside);
         } else {
@@ -253,7 +252,7 @@
         </div>
       </section>
       <div class="deco-stars">
-          <img :src="'pictures/decorations/illustration/golden_stars.png'" alt="星星裝飾">
+          <img :src="'pictures/decorations/illustration/golden_stars.svg'" alt="星星裝飾">
         </div>
         <div class="deco-bigstar">
           <img :src="'pictures/characters/star/star_superman.svg'" alt="星星裝飾">

@@ -1,256 +1,259 @@
-@import'@/assets/sass/base/border-radius';
-@import'@/assets/sass/base/color';
-@import'@/assets/sass/base/fonts/fonts-mixin';
-@import'@/assets/sass/base/flex';
-@import'@/assets/sass/components/func-items/buttons/buttons-mixin';
-@import'@/assets/sass/base/rwd/breakpoints';
-
 div.container {
-    width: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 
-    div.main_body {
-        width: 62.5vw;
-        margin: auto;
+  div.main_body {
+    width: 62.5vw;
+    margin: auto;
 
-        div.title_block {
-            display: flex;
+    div.title_block {
+      display: flex;
 
-            @include custom-responsive(" xs sm") {
-                justify-content: center;
-            }
+      @include custom-responsive(" xs sm") {
+        justify-content: center;
+      }
 
-            @include custom-responsive(" xl xxl") {
-                justify-content: start;
-            }
-
-
-            h1 {
-                width: auto;
-                color: $primaryBgBlue;
-
-                @include custom-responsive(" xs sm") {
-                    @include h1_MB;
-                }
-
-                @include custom-responsive(" xl xxl") {
-                    @include h1_PC;
-                }
-
-            }
-
-            div.top_line {
+      @include custom-responsive(" xl xxl") {
+        justify-content: start;
+      }
 
 
-                @include custom-responsive(" xs sm") {
-                    display: none;
-                }
+      h1 {
+        width: auto;
+        color: $primaryBgBlue;
 
-                @include custom-responsive(" xl xxl") {
-                    @include h1_PC;
-                    display: flex;
-                    align-self: center;
-                    width: 70%;
-                    margin-left: 40px;
-                    height: 1px;
-                    border-bottom: 1px solid $functionalLightGrey4;
-                }
-            }
+        @include custom-responsive(" xs sm") {
+          @include h1_MB;
         }
 
-        div.sponsor_block {
-            padding: 50px 0;
-
-            @include custom-responsive(" xs sm") {
-                @include h1_MB;
-            }
-
-            @include custom-responsive(" xl xxl") {
-                display: flex;
-            }
-
-            .sponsor_img {
-                img {
-                    @include custom-responsive(" xs sm") {
-                        width: 100%;
-                        border-radius: $br_MB;
-                    }
-
-                    @include custom-responsive(" xl xxl") {
-                        border-radius: $br_PC;
-                        width: 500px;
-                    }
-                }
-            }
-
-            .sponsor_text {
-
-                @include custom-responsive(" xs sm") {
-                    width: 100%;
-                }
-
-                @include custom-responsive(" xl xxl") {
-                    width: 40%;
-                    padding-left: 50px;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                h4 {
-
-                    @include custom-responsive(" xs sm") {
-                        padding: 10px;
-                        @include h4_B_MB;
-                    }
-
-                    @include custom-responsive(" xl xxl") {
-                        @include h4_B_PC;
-                    }
-                }
-
-                p {
-                    flex-grow: 1;
-
-                    @include custom-responsive(" xs sm") {
-                        @include h6_MB;
-                    }
-
-                    @include custom-responsive(" xl xxl") {
-                        @include h6_PC;
-                    }
-                }
-
-                span.price {
-                    color: $decorativeOrange;
-                }
-            }
-
+        @include custom-responsive(" xl xxl") {
+          @include h1_PC;
         }
 
-        .line {
-            width: 100%;
-            height: 1px;
-            background-color: $primaryBgBlue;
+      }
+
+      div.top_line {
+
+
+        @include custom-responsive(" xs sm") {
+          display: none;
         }
 
-        .sponsor_area {
-            padding: 20px 0 100px;
-
-            h3 {
-                color: $primaryBgBlue;
-
-                @include custom-responsive(" xs sm") {
-                    @include h3_MB;
-                }
-
-                @include custom-responsive(" xl xxl") {
-                    @include h3_PC;
-                }
-
-                padding: 0 0 20px;
-
-            }
-
-            div.sponsor_area_inner {
-                display: flex;
-                flex-wrap: wrap;
-
-                div.area_card {
-                    @include flex_hm();
-                    flex-direction: column;
-                    width: 130px;
-                    height: 130px;
-                    background-color: $primaryBgBlue;
-                    color: $primaryBrandWhite;
-
-                    @include custom-responsive(" xs sm") {
-                        @include h5_B_MB;
-                        border-radius: $br_MB;
-                        margin: 0 10px 20px;
-                    }
-
-                    @include custom-responsive(" xl xxl") {
-                        @include h5_B_PC;
-                        border-radius: $br_PC;
-                        margin-right: 30px;
-                    }
-
-                    .card_title {
-                        h5 {
-
-                            @include custom-responsive(" xs sm") {
-                                @include h5_B_MB;
-                            }
-
-                            @include custom-responsive(" xl xxl") {
-                                @include h5_B_PC;
-                            }
-
-                        }
-                    }
-                }
-
-                div.card_count {
-                    span {
-                        padding: 0 10px;
-                        width: 30px;
-                        height: 30px;
-                        font-size: 30px;
-                        background-color: transparent;
-                        border: 1px solid transparent;
-                        cursor: pointer;
-
-                    }
-                }
-            }
+        @include custom-responsive(" xl xxl") {
+          @include h1_PC;
+          display: flex;
+          align-self: center;
+          width: 70%;
+          margin-left: 40px;
+          height: 1px;
+          border-bottom: 1px solid $functionalLightGrey4;
         }
-
-        .button {
-            @include flex_hm();
-
-            button.back {
-                border: 1px transparent;
-                margin: 0 10px;
-
-                @include custom-responsive(" xs sm") {
-                    @include smallBlueBtn_MB;
-                    @include h5_MB;
-                }
-
-                @include custom-responsive(" xl xxl") {
-                    @include smallBlueBtn_PC;
-                    @include h5_PC;
-                }
-
-
-            }
-
-            button.pay_list {
-                color: $primaryBgBlue !important;
-
-                border: 1px transparent;
-                margin: 0 10px;
-
-                @include custom-responsive(" xs sm") {
-                    @include smallWhiteBtn_MB;
-                    @include h5_MB;
-                }
-
-                @include custom-responsive(" xl xxl") {
-                    @include smallWhiteBtn_PC;
-                    @include h5_PC;
-                }
-            }
-
-            div.icon_img {
-                position: relative;
-                left: 300px;
-
-                @include custom-responsive(" xs sm") {
-                    display: none;
-                }
-
-            }
-        }
+      }
     }
+
+    div.sponsor_block {
+      padding: 50px 0;
+
+      @include custom-responsive(" xs sm") {
+        @include h1_MB;
+      }
+
+      @include custom-responsive(" xl xxl") {
+        display: flex;
+      }
+
+      .sponsor_img {
+        img {
+          @include custom-responsive(" xs sm") {
+            width: 100%;
+            border-radius: $br_MB;
+          }
+
+          @include custom-responsive(" xl xxl") {
+            border-radius: $br_PC;
+            width: 500px;
+          }
+        }
+      }
+
+      .sponsor_text {
+
+        @include custom-responsive(" xs sm") {
+          width: 100%;
+        }
+
+        @include custom-responsive(" xl xxl") {
+          padding-left: 50px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        h4 {
+
+          @include custom-responsive(" xs sm") {
+            padding: 10px;
+            @include h4_B_MB;
+          }
+
+          @include custom-responsive(" xl xxl") {
+            @include h4_B_PC;
+          }
+        }
+
+        p {
+          flex-grow: 1;
+
+          @include custom-responsive(" xs sm") {
+            @include h6_MB;
+          }
+
+          @include custom-responsive(" xl xxl") {
+            @include h6_PC;
+          }
+        }
+
+        span.price {
+          color: $decorativeOrange;
+        }
+      }
+
+    }
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: $primaryBgBlue;
+    }
+
+    .sponsor_location {
+      padding: 20px 0 100px;
+
+      h3 {
+        color: $primaryBgBlue;
+
+        @include custom-responsive(" xs sm") {
+          @include h3_MB;
+        }
+
+        @include custom-responsive(" xl xxl") {
+          @include h3_PC;
+        }
+
+        padding: 0 0 20px;
+
+      }
+
+      div.sponsor_location_inner {
+        display: flex;
+        flex-wrap: wrap;
+
+        div.location_card {
+          @include flex_hm();
+          flex-direction: column;
+          width: 130px;
+          height: 130px;
+          background-color: $primaryBgBlue;
+          color: $primaryBrandWhite;
+
+          @include custom-responsive(" xs sm") {
+            @include h5_B_MB;
+            border-radius: $br_MB;
+            margin: 0 10px 20px;
+          }
+
+          @include custom-responsive(" xl xxl") {
+            @include h5_B_PC;
+            border-radius: $br_PC;
+            margin-right: 30px;
+          }
+
+          .card_title {
+            h5 {
+              color: $primaryBrandWhite;
+
+              @include custom-responsive(" xs sm") {
+                @include h5_B_MB;
+              }
+
+              @include custom-responsive(" xl xxl") {
+                @include h5_B_PC;
+              }
+
+            }
+          }
+        }
+
+        div.card_count {
+          color: $primaryBrandWhite;
+
+          span {
+            padding: 0 10px;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+
+          }
+          i{
+            color: $primaryBrandWhite;
+          }
+        }
+      }
+    }
+
+    .button {
+      @include flex_hm();
+
+      button.back {
+        border: 1px transparent;
+        margin: 0 10px;
+
+        @include custom-responsive(" xs sm") {
+          @include smallBlueBtn_MB;
+          @include h5_MB;
+        }
+
+        @include custom-responsive(" xl xxl") {
+          @include smallBlueBtn_PC;
+          @include h5_PC;
+        }
+
+
+      }
+
+      button.pay_list {
+        color: $primaryBgBlue !important;
+
+        border: 1px transparent;
+        margin: 0 10px;
+
+        @include custom-responsive(" xs sm") {
+          @include smallWhiteBtn_MB;
+          @include h5_MB;
+        }
+
+        @include custom-responsive(" xl xxl") {
+          @include smallWhiteBtn_PC;
+          @include h5_PC;
+        }
+      }
+
+      div.icon_img {
+        position: relative;
+        left: 300px;
+
+        @include custom-responsive(" xs sm") {
+          display: none;
+        }
+
+        @include custom-responsive(" xl xxl") {
+          display: block;
+        }
+      }
+    }
+  }
 
 }

@@ -1,7 +1,3 @@
-@import '@/assets/sass/base/color';
-@import '@/assets/sass/base/fonts/fonts-mixin';
-@import '@/assets/sass/base/border-radius';
-@import '@/assets/sass/base/rwd/breakpoints';
 
 @include custom-responsive("xs"){
     .rightMenu{
@@ -135,9 +131,8 @@
     .rightMenu{
         width: 8vw;
         ul{
-            padding: 4%;
             li{ 
-                @include h6_PC;
+                font-size: 14px;
                 div.icon{
                     width: 60%;
                     img{

@@ -7,9 +7,7 @@ div.check_out_card {
 
 
   h2.check_out_overview_title {
-    @include h2_PC;
     color: $primaryBrandBlue;
-
     margin: 40px 50px 20px;
 
   }
@@ -17,20 +15,19 @@ div.check_out_card {
   div.checkout_datalist {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 15px;
+    gap: 20px;
 
+    div.checkout_data_wrap {
 
-    div.check_out_data {
-      display: flex;
-      justify-content: space-evenly;
+      div.checkout_data {
+        display: flex;
+        justify-content: space-evenly;
+        
+        span {
+          @include h5_PC;
 
-
-
-      span {
-        @include h5_PC
+        }
       }
-
     }
 
   }

@@ -2,6 +2,8 @@
 import { useRoute } from 'vue-router';
 import { ref, reactive, watch, computed } from 'vue';
 
+// import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+
 const checkoutOverviewTitle = ref("");
 const sponsorPrice = ref(2000);
 
@@ -32,11 +34,7 @@ const currentRoute = useRoute();
 console.log(currentRoute.name);
 
 watch(() => {
-  if (currentRoute.name === "sponsor-checkout-step-1" || currentRoute.name === "sponsor-checkout-step-2" || currentRoute.name === "sponsor-checkout-step-3") {
-    checkoutOverviewTitle.value = "認養總覽";
-    paymentTitle.value = "認養費(月)";
-
-  } else if (currentRoute.name === "donate-checkout-step-1" || currentRoute.name === "donate-checkout-step-2") {
+ if (currentRoute.name === "donate-checkout-step-1" || currentRoute.name === "donate-checkout-step-2") {
     checkoutOverviewTitle.value = "捐款總覽";
     paymentTitle.value = "總計";
 

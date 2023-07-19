@@ -3,11 +3,7 @@ import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckout
 
 import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 
-
 const sponsorCartStore = useSponsorCartStore();
-
-
-
 
 </script>
 

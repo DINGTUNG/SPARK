@@ -15,17 +15,17 @@ div.check_out_card {
   div.checkout_datalist {
     display: flex;
     flex-direction: column;
-    gap: 20px;
 
     div.checkout_data_wrap {
 
       div.checkout_data {
         display: flex;
         justify-content: space-evenly;
-        
+
         span {
           @include h5_PC;
-
+display: block;
+margin: 10px 0;
         }
       }
     }

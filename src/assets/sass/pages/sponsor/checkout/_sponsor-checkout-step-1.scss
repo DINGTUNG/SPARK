@@ -12,16 +12,19 @@ div.sponsor_checkout_container {
     }
 
     div.checkout_wrap {
+      position: relative;
+      top: -100px;
+      display: flex;
+      justify-content: flex-start;
+      gap: 100px;
 
+      div.checkout_table_wrap {
 
-      div.checkout_table_wrap {}
+      }
 
       div.checkout_overview_wrap {
         @include flex_vm;
         gap: 40px;
-        position: relative;
-        top: 0;
-        right: 0;
 
 
       }

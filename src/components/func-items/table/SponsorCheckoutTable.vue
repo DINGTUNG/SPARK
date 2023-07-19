@@ -3,15 +3,15 @@ import { ref } from 'vue';
 
 const tableTitle = ref("認養清單");
 
-const tableHeader = 
+const tableHeader =
   ["認養地區", "認養人數", "金額"]
 
 </script>
 
 <template>
   <table class="checkout_table">
-    <caption class="caption">
-      <h2>{{ tableTitle }}</h2>
+    <caption>
+      {{ tableTitle }}
     </caption>
     <tr>
       <th>{{ tableHeader[0] }}</th>
@@ -22,4 +22,6 @@ const tableHeader =
   </table>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import '@/assets/sass/components/func-items/table/sponsor-checkout-table';
+</style>

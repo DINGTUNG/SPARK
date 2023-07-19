@@ -1,0 +1,23 @@
+table.checkout_table {
+  width: 800px;
+  caption {
+    text-align: left;
+    @include h2_PC
+  }
+
+  tr {
+    border: 0;
+
+    th {
+
+      padding:30px 60px 0 ;
+      @include h4_B_PC;
+
+      border: 0;
+      border-bottom: 5px solid $primaryBrandBlue;
+
+    }
+
+  }
+
+}

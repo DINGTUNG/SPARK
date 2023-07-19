@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "sudo dev": "sudo npm run dev",
+    "sudo build": "sudo npm run build",
     "build:staging": "vite build --mode staging",
     "preview": "vite preview",
     "test:unit": "vitest",
@@ -28,6 +30,8 @@
     "jsdom": "^22.1.0",
     "prettier": "^2.8.8",
     "sass": "^1.63.6",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1",
     "vite": "^4.3.9",
     "vitest": "^0.32.0"
   }

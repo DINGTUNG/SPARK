@@ -239,7 +239,7 @@ div.news_content_card_list {
     }
 
     &:hover .card_pic::before {
-      opacity: .6;
+      opacity: 0.7;
     }
 
     &:hover .card_pic::after {

@@ -34,6 +34,7 @@ const showBranch = (index) => {
     <br>
     <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
     <RouterLink to="/resultreport">resultreport</RouterLink>
+  
 
 
     <div class="banner">
@@ -107,6 +108,9 @@ const showBranch = (index) => {
 
     </div>
   </div>
+
+  <RouterLink to="/member-center">會員中心</RouterLink>
+    <br>
 </template>
 
 

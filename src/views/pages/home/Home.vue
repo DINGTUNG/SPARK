@@ -12,16 +12,16 @@ const branches = ref([
 
 const curBranchName = ref("");
 const curArea = ref("");
+const curNum = ref("");
 
 const showBranch = (index, isShow) => {
   curBranchName.value = isShow ? `${branches.value[index].name}` : "";
   curArea.value = isShow ? `${branches.value[index].area}` : "";
-
+  curNum.value = isShow ? `${branches.value[index].num}` : "";
 };
-// `${branches.value[index].name}, 服務人數: ${branches.value[index].num}`
-
 
 </script>
+
 
 <template>
   <div>
@@ -81,17 +81,15 @@ const showBranch = (index, isShow) => {
           <img :src="'pictures/images/home/blue_taiwan.svg'" alt="blue_taiwan">
 
           <div class="branch_dot" v-for="(branch, index) in branches" @mouseover="showBranch(index, true)"></div>
-          <span>{{ curBranchName }}</span>
-          <span>{{ curArea }}</span>
 
 
           <div class="branch_info">
             <div class="branch_title">
-              <p class="area">南部</p>
-              <p class="name">台南星火協會</p>
+              <p class="area">{{ curArea }}</p>
+              <p class="name">{{ curBranchName }}</p>
             </div>
             <div class="branch_number">
-              <p>服務人數 <span>200</span> 人</p>
+              <p>服務人數 <span>{{ curNum }}</span> 人</p>
             </div>
           </div>
 

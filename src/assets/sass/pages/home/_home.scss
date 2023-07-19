@@ -211,7 +211,6 @@
 .intro_map {
     position: relative;
     padding: 0 0 8%;
-outline: 1px solid red;
     img {
         display: block;
         width: 28%;
@@ -246,13 +245,13 @@ outline: 1px solid red;
                 left: 42%;
             }
 
-    span {
-        font-size: 50px;
-        color: red;
-        position: absolute;
-        top: 40%;
-        left: 54%;
-    }
+    // span {
+    //     font-size: 50px;
+    //     color: red;
+    //     position: absolute;
+    //     top: 40%;
+    //     left: 54%;
+    // }
 
 
     .branch_info {

@@ -111,7 +111,11 @@ const router = createRouter({
       name: 'rest',
       component: () => import('@/views/pages/work-result/ResultReport.vue')
     },
-    
+    {
+      path: '/member-center',
+      name: 'member-center',
+      component: () => import('@/views/pages/member-center/MemberCenter.vue')
+    },
     
   ]
 })

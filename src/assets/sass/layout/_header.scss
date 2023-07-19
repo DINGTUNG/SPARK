@@ -4,17 +4,14 @@
 
 header {
     position: absolute;
-    top: 5%;
-    left: 1%;
-    right: 1%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
   
     .link_home {
 
       img.logo {
-        width: 300px;
+        
         vertical-align: top;
       }
     }
@@ -22,13 +19,13 @@ header {
     div.wrapper {
       
       nav {
-        width: max-content; 
-        border-radius: 100px;
-        background-color: $functionalLightGrey1;
+        // width: max-content; 
+        // border-radius: 100px;
+        // background-color: $functionalLightGrey1;
         
         ul {
           list-style-type: none;
-          display: flex;
+          // display: flex;
           margin-left: 20px;
   
           li {
@@ -39,17 +36,17 @@ header {
             
             a.link {
               text-decoration: none;
-              color: $primaryBrandBlue;
+              // color: $primaryBrandBlue;
               font-size: 20px;
               font-weight: $fWBold;
             }
   
-            a.member_login {
-                background-color: $secondaryLightGold2;
-                border-radius: 100px; 
-                padding:15px 40px 15px 40px;
-                box-sizing: border-box;
-            }
+            // a.member_login {
+            //     background-color: $secondaryLightGold2;
+            //     border-radius: 100px; 
+            //     padding:15px 40px 15px 40px;
+            //     box-sizing: border-box;
+            // }
   
             .submenu {
               position: absolute;
@@ -71,9 +68,9 @@ header {
               }
             }
   
-            &:hover .submenu {
-              display: block;
-            }
+            // &:hover .submenu {
+            //   display: block;
+            // }
   
             .submenu.active {
               display: block;
@@ -86,7 +83,145 @@ header {
 
 
 
+  .burger-icon {
+    display: block;
+    width: 50px;  //20px
+    height: 5px; //2px
+    background-color: white;
+    margin: 10px 0;
+    
+  }
+  
+  .nav-open .burger-icon {
+    background-color: #fff;
+    
+  }
 
+//-----------------------------------------------------------
+
+
+@include custom-responsive("xs"){   //0px
+  header{
+    background-color: $primaryBgBlue;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .link_home{
+      
+      img.logo{
+        width: 200px;
+      }
+    }
+
+    div.wrapper{
+      position: absolute;
+      top:100%;
+      right: 0;
+      z-index: 23;
+      animation: slideIn 1s ease-in-out forwards;
+
+      nav{
+        border-radius: 50px 0px 0px 50px;
+        background-color: $primaryBgBlue;
+        width: 40vw;
+        text-align: center;
+        
+        ul{
+          display: block;
+
+          a.link{
+            color: $primaryBrandWhite;
+          }
+
+          // a.member_login{
+            
+          // }
+
+        }
+
+      }
+    }
+
+    .nav-toggle {
+      font-size: 50px;
+      background-color: transparent;
+      color: white;
+      border: none;
+      float: right;
+    }
+    
+  }
+  
+}
+
+
+
+@include custom-responsive("md"){  //768px
+  header{
+     
+    .link_home{
+
+      img.logo{
+        width: 300px;
+      }
+    }
+  }
+}
+
+
+@include custom-responsive("xxl"){   //1400px
+  header{
+    background-color: transparent;
+    top: 5%;
+    left: 1%;
+    right: 1%;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div.wrapper{
+      position: static;
+      animation: none;
+      nav{
+        border-radius: 100px;
+        background-color: $functionalLightGrey1;
+        width: max-content;
+        
+        ul{
+          display: flex;
+
+          li{
+            
+            a.link{
+              color: $primaryBrandBlue;
+            }
+  
+            a.member_login {
+              background-color: $secondaryLightGold2;
+              border-radius: 100px; 
+              padding:15px 40px 15px 40px;
+              box-sizing: border-box;
+            }
+            
+            &:hover .submenu {
+              display: block;
+            }
+  
+            .submenu.active {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 
 

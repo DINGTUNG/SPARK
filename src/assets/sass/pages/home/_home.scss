@@ -329,7 +329,7 @@
 
     .home_banner_cloud {
         width: 100%;
-        background-image: url(/public/pictures/images/home/home_banner_cloud.png);
+        background-image: url(/public/pictures/images/home/home_banner_cloud.svg);
         background-size: cover;
         position: absolute;
         left: 0;
@@ -339,7 +339,7 @@
             background-position: right;
     }
         @include custom-responsive("md lg xl xxl") {
-        height: 233px;
+        height: 232px;
             background-position: center;
     }
     }
@@ -351,7 +351,7 @@
     background-color: $functionalLightGrey1;
     position: relative;
     .intro {
-        text-align: center;
+        
         padding: 6% 0;
         @include custom-responsive("xs sm md") {
         @include body_space_MB;
@@ -361,7 +361,7 @@
         }
 
         .intro_title {
-           
+        text-align: center;
         @include custom-responsive("lg xl xxl") {
             display: flex;
             align-items: center;

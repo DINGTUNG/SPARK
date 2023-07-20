@@ -3,10 +3,6 @@
 
 
 header {
-    position: absolute;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
   
     .link_home {
 
@@ -19,14 +15,11 @@ header {
     div.wrapper {
       
       nav {
-        // width: max-content; 
-        // border-radius: 100px;
-        // background-color: $functionalLightGrey1;
-        
+        background-image: url("/pictures/decorations/layout/star.png");
+        background-repeat: no-repeat;
+        background-size: cover;
         ul {
           list-style-type: none;
-          // display: flex;
-          margin-left: 20px;
   
           li {
             position: relative;
@@ -36,17 +29,8 @@ header {
             
             a.link {
               text-decoration: none;
-              // color: $primaryBrandBlue;
-              font-size: 20px;
               font-weight: $fWBold;
             }
-  
-            // a.member_login {
-            //     background-color: $secondaryLightGold2;
-            //     border-radius: 100px; 
-            //     padding:15px 40px 15px 40px;
-            //     box-sizing: border-box;
-            // }
   
             .submenu {
               position: absolute;
@@ -60,17 +44,18 @@ header {
               text-align: center;
 
               li{
-
+                
                 &:hover{
                   background-color: $functionalLightGrey1;
                   border-radius: 15px;
+                  
+                }
+
+                .link{
+                  
                 }
               }
             }
-  
-            // &:hover .submenu {
-            //   display: block;
-            // }
   
             .submenu.active {
               display: block;
@@ -83,25 +68,9 @@ header {
 
 
 
-  .burger-icon {
-    display: block;
-    width: 50px;  //20px
-    height: 5px; //2px
-    background-color: white;
-    margin: 10px 0;
-    
-  }
-  
-  .nav-open .burger-icon {
-    background-color: #fff;
-    
-  }
-
-//-----------------------------------------------------------
-
-
 @include custom-responsive("xs"){   //0px
   header{
+    position: fixed;
     background-color: $primaryBgBlue;
     top: 0%;
     left: 0%;
@@ -110,11 +79,42 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 24;
 
     .link_home{
       
       img.logo{
         width: 200px;
+      }
+    }
+
+    button.nav_toggle{
+        font-size: 50px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        float: right;
+
+        span.burger_icon{
+          display: block;
+          width: 40px;  //20px
+          height: 5px; //2px
+          background-color: white;
+          margin: 10px 0;
+        }
+    }
+
+    button.open{
+      span.burger_icon:nth-child(1){
+        transform: rotate(-45deg) translate(-11px,12px);
+      }
+
+      span.burger_icon:nth-child(2){
+        opacity: 0;
+      }
+
+      span.burger_icon:nth-child(3) {
+        transform: rotate(45deg) translate(-7px, -11px);
       }
     }
 
@@ -128,36 +128,53 @@ header {
       nav{
         border-radius: 50px 0px 0px 50px;
         background-color: $primaryBgBlue;
-        width: 40vw;
-        text-align: center;
+        width: 60vw;
         
         ul{
           display: block;
-
-          a.link{
-            color: $primaryBrandWhite;
-          }
-
-          // a.member_login{
+          margin-left: 5vw;
+          
+          li{
             
-          // }
-
+            a.link{
+              color: $primaryBrandWhite;
+              font-size: 17.5px;
+            }
+            
+            ul.submenu{
+              
+              li{
+                
+                .link{
+                  
+                }
+              }
+            } 
+          }
         }
-
       }
     }
-
-    .nav-toggle {
-      font-size: 50px;
-      background-color: transparent;
-      color: white;
-      border: none;
-      float: right;
-    }
-    
   }
-  
 }
+
+div.blur-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+div.blur-background.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 
 
@@ -170,12 +187,31 @@ header {
         width: 300px;
       }
     }
+
+    div.wrapper{
+
+      nav{
+        width: 40vw;
+
+        ul{
+
+          li{
+
+            a.link{
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 
+
 @include custom-responsive("xxl"){   //1400px
   header{
+    position: absolute;
     background-color: transparent;
     top: 5%;
     left: 1%;
@@ -192,9 +228,13 @@ header {
         border-radius: 100px;
         background-color: $functionalLightGrey1;
         width: max-content;
+        background-image: none;
+        background-repeat: none;
+        background-size: none;
         
         ul{
           display: flex;
+          margin-left: 20px;
 
           li{
             

@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from "vue";
+  import { reactive } from "vue";
 
   const story_article = reactive([
     {

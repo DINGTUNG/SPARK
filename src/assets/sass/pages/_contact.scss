@@ -1,4 +1,3 @@
-
 div.title_img {
     img {
         max-width: 100%;
@@ -7,12 +6,14 @@ div.title_img {
 
 div.container {
     width: 100%;
+    position: relative;
     div.main_body {
         width: 62.5vw;
         margin: auto;
 
         div.title_block {
             display: flex;
+
             @include custom-responsive(" xs sm") {
                 justify-content: center;
             }
@@ -34,29 +35,25 @@ div.container {
                 @include custom-responsive(" xl xxl") {
                     @include h1_PC;
                 }
-                
+
             }
 
             div.top_line {
-
 
                 @include custom-responsive(" xs sm") {
                     display: none;
                 }
 
                 @include custom-responsive(" xl xxl") {
-                    @include h1_PC;
                     display: flex;
                     align-self: center;
-                    width: 70%;
                     margin-left: 40px;
-                    height: 1px;
-                    border-bottom: 1px solid $functionalLightGrey4;
                 }
             }
         }
-        div.title_text{
-            p{
+
+        div.title_text {
+            p {
                 @include custom-responsive(" xs sm") {
                     @include h6_MB;
                     padding: 20px 0;
@@ -69,15 +66,14 @@ div.container {
             }
 
         }
+
         div.contact_block {
             div.contact_message {
                 div.contact_message_inner {
                     align-items: center;
                     padding: 20px 0;
 
-                    @include custom-responsive(" xs sm") {
-                      
-                    }
+                    @include custom-responsive(" xs sm") {}
 
                     @include custom-responsive(" xl xxl") {
                         display: flex;
@@ -87,7 +83,7 @@ div.container {
                 }
 
                 img {
-                   
+
                     @include custom-responsive(" xs sm") {
                         width: 100%;
                         border-radius: $br_MB;
@@ -100,40 +96,41 @@ div.container {
                 }
 
                 .contact_text {
-                   
-                    @include custom-responsive(" xs sm") {
-                       
-                    }
+
+                    @include custom-responsive(" xs sm") {}
 
                     @include custom-responsive(" xl xxl") {
                         padding-left: 50px;
                     }
+
                     h4 {
                         padding: 20px 0;
                         color: $basicFontColor;
+
                         @include custom-responsive(" xs sm") {
                             @include h4_B_MB;
-                       
+
                         }
-    
+
                         @include custom-responsive(" xl xxl") {
                             @include h4_B_PC;
-                            
+
                         }
 
                     }
 
                     p {
                         color: $basicFontColor;
+
                         @include custom-responsive(" xs sm") {
                             @include h6_MB;
                         }
-    
+
                         @include custom-responsive(" xl xxl") {
                             @include h6_PC;
                         }
-                       
-                        
+
+
 
                     }
 
@@ -149,6 +146,7 @@ div.container {
                 h2 {
                     color: $primaryBgBlue;
                     padding: 50px 0 30px;
+
                     @include custom-responsive(" xs sm") {
                         @include h2_MB;
                     }
@@ -156,15 +154,41 @@ div.container {
                     @include custom-responsive(" xl xxl") {
                         @include h2_PC;
                     }
-                 
-                    
-                    
+
+
+
                 }
 
                 iframe {
                     width: 100%;
                 }
             }
+        }
+    }
+
+    img.superman {
+        position: relative;
+
+        @include custom-responsive(" xs sm") {
+            display: none
+        }
+
+        @include custom-responsive(" xl xxl") {
+            display: block;
+            left: 100%;
+        }
+    }
+
+    img.contact_star{
+        position: absolute;
+        @include custom-responsive(" xs sm") {
+            display: none
+        }
+
+        @include custom-responsive(" xl xxl") {
+            display: block;
+            top: 50%;
+            left: 0;
         }
     }
 }

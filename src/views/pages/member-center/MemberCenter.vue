@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="js" setup>
   const tableData = [
     {
       date: '2016-05-03',
@@ -46,21 +46,43 @@
 
 <template>
 
-<!-- <br v-for="n in 30" :key="n"> -->
-   <el-table :data="tableData" border style="width: 100%" :header-cell-style="{ backgroundColor: '#ffe874' }" :color="'#dd3c3c'">
-      <el-table-column prop="date" label="Date" width="180" />
+
+
+<br v-for="n in 100" :key="n">
+   <el-table :header-cell-class-name="headerCellClassName" :data="tableData">
+      <el-table-column   prop="date" label="Date" width="180" />
       <el-table-column prop="name" label="Name" width="180" />
+      <el-table-column prop="address" label="Address" />
       <el-table-column prop="address" label="Address" />
     </el-table>
   </template>
 
 
 <style scoped lang="scss">
-@import "@/assets/sass/pages/member-center/_member-center";
-.el-table{
-    color:$primaryBrandBlue;
-};
+/* @import "@/assets/sass/pages/member-center/_member-center"; */
+
+::v-deep .el-table .warning-row {
+  background-color: pink;
+  color: red;
+}
 
 
+.my-header {
+  background: blue !important; 
+}
+
+
+.column{
+color: red;
+
+
+
+}
+.el-table .warning-row {
+  --el-table-tr-bg-color: var(--el-color-warning-light-9);
+}
+.el-table .success-row {
+  --el-table-tr-bg-color: var(--el-color-success-light-9);
+}
 </style>
   

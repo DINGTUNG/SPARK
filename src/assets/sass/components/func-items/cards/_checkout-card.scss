@@ -22,11 +22,26 @@ div.check_out_card {
         display: flex;
         justify-content: space-evenly;
 
+
         span {
           @include h5_PC;
-display: block;
-margin: 10px 0;
+          display: block;
+          margin: 10px 0;
         }
+
+        span.name {
+          width: 20%;
+          padding-left: 20px;
+        }
+
+        span.count {
+          width: 20%;
+        }
+
+        span.cost {
+          width: 30%;
+        }
+
       }
     }
 
@@ -37,7 +52,7 @@ margin: 10px 0;
     div.payment_info {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
 
       position: absolute;
       bottom: 0;
@@ -48,7 +63,8 @@ margin: 10px 0;
 
       span.payment_title,
       span.total_price {
-        @include h3_PC
+        @include h3_PC;
+        width:40%;
       }
 
     }

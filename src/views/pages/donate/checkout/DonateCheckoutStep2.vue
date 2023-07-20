@@ -1,5 +1,5 @@
 <script setup>
-import DonateCheckoutCards from '@/components/func-items/cards/DonateCheckoutCards.vue'
+import DonateCheckoutCard from '@/components/func-items/cards/DonateCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 
@@ -11,7 +11,7 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
     <!-- 撐開頁面之臨時空間 -->
     <br v-for="n in 100" :key="n">
 
-    <DonateCheckoutCards />
+    <DonateCheckoutCard />
     <CheckoutButtons/>
 
 

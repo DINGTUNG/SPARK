@@ -93,8 +93,9 @@ div.container {
         h4 {
 
           @include custom-responsive(" xs sm") {
-            padding: 10px;
+            padding: 10px 0;
             @include h4_B_MB;
+            font-size: 20px;
           }
 
           @include custom-responsive(" xl xxl") {
@@ -153,14 +154,12 @@ div.container {
         div.location_card {
           @include flex_hm();
           flex-direction: column;
-
-
           color: $primaryBrandWhite;
 
           @include custom-responsive(" xs sm") {
             @include h5_B_MB;
             border-radius: $br_MB;
-            margin: 0 10px 20px;
+            margin: 0 0 20px;
           }
 
           @include custom-responsive(" xl xxl") {

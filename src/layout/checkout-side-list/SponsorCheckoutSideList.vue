@@ -20,7 +20,7 @@ const goToCheckoutPage = () => {
     </div>
 
 
-    <p v-if="sponsorCartStore.isCartEmpty">此頁面沒東西</p>
+    <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">此頁面現無任何商品</p>
 
     <div class="location_card" v-for="location in sponsorCartStore.locationList" :key="location.id">
 

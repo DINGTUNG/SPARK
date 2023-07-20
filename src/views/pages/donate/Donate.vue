@@ -1,5 +1,7 @@
 <script setup>
 import DonateContentCard from '@/components/donate/DonateContentCard.vue';
+import DonateCheckoutSideList from '@/layout/checkout-side-list/DonateCheckoutSideList.vue';
+
 
 import { ref } from 'vue';
 const h1 = ref("捐款內容")
@@ -23,6 +25,7 @@ const h1 = ref("捐款內容")
       </div>
     </div>
   </div>
+  <DonateCheckoutSideList />
 </template>
 
 

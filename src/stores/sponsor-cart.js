@@ -23,18 +23,19 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   }
 
   class Location {
-    constructor(id, name, cost) {
+    constructor(id, name, cost ,img) {
       this.id = id;
       this.name = name;
       this.cost = cost;
+      this.img = img
     }
   }
 
   const locationList = [
-    new Location("taipei", "台北星火", 2000),
-    new Location("taichung", "台中星火", 2000),
-    new Location("tainan", "台南星火", 2000),
-    new Location("taitung", "台東星火", 2000)
+    new Location("taipei", "台北星火", 2000, "public/pictures/decorations/illustration/golden_star_single.svg"),
+    new Location("taichung", "台中星火", 2000,"public/pictures/decorations/illustration/golden_star_2.svg"),
+    new Location("tainan", "台南星火", 2000,"public/pictures/decorations/illustration/golden_star_3.svg"),
+    new Location("taitung", "台東星火", 2000,"public/pictures/decorations/illustration/golden_star_4.svg")
   ];
 
   const cart = reactive(

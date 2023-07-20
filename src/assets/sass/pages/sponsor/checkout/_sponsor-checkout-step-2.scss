@@ -22,7 +22,8 @@ div.sponsor_checkout_container {
       gap: 100px;
 
       div.payment_wrap {
-
+        @include flex_vm;
+        gap: 40px;
       }
 
       div.overview_wrap {
@@ -33,11 +34,13 @@ div.sponsor_checkout_container {
 
     img {
       position: absolute;
-      left: -10vw;
+      left: -12vw;
       top: 30vh;
       animation-name: rocket;
 
     }
+
+
 
   }
 }

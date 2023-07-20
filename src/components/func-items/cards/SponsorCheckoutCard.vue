@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore, PaymentPlan } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -21,7 +21,7 @@ const paymentTitle = ref("認養費");
       <div v-for="location in sponsorCartStore.locationList" :key="location.id" class="checkout_data_wrap">
 
         <div v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0" class="checkout_data">
-          
+
           <span class="name">{{ location.name }}</span>
           <span class="count">共 {{ sponsorCartStore.getCurrentCountInCart(location.id) }} 位</span>
           <span class="cost">NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</span>
@@ -33,8 +33,8 @@ const paymentTitle = ref("認養費");
 
     <div class="payment">
       <div class="payment_info">
-        <span class="payment_title">{{ paymentTitle }}({{sponsorCartStore.paymentFrequency}})</span>
-        <span class="total_price">NTD {{ sponsorCartStore.totalCost }}</span>
+        <span class="payment_title">{{ paymentTitle }}({{ sponsorCartStore.chosenPlanType.display}})</span>
+        <span class="total_price">NTD {{ sponsorCartStore.totalCost*sponsorCartStore.chosenPlanType.period }} </span>
       </div>
     </div>
 

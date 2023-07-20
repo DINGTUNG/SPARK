@@ -69,35 +69,15 @@ const letterRow = ({ row, rowIndex }) => {
       <br v-for="n in 10" :key="n">
 
       <el-table :data="tableData" :table-layout="tableLayout" :cell-class-name="letterRow">
-        <el-table-column v-for="headerCell in tableHeader" :key="headerCell.label" :prop="headerCell.prop"
-          :label="headerCell.label" />
-      </el-table>
-      <el-table-column prop="no" label="兒童編號" width="180" />
-      <el-table-column prop="date" label="日期" width="180" />
-      <el-table-column prop="area" label="所屬據點" width="180" />
-      <el-table-column prop="pic" label="來自小朋友的手寫信" />
+        <el-table-column prop="no" label="兒童編號" width="180" />
+        <el-table-column prop="date" label="日期" width="180" />
+        <el-table-column prop="area" label="所屬據點" width="180" />
+        <el-table-column prop="pic" label="來自小朋友的手寫信" />
       </el-table>
     </div>
 
   </div>
 </template>
-
-<script lang="ts" setup>
-
-
-
-
-import { ref } from 'vue'
-
-const tableLayout = ref('fixed')
-
-const tableHeader = [
-  { label: "tanuki-1", prop: "date" },
-  { label: "tanuki-2", prop: "name" },
-  { label: "tanuki-3", prop: "address" },
-]
-
-</script>
 
 <style scoped lang="scss">
 @import '@/assets/sass/pages/member-center/member-center.scss';

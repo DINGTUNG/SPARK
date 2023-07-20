@@ -108,7 +108,6 @@ const showBranch = (index) => {
   <RouterLink to="/sponsor-checkout-step-1">sponsor-checkout-step-1</RouterLink>
   <br>
   <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
-  <RouterLink to="/resultreport">resultreport</RouterLink>
   <br>
   <RouterLink to="/member-center">會員中心</RouterLink>
   <br>

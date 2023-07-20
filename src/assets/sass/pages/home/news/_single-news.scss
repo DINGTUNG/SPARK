@@ -6,320 +6,334 @@ div.title_img {
 
 div.container {
     width: 100%;
-
     div.main_body {
         width: 62.5vw;
         margin: auto;
-
-        div.title_block {
-            display: flex;
+    }
+    div.title_block {
+        display: flex;
+        @include custom-responsive(" xs sm") {
+            padding: 20px 0 30px;
+            align-items: center;
+            justify-content: center;
+        }
+        @include custom-responsive(" md lg") {
+            justify-content: space-between;
+        }
+        @include custom-responsive(" xl xxl") {
             padding: 20px 0 35px;
             align-items: center;
-          
+            justify-content: space-between;
+        }
+
+        h1 {
+            color: $primaryBgBlue;
 
             @include custom-responsive(" xs sm") {
-                justify-content: center;
+                @include h1_MB;
+
             }
 
             @include custom-responsive(" xl xxl") {
-                justify-content: space-between;
+                @include h1_PC;
             }
 
+        }
+        img.deco_line{
 
-            h1 {
-                width: auto;
-                color: $primaryBgBlue;
+            @include custom-responsive(" xs sm") {                   
+                display: none;
+            }
+            @include custom-responsive("md") {
+                width: 60%;
+                display: block;
+            }
+            @include custom-responsive("lg") {
+                display: block;
+            }
+            @include custom-responsive(" xl xxl") {                 
+                display: block;
+            }
+        }
+    }
+
+    div.main_article {
+        div.article_title {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 0;
+
+            @include custom-responsive(" xs sm") {
+                flex-direction: column
+            }
+
+            h2 {
+
+                color: $primaryAccentGold;
 
                 @include custom-responsive(" xs sm") {
-                    @include h1_MB;
-
+                    @include h2_MB;
                 }
 
                 @include custom-responsive(" xl xxl") {
-                    @include h1_PC;
+                    @include h2_PC;
                 }
-
             }
-        }
 
-        div.main_article {
-            div.article_title {
+            span {
                 display: flex;
-                justify-content: space-between;
-                padding: 30px 0;
+                align-items: center;
+                color: $functionalLightGrey4;
+                @include h5_B_PC;
 
                 @include custom-responsive(" xs sm") {
-                    flex-direction: column
+                    padding: 20px 0;
                 }
 
-                h2 {
-
-                    color: $primaryAccentGold;
-
-                    @include custom-responsive(" xs sm") {
-                        @include h2_MB;
-                    }
-
-                    @include custom-responsive(" xl xxl") {
-                        @include h2_PC;
-                    }
-                }
-
-                span {
-                    display: flex;
-                    align-items: center;
-                    color: $functionalLightGrey4;
-                    @include h5_B_PC;
-
-                    @include custom-responsive(" xs sm") {
-                        padding: 20px 0;
-                    }
-
-                    @include custom-responsive(" xl xxl") {
-                        // padding: 0 20px;
-                    }
-                }
-            }
-
-            div.article {
-                div.article_block {
-
-                    
-                    @include custom-responsive("2l") {
-                        display: flex;
-                    }
-
-
-                    div.article_block_img {
-                        img {
-
-                            @include custom-responsive(" xs sm") {
-                                border-radius: $br_MB;
-                                width: 100%;
-                            }
-
-                            @include custom-responsive(" xl xxl") {
-                                border-radius: $br_PC;
-                                width: auto;
-                            }
-
-                        }
-
-                    }
-
-                    div.article_block_text {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-around;
-                        @include custom-responsive(" xs sm") {
-                            padding-bottom:50px;
-                        }
-
-                        @include custom-responsive(" 2l") {
-                            padding: 0 0 0 80px;
-                        }
-
-                        h5 {
-                            @include custom-responsive(" xs sm") {
-                                @include h5_B_MB;
-                            }
-
-                            @include custom-responsive(" xl xxl") {
-                                @include h5_B_PC;
-                            }
-                        }
-
-                        p {
-                            color: $basicFontColor;
-
-                            @include custom-responsive(" xs sm") {
-                                @include h6_MB;
-                            }
-
-                            @include custom-responsive(" xl xxl") {
-                                @include h6_PC;
-                            }
-
-
-                        }
-                    }
-
-                    div.imgRight {
-                        order: -1;
-                        @extend .article_block_text;
-
-                        @include custom-responsive(" xl xxl") {
-                            padding: 0 80px 0 0;
-                        }
-                    }
+                @include custom-responsive(" xl xxl") {
+                    // padding: 0 20px;
                 }
             }
         }
 
-        div.more_news {
-            div.title_group {
-                padding-top: 20px;
+        div.article {
+            div.article_block {
 
-                h2 {
-                    color: $primaryBrandBlue;
-
-                    @include custom-responsive("sm md ") {
-                        @include h2_MB;
-                    }
-
-                    @include custom-responsive("xl xxl") {
-                        @include h2_PC;
-                    }
-                }
-
-                div.line {
-                    margin: 20px 0px;
+                
+                @include custom-responsive("2l") {
                     display: flex;
-                    width: 100%;
-                    height: 4px;
-                    align-self: center;
-                    background-color: $primaryBgBlue;
                 }
-            }
 
-            div.card_group {
-                justify-content: center;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 30px;
 
-                div.news_card {
-                    @include custom-responsive("xs sm") {
-                        width: 100%;
-                        border-radius: $br_PC;
-                        @include boxShadow_PC;
+                div.article_block_img {
+                    img {
+
+                        @include custom-responsive(" xs sm") {
+                            border-radius: $br_MB;
+                            width: 100%;
+                        }
+
+                        @include custom-responsive(" xl xxl") {
+                            border-radius: $br_PC;
+                            width: auto;
+                        }
+
                     }
 
-                    @include custom-responsive(" lg xl") {
-                        width: 50%;
+                }
+
+                div.article_block_text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    @include custom-responsive(" xs sm") {
+                        padding-bottom:50px;
                     }
+
+                    @include custom-responsive(" 2l") {
+                        padding: 0 0 0 80px;
+                    }
+
+                    h5 {
+                        @include custom-responsive(" xs sm") {
+                            @include h5_B_MB;
+                        }
+
+                        @include custom-responsive(" xl xxl") {
+                            @include h5_B_PC;
+                        }
+                    }
+
+                    p {
+                        color: $basicFontColor;
+
+                        @include custom-responsive(" xs sm") {
+                            @include h6_MB;
+                        }
+
+                        @include custom-responsive(" xl xxl") {
+                            @include h6_PC;
+                        }
+
+
+                    }
+                }
+
+                div.imgRight {
+                    order: -1;
+                    @extend .article_block_text;
 
                     @include custom-responsive(" xl xxl") {
-                        width: 30%;
+                        padding: 0 80px 0 0;
                     }
+                }
+            }
+        }
+    }
 
-                    a {
-                        list-style: none;
-                        text-decoration: none;
+    div.more_news {
+        div.title_group {
+            padding-top: 20px;
 
-                    }
+            h2 {
+                color: $primaryBrandBlue;
 
-                    div.card_img {
-                        position: relative;
-                        overflow: hidden;
-                        border-radius: $br_PC $br_PC 0 0;
+                @include custom-responsive("sm md ") {
+                    @include h2_MB;
+                }
 
-                        img {
+                @include custom-responsive("xl xxl") {
+                    @include h2_PC;
+                }
+            }
 
+            div.line {
+                margin: 20px 0px;
+                display: flex;
+                width: 100%;
+                height: 4px;
+                align-self: center;
+                background-color: $primaryBgBlue;
+            }
+        }
 
-                            width: 100%;
-                            overflow: hidden;
-                            vertical-align: bottom;
-                        }
+        div.card_group {
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
 
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background-color: $primaryBrandBlue;
-                            opacity: 0;
-                            transition: .2s;
-                        }
+            div.news_card {
+                @include custom-responsive("xs sm") {
+                    width: 100%;
+                    border-radius: $br_PC;
+                    @include boxShadow_PC;
+                }
 
-                        &::after {
-                            content: "READ NEWS";
-                            position: absolute;
-                            top: -10%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            font-size: 18px;
-                            letter-spacing: 0.4rem;
-                            color: #fff;
-                            transition: .2s;
-                        }
+                @include custom-responsive(" lg xl") {
+                    width: 50%;
+                }
 
-                        .card_hover_pic {
-                            width: 66%;
-                            position: absolute;
-                            top: 40%;
-                            left: 100%;
-                            transform-origin: bottom left;
-                            transition: .2s;
-                        }
-                    }
+                @include custom-responsive(" xl xxl") {
+                    width: 30%;
+                }
 
-                    div.card_word {
-                        padding: 1vw 1.8vw 1.6vw;
-
-
-                        h5 {
-                            color: $functionalLightGrey4;
-
-                            @include custom-responsive("xs sm ") {
-                                padding: 10px 0;
-                                @include h5_MB;
-                            }
-
-                            @include custom-responsive("xl xxl") {
-                                padding: 0;
-                                @include h5_PC;
-                            }
-                        }
-
-                        h4 {
-                            color: $primaryBrandBlue;
-
-                            @include custom-responsive("xs sm ") {
-                                @include h4_B_MB;
-                            }
-
-                            @include custom-responsive("xl xxl") {
-                                @include h4_B_PC;
-                            }
-
-                        }
-                        p {
-                            display: -webkit-box;
-                            -webkit-line-clamp: 3;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            color: $basicFontColor;
-
-                            @include custom-responsive("xs sm ") {
-                                @include h6_MB;
-                            }
-
-                            @include custom-responsive("xl xxl") {
-                                @include h6_PC;
-
-                            }
-                        }
-
-                      
-                    }
-                    &:hover .card_img::before {
-                        opacity: .6;
-                    }
-
-                    &:hover .card_img::after {
-                        top: 45%;
-                    }
-
-                    &:hover .card_hover_pic {
-                        transform: rotate(-43deg);
-                    }
+                a {
+                    list-style: none;
+                    text-decoration: none;
 
                 }
 
+                div.card_img {
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: $br_PC $br_PC 0 0;
+
+                    img {
+
+
+                        width: 100%;
+                        overflow: hidden;
+                        vertical-align: bottom;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $primaryBrandBlue;
+                        opacity: 0;
+                        transition: .2s;
+                    }
+
+                    &::after {
+                        content: "READ NEWS";
+                        position: absolute;
+                        top: -10%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 18px;
+                        letter-spacing: 0.4rem;
+                        color: #fff;
+                        transition: .2s;
+                    }
+
+                    .card_hover_pic {
+                        width: 66%;
+                        position: absolute;
+                        top: 40%;
+                        left: 100%;
+                        transform-origin: bottom left;
+                        transition: .2s;
+                    }
+                }
+
+                div.card_word {
+                    padding: 1vw 1.8vw 1.6vw;
+
+
+                    h5 {
+                        color: $functionalLightGrey4;
+
+                        @include custom-responsive("xs sm ") {
+                            padding: 10px 0;
+                            @include h5_MB;
+                        }
+
+                        @include custom-responsive("xl xxl") {
+                            padding: 0;
+                            @include h5_PC;
+                        }
+                    }
+
+                    h4 {
+                        color: $primaryBrandBlue;
+
+                        @include custom-responsive("xs sm ") {
+                            @include h4_B_MB;
+                        }
+
+                        @include custom-responsive("xl xxl") {
+                            @include h4_B_PC;
+                        }
+
+                    }
+                    p {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        color: $basicFontColor;
+
+                        @include custom-responsive("xs sm ") {
+                            @include h6_MB;
+                        }
+
+                        @include custom-responsive("xl xxl") {
+                            @include h6_PC;
+
+                        }
+                    }
+
+                  
+                }
+                &:hover .card_img::before {
+                    opacity: .6;
+                }
+
+                &:hover .card_img::after {
+                    top: 45%;
+                }
+
+                &:hover .card_hover_pic {
+                    transform: rotate(-43deg);
+                }
+
             }
+
         }
     }
 }

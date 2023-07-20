@@ -71,9 +71,9 @@ const news = reactive(
     </div>
     <div class="container">
       <div class="main_body">
-      <div class="title_block">
+        <div class="title_block">
         <h1>消息內容</h1>
-          <img :src="'public/pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="main_article">
         <div class="article_title">

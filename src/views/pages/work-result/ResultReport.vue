@@ -33,7 +33,6 @@ let years = reactive([
     id: '7',
     year: '2015'
   },
-
 ])
 
 </script>
@@ -46,9 +45,7 @@ let years = reactive([
     <div class="main_body">
       <div class="title_block">
         <h1>歷年報告</h1>
-        <div class="top_line">
-          <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="">
-        </div>
+        <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="report_inner">
         <div class="year_report">
@@ -58,7 +55,7 @@ let years = reactive([
           <div class="year_inner">
             <div class="year_card" v-for="item in years" :key="item.id">
               <div class="year_img">
-                <img src="https://picsum.photos/150/200/?random=10">
+                <img :src="'pictures/images/results/report/result.png'">
               </div>
               <div class="year_text">
                 <p>{{ item.year }}年</p>

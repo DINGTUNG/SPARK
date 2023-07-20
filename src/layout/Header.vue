@@ -35,7 +35,7 @@ const menuItems = ref([
     label: '成果佈告欄',
     submenu: [
       { label: '故事藝廊', route: '/story-gallery' },
-      { label: '歷年報告', route: '/resultreport' },
+      { label: '歷年報告', route: '/result-report' },
       { label: '服務里程碑', route: '/' }  //尚無連結
     ],
     img: 'pictures/decorations/layout/little_star.png'

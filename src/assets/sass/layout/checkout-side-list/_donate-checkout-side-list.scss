@@ -48,10 +48,6 @@ div.donate_price {
       @include h5_PC;
     }
   }
-
-  img{
-    flex-grow: 1;
-  }  
   div.price_button {
     padding-bottom: 20px;
     button {
@@ -74,8 +70,20 @@ div.donate_price {
     padding-left: 10px;
 
   }
-
 }
+div.img{
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+  .star{
+    width: 20%;
+    height: 100px;
+  }
+  .man{
+    width: 20%;
+    height: 100px;
+  }
+}  
 
 div.title {
   padding: 20px;

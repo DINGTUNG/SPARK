@@ -5,8 +5,6 @@ import {ref,reactive,computed,// watch
 
 import { useRouter } from 'vue-router';
 
-
-
 export const useDonateCartStore = defineStore('donate-cart', () => {
   //router要記得在store裡面宣告喔!
   const router = useRouter();
@@ -92,24 +90,21 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
   const showSideList = (id) => {
     activeIdx.value = id;
     isSideListShow.value = true;
-  }
+  };
 
 // 點擊按鈕時使isSideListShow.value改為false
   const hideSideList = () => {
     isSideListShow.value = false;
-  }
-
+  };
   
   //導覽列標題變更區塊
   const activeIdx = ref(''); //先使activeIdx內容為空的
-
   const activeCard = computed(() => {
     const target = donateContentCardList.find(value => value.id === activeIdx.value) ?? {}
     //宣告 target為donateContentCardList陣列使用find method去找到value的 value.id 是否和activeIdx.value相等，如果不是就返回{}
     return target;
     //將值傳回
-  })
-
+  });
 
   //以下是watch用法
 
@@ -139,24 +134,19 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     } else {
       router.push({ path: '/donate-checkout-step-1' })
     }
-  }
+  };
   //點擊的router
 
-
-
- 
-
   return {
-    // addPrice,
+    donateContentCardList,
     price,
-    goToCheckoutPage,
     isSideListShow,
     showSideList,
     hideSideList,
-    message,
-    formattedAmount,
-    donateContentCardList,
     activeIdx,
     activeCard,
-  }
-})
+    message,
+    formattedAmount,
+    goToCheckoutPage,
+  };
+});

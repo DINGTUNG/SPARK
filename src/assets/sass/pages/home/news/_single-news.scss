@@ -1,6 +1,6 @@
 div.title_img {
     img {
-        max-width: 100%;
+        width: 100%;
     }
 }
 
@@ -13,14 +13,16 @@ div.container {
 
         div.title_block {
             display: flex;
-
+            padding: 20px 0 35px;
+            align-items: center;
+          
 
             @include custom-responsive(" xs sm") {
                 justify-content: center;
             }
 
             @include custom-responsive(" xl xxl") {
-                justify-content: start;
+                justify-content: space-between;
             }
 
 
@@ -37,20 +39,6 @@ div.container {
                     @include h1_PC;
                 }
 
-            }
-
-            div.top_line {
-
-
-                @include custom-responsive(" xs sm") {
-                    display: none;
-                }
-
-                @include custom-responsive(" xl xxl") {
-                    display: flex;
-                    align-self: center;
-                    margin-left: 40px;
-                }
             }
         }
 
@@ -96,7 +84,8 @@ div.container {
             div.article {
                 div.article_block {
 
-                    @include custom-responsive(" xl xxl") {
+                    
+                    @include custom-responsive("2l") {
                         display: flex;
                     }
 
@@ -122,8 +111,11 @@ div.container {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
+                        @include custom-responsive(" xs sm") {
+                            padding-bottom:50px;
+                        }
 
-                        @include custom-responsive(" xl xxl") {
+                        @include custom-responsive(" 2l") {
                             padding: 0 0 0 80px;
                         }
 

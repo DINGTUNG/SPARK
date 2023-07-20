@@ -52,7 +52,14 @@ const donateContentCardList = reactive([
     content: "讓孩子們探索自我，提出他們的夢想計畫，並邀請您投給您最愛的組別，為該組爭取「夢想成真」獎金！讓我們一同以熱情激勵，為孩子們的夢想點燃璀璨星火。",
     fundSum: "捐款累計 NT$87,900"
   }
+
 ])
+
+
+function openDonatePage() {
+  const url = 'https://www.buymeacoffee.com/tanuki.jr';
+  window.open(url, '_blank');
+}
 
 
 </script>
@@ -67,10 +74,27 @@ const donateContentCardList = reactive([
         <h3>{{ donateContentCard.title }}</h3>
         <p>{{ donateContentCard.content }}</p>
         <h4>{{ donateContentCard.fundSum }}</h4>
-        <button @click="donateCartStore.showSideList">加 入 清 單</button>
+        <button @click="donateCartStore.showSideList">加入清單</button>
+      </div>
+    </div>
+
+
+    <div class="donate_content_card">
+      <div class="card_pic">
+        <img :src="'pictures/test/tanuki-rectangle.png'" alt="幸福狸貓">
+      </div>
+      <div class="card_content">
+        <h3>幸福狸貓</h3>
+        <p>散播幸福散播愛，請支持並贊助二狸貓熱呼呼的番薯!</p>
+        <h4>捐款累計 520🍠</h4>
+        <button @click="openDonatePage">前往贊助</button>
       </div>
 
     </div>
+
+
+
+
 
   </div>
 </template>

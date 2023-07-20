@@ -28,7 +28,8 @@
         }
     }
     .bulletinBoard{
-        margin: 2% 0;
+        margin: 2% auto;
+        width:100%;
         .swiper-item{
                 width: 100%;
                 height: 28vh;
@@ -74,6 +75,40 @@
                 text-decoration: none;
                 text-align: center;
                 line-height: 55px;
+            }
+        }
+    }
+}
+div.bottom_wrap{
+    width: 100%;
+    margin: 3% 0;
+    div.link{
+        display: flex;
+        justify-content: center;
+        gap: 6%;
+        div.item{
+            background-color: $functionalLightGrey1;
+            width: 15%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3%;
+            border-radius: $br_PC;
+            h2{
+                @include h2_PC;
+                color:$primaryBrandBlue;
+                margin-bottom:10% ;
+            }
+            i{
+                color: $primaryAccentGold;
+                font-size: 6vw;
+                margin-bottom:15%;
+            }
+            a{
+                @include smallBlueBtn_PC;
+                text-decoration: none;
+                text-align: center;
+                line-height: 50px;
             }
         }
     }

@@ -6,7 +6,7 @@ import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 const sponsorCartStore = useSponsorCartStore();
 
 const checkoutOverviewTitle = ref("認養總覽");
-const paymentTitle = ref("認養費(月)");
+const paymentTitle = ref("認養費");
 
 </script>
 
@@ -21,9 +21,10 @@ const paymentTitle = ref("認養費(月)");
       <div v-for="location in sponsorCartStore.locationList" :key="location.id" class="checkout_data_wrap">
 
         <div v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0" class="checkout_data">
-          <span>{{ location.name }}</span>
-          <span>共 {{ sponsorCartStore.getCurrentCountInCart(location.id) }}位</span>
-          <span>NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</span>
+          
+          <span class="name">{{ location.name }}</span>
+          <span class="count">共 {{ sponsorCartStore.getCurrentCountInCart(location.id) }} 位</span>
+          <span class="cost">NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</span>
         </div>
 
       </div>
@@ -32,7 +33,7 @@ const paymentTitle = ref("認養費(月)");
 
     <div class="payment">
       <div class="payment_info">
-        <span class="payment_title">{{ paymentTitle }}</span>
+        <span class="payment_title">{{ paymentTitle }}({{sponsorCartStore.paymentFrequency}})</span>
         <span class="total_price">NTD {{ sponsorCartStore.totalCost }}</span>
       </div>
     </div>
@@ -41,5 +42,5 @@ const paymentTitle = ref("認養費(月)");
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/components/func-items/cards/checkout-cards';
+@import '@/assets/sass/components/func-items/cards/checkout-card';
 </style>

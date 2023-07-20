@@ -8,11 +8,11 @@ div.title_block {
     display: flex;
     align-items: center;
 
-    @include custom-responsive(" xs sm") {
+    @include custom-responsive("xs sm") {
         justify-content: center;
     }
 
-    @include custom-responsive(" xl xxl") {
+    @include custom-responsive("xl xxl") {
         justify-content: start;
     }
 
@@ -21,12 +21,12 @@ div.title_block {
         width: auto;
         color: $primaryBgBlue;
 
-        @include custom-responsive(" xs sm") {
+        @include custom-responsive("xs sm") {
             @include h1_MB;
 
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive("xl xxl") {
             @include h1_PC;
         }
 
@@ -53,11 +53,11 @@ div.title_block {
 div.report_inner {
     margin-top: 200px;
 
-    @include custom-responsive(" xs sm") {
+    @include custom-responsive("xs sm") {
         display: block;
     }
 
-    @include custom-responsive(" xl xxl") {
+    @include custom-responsive("xl xxl") {
         display: flex;
     }
 
@@ -67,13 +67,13 @@ div.report_inner {
         background-color: $primaryBrandBlue;
         border-radius: $br_PC;
 
-        @include custom-responsive(" xs sm") {
+        @include custom-responsive("xs sm") {
             border-radius: $br_MB;
             width: 100%;
             margin: auto;
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive("xl xxl") {
             border-radius: $br_PC;
             width: 50%;
             margin-right: 20px;
@@ -82,13 +82,13 @@ div.report_inner {
         img.water_can {
             position: absolute;
 
-            @include custom-responsive(" xs sm") {
+            @include custom-responsive("xs sm") {
                 width: 100px;
                 height: 100px;
                 top: -70px;
             }
 
-            @include custom-responsive(" xl xxl") {
+            @include custom-responsive("xl xxl") {
                 width: 200px;
                 height: 200px;
                 top: -150px;
@@ -98,14 +98,14 @@ div.report_inner {
         img.sprout {
             position: absolute;
 
-            @include custom-responsive(" xs sm") {
+            @include custom-responsive("xs sm") {
                 width: 100px;
                 height: 100px;
                 top: -70px;
                 left: 50%;
             }
 
-            @include custom-responsive(" xl xxl") {
+            @include custom-responsive("xl xxl") {
                 width: 200px;
                 height: 200px;
                 top: -140px;
@@ -118,11 +118,11 @@ div.report_inner {
             text-align: center;
             color: $primaryBgWhite;
 
-            @include custom-responsive(" xs sm") {
+            @include custom-responsive("xs sm") {
                 @include h2_MB;
             }
 
-            @include custom-responsive(" xl xxl") {
+            @include custom-responsive("xl xxl") {
                 @include h2_PC;
             }
 
@@ -158,13 +158,13 @@ div.report_inner {
                     }
 
                     button {
-                        @include custom-responsive(" xs sm") {
+                        @include custom-responsive("xs sm") {
                             @include smallWhiteBtn_PC;
                             width: 120px;
                             height: 35px;
                         }
 
-                        @include custom-responsive(" xl xxl") {
+                        @include custom-responsive("xl xxl") {
                             @include smallWhiteBtn_PC;
                             width: 168px;
                             height: 40px;

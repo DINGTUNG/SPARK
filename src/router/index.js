@@ -5,9 +5,15 @@ import {
 
 import Home from '@/views/pages/home/Home.vue';
 
+
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
+    // eslint-disable-next-line no-unused-vars
+    scrollBehavior(to, from, savedPosition) {
+      // always scroll to top
+      return { top: 0 }
+    },
   routes: [{
       path: '/',
       name: 'home',
@@ -112,11 +118,15 @@ const router = createRouter({
       component: () => import('@/templates/Test.vue')
     },
     {
-      path: '/resultreport',
+      path: '/result-report',
       name: 'rest',
       component: () => import('@/views/pages/work-result/ResultReport.vue')
     },
-    
+    {
+      path: '/member-center',
+      name: 'member-center',
+      component: () => import('@/views/pages/member-center/MemberCenter.vue')
+    },
     
   ]
 })

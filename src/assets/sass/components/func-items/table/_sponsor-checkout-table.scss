@@ -1,0 +1,75 @@
+table.checkout_table {
+
+  width: 700px;
+
+  caption {
+    text-align: left;
+    @include h1_PC
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $functionalLightGrey3;
+
+      td {}
+    }
+  }
+
+  tr {
+    border: 0;
+
+
+    th,
+    td {
+      border: 0;
+      text-align: left;
+
+    }
+
+    th {
+      padding: 30px 30px 0;
+      @include h4_B_PC;
+      border-bottom: 5px solid $primaryBrandBlue;
+
+    }
+
+    td {
+      width: 30%;
+      padding: 30px 30px;
+      @include h5_PC;
+
+      i {
+        font-size: 30px;
+        color: $primaryBrandBlue;
+        cursor: pointer;
+        @include btnEffect;
+        display: block;
+        width: 15%;
+        text-align: center;
+
+      }
+    }
+
+    td.add_and_remove {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+
+
+      span.count {
+        display: block;
+        text-align: center;
+        width: 25%;
+      }
+    }
+
+    td.discard {
+      width: 10%;
+
+    }
+
+  }
+
+}

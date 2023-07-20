@@ -15,16 +15,15 @@ const sponsorCartStore = useSponsorCartStore();
     <div class="main_body">
       <div class="title_block">
         <h1>我要認養</h1>
-        <div class="top_line"></div>
+        <div class="top_line">
+          <img :src="'public/pictures/decorations/illustration/decorative_line.svg'" alt="">
+        </div>
       </div>
       <div class="sponsor_block">
         <div class="sponsor_img">
           <img :src="'pictures/images/sponsor/introduction.jpg'" alt="">
         </div>
-        <div class="sponsor_block">
-          <div class="sponsor_img">
-            <img :src="'assets/images/sponsor/introduction.jpg'" alt="">
-          </div>
+
           <div class="sponsor_text">
             <h4>認養兒童方案</h4>
             <p>
@@ -33,21 +32,20 @@ const sponsorCartStore = useSponsorCartStore();
             </p>
             <h4>每月 <span class="price">NTD 2,000 </span>認養費</h4>
           </div>
-        </div>
       </div>
       <div class="line"></div>
       <div class="sponsor_location">
         <h3>認養地區</h3>
         <div class="sponsor_location_inner">
-
           <div class="location_card" v-for="location in sponsorCartStore.locationList" :key="location.id">
             <div class="card_title">
+              <img :src="'../../../../public/pictures/decorations/illustration/smilestar_yellow.svg'" alt="stat">
               <h5>{{ location.name }}</h5>
             </div>
             <div class="card_count">
-              <i class="fa-solid fa-minus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
-              {{ sponsorCartStore.getCurrentCountInCart(location.id) }}
-              <i class="fa-solid fa-plus" @click="sponsorCartStore.addToCart(location.id, 1)"></i>
+              <i class="fa-solid fa-user-minus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
+              <p>{{ sponsorCartStore.getCurrentCountInCart(location.id) }}</p>
+              <i class="fa-solid fa-user-plus" @click="sponsorCartStore.addToCart(location.id, 1)"></i>
             </div>
           </div>
         </div>

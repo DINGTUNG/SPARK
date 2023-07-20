@@ -166,25 +166,32 @@
         ];
         return positions[index];
       }
-    
-    const handleClickOutside = (event) => { // event 為 Pointer events ， target 為點擊的位置(HTML節點)
-    if (!container.value.contains(event.target)) { 
-      selectedBranch.value = null;
-      selectedValue.value = null;
-      //如果 event.target 不是 container.value(就是 class branchs)的子節點(顯示據點資訊的框框內) => selectedBranch.value = null; => 不顯示資訊  tips:驚嘆號反轉布林值，因此 container.value.contains(event.target) 為 false 時執行函式(點 container 內部不會關閉彈窗)
+      
+
+    // const handleClickOutside = (event) => { // event 為 Pointer events ， target 為點擊的位置(HTML節點)
+    // if (!container.value.contains(event.target)) { 
+    //   selectedBranch.value = null;
+    //   selectedValue.value = null;
+    //   //如果 event.target 不是 container.value(就是 class branchs)的子節點(顯示據點資訊的框框內) => selectedBranch.value = null; => 不顯示資訊  tips:驚嘆號反轉布林值，因此 container.value.contains(event.target) 為 false 時執行函式(點 container 內部不會關閉彈窗)
+    // }
+    // };
+    // watch(() => selectedBranch.value, () => { 
+    //   //() => selectedBranch.value 會回傳當前的值
+    //   //監看 selectedBranch.value => 有改變就執行下方函式
+    //     if (selectedBranch.value !== null) {
+    //       // 如果有選擇，增加 addEventListener => 點擊 container 外 -> selectedBranch.value = null; (據點彈窗關閉)
+    //       document.addEventListener('click', handleClickOutside);
+    //     } else {
+    //       //如果沒有選擇，移除 addEventListener
+    //       document.removeEventListener('click', handleClickOutside);
+    //     }
+    //   });
+
+    const closePopups = () => {
+        selectedBranch.value = null;
+        selectedValue.value = null;
     }
-    };
-    watch(() => selectedBranch.value, () => { 
-      //() => selectedBranch.value 會回傳當前的值
-      //監看 selectedBranch.value => 有改變就執行下方函式
-        if (selectedBranch.value !== null) {
-          // 如果有選擇，增加 addEventListener => 點擊 container 外 -> selectedBranch.value = null; (據點彈窗關閉)
-          document.addEventListener('click', handleClickOutside);
-        } else {
-          //如果沒有選擇，移除 addEventListener
-          document.removeEventListener('click', handleClickOutside);
-        }
-      });
+
 
     const  selectedValue = ref("null")
     watch(() => selectedValue.value, () => {
@@ -234,6 +241,9 @@
                 <p><i class="fa-solid fa-envelope"></i>：{{ branches[selectedBranch].email }}</p>
               </div>
               <div class="pic"><img :src="branches[selectedBranch].imgUrl" alt="據點示意圖片"></div>
+              <button type="button">
+                <i class="fa-regular fa-circle-xmark" @click="closePopups"></i>
+              </button>
             </div>
           </transition>
 

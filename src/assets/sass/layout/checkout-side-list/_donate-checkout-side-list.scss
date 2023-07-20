@@ -1,8 +1,7 @@
-div.sponsor_page {
+div.donate_page {
   display: flex;
   flex-direction: column;
   position: fixed;
- 
   top: 0;
   height: 100vh;
   background-color: $primaryBrandWhite;
@@ -26,10 +25,55 @@ div.sponsor_page {
     width: 30%;
     right: -40%;
   }
-.none{
-  display: flex;
-  justify-content: center;
+
+  .none {
+    display: flex;
+    justify-content: center;
+  }
+
 }
+
+div.donate_price {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  h5 {
+
+    @include custom-responsive("xs sm ") {
+      @include h5_MB;
+    }
+
+    @include custom-responsive("xl xxl") {
+      @include h5_PC;
+    }
+  }
+
+  img{
+    flex-grow: 1;
+  }  
+  div.price_button {
+    padding-bottom: 20px;
+    button {
+      @include regularBlueBtn_PC;
+      width: 40%;
+      margin:20px 0 0 0;
+     
+    }
+    button:nth-child(even){
+      margin:20px 0 0 20px;
+    }
+ 
+  }
+
+  input {
+    font-size: 25px;
+    height: 100px;
+    width: 90%;
+    border-radius: $br_PC;
+    padding-left: 10px;
+
+  }
 
 }
 
@@ -61,7 +105,7 @@ div.title {
   flex-grow: 1;
 }
 
-div.sponsor_inner {
+div.donate_inner {
   padding: 20px;
   flex-grow: 1;
   display: flex;
@@ -112,7 +156,7 @@ div.card_count {
 
 
 
-div.sponsor_total {
+div.donate_total {
   display: flex;
   flex-direction: column;
   padding: 20px;

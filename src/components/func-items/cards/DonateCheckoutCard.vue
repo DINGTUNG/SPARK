@@ -69,5 +69,5 @@ watch(() => {
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/components/func-items/cards/checkout-cards';
+@import '@/assets/sass/components/func-items/cards/checkout-card';
 </style>

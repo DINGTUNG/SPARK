@@ -23,11 +23,8 @@ const top = () => {
         </li>
         <li>
             <a href="">
-                <div class="icon">
-                    <img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon">
-                </div>
+                <div class="icon"><img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon"></div>
                     我要捐款
-                
             </a>
         </li>
         <li>

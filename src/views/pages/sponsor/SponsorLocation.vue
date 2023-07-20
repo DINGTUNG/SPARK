@@ -194,13 +194,10 @@
         if( window.innerWidth >= 1200){
           window.scrollTo({ top: 1000, behavior: 'smooth' });
         }
-        console.log(window);
-        
-        
     })
 
     const branchDisplay = (key) => {
-      selectBranch(locationDisplay[key].id);
+      selectBranch(key);
       if( window.innerWidth >= 1200){
         window.scrollTo({ top: 600, behavior: 'smooth' });
       }
@@ -242,8 +239,8 @@
 
         </div>
       </div>
-      <section class="location">
-        <div class="card" v-for="(item, index) in locationDisplay" :key="index" @click="branchDisplay(index)">
+      <section class="location" ref="container">
+        <div class="card" v-for="item in locationDisplay" :key="item.id" @click="branchDisplay(item.id)">
           <div class="tag">{{ item.area }}</div>
           <div class="name">
             {{ item.name }}

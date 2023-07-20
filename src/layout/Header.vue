@@ -23,12 +23,7 @@ const activeImage = ref(null);
 const menuItems = ref([
   {
     label: '認識星火',
-    submenu: [
-      { label: '緣起', route: '/service' },
-      { label: '願景', route: '/about/mission' },
-      { label: '服務據點', route: '/about/history' },
-      { label: '認養/捐款Q&A', route: '/about/history' }
-    ],
+    route: '/about',
     img: 'pictures/decorations/layout/little_star.png' 
   },
   {
@@ -39,9 +34,9 @@ const menuItems = ref([
   {
     label: '成果佈告欄',
     submenu: [
-      { label: '故事藝廊', route: '/single-news' },
-      { label: '歷年報告', route: '/service/service2' },
-      { label: '服務里程碑', route: '/service/service2' }
+      { label: '故事藝廊', route: '/story-gallery' },
+      { label: '歷年報告', route: '/resultreport' },
+      { label: '服務里程碑', route: '/' }  //尚無連結
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
@@ -49,31 +44,31 @@ const menuItems = ref([
     label: '認養計畫',
     submenu: [
       { label: '我要認養', route: '/single-news' },
-      { label: '認養地區', route: '/service/service2' }
+      { label: '認養地區', route: '/' } //尚無連結
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '捐款專案',
     submenu: [
-      { label: '捐款內容', route: '/single-news' },
-      { label: '捐款善心榜', route: '/service/service2' }
+      { label: '捐款內容', route: '/donate' },
+      { label: '捐款善心榜', route: '/' } //尚無連結
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '星火之友',
-    route: '/service',
+    route: '/contact',
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '星火計畫',
-    route: '/service',
+    route: '/spark-project',
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '會員登入',
-    route: '/service',
+    route: 'login',
   },
 ]);
 
@@ -118,13 +113,10 @@ const closeNav = () => {
 
 
 
+<!-- 66666 -->
 
 
 
-
-
-
-<!-- 55555 wwwwwwwwwwwwwwwww-->
 
 <template>
   <header>
@@ -132,10 +124,10 @@ const closeNav = () => {
       <img alt="Spark logo" class="logo" :src="'pictures/logo/logo_white.svg'" />
     </RouterLink>
 
-    <button class="nav-toggle" v-if="!isLargeScreen" @click="toggleNav">
-      <span class="burger-icon"></span>
-      <span class="burger-icon"></span>
-      <span class="burger-icon"></span>
+    <button class="nav_toggle" v-if="!isLargeScreen" @click="toggleNav" v-bind:class="{ open: isNavOpen }">
+      <span class="burger_icon"></span>
+      <span class="burger_icon"></span>
+      <span class="burger_icon"></span>
     </button>
 
     <div class="wrapper" v-show="isLargeScreen || showWrapper">
@@ -149,7 +141,7 @@ const closeNav = () => {
                 :class="{ 'active': activeSubMenu === index }"
               >
                 {{ item.label }}
-                <span class="submenu-icon"></span>
+                <span class="submenu_icon"></span>
               </a>
               <ul v-show="activeSubMenu === index">
                 <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
@@ -180,7 +172,7 @@ const closeNav = () => {
                 v-if="(isLargeScreen && (activeImage === index || activeSubMenu === index)) || (!isLargeScreen && activeImage === index)"
                 :src="item.img"
                 alt="Image"
-                class="hover-image"
+                class="hover_image"
                 style="position: absolute; left: -5px; top: 50%; transform: translateY(-50%);"
               />
               <ul
@@ -200,6 +192,7 @@ const closeNav = () => {
       </nav>
     </div>
   </header>
+  <div :class="['blur-background', { 'show': isNavOpen }]"></div>
 </template>
 
 
@@ -215,19 +208,9 @@ const closeNav = () => {
     transform: translateX(0%);
   }
 }
+
+
 </style>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="menu-toggle" @click="toggleMenu">&#9776;</div> -->
 
 
 

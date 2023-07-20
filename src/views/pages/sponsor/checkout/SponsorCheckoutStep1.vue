@@ -1,7 +1,8 @@
 <script setup>
 import SponsorCheckoutTable from '@/components/func-items/table/SponsorCheckoutTable.vue'
-import SponsorCheckoutCards from '@/components/func-items/cards/SponsorCheckoutCards.vue'
+import SponsorCheckoutCard from '@/components/func-items/cards/SponsorCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
+
 
 
 </script>
@@ -20,16 +21,14 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
 
         <div class="checkout_overview_wrap">
-          <SponsorCheckoutCards />
+          <SponsorCheckoutCard />
           <CheckoutButtons />
         </div>
       </div>
 
+      <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'"  :class="filter-gold" alt="">
 
     </div>
-
-
-
 
 
   </div>
@@ -37,6 +36,4 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
 <style scoped lang="scss">
 @import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-1';
-
-
 </style>

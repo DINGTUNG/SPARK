@@ -322,7 +322,6 @@ footer{
       }
 
       div.location{
-        color: $primaryBrandWhite;
         margin-top: 6vh;
 
         span.headquarters{
@@ -331,15 +330,18 @@ footer{
           font-weight: $fWBold;
           letter-spacing: $h6Ls;
           font-family:  "Noto Sans TC";
+          color: $primaryBrandWhite;
         }
 
         span{
           letter-spacing: $h6Ls;
           font-family:  "Noto Sans TC";
+          color: $primaryBrandWhite;
         }
 
         i{
           margin-bottom: 2vh;
+          color: $primaryBrandWhite;
           
         }
       }

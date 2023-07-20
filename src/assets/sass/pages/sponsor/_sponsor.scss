@@ -1,3 +1,9 @@
+div.title_img {
+  img {
+    width: 100%;
+  }
+}
+
 div.container {
   width: 100%;
   position: relative;
@@ -35,19 +41,14 @@ div.container {
 
       div.top_line {
 
-
         @include custom-responsive(" xs sm") {
           display: none;
         }
 
         @include custom-responsive(" xl xxl") {
-          @include h1_PC;
           display: flex;
           align-self: center;
-          width: 70%;
           margin-left: 40px;
-          height: 1px;
-          border-bottom: 1px solid $functionalLightGrey4;
         }
       }
     }
@@ -97,6 +98,7 @@ div.container {
           }
 
           @include custom-responsive(" xl xxl") {
+            padding: 0;
             @include h4_B_PC;
           }
         }
@@ -151,9 +153,8 @@ div.container {
         div.location_card {
           @include flex_hm();
           flex-direction: column;
-          width: 130px;
-          height: 130px;
-          background-color: $primaryBgBlue;
+
+
           color: $primaryBrandWhite;
 
           @include custom-responsive(" xs sm") {
@@ -165,12 +166,40 @@ div.container {
           @include custom-responsive(" xl xxl") {
             @include h5_B_PC;
             border-radius: $br_PC;
-            margin-right: 30px;
+            margin: 0 30px 0 0;
           }
 
           .card_title {
+            width: 130px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            background-color: $primaryBgBlue;
+
+            @include custom-responsive(" xs sm") {
+              @include h5_B_MB;
+              border-radius: $br_MB;
+
+            }
+
+            @include custom-responsive(" xl xxl") {
+              @include h5_B_PC;
+              border-radius: $br_PC;
+
+            }
+
+
+            img {
+              padding-top: 10px;
+              align-self: center;
+              @include flex_hm();
+              width: 50%;
+              height: 50%;
+            }
+
             h5 {
               color: $primaryBrandWhite;
+              @include flex_hm();
 
               @include custom-responsive(" xs sm") {
                 @include h5_B_MB;
@@ -185,20 +214,42 @@ div.container {
         }
 
         div.card_count {
-          color: $primaryBrandWhite;
+          @include flex_hm();
+          margin-top: 20px;
+          border: 1px solid;
+          background-color: $primaryBgBlue;
 
-          span {
-            padding: 0 10px;
-            width: 30px;
-            height: 30px;
-            font-size: 30px;
-            background-color: transparent;
-            border: 1px solid transparent;
-            cursor: pointer;
+          @include custom-responsive(" xs sm") {
+            border-radius: $br_MB;
 
           }
-          i{
+
+          @include custom-responsive(" xl xxl") {
+            border-radius: $br_PC;
+
+          }
+
+          p {
+            background-color: $primaryBrandWhite;
+
+            @include custom-responsive(" xs sm") {
+              @include h6_MB;
+              padding: 0 20px;
+            }
+
+            @include custom-responsive(" xl xxl") {
+              @include h6_PC;
+              padding: 0 20px;
+              border-left: 1px solid;
+              border-right: 1px solid;
+            }
+          }
+
+          i {
+
             color: $primaryBrandWhite;
+            padding: 0 10px;
+            cursor: pointer;
           }
         }
       }
@@ -214,6 +265,7 @@ div.container {
         @include custom-responsive(" xs sm") {
           @include smallBlueBtn_MB;
           @include h5_MB;
+          width: 40%
         }
 
         @include custom-responsive(" xl xxl") {
@@ -226,18 +278,19 @@ div.container {
 
       button.pay_list {
         color: $primaryBgBlue !important;
-
         border: 1px transparent;
         margin: 0 10px;
 
         @include custom-responsive(" xs sm") {
           @include smallWhiteBtn_MB;
           @include h5_MB;
+          width: 60%
         }
 
         @include custom-responsive(" xl xxl") {
           @include smallWhiteBtn_PC;
           @include h5_PC;
+          
         }
       }
 

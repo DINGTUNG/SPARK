@@ -99,9 +99,12 @@ const tableHeader = [
 
 </script>
 
-<style>
-/* @import '@/assets/sass/pages/member-center/member-center.scss'; */
+<style scoped lang="scss">
+@import '@/assets/sass/pages/member-center/member-center.scss';
+</style>
 
+
+<style>
 .test-red {
   font-weight: bold;
   background-color: red;
@@ -110,7 +113,6 @@ const tableHeader = [
 
 .cell {
   color: chartreuse;
-
 
 }
 

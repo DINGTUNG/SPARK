@@ -12,27 +12,6 @@ div.about_container {
             @include body_space_PC;
         }
 
-
-        .test-odd {
-            font-weight: bold;
-            background-color: $primaryBrandBlue;
-        }
-        
-        .test-even {
-            font-weight: bold; 
-            background-color: $primaryBrandBlue;
-        }
-        
-        .test-red {
-            color: red;
-            background-color: $primaryBrandBlue;
-        }
-        
-        .test-blue {
-            color: blue;
-            background-color: $primaryBrandBlue;
-        }
-
         .el-table .cell{
             color: $primaryBrandBlue;
         }
@@ -41,4 +20,21 @@ div.about_container {
         }
     }
 
+}
+
+
+.test-red {
+  font-weight: bold;
+  background-color: red;
+
+}
+
+.cell{
+  color: chartreuse;
+
+
+}
+
+.test-blue {
+  font-weight: bold;
 }

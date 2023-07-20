@@ -2,11 +2,11 @@
 
 import { useRouter } from 'vue-router';
 import { useDonateCartStore } from '@/stores/donate-cart.js';
-const donateCartStore = useDonateCartStore();
 const router = useRouter()
+const donateCartStore = useDonateCartStore();
 
 const addPrice = (price) => {
-  donateCartStore.formattedAmount == price;
+  donateCartStore.message = price;
 }
 
 
@@ -14,7 +14,7 @@ const addPrice = (price) => {
 <template>
   <div class="donate_page" :class="{ active: donateCartStore.isSideListShow }">
     <div class="title">
-      <h2>{{ donateCartStore.donateContentCardList.title }}</h2>
+      <h2>{{ donateCartStore.activeCard.title }}</h2>
       <i class="fa-regular fa-circle-xmark" @click="donateCartStore.hideSideList" ></i>
     </div>
     <div class="donate_price">

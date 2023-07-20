@@ -1,3 +1,43 @@
-.el-table {
-    color:$primaryBrandBlue;
-};
+div.about_container {
+    width: 100%;
+
+    div.main_body {
+         margin: auto;
+        position: relative;
+        @include custom-responsive("xs sm") {
+            @include body_space_MB;
+        }
+
+        @include custom-responsive("xl xxl") {
+            @include body_space_PC;
+        }
+
+        .test-odd {
+            font-weight: bold;
+            background-color: $primaryBrandBlue;
+        }
+        
+        .test-even {
+            font-weight: bold; 
+            background-color: $primaryBrandBlue;
+        }
+        
+        .test-red {
+            color: red;
+            background-color: $primaryBrandBlue;
+        }
+        
+        .test-blue {
+            color: blue;
+            background-color: $primaryBrandBlue;
+        }
+
+        .el-table .cell{
+            color: $primaryBrandBlue;
+        }
+        .el-table tr{
+            color: $primaryBrandBlue;
+        }
+    }
+
+}

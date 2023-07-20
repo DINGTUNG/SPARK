@@ -1,5 +1,5 @@
 <script setup>
-import SponsorCheckoutTable from '@/components/func-items/table/SponsorCheckoutTable.vue'
+import PaymentFrequencyTable from '@/components/func-items/table/PaymentFrequencyTable.vue'
 import SponsorCheckoutCard from '@/components/func-items/cards/SponsorCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
@@ -16,7 +16,7 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
       <div class="checkout_wrap">
 
         <div class="checkout_table_wrap">
-          <SponsorCheckoutTable />
+          <PaymentFrequencyTable />
         </div>
 
 

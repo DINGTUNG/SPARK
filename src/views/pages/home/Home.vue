@@ -28,45 +28,39 @@ const showBranch = (index) => {
 <template>
   <div>
 
-    <RouterLink to="/test">測試頁面</RouterLink>
-    <br>
-    <RouterLink to="/sponsor-checkout-step-1">sponsor-checkout-step-1</RouterLink>
-    <br>
-    <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
-    <RouterLink to="/resultreport">resultreport</RouterLink>
-  
+    <div class="banner_container">
+      <div class="banner">
+        <!-- <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg"> -->
+        <div class="banner_center">
+          <img :src="'pictures/decorations/illustration/white_moon.svg'" alt="white_moon" class="white_moon">
+          <img :src="'pictures/decorations/handwriting/ignite_the_night.svg'" alt="ignite_the_night"
+            class="ignite_the_night">
+          <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="boy_lighting_up_white"
+            class="boy_lighting_up_white">
+          <img :src="'pictures/characters/girl/girl_hugging_star_white.svg'" alt="girl_hugging_star_white"
+            class="girl_hugging_star_white">
+          <img :src="'pictures/decorations/illustration/orange_asterisk_single.svg'" alt="orange_asterisk_single"
+            class="orange_asterisk_single">
+          <img :src="'pictures/decorations/illustration/golden_star_single_2.svg'" alt="golden_star_single_2"
+            class="golden_star_single_2">
+          <img :src="'pictures/decorations/illustration/golden_star_single_3.svg'" alt="golden_star_single_3"
+            class="golden_star_single_3">
+          <img :src="'pictures/decorations/illustration/golden_star_2.svg'" alt="golden_star_2" class="golden_star_2">
+          <img :src="'pictures/decorations/illustration/golden_star_2.svg'" alt="golden_star_2" class="golden_star_2">
+        </div>
+        <img :src="'pictures/decorations/illustration/orange_stars.svg'" alt="orange_stars" class="orange_stars">
+        <img :src="'pictures/decorations/illustration/golden_star_single.svg'" alt="golden_star_single"
+          class="golden_star_single">
+        <img :src="'pictures/decorations/illustration/shooting_star_white.svg'" alt="shooting_star_white"
+          class="shooting_star_white">
+        <img :src="'pictures/decorations/illustration/shooting_star_white_2.svg'" alt="shooting_star_white_2"
+          class="shooting_star_white_2">
+        <img :src="'pictures/decorations/illustration/shooting_star_white_group.svg'" alt="shooting_star_white_group"
+          class="shooting_star_white_group">
 
-
-    <div class="banner">
-      <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg">
-      <div class="banner_center">
-        <img :src="'pictures/decorations/illustration/white_moon.svg'" alt="white_moon" class="white_moon">
-        <img :src="'pictures/decorations/handwriting/ignite_the_night.svg'" alt="ignite_the_night"
-          class="ignite_the_night">
-        <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="boy_lighting_up_white"
-          class="boy_lighting_up_white">
-        <img :src="'pictures/characters/girl/girl_hugging_star_white.svg'" alt="girl_hugging_star_white"
-          class="girl_hugging_star_white">
-        <img :src="'pictures/decorations/illustration/orange_asterisk_single.svg'" alt="orange_asterisk_single"
-          class="orange_asterisk_single">
-        <img :src="'pictures/decorations/illustration/golden_star_single_2.svg'" alt="golden_star_single_2"
-          class="golden_star_single_2">
-        <img :src="'pictures/decorations/illustration/golden_star_single_3.svg'" alt="golden_star_single_3"
-          class="golden_star_single_3">
-        <img :src="'pictures/decorations/illustration/golden_star_2.svg'" alt="golden_star_2" class="golden_star_2">
-        <img :src="'pictures/decorations/illustration/golden_star_2.svg'" alt="golden_star_2" class="golden_star_2">
+        <div class="home_banner_cloud"></div>
+        <!-- <img :src="'pictures/images/home/home_banner_cloud.png'" alt="home_banner_cloud" class="home_banner_cloud"> -->
       </div>
-      <img :src="'pictures/decorations/illustration/orange_stars.svg'" alt="orange_stars" class="orange_stars">
-      <img :src="'pictures/decorations/illustration/golden_star_single.svg'" alt="golden_star_single"
-        class="golden_star_single">
-      <img :src="'pictures/decorations/illustration/shooting_star_white.svg'" alt="shooting_star_white"
-        class="shooting_star_white">
-      <img :src="'pictures/decorations/illustration/shooting_star_white_2.svg'" alt="shooting_star_white_2"
-        class="shooting_star_white_2">
-      <img :src="'pictures/decorations/illustration/shooting_star_white_group.svg'" alt="shooting_star_white_group"
-        class="shooting_star_white_group">
-
-      <img :src="'pictures/images/home/home_banner_cloud.png'" alt="home_banner_cloud" class="home_banner_cloud">
     </div>
 
     <div class="home_container">
@@ -83,7 +77,7 @@ const showBranch = (index) => {
         <div class="intro_map">
           <img :src="'pictures/images/home/blue_taiwan.svg'" alt="blue_taiwan">
 
-          <div class="branch_dot" v-for="(branch, index) in branches" @mouseover="showBranch(index)"></div>
+          <div class="branch_dot" v-for="(branch, index) in branches" @click="showBranch(index)"></div>
 
 
           <transition>
@@ -109,8 +103,15 @@ const showBranch = (index) => {
     </div>
   </div>
 
+  <RouterLink to="/test">測試頁面</RouterLink>
+  <br>
+  <RouterLink to="/sponsor-checkout-step-1">sponsor-checkout-step-1</RouterLink>
+  <br>
+  <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
+  <RouterLink to="/resultreport">resultreport</RouterLink>
+  <br>
   <RouterLink to="/member-center">會員中心</RouterLink>
-    <br>
+  <br>
 </template>
 
 

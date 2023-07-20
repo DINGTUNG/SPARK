@@ -61,6 +61,10 @@ function openDonatePage() {
   window.open(url, '_blank');
 }
 
+const luckyDay = Math.random() >= 0.8;
+
+
+
 
 </script>
 
@@ -79,7 +83,7 @@ function openDonatePage() {
     </div>
 
 
-    <div class="donate_content_card">
+    <div v-if="luckyDay" class="donate_content_card">
       <div class="card_pic">
         <img :src="'pictures/test/tanuki-rectangle.png'" alt="幸福狸貓">
       </div>
@@ -89,11 +93,7 @@ function openDonatePage() {
         <h4>捐款累計 520🍠</h4>
         <button @click="openDonatePage">前往贊助</button>
       </div>
-
     </div>
-
-
-
 
 
   </div>

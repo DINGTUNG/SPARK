@@ -11,7 +11,7 @@ import {
 
 export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
-
+  //判斷購物車收合
   const isSideListShow = ref(false);
 
   const showSideList = () => {
@@ -98,6 +98,38 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     return 0;
     //例外處理
   }
+
+
+  class paymentFrequency {
+    constructor(id, months, isChoose) {
+      this.id = id;
+      this.months = months;
+      this.isChoose = isChoose;
+    }
+  }
+
+  const paymentFrequencyList = [
+    new paymentFrequency("month", 1, true),
+    new paymentFrequency("season", 3, false),
+    new paymentFrequency("half-year", 6, false),
+    new paymentFrequency("year", 12, false),
+  ];
+
+
+  const getPaymentFrequency = (paymentFrequencyId) => {
+    for (let i = 0; i < paymentFrequencyList.length; i++) {
+      if (paymentFrequency[i].id == paymentFrequencyId) {
+        paymentFrequency.isChoose == true
+      } else {
+        paymentFrequency.isChoose == false
+
+      }
+    }
+  }
+
+
+
+
   return {
     isSideListShow,
     showSideList,

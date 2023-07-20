@@ -6,7 +6,7 @@ import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 const sponsorCartStore = useSponsorCartStore();
 
 const checkoutOverviewTitle = ref("認養總覽");
-const paymentTitle = ref("認養費(月)");
+const paymentTitle = ref("認養費");
 
 </script>
 
@@ -33,7 +33,7 @@ const paymentTitle = ref("認養費(月)");
 
     <div class="payment">
       <div class="payment_info">
-        <span class="payment_title">{{ paymentTitle }}</span>
+        <span class="payment_title">{{ paymentTitle }}({{sponsorCartStore.paymentFrequency}})</span>
         <span class="total_price">NTD {{ sponsorCartStore.totalCost }}</span>
       </div>
     </div>
@@ -42,5 +42,5 @@ const paymentTitle = ref("認養費(月)");
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/components/func-items/cards/checkout-cards';
+@import '@/assets/sass/components/func-items/cards/checkout-card';
 </style>

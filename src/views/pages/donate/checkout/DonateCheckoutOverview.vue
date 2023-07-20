@@ -1,5 +1,5 @@
 <script setup>
-import DonateCheckoutCards from '@/components/func-items/cards/DonateCheckoutCards.vue'
+import DonateCheckoutCard from '@/components/func-items/cards/DonateCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 
@@ -10,7 +10,7 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
 
 
-    <DonateCheckoutCards />
+    <DonateCheckoutCard />
     <CheckoutButtons/>
 
 

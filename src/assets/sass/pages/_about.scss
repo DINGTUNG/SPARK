@@ -428,9 +428,9 @@ div.about_container {
                     width: 100%;
                 }
                 @include custom-responsive(" md lg") {
-                    width: 40%;
+                    width: 45%;
                 }
-                @include custom-responsive(" xl xxl") {                 
+                @include custom-responsive("xl xxl") {                 
                     width: 30%;
                 }
 

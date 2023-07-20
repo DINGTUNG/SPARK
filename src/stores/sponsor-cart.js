@@ -101,33 +101,24 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
 
   class paymentFrequency {
-    constructor(id, months, isChoose) {
-      this.id = id;
+    constructor(options, months, isChosen) {
+      this.options = options;
       this.months = months;
-      this.isChoose = isChoose;
+      this.isChosen = isChosen;
     }
   }
 
   const paymentFrequencyList = [
-    new paymentFrequency("month", 1, true),
-    new paymentFrequency("season", 3, false),
-    new paymentFrequency("half-year", 6, false),
-    new paymentFrequency("year", 12, false),
+    new paymentFrequency("月繳", 1, "chosen"),
+    new paymentFrequency("季繳", 3, "unchosen"),
+    new paymentFrequency("半年繳", 6, "unchosen"),
+    new paymentFrequency("年繳", 12, "unchosen"),
   ];
 
 
-  const getPaymentFrequency = (paymentFrequencyId) => {
-    for (let i = 0; i < paymentFrequencyList.length; i++) {
-      if (paymentFrequency[i].id == paymentFrequencyId) {
-        paymentFrequency.isChoose == true
-      } else {
-        paymentFrequency.isChoose == false
-
-      }
-    }
+  const isChosen = () => {
+    return paymentFrequency.isChosen == "unchosen" ? "chosen" : "unchosen";
   }
-
-
 
 
   return {
@@ -144,6 +135,9 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     totalCost,
     getLocationTotalCost,
     getLocationCost,
+    paymentFrequencyList,
+    isChosen
+
 
   }
 })

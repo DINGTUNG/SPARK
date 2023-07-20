@@ -112,7 +112,16 @@
                 object-position: center;
               }
             }
-
+            button{
+              background: none;
+              box-shadow: none;
+              position: absolute;
+              top:5%;
+              right: 8%;
+              i{
+                font-size: 2vw;
+              }
+            }
           }
         }
 
@@ -245,12 +254,13 @@
   div.container {
     div.main_body{
       padding-top:5%;
+      width: 62.5vw;
       h1 {
         @include h1_PC;
-        margin: 0 0 0 24%;
+        margin: 0 0 0 10%;
       }
       div.map{
-        width: 28%;
+        width: 40%;
         margin: 5% auto;
         select.filterDistrict{
           top: -15%;
@@ -294,7 +304,7 @@
       }
 
       section.location {
-        width: 55%;
+        width: 100%;
         .card {
           width: 28%;
           &:hover {
@@ -311,7 +321,7 @@
       position: absolute;
       display: block!important;
       top: 40%;
-      left: 10%;
+      left: -20%;
       width: 10vw;
       img{
         width: 100%;
@@ -325,7 +335,7 @@
       }
       position: absolute;
       bottom: 0;
-      right: 0;
+      right: -35%;
     }
   }
 }

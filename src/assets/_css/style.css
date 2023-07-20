@@ -87,7 +87,6 @@
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   .sassUsageExample {
@@ -119,18 +118,11 @@
     margin: 0 2% 0 5%;
   }
 }
-@media (min-width: 1400px) {
-  .sassUsageExample {
-    height: 80%;
-    margin: 0 2% 0 5%;
-  }
-}
 
 /* ⭐使用說明⭐ */
 .main_body {
   /* Small devices (portrait tablets and large phones, 600px and up) */
   /* Medium devices (landscape tablets, 768px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
@@ -146,12 +138,6 @@
   }
 }
 @media (min-width: 1200px) {
-  .main_body {
-    width: 62.5vw;
-    margin: auto;
-  }
-}
-@media (min-width: 1400px) {
   .main_body {
     width: 62.5vw;
     margin: auto;
@@ -239,7 +225,6 @@ h1 {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   h1 {
@@ -260,15 +245,6 @@ h1 {
   }
 }
 @media (min-width: 1200px) {
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.2rem;
-    line-height: auto;
-    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
-  }
-}
-@media (min-width: 1400px) {
   h1 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -284,7 +260,6 @@ h2 {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   h2 {
@@ -305,15 +280,6 @@ h2 {
   }
 }
 @media (min-width: 1200px) {
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 0.2rem;
-    line-height: auto;
-    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
-  }
-}
-@media (min-width: 1400px) {
   h2 {
     font-size: 2rem;
     font-weight: 700;
@@ -329,7 +295,6 @@ h3 {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   h3 {
@@ -350,15 +315,6 @@ h3 {
   }
 }
 @media (min-width: 1200px) {
-  h3 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: 0.2rem;
-    line-height: auto;
-    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
-  }
-}
-@media (min-width: 1400px) {
   h3 {
     font-size: 1.75rem;
     font-weight: 700;
@@ -374,7 +330,6 @@ h4 {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   h4 {
@@ -395,15 +350,6 @@ h4 {
   }
 }
 @media (min-width: 1200px) {
-  h4 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.2rem;
-    line-height: 48px;
-    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
-  }
-}
-@media (min-width: 1400px) {
   h4 {
     font-size: 1.5rem;
     font-weight: 400;
@@ -419,7 +365,6 @@ h5 {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   h5 {
@@ -440,15 +385,6 @@ h5 {
   }
 }
 @media (min-width: 1200px) {
-  h5 {
-    font-size: 1.25rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    line-height: 36px;
-    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
-  }
-}
-@media (min-width: 1400px) {
   h5 {
     font-size: 1.25rem;
     font-weight: 400;
@@ -464,7 +400,6 @@ h6 {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   h6 {
@@ -485,15 +420,6 @@ h6 {
   }
 }
 @media (min-width: 1200px) {
-  h6 {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.05rem;
-    line-height: 30px;
-    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
-  }
-}
-@media (min-width: 1400px) {
   h6 {
     font-size: 1rem;
     font-weight: 400;
@@ -509,7 +435,6 @@ p {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
 }
 @media (min-width: 0px) {
   p {
@@ -530,15 +455,6 @@ p {
   }
 }
 @media (min-width: 1200px) {
-  p {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.05rem;
-    line-height: 30px;
-    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
-  }
-}
-@media (min-width: 1400px) {
   p {
     font-size: 1rem;
     font-weight: 400;

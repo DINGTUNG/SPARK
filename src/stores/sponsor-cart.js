@@ -8,8 +8,43 @@ import {
   computed
 } from 'vue';
 
+export class PaymentPlan {
+
+  constructor(display, period) {
+    this.display = display;
+    this.period = period;
+  }
+
+  static TYPE = {
+    MONTH: new PaymentPlan("月", 1),
+    QUARTER: new PaymentPlan("季", 3),
+    HALF_YEAR: new PaymentPlan("半年", 6),
+    YEAR: new PaymentPlan("年", 12)
+  };
+
+  static TYPES = [
+    PaymentPlan.TYPE.MONTH,
+    PaymentPlan.TYPE.QUARTER,
+    PaymentPlan.TYPE.HALF_YEAR,
+    PaymentPlan.TYPE.YEAR,
+  ]
+
+}
+
+export class Location {
+  constructor(id, name, cost, img) {
+    this.id = id;
+    this.name = name;
+    this.cost = cost;
+    this.img = img
+  }
+}
 
 export const useSponsorCartStore = defineStore('sponsor-cart', () => {
+
+
+
+  
 
   //判斷購物車收合
   const isSideListShow = ref(false);
@@ -22,20 +57,13 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     isSideListShow.value = false;
   }
 
-  class Location {
-    constructor(id, name, cost ,img) {
-      this.id = id;
-      this.name = name;
-      this.cost = cost;
-      this.img = img
-    }
-  }
+
 
   const locationList = [
     new Location("taipei", "台北星火", 2000, "public/pictures/decorations/illustration/golden_star_single.svg"),
-    new Location("taichung", "台中星火", 2000,"public/pictures/decorations/illustration/golden_star_2.svg"),
-    new Location("tainan", "台南星火", 2000,"public/pictures/decorations/illustration/golden_star_3.svg"),
-    new Location("taitung", "台東星火", 2000,"public/pictures/decorations/illustration/golden_star_4.svg")
+    new Location("taichung", "台中星火", 2000, "public/pictures/decorations/illustration/golden_star_2.svg"),
+    new Location("tainan", "台南星火", 2000, "public/pictures/decorations/illustration/golden_star_3.svg"),
+    new Location("taitung", "台東星火", 2000, "public/pictures/decorations/illustration/golden_star_4.svg")
   ];
 
   const cart = reactive(
@@ -101,43 +129,42 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   }
 
 
-  class paymentFrequency {
-    constructor(options, months, isChosen) {
-      this.options = options;
-      this.months = months;
-      this.isChosen = isChosen;
+  const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH);
+
+
+  const paymentMethodList = [{
+      id: "credit-card",
+      method: "信用卡",
+      chosen: true
+    }, {
+      id: "line-pay",
+      method: "LINE PAY",
+      chosen: false
     }
-  }
 
-  const paymentFrequencyList = [
-    new paymentFrequency("月繳", 1, "chosen"),
-    new paymentFrequency("季繳", 3, "unchosen"),
-    new paymentFrequency("半年繳", 6, "unchosen"),
-    new paymentFrequency("年繳", 12, "unchosen"),
-  ];
-
-
-  const isChosen = () => {
-    return paymentFrequency.isChosen == "unchosen" ? "chosen" : "unchosen";
-  }
+  ]
 
 
   return {
     isSideListShow,
     showSideList,
     hideSideList,
+
     locationList,
+
     cart,
     isCartEmpty,
     isCartNotEmpty,
+
     addToCart,
     removeFromCart,
     getCurrentCountInCart,
     totalCost,
     getLocationTotalCost,
     getLocationCost,
-    paymentFrequencyList,
-    isChosen
+
+    chosenPlanType,
+    paymentMethodList
 
 
   }

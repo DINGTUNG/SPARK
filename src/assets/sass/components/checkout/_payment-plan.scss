@@ -4,7 +4,7 @@ table.checkout_table {
 
   caption {
     text-align: left;
-    @include h1_PC;
+    @include h2_PC;
     border-bottom: 5px solid $primaryBrandBlue;
     padding: 10px 0;
   }
@@ -12,10 +12,10 @@ table.checkout_table {
 }
 
 
-div.payment_frequency_wrap {
+div.payment_plan_wrap {
   @include flex_hm;
 
-  div.payment_frequency {
+  div.payment_plan {
     @include flex_hm;
     @include h4_PC;
     width: 150px;
@@ -24,6 +24,8 @@ div.payment_frequency_wrap {
     margin: 20px 10px;
     border: 2px solid $primaryBrandBlue;
     @include btnEffect;
+    color: $primaryBrandBlue;
+    background-color: $primaryBrandWhite;
   }
 
   div.chosen {
@@ -31,10 +33,6 @@ div.payment_frequency_wrap {
     background-color: $primaryBgBlue;
   }
 
-  div.unchosen {
-    color: $primaryBrandBlue;
-    background-color: $primaryBrandWhite;
-  }
 
 
 }

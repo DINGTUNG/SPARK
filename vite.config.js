@@ -21,6 +21,7 @@ export default defineConfig({
         additionalData: `@import "@/assets/sass/style.scss";`,
       },
     },
+    devSourcemap: true,
   },
   plugins: [
     vue(),

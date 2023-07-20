@@ -1,44 +1,52 @@
 <script lang="js" setup>
   const tableData = [
     {
-      date: '2016-05-03',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00001',
+      date: '2023.06.10',
+      area: '台北星火中心',
+      pic:'00001.jpg'
     },
     {
-      date: '2016-05-02',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00001',
+      date: '2023.07.08',
+      area: '台北星火中心',
+      pic:'00035.jpg'
     },
     {
-      date: '2016-05-04',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00001',
+      date: '2023.10.10',
+      area: '台北星火中心',
+      pic:'00040.jpg'
     },
     {
-      date: '2016-05-01',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00001',
+      date: '2023.11.29',
+      area: '台北星火中心',
+      pic:'00066.jpg'
     },
     {
-      date: '2016-05-03',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00018',
+      date: '2024.01.01',
+      area: '台中星火中心',
+      pic:'00105.jpg'
     },
     {
-      date: '2016-05-02',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00018',
+      date: '2024.01.20',
+      area: '台中星火中心',
+      pic:'00112.jpg'
     },
     {
-      date: '2016-05-04',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00018',
+      date: '2024.02.22',
+      area: '台中星火中心',
+      pic:'00134.jpg'
     },
     {
-      date: '2016-05-01',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
+      no: '00018',
+      date: '2024.03.28',
+      area: '台中星火中心',
+      pic:'00155.jpg'
     },
   ]
 
@@ -62,9 +70,10 @@
     <br v-for="n in 10" :key="n">
   
      <el-table :data="tableData" border :header-cell-class-name="headerCellClassName" :row-class-name="letterRow">
-       <el-table-column prop="date" label="Date" width="180" />
-       <el-table-column prop="name" label="Name" width="180" />
-       <el-table-column prop="address" label="Address" />
+       <el-table-column prop="no" label="兒童編號" width="180" />
+       <el-table-column prop="date" label="日期" width="180" />
+       <el-table-column prop="area" label="所屬據點" width="180"/>
+       <el-table-column prop="pic" label="來自小朋友的手寫信" />
      </el-table>
   </div>
 

@@ -24,107 +24,225 @@
   }
 
 // ----------BANNER------------
-.banner {
+.banner_container {
     width: 100%;
+    overflow: hidden;
+
+    .banner {
+    width: 100%;
+    background-image: url(/public/pictures/images/home/home_banner_bg.png);
+    background-size: cover;
+    background-position: left;
     position: relative;
-    img {
-        width: 100%;
+
+    @include custom-responsive("xs sm") {
+        height: 675px;
     }
+    @include custom-responsive("md lg xl xxl") {
+        height: 772px;
+    }
+ 
     .banner_center {
         position: absolute;
-        left: 50%;
-        top: 50%;
+        
         transform: translate(-50%, -50%);
-    .white_moon {
-        width: 100%;
-        animation: moon 3s ease-in-out infinite alternate;
-    }
-        @keyframes moon {
+        text-align: center;
+        @include custom-responsive("xs") {
+                left: 50%;
+                top: 42%;
+            }
+        @include custom-responsive("sm") {
+                top: 50%;
+            }
+        @include custom-responsive("md lg xl xxl") {
+                top: 50%;
+            }
+
+        .white_moon {
+            animation: moon 3s ease-in-out infinite alternate;
+            @include custom-responsive("xs sm md") {
+                width: 78%;
+            }
+            @include custom-responsive("lg xl xxl") {
+                width: 100%;
+            }
+            
+        }
+            @keyframes moon {
         0% {
             transform: scale(1);
-        }
+            }
         100% {
             transform: scale(1.04);
+            }
+            }
+
+        .ignite_the_night {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-55%, -50%);
+            @include custom-responsive("xs sm md") {
+                width: 35%;
+            }
+            @include custom-responsive("lg xl xxl") {
+                width: 45%;
+            }
+            
         }
+        .girl_hugging_star_white {
+            position: absolute;
+            animation: girl_float 1.9s ease-in-out infinite alternate;
+            @include custom-responsive("xs") {
+                width: 85%;
+                left: -30%;
+                @keyframes girl_float {
+            0% {
+                top: 110%;
+            }
+            100% {
+                top: 118%;
+                transform: rotate(3deg);
+        }
+                }
+            }
+
+            @include custom-responsive("sm md") {
+                width: 75%;
+                left: -45%;
+                @keyframes girl_float {
+            0% {
+                top: 80%;
+            }
+            100% {
+                top: 88%;
+                transform: rotate(3deg);
+            }
+                }
+            }
+
+            @include custom-responsive("lg xl xxl") {
+                width: 85%;
+                left: -100%;
+                @keyframes girl_float {
+            0% {
+                top: 27%;
+            }
+            100% {
+                top: 34%;
+                transform: rotate(3deg);
+            }
+                }
+            }
         }
 
-    .ignite_the_night {
-        width: 45%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-55%, -50%);
-    }
-    .girl_hugging_star_white {
-        width: 85%;
-        position: absolute;
-        left: -100%;
-        // top: 30%;
-        animation: girl_float 1.9s ease-in-out infinite alternate;
-    }
-    @keyframes girl_float {
-        0% {
-            top: 27%;
-        }
-        100% {
-            top: 34%;
-            transform: rotate(3deg);
-        }
-    }
 
-    .boy_lighting_up_white {
-        width: 85%;
-        position: absolute;
-        left: 125%;
-        // top: -10%;
-        animation: boy_float 1.9s 1s ease-in-out infinite alternate;
-    }
-        @keyframes boy_float {
-        0% {
-            top: -14%;
-            transform: rotate(2deg);
-        }
+        .boy_lighting_up_white {
+            position: absolute;
+            animation: boy_float 1.9s 1s ease-in-out infinite alternate;
+            @include custom-responsive("xs") {
+                width: 90%;
+                left: 60%;
+                @keyframes boy_float {
+            0% {
+                top: -95%;
+                transform: rotate(2deg);
+            }
 
-        100% {
-            top: -7%;
-            transform: rotate(-3deg);
+            100% {
+                top: -102%;
+                transform: rotate(-3deg);
+            }
+                }
+            }
+
+            @include custom-responsive("sm md") {
+                width: 80%;
+                left: 66%;
+                @keyframes boy_float {
+            0% {
+                top: -80%;
+                transform: rotate(2deg);
+            }
+
+            100% {
+                top: -87%;
+                transform: rotate(-3deg);
+            }
+                }
+            }
+
+            @include custom-responsive("lg xl xxl") {
+                width: 85%;
+                left: 125%;
+                @keyframes boy_float {
+            0% {
+                top: -14%;
+                transform: rotate(2deg);
+            }
+
+            100% {
+                top: -7%;
+                transform: rotate(-3deg);
+            }
+                }
+            }
         }
-    }
-    .orange_asterisk_single {
-        width: 14%;
-        position: absolute;
-        left: 3%;
-        top: 110%;
-        @include shine(star_shine, 4s, 0);
-    }
-    .golden_star_single_2 {
-        width: 8%;
-        position: absolute;
-        left: 7%;
-        top: -5%;
-        @include shine(star_shine, 3s, 0.5s);
-    }
-    .golden_star_single_3 {
-        width: 6%;
-        position: absolute;
-        left: 96%;
-        top: 92%;
-        @include shine(star_shine, 3s, 1s);
-    }
-    .golden_star_2 {
-        width: 18%;
-        position: absolute;
-        left: 112%;
-        top: 75%;
-        @include shine(star_shine, 4s, 0);
-    }
+            
+        .orange_asterisk_single { 
+            position: absolute;  
+            @include shine(star_shine, 4s, 0);
+            @include custom-responsive("xs sm md") {
+                width: 11%;
+                left: 74%;
+                top: 125%;
+            }
+            @include custom-responsive("lg xl xxl") {
+                width: 14%;
+                left: 3%;
+                top: 110%;
+            }
+        }
+        .golden_star_single_2 {
+            width: 8%;
+            position: absolute;
+            left: 7%;
+            top: -5%;
+            @include shine(star_shine, 3s, 0.5s);
+        }
+        .golden_star_single_3 {
+            width: 6%;
+            position: absolute;
+            left: 96%;
+            top: 92%;
+            @include shine(star_shine, 3s, 1s);
+        }
+        .golden_star_2 {
+            width: 18%;
+            position: absolute;
+            left: 112%;
+            top: 75%;
+            @include shine(star_shine, 4s, 0);
+        }
     }
     .orange_stars {
-        width: 4%;
         position: absolute;
-        left: 10%;
-        top: 50%;
         @include shine(star_shine, 2.5s, 0.5s);
+        @include custom-responsive("xs sm") {
+            width: 8%;
+            left: 12%;
+            top: 24%;
+        }
+        @include custom-responsive("md lg") {
+            width: 6%;
+            left: 10%;
+            top: 20%;
+        }
+        @include custom-responsive("xl xxl") {
+            width: 4%;
+            left: 10%;
+            top: 50%;
+        } 
     }
     .golden_star_single {
         width: 1.5%;
@@ -132,15 +250,36 @@
         left: 91%;
         top: 55%;
         @include shine(star_shine, 2.5s, 1s);
+        @include custom-responsive("xs sm md lg") {
+            display: none;
+        }
+        @include custom-responsive("xl xxl") {
+            display: block;
+        } 
     }
     .shooting_star_white {
-        width: 4.8%;
         position: absolute;
-        // left: 15%;
-        // top: 20%;
         animation: shooting_star 6s 1s ease-in-out infinite;
-    }
-    @keyframes shooting_star {
+        @include custom-responsive("xs sm md") {
+                width: 12%;
+                @keyframes shooting_star {
+        0% {
+            top: -10%;
+            left: 66%;
+        }
+        75% {
+            top: -10%;
+            left: 80%;
+        }
+        100% {
+            top: 30%;
+            left: -20%;
+        }
+                }
+        }
+        @include custom-responsive("lg xl xxl") {
+                width: 4.8%;
+                @keyframes shooting_star {
         0% {
             top: -10%;
             left: 55%;
@@ -150,28 +289,61 @@
             left: 55%;
         }
         100% {
-            top: 50%;
+            top: 48%;
             left: -15%;
         }
+                }
+        }
     }
+    
     .shooting_star_white_2 {
-        width: 4.8%;
         position: absolute;
-        left: 35%;
-        top: 28%;
+        @include custom-responsive("xs sm md") {
+            width: 8%;
+            left: 44%;
+            top: 24%;
+        }
+        @include custom-responsive("lg") {
+            width: 6%;
+            left: 25%;
+            top: 28%;
+        }
+        @include custom-responsive("xl xxl") {
+            width: 4.8%;
+            left: 32%;
+            top: 28%;
+        }
     }
     .shooting_star_white_group {
         width: 6%;
         position: absolute;
         left: 83%;
         top: 24%;
+        @include custom-responsive("xs sm md lg") {
+            display: none;
+        }
+        @include custom-responsive("xl xxl") {
+            display: block;
+        } 
     }
 
     .home_banner_cloud {
+        width: 100%;
+        background-image: url(/public/pictures/images/home/home_banner_cloud.png);
+        background-size: cover;
         position: absolute;
         left: 0;
         bottom: 0;
+        @include custom-responsive("xs sm") {
+        height: 140px;
+            background-position: right;
     }
+        @include custom-responsive("md lg xl xxl") {
+        height: 233px;
+            background-position: center;
+    }
+    }
+}
 }
 
 // ----------SECTION INTRO------------
@@ -179,106 +351,210 @@
     background-color: $functionalLightGrey1;
     position: relative;
     .intro {
-        width: 62.5vw;
-        margin: auto;
+        text-align: center;
         padding: 6% 0;
+        @include custom-responsive("xs sm md") {
+        @include body_space_MB;
+        }
+        @include custom-responsive("lg xl xxl") {
+        @include body_space_PC;
+        }
 
         .intro_title {
+           
+        @include custom-responsive("lg xl xxl") {
             display: flex;
             align-items: center;
             justify-content: center;
+        }
 
             img {
-                width: 8%;
                 transform: scaleX(-1);
+                @include custom-responsive("xs") {
+                    width: 18%;
+                }
+                @include custom-responsive("sm md") {
+                    width: 14%;
+                }
+                @include custom-responsive("lg xl xxl") {
+                    width: 8%;
+                }
             }
             h1 {
                 color: $primaryBrandBlue;
                 padding: 0 0 0 2%;
-                @include h1_PC;
+
+                @include custom-responsive("xs sm md") {
+                    @include h2_MB;
+                }
+                @include custom-responsive("lg xl xxl") {
+                    @include h2_PC;
+                }
             }
         }
 
         .intro_text {
-            width: 65%;
             margin: auto;
             padding: 4% 0 2%;
             color: basicFontColor;
-            @include h5_PC;
-            line-height: 3rem;
+            @include custom-responsive("xs sm") {
+                @include h5_MB;
+                line-height: 2.4rem;
+                width: 90%;
+            }
+            @include custom-responsive("md lg") {
+                @include h5_MB;
+                line-height: 3rem;
+                width: 75%;
+            }
+                @include custom-responsive("xl xxl") {
+                @include h5_PC;
+                line-height: 3.2rem;
+                width: 65%;
+            }
         }
     }
 .intro_map {
     position: relative;
-    padding: 0 0 8%;
+    @include custom-responsive("xs sm md") {
+                padding: 0 0 40%;
+            }
+    @include custom-responsive("lg xl xxl") {
+                padding: 0 0 8%;
+            }
     img {
         display: block;
-        width: 28%;
         margin: auto;
         padding-right: 8%;
+        @include custom-responsive("xs sm md") {
+            width: 45%;
+        }
+        @include custom-responsive("lg xl xxl") {
+            width: 28%;
+        }
 
     }
 
     .branch_dot {
-            position: absolute;
-            top: 47%;
-            left: 50%;
+            position: absolute;       
             background-color: $primaryAccentGold;
             border: 5px solid $secondaryLightGold1;
             width: 10px;
             height: 10px;
-            border-radius:50%;
-            // box-shadow: 0 0 8px 5px $secondaryLightGold1;  
+            border-radius:50%;  
             cursor: pointer;
+            transition: .2s;
+            &:hover {
+                transform: scale(1.3);
+                border: 5px solid #fff;
+            }
+            @include custom-responsive("xs sm md") {
+                top: 40%;
+                left: 51%;
+            }
+            @include custom-responsive("lg xl xxl") {
+                top: 56%;
+                left: 50%;
+            }
     }
     
             .branch_dot:nth-child(2) {
+                @include custom-responsive("xs sm md") {
+                top: 4%;
+                left: 61%;
+            }
+                @include custom-responsive("lg xl xxl") {
                 top: 5%;
                 left: 55%;
             }
+            }
             .branch_dot:nth-child(3) {
-                top: 22%;
+                @include custom-responsive("xs sm md") {
+                top: 18%;
                 left: 46%;
             }
+                @include custom-responsive("lg xl xxl") {
+                top: 25%;
+                left: 46%;
+            }
+            }
             .branch_dot:nth-child(4) {
-                top: 44%;
+                @include custom-responsive("xs sm md") {
+                top: 37%;
+                left: 39%;
+            }
+                @include custom-responsive("lg xl xxl") {
+                top: 50%;
                 left: 42%;
             }
-
-    // span {
-    //     font-size: 50px;
-    //     color: red;
-    //     position: absolute;
-    //     top: 40%;
-    //     left: 54%;
-    // }
-
+            }
 
     .branch_info {
-        width: 18%;
-        position: absolute;
-        top: 34%;
-        left: 60%;
         display: flex;
         justify-content: space-between;
         align-items: end;
         padding-bottom: 10px;
         border-bottom: 3px solid $functionalLightGrey3;
+        @include custom-responsive("xs") {
+            width: 84%;
+            position: absolute;
+            top: 66%;
+            left: 50%;
+            transform: translateX(-50%);
+                }
+        @include custom-responsive("sm md") {
+            width: 50%;
+            position: absolute;
+                }
+        @include custom-responsive("lg xl") {
+            width: 33%;
+            position: absolute;
+            top: 34%;
+            left: 57%;
+            transform: translateX(0%);
+                }
+        @include custom-responsive("xxl") {
+            width: 23%;
+            position: absolute;
+            top: 34%;
+            left: 60%;
+                }
 
         .branch_title {
             .area {
-                @include h5_PC;
+                @include custom-responsive("xs sm md") {
+                @include h5_B_MB;
+            }
+                @include custom-responsive("lg xl xxl") {
+                @include h5_B_PC;
+            }
             }
             .name {
+                @include custom-responsive("xs sm md") {
+                @include h5_B_MB;
+            }
+                @include custom-responsive("lg xl xxl") {
                 @include h5_B_PC;
+            }
             }
         }
         .branch_number p{
-            @include h5_B_PC;
+            @include custom-responsive("xs sm md") {
+                @include h5_B_MB;
+            }
+                @include custom-responsive("lg xl xxl") {
+                @include h5_B_PC;
+            }
         }
         .branch_number span{
-            font-size: 30px;
-            color: $decorativeOrange;
+            @include custom-responsive("xs") {
+                font-size: 26px;
+                color: $decorativeOrange;
+            }
+            @include custom-responsive("sm md lg xl xxl") {
+                font-size: 30px;
+                color: $decorativeOrange;
+            }
         }
     }
 }
@@ -288,12 +564,24 @@
     bottom: 0;
     right: 8%;
     transform: scaleX(-1);
+    @include custom-responsive("xs sm md") {
+        display: none;
+    }
+    @include custom-responsive("lg xl xxl") {
+        display: block;
+    }
 }
 }
+
 .section_news {
-    width: 62.5vw;
     margin: auto;
     padding: 6% 0;
+        @include custom-responsive("xs sm md") {
+        @include body_space_MB;
+    }
+        @include custom-responsive("lg xl xxl") {
+        @include body_space_PC;
+    }
 }
 
 

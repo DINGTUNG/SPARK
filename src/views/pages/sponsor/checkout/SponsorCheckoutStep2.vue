@@ -1,5 +1,6 @@
 <script setup>
-import PaymentFrequencyTable from '@/components/func-items/table/PaymentFrequencyTable.vue'
+import PaymentFrequency from '@/components/checkout/PaymentFrequency.vue'
+import PaymentMethod from '@/components/checkout/PaymentMethod.vue'
 import SponsorCheckoutCard from '@/components/func-items/cards/SponsorCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
@@ -15,15 +16,16 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
     <div class="main_body">
       <div class="checkout_wrap">
 
-        <div class="checkout_table_wrap">
-          <PaymentFrequencyTable />
+        <div class="payment_wrap">
+          <PaymentFrequency />
+          <PaymentMethod />
         </div>
 
-
-        <div class="checkout_overview_wrap">
+        <div class="overview_wrap">
           <SponsorCheckoutCard />
           <CheckoutButtons />
         </div>
+
       </div>
 
       <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'"  :class="filter-gold" alt="">

@@ -1,100 +1,76 @@
-<script lang="js" setup>
-  const tableData = [
-    {
-      date: '2016-05-03',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-02',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-04',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-01',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-03',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-02',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-04',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-    {
-      date: '2016-05-01',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-    },
-  ]
-
-
-  const letterRow = ({ row, rowIndex }) => {
-    if(rowIndex % 2 == 0){
-      return "test-odd test-blue";
-    } else {
-      return "test-even test-red";
-    }
-  };
-
-  </script>
-
-
 <template>
-
-<div class="about_container">
-  <div class="main_body">
-    
-    <br v-for="n in 10" :key="n">
-  
-     <el-table :data="tableData" border :header-cell-class-name="headerCellClassName" :row-class-name="letterRow">
-       <el-table-column prop="date" label="Date" width="180" />
-       <el-table-column prop="name" label="Name" width="180" />
-       <el-table-column prop="address" label="Address" />
-     </el-table>
-  </div>
-
-</div>
-
+  <el-table :data="tableData" :table-layout="tableLayout" :cell-class-name="myRow">
+    <el-table-column v-for="headerCell in tableHeader" :key="headerCell.label" :prop="headerCell.prop"
+      :label="headerCell.label" />
+  </el-table>
 </template>
 
+<script lang="ts" setup>
 
-<style scoped lang="scss">
-@import "@/assets/sass/pages/member-center/_member-center";
 
-::v-deep .el-table .warning-row {
-  background-color: pink;
-  color: red;
+
+
+import { ref } from 'vue'
+
+const tableLayout = ref('fixed')
+
+const tableHeader = [
+  { label: "tanuki-1", prop: "date" },
+  { label: "tanuki-2", prop: "name" },
+  { label: "tanuki-3", prop: "address" },
+]
+
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+]
+
+const myRow = ({ row, rowIndex }) => {
+  if (rowIndex % 2 == 0) {
+    return "test-blue";
+  } else {
+    return "test-red";
+  }
+};
+
+</script>
+
+<style>
+/* @import '@/assets/sass/pages/member-center/member-center.scss'; */
+
+.test-red {
+  font-weight: bold;
+  background-color: red;
+
 }
 
-.my-header {
-  background: blue !important; 
-}
+.cell{
+  color: chartreuse;
 
-.column{
-color: red;
 
 }
-.el-table .warning-row {
-  --el-table-tr-bg-color: var(--el-color-warning-light-9);
+
+.test-blue {
+  font-weight: bold;
 }
-.el-table .success-row {
-  --el-table-tr-bg-color: var(--el-color-success-light-9);
-}
+
 </style>
 
-  

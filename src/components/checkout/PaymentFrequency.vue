@@ -28,5 +28,5 @@ const tableTitle = ref("定期繳款方案");
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/components/func-items/table/payment-frequency-table';
+@import'@/assets/sass/components/checkout/payment-frequency';
 </style>

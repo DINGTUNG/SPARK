@@ -56,7 +56,7 @@ let years = reactive([
           <img class="sprout" :src="'pictures/decorations/illustration/sprout.svg'" alt="">
           <h2>年度報告</h2>
           <div class="year_inner">
-            <div class="year_card" v-for="(item, index) in years" :key="item.id">
+            <div class="year_card" v-for="item in years" :key="item.id">
               <div class="year_img">
                 <img src="https://picsum.photos/150/200/?random=10">
               </div>
@@ -72,7 +72,7 @@ let years = reactive([
           <img class="flower" :src="'pictures/decorations/illustration/flower.svg'" alt="">
           <h2>財務報告</h2>
           <div class="financial_inner">
-            <div class="financial_card" v-for="(item, index) in years" :key="item.id">
+            <div class="financial_card" v-for="item in years" :key="item.id">
               <div class="financial_card_inner">
                 <div class="financial_img">
                   <img :src="'pictures/decorations/illustration/book.svg'" alt="">
@@ -92,5 +92,5 @@ let years = reactive([
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/pages/work-result/ResultReport.scss'
+@import'@/assets/sass/pages/work-result/result-report.scss'
 </style>

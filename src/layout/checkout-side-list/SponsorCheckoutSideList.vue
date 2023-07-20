@@ -4,7 +4,6 @@ import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
-
 const router = useRouter()
 
 const goToCheckoutPage = () => {
@@ -13,14 +12,19 @@ const goToCheckoutPage = () => {
 
 </script>
 <template>
-  <div class="sponsor_page" :class="{ active: sponsorCartStore.isSideListShow && sponsorCartStore.isCartNotEmpty }">
+  <div class="sponsor_page" :class="{ active: sponsorCartStore.isSideListShow }">
 
     <div class="title">
       <h2>我要認養</h2>
       <i class="fa-regular fa-circle-xmark" @click="sponsorCartStore.hideSideList"></i>
     </div>
 
+
+    <p v-if="!sponsorCartStore.isCartNotEmpty">此頁面沒東西</p>
+
     <div class="location_card" v-for="location in sponsorCartStore.locationList" :key="location.id">
+
+      
       <div v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0" class="sponsor_inner">
         <h5>{{ location.name }}</h5>
         <div class="card_count">

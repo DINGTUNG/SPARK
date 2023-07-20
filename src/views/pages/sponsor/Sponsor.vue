@@ -23,10 +23,7 @@ const sponsorCartStore = useSponsorCartStore();
         <div class="sponsor_img">
           <img :src="'pictures/images/sponsor/introduction.jpg'" alt="">
         </div>
-        <div class="sponsor_block">
-          <div class="sponsor_img">
-            <img :src="'assets/images/sponsor/introduction.jpg'" alt="">
-          </div>
+
           <div class="sponsor_text">
             <h4>認養兒童方案</h4>
             <p>
@@ -35,7 +32,6 @@ const sponsorCartStore = useSponsorCartStore();
             </p>
             <h4>每月 <span class="price">NTD 2,000 </span>認養費</h4>
           </div>
-        </div>
       </div>
       <div class="line"></div>
       <div class="sponsor_location">

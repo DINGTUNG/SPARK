@@ -35,15 +35,6 @@
   ])
 </script>
 
-<!-- <template>
-  <div class="bulletinBoard">
-
-  </div>
-</template> -->
-
-<style scoped lang="scss">
-@import '@/assets/sass/pages/work-result/work-result';
-</style>
 <template>
     <div class="result_display">
       <div class="result_title">
@@ -122,12 +113,24 @@
           </div>
         </div>
     </div>
-  <div class="container">
-    <div class="main_body">
-
+    <div class="bottom_wrap">
+      <div class="link">
+      <div class="item">
+        <h2>歷年報告</h2>
+        <i class="fa-solid fa-clipboard-list"></i>
+        <Router-link to="/">點我前往</Router-link>
+      </div>
+      <div class="item">
+        <h2>服務里程碑</h2>
+        <i class="fa-solid fa-flag"></i>
+        <Router-link to="/">點我前往</Router-link>
+      </div>
     </div>
-
-  </div>
+    </div>
 
 
 </template>
+
+<style scoped lang="scss">
+@import '@/assets/sass/pages/work-result/work-result';
+</style>

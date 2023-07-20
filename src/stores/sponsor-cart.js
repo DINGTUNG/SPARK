@@ -28,7 +28,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
       this.name = name;
       this.cost = cost;
     }
-
   }
 
   const locationList = [

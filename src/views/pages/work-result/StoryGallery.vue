@@ -9,14 +9,37 @@ import { reactive, ref} from "vue";
             text1:'一位在星火成長的孩子。他叫小瓜，面對缺乏家庭的挑戰，小瓜展現了驚人的勇氣和堅強的意志。他從小就夢想著飛翔，並努力學習、成長。透過故事藝廊，他分享了自己的親手堆疊出的積木城堡，展現出驚人的創造力和對愛的渴望。',
             text2:'小瓜的故事提醒著我們，每個孩子都擁有無限的潛力和夢想，只需要給予他們愛和支持的環境，他們就能像小鳥一樣自由自在地飛翔。'
         },
-        // {
-        //     id:2,
-        //     imgUrl:'pictures/images/results/story-gallery/cover-story/cover_story_2.jpg',
-        //     title:'音樂的魔力',
-        //     text1:'小妮是一位充滿音樂天賦的孤兒，卻因生活困難而無法接觸音樂。星火兒童協會舉辦了「音樂的魔力」工作坊，為孩子們提供音樂教育的機會。小妮參與了工作坊，她的心靈被音符所觸動，開啟了一個全新的世界。',
-        //     text2:'在工作坊中，小妮學習唱歌的技巧，她的才華逐漸展露。音樂不僅讓她找到表達自己的方式，也給了她自信和希望。'
-        // }
+        {
+            id:2,
+            imgUrl:'pictures/images/results/story-gallery/cover-story/cover_story_2.jpg',
+            title:'音樂的魔力',
+            text1:'小妮是一位充滿音樂天賦的孤兒，卻因生活困難而無法接觸音樂。星火兒童協會舉辦了「音樂的魔力」工作坊，為孩子們提供音樂教育的機會。小妮參與了工作坊，她的心靈被音符所觸動，開啟了一個全新的世界。',
+            text2:'在工作坊中，小妮學習唱歌的技巧，她的才華逐漸展露。音樂不僅讓她找到表達自己的方式，也給了她自信和希望。'
+        }
     ])
+    let displayStory = ref(0)
+    const switchStory = () => {
+        if( displayStory.value === 0 ){
+            displayStory.value = 1;
+        }else{
+            displayStory.value = 0;
+        }
+    }
+    const switchClick = () =>{
+        switchStory();
+        picUnder();
+    }
+
+    const picUnderIndex = ref(1)
+    const picUnder = () => {
+        if( displayStory.value === 0 ){
+            picUnderIndex.value = 1;
+        } else {
+            picUnderIndex.value = 0;
+        }
+    }
+
+
     const warmStory = reactive([
         {
             id:1,
@@ -57,7 +80,7 @@ import { reactive, ref} from "vue";
             id:6,
             imgUrl:'pictures/images/results/story-gallery/story/story_6.jpg',
             date:'2023.04.28',
-            title:'花開童心，歡樂的成長旅程',
+            title:'歡樂的成長旅程',
             description:'妮娜在協會裡結識了許多和她一樣的朋友們，他們參加了各種有趣的活動，例如野餐、戶外遊樂和手工......'
         },
     ]) 
@@ -85,7 +108,7 @@ import { reactive, ref} from "vue";
             imgUrl:'pictures/images/results/story-gallery/gallery/gallery_3.jpg',
             branchName:'台南星火協會',
             title:'創意堆疊的奇幻世界',
-            description:'在星火的積木遊戲中，小朋友用色彩繽紛的積木建造城堡、太空船和奇妙生物，展現無限想像力。這些積木不僅是遊戲的工具，更是孩子們展現才華和創造力的舞台，讓他們享受無盡的樂趣和成就感。'
+            description:'在星火的積木遊戲中，小朋友用色彩繽紛的積木建造城堡、太空船和奇妙生物。這些積木是孩子們展現才華和創造力的舞台，讓他們享受無盡的樂趣和成就感。'
         },
         {
             id:4,
@@ -110,25 +133,41 @@ import { reactive, ref} from "vue";
             <button type="button">星火寫真</button>
         </div>
         <section class="cover-story">
+            <div class="deco">
+                <img :src="'pictures/decorations/illustration/golden_stars_set.svg'" alt="星星裝飾">
+            </div>
             <div class="title">
                 <h1>本月封面故事</h1>
                 <div class="decorative_line">
                     <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
                 </div>
             </div>
-            <div class="story" v-for="(story, id) in coverStory" :key="id">
-                <div class="pic">
-                    <img :src="story.imgUrl" alt="封面故事照片">
+            
+            <transition name="fade">
+                <div class="story" v-if="displayStory != null" @click="switchClick">
+                    <div class="pic">
+                        <img :src="coverStory[displayStory].imgUrl" alt="封面故事照片">
+                        <div class="pic_under">
+                            <img :src="coverStory[picUnderIndex].imgUrl" alt="另一則封面故事">
+                        </div>
+                    </div>
+                        <div class="text">
+                            <h4>{{ coverStory[displayStory].title }}</h4>
+                            <p>{{ coverStory[displayStory].text1 }}</p>
+                            <p>{{ coverStory[displayStory].text2 }}</p>
+                        </div>
                 </div>
-                <div class="text">
-                    <h4>{{ story.title }}</h4>
-                    <p>{{ story.text1 }}</p>
-                    <p>{{ story.text2 }}</p>
-                </div>
-            </div>
+            </transition>
+                    
 
         </section>
         <section class="warm-story">
+            <div class="deco">
+                <img :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星">
+            </div>
+            <div class="deco">
+                <img :src="'pictures/decorations/illustration/golden_star_3.svg'" alt="星星裝飾">
+            </div>
             <div class="title">
                 <div class="name">
                     <h2>溫馨事紀</h2>
@@ -163,6 +202,9 @@ import { reactive, ref} from "vue";
             </div>
         </section>
         <section class="photo-album">
+            <div class="deco">
+                <img src="../../../../public/pictures/characters/girl/girl_bubbling.svg" alt="">
+            </div>
             <div class="title">
                 <div class="name">
                     <h2>星火寫真</h2>

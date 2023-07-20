@@ -268,7 +268,6 @@ div.container {
                         padding: 1vw 1.8vw 1.6vw;
 
 
-
                         h5 {
                             color: $functionalLightGrey4;
 
@@ -312,17 +311,18 @@ div.container {
                             }
                         }
 
-                        &:hover .card_img::before {
-                            opacity: .6;
-                        }
+                      
+                    }
+                    &:hover .card_img::before {
+                        opacity: .6;
+                    }
 
-                        &:hover .card_img::after {
-                            top: 45%;
-                        }
+                    &:hover .card_img::after {
+                        top: 45%;
+                    }
 
-                        &:hover .card_hover_pic {
-                            transform: rotate(-43deg);
-                        }
+                    &:hover .card_hover_pic {
+                        transform: rotate(-43deg);
                     }
 
                 }

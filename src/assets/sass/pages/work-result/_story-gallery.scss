@@ -7,7 +7,7 @@ div.banner{
         display: none;
       }
     }
-    @include custom-responsive("xl xxl"){
+    @include custom-responsive("xl xx-l"){
       &:nth-child(2){
         display: none;
       }
@@ -20,18 +20,24 @@ div.banner{
 div.container{
     width: 100%;
     margin: auto;
-    overflow: hidden;
+    overflow: clip;
   div.main_body {
+    
     @include custom-responsive("xs sm") {
-      @include body_space_MB
+      @include body_space_MB;
     }
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include body_space_PC
     }
     div.switch-button {
       margin-left: auto;
       width: fit-content;
-      button{
+      display: flex;
+      a{
+        text-align: center;
+        line-height: 55px;
+        text-decoration: none;
+        display: inline-block;
         @include custom-responsive("xs sm"){
           @include h3_MB;
           margin: 8% 0;
@@ -42,7 +48,7 @@ div.container{
             @include regularWhiteBtn_MB;
           }
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
           @include h3_PC;
           margin: 0 10px;
           &:nth-child(1){
@@ -70,7 +76,7 @@ div.container{
         }
         div.title{
 
-        @include custom-responsive("xl xxl"){
+        @include custom-responsive("xl xx-l"){
           display: flex;
           align-items: center;
           justify-content: space-around;
@@ -81,7 +87,7 @@ div.container{
             @include h1_MB;
             width: fit-content;
           }
-          @include custom-responsive("xl xxl") {
+          @include custom-responsive("xl xx-l") {
               @include h1_PC;
           }
         }
@@ -89,7 +95,7 @@ div.container{
           @include custom-responsive("xs sm"){
             display: none;
           }
-          @include custom-responsive("xl xxl"){
+          @include custom-responsive("xl xx-l"){
             width: 40vw;
             img{
               width: 100%;
@@ -101,7 +107,7 @@ div.container{
       }
       div.story{
         margin: 8% 0;
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
           display: flex;
           justify-content: space-evenly;
           align-items: center;
@@ -113,7 +119,7 @@ div.container{
              width: 90%;
              margin: auto;
           }
-          @include custom-responsive("xl xxl"){
+          @include custom-responsive("xl xx-l"){
             width: 50%;
             height: 40vh;
           }
@@ -125,7 +131,7 @@ div.container{
                 width: 100%;
                 border-radius:$br_MB;
               }
-              @include custom-responsive("xl xxl") {
+              @include custom-responsive("xl xx-l") {
                 border-radius:$br_PC;
                 height: 100%;
                 object-fit: cover;
@@ -149,11 +155,11 @@ div.container{
             width: 90%;
             margin:10% auto;
           }
-          @include custom-responsive("xl xxl"){
+          @include custom-responsive("xl xx-l"){
             width: 35%;
           }
           h4{
-            @include custom-responsive("xl xxl"){
+            @include custom-responsive("xl xx-l"){
               @include h4_B_PC;
             }
             @include custom-responsive("xs sm"){
@@ -162,7 +168,7 @@ div.container{
           }
           p{
             margin: 1% 0;
-            @include custom-responsive("xl xxl"){
+            @include custom-responsive("xl xx-l"){
               @include h6_PC;
             }
             @include custom-responsive("xs sm"){
@@ -194,7 +200,7 @@ div.container{
           width: fit-content;
       }
 
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
           display: flex;
           align-items: center;
           justify-content: space-around;
@@ -214,7 +220,7 @@ div.container{
             @include custom-responsive("xs sm"){
               @include h2_MB;
             }
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
                 @include h2_PC;
             }
           }
@@ -225,7 +231,7 @@ div.container{
               top: -15px;
               left: -55px;
             }
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
               top: -15px;
               left: -45px;
             }
@@ -236,7 +242,7 @@ div.container{
           @include custom-responsive("xs sm"){
             display: none;
           }
-          @include custom-responsive("xl xxl"){
+          @include custom-responsive("xl xx-l"){
             width: 40vw;
             img{
               width: 100%;
@@ -259,7 +265,7 @@ div.container{
             border-radius: $br_MB;
             margin:4% 0;
           }
-          @include custom-responsive("xl xxl") {
+          @include custom-responsive("xl xx-l") {
             margin:2% 0;
             width: 28%;
             display: flex;
@@ -279,7 +285,7 @@ div.container{
               }
 
             }
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
               border-radius: $br_PC $br_PC 0 0;
               &::before {
                 content: "";
@@ -322,14 +328,14 @@ div.container{
                 object-position: center;
                 border-radius: $br_MB $br_MB 0 0;
               }
-              @include custom-responsive("xl xxl"){
+              @include custom-responsive("xl xx-l"){
                 border-radius: $br_PC $br_PC 0 0;
               }
               
           }
           }
           div.text{
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
               border-radius:0 0  $br_PC $br_PC;
             }
             @include custom-responsive("xs sm") {
@@ -343,7 +349,7 @@ div.container{
               margin: 1% 0;
             }
             h5{
-              @include custom-responsive("xl xxl"){
+              @include custom-responsive("xl xx-l"){
                 @include h5_B_PC;
                 margin: 4% 0;
               }
@@ -377,7 +383,7 @@ div.container{
       @include custom-responsive("xs sm") {
         display: none;
       }
-      @include custom-responsive("xl xxl") {
+      @include custom-responsive("xl xx-l") {
         width: 30%;
         margin: 3% auto;
         display: flex;
@@ -408,7 +414,7 @@ div.container{
       @include custom-responsive("xs sm"){
         margin: 10% 0 45vh 0;
       }
-      @include custom-responsive("xl xxl"){
+      @include custom-responsive("xl xx-l"){
         margin: 10% 0;
       }
       
@@ -417,7 +423,7 @@ div.container{
         @include custom-responsive("xs sm") {
           display: none;
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
           position: absolute;
           width: 20vw;
           bottom: 0;
@@ -433,7 +439,7 @@ div.container{
           margin: 18% auto;
           width: fit-content;
       }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
           display: flex;
           align-items: center;
           justify-content: space-around;
@@ -453,7 +459,7 @@ div.container{
             @include custom-responsive("xs sm"){
               @include h2_MB;
             }
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
                 @include h2_PC;
             }
           }
@@ -464,7 +470,7 @@ div.container{
               top: -15px;
               left: -55px;
             }
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
               top: -15px;
               left: -45px;
             }
@@ -475,7 +481,7 @@ div.container{
           @include custom-responsive("xs sm"){
             display: none;
           }
-          @include custom-responsive("xl xxl"){
+          @include custom-responsive("xl xx-l"){
             width: 40vw;
             img{
               width: 100%;
@@ -488,7 +494,7 @@ div.container{
       div.photoDisplay{
         @include custom-responsive("xs sm") {
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
           display: flex;
           align-items: center;
           width: 100%;
@@ -502,7 +508,7 @@ div.container{
             position: relative;
             margin: auto;
           }
-          @include custom-responsive("xl xxl") {
+          @include custom-responsive("xl xx-l") {
             width: 55%;
             height: 25vw;
             position: relative;
@@ -510,7 +516,7 @@ div.container{
           }
 
           img{
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
               border-radius: $br_PC*3 $br_PC*3 0 0;
             }
             @include custom-responsive("xs sm") {
@@ -544,7 +550,7 @@ div.container{
           @include custom-responsive("sm"){
             top: 125%;
           }
-          @include custom-responsive("xl xxl") {
+          @include custom-responsive("xl xx-l") {
             position: static;
             width: 30%;
             transform: translate(0, 0);
@@ -593,7 +599,7 @@ div.container{
           position: relative;
           right: 5%;
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
           justify-content: space-evenly;
           position: static;
           margin: 0 auto;
@@ -608,7 +614,7 @@ div.container{
             position: relative;
             z-index: 0;
           }
-          @include custom-responsive("xl xxl") {
+          @include custom-responsive("xl xx-l") {
             width: 21%;
             height: 20vh;
           }

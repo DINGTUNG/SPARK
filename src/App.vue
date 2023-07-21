@@ -18,8 +18,6 @@ import RightMenu from '@/layout/RightMenu.vue';
   <Header />
   <RightMenu />
   <LeftMenu />
-
-  
   <RouterView />
   <Footer />
 

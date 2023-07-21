@@ -1,0 +1,49 @@
+table.member_data_table {
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  @include table_PC;
+  border: 1px solid $primaryBrandBlue;
+  border-radius: 15px;
+
+
+  width: 700px;
+
+  caption {
+    text-align: left;
+    @include h2_PC;
+    padding: 10px 0;
+
+    span {
+      @include h6_PC;
+    }
+  }
+
+  th {
+    background-color: $primaryBgBlue;
+    color: $primaryBrandWhite;
+
+
+
+  }
+
+  /*第一欄第一列：左上*/
+  tr:first-child td:first-child {
+    border-top-left-radius: 15px;
+  }
+
+  /*第一欄最後列：左下*/
+  tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+  }
+
+  /*最後欄第一列：右上*/
+  tr:first-child td:last-child {
+    border-top-right-radius: 15px;
+  }
+
+  /*最後欄第一列：右下*/
+  tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+  }
+}

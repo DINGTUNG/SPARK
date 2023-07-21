@@ -69,3 +69,38 @@ export const COVER_STORY =  [
         '妮娜在協會裡結識了許多和她一樣的朋友們，他們參加了各種有趣的活動，例如野餐、戶外遊樂和手工......'
     }
   ];
+
+  export const PHOTO_ALBUM = [
+    {
+      id: 1,
+      imgUrl: 'pictures/images/results/story-gallery/gallery/gallery_1.jpg',
+      branchName: '台北星火協會',
+      title: '幸福的擁抱',
+      description:
+        '星火協會的愛心溫暖著孩子的心靈。在那一刻，他感受到無限的關懷和支持，成為幸福的孩子，這份溫暖的擁抱將永遠留在他的回憶中，為他的成長之路點亮星火。'
+    },
+    {
+      id: 2,
+      imgUrl: 'pictures/images/results/story-gallery/gallery/gallery_2.jpg',
+      branchName: '台中星火協會',
+      title: '歡樂的搖搖馬時光',
+      description:
+        '在星火的遊樂活動中，小朋友們盡情享受歡樂時光。笑聲響起，他們奔馳在搖搖馬上，感受快樂的風。臉上洋溢純真笑容，忘卻困難和壓力。'
+    },
+    {
+      id: 3,
+      imgUrl: 'pictures/images/results/story-gallery/gallery/gallery_3.jpg',
+      branchName: '台南星火協會',
+      title: '創意堆疊的奇幻世界',
+      description:
+        '在星火的積木遊戲中，小朋友用色彩繽紛的積木建造城堡、太空船和奇妙生物。這些積木是孩子們展現才華和創造力的舞台，讓他們享受無盡的樂趣和成就感。'
+    },
+    {
+      id: 4,
+      imgUrl: 'pictures/images/results/story-gallery/gallery/gallery_4.jpg',
+      branchName: '台東星火協會',
+      title: '童年快樂時光',
+      description:
+        '小女孩充滿歡笑，展現快樂的童年。她與朋友們跳躍、奔跑，純真的笑容洋溢著臉上。他們一起探索自然，小女孩的快樂源於無拘束的自由，將童年時光點亮成美好的回憶。'
+    }
+  ];

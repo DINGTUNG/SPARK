@@ -1,7 +1,10 @@
 <script setup>
-
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
-import { ref, onMounted,  } from 'vue';
+
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+
+const sponsorCartStore = useSponsorCartStore();
+
 const top = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -15,26 +18,20 @@ const top = () => {
             <div class="icon"><img :src="'pictures/icons/right-menu/sponsor_icon.png'" alt="領養icon"></div>
             我要認養</RouterLink>
         </li>
-        <li>
-            <a href="">
+        <li @click="sponsorCartStore.showSideList">
                 <div class="icon"><img :src="'pictures/icons/right-menu/sponsor_list_icon.png'" alt="領養清單icon"></div>
                 認養清單
-            </a>
         </li>
         <li>
-            <a href="">
-                <div class="icon"><img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon"></div>
-                    我要捐款
-            </a>
+            <div class="icon"><img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon"></div>
+                我要捐款
         </li>
         <li>
-            <a href="">
                 <div class="icon">
                     <img :src="'pictures/icons/right-menu/donate_list_icon.png'
                     " alt="捐款清單icon">
                 </div>
                 捐款清單
-            </a>
         </li>
     </ul>
     <div class="other">
@@ -45,27 +42,31 @@ const top = () => {
   </div>
   <div class="rightMenu_MB">
     <ul>
-        <li>
-            <RouterLink to="/sponsor" class="link sponsor">
-            我要<br>認養
-            </RouterLink>
-            <a href="">
-                <SponsorCheckoutSideList/>
-                認養<br>清單
-            </a>
-        </li>
-        <li>
-            <a href="">
-                    我要<br>捐款
-                
-            </a>
-            <a href="">
+        <ul>
+            <li>
+                <RouterLink to="/sponsor" class="link sponsor">
+                我要<br>認養
+                </RouterLink>
+            </li>
+            <li @click="sponsorCartStore.showSideList">
+                 認養<br>清單
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                我要<br>捐款
+            </li>
+            <li>
                 捐款<br>清單
-            </a>
-        </li>
+            </li>
+        </ul>
     </ul>
-        <button id="top" @click="top"><img :src="'pictures/icons/right-menu/TOP_icon.png'" alt="TOP"></button>
+        <button id="top" @click="top">
+            <img :src="'pictures/icons/right-menu/TOP_icon.png'" alt="TOP">
+        </button>
   </div>
+  <SponsorCheckoutSideList />
 </template>
 
 <style scoped lang="scss">

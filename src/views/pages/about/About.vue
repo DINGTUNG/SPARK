@@ -126,8 +126,8 @@
     <img :src="'pictures/images/about/banner.jpg'" alt="認識星火封面">
   </div>
 
-  <div class="about_container">
-    <div class="main_body">
+`  <div class="about_container">
+    <div class="main_body">`
       
       <img class="deco" :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星裝飾">
       <img class="deco" :src="'pictures/decorations/illustration/planet.svg'" alt="行星裝飾">

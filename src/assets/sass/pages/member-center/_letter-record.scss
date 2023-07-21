@@ -14,14 +14,14 @@ div.about_container {
 
         ::v-deep(.el-table__header-wrapper .el-table__header thead th .cell){
             color: #ffffff;
-            background-color: #1D3D6C;
+            background-color: $primaryBrandBlue;
             font-size: 1rem;
             font-weight: 400;
             letter-spacing: .05rem;
 
         }
         ::v-deep(.el-table__header-wrapper .el-table__header thead th){
-            background-color: #1D3D6C;
+            background-color: $primaryBrandBlue;
             height:  65px;
         }
         ::v-deep(table tbody tr td .cell){
@@ -30,6 +30,7 @@ div.about_container {
         }
         ::v-deep(.el-table){
             border-radius: 30px;
+            border: 1px solid $primaryBrandBlue;
             margin-bottom: 200px;
             margin-top: 200px;
         }

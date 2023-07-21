@@ -4,6 +4,11 @@ const donateCartStore = useDonateCartStore();
 
 const luckyDay = Math.random() >= 0.8;
 
+function openDonatePage() {
+  const url = 'https://www.buymeacoffee.com/tanuki.jr';
+  window.open(url, '_blank');
+}
+
 </script>
 
 <template>

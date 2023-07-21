@@ -270,11 +270,49 @@ div.container{
           div.pic{
             width: 100%;
             height: 50%;
+            overflow: hidden;
+            position: relative;
             @include custom-responsive("xs sm") {
               border-radius: $br_MB $br_MB 0 0;
+              .card_hover_pic {
+                display: none;
+              }
+
             }
             @include custom-responsive("xl xxl") {
               border-radius: $br_PC $br_PC 0 0;
+              &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $primaryBrandBlue;
+                opacity: 0;
+                transition: .2s;
+              }
+      
+              &::after {
+                content: "READ NEWS";
+                position: absolute;
+                left: 50%;
+                top: -15%;
+                transform: translate(-50%, -50%);
+                letter-spacing: 0.4rem;
+                color: #fff;
+                transition: .2s;
+              }
+      
+              .card_hover_pic {
+                display: block;
+                width: 66%;
+                position: absolute;
+                top: 40%;
+                left: 100%;
+                transform-origin: bottom left;
+                transition: .2s;
+              }
             }
             img{
               @include custom-responsive("xs sm"){
@@ -319,8 +357,19 @@ div.container{
               margin:7% 0 3% auto;
             }
           }
-
+          &:hover .pic::before {
+            opacity: 0.7;
+          }
+      
+          &:hover .pic::after {
+            top: 45%;
+          }
+      
+          &:hover .card_hover_pic {
+            transform: rotate(-43deg);
+          }
           
+        
         }
       }
     }

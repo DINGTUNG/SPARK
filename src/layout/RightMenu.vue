@@ -1,9 +1,12 @@
 <script setup>
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
+import DonateCheckoutSideList from '@/layout/checkout-side-list/DonateCheckoutSideList.vue';
 
 import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
-
 const sponsorCartStore = useSponsorCartStore();
+
+import { useDonateCartStore } from '@/stores/donate-cart.js';
+const donateCartStore = useDonateCartStore();
 
 const top = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -23,10 +26,13 @@ const top = () => {
                 認養清單
         </li>
         <li>
-            <div class="icon"><img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon"></div>
-                我要捐款
+            <RouterLink to="/donate" class="link donate">
+                <div class="icon"><img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon"></div>
+                我要捐款   
+            </RouterLink>
+
         </li>
-        <li>
+        <li @click="donateCartStore.showSideList">
                 <div class="icon">
                     <img :src="'pictures/icons/right-menu/donate_list_icon.png'
                     " alt="捐款清單icon">
@@ -55,9 +61,11 @@ const top = () => {
 
         <ul>
             <li>
-                我要<br>捐款
+                <RouterLink to="/donate" class="link donate">
+                    我要<br>捐款
+                </RouterLink>
             </li>
-            <li>
+            <li @click="donateCartStore.showSideList">
                 捐款<br>清單
             </li>
         </ul>
@@ -67,6 +75,7 @@ const top = () => {
         </button>
   </div>
   <SponsorCheckoutSideList />
+  <DonateCheckoutSideList />
 </template>
 
 <style scoped lang="scss">

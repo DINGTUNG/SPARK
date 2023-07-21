@@ -210,7 +210,8 @@
 </script>
 <template>
   <div class="banner">
-    <img :src="'pictures/images/sponsor/sponsor-location/banner.png'" alt="bannerImage">
+    <img :src="'pictures/images/sponsor/sponsor-location/banner.png'" alt="bannerImage" class="PC-banner">
+    <img :src="'pictures/images/sponsor/sponsor-location/banner-MB.png'" alt="bannerImage" class="MB-banner">
   </div>
   <div class="container">
     <div class="main_body">

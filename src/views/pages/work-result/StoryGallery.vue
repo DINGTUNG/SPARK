@@ -161,7 +161,7 @@ const photoAlbum = reactive([
         </div>
 
         <transition name="fade" mode="out-in">
-          <div class="story" v-if="displayStory != null" @click="switchClick">
+          <div class="story" :key="displayStory" @click="switchClick">
             <div class="pic">
               <img :src="coverStory[displayStory].imgUrl" alt="封面故事照片" />
               <div class="pic_under">
@@ -202,6 +202,7 @@ const photoAlbum = reactive([
           <div class="card" v-for="(item, id) in warmStory" :key="id">
             <div class="pic">
               <img :src="item.imgUrl" alt="故事照片" />
+              <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
             </div>
             <div class="text">
               <div class="date">{{ item.date }}</div>

@@ -53,7 +53,7 @@
         class="bulletinBoard"
       > 
 
-            <swiper-slide v-for="(img, index) in bulletinBoard1" :key="img" class="swiper-item">
+            <swiper-slide v-for="(img, index) in bulletinBoard1" :key="index" class="swiper-item">
               <img :src="img" alt="成果布告欄示意圖片">
             </swiper-slide>
 

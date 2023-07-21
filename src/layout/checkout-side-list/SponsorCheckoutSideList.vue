@@ -6,8 +6,9 @@ const sponsorCartStore = useSponsorCartStore();
 
 const router = useRouter()
 
-const goToCheckoutPage = () => {
-  router.push({ path: '/sponsor-checkout-step-1' })
+const goToCheckoutPageAndCloseSideList = () => {
+  router.push({ path: '/sponsor-checkout-step-1' });
+  sponsorCartStore.hideSideList();
 }
 
 </script>
@@ -39,7 +40,7 @@ const goToCheckoutPage = () => {
         <h5>NTD {{ sponsorCartStore.totalCost }}</h5>
       </div>
       <div class="price_button">
-        <button @click="goToCheckoutPage">核對認養清單</button>
+        <button @click="goToCheckoutPageAndCloseSideList">核對認養清單</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,4 @@
 <script setup>
-import SponsorCheckoutCard from '@/components/func-items/cards/SponsorCheckoutCard.vue'
-import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 
 </script>
@@ -10,9 +8,6 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
 
 
-    <SponsorCheckoutCard />
-    <CheckoutButtons/>
-
 
     <!-- 撐開頁面之臨時空間 -->
     <br v-for="n in 100" :key="n">
@@ -21,5 +16,5 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 </template>
 
 <style scoped lang="scss">
-// @import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-overview';
+@import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-overview';
 </style>

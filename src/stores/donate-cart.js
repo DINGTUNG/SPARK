@@ -132,7 +132,8 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     if (formattedAmount < 100) {
       return;
     } else {
-      router.push({ path: '/donate-checkout-step-1' })
+      router.push({ path: '/donate-checkout-step-1' });
+      hideSideList();
     }
   };
   //點擊的router

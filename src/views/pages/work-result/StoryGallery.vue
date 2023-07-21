@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import  Story  from '@/views/sections/work-result/Story.vue'
 
 const coverStory = reactive([
   {
@@ -94,9 +95,12 @@ const warmStory = reactive([
   }
 ])
 const storyId = ref(null)
-const propsId = (index) => {
-  storyId.value = index - 1
+const propsId = (id) => {
+  storyId.value = id - 1
 }
+const closeStory = () => {
+  storyId.value = null;
+};
 
 let photoDisplay = ref(0)
 const photoSelected = (index) => {
@@ -146,8 +150,8 @@ const photoAlbum = reactive([
   <div class="container">
     <div class="main_body">
       <div class="switch-button">
-        <button type="button">星火點滴</button>
-        <button type="button">星火寫真</button>
+        <a href="#warm-story">溫馨事紀</a>
+        <a href="#photo-album">星火寫真</a>
       </div>
       <section class="cover-story">
         <div class="deco">
@@ -176,7 +180,7 @@ const photoAlbum = reactive([
           </div>
         </transition>
       </section>
-      <section class="warm-story">
+      <section class="warm-story" id="warm-story">
         <div class="deco">
           <img :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星" />
         </div>
@@ -212,7 +216,6 @@ const photoAlbum = reactive([
             </div>
           </div>
         </div>
-        <story />
         <div class="change-page">
           <i class="fa-solid fa-chevron-left"></i>
           <button class="blue">1</button>
@@ -221,9 +224,12 @@ const photoAlbum = reactive([
           <i class="fa-solid fa-chevron-right"></i>
         </div>
       </section>
-      <section class="photo-album">
+        <Story :storyId="storyId" @closeStory="closeStory" />
+
+      
+      <section class="photo-album" id="photo-album">
         <div class="deco">
-          <img src="../../../../public/pictures/characters/girl/girl_bubbling.svg" alt="" />
+          <img :src="'pictures/characters/girl/girl_bubbling.svg'" alt="" />
         </div>
         <div class="title">
           <div class="name">
@@ -291,4 +297,5 @@ const photoAlbum = reactive([
 .fade-leave-active{
   transition: opacity .3s ease-in;
 }
+
 </style>

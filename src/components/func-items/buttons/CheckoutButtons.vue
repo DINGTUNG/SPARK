@@ -1,6 +1,5 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
-import { computed } from 'vue';
 
 const router = useRouter()
 const currentRoute = useRoute()
@@ -28,10 +27,6 @@ const next = () => {
   }
 }
 
-const buttonAppearance = computed(() => {
-  return currentRoute.name === "sponsor-checkout-overview" || currentRoute.name === "donate-checkout-overview" ? false : true
-}
-)
 
 </script>
 

@@ -110,7 +110,7 @@ const showBranch = (index) => {
   <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
   <RouterLink to="/resultreport">resultreport</RouterLink>
   <br>
-  <RouterLink to="/member-center">會員中心</RouterLink>
+  <RouterLink to="/letter-record">會員中心</RouterLink>
   <br>
 </template>
 

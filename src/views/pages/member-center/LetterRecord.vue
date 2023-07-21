@@ -2,6 +2,15 @@
 
 <div class="about_container">
   <div class="main_body">
+    <div class="title">
+      <img class="love_book" :src="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾">
+      <h1>感謝函專區</h1>
+    </div>
+    <div class="text">
+      <p>親愛的認養人，我們真心希望您近來都過得順遂和愉快，<br>由衷感謝您對我們的一直支持和無微不至的愛護～願您繼續擁有幸福的日子！</p>
+    </div>
+
+
     <el-table :data="tableData"
     :row-style="{height:'65px'}" :table-layout="tableLayout" :cell-class-name="letterRow" border >
       <el-table-column prop="no" label="兒童編號" width="220" />
@@ -95,5 +104,9 @@
 
 <style scoped lang="scss">
   @import '@/assets/sass/pages/member-center/letter-record.scss';
+
+  element.style{
+    cursor: unset;
+  }
 </style>
 

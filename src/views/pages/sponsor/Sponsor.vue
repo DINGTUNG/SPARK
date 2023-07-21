@@ -9,15 +9,13 @@ const sponsorCartStore = useSponsorCartStore();
 
 <template>
   <div class="title_img">
-    <img :src="'pictures/images/sponsor/banner.png'" alt="">
+    <img :src="'pictures/images/sponsor/banner.png'" alt="banner">
   </div>
   <div class="container">
     <div class="main_body">
       <div class="title_block">
         <h1>我要認養</h1>
-        <div class="top_line">
-          <img :src="'public/pictures/decorations/illustration/decorative_line.svg'" alt="">
-        </div>
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="sponsor_block">
         <div class="sponsor_img">

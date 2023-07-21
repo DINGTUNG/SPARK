@@ -39,9 +39,7 @@ const contact = reactive(
     <div class="main_body">
     <div class="title_block">
       <h1>星火之友</h1>
-      <div class="top_line">
-        <img :src="'public/pictures/decorations/illustration/decorative_line.svg'" alt="">
-      </div>
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
     </div>
     <div class="title_text">
       <p>星星之火，可以燎原，星火協會一直以來致力於促進貧困兒童的福祉促進，歷盡大小風雨，在這過程中的背後，少不了各界善心人士的各方支持幫忙，如今的星火能夠成長茁壯，少不了這些友會的共同努力~</p>

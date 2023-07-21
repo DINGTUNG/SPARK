@@ -80,7 +80,7 @@ const letterRow = ({ row, rowIndex }) => {
 </template>
 
 <style scoped lang="scss">
-// @import '@/assets/sass/test';
+@import '@/assets/sass/test';
 </style>
 
 
@@ -89,8 +89,8 @@ const letterRow = ({ row, rowIndex }) => {
   border-radius: 50px;
   border: 1px solid grey;
 
-  --el-table-row-hover-bg-color: red;
-
+ --el-table-row-hover-bg-color: none;
+ --el-table-border-color:red;
 }
 
 /* .el-scrollbar {

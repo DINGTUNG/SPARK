@@ -35,4 +35,5 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-3';</style>
+@import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-3';
+</style>

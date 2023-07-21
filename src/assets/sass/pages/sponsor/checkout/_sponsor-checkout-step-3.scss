@@ -16,14 +16,14 @@ div.sponsor_checkout_container {
     div.checkout_wrap {
       position: relative;
       top: -150px;
+      @include flex_hm;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 100px;
+      gap: 50px;
 
       div.member_data_table {
         @include flex_vm;
-        gap: 40px;
       }
 
       div.overview_wrap {

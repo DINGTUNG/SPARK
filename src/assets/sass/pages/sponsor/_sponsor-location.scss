@@ -8,7 +8,10 @@
 @include custom-responsive('xs') {
   div.banner {
     width: 100%;
-    img {
+    .PC-banner{
+      display: none;
+    }
+    img{
       width: 100%;
     }
   }
@@ -251,6 +254,19 @@
 
 }
 @include custom-responsive('xl'){
+  div.banner{
+    width: 100%;
+    .PC-banner{
+      display: block;
+    }
+    .MB-banner{
+      display: none;
+    }
+    img{
+      width: 100%;
+    }
+
+  }
   div.container {
     div.main_body{
       padding-top:5%;

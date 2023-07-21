@@ -2,7 +2,8 @@
 
 <div class="about_container">
   <div class="main_body">
-    <el-table :data="tableData" :table-layout="tableLayout" :cell-class-name="letterRow" border >
+    <el-table :data="tableData"
+    :row-style="{height:'65px'}" :table-layout="tableLayout" :cell-class-name="letterRow" border >
       <el-table-column prop="no" label="兒童編號" width="220" />
       <el-table-column prop="date" label="日期" width="220" />
       <el-table-column prop="area" label="所屬據點" width="220" />
@@ -67,6 +68,18 @@
       area: '台中星火中心',
       pic: '00155.jpg'
     },
+    {
+      no: '00025',
+      date: '2024.04.25',
+      area: '台東星火中心',
+      pic: '00190.jpg'
+    },
+    {
+      no: '00025',
+      date: '2024.05.07',
+      area: '台東星火中心',
+      pic: '00211.jpg'
+    },
   ]
 
   // const letterRow = ({ row, rowIndex }) => {
@@ -81,6 +94,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import '@/assets/sass/pages/member-center/member-center.scss';
+  @import '@/assets/sass/pages/member-center/letter-record.scss';
 </style>
 

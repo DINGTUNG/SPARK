@@ -1,7 +1,13 @@
 <script setup>
-
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
-import { ref, onMounted,  } from 'vue';
+import DonateCheckoutSideList from '@/layout/checkout-side-list/DonateCheckoutSideList.vue';
+
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+const sponsorCartStore = useSponsorCartStore();
+
+import { useDonateCartStore } from '@/stores/donate-cart.js';
+const donateCartStore = useDonateCartStore();
+
 const top = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -15,26 +21,23 @@ const top = () => {
             <div class="icon"><img :src="'pictures/icons/right-menu/sponsor_icon.png'" alt="領養icon"></div>
             我要認養</RouterLink>
         </li>
-        <li>
-            <a href="">
+        <li @click="sponsorCartStore.showSideList">
                 <div class="icon"><img :src="'pictures/icons/right-menu/sponsor_list_icon.png'" alt="領養清單icon"></div>
                 認養清單
-            </a>
         </li>
         <li>
-            <a href="">
+            <RouterLink to="/donate" class="link donate">
                 <div class="icon"><img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon"></div>
-                    我要捐款
-            </a>
+                我要捐款   
+            </RouterLink>
+
         </li>
-        <li>
-            <a href="">
+        <li @click="donateCartStore.showSideList">
                 <div class="icon">
                     <img :src="'pictures/icons/right-menu/donate_list_icon.png'
                     " alt="捐款清單icon">
                 </div>
                 捐款清單
-            </a>
         </li>
     </ul>
     <div class="other">
@@ -45,27 +48,34 @@ const top = () => {
   </div>
   <div class="rightMenu_MB">
     <ul>
-        <li>
-            <RouterLink to="/sponsor" class="link sponsor">
-            我要<br>認養
-            </RouterLink>
-            <a href="">
-                <SponsorCheckoutSideList/>
-                認養<br>清單
-            </a>
-        </li>
-        <li>
-            <a href="">
+        <ul>
+            <li>
+                <RouterLink to="/sponsor" class="link sponsor">
+                我要<br>認養
+                </RouterLink>
+            </li>
+            <li @click="sponsorCartStore.showSideList">
+                 認養<br>清單
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <RouterLink to="/donate" class="link donate">
                     我要<br>捐款
-                
-            </a>
-            <a href="">
+                </RouterLink>
+            </li>
+            <li @click="donateCartStore.showSideList">
                 捐款<br>清單
-            </a>
-        </li>
+            </li>
+        </ul>
     </ul>
-        <button id="top" @click="top"><img :src="'pictures/icons/right-menu/TOP_icon.png'" alt="TOP"></button>
+        <button id="top" @click="top">
+            <img :src="'pictures/icons/right-menu/TOP_icon.png'" alt="TOP">
+        </button>
   </div>
+  <SponsorCheckoutSideList />
+  <DonateCheckoutSideList />
 </template>
 
 <style scoped lang="scss">

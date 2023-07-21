@@ -80,9 +80,26 @@ const letterRow = ({ row, rowIndex }) => {
 </template>
 
 <style scoped lang="scss">
- @import '@/assets/sass/test'; 
-
+// @import '@/assets/sass/test';
 </style>
 
+
+<style>
+.el-table {
+  border-radius: 50px;
+  border: 1px solid grey;
+
+  --el-table-row-hover-bg-color: red;
+
+}
+
+/* .el-scrollbar {
+opacity: initial;
+  color: initial;
+  background-color:initial ;
+
+
+} */
+</style> 
 
 

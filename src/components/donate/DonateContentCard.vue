@@ -63,9 +63,6 @@ function openDonatePage() {
 
 const luckyDay = Math.random() >= 0.8;
 
-
-
-
 </script>
 
 <template>

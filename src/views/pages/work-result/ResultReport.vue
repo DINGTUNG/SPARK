@@ -39,13 +39,13 @@ let years = reactive([
 
 <template>
   <div class="title_img">
-    <img :src="'pictures/images/sponsor/banner.png'" alt="">
+    <img :src="'pictures/images/sponsor/banner.png'" alt="banner">
   </div>
   <div class="container">
     <div class="main_body">
       <div class="title_block">
         <h1>歷年報告</h1>
-        <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="report_inner">
         <div class="year_report">

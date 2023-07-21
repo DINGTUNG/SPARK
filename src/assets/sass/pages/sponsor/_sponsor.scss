@@ -165,7 +165,7 @@ div.container {
         @include custom-responsive(" xs sm") {
           @include h5_B_MB;
           border-radius: $br_MB;
-          margin: 0 0 20px;
+          margin: 0 10px 20px;
         }
 
         @include custom-responsive(" xl xxl") {

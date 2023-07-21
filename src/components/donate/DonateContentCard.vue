@@ -2,6 +2,8 @@
 import { useDonateCartStore } from '@/stores/donate-cart.js';
 const donateCartStore = useDonateCartStore();
 
+const luckyDay = Math.random() >= 0.8;
+
 </script>
 
 <template>

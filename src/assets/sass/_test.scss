@@ -1,0 +1,21 @@
+:deep(.test-red) {
+  background-color: red;
+
+
+  // &:hover {
+  //   color: blue;
+  // }
+
+
+}
+
+:deep(.cell) {
+  color: chartreuse;
+
+}
+
+
+:deep(.test-bold) {
+  font-weight: bold;
+
+}

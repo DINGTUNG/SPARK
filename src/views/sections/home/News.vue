@@ -78,16 +78,29 @@ const newsContentCardList = reactive([
 .news_title {
   display: flex;
   align-items: center;
-  padding: 0 0 4%;
+
+  @include custom-responsive("xs sm") {
+    padding: 0 0 6%;
+  }
+
+  @include custom-responsive("md lg xl 2l") {
+    padding: 0 0 4%;
+  }
 
   img {
-    width: 2.5%;
+    @include custom-responsive("xs") {
+      width: 6%;
+      padding: 0 4% 0 0;
+    }
+
+    @include custom-responsive("sm md lg xl 2l") {
+      width: 2.5%;
+      padding: 0 1.5% 0 0;
+    }
   }
 
   h2 {
-    @include h2_PC;
     color: $primaryBrandBlue;
-    padding: 0 0 0 1.5%;
   }
 }
 
@@ -97,10 +110,10 @@ div.news_content_card_list {
   justify-content: space-between;
 
   @include custom-responsive("xs sm") {
-    gap: 6vw 0;
+    gap: 7vw 0;
   }
 
-  @include custom-responsive("xl xxl") {
+  @include custom-responsive("md lg xl 2l") {
     justify-content: space-between;
     gap: 3.5vw 0;
   }
@@ -114,7 +127,11 @@ div.news_content_card_list {
       border-radius: $br_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("md lg xl") {
+      width: 45%;
+    }
+
+    @include custom-responsive("2l") {
       width: 30%;
       @include boxShadow_PC;
       border-radius: $br_PC;
@@ -123,19 +140,26 @@ div.news_content_card_list {
     .news_card_link {
       display: flex;
       flex-direction: column;
-      border-radius: $br_PC $br_PC 0 0;
       text-decoration: none;
+
+      @include custom-responsive("xs sm md lg") {
+        border-radius: $br_MB $br_MB 0 0;
+      }
+
+      @include custom-responsive("xl 2l") {
+        border-radius: $br_PC $br_PC 0 0;
+      }
 
       .card_pic {
         width: 100%;
         overflow: hidden;
         position: relative;
 
-        @include custom-responsive("xs sm") {
+        @include custom-responsive("xs sm md lg") {
           border-radius: $br_MB $br_MB 0 0;
         }
 
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl 2l") {
           border-radius: $br_PC $br_PC 0 0;
         }
 
@@ -158,15 +182,13 @@ div.news_content_card_list {
         &::after {
           content: "READ NEWS";
           position: absolute;
-          top: -10%;
           left: 50%;
+          top: -15%;
           transform: translate(-50%, -50%);
-          font-size: 18px;
           letter-spacing: 0.4rem;
           color: #fff;
           transition: .2s;
         }
-
 
         .card_hover_pic {
           width: 66%;
@@ -182,26 +204,32 @@ div.news_content_card_list {
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        // flex-grow: 1;
 
-        @include custom-responsive(" xs sm") {
-          padding: 2vw 2.2vw 2vw;
+        // flex-grow: 1;
+        @include custom-responsive("xs sm") {
+          padding: 5vw 5vw 6vw;
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive("md lg") {
+          padding: 2.5vw 2.2vw 2.5vw;
+        }
+
+        @include custom-responsive(" xl 2l") {
           padding: 1vw 1.8vw 1.6vw;
         }
 
         h5 {
           color: $functionalLightGrey4;
 
-          @include custom-responsive(" xs sm") {
-            @include h5_MB;
-            padding-bottom: 0.2vw;
+          @include custom-responsive("xs sm") {
+            padding-bottom: 1.8vw;
           }
 
-          @include custom-responsive(" xl xxl") {
-            @include h5_PC;
+          @include custom-responsive("md lg") {
+            padding-bottom: 1.2vw;
+          }
+
+          @include custom-responsive("xl 2l") {
             padding-bottom: 0.1vw;
           }
         }
@@ -209,12 +237,17 @@ div.news_content_card_list {
         h4 {
           color: $primaryBrandBlue;
 
-          @include custom-responsive(" xs sm") {
+          @include custom-responsive("xs sm") {
             @include h4_B_MB;
-            padding-bottom: 0.8vw;
+            padding-bottom: 1.8vw;
           }
 
-          @include custom-responsive(" xl xxl") {
+          @include custom-responsive("md lg") {
+            @include h4_B_MB;
+            padding-bottom: 1.2vw;
+          }
+
+          @include custom-responsive("xl 2l") {
             @include h4_B_PC;
             padding-bottom: 0.4vw;
           }
@@ -227,11 +260,11 @@ div.news_content_card_list {
           -webkit-box-orient: vertical;
           overflow: hidden;
 
-          @include custom-responsive(" xs sm") {
+          @include custom-responsive("xs sm md lg") {
             @include h6_MB;
           }
 
-          @include custom-responsive(" xl xxl") {
+          @include custom-responsive("xl 2l") {
             @include h6_PC;
           }
         }

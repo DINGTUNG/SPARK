@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from 'vue';
-
+import { useDonateCartStore } from '@/stores/donate-cart.js';
+const donateCartStore = useDonateCartStore();
 const donateContentCardList = reactive([
   {
     id: "D001",
@@ -51,13 +52,24 @@ const donateContentCardList = reactive([
     content: "讓孩子們探索自我，提出他們的夢想計畫，並邀請您投給您最愛的組別，為該組爭取「夢想成真」獎金！讓我們一同以熱情激勵，為孩子們的夢想點燃璀璨星火。",
     fundSum: "捐款累計 NT$87,900"
   }
+
 ])
+
+
+function openDonatePage() {
+  const url = 'https://www.buymeacoffee.com/tanuki.jr';
+  window.open(url, '_blank');
+}
+
+const luckyDay = Math.random() >= 0.8;
+
+
+
 
 </script>
 
 <template>
   <div class="donate_content_card_list">
-
     <div class="donate_content_card" v-for="donateContentCard in donateContentCardList" :key="donateContentCard.id">
       <div class="card_pic">
         <img :src="donateContentCard.imgSrc" :alt="donateContentCard.title">
@@ -66,141 +78,28 @@ const donateContentCardList = reactive([
         <h3>{{ donateContentCard.title }}</h3>
         <p>{{ donateContentCard.content }}</p>
         <h4>{{ donateContentCard.fundSum }}</h4>
-        <button>加 入 清 單</button>
+        <button @click="donateCartStore.showSideList">加入清單</button>
       </div>
-
     </div>
+
+
+    <div v-if="luckyDay" class="donate_content_card">
+      <div class="card_pic">
+        <img :src="'pictures/test/tanuki-rectangle.png'" alt="幸福狸貓">
+      </div>
+      <div class="card_content">
+        <h3>幸福狸貓</h3>
+        <p>散播幸福散播愛，請支持並贊助二狸貓熱呼呼的番薯!</p>
+        <h4>捐款累計 520🍠</h4>
+        <button @click="openDonatePage">前往贊助</button>
+      </div>
+    </div>
+
 
   </div>
 </template>
 
 
 <style scoped lang="scss">
-div.donate_content_card_list {
-  display: flex;
-  flex-wrap: wrap;
-
-  @include custom-responsive("xs sm") {
-    gap: 6vw 0;
-  }
-
-  @include custom-responsive("xl xxl") {
-    justify-content: space-between;
-    gap: 3.5vw 0;
-  }
-
-  div.donate_content_card {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-
-    @include custom-responsive("xs sm") {
-      width: 100%;
-      @include boxShadow_MB;
-      border-radius: $br_MB;
-    }
-
-    @include custom-responsive("xl xxl") {
-      width: 44%;
-      @include boxShadow_PC;
-      border-radius: $br_PC;
-
-      &:hover img {
-        transform: scale(1.1);
-        opacity: 0.8;
-      }
-    }
-
-    div.card_pic {
-      overflow: hidden;
-
-      @include custom-responsive("xs sm") {
-        border-radius: $br_MB $br_MB 0 0;
-      }
-
-      @include custom-responsive("xl xxl") {
-        border-radius: $br_PC $br_PC 0 0;
-      }
-
-      img {
-        width: 100%;
-        transition: 0.4s;
-      }
-    }
-
-    div.card_content {
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-
-      @include custom-responsive(" xs sm") {
-        padding: 4vw 4.5vw;
-      }
-
-      @include custom-responsive(" xl xxl") {
-        padding: 2vw 2.3vw;
-      }
-
-      h3 {
-        color: $primaryBrandBlue;
-
-        @include custom-responsive(" xs sm") {
-          @include h3_MB;
-          padding-bottom: 2vw;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include h3_PC;
-          padding-bottom: 0.8vw;
-        }
-      }
-
-      p {
-        color: $basicFontColor;
-
-        @include custom-responsive(" xs sm") {
-          @include h6_MB;
-          padding-bottom: 4vw;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include h6_PC;
-          padding-bottom: 2vw;
-        }
-      }
-
-      h4 {
-        color: $secondaryLightBlue2;
-        margin-top: auto;
-
-        @include custom-responsive(" xs sm") {
-          @include h4_MB;
-          padding-bottom: 4vw;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include h4_PC;
-          padding-bottom: 2vw;
-        }
-      }
-
-      button {
-        border: none;
-        margin-left: auto;
-
-        @include custom-responsive(" xs sm") {
-          @include smallBlueBtn_MB;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include smallBlueBtn_PC;
-        }
-      }
-
-    }
-
-  }
-
-}
+@import "@/assets/sass/components/donate/donate-content-card";
 </style>

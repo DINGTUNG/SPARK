@@ -13,29 +13,29 @@
     div.left_menu_container{
        display: block;
        position: absolute;
-       top: 60vh;
+       top: 75vh;
        left: 0;
-       width: 18vw;
+       width: 15vw;
        @include boxShadow_PC;
        border-radius: 0px 25px 25px 0px;
-       h2{
-        font-size: $h2Fs_PC;
+       h3{
+        font-size: $h3Fs_PC;
         color: $primaryBrandBlue;
         font-weight: $fWBold;
-        padding: 60px 0px 30px 17%;
+        padding: 60px 0px 30px 7%;
         box-sizing: border-box;
        }
        li{
         list-style: none;
         .link{
             text-decoration: none;
-            h3{
-                font-size: $h3Fs_PC;
+            h4{
+                font-size: $h4Fs_PC;
                 color: $primaryBrandBlue;
                 font-weight: $fWRegular;
                 margin-right: 17%;
                 padding: 15px 0px 15px;
-                margin-left: 17%;
+                margin-left: 7%; 
                 border-bottom: 1px solid $functionalLightGrey3;
             }
         }

@@ -196,8 +196,7 @@ div.blur-background.show {
 }
 
 
-
-@include custom-responsive("xxl"){   //1400px
+@include custom-responsive("2l"){   //1400px
   header{
     position: absolute;
     background-color: transparent;

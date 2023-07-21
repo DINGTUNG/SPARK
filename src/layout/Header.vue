@@ -52,7 +52,7 @@ const menuItems = ref([
     label: '捐款專案',
     submenu: [
       { label: '捐款內容', route: '/donate' },
-      { label: '捐款善心榜', route: '/' } //尚無連結
+      { label: '捐款善心榜', route: '/service/service2' }
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },

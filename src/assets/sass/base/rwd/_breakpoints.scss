@@ -31,7 +31,7 @@
   }
 
 
-  @if str-index($layouts, "xxl") {
+  @if str-index($layouts, "2l") {
     @include layout-xxl-responsive {
       @content;
     }
@@ -82,7 +82,7 @@
 
 @mixin layout-xxl-responsive {
 
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  /* Extra large devices (large laptops and desktops, 1400px and up) */
   @media (min-width: 1400px) {
     @content;
   }
@@ -96,17 +96,15 @@
     height: 60%; // logo圖片大小調整
     margin: auto;
   }
-  
+
   @include custom-responsive("sm md lg") {
     height: 70%; // logo圖片大小調整
     margin: auto;
   }
-  
+
   @include custom-responsive("xl xxl") {
     height: 80%; // logo圖片大小調整
     margin: 0 2% 0 5%;
   }
 
 }
-
-

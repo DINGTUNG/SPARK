@@ -69,13 +69,13 @@
     },
   ]
 
-  const letterRow = ({ row, rowIndex }) => {
-    if (rowIndex % 2 == 0) {
-      return "no_bgcolor";
-    } else {
-      return "bgcolor";
-    }
-  };
+  // const letterRow = ({ row, rowIndex }) => {
+  //   if (rowIndex % 2 == 0) {
+  //     return "no_bgcolor";
+  //   } else {
+  //     return "bgcolor";
+  //   }
+  // };
 
 
 </script>

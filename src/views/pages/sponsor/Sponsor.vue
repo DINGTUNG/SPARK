@@ -39,7 +39,7 @@ const sponsorCartStore = useSponsorCartStore();
         <div class="sponsor_location_inner">
           <div class="location_card" v-for="location in sponsorCartStore.locationList" :key="location.id">
             <div class="card_title">
-              <img :src="'../../../../public/pictures/decorations/illustration/smilestar_yellow.svg'" alt="stat">
+              <img :src="location.img" alt="stat">
               <h5>{{ location.name }}</h5>
             </div>
             <div class="card_count">

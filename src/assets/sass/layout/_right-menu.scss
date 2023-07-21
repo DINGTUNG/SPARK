@@ -15,35 +15,39 @@
             border: none;
             cursor: pointer;
             position:absolute;
-            top: -8px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
+            width: 20vw;
             img{
-                width: 110%;
+                width: 100%;
             }
         }
         ul{
             margin: auto;
             display: flex;
-            padding: 3%;
+            padding: 2% 0%;
             list-style: none;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 12%;
             align-items: center;
-            background-color: $primaryBrandBlue; 
+            background-color: $secondaryLightBlue3; 
             border-radius: $br_MB;
-            li{ 
+            ul{
                 display: flex;
-                width: 38%;
-                justify-content: space-around;
+                width: 40%;
+                justify-content: space-evenly;
                 position: relative;
-                a{
-                    color: $primaryBgWhite;
-                    text-decoration: none;
+                li{
+                    color:$primaryBrandWhite;
+                    a{
+                        color:$primaryBrandWhite;
+                        text-decoration: none;
+                    }
                 }
-
             }
         }
-        a + a::before{
+        li + li::before{
             content: '';
             width: .5px;
             height: 80%;
@@ -59,6 +63,10 @@
 @include custom-responsive("sm"){
     .rightMenu_MB{
         width: 70vw;
+        #top{
+            width: 15vw;
+        }
+
     }
 
 }
@@ -86,13 +94,20 @@
             li{ 
                 padding: 6% 0;   
                 font-size: 14px; 
-                a{
-                    text-decoration: none;                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: $primaryBgWhite;
+                cursor: pointer;
+                a{ 
+                    font-size: 14px; 
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     color: $primaryBgWhite;
+                    text-decoration: none;                
                 }
                 div.icon{
                     width: 60%;
@@ -155,6 +170,9 @@
             li{     
                 padding: 8% 0;
                 width: 100%;
+                a{
+                    width: 100%;
+                }
                 div.icon{
                     width: 60%;
                     img{

@@ -8,14 +8,13 @@
 
   // import required modules
   import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
+  const modules = [Autoplay, Pagination, Navigation]
   const bulletinBoard1 = reactive([
     "pictures/images/results/work-result/work_result_1.png",
     "pictures/images/results/work-result/work_result_2.png",
     "pictures/images/results/work-result/work_result_3.png",
     "pictures/images/results/work-result/work_result_4.png",
     "pictures/images/results/work-result/work_result_5.png",
-    "pictures/images/results/work-result/work_result_6.png",
   ])
   const bulletinBoard2 = reactive([
     "pictures/images/results/work-result/work_result_7.png",
@@ -51,11 +50,10 @@
         }"
         :pagination="false"
         :navigation="false"
-        :modules="modules"
         class="bulletinBoard"
       > 
 
-            <swiper-slide v-for="(img, index) in bulletinBoard1" :key="index" class="swiper-item">
+            <swiper-slide v-for="(img, index) in bulletinBoard1" :key="img" class="swiper-item">
               <img :src="img" alt="成果布告欄示意圖片">
             </swiper-slide>
 

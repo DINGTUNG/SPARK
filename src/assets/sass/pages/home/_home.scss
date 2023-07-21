@@ -38,7 +38,7 @@
     @include custom-responsive("xs sm") {
         height: 675px;
     }
-    @include custom-responsive("md lg xl xxl") {
+    @include custom-responsive("md lg xl 2l") {
         height: 772px;
     }
  
@@ -49,12 +49,12 @@
         text-align: center;
         @include custom-responsive("xs") {
                 left: 50%;
-                top: 42%;
+                top: 48%;
             }
-        @include custom-responsive("sm") {
-                top: 50%;
+        @include custom-responsive("sm md") {
+                top: 55%;
             }
-        @include custom-responsive("md lg xl xxl") {
+        @include custom-responsive("lg xl 2l") {
                 top: 50%;
             }
 
@@ -63,7 +63,7 @@
             @include custom-responsive("xs sm md") {
                 width: 78%;
             }
-            @include custom-responsive("lg xl xxl") {
+            @include custom-responsive("lg xl 2l") {
                 width: 100%;
             }
             
@@ -85,7 +85,7 @@
             @include custom-responsive("xs sm md") {
                 width: 35%;
             }
-            @include custom-responsive("lg xl xxl") {
+            @include custom-responsive("lg xl 2l") {
                 width: 45%;
             }
             
@@ -121,7 +121,7 @@
                 }
             }
 
-            @include custom-responsive("lg xl xxl") {
+            @include custom-responsive("lg xl 2l") {
                 width: 85%;
                 left: -100%;
                 @keyframes girl_float {
@@ -141,16 +141,16 @@
             position: absolute;
             animation: boy_float 1.9s 1s ease-in-out infinite alternate;
             @include custom-responsive("xs") {
-                width: 90%;
+                width: 85%;
                 left: 60%;
                 @keyframes boy_float {
             0% {
-                top: -95%;
+                top: -80%;
                 transform: rotate(2deg);
             }
 
             100% {
-                top: -102%;
+                top: -72%;
                 transform: rotate(-3deg);
             }
                 }
@@ -172,7 +172,7 @@
                 }
             }
 
-            @include custom-responsive("lg xl xxl") {
+            @include custom-responsive("lg xl 2l") {
                 width: 85%;
                 left: 125%;
                 @keyframes boy_float {
@@ -197,7 +197,7 @@
                 left: 74%;
                 top: 125%;
             }
-            @include custom-responsive("lg xl xxl") {
+            @include custom-responsive("lg xl 2l") {
                 width: 14%;
                 left: 3%;
                 top: 110%;
@@ -238,7 +238,7 @@
             left: 10%;
             top: 20%;
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl 2l") {
             width: 4%;
             left: 10%;
             top: 50%;
@@ -253,7 +253,7 @@
         @include custom-responsive("xs sm md lg") {
             display: none;
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl 2l") {
             display: block;
         } 
     }
@@ -277,7 +277,7 @@
         }
                 }
         }
-        @include custom-responsive("lg xl xxl") {
+        @include custom-responsive("lg xl 2l") {
                 width: 4.8%;
                 @keyframes shooting_star {
         0% {
@@ -308,7 +308,7 @@
             left: 25%;
             top: 28%;
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl 2l") {
             width: 4.8%;
             left: 32%;
             top: 28%;
@@ -322,7 +322,7 @@
         @include custom-responsive("xs sm md lg") {
             display: none;
         }
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl 2l") {
             display: block;
         } 
     }
@@ -338,7 +338,7 @@
         height: 140px;
             background-position: right;
     }
-        @include custom-responsive("md lg xl xxl") {
+        @include custom-responsive("md lg xl 2l") {
         height: 232px;
             background-position: center;
     }
@@ -356,13 +356,13 @@
         @include custom-responsive("xs sm md") {
         @include body_space_MB;
         }
-        @include custom-responsive("lg xl xxl") {
+        @include custom-responsive("lg xl 2l") {
         @include body_space_PC;
         }
 
         .intro_title {
         text-align: center;
-        @include custom-responsive("lg xl xxl") {
+        @include custom-responsive("lg xl 2l") {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -376,19 +376,21 @@
                 @include custom-responsive("sm md") {
                     width: 14%;
                 }
-                @include custom-responsive("lg xl xxl") {
+                @include custom-responsive("lg xl 2l") {
                     width: 8%;
                 }
             }
             h1 {
                 color: $primaryBrandBlue;
-                padding: 0 0 0 2%;
+                
 
                 @include custom-responsive("xs sm md") {
-                    @include h2_MB;
+                    @include h1_MB;
+                    padding: 5% 0 5% 0;
                 }
-                @include custom-responsive("lg xl xxl") {
-                    @include h2_PC;
+                @include custom-responsive("lg xl 2l") {
+                    @include h1_PC;
+                    padding: 0 0 0 2%;
                 }
             }
         }
@@ -402,12 +404,12 @@
                 line-height: 2.4rem;
                 width: 90%;
             }
-            @include custom-responsive("md lg") {
+            @include custom-responsive("md lg xl") {
                 @include h5_MB;
                 line-height: 3rem;
-                width: 75%;
+                width: 80%;
             }
-                @include custom-responsive("xl xxl") {
+                @include custom-responsive("2l") {
                 @include h5_PC;
                 line-height: 3.2rem;
                 width: 65%;
@@ -419,7 +421,7 @@
     @include custom-responsive("xs sm md") {
                 padding: 0 0 40%;
             }
-    @include custom-responsive("lg xl xxl") {
+    @include custom-responsive("lg xl 2l") {
                 padding: 0 0 8%;
             }
     img {
@@ -429,7 +431,7 @@
         @include custom-responsive("xs sm md") {
             width: 45%;
         }
-        @include custom-responsive("lg xl xxl") {
+        @include custom-responsive("lg xl 2l") {
             width: 28%;
         }
 
@@ -452,7 +454,7 @@
                 top: 40%;
                 left: 51%;
             }
-            @include custom-responsive("lg xl xxl") {
+            @include custom-responsive("lg xl 2l") {
                 top: 56%;
                 left: 50%;
             }
@@ -463,7 +465,7 @@
                 top: 4%;
                 left: 61%;
             }
-                @include custom-responsive("lg xl xxl") {
+                @include custom-responsive("lg xl 2l") {
                 top: 5%;
                 left: 55%;
             }
@@ -473,7 +475,7 @@
                 top: 18%;
                 left: 46%;
             }
-                @include custom-responsive("lg xl xxl") {
+                @include custom-responsive("lg xl 2l") {
                 top: 25%;
                 left: 46%;
             }
@@ -483,7 +485,7 @@
                 top: 37%;
                 left: 39%;
             }
-                @include custom-responsive("lg xl xxl") {
+                @include custom-responsive("lg xl 2l") {
                 top: 50%;
                 left: 42%;
             }
@@ -513,7 +515,7 @@
             left: 57%;
             transform: translateX(0%);
                 }
-        @include custom-responsive("xxl") {
+        @include custom-responsive("2l") {
             width: 23%;
             position: absolute;
             top: 34%;
@@ -525,7 +527,7 @@
                 @include custom-responsive("xs sm md") {
                 @include h5_B_MB;
             }
-                @include custom-responsive("lg xl xxl") {
+                @include custom-responsive("lg xl 2l") {
                 @include h5_B_PC;
             }
             }
@@ -533,7 +535,7 @@
                 @include custom-responsive("xs sm md") {
                 @include h5_B_MB;
             }
-                @include custom-responsive("lg xl xxl") {
+                @include custom-responsive("lg xl 2l") {
                 @include h5_B_PC;
             }
             }
@@ -542,7 +544,7 @@
             @include custom-responsive("xs sm md") {
                 @include h5_B_MB;
             }
-                @include custom-responsive("lg xl xxl") {
+                @include custom-responsive("lg xl 2l") {
                 @include h5_B_PC;
             }
         }
@@ -551,7 +553,7 @@
                 font-size: 26px;
                 color: $decorativeOrange;
             }
-            @include custom-responsive("sm md lg xl xxl") {
+            @include custom-responsive("sm md lg xl 2l") {
                 font-size: 30px;
                 color: $decorativeOrange;
             }
@@ -567,7 +569,7 @@
     @include custom-responsive("xs sm md") {
         display: none;
     }
-    @include custom-responsive("lg xl xxl") {
+    @include custom-responsive("lg xl 2l") {
         display: block;
     }
 }
@@ -579,7 +581,7 @@
         @include custom-responsive("xs sm md") {
         @include body_space_MB;
     }
-        @include custom-responsive("lg xl xxl") {
+        @include custom-responsive("lg xl 2l") {
         @include body_space_PC;
     }
 }

@@ -19,136 +19,24 @@ const donateCartStore = useDonateCartStore();
         <!-- 點擊button觸發程式並帶入donateContentCard.id -->
       </div>
     </div>
+
+    <div v-if="luckyDay" class="donate_content_card">
+      <div class="card_pic">
+        <img :src="'pictures/test/tanuki-rectangle.png'" alt="幸福狸貓">
+      </div>
+      <div class="card_content">
+        <h3>幸福狸貓</h3>
+        <p>散播幸福散播愛，請支持並贊助二狸貓熱呼呼的番薯!</p>
+        <h4>捐款累計 520🍠</h4>
+        <button @click="openDonatePage">前往贊助</button>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
 
 <style scoped lang="scss">
-div.donate_content_card_list {
-  display: flex;
-  flex-wrap: wrap;
-
-  @include custom-responsive("xs sm") {
-    gap: 6vw 0;
-  }
-
-  @include custom-responsive("xl xxl") {
-    justify-content: space-between;
-    gap: 3.5vw 0;
-  }
-
-  div.donate_content_card {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-
-    @include custom-responsive("xs sm") {
-      width: 100%;
-      @include boxShadow_MB;
-      border-radius: $br_MB;
-    }
-
-    @include custom-responsive("xl xxl") {
-      width: 44%;
-      @include boxShadow_PC;
-      border-radius: $br_PC;
-
-      &:hover img {
-        transform: scale(1.1);
-        opacity: 0.8;
-      }
-    }
-
-    div.card_pic {
-      overflow: hidden;
-
-      @include custom-responsive("xs sm") {
-        border-radius: $br_MB $br_MB 0 0;
-      }
-
-      @include custom-responsive("xl xxl") {
-        border-radius: $br_PC $br_PC 0 0;
-      }
-
-      img {
-        width: 100%;
-        transition: 0.4s;
-      }
-    }
-
-    div.card_content {
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-
-      @include custom-responsive(" xs sm") {
-        padding: 4vw 4.5vw;
-      }
-
-      @include custom-responsive(" xl xxl") {
-        padding: 2vw 2.3vw;
-      }
-
-      h3 {
-        color: $primaryBrandBlue;
-
-        @include custom-responsive(" xs sm") {
-          @include h3_MB;
-          padding-bottom: 2vw;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include h3_PC;
-          padding-bottom: 0.8vw;
-        }
-      }
-
-      p {
-        color: $basicFontColor;
-
-        @include custom-responsive(" xs sm") {
-          @include h6_MB;
-          padding-bottom: 4vw;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include h6_PC;
-          padding-bottom: 2vw;
-        }
-      }
-
-      h4 {
-        color: $secondaryLightBlue2;
-        margin-top: auto;
-
-        @include custom-responsive(" xs sm") {
-          @include h4_MB;
-          padding-bottom: 4vw;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include h4_PC;
-          padding-bottom: 2vw;
-        }
-      }
-
-      button {
-        border: none;
-        margin-left: auto;
-
-        @include custom-responsive(" xs sm") {
-          @include smallBlueBtn_MB;
-        }
-
-        @include custom-responsive(" xl xxl") {
-          @include smallBlueBtn_PC;
-        }
-      }
-
-    }
-
-  }
-
-}
+@import "@/assets/sass/components/donate/donate-content-card";
 </style>

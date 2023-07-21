@@ -4,37 +4,31 @@ table.checkout_table {
 
   caption {
     text-align: left;
-    @include h1_PC;
+    @include h2_PC;
     border-bottom: 5px solid $primaryBrandBlue;
     padding: 10px 0;
   }
 
-}
+
+  td.payment_method {
+    border-bottom: 1px solid $functionalLightGrey3;
+    padding: 20px;
+
+    input[type="radio"] {
+      accent-color: $primaryBrandBlue;
+      transform: scale(2);
+      border: 3px solid primaryBrandBlue;
+    }
+
+    label {
+      margin-left: 20px;
+      @include h4_PC;
+    }
 
 
-div.payment_frequency_wrap {
-  @include flex_hm;
 
-  div.payment_frequency {
-    @include flex_hm;
-    @include h4_PC;
-    width: 150px;
-    height: 100px;
-    border-radius: $br_PC;
-    margin: 20px 10px;
-    border: 2px solid $primaryBrandBlue;
-    @include btnEffect;
   }
 
-  div.chosen {
-    color: $primaryBrandWhite;
-    background-color: $primaryBgBlue;
-  }
-
-  div.unchosen {
-    color: $primaryBrandBlue;
-    background-color: $primaryBrandWhite;
-  }
 
 
 }

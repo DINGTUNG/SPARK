@@ -100,7 +100,7 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
   //導覽列標題變更區塊
   const activeIdx = ref(''); //先使activeIdx內容為空的
   const activeCard = computed(() => {
-    const target = donateContentCardList.find(value => value.id === activeIdx.value) ?? {}
+  const target = donateContentCardList.find(value => value.id === activeIdx.value) ?? {}
     //宣告 target為donateContentCardList陣列使用find method去找到value的 value.id 是否和activeIdx.value相等，如果不是就返回{}
     return target;
     //將值傳回

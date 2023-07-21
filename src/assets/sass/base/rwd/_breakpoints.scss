@@ -31,7 +31,7 @@
   }
 
 
-  @if str-index($layouts, "2l") {
+  @if str-index($layouts, "xx-l") {
     @include layout-xxl-responsive {
       @content;
     }

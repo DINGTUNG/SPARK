@@ -1,20 +1,20 @@
 <script setup>
-
 import { useRouter } from 'vue-router';
 import { useDonateCartStore } from '@/stores/donate-cart.js';
-const donateCartStore = useDonateCartStore();
 const router = useRouter()
+const donateCartStore = useDonateCartStore();
 
 const addPrice = (price) => {
-  donateCartStore.formattedAmount == price;
+  donateCartStore.message = price;
 }
 
-
 </script>
+
 <template>
   <div class="donate_page" :class="{ active: donateCartStore.isSideListShow }">
     <div class="title">
-      <h2>{{ donateCartStore.donateContentCardList.title }}</h2>
+      <h2>{{ donateCartStore.activeCard.title }}</h2>
+      <h2 v-if="donateCartStore.activeCard.title==''">捐款清單</h2>
       <i class="fa-regular fa-circle-xmark" @click="donateCartStore.hideSideList" ></i>
     </div>
     <div class="donate_price">
@@ -28,8 +28,8 @@ const addPrice = (price) => {
       <input type="text" placeholder="輸入金額，不可小於最低金額100元" v-model="donateCartStore.message">
     </div>
     <div class="img">
-      <img :src="'public/pictures/decorations/illustration/blue_shooting_stars.svg'" alt="流星">
-      <img :src="'public/pictures/characters/star/star_superman.svg'" alt="超人">
+      <img :src="'public/pictures/decorations/illustration/blue_shooting_stars.svg'" alt="流星" class="star">
+      <img :src="'public/pictures/characters/star/star_superman.svg'" alt="超人" class="man">
     </div>
     <div class="donate_total">
       <div class="total_price">

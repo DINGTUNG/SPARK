@@ -1,0 +1,48 @@
+div.about_container {
+  width: 100%;
+
+  div.main_body {
+      margin: auto;
+      position: relative;
+      @include custom-responsive("xs sm") {
+          @include body_space_MB;
+      }
+
+      @include custom-responsive("xl 2l") {
+          @include body_space_PC;
+      }
+
+      ::v-deep(.el-table__header-wrapper .el-table__header thead th .cell){
+          color: #ffffff;
+          background-color: #1D3D6C;
+          font-size: 1rem;
+          font-weight: 400;
+          letter-spacing: .05rem;
+
+      }
+      ::v-deep(.el-table__header-wrapper .el-table__header thead th){
+          background-color: #1D3D6C;
+          height:  65px;
+      }
+      ::v-deep(table tbody tr td .cell){
+          font-size: 1rem;
+          letter-spacing: .05rem;
+      }
+      ::v-deep(.el-table){
+          border-radius: 30px;
+          margin-bottom: 200px;
+          margin-top: 200px;
+          $el-table-row-hover-bg-color: red;
+
+
+      }
+      // ::v-deep(.el-table_1_column_4 .el-table__cell){
+      //     border-radius: 0 0 30px 0;
+      // }
+      // :deep(.el-table .el-table__body-wrapper .el-table__row){
+      //     background-color: #EBC483;
+      // }
+
+      
+  }
+}

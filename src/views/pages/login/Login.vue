@@ -27,20 +27,14 @@ const login = () => {
     }
   }
 
-  // return {
-  // account,
-  // password,
-  // showError,
-  // login
-  // };
 };
 
   
 </script>
 
 <template>
-  <div class="main_body">
-    <img src="https://picsum.photos/300/200/?random=10">
+  <div class="login_body">
+    <img :src="'public/pictures/images/login/login.png'" class="title_img">
     <div class="login">
       <h1>會員登入</h1>
       <label for="account">帳號</label>
@@ -51,8 +45,20 @@ const login = () => {
         {{ errorAccount }}
       </div>
       <button class="login_button" @click="login">登入</button>
+      <div class="login_block">
+        <div class="login_title">
+          <h5>以其他方式登入</h5>
+          <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="">
+        </div>
+        <div class="google_login">
+          <button>登入</button>
+        </div>
+        <div class="fb_login">
+          <button>登入</button>
+        </div>
     </div>
-
+    </div>
+   
   </div>
 </template>
 

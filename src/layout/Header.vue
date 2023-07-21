@@ -33,26 +33,29 @@ const menuItems = ref([
   },
   {
     label: '成果佈告欄',
+    route: '/story-gallery',
     submenu: [
       { label: '故事藝廊', route: '/story-gallery' },
-      { label: '歷年報告', route: '/resultreport' },
+      { label: '歷年報告', route: '/result-report' },
       { label: '服務里程碑', route: '/' }  //尚無連結
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '認養計畫',
+    route: '/sponsor',
     submenu: [
-      { label: '我要認養', route: '/single-news' },
+      { label: '我要認養', route: '/sponsor-location' },
       { label: '認養地區', route: '/' } //尚無連結
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '捐款專案',
+    route: '/donate',
     submenu: [
       { label: '捐款內容', route: '/donate' },
-      { label: '捐款善心榜', route: '/service/service2' }
+      { label: '捐款善心榜', route: '/' } //尚無連結
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
@@ -110,12 +113,6 @@ const closeNav = () => {
   }
 };
 </script>
-
-
-
-<!-- 66666 -->
-
-
 
 
 <template>
@@ -208,8 +205,6 @@ const closeNav = () => {
     transform: translateX(0%);
   }
 }
-
-
 </style>
 
 

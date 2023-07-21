@@ -123,9 +123,9 @@ const router = createRouter({
       component: () => import('@/views/pages/work-result/ResultReport.vue')
     },
     {
-      path: '/member-center',
-      name: 'member-center',
-      component: () => import('@/views/pages/member-center/MemberCenter.vue')
+      path: '/letter-record',
+      name: 'letter-record',
+      component: () => import('@/views/pages/member-center/LetterRecord.vue')
     },
     
   ]

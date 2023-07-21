@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-import { useSponsorCartStore, PaymentPlan } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 

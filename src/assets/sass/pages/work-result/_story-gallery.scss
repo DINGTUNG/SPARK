@@ -66,6 +66,7 @@ div.container{
     section.cover-story{
         margin: 3% 0;
         position: relative;
+        cursor: pointer;
         div.deco{
           position: absolute;
           top: 15%;
@@ -300,7 +301,7 @@ div.container{
               }
       
               &::after {
-                content: "READ NEWS";
+                content: "READ STORY";
                 position: absolute;
                 left: 50%;
                 top: -15%;

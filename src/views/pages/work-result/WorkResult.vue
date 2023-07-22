@@ -1,20 +1,15 @@
 <script setup>
   import { reactive } from "vue";
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-
-  // Import Swiper styles
-  import 'swiper/css/bundle';
-
-  // import required modules
-  import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-  const modules = [Autoplay, Pagination, Navigation]
+  import { useColorMode } from '@vueuse/core'
+  const colorMode = useColorMode()
   const bulletinBoard1 = reactive([
     "pictures/images/results/work-result/work_result_1.png",
     "pictures/images/results/work-result/work_result_2.png",
     "pictures/images/results/work-result/work_result_3.png",
     "pictures/images/results/work-result/work_result_4.png",
     "pictures/images/results/work-result/work_result_5.png",
+    "pictures/images/results/work-result/work_result_6.png",
+
   ])
   const bulletinBoard2 = reactive([
     "pictures/images/results/work-result/work_result_7.png",
@@ -23,6 +18,7 @@
     "pictures/images/results/work-result/work_result_10.png",
     "pictures/images/results/work-result/work_result_11.png",
     "pictures/images/results/work-result/work_result_12.png",
+
   ])
   const bulletinBoard3 = reactive([
     "pictures/images/results/work-result/work_result_13.png",
@@ -40,62 +36,21 @@
         <img :src="'pictures/decorations/illustration/orange_asterisk_single_2.svg'" alt="裝飾">
         <h1>成果佈告欄</h1>
       </div>
-        <swiper
-        :slidesPerView="5"
-        :spaceBetween="15"
-        :loop="true"
-        :autoplay="{
-          delay: 0,
-          disableOnInteraction: false,
-        }"
-        :pagination="false"
-        :navigation="false"
-        class="bulletinBoard"
-      > 
+      <div class="img_Marquee">
+        <Vue3Marquee
+        :gradient="true"
+        gradient-length="30%">
+          <img v-for=" (img, index) in bulletinBoard1 " :key="index" :src="img"/>
+        </Vue3Marquee>
+        <Vue3Marquee
+        :direction="'reverse'">
+          <img v-for=" (img, index) in bulletinBoard2 " :key="index" :src="img"/>
+        </Vue3Marquee>
+        <Vue3Marquee>
+          <img v-for=" (img, index) in bulletinBoard3 " :key="index" :src="img"/>
+        </Vue3Marquee>
+      </div>
 
-            <swiper-slide v-for="(img, index) in bulletinBoard1" :key="index" class="swiper-item">
-              <img :src="img" alt="成果布告欄示意圖片">
-            </swiper-slide>
-
-        </swiper>
-        <swiper
-        :slidesPerView="5"
-        :spaceBetween="15"
-        :loop="true"
-        :autoplay="{
-          delay: 0,
-          disableOnInteraction: false,
-        }"
-        :pagination="false"
-        :navigation="false"
-        :modules="modules"
-        class="bulletinBoard"
-      > 
-
-            <swiper-slide v-for="(img, index) in bulletinBoard2" :key="index" class="swiper-item">
-              <img :src="img" alt="成果布告欄示意圖片">
-            </swiper-slide>
-
-        </swiper>
-        <swiper
-        :slidesPerView="5"
-        :spaceBetween="15"
-        :loop="true"
-        :autoplay="{
-          delay: 0,
-          disableOnInteraction: false,
-        }"
-        :pagination="false"
-        :navigation="false"
-        :modules="modules"
-        class="bulletinBoard"
-      > 
-
-            <swiper-slide v-for="(img, index) in bulletinBoard3" :key="index" class="swiper-item">
-              <img :src="img" alt="成果布告欄示意圖片">
-            </swiper-slide>
-
-        </swiper>
         <div class="story">
           <div class="story_title">
             <h2>故事藝廊</h2>

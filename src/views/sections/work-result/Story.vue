@@ -1,8 +1,5 @@
 <script setup>
-  import { reactive, ref } from "vue";
-  import { defineProps, defineEmits } from 'vue'
-  
-  
+  import { reactive } from "vue";
   
   const story_article = reactive([
     {
@@ -59,7 +56,7 @@
     }
   ])
 
-  const { props } = defineProps(["storyId"]);
+  const props = defineProps(["storyId"]);
   const emit = defineEmits();
 
   const closeStory = () => {
@@ -129,9 +126,9 @@
           top: 55%;
         }
         @include custom-responsive("xl"){
-          width: 70vw;
+          width: 60vw;
           border-radius:$br_PC;
-          padding: 3%;
+          padding: 1%;
           justify-content: space-evenly;
           align-items: center;
           flex-direction: row;
@@ -139,6 +136,8 @@
         @include custom-responsive("xx-l") {
           width: 60vw;
           top: 50%;
+          padding: 3%;
+
         }
         button{
           background: none;
@@ -200,7 +199,7 @@
                 display: none;
               }
             }
-            @include custom-responsive("xl xx-l"){
+            @include custom-responsive("xx-l"){
               &:nth-child(3){
                 display: block;
               }
@@ -215,7 +214,7 @@
           @include custom-responsive('lg') {
             width: 40%;
           }
-          @include custom-responsive("xl xx-l") {
+          @include custom-responsive("xx-l") {
             width: 50%;
             height: fit-content;
             padding-bottom: 10%;

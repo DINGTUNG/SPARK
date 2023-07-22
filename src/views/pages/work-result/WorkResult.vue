@@ -1,37 +1,18 @@
 <script setup>
   import { reactive } from "vue";
-  import { useColorMode } from '@vueuse/core'
-  const colorMode = useColorMode()
-  const bulletinBoard1 = reactive([
-    "pictures/images/results/work-result/work_result_1.png",
-    "pictures/images/results/work-result/work_result_2.png",
-    "pictures/images/results/work-result/work_result_3.png",
-    "pictures/images/results/work-result/work_result_4.png",
-    "pictures/images/results/work-result/work_result_5.png",
-    "pictures/images/results/work-result/work_result_6.png",
+  import { BulletinBoard1, BulletinBoard2, BulletinBoard3 } from '@/constant/workResult.constant.js'
 
-  ])
-  const bulletinBoard2 = reactive([
-    "pictures/images/results/work-result/work_result_7.png",
-    "pictures/images/results/work-result/work_result_8.png",
-    "pictures/images/results/work-result/work_result_9.png",
-    "pictures/images/results/work-result/work_result_10.png",
-    "pictures/images/results/work-result/work_result_11.png",
-    "pictures/images/results/work-result/work_result_12.png",
-
-  ])
-  const bulletinBoard3 = reactive([
-    "pictures/images/results/work-result/work_result_13.png",
-    "pictures/images/results/work-result/work_result_14.png",
-    "pictures/images/results/work-result/work_result_15.png",
-    "pictures/images/results/work-result/work_result_16.png",
-    "pictures/images/results/work-result/work_result_17.png",
-    "pictures/images/results/work-result/work_result_18.png",
-  ])
+  
+  const bulletinBoard1 = reactive(BulletinBoard1)
+  const bulletinBoard2 = reactive(BulletinBoard2)
+  const bulletinBoard3 = reactive(BulletinBoard3)
 </script>
 
 <template>
     <div class="result_display">
+      <div class="curve_decoration">
+        <img :src="'pictures/images/results/work-result/curve_decoration.png'" alt="">
+      </div>
       <div class="result_title">
         <img :src="'pictures/decorations/illustration/orange_asterisk_single_2.svg'" alt="裝飾">
         <h1>成果佈告欄</h1>
@@ -39,14 +20,21 @@
       <div class="img_Marquee">
         <Vue3Marquee
         :gradient="true"
+        :gradient-color="[38, 60, 119]"
         gradient-length="30%">
           <img v-for=" (img, index) in bulletinBoard1 " :key="index" :src="img"/>
         </Vue3Marquee>
         <Vue3Marquee
+        :gradient="true"
+        :gradient-color="[38, 60, 119]"
+        gradient-length="30%"
         :direction="'reverse'">
           <img v-for=" (img, index) in bulletinBoard2 " :key="index" :src="img"/>
         </Vue3Marquee>
-        <Vue3Marquee>
+        <Vue3Marquee
+        :gradient="true"
+        :gradient-color="[38, 60, 119]"
+        gradient-length="30%">
           <img v-for=" (img, index) in bulletinBoard3 " :key="index" :src="img"/>
         </Vue3Marquee>
       </div>
@@ -67,6 +55,14 @@
         </div>
     </div>
     <div class="bottom_wrap">
+      <div class="stars">
+        <div class="two">
+          <img :src="'pictures/decorations/illustration/two_golden_stars.svg'" alt="星星裝飾">
+        </div>
+        <div class="three">
+          <img :src="'pictures/decorations/illustration/three_asterisk.svg'" alt="星星裝飾">
+        </div>
+      </div>
       <div class="link">
       <div class="item">
         <h2>歷年報告</h2>

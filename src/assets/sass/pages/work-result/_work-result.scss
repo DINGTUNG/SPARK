@@ -1,8 +1,20 @@
-.result_display{
+div.result_display{
     width: 100%;
     background-image: url(../../../../../public/pictures/images/results/work-result/background_image.png);
     background-position: center top;
-    padding:8% 0;
+    padding:8% 0 16%;
+    position: relative;
+    overflow: hidden;
+    div.curve_decoration{
+        position: absolute;
+        width: 100%;
+        bottom: -3%;
+        left: -1%;
+        img{
+            width: 105%;
+        }
+        z-index: 3;
+    }
     div.result_title{
         position: relative;
         margin: 4% 4% 4% 15%;
@@ -77,7 +89,9 @@
 }
 div.bottom_wrap{
     width: 100%;
-    margin: 3% 0;
+    margin: -5% 0 3%;
+    position: relative;
+    z-index: 5;
     div.link{
         display: flex;
         justify-content: center;
@@ -105,6 +119,28 @@ div.bottom_wrap{
                 text-decoration: none;
                 text-align: center;
                 line-height: 50px;
+                
+            }
+        }
+    }
+    div.stars{
+        
+        div.two{
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            width: 5vw;
+            img{
+                width: 100%;
+            }
+        }
+        div.three{
+            position: absolute;
+            bottom: 5%;
+            right: 12%;
+            width: 6vw;
+            img{
+                width: 100%;
             }
         }
     }

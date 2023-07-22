@@ -55,7 +55,7 @@ const menuItems = ref([
     route: '/donate',
     submenu: [
       { label: '捐款內容', route: '/donate' },
-      { label: '捐款善心榜', route: '/' } //尚無連結
+      { label: '捐款善心榜', route: '/donate-list' }
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },

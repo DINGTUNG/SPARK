@@ -25,5 +25,77 @@ div.donate_list_container{
                 width: 70%;
             }
         }
+
+        div.switch_button{
+            margin-left: auto;
+            width: fit-content;
+            display: flex;
+
+            a{
+                text-align: center;
+                line-height: 55px;
+                text-decoration: none;
+                display: inline-block;
+                font-weight: $fWBold;
+                margin: 0 10px;
+            }
+
+            .small-blue-btn {
+                @include smallBlueBtn_PC;
+                font-size: 20px;
+              }
+            
+            .small-white-btn {
+                @include smallWhiteBtn_PC;
+                font-size: 20px;
+              }
+            
+        }
+
+        .bar_container{
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: auto;
+        }
+
+        .bar {
+            width: 6%;
+            position: relative; 
+            top: 20%;
+            animation: barRise 1.5s ease-in-out;
+            transform-origin: bottom;
+
+            @keyframes barRise {
+                from {
+                  height: 0;
+                }
+                to {
+                  height: 100;
+                }
+              } 
+        }
+
+        .bar_text {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 30%;  //40px
+            white-space: nowrap;
+            font-size: 20px;
+            font-weight: $fWBold;
+        }
+
+        .bar_image {
+            position: absolute;
+            bottom: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            margin-bottom: 40%; //40px
+        }
     }
 }

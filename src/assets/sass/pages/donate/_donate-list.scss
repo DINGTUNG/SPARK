@@ -1,0 +1,29 @@
+div.donate_list_banner{
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+
+div.donate_list_container{
+    width: 100%;
+
+    div.main_body{
+        width: 62.5vw;
+        
+        div.title_block{
+            display: flex;
+            padding: 20px 0 35px;
+            align-items: center;
+            justify-content: space-between;
+
+            h1 {
+                color: $primaryBrandBlue;
+            }
+            
+            img.deco_line{
+                width: 70%;
+            }
+        }
+    }
+}

@@ -3,11 +3,11 @@ import { ref, watchEffect } from 'vue';
 import { RouterLink } from 'vue-router';
 
 let isNavOpen = ref(false);
-let isLargeScreen = ref(window.matchMedia("(min-width: 1400px)").matches);
+let isLargeScreen = ref(window.matchMedia("(min-width: 1200px)").matches);
 let showWrapper = ref(false);
 
 watchEffect(() => {
-  const mediaQuery = window.matchMedia("(min-width: 1400px)");
+  const mediaQuery = window.matchMedia("(min-width: 1200px)");
   mediaQuery.addEventListener('change', () => {
     isLargeScreen.value = mediaQuery.matches;
     if (!isLargeScreen.value) {

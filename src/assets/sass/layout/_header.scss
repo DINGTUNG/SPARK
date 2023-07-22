@@ -7,7 +7,7 @@ header {
     .link_home {
 
       img.logo {
-        
+        content: url('/public/pictures/logo/logo_white.svg');
         vertical-align: top;
       }
     }
@@ -137,6 +137,7 @@ header {
             a.link{
               color: $primaryBrandWhite;
               font-size: 17.5px;
+              font-weight: $fWBold;
             }
           }
         }
@@ -186,7 +187,7 @@ div.blur-background.show {
           li{
 
             a.link{
-              font-size: 20px;
+
             }
           }
         }
@@ -196,7 +197,8 @@ div.blur-background.show {
 }
 
 
-@include custom-responsive("xx-l"){   //1400px
+
+@include custom-responsive("xl"){   //1200px
   header{
     position: absolute;
     background-color: transparent;
@@ -207,6 +209,13 @@ div.blur-background.show {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .link_home{
+      img.logo{
+        content: url('/public/pictures/logo/logo_white_2.svg');
+        width: 150px;
+      }
+    }
 
     div.wrapper{
       position: static;
@@ -227,6 +236,7 @@ div.blur-background.show {
             
             a.link{
               color: $primaryBrandBlue;
+              font-size: 18px;
             }
   
             a.member_login {
@@ -251,5 +261,26 @@ div.blur-background.show {
 }
 
 
-
+@include custom-responsive("xx-l"){ //1400px
+  header{
+    .link_home{
+      img.logo{
+        content: url('/public/pictures/logo/logo_white.svg');
+        width: 300px;
+      }
+    }
+    div.wrapper{
+      nav{
+        ul{
+          li{
+            a.link{
+              font-size: 20px;
+              font-weight: $fWBold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 

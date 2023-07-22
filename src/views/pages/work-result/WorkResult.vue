@@ -21,7 +21,8 @@
         <Vue3Marquee
         :gradient="true"
         :gradient-color="[38, 60, 119]"
-        gradient-length="30%">
+        gradient-length="30%"
+        >
           <img v-for=" (img, index) in bulletinBoard1 " :key="index" :src="img"/>
         </Vue3Marquee>
         <Vue3Marquee

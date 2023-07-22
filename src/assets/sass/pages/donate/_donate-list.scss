@@ -28,7 +28,7 @@ div.donate_list_container{
 
         .bar_container{
             width: 100%;
-            height: 80vh;
+            // height: 80vh;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -109,6 +109,10 @@ div.donate_list_container{
                 }
             }
 
+            .bar_container{
+                height: 60vh;
+            }
+
             .bar{
                 width: 7%;
             }
@@ -146,6 +150,10 @@ div.donate_list_container{
                 a{
                     line-height: 35px;
                 }
+            }
+
+            .bar_container{
+                height: 70vh;
             }
 
             .bar{
@@ -199,6 +207,10 @@ div.donate_list_container{
                 .small-white-btn {
                     @include smallWhiteBtn_PC;
                 }
+            }
+
+            .bar_container{
+                height: 80vh;
             }
 
             .bar_text{

@@ -1,120 +1,268 @@
 div.result_display{
-    width: 100%;
-    background-image: url(../../../../../public/pictures/images/results/work-result/background_image.png);
-    background-position: center top;
-    padding:8% 0 16%;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    @include custom-responsive("xs sm") {
+        background-image: url(../../../../../public/pictures/images/results/work-result/background_image.png);
+        background-position: center top;
+        background-size: cover;
+        padding: 25% 0 16%;
+    }
+    @include custom-responsive("sm md lg")  {
+        padding: 13% 0 16%;
+    }
+    @include custom-responsive("xl xx-l") {
+        padding:8% 0 16%;
+
+    }
     div.curve_decoration{
         position: absolute;
         width: 100%;
-        bottom: -3%;
-        left: -1%;
+        z-index: 3;
+        @include custom-responsive("xs sm") {
+            bottom:-2%;
+            left: -1%;
+        }
+        @include custom-responsive("xl xx-l") {
+            bottom: -3%;
+            left: -1%;
+        }
         img{
             width: 105%;
         }
-        z-index: 3;
+
     }
     div.result_title{
         position: relative;
-        margin: 4% 4% 4% 15%;
-        width: fit-content;
-        &::after{
-            content: '';
-            width: 55vw;
-            height: 1px;
-            background-color: $primaryBrandWhite;
-            position: absolute;
-            top: 50%;
-            left: 120%;
+        @include custom-responsive("xs sm")  {
+            margin: 2% auto;
+            width: fit-content;
         }
+        @include custom-responsive("xl xx-l") {
+            margin: 4% 4% 4% 15%;
+            &::after{
+                content: '';
+                width: 55vw;
+                height: 1px;
+                background-color: $primaryBrandWhite;
+                position: absolute;
+                top: 50%;
+                left: 120%;
+            }
+    
+        }
+ 
+        
+
         h1{
-            @include h1_PC;
             color: $primaryBrandWhite;
+            @include custom-responsive("xs sm")  {
+                @include h1_MB;
+                width: fit-content;
+            }
+            @include custom-responsive("xl xx-l") {
+                @include h1_PC;
+            }
+            
+
 
         }
         img{
             position: absolute;
-            top: 0;
-            left: -80px;
+            @include custom-responsive("xs sm")  {
+                width: 20%;
+                left: -50px;
+            }
+            @include custom-responsive("xl xx-l") {
+                top: 0;
+                left: -80px;
+            }
+
         }
     }
     div.img_Marquee{
         width: 100%;
         img{
-            border-radius: $br_PC;
-            object-fit: cover;
-            object-position: center;
-            width: 20vw;
-            height: 24vh;
-            margin: 1vh;
+            @include custom-responsive("xs sm"){
+                width: 60vw;
+                height: 20vh;
+                object-fit: cover;
+                object-position: center;
+                border-radius: $br_MB;
+                margin: 1vh;
+            } 
+            @include custom-responsive("sm md")  {
+                width: 40vw;
+                height: 22vh;
+            }
+            @include custom-responsive("lg")  {
+                width: 30vw;
+                height: 22vh;
+            }
+            @include custom-responsive("xl xx-l") {
+                border-radius: $br_PC;
+                width: 20vw;
+                height: 24vh;
+                margin: 1vh;
+            }
+
         }
 
     }
     div.story{
-        width: 62.5vw;
-        margin: 2% auto 0;
+        @include custom-responsive("xs sm") {
+            width: 80vw;
+            margin: 5% auto;
+        }
+        @include custom-responsive("xl xx-l") {
+            width: 62.5vw;
+            margin: 2% auto 0;
+        }
+
         div.story_title{
             position: relative;
-            margin: 4% 4% 4% 15%;
             width: fit-content;
+            @include custom-responsive("xs sm") {
+                margin: 2% auto 5%;
+            }
+            @include custom-responsive("xl xx-l") {
+                margin: 4%;
+            }
+
             h2{
-                @include h2_PC;
                 color: $primaryBrandWhite;
+                @include custom-responsive("xs sm") {
+                    @include h2_MB;
+                }
+                @include custom-responsive("xl xx-l") {
+                    @include h2_PC;
+                }
+
+                
     
             }
             img{
                 position: absolute;
-                top: 0;
-                left: -80px;
+                @include custom-responsive("xs sm") {
+                    width: 30%;
+                    top:0;
+                    left: -50px;
+                }
+                @include custom-responsive("xl xx-l") {
+                    top: 0;
+                    left: -80px;
+                    width: 50%;
+                }
+
             }
         }
         div.bottom{
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            @include custom-responsive("xs sm") {
+                display: flex;
+                flex-direction: column;
+            }
+            @include custom-responsive("xl xx-l") {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-direction: row;
+            }
             .text{
                 color: $primaryBrandWhite;
-                @include h6_PC;
-                width: 60%;
+                @include custom-responsive("xs sm") {
+                    width: 100%;
+                    margin: auto;
+                    @include h6_MB;
+                }
+                @include custom-responsive("xl xx-l") {
+                    @include h6_PC;
+                    width: 60%;
+                }
+
             }
             .story-gallery{
-                @include regularWhiteBtn_PC;
                 text-decoration: none;
                 text-align: center;
-                line-height: 55px;
+                @include custom-responsive("xs sm") {
+                    @include regularWhiteBtn_MB;
+                    margin: 5% auto 0;
+                    line-height: 40px     
+                }
+                @include custom-responsive("xl xx-l") {
+                    @include regularWhiteBtn_PC;
+                    line-height: 55px;
+                    margin: 0;
+                }
+
             }
         }
     }
 }
 div.bottom_wrap{
     width: 100%;
-    margin: -5% 0 3%;
     position: relative;
     z-index: 5;
+    @include custom-responsive("xl xx-l") {
+        margin: -5% 0 3%;
+    }
     div.link{
         display: flex;
         justify-content: center;
-        gap: 6%;
+        @include custom-responsive("xs sm") {
+            gap: 2%;
+        }
+        @include custom-responsive("xl xx-l") {
+            gap: 6%;
+        }
+
+
         div.item{
             background-color: $functionalLightGrey1;
-            width: 15%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 3%;
-            border-radius: $br_PC;
+
+            @include custom-responsive("xs sm") {
+                width: 40vw;
+                border-radius: $br_MB;
+                padding: 3%;
+            }
+            @include custom-responsive("xl xx-l") {
+                justify-content: center;
+                width: 15%;
+                border-radius: $br_PC;
+                gap: 6%;
+            }
             h2{
-                @include h2_PC;
+                
                 color:$primaryBrandBlue;
                 margin-bottom:10% ;
+                @include custom-responsive("xs sm") {
+                    @include h3_MB;
+                }
+                @include custom-responsive("xl xx-l") {
+                    @include h2_PC;
+                }
+
             }
             i{
                 color: $primaryAccentGold;
-                font-size: 6vw;
-                margin-bottom:15%;
+                @include custom-responsive("xs sm") {
+                    font-size: 10vw;
+                    margin-bottom:10%;
+                }
+                @include custom-responsive("xl xx-l") {
+                    font-size: 6vw;
+                    margin-bottom:15%;
+                }
+
+
             }
             a{
+                @include custom-responsive("xs sm") {
+                    @include smallBlueBtn_MB;
+                    line-height: 40px;
+                }
                 @include smallBlueBtn_PC;
                 text-decoration: none;
                 text-align: center;
@@ -124,7 +272,12 @@ div.bottom_wrap{
         }
     }
     div.stars{
-        
+        @include custom-responsive("xs sm") {
+            display: none;
+        }
+        @include custom-responsive("xl xx-l") {
+            display: block;
+        }
         div.two{
             position: absolute;
             top: 10%;

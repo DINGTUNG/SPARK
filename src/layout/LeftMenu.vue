@@ -89,7 +89,7 @@ watch(() => currentRoute.name, (newRouteName) => {
 </script>
 
 <template>
-  <div v-if="defaultPage" class="left_menu_container" :style="{ height: menuHeight + 'px' }">
+  <div class="left_menu_container" :style="{ height: menuHeight + 'px' }">
     <h3>{{ menuTitle }}</h3>
     <ul>
       <li v-for="item in bulletinList" :key="item.id">

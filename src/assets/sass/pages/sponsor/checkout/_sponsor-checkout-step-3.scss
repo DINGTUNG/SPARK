@@ -33,10 +33,10 @@ div.sponsor_checkout_container {
     }
 
     img {
+      transform: rotateY(180deg);
       position: absolute;
-      left: -12vw;
-      top: 30vh;
-      animation-name: rocket;
+      right: -12vw;
+      top: 50vh;
 
     }
 

@@ -1,6 +1,7 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
 
+
 const router = useRouter()
 const currentRoute = useRoute()
 
@@ -31,7 +32,7 @@ const next = () => {
 </script>
 
 <template>
-  <div v-show="buttonAppearance" class="check_out_buttons_container">
+  <div class="check_out_buttons_container">
 
     <button @click="prev" class="prev">上一步</button>
     <button @click="next" class="next">下一步</button>

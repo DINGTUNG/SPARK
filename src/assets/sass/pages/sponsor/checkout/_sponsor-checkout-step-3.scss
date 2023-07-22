@@ -16,37 +16,31 @@ div.sponsor_checkout_container {
     div.checkout_wrap {
       position: relative;
       top: -150px;
+      @include flex_hm;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 100px;
+      gap: 50px;
 
-      div.checkout_table_wrap {}
+      div.member_data_table {
+        @include flex_vm;
+      }
 
-      div.checkout_overview_wrap {
+      div.overview_wrap {
         @include flex_vm;
         gap: 40px;
       }
     }
 
     img {
+      transform: rotateY(180deg);
       position: absolute;
-      left: -10vw;
-      top: 30vh;
-      animation-name: rocket;
+      right: -12vw;
+      top: 50vh;
 
     }
 
-    @keyframes rocket {
 
-      0%   {background-color: red;}
-      25%  {background-color: yellow;}
-      50%  {background-color: blue;}
-      100% {background-color: green;}
-    }
 
-    .filter-gold {
-      filter: invert(73%) sepia(60%) saturate(311%) hue-rotate(357deg) brightness(90%) contrast(86%);
-    }
   }
 }

@@ -1,14 +1,15 @@
-div.main_body {
-    height: 1000px;
+div.login_body {
     display: flex;
 
-    img {
-        width: 50%;
+    img.title_img {
+        width: 30%;
     }
 
     div.login {
-        width: 100%;
-        padding: 200px 100px;
+        width: 50%;
+        padding: 200px 0 0 200px;
+        display: flex;
+        flex-direction: column;
 
         h1 {
             color: $primaryBrandBlue;
@@ -23,10 +24,12 @@ div.main_body {
         }
 
         input {
-            font-size: $h1Fs_PC;
+            font-size: $h3Fs_PC;
             border: 1px solid $functionalLightGrey4;
             border-radius: 10px;
             margin: 0 0 20px 0;
+            padding: 10px;
+            width: 50%;
         }
 
         button.login_button {
@@ -45,5 +48,9 @@ div.main_body {
     div.errorAccount {
         color: red;
         margin-top: 10px;
+    }
+    .login_title{
+        display: flex;
+        justify-content: space-between;
     }
 }

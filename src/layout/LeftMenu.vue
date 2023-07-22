@@ -55,20 +55,6 @@ watch(() => currentRoute.name, (newRouteName) => {
         routeName: "",
       },
     ];
-  } else if (newRouteName === "donate") {
-    menuTitle.value = "捐款專案";
-    bulletinList.value = [
-      {
-        id: 1,
-        title: "捐款內容",
-        routeName: ""
-      },
-      {
-        id: 2,
-        title: "捐款善心榜",
-        routeName: "",
-      },
-    ];
   } else if (newRouteName === "sponsor-location") {
     menuTitle.value = "認養計畫";
     bulletinList.value = [
@@ -83,13 +69,27 @@ watch(() => currentRoute.name, (newRouteName) => {
         routeName: "",
       },
     ];
+  } else if (newRouteName === "donate") {
+    menuTitle.value = "捐款專案";
+    bulletinList.value = [
+      {
+        id: 1,
+        title: "捐款內容",
+        routeName: ""
+      },
+      {
+        id: 2,
+        title: "捐款善心榜",
+        routeName: "",
+      },
+    ];
   }
 });
 
 </script>
 
 <template>
-  <div class="left_menu_container" :style="{ height: menuHeight + 'px' }">
+  <div v-if="defaultPage" class="left_menu_container" :style="{ height: menuHeight + 'px' }">
     <h3>{{ menuTitle }}</h3>
     <ul>
       <li v-for="item in bulletinList" :key="item.id">

@@ -1,54 +1,20 @@
 <script setup>
 import { reactive } from 'vue';
-let years = reactive([
-  {
-    id: '0',
-    year: '2022'
-  },
-  {
-    id: '1',
-    year: '2021'
-  },
-  {
-    id: '2',
-    year: '2020'
-  },
-  {
-    id: '3',
-    year: '2019'
-  },
-  {
-    id: '4',
-    year: '2018'
-  },
-  {
-    id: '5',
-    year: '2017'
-  },
-  {
-    id: '6',
-    year: '2016'
-  },
-  {
-    id: '7',
-    year: '2015'
-  },
+import { YEAR_REPORT } from "@/constant/resultReport.constant";
 
-])
+let years = reactive(YEAR_REPORT);
 
 </script>
 
 <template>
   <div class="title_img">
-    <img :src="'pictures/images/sponsor/banner.png'" alt="">
+    <img :src="'pictures/images/sponsor/banner.png'" alt="banner">
   </div>
   <div class="container">
     <div class="main_body">
       <div class="title_block">
         <h1>歷年報告</h1>
-        <div class="top_line">
-          <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="">
-        </div>
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <div class="report_inner">
         <div class="year_report">
@@ -58,7 +24,7 @@ let years = reactive([
           <div class="year_inner">
             <div class="year_card" v-for="item in years" :key="item.id">
               <div class="year_img">
-                <img src="https://picsum.photos/150/200/?random=10">
+                <img :src="'pictures/images/results/report/result.png'">
               </div>
               <div class="year_text">
                 <p>{{ item.year }}年</p>

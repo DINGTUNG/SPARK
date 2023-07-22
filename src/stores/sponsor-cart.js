@@ -60,10 +60,10 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
 
   const locationList = [
-    new Location("taipei", "台北星火", 2000, "public/pictures/decorations/illustration/golden_star_single.svg"),
-    new Location("taichung", "台中星火", 2000, "public/pictures/decorations/illustration/golden_star_2.svg"),
-    new Location("tainan", "台南星火", 2000, "public/pictures/decorations/illustration/golden_star_3.svg"),
-    new Location("taitung", "台東星火", 2000, "public/pictures/decorations/illustration/golden_star_4.svg")
+    new Location("taipei", "台北星火", 2000, "public/pictures/decorations/illustration/location.svg"),
+    new Location("taichung", "台中星火", 2000, "public/pictures/decorations/illustration/location.svg"),
+    new Location("tainan", "台南星火", 2000, "public/pictures/decorations/illustration/location.svg"),
+    new Location("taitung", "台東星火", 2000, "public/pictures/decorations/illustration/location.svg")
   ];
 
   const cart = reactive(
@@ -149,20 +149,16 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     isSideListShow,
     showSideList,
     hideSideList,
-
     locationList,
-
     cart,
     isCartEmpty,
     isCartNotEmpty,
-
     addToCart,
     removeFromCart,
     getCurrentCountInCart,
     totalCost,
     getLocationTotalCost,
     getLocationCost,
-
     chosenPlanType,
     paymentMethodList
 

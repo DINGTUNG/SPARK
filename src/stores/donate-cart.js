@@ -1,54 +1,15 @@
-import {
-  defineStore
-} from 'pinia';
+import {defineStore} from 'pinia';
 
-import {
-  ref,
-  reactive,
-  computed
+import {ref,reactive,computed,// watch
 } from 'vue';
 
 import { useRouter } from 'vue-router';
-const router = useRouter(); 
 
 export const useDonateCartStore = defineStore('donate-cart', () => {
+  //router要記得在store裡面宣告喔!
+  const router = useRouter();
 
-
-  //導覽列控制
-  const isSideListShow = ref(false);
-
-  const showSideList = () => {
-    isSideListShow.value = true;
-  }
-
-  const hideSideList = () => {
-    isSideListShow.value = false;
-  }
-  //
-  
-//捐款text數字顯示
-const message = ref('');
-// 将输入的内容转换为合适的金额格式
-const formattedAmount = computed(() => {
-  let amount = parseFloat(message.value); 
-  // 将输入的内容转换为浮点数
-  if (isNaN(amount)) {
-    return ''; // 输入无效数字时，显示为空
-  } else {
-    return amount.toFixed(2); // 返回保留两位小数的金额字符串
-  }
-});
-
-const goToCheckoutPage = () => {
-  console.log('goToCheckoutPage is called!');
-  if ( formattedAmount<100) {
-    return;
-  }else{
-    router.push({ path: '/donate-checkout-step-1' })
-  }
-}
-
-
+  //資料區塊
   const donateContentCardList = reactive([
     {
       id: "D001",
@@ -101,65 +62,92 @@ const goToCheckoutPage = () => {
     }
   ]);
 
-  const price =ref([
+  const price = ref([
     {
-      index:1,
-      price:'100'
+      index: 1,
+      price: '100'
     },
     {
-      index:2,
-      price:'500'
+      index: 2,
+      price: '500'
     },
     {
-      index:3,
-      price:'1000'
+      index: 3,
+      price: '1000'
     },
     {
-      index:4,
-      price:'2000'
+      index: 4,
+      price: '2000'
     }
   ]);
+  //資料區塊
+  
+  
+  //導覽列區塊
+  const isSideListShow = ref(false);
+
+  //點擊按鈕時使isSideListShow的value改為true，而activeIdx.value去記住當下點擊的卡片id
+  const showSideList = (id) => {
+    activeIdx.value = id;
+    isSideListShow.value = true;
+  };
+
+// 點擊按鈕時使isSideListShow.value改為false
+  const hideSideList = () => {
+    isSideListShow.value = false;
+  };
+  
+  //導覽列標題變更區塊
+  const activeIdx = ref(''); //先使activeIdx內容為空的
+  const activeCard = computed(() => {
+  const target = donateContentCardList.find(value => value.id === activeIdx.value) ?? {}
+    //宣告 target為donateContentCardList陣列使用find method去找到value的 value.id 是否和activeIdx.value相等，如果不是就返回{}
+    return target;
+    //將值傳回
+  });
+
+  //以下是watch用法
+
+  // const activeCard = ref({});
+  // watch(activeIdx, () => {
+  //   const target = donateContentCardList.find(value => value.id === activeIdx.value) ?? {}
+  //   activeCard.value = target;
+  // })
 
 
-  //這是一組的
-  // class donateItem {
-  //   constructor(id,title,img,content,fundSum) {
+  //捐款內容區塊
+  const message = ref(''); // 捐款input標籤顯示''
+  const formattedAmount = computed(() => {
+    let amount = parseFloat(message.value);   // 將內容轉換成浮點數
+    if (isNaN(amount)) {
+      return ''; // 如果amount不是數字就傳空的回來
+    } else {
+      return amount.toFixed(2); // 如果是的話就返回保留後兩位小數
+    }
+  });
+  //捐款內容區塊
 
-  //     this.id = id;
-  //     this.title=title;
-  //     this.img=img
-  //     this.content=content;
-  //     this.fundSum=fundSum
-  //   }
-
-  // }
-
-  // const donateList = [
-  //   new donateItem("D001","扶幼捐款","pictures/images/donate/donate-content/D001_kids_support.jpg","讓孩子們探索自我，提出他們的夢想計畫，並邀請您投給您最愛的組別，為該組爭取「夢想成真」獎金！讓我們一同以熱情激勵，為孩子們的夢想點燃璀璨星火。","捐款累計"),
-  //   new donateItem("D002","兒童保護","pictures/images/donate/donate-content/D002_kids_protection.jpg","","捐款累計"),
-  //   new donateItem("D003","助養召集令","pictures/images/donate/donate-content/D003_kids_sponsor.jpg","","捐款累計"),
-  //   new donateItem("D004","獎助學金","pictures/images/donate/donate-content/D004_scholarship.jpg","","捐款累計"),
-  //   new donateItem("D005","急難救助金","pictures/images/donate/donate-content/D005_emergency_ relief_fund.jpg","","捐款累計"),
-  //   new donateItem("D006","營養補助","pictures/images/donate/donate-content/D006_nutritional_supplements.jpg","","捐款累計"),
-  //   new donateItem("D007","星火計畫","pictures/images/donate/donate-content/D007_spark_project.jpg","","捐款累計"),
-  // ];
-
-   //這是一組的
-  const cart = reactive(
-    new Map()
-  );
- 
+  //點擊的router
+  const goToCheckoutPage = () => {
+    if (formattedAmount < 100) {
+      return;
+    } else {
+      router.push({ path: '/donate-checkout-step-1' });
+      hideSideList();
+    }
+  };
+  //點擊的router
 
   return {
-    // addPrice,
+    donateContentCardList,
     price,
-    goToCheckoutPage,
     isSideListShow,
     showSideList,
     hideSideList,
+    activeIdx,
+    activeCard,
     message,
     formattedAmount,
-    donateContentCardList,
-    cart,
-  }
-})
+    goToCheckoutPage,
+  };
+});

@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
-import { computed } from 'vue';
+
 
 const router = useRouter()
 const currentRoute = useRoute()
@@ -28,15 +28,11 @@ const next = () => {
   }
 }
 
-const buttonAppearance = computed(() => {
-  return currentRoute.name === "sponsor-checkout-overview" || currentRoute.name === "donate-checkout-overview" ? false : true
-}
-)
 
 </script>
 
 <template>
-  <div v-show="buttonAppearance" class="check_out_buttons_container">
+  <div class="check_out_buttons_container">
 
     <button @click="prev" class="prev">上一步</button>
     <button @click="next" class="next">下一步</button>

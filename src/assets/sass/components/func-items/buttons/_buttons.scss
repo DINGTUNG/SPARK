@@ -13,19 +13,6 @@ button {
 }
 
 
-@mixin btnEffect {
-
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    transform: translate(2px, 2px);
-  }
-}
-
 
 //---------------------------------------------------------------------------------------
 /* ⭐regular buttons size⭐ */

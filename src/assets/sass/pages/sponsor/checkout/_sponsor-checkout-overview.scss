@@ -1,0 +1,56 @@
+div.sponsor_checkout_overview_container {
+  width: 100%;
+  position: relative;
+
+  div.main_body {
+
+    @include custom-responsive("xs sm") {
+      @include body_space_MB
+    }
+
+    @include custom-responsive("xl xxl") {
+      @include body_space_PC;
+
+      div.header_wrap {
+        @include flex_hm;
+        gap: 20px;
+        position: relative;
+        top: 20vh;
+
+        div.text {
+          @include flex_vm;
+          gap: 20px;
+
+
+          h2.title {
+            text-align: center;
+            display: inline-block;
+            width: 700px;
+            @include h3_PC;
+            color: $primaryAccentGold;
+          }
+
+          p.content {
+            display: inline-block;
+            width: 700px;
+            @include h6_PC;
+          }
+
+        }
+
+        img {
+          width: 150px;
+        }
+      }
+    }
+
+
+
+    button {
+      @include regularBlueBtn_PC;
+
+    }
+
+
+  }
+}

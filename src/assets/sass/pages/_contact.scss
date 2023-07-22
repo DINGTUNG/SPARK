@@ -13,18 +13,21 @@ div.container {
 
         div.title_block {
             display: flex;
-
             @include custom-responsive(" xs sm") {
+                padding: 20px 0 30px;
+                align-items: center;
                 justify-content: center;
             }
-
+            @include custom-responsive(" md lg") {
+                justify-content: space-between;
+            }
             @include custom-responsive(" xl xxl") {
-                justify-content: start;
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
             }
 
-
             h1 {
-                width: auto;
                 color: $primaryBgBlue;
 
                 @include custom-responsive(" xs sm") {
@@ -37,17 +40,20 @@ div.container {
                 }
 
             }
+            img.deco_line{
 
-            div.top_line {
-
-                @include custom-responsive(" xs sm") {
+                @include custom-responsive(" xs sm") {                   
                     display: none;
                 }
-
-                @include custom-responsive(" xl xxl") {
-                    display: flex;
-                    align-self: center;
-                    margin-left: 40px;
+                @include custom-responsive("md") {
+                    width: 60%;
+                    display: block;
+                }
+                @include custom-responsive("lg") {
+                    display: block;
+                }
+                @include custom-responsive(" xl xxl") {                 
+                    display: block;
                 }
             }
         }
@@ -154,8 +160,6 @@ div.container {
                     @include custom-responsive(" xl xxl") {
                         @include h2_PC;
                     }
-
-
 
                 }
 

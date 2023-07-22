@@ -27,21 +27,17 @@
             left: -80px;
         }
     }
-    .bulletinBoard{
-        margin: 2% auto;
-        width:100%;
-        .swiper-item{
-                width: 100%;
-                height: 28vh;
-                img{
-                    border-radius: $br_PC;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                    
-                }
-            }
+    div.img_Marquee{
+        width: 100%;
+        img{
+            border-radius: $br_PC;
+            object-fit: cover;
+            object-position: center;
+            width: 20vw;
+            height: 24vh;
+            margin: 1vh;
+        }
+
     }
     div.story{
         width: 62.5vw;

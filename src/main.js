@@ -7,25 +7,11 @@ import Vue3Marquee from 'vue3-marquee'
 import { VueFire, VueFireAuth } from 'vuefire' //引入viewFire
 import { firebaseApp } from './firebase' //引入viewFire
 
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
 
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-import * as labsComponents from 'vuetify/labs/components'
-
-const vuetify = createVuetify({
-  directives,
-  components: {
-    ...components,
-    ...labsComponents,
-  },
-})
 
 
 const pinia = createPinia()
 const app = createApp(App)
-  
 
 
 app.use(Vue3Marquee)

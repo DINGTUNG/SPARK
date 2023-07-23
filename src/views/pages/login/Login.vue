@@ -1,7 +1,45 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import 'animate.css';
+
+
+
+//import firebase
+import { useFirestore } from 'vuefire';
+const firebase = useFirestore(); //宣告firebase為firebase的內容
+console.log(firebase) //檢查看看
+import {getRedirectResult,signInWithRedirect,signOut,} from 'firebase/auth'
+import { useCurrentUser, useFirebaseAuth } from 'vuefire'
+
+const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
+
+// display errors if any(如果有的話就顯示錯誤)
+const error = ref(null)
+
+import { GoogleAuthProvider } from 'firebase/auth'
+const googleAuthProvider = new GoogleAuthProvider()
+//登入跳轉函式，會跳轉到google的帳號頁面
+function signinRedirect() {
+  signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
+    console.error('Failed signinRedirect', reason)
+    error.value = reason
+  })
+}
+
+
+// only on client side
+onMounted(() => {
+  getRedirectResult(auth)
+  .then((Response)=>{
+    })
+  .catch((reason) => {
+    console.error('Failed redirect result', reason)
+    error.value = reason
+  })
+})
+
+
 
 const router = useRouter();
 const account = ref('');
@@ -42,7 +80,6 @@ const login = () => {
 
 
 </script>
-
 <template>
   <div class="login_body">
     <img :src="'public/pictures/images/login/login.jpg'" class="title_img">
@@ -51,7 +88,6 @@ const login = () => {
       <label for="account">帳號</label>
       <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱" :class="{'animate__animated animate__headShake': errorAccount}">
       <label for="password">密碼</label>
-      
       <div class="password_wrapper" ref="passwordField" :class="{'animate__animated animate__headShake': errorAccount}"> 
         <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
         <span class="toggle" @click="showHide">
@@ -74,7 +110,7 @@ const login = () => {
         <h6>以其他方式登入</h6>
         <div class="line"></div>
       </div>
-      <button class="google_login" @click="google_login">
+      <button class="google_login" @click="signinRedirect">
         <i class="fa-brands fa-google"></i>
         以 google 帳號登入
       </button>

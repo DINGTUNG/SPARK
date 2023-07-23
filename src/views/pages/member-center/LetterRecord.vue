@@ -1,71 +1,42 @@
 <script setup>
-  import { reactive } from 'vue'
-  
-  const desserts = reactive([
-    {
-      name: 'Frozen Yogurt',
-      calories: 159,
-    },
-    {
-      name: 'Ice cream sandwich',
-      calories: 237,
-    },
-    {
-      name: 'Eclair',
-      calories: 262,
-    },
-    {
-      name: 'Cupcake',
-      calories: 305,
-    },
-    {
-      name: 'Gingerbread',
-      calories: 356,
-    },
-    {
-      name: 'Jelly bean',
-      calories: 375,
-    },
-    {
-      name: 'Lollipop',
-      calories: 392,
-    },
-    {
-      name: 'Honeycomb',
-      calories: 408,
-    },
-    {
-      name: 'Donut',
-      calories: 452,
-    },
-    {
-      name: 'KitKat',
-      calories: 518,
-    },
-  ])
+import { reactive } from 'vue';
+
+
+const letterData = reactive([
+  {
+    childId:"00001",
+    date:"2023.07.01",
+    location:"台北星火中心",
+    jpg:"來自00001小朋友的來信",
+  },
+  {
+    childId:"00008",
+    date:"2023.07.01",
+    location:"台北星火中心",
+    jpg:"來自00001小朋友的來信",
+  },
+])
+
+
 </script>
 
-
 <template>
-  <v-data-table height="300px">
-    <thead>
-      <tr>
-        <th class="text-left">
-          Name
-        </th>
-        <th class="text-left">
-          Calories
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="item in desserts"
-        :key="item.name"
-      >
-        <td>{{ item.name }}</td>
-        <td>{{ item.calories }}</td>
-      </tr>
-    </tbody>
-  </v-data-table>
+  <table class="letter_table">
+
+    <caption>感謝函專區</caption>
+
+    <tr>
+      <th colspan="2" class="child_id">兒童編號</th>
+      <th class="date">收件日期</th>
+      <th class="location">所屬據點</th>
+      <th class="jpg">感謝函圖檔</th>
+    </tr>
+
+    <tr v-for="data in letterData" :key="data.childId">
+      <td>{{ data.childId }}</td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.location }}</td>
+      <td>{{ data.jpg }}</td>
+    </tr>
+  </table>
 </template>

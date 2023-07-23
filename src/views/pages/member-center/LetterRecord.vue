@@ -1,8 +1,7 @@
 <script setup>
-  import { ref } from 'vue'
+  import { reactive } from 'vue'
   
-
-  const desserts = ref([
+  const desserts = reactive([
     {
       name: 'Frozen Yogurt',
       calories: 159,

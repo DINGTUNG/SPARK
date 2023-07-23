@@ -32,17 +32,14 @@ app.use(Vue3Marquee)
 app.use(router)
 app.use(pinia)
 app.use(vuetify)
-app.mount('#app') 
-
-
 
 //使用viewfire
 app.use(VueFire, {
-    firebaseApp,
-    modules: [
-      VueFireAuth(),
-    ],
-  })
+  firebaseApp,
+  modules: [
+    VueFireAuth(),
+  ],
+})
 
-  app.mount('#app')
-  
+
+app.mount('#app') 

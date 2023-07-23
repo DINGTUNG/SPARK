@@ -21,7 +21,7 @@ const goToCheckoutPageAndCloseSideList = () => {
 
     <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">此頁面現無任何商品</p>
 
-    <div class="location_card" v-for="location in sponsorCartStore.locationList" :key="location.id">
+    <div class="location_card" v-for="location in sponsorCartStore.locationCard" :key="location.id">
       
       <div v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0" class="sponsor_inner">
         <h5>{{ location.name }}</h5>

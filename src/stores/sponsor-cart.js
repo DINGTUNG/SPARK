@@ -1,6 +1,7 @@
 import {
   defineStore
 } from 'pinia';
+import { Input } from 'postcss';
 
 import {
   ref,
@@ -43,9 +44,6 @@ export class Location {
 export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
 
-
-  
-
   //判斷購物車收合
   const isSideListShow = ref(false);
 
@@ -58,13 +56,15 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   }
 
 
-
-  const locationList = [
+  const locationList = ref([
     new Location("taipei", "台北星火", 2000, "public/pictures/decorations/illustration/location.svg"),
     new Location("taichung", "台中星火", 2000, "public/pictures/decorations/illustration/location.svg"),
     new Location("tainan", "台南星火", 2000, "public/pictures/decorations/illustration/location.svg"),
     new Location("taitung", "台東星火", 2000, "public/pictures/decorations/illustration/location.svg")
-  ];
+  ]);
+
+
+
 
   const cart = reactive(
     new Map()
@@ -81,17 +81,18 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   const addToCart = (locationId, addCount) => {
     let curCount = getCurrentCountInCart(locationId);
     cart.set(locationId, curCount + addCount);
+    cardArrangement(curCount);
   }
 
   const removeFromCart = (locationId, removeCount) => {
     let curCount = getCurrentCountInCart(locationId);
     let remainCount = curCount - removeCount;
-
     if (remainCount > 0) {
       cart.set(locationId, remainCount);
     } else {
       cart.delete(locationId)
-    }
+    };
+    cardArrangement(curCount);
   }
 
   const getCurrentCountInCart = (locationId) => {
@@ -118,9 +119,9 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
 
   const getLocationCost = (locationId) => {
-    for (let i = 0; i < locationList.length; i++) {
-      if (locationList[i].id == locationId) {
-        return locationList[i].cost;
+    for (let i = 0; i < locationList.value.length; i++) {
+      if (locationList.value[i].id == locationId) {
+        return locationList.value[i].cost;
       }
     }
 
@@ -128,19 +129,40 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     //例外處理
   }
 
+  const locationCard = ref([])
+
+  const cardArrangement = (locationID, curCount) => {
+    const currentIndex = locationCard.value.findIndex(
+      item => item.id === locationID
+    );//
+
+    if (curCount !== 0 && currentIndex === -1) { //
+      const appendedObject = locationList.value.find(
+        item => item.id === locationID
+      );
+      locationCard.value.push(appendedObject);
+      return;
+    };
+
+    if (curCount === 0 && currentIndex !== -1) {
+      locationCard.value.splice(currentIndex, 1);
+    }
+  }
+
+
 
   const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH);
 
 
   const paymentMethodList = [{
-      id: "credit-card",
-      method: "信用卡",
-      chosen: true
-    }, {
-      id: "line-pay",
-      method: "LINE PAY",
-      chosen: false
-    }
+    id: "credit-card",
+    method: "信用卡",
+    chosen: true
+  }, {
+    id: "line-pay",
+    method: "LINE PAY",
+    chosen: false
+  }
 
   ]
 
@@ -160,8 +182,9 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     getLocationTotalCost,
     getLocationCost,
     chosenPlanType,
-    paymentMethodList
-
+    paymentMethodList,
+    cardArrangement,
+    locationCard
 
   }
 })

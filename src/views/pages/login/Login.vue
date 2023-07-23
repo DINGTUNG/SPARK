@@ -3,13 +3,10 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import 'animate.css';
 
-
-
-//import firebase
-import { useFirestore } from 'vuefire';
+import { useFirestore } from 'vuefire'; //import firebase
 const firebase = useFirestore(); //宣告firebase為firebase的內容
 console.log(firebase) //檢查看看
-import {getRedirectResult,signInWithRedirect,signOut,} from 'firebase/auth'
+import { getRedirectResult, signInWithRedirect, signOut, } from 'firebase/auth'
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 
 const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
@@ -27,16 +24,15 @@ function signinRedirect() {
   })
 }
 
-
 // only on client side
 onMounted(() => {
   getRedirectResult(auth)
-  .then((Response)=>{
+    .then((Response) => {
     })
-  .catch((reason) => {
-    console.error('Failed redirect result', reason)
-    error.value = reason
-  })
+    .catch((reason) => {
+      console.error('Failed redirect result', reason)
+      error.value = reason
+    })
 })
 
 
@@ -86,9 +82,10 @@ const login = () => {
     <div class="login">
       <h1>會員登入</h1>
       <label for="account">帳號</label>
-      <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱" :class="{'animate__animated animate__headShake': errorAccount}">
+      <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
+        :class="{ 'animate__animated animate__headShake': errorAccount }">
       <label for="password">密碼</label>
-      <div class="password_wrapper" ref="passwordField" :class="{'animate__animated animate__headShake': errorAccount}"> 
+      <div class="password_wrapper" ref="passwordField" :class="{ 'animate__animated animate__headShake': errorAccount }">
         <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
         <span class="toggle" @click="showHide">
           <img v-if="showPassword" :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />

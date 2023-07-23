@@ -33,11 +33,23 @@ const tableHeader =
     <tbody v-for="location in sponsorCartStore.locationList" :key="location.id" >
       <tr v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0">
         <td>{{ location.name }}</td>
-        <td class="add_and_remove"><i class="fa-solid fa-circle-minus"
+
+        <td class="add_and_remove">
+          
+          <div>
+          <i class="fa-solid fa-circle-minus"
             @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
-          <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(location.id) }}</span><i class="fa-solid fa-circle-plus"
+          </div>
+
+          <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(location.id) }}</span>
+          
+          <div>
+          <i class="fa-solid fa-circle-plus"
             @click="sponsorCartStore.addToCart(location.id, 1)"></i>
+          </div>
+
         </td>
+
         <td>NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</td>
         
         <td class="discard"><i class="fa-regular fa-circle-xmark"

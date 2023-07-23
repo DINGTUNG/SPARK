@@ -260,13 +260,13 @@ div.container {
       margin: 0 10px;
 
       @include custom-responsive(" xs sm") {
-        @include smallBlueBtn_MB;
+        @include smallWhiteBtn_MB;
         @include h5_MB;
         width: 40%
       }
 
       @include custom-responsive(" xl xx-l") {
-        @include smallBlueBtn_PC;
+        @include smallWhiteBtn_PC;
         @include h5_PC;
       }
 
@@ -274,18 +274,18 @@ div.container {
     }
 
     button.pay_list {
-      color: $primaryBgBlue !important;
+      color: $primaryBrandWhite !important;
       border: 1px transparent;
       margin: 0 10px;
 
       @include custom-responsive(" xs sm") {
-        @include smallWhiteBtn_MB;
+        @include smallBlueBtn_MB;
         @include h5_MB;
         width: 60%
       }
 
       @include custom-responsive(" xl xx-l") {
-        @include smallWhiteBtn_PC;
+        @include smallBlueBtn_PC;
         @include h5_PC;
         
       }

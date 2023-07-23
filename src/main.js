@@ -18,10 +18,10 @@ const vuetify = createVuetify({
   directives,
 })
 
-
 app.use(Vue3Marquee)
 app.use(router)
 app.use(pinia)
+app.use(Vue3Marquee)
 app.use(vuetify)
 
 //使用viewfire
@@ -31,6 +31,5 @@ app.use(VueFire, {
     VueFireAuth(),
   ],
 })
-
 
 app.mount('#app') 

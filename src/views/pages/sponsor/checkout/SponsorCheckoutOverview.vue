@@ -1,4 +1,8 @@
 <script setup>
+import SponsorOverviewTable from '@/components/func-items/table/SponsorOverviewTable.vue'
+import { RouterLink } from 'vue-router'
+
+
 
 
 </script>
@@ -17,13 +21,11 @@
         <img :src="'pictures/characters/boy/boy_lighting_up.svg'" alt="">
       </div>
 
+      <div class="sponsor_overview_table">
+        <SponsorOverviewTable />
+      </div>
 
-
-
-      <button>返回首頁</button>
-
-      <!-- 撐開頁面之臨時空間 -->
-      <br v-for="n in 100" :key="n">
+      <RouterLink to="/" class="link home"><button>返回首頁</button></RouterLink>
 
     </div>
   </div>

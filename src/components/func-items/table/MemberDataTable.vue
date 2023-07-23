@@ -1,27 +1,11 @@
 <script setup>
-import { reactive, ref } from 'vue';
 // import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 
 // const sponsorCartStore = useSponsorCartStore();
 
-const tableTitle = ref("會員資料");
+import { useMemberDataStore } from '@/stores/member-data.js';
 
-const memberData = reactive(
-  {
-    memId:"A001",
-    name:"蔡頭瓜",
-    enName:"Tougua",
-    companyName:"-",
-    gui:"-" ,
-    id:"H123234345",
-    address:"320桃園市中壢區復興路46號9樓",
-    email:"tougua@gmail.com",
-    mobile:"0912323434",
-    tel:"-",
-    businessPhone:"03-425-1108",
-    account:"tougua@gmail.com"
-  }
-)
+const memberDataStore = useMemberDataStore();
 
 
 </script>
@@ -30,7 +14,7 @@ const memberData = reactive(
   <table class="member_data_table">
 
     <caption>
-      {{ tableTitle }}<br>
+      會員資料<br>
       <span>*備註:提醒，若要修改會員資料，請前往會員中心</span>
     </caption>
 
@@ -38,32 +22,32 @@ const memberData = reactive(
     <tr>
       <th colspan="2" class="mem_file">個人檔案</th>
       <th class="mem_id_title">會員編號</th>
-      <th class="mem_id">{{ memberData.memId }}</th>
+      <th class="mem_id">{{ memberDataStore.memberData.memId }}</th>
     </tr>
 
     <tr>
       <td class="title">姓名</td>
-      <td>{{ memberData.name }}</td>
+      <td>{{ memberDataStore.memberData.name }}</td>
       <td class="title">英文名</td>
-      <td>{{ memberData.enName }}</td>
+      <td>{{ memberDataStore.memberData.enName }}</td>
     </tr>
 
     <tr>
       <td class="title">公司</td>
-      <td>{{ memberData.companyName }}</td>
+      <td>{{ memberDataStore.memberData.companyName }}</td>
       <td class="title">統一編號</td>
-      <td>{{ memberData.gui }}</td>
+      <td>{{ memberDataStore.memberData.gui }}</td>
     </tr>
 
     <tr>
       <td class="title">身分證字號</td>
-      <td>{{ memberData.id }}</td>
+      <td>{{ memberDataStore.memberData.id }}</td>
 
     </tr>
 
     <tr>
       <td class="title">住址</td>
-      <td colspan="3">{{ memberData.address }}</td>
+      <td colspan="3">{{ memberDataStore.memberData.address }}</td>
     </tr>
 
 
@@ -73,19 +57,19 @@ const memberData = reactive(
 
     <tr>
       <td class="title">Email</td>
-      <td colspan="3">{{ memberData.email }}</td>
+      <td colspan="3">{{ memberDataStore.memberData.email }}</td>
     </tr>
 
     <tr>
       <td class="title">手機</td>
-      <td>{{ memberData.mobile }}</td>
+      <td>{{ memberDataStore.memberData.mobile }}</td>
       <td class="title">住家電話</td>
-      <td>{{ memberData.tel }}</td>
+      <td>{{ memberDataStore.memberData.tel }}</td>
     </tr>
 
     <tr>
       <td class="title">公司電話</td>
-      <td colspan="3">{{ memberData.businessPhone }}</td>
+      <td colspan="3">{{ memberDataStore.memberData.businessPhone }}</td>
     </tr>
 
     <tr>
@@ -93,7 +77,7 @@ const memberData = reactive(
     </tr>
 
     <tr>
-      <td colspan="2">{{ memberData.account }}</td>
+      <td colspan="2">{{ memberDataStore.memberData.account }}</td>
     </tr>
 
   </table>

@@ -1,0 +1,26 @@
+@mixin btnEffect {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+  }
+}
+
+
+
+@mixin ftEffect {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+

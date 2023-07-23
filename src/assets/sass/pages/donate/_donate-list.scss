@@ -1,0 +1,223 @@
+div.donate_list_banner{
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+
+div.donate_list_container{
+    div.main_body{
+        div.title_block{
+            display: flex;
+
+            h1 {
+                color: $primaryBrandBlue;
+            }
+        }
+
+        div.switch_button{
+            display: flex;
+
+            a{
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+            
+        }
+
+        .bar_container{
+            width: 100%;
+            // height: 80vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: auto;
+        }
+
+        .bar {
+            position: relative; 
+            top: 20%;
+            animation: barRise 1.5s ease-in-out;
+            transform-origin: bottom;
+
+            @keyframes barRise {
+                from {
+                  height: 0;
+                }
+                to {
+                  height: 100;
+                }
+              } 
+        }
+
+        .bar_text {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            font-weight: $fWBold;
+        }
+
+        .bar_image {
+            position: absolute;
+            bottom: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+
+
+
+@include custom-responsive("xs"){ //0px
+    div.donate_list_container{
+        div.main_body{
+            @include body_space_MB;
+
+            div.title_block{
+                padding: 20px 0 30px;
+                align-items: center;
+                justify-content: center;
+
+                h1{
+                    @include h1_MB;
+                }
+
+                img.deco_line{
+                    display: none;
+                }
+            }
+            
+            div.switch_button{
+                justify-content: center;
+
+                a{
+                    @include h3_MB;
+                    margin: 8% 5px;
+                    line-height: 35px;
+                }
+
+                .small-blue-btn {
+                    @include smallBlueBtn_MB;
+                }
+                
+                .small-white-btn {
+                    @include smallWhiteBtn_MB;
+                }
+            }
+
+            .bar_container{
+                height: 60vh;
+            }
+
+            .bar{
+                width: 7%;
+            }
+
+            .bar_text{
+                font-size: 16px;
+                white-space: normal;
+            }
+
+            .bar_image {
+                margin-bottom: 60px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+@include custom-responsive("md"){ //768px
+    div.donate_list_container{
+        div.main_body{
+            div.title_block{
+                justify-content: space-between;
+
+                img.deco_line{
+                    width: 60%;
+                    display: block;
+                }
+            }
+            
+            div.switch_button{
+                margin-left: auto;
+                width: fit-content;
+
+                a{
+                    line-height: 35px;
+                }
+            }
+
+            .bar_container{
+                height: 70vh;
+            }
+
+            .bar{
+                width: 6%;
+            }
+
+            .bar_text{
+                font-size: 18px;
+                white-space: nowrap;
+            }
+
+            .bar_image {
+                margin-bottom: 20px;
+                width: 80%;
+            }
+        }
+    }
+}
+
+
+@include custom-responsive("xl"){ //1200px
+    div.donate_list_container{
+        div.main_body{
+            @include body_space_PC;
+
+            div.title_block{
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
+
+                h1{
+                    @include h1_PC;
+                }
+
+                img.deco_line{
+                    width: 70%;
+                }
+            }
+
+            div.switch_button{
+                a{
+                    @include h3_PC;
+                    margin: 0 10px;
+                    line-height: 50px;
+                }
+
+                .small-blue-btn {
+                    @include smallBlueBtn_PC;
+                }
+                
+                .small-white-btn {
+                    @include smallWhiteBtn_PC;
+                }
+            }
+
+            .bar_container{
+                height: 80vh;
+            }
+
+            .bar_text{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+

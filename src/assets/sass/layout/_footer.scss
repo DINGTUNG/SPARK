@@ -417,8 +417,10 @@ footer{
     div.copyright{
       display: flex;
       box-sizing: border-box;
-      color: $primaryBrandWhite;
       letter-spacing: $h6Ls;
+      span{
+        color: $primaryBrandWhite;
+      }
     }
   }
 }

@@ -26,7 +26,7 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
       </div>
 
-      <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'" :class="filter - gold" alt="">
+      <img :src="'pictures/characters/girl/girl_bubbling.svg'" alt="">
 
     </div>
 
@@ -35,4 +35,5 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-3';</style>
+@import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-3';
+</style>

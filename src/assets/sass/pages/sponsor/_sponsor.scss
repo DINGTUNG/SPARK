@@ -24,7 +24,7 @@ div.container {
     @include custom-responsive(" md lg") {
         justify-content: space-between;
     }
-    @include custom-responsive(" xl xxl") {
+    @include custom-responsive(" xl xx-l") {
         padding: 20px 0 35px;
         align-items: center;
         justify-content: space-between;
@@ -33,14 +33,6 @@ div.container {
     h1 {
         color: $primaryBgBlue;
 
-        @include custom-responsive(" xs sm") {
-            @include h1_MB;
-
-        }
-
-        @include custom-responsive(" xl xxl") {
-            @include h1_PC;
-        }
 
     }
     img.deco_line{
@@ -49,13 +41,13 @@ div.container {
             display: none;
         }
         @include custom-responsive("md") {
-            width: 60%;
+            width: 70%;
             display: block;
         }
         @include custom-responsive("lg") {
             display: block;
         }
-        @include custom-responsive(" xl xxl") {                 
+        @include custom-responsive(" xl xx-l") {                 
             display: block;
         }
     }
@@ -67,7 +59,7 @@ div.container {
       @include h1_MB;
     }
 
-    @include custom-responsive(" xl xxl") {
+    @include custom-responsive(" xl xx-l") {
       display: flex;
     }
 
@@ -78,7 +70,7 @@ div.container {
           border-radius: $br_MB;
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive(" xl xx-l") {
           border-radius: $br_PC;
           width: 500px;
         }
@@ -90,7 +82,7 @@ div.container {
         width: 100%;
       }
 
-      @include custom-responsive(" xl xxl") {
+      @include custom-responsive(" xl xx-l") {
         padding-left: 50px;
         display: flex;
         flex-direction: column;
@@ -104,7 +96,7 @@ div.container {
           font-size: 20px;
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive(" xl xx-l") {
           padding: 0;
           @include h4_B_PC;
         }
@@ -117,7 +109,7 @@ div.container {
           @include h6_MB;
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive(" xl xx-l") {
           @include h6_PC;
         }
       }
@@ -145,7 +137,7 @@ div.container {
         @include h3_MB;
       }
 
-      @include custom-responsive(" xl xxl") {
+      @include custom-responsive(" xl xx-l") {
         @include h3_PC;
       }
 
@@ -168,7 +160,7 @@ div.container {
           margin: 0 10px 20px;
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive(" xl xx-l") {
           @include h5_B_PC;
           border-radius: $br_PC;
           margin: 0 30px 0 0;
@@ -187,7 +179,7 @@ div.container {
 
           }
 
-          @include custom-responsive(" xl xxl") {
+          @include custom-responsive(" xl xx-l") {
             @include h5_B_PC;
             border-radius: $br_PC;
 
@@ -210,7 +202,7 @@ div.container {
               @include h5_B_MB;
             }
 
-            @include custom-responsive(" xl xxl") {
+            @include custom-responsive(" xl xx-l") {
               @include h5_B_PC;
             }
 
@@ -229,7 +221,7 @@ div.container {
 
         }
 
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive(" xl xx-l") {
           border-radius: $br_PC;
 
         }
@@ -242,7 +234,7 @@ div.container {
             padding: 0 20px;
           }
 
-          @include custom-responsive(" xl xxl") {
+          @include custom-responsive(" xl xx-l") {
             @include h6_PC;
             padding: 0 20px;
             border-left: 1px solid;
@@ -273,7 +265,7 @@ div.container {
         width: 40%
       }
 
-      @include custom-responsive(" xl xxl") {
+      @include custom-responsive(" xl xx-l") {
         @include smallBlueBtn_PC;
         @include h5_PC;
       }
@@ -292,7 +284,7 @@ div.container {
         width: 60%
       }
 
-      @include custom-responsive(" xl xxl") {
+      @include custom-responsive(" xl xx-l") {
         @include smallWhiteBtn_PC;
         @include h5_PC;
         
@@ -307,7 +299,7 @@ div.container {
         display: none;
       }
 
-      @include custom-responsive(" xl xxl") {
+      @include custom-responsive(" xl xx-l") {
         display: block;
       }
     }

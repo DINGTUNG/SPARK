@@ -21,7 +21,7 @@ div.donate_page {
     right: -110%;
   }
 
-  @include custom-responsive("xl xxl") {
+  @include custom-responsive("xl xx-l") {
     width: 30%;
     right: -40%;
   }
@@ -44,7 +44,7 @@ div.donate_price {
       @include h5_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h5_PC;
     }
   }
@@ -92,12 +92,11 @@ div.title {
 
   h2 {
     color: $primaryBgBlue;
-
     @include custom-responsive("xs sm ") {
       @include h2_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h2_PC;
     }
   }
@@ -127,7 +126,7 @@ div.donate_inner {
       @include h5_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h5_PC;
     }
 
@@ -146,7 +145,7 @@ div.card_count {
       @include h6_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h6_PC;
     }
 
@@ -183,7 +182,7 @@ div.donate_total {
         @include h5_MB;
       }
 
-      @include custom-responsive("xl xxl") {
+      @include custom-responsive("xl xx-l") {
         @include h5_PC;
       }
     }

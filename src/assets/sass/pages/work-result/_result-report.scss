@@ -15,7 +15,7 @@ div.container {
         @include custom-responsive(" md lg") {
             justify-content: space-between;
         }
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive(" xl xx-l") {
             padding: 20px 0 35px;
             align-items: center;
             justify-content: space-between;
@@ -29,7 +29,7 @@ div.container {
     
             }
     
-            @include custom-responsive(" xl xxl") {
+            @include custom-responsive(" xl xx-l") {
                 @include h1_PC;
             }
     
@@ -46,7 +46,7 @@ div.container {
             @include custom-responsive("lg") {
                 display: block;
             }
-            @include custom-responsive(" xl xxl") {                 
+            @include custom-responsive(" xl xx-l") {                 
                 display: block;
             }
         }
@@ -58,7 +58,7 @@ div.container {
             display: block;
         }
     
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
             display: flex;
         }
     
@@ -74,7 +74,7 @@ div.container {
                 margin: auto;
             }
     
-            @include custom-responsive("xl xxl") {
+            @include custom-responsive("xl xx-l") {
                 border-radius: $br_PC;
                 width: 50%;
                 margin-right: 20px;
@@ -89,7 +89,7 @@ div.container {
                     top: -70px;
                 }
     
-                @include custom-responsive("xl xxl") {
+                @include custom-responsive("xl xx-l") {
                     width: 200px;
                     height: 200px;
                     top: -150px;
@@ -107,7 +107,7 @@ div.container {
                     left: 50%;
                 }
     
-                @include custom-responsive("xl xxl") {
+                @include custom-responsive("xl xx-l") {
                     width: 200px;
                     height: 200px;
                     top: -140px;
@@ -124,7 +124,7 @@ div.container {
                     @include h2_MB;
                 }
     
-                @include custom-responsive("xl xxl") {
+                @include custom-responsive("xl xx-l") {
                     @include h2_PC;
                 }
     
@@ -154,7 +154,7 @@ div.container {
                                 @include h6_MB;
                             }
     
-                            @include custom-responsive(" xl xxl") {
+                            @include custom-responsive(" xl xx-l") {
                                 @include h6_PC;
                             }
                         }
@@ -166,7 +166,7 @@ div.container {
                                 height: 35px;
                             }
     
-                            @include custom-responsive("xl xxl") {
+                            @include custom-responsive("xl xx-l") {
                                 @include smallWhiteBtn_PC;
                                 width: 168px;
                                 height: 40px;
@@ -189,7 +189,7 @@ div.container {
             margin-top: 50px;
         }
     
-        @include custom-responsive(" xl xxl") {
+        @include custom-responsive(" xl xx-l") {
             border-radius: $br_PC;
             margin: 0 20px 0 0;
             width: 50%;
@@ -205,7 +205,7 @@ div.container {
                 left: 50%;
             }
     
-            @include custom-responsive(" xl xxl") {
+            @include custom-responsive(" xl xx-l") {
                 width: 200px;
                 height: 200px;
                 top: -140px;
@@ -222,7 +222,7 @@ div.container {
                 @include h2_MB;
             }
     
-            @include custom-responsive(" xl xxl") {
+            @include custom-responsive(" xl xx-l") {
                 @include h2_PC;
             }
         }
@@ -244,7 +244,7 @@ div.container {
                     justify-content: space-around;
                 }
     
-                @include custom-responsive(" xl xxl") {
+                @include custom-responsive(" xl xx-l") {
                     border-radius: $br_MB;
                     flex-direction:row;
                     @include flex_hm();
@@ -257,7 +257,7 @@ div.container {
                         align-self: center;
                     }
     
-                    @include custom-responsive(" xl xxl") {
+                    @include custom-responsive(" xl xx-l") {
                         display: contents;
                     }
                 }
@@ -268,7 +268,7 @@ div.container {
                         margin: 0;
                     }
     
-                    @include custom-responsive(" xl xxl") {
+                    @include custom-responsive(" xl xx-l") {
                         margin-left: 50px;
                     }
     
@@ -289,7 +289,7 @@ div.container {
                             @include h6_MB;
                         }
     
-                        @include custom-responsive(" xl xxl") {
+                        @include custom-responsive(" xl xx-l") {
                             @include h6_PC;
                         }
                     }
@@ -305,7 +305,7 @@ div.container {
                         align-self: center
                     }
     
-                    @include custom-responsive(" xl xxl") {
+                    @include custom-responsive(" xl xx-l") {
                         @include regularBlueBtn_PC;
                         width: 126px;
                         height: 40px;

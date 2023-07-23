@@ -28,7 +28,7 @@ const login = () => {
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
   } else {
-    if (enteredAccount === 'spark' && enteredPassword === '1234') {
+    if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = '';
       console.log('登入成功');
       alert('登入成功');
@@ -39,6 +39,8 @@ const login = () => {
     }
   }
 };
+
+
 </script>
 
 <template>

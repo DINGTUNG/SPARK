@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore} from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -16,16 +16,15 @@ const tableTitle = ref("繳款方式");
       {{ tableTitle }}
     </caption>
 
-    <tr v-for="paymentMethod in   sponsorCartStore.paymentMethodList  " :key="paymentMethod.id">
+    <!-- <tr v-for="method in   sponsorCartStore.PaymentMethod  " :key="method.id">
       <td class="payment_method">
 
-        <input type="radio" :id="paymentMethod.id" name="payment_method" :value="paymentMethod.method"
-          :checked="paymentMethod.chosen">
+        <input type="radio" name="payment_method">
 
-        <label for="{{paymentMethod.id}}">{{ paymentMethod.method }}</label>
+        <label>{{ sponsorCartStore.chosenMethodType.display}}</label>
       </td>
 
-    </tr>
+    </tr> -->
 
   </table>
 </template>

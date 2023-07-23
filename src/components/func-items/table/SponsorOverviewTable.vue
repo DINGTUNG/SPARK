@@ -78,7 +78,7 @@ const memberDataStore = useMemberDataStore();
         <td class="title">手機</td>
         <td>{{ memberDataStore.memberData.mobile }}</td>
         <td class="title">繳款方式</td>
-        <!-- <td>{{ sponsorCartStore.paymentMethodList.method }}</td> -->
+        <td>{{ sponsorCartStore.chosenMethodType.display}}</td>
       </tr>
 
     </table>

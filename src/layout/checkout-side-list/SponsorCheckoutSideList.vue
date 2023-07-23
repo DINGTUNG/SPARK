@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -21,16 +21,16 @@ const goToCheckoutPageAndCloseSideList = () => {
 
     <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">此頁面現無任何商品</p>
 
-    <div class="location_card" v-for="location in sponsorCartStore.locationCard" :key="location.id">
+    <div class="location_card" v-for="[locationId,count] in [...sponsorCartStore.cart]" :key="locationId">
       
-      <div v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0" class="sponsor_inner">
-        <h5>{{ location.name }}</h5>
+      <div class="sponsor_inner">
+        <h5>{{ Location.getLocationFrom(locationId).name }}</h5>
         <div class="card_count">
-          <i class="fa-solid fa-circle-minus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
-          <p>{{ sponsorCartStore.getCurrentCountInCart(location.id) }}</p>
-          <i class="fa-solid fa-circle-plus" @click="sponsorCartStore.addToCart(location.id, 1)"></i>
+          <i class="fa-solid fa-circle-minus" @click="sponsorCartStore.removeFromCart(locationId, 1)"></i>
+          <p>{{ sponsorCartStore.getCurrentCountInCart(locationId) }}</p>
+          <i class="fa-solid fa-circle-plus" @click="sponsorCartStore.addToCart(locationId, 1)"></i>
         </div>
-        <h5>NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</h5>
+        <h5>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</h5>
       </div>
     </div>
 

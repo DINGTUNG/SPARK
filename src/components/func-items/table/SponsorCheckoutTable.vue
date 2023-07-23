@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -30,30 +30,30 @@ const tableHeader =
       </tr>
     </thead>
 
-    <tbody v-for="location in sponsorCartStore.locationList" :key="location.id" >
-      <tr v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0">
-        <td>{{ location.name }}</td>
+    <tbody v-for="[locationId,count] in [...sponsorCartStore.cart]" :key="locationId" >
+      <tr>
+        <td>{{ Location.getLocationFrom(locationId).name }}</td>
 
         <td class="add_and_remove">
           
           <div>
           <i class="fa-solid fa-circle-minus"
-            @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
+            @click="sponsorCartStore.removeFromCart(locationId, 1)"></i>
           </div>
 
-          <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(location.id) }}</span>
+          <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(locationId) }}</span>
           
           <div>
           <i class="fa-solid fa-circle-plus"
-            @click="sponsorCartStore.addToCart(location.id, 1)"></i>
+            @click="sponsorCartStore.addToCart(locationId, 1)"></i>
           </div>
 
         </td>
 
-        <td>NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</td>
+        <td>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</td>
         
         <td class="discard"><i class="fa-regular fa-circle-xmark"
-            @click="sponsorCartStore.removeFromCart(location.id, sponsorCartStore.getCurrentCountInCart(location.id))"></i></td>
+            @click="sponsorCartStore.removeFromCart(locationId, sponsorCartStore.getCurrentCountInCart(locationId))"></i></td>
       </tr>
     </tbody>
 

@@ -66,6 +66,7 @@ div.container{
     section.cover-story{
         margin: 3% 0;
         position: relative;
+        cursor: pointer;
         div.deco{
           position: absolute;
           top: 15%;
@@ -255,7 +256,7 @@ div.container{
       div.story-list{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-between;
         div.card{
           @include custom-responsive("xs sm") {
             width: 85%;
@@ -267,7 +268,8 @@ div.container{
           }
           @include custom-responsive("xl xx-l") {
             margin:2% 0;
-            width: 28%;
+            width: 32%;
+            height: auto;
             display: flex;
             flex-direction: column;
             @include boxShadow_PC;
@@ -300,7 +302,7 @@ div.container{
               }
       
               &::after {
-                content: "READ NEWS";
+                content: "READ STORY";
                 position: absolute;
                 left: 50%;
                 top: -15%;

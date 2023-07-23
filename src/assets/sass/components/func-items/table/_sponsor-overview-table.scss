@@ -12,6 +12,7 @@ div.table_wrap {
     border-radius: 15px;
     overflow: hidden;
     width: 800px;
+    background-color: $primaryBgWhite;
 
     th {
       background-color: $primaryBgBlue;
@@ -25,17 +26,41 @@ div.table_wrap {
       padding: 20px 30px;
       border-bottom: 1px solid $functionalLightGrey2;
       @include h6_PC;
+      text-align: center;
     }
 
     td.title {
       font-weight: bold;
     }
 
-    tfoot{
-      td.total{
+    tfoot {
+
+      td.total {
+        background-color: $functionalLightGrey1;
+        ;
+
+        @include h4_B_PC;
+        text-align: right;
+
+        div {
+         display: flex;
+         justify-content: flex-end;
+span{
+  margin: 0 10px;
+}
+
+          img.star {
+            width: 1vw;
+            margin: 0 1vw;
+          }
+        }
+
+        ;
+
 
 
       }
+
 
     }
 

@@ -30,7 +30,7 @@ const tableHeader =
       </tr>
     </thead>
 
-    <tbody v-for="[locationId,count] in [...sponsorCartStore.cart]" :key="locationId" >
+    <tbody v-for="[locationId] in [...sponsorCartStore.cart]" :key="locationId" >
       <tr>
         <td>{{ Location.getLocationFrom(locationId).name }}</td>
 

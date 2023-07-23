@@ -1,5 +1,5 @@
 <script setup>
-import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -27,21 +27,24 @@ const memberDataStore = useMemberDataStore();
         <td class="title">金額</td>
       </tr>
 
-      <tbody v-for="(location, index) in sponsorCartStore.locationList" :key="location.id">
-        <tr v-if="sponsorCartStore.getCurrentCountInCart(location.id) != 0">
+      <tbody v-for="([locationId], index) in [...sponsorCartStore.cart]" :key="locationId">
+        <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ location.name }}</td>
+          <td>{{ Location.getLocationFrom(locationId).name }}</td>
           <td class="add_and_remove">
-            <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(location.id) }}</span>
+            <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(locationId) }}</span>
           </td>
-          <td>NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</td>
-
-
+          <td>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</td>
         </tr>
       </tbody>
 
       <tfoot>
-        <!-- <td class="total">NTD {{ sponsorCartStore.getLocationTotalCost(location.id) }}</td> -->
+        <td colspan="4" class="total">
+          <div>
+            <img class="star" :src="'/public/pictures/decorations/illustration/orange_asterisk_single_2.svg'"
+              alt=""><span>認養費({{ sponsorCartStore.chosenPlanType.display}})</span><span>NTD {{ sponsorCartStore.totalCost * sponsorCartStore.chosenPlanType.period }}</span>
+          </div>
+        </td>
       </tfoot>
 
 
@@ -71,14 +74,14 @@ const memberDataStore = useMemberDataStore();
         <td class="title">Email</td>
         <td>{{ memberDataStore.memberData.email }}</td>
         <td class="title">定期繳款方案</td>
-        <td>{{ sponsorCartStore.chosenPlanType.display}}繳</td>
+        <td>{{ sponsorCartStore.chosenPlanType.display }}繳</td>
       </tr>
 
       <tr>
         <td class="title">手機</td>
         <td>{{ memberDataStore.memberData.mobile }}</td>
         <td class="title">繳款方式</td>
-        <td>{{ sponsorCartStore.chosenMethodType.display}}</td>
+        <td>{{ sponsorCartStore.chosenMethodType.display }}</td>
       </tr>
 
     </table>
@@ -90,6 +93,4 @@ const memberDataStore = useMemberDataStore();
   </div>
 </template>
 
-<style scoped lang="scss">
-@import '@/assets/sass/components/func-items/table/_sponsor-overview-table.scss';
-</style>
+<style scoped lang="scss">@import '@/assets/sass/components/func-items/table/_sponsor-overview-table.scss';</style>

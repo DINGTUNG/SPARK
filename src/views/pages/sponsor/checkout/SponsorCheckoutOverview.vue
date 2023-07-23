@@ -27,6 +27,8 @@ import { RouterLink } from 'vue-router'
 
       <RouterLink to="/" class="link home"><button>返回首頁</button></RouterLink>
 
+      <img class="deco" :src="'public/pictures/decorations/illustration/shooting_star_golden2.svg'" alt="">
+
     </div>
   </div>
 </template>

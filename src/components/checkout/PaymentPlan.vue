@@ -1,17 +1,12 @@
 <script setup>
-import { ref, toRaw } from 'vue';
+import {toRaw } from 'vue';
 import { useSponsorCartStore, PaymentPlan } from '@/stores/sponsor-cart.js';
 
-const tableTitle = ref("定期繳款方案");
 const sponsorCartStore = useSponsorCartStore()
 
 const selectPlan = (planType) => {
   sponsorCartStore.chosenPlanType = planType
 }
-
-// console.log("PaymentPlan.TYPE.MONTH", PaymentPlan.TYPE.MONTH);
-// console.log("chosenPlanType", sponsorCartStore.chosenPlanType);
-// console.log(PaymentPlan.TYPE.MONTH == toRaw(sponsorCartStore.chosenPlanType));
 
 </script>
 
@@ -19,7 +14,7 @@ const selectPlan = (planType) => {
   <table class="checkout_table">
 
     <caption>
-      {{ tableTitle }}
+    定期繳款方案
     </caption>
 
   </table>

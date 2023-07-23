@@ -1,14 +1,24 @@
 <script setup>
-// import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
-
-// const sponsorCartStore = useSponsorCartStore();
-
 import { useMemberDataStore } from '@/stores/member-data.js';
-
 const memberDataStore = useMemberDataStore();
 
+// import { Form, Field } from 'vee-validate';
+  
+// const schema = {
+//   document: (value) => {
+//     if (value.length == 2) {
+//       return true;
+//     }
+//       // alert( '請閱讀隱私權政策與認養注意事項並勾選。');
+//   },
+// };
+
+// function onSubmit(values) {
+//   console.log(JSON.stringify(values, null, 2));
+// }
 
 </script>
+
 
 <template>
   <table class="member_data_table">
@@ -41,7 +51,7 @@ const memberDataStore = useMemberDataStore();
 
     <tr>
       <td class="title">身分證字號</td>
-      <td>{{ memberDataStore.memberData.id }}</td>
+      <td colspan="3">{{ memberDataStore.memberData.id }}</td>
 
     </tr>
 
@@ -84,15 +94,43 @@ const memberDataStore = useMemberDataStore();
 
   <form action="">
     <div>
-      <input type="checkbox" required="required">
+      <input type="checkbox" v-validate="'required'">
       <label for="">當您勾選後，即視同您已同意遵守本網站個人<span>隱私權政策</span>及交易安全宣告與其他有關著作權、版權、商標專用權、網路智慧財產權等之法律規定。</label>
     </div>
     <div>
-      <input type="checkbox" required="required">
+      <input type="checkbox" v-validate="'required'">
       <label for="">當您勾選後，即視同您已同意遵守本會<span>認養注意事項</span>。</label>
     </div>
 
   </form>
+
+
+
+  <!-- <Form :validation-schema="schema" @submit="onSubmit">
+
+
+<Field name="document" type="checkbox" value="privacy-policy" />
+<label for="">
+  當您勾選後，即視同您已同意遵守本網站個人<span>隱私權政策</span>及交易安全宣告與其他有關著作權、版權、商標專用權、網路智慧財產權等之法律規定。
+</label>
+
+<Field name="document" type="checkbox" value="sponsor-precautions" />
+<label for="">
+  當您勾選後，即視同您已同意遵守本會<span>認養注意事項</span>。
+</label>
+</Form> -->
+
+
+
+
+
+
+
+
+
+
+
+
 </template>
 
 <style scoped lang="scss">

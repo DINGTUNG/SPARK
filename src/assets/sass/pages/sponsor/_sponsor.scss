@@ -190,8 +190,9 @@ div.container {
             padding-top: 10px;
             align-self: center;
             @include flex_hm();
-            width: 50%;
+
             height: 50%;
+            margin: 10px;
           }
 
           h5 {

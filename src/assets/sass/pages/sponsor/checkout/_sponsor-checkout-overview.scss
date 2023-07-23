@@ -1,9 +1,10 @@
 div.sponsor_checkout_overview_container {
   width: 100%;
   position: relative;
-  height: 200vh;
+  margin-bottom: 30vh;
 
   div.main_body {
+   
     position: relative;
     top: 20vh;
     @include flex_vm;
@@ -49,12 +50,18 @@ div.sponsor_checkout_overview_container {
       }
 
 
-      div.sponsor_overview_table {}
+      div.sponsor_overview_table {
+      }
 
 
       button {}
 
 
+      img.deco {
+        position: absolute;
+        top: 50vh;
+        z-index: -10;
+      }
 
     }
 

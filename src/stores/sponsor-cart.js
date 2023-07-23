@@ -37,9 +37,9 @@ export class Location {
     ),
     TANUKILAND: new Location(
       'tanukiland',
-      '狸貓星樂園',
+      '星之狸貓',
       520,
-      'public/pictures/decorations/illustration/location.svg'
+      'public/pictures/test/禿頭海豹貓嘴2.png'
     ),
     UNKNOWN: new Location(
       'unknown-type',
@@ -168,6 +168,13 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     return Location.getLocationFrom(locationId).cost
   }
 
+  
+
+  const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH)
+
+  const chosenMethodType = reactive(PaymentMethod.METHOD.CREDIT_CARD)
+  
+  console.log(chosenMethodType);
 
 
   // const locationCard = reactive([])
@@ -188,10 +195,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   // }
 
 
-
-  const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH)
-
-  const chosenMethodType = reactive(PaymentMethod.METHOD.CREDIT_CARD)
 
   return {
     isSideListShow,

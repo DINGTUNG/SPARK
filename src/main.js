@@ -17,14 +17,15 @@ const app = createApp(App)
 app.use(Vue3Marquee)
 app.use(router)
 app.use(pinia)
+app.use(vuetify)
 
 //使用viewfire
 app.use(VueFire, {
-    firebaseApp,
-    modules: [
-      VueFireAuth(),
-    ],
-  })
+  firebaseApp,
+  modules: [
+    VueFireAuth(),
+  ],
+})
 
-  app.mount('#app')
-  
+
+app.mount('#app') 

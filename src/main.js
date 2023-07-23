@@ -4,6 +4,9 @@ import router from './router'
 import { createPinia } from 'pinia'
 import 'animate.css'
 import Vue3Marquee from 'vue3-marquee'
+import { VueFire, VueFireAuth } from 'vuefire' //引入viewFire
+import { firebaseApp } from './firebase' //引入viewFire
+
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 
@@ -33,3 +36,13 @@ app.mount('#app')
 
 
 
+//使用viewfire
+app.use(VueFire, {
+    firebaseApp,
+    modules: [
+      VueFireAuth(),
+    ],
+  })
+
+  app.mount('#app')
+  

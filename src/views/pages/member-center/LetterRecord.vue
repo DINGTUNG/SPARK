@@ -1,33 +1,71 @@
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router';
-
-const router=useRouter();
-const account = ref('');
-const password = ref('');
-const errorAccount = ref('');
-
-const login = () => {
-  // 獲取用戶的帳密
-  const enteredAccount = account.value;
-  const enteredPassword = password.value;
-  // 進行驗證
-  if (enteredAccount === '' || enteredPassword === '') {
-    errorAccount.value = '請輸入帳號或密碼';
-  } else {
-    if (enteredAccount === 'spark' && enteredPassword === '1234') {
-      errorAccount.value = ''; 
-      console.log('登入成功');
-      alert('登入成功');
-      router.push({ path: '/' });
-      //跳轉頁面失效
-    } else {
-      console.log('帳號或密碼不正確');
-      errorAccount.value = '帳號或密碼不正確';
-    }
-  }
-
-};
-
+  import { reactive } from 'vue'
   
+  const desserts = reactive([
+    {
+      name: 'Frozen Yogurt',
+      calories: 159,
+    },
+    {
+      name: 'Ice cream sandwich',
+      calories: 237,
+    },
+    {
+      name: 'Eclair',
+      calories: 262,
+    },
+    {
+      name: 'Cupcake',
+      calories: 305,
+    },
+    {
+      name: 'Gingerbread',
+      calories: 356,
+    },
+    {
+      name: 'Jelly bean',
+      calories: 375,
+    },
+    {
+      name: 'Lollipop',
+      calories: 392,
+    },
+    {
+      name: 'Honeycomb',
+      calories: 408,
+    },
+    {
+      name: 'Donut',
+      calories: 452,
+    },
+    {
+      name: 'KitKat',
+      calories: 518,
+    },
+  ])
 </script>
+
+
+<template>
+  <v-data-table height="300px">
+    <thead>
+      <tr>
+        <th class="text-left">
+          Name
+        </th>
+        <th class="text-left">
+          Calories
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="item in desserts"
+        :key="item.name"
+      >
+        <td>{{ item.name }}</td>
+        <td>{{ item.calories }}</td>
+      </tr>
+    </tbody>
+  </v-data-table>
+</template>

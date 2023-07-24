@@ -1,18 +1,14 @@
 <script setup>
-import { ref } from 'vue';
-
 import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
-
-const checkoutOverviewTitle = ref("認養總覽");
 
 </script>
 
 <template>
   <div class="check_out_card">
 
-    <h2 class="check_out_overview_title">{{ checkoutOverviewTitle }}</h2>
+    <h2 class="check_out_overview_title">認養總覽</h2>
 
 
     <div class="checkout_datalist">

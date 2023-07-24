@@ -1,10 +1,7 @@
 <script setup>
-import DonateContentCard from '@/components/donate/DonateContentCard.vue';
+import DonateContentCard from '@/components/func-items/cards/donate/DonateContentCard.vue';
 import DonateCheckoutSideList from '@/layout/checkout-side-list/DonateCheckoutSideList.vue';
 
-
-import { ref } from 'vue';
-const h1 = ref("捐款內容")
 </script>
 
 <template>
@@ -15,7 +12,7 @@ const h1 = ref("捐款內容")
   <div class="donate_container">
     <div class="main_body">
       <div class="title_wrap">
-        <h1 class="title">{{ h1 }}</h1>
+        <h1 class="title">捐款內容</h1>
         <div class="titleline">
         </div>
       </div>

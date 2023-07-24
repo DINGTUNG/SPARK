@@ -1,6 +1,6 @@
 <script setup>
 import MemberDataTable from '@/components/func-items/table/MemberDataTable.vue'
-import SponsorCheckoutCard from '@/components/func-items/cards/SponsorCheckoutCard.vue'
+import SponsorCheckoutCard from '@/components/func-items/cards/sponsor/SponsorCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 
@@ -29,7 +29,6 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
       <img :src="'pictures/characters/girl/girl_bubbling.svg'" alt="">
 
     </div>
-
 
   </div>
 </template>

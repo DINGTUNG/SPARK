@@ -1,0 +1,135 @@
+div.service_milestone_banner{
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+
+div.service_milestone_star_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $secondaryLightBlue3;
+    width: 220px;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 15%;
+    right: 17%;
+
+    div.info{
+        letter-spacing: .05rem;
+        text-align: center;
+
+        span{
+           font-size: 14px;
+           color: $primaryBrandWhite;
+        }
+
+        span.number{
+            font-size: 32px;
+        }
+    }
+}
+
+div.service_milestone_container{
+    width: 100%;
+
+    div.main_body{
+        width: 62.5vw;
+        margin: auto;
+
+        div.number_of_people{
+            display: flex;
+            justify-content: space-between;
+
+            div.number_block{
+               margin-top: -5%;
+               letter-spacing: .05rem;
+               text-align: center;
+               h5{
+                @include h5_PC;
+                margin-top: 30px;
+               }
+
+               span{
+                font-size: 16px;
+               }
+
+               span.number{
+                font-size: 46px;
+                font-weight: $fWBold;
+               }
+
+               &:hover{
+                span.number {
+                    color:$decorativeOrange
+                  }
+               }
+            }
+        }
+
+        div.title_block{
+            display: flex;
+            padding: 20px 0 35px;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 7%;
+
+            h1 {
+                color: $primaryBrandBlue;
+            }
+
+            img.deco_line{
+                width: 70%;
+            }
+        }
+
+        .carousel{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20%; //
+
+            div.card{
+                @include boxShadow_PC;
+                width: 20%;
+                border-radius: 30px;
+                padding: 50px;
+
+                img{
+                    width: 100%;
+                    margin-top: -70%;
+                    margin-bottom: 10%;
+                }
+
+                span{
+                    font-size: 24px;
+                    color: $primaryAccentGold;
+                    font-weight: $fWBold;
+                    letter-spacing:$regularBtnLs_PC;
+                }
+
+                h4{
+                    @include h4_B_PC;
+                    margin-top: 10%;
+                }
+
+                h5{
+                    @include h5_PC;
+                    margin-bottom: 10%;
+                }
+            }
+
+            div.arrow{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

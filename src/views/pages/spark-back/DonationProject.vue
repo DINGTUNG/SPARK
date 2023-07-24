@@ -1,5 +1,5 @@
 <script setup>
-
+  import SideBar from '../spark-back/SideBar.vue';
   import { ref,reactive } from 'vue'
   const page = ref(1)
   const model = ref(true)
@@ -71,8 +71,8 @@
 <template>
   <div class="container">
     
-
-    <div class="sidebar">
+    <SideBar/>
+    <!-- <div class="sidebar">
 
       <div class="logo">
         <img :src="'pictures/logo/logo_white.svg'" alt="星火logo">
@@ -85,7 +85,7 @@
           text="會員"
         ></v-expansion-panel>
       </v-expansion-panels>
-    </div>
+    </div> -->
 
 
     <div class="table_body">

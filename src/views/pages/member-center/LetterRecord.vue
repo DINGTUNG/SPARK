@@ -1,33 +1,42 @@
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router';
+import { reactive } from 'vue';
 
-const router=useRouter();
-const account = ref('');
-const password = ref('');
-const errorAccount = ref('');
 
-const login = () => {
-  // 獲取用戶的帳密
-  const enteredAccount = account.value;
-  const enteredPassword = password.value;
-  // 進行驗證
-  if (enteredAccount === '' || enteredPassword === '') {
-    errorAccount.value = '請輸入帳號或密碼';
-  } else {
-    if (enteredAccount === 'spark' && enteredPassword === '1234') {
-      errorAccount.value = ''; 
-      console.log('登入成功');
-      alert('登入成功');
-      router.push({ path: '/' });
-      //跳轉頁面失效
-    } else {
-      console.log('帳號或密碼不正確');
-      errorAccount.value = '帳號或密碼不正確';
-    }
-  }
+const letterData = reactive([
+  {
+    childId:"00001",
+    date:"2023.07.01",
+    location:"台北星火中心",
+    jpg:"來自00001小朋友的來信",
+  },
+  {
+    childId:"00008",
+    date:"2023.07.01",
+    location:"台北星火中心",
+    jpg:"來自00001小朋友的來信",
+  },
+])
 
-};
 
-  
 </script>
+
+<template>
+  <table class="letter_table">
+
+    <caption>感謝函專區</caption>
+
+    <tr>
+      <th colspan="2" class="child_id">兒童編號</th>
+      <th class="date">收件日期</th>
+      <th class="location">所屬據點</th>
+      <th class="jpg">感謝函圖檔</th>
+    </tr>
+
+    <tr v-for="data in letterData" :key="data.childId">
+      <td>{{ data.childId }}</td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.location }}</td>
+      <td>{{ data.jpg }}</td>
+    </tr>
+  </table>
+</template>

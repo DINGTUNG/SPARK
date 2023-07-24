@@ -46,7 +46,7 @@ div.container {
                     display: none;
                 }
                 @include custom-responsive("md") {
-                    width: 60%;
+                    width: 70%;
                     display: block;
                 }
                 @include custom-responsive("lg") {

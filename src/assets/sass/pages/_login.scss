@@ -117,27 +117,15 @@ div.login_body {
             width: 63%;
             margin-top: 30px;
 
-            i{
-                color: $primaryBrandWhite;
-                margin-right: 10px;
-            }
-        }
-        div.signup{
-            display: flex;
-            justify-content: flex-end;
-            width: 63%;
-            margin-top: 20px;
-            @include h6_PC;
-
-            i{
-                color: $secondaryLightBlue2;
-                font-size: $h5Fs_PC;
-                margin-right: 5px;
-            }
-            a{
-                color: $secondaryLightBlue2;
-            }
-        }
+    div.errorAccount {
+        color: red;
+        margin: 10px 0 10px 10px;
+    }
+    .login_title{
+        display: flex;
+        justify-content: space-between;
     }
 
+}
+}
 }

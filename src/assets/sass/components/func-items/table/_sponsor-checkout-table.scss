@@ -55,13 +55,12 @@ table.checkout_table {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-
-
+      gap: 10px;
 
       span.count {
         display: block;
         text-align: center;
-        width: 25%;
+        width: 30px;
       }
     }
 

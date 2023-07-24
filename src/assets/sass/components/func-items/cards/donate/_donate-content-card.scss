@@ -116,7 +116,7 @@ div.donate_content_card_list {
         }
 
         @include custom-responsive(" xl 2l") {
-          @include smallBlueBtn_PC;
+          @include regularBlueBtn_MB;
         }
       }
 

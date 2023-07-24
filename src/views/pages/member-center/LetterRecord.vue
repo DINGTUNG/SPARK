@@ -1,112 +1,42 @@
-<template>
-
-<div class="about_container">
-  <div class="main_body">
-    <div class="title">
-      <img class="love_book" :src="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾">
-      <h1>感謝函專區</h1>
-    </div>
-    <div class="text">
-      <p>親愛的認養人，我們真心希望您近來都過得順遂和愉快，<br>由衷感謝您對我們的一直支持和無微不至的愛護～願您繼續擁有幸福的日子！</p>
-    </div>
+<script setup>
+import { reactive } from 'vue';
 
 
-    <el-table :data="tableData"
-    :row-style="{height:'65px'}" :table-layout="tableLayout" :cell-class-name="letterRow" border >
-      <el-table-column prop="no" label="兒童編號" width="220" />
-      <el-table-column prop="date" label="日期" width="220" />
-      <el-table-column prop="area" label="所屬據點" width="220" />
-      <el-table-column prop="pic" label="圖檔" />
-    </el-table>
-  </div>
-</div>
-
-</template>
-
-<script lang="js" setup>
-  import { ref } from 'vue'
-
-  const tableLayout = ref('fixed')
-
-  const tableData = [
-    {
-      no: '00001',
-      date: '2023.06.10',
-      area: '台北星火中心',
-      pic: '00001.jpg'
-    },
-    {
-      no: '00001',
-      date: '2023.07.08',
-      area: '台北星火中心',
-      pic: '00035.jpg'
-    },
-    {
-      no: '00001',
-      date: '2023.10.10',
-      area: '台北星火中心',
-      pic: '00040.jpg'
-    },
-    {
-      no: '00001',
-      date: '2023.11.29',
-      area: '台北星火中心',
-      pic: '00066.jpg'
-    },
-    {
-      no: '00018',
-      date: '2024.01.01',
-      area: '台中星火中心',
-      pic: '00105.jpg'
-    },
-    {
-      no: '00018',
-      date: '2024.01.20',
-      area: '台中星火中心',
-      pic: '00112.jpg'
-    },
-    {
-      no: '00018',
-      date: '2024.02.22',
-      area: '台中星火中心',
-      pic: '00134.jpg'
-    },
-    {
-      no: '00018',
-      date: '2024.03.28',
-      area: '台中星火中心',
-      pic: '00155.jpg'
-    },
-    {
-      no: '00025',
-      date: '2024.04.25',
-      area: '台東星火中心',
-      pic: '00190.jpg'
-    },
-    {
-      no: '00025',
-      date: '2024.05.07',
-      area: '台東星火中心',
-      pic: '00211.jpg'
-    },
-  ]
-
-  // const letterRow = ({ row, rowIndex }) => {
-  //   if (rowIndex % 2 == 0) {
-  //     return "no_bgcolor";
-  //   } else {
-  //     return "bgcolor";
-  //   }
-  // };
+const letterData = reactive([
+  {
+    childId:"00001",
+    date:"2023.07.01",
+    location:"台北星火中心",
+    jpg:"來自00001小朋友的來信",
+  },
+  {
+    childId:"00008",
+    date:"2023.07.01",
+    location:"台北星火中心",
+    jpg:"來自00001小朋友的來信",
+  },
+])
 
 
 </script>
 
-<style scoped lang="scss">
-  @import '@/assets/sass/pages/member-center/letter-record.scss';
+<template>
+  <table class="letter_table">
 
-  element.style{
-    cursor: unset;
-  }
-</style>
+    <caption>感謝函專區</caption>
 
+    <tr>
+      <th colspan="2" class="child_id">兒童編號</th>
+      <th class="date">收件日期</th>
+      <th class="location">所屬據點</th>
+      <th class="jpg">感謝函圖檔</th>
+    </tr>
+
+    <tr v-for="data in letterData" :key="data.childId">
+      <td>{{ data.childId }}</td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.location }}</td>
+      <td>{{ data.jpg }}</td>
+    </tr>
+  </table>
+</template>

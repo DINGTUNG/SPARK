@@ -1,32 +1,38 @@
 <script setup>
-import DonateCheckoutTable from '@/components/func-items/table/DonateCheckoutTable.vue'
-import DonateCheckoutCard from '@/components/func-items/cards/DonateCheckoutCard.vue'
+import DonateCheckoutTable from '@/components/func-items/table/donate/DonateCheckoutTable.vue'
+import DonateCheckoutCard from '@/components/func-items/cards/donate/DonateCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
-
+import PaymentMethod from '@/components/checkout/PaymentMethod.vue'
 
 </script>
 
 <template>
-  <div>
+  <div class="sponsor_checkout_container">
     <!-- 撐開頁面之臨時空間 -->
     <br v-for="n in 20" :key="n">
-    <div class="checkout_wrap">
 
-      <div class="checkout_table_wrap">
-        <DonateCheckoutTable />
+    <div class="main_body">
+      <div class="checkout_wrap">
+
+        <div class="checkout_table_wrap">
+          <div class="donate_checkout_table">
+            <DonateCheckoutTable />
+          </div>
+
+          <div class="payment_method">
+            <PaymentMethod />
+          </div>
+        </div>
+
+        <div class="checkout_overview_wrap">
+          <DonateCheckoutCard />
+          <CheckoutButtons />
+        </div>
       </div>
 
-      
-      <div class="checkout_overview_wrap">
-        <DonateCheckoutCard />
-        <CheckoutButtons />
-      </div>
-
+      <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'" alt="">
 
     </div>
-
-
-
 
 
   </div>

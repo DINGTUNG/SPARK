@@ -1,8 +1,15 @@
 div.sponsor_checkout_overview_container {
   width: 100%;
   position: relative;
+  margin-bottom: 30vh;
 
   div.main_body {
+   
+    position: relative;
+    top: 20vh;
+    @include flex_vm;
+    gap: 50px;
+
 
     @include custom-responsive("xs sm") {
       @include body_space_MB
@@ -14,8 +21,7 @@ div.sponsor_checkout_overview_container {
       div.header_wrap {
         @include flex_hm;
         gap: 20px;
-        position: relative;
-        top: 20vh;
+
 
         div.text {
           @include flex_vm;
@@ -42,6 +48,21 @@ div.sponsor_checkout_overview_container {
           width: 150px;
         }
       }
+
+
+      div.sponsor_overview_table {
+      }
+
+
+      button {}
+
+
+      img.deco {
+        position: absolute;
+        top: 30vh;
+        z-index: -10;
+      }
+
     }
 
 

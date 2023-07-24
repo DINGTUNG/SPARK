@@ -15,10 +15,8 @@ div.sponsor_checkout_container {
 
     div.checkout_wrap {
       position: relative;
-      top: -150px;
+      top: -25vh;
       @include flex_hm;
-      display: flex;
-      justify-content: center;
       align-items: flex-start;
       gap: 50px;
 

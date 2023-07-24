@@ -7,17 +7,8 @@ table.checkout_table {
     @include h1_PC
   }
 
-  tbody {
-    tr {
-      border-bottom: 1px solid $functionalLightGrey3;
-
-      td {}
-    }
-  }
-
   tr {
     border: 0;
-
 
     th,
     td {
@@ -28,15 +19,18 @@ table.checkout_table {
 
     th {
       padding: 30px 30px 0;
-      @include h4_B_PC;
+      @include h3_PC;
       border-bottom: 5px solid $primaryBrandBlue;
+    }
 
+    th.left_column{
+      width: 70%;
     }
 
     td {
       width: 30%;
       padding: 30px 30px;
-      @include h5_PC;
+      @include h4_PC;
 
       i {
         font-size: 30px;
@@ -48,26 +42,6 @@ table.checkout_table {
         text-align: center;
 
       }
-    }
-
-    td.add_and_remove {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-
-
-
-      span.count {
-        display: block;
-        text-align: center;
-        width: 25%;
-      }
-    }
-
-    td.discard {
-      width: 10%;
-
     }
 
   }

@@ -1,0 +1,71 @@
+div.table_wrap {
+  @include flex_vm;
+  gap: 50px;
+
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+    @include table_PC;
+    border: 1px solid $primaryBrandBlue;
+    border-top: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 800px;
+    background-color: $primaryBgWhite;
+
+    th {
+      background-color: $primaryBgBlue;
+      color: $primaryBrandWhite;
+      @include h5_PC;
+      text-align: left;
+      padding-left: 30px;
+    }
+
+    td {
+      padding: 20px 30px;
+      border-bottom: 1px solid $functionalLightGrey2;
+      @include h6_PC;
+      text-align: center;
+    }
+
+    td.title {
+      font-weight: bold;
+    }
+
+    tfoot {
+
+      td.total {
+        background-color: $functionalLightGrey1;
+        ;
+
+        @include h4_B_PC;
+        text-align: right;
+
+        div {
+          display: flex;
+          justify-content: flex-end;
+
+          span {
+            margin: 0 10px;
+          }
+
+          img.star {
+            width: 1vw;
+            margin: 0 1vw;
+
+          }
+        }
+      }
+    }
+  }
+
+
+
+  table.sponsor_info {
+
+    td,th{
+      text-align: left;
+    }
+  }
+}

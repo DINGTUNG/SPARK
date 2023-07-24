@@ -1,4 +1,5 @@
 div.donate_page {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -8,7 +9,7 @@ div.donate_page {
   order: 99;
   border-radius: 30px 0 0 30px;
   z-index: 100;
-  transition: right 1s ease-in-out;
+  transition: right 0.5s ease-in-out;
   border: 1px solid;
 
   &.active {
@@ -21,7 +22,7 @@ div.donate_page {
     right: -110%;
   }
 
-  @include custom-responsive("xl xxl") {
+  @include custom-responsive("xl xx-l") {
     width: 30%;
     right: -40%;
   }
@@ -30,60 +31,81 @@ div.donate_page {
     display: flex;
     justify-content: center;
   }
+}
+
+h3 {
+  display: inline-block;
+  margin: 20px 40px;
 
 }
 
+
 div.donate_price {
-  padding: 20px;
   display: flex;
   flex-direction: column;
 
   h5 {
-
     @include custom-responsive("xs sm ") {
       @include h5_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h5_PC;
     }
   }
+
   div.price_button {
-    padding-bottom: 20px;
+    @include flex_vm;
+    gap: 10px;
+
+    div {
+      @include flex_hm;
+      gap: 20px;
+    }
+
     button {
-      @include regularBlueBtn_PC;
-      width: 40%;
-      margin:20px 0 0 0;
-     
+      @include smallBlueBtn_PC;
+      @include h5_PC;
     }
-    button:nth-child(even){
-      margin:20px 0 0 20px;
-    }
- 
+
+
   }
 
   input {
-    font-size: 25px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
     height: 100px;
-    width: 90%;
+    width: 80%;
     border-radius: $br_PC;
     padding-left: 10px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid $primaryBrandBlue;
 
   }
 }
-div.img{
-flex-grow: 1;
-display: flex;
-flex-direction: column;
-  .star{
+
+div.img {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  img {
+    margin-right: 30px;
+  }
+
+  .star {
     width: 20%;
     height: 100px;
   }
-  .man{
+
+  .man {
     width: 20%;
     height: 100px;
   }
-}  
+}
 
 div.title {
   padding: 20px;
@@ -91,13 +113,15 @@ div.title {
   justify-content: space-between;
 
   h2 {
+    display: block;
+    margin: auto;
     color: $primaryBgBlue;
 
     @include custom-responsive("xs sm ") {
       @include h2_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h2_PC;
     }
   }
@@ -127,7 +151,7 @@ div.donate_inner {
       @include h5_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h5_PC;
     }
 
@@ -146,7 +170,7 @@ div.card_count {
       @include h6_MB;
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include h6_PC;
     }
 
@@ -183,7 +207,7 @@ div.donate_total {
         @include h5_MB;
       }
 
-      @include custom-responsive("xl xxl") {
+      @include custom-responsive("xl xx-l") {
         @include h5_PC;
       }
     }

@@ -20,8 +20,6 @@ import RightMenu from '@/layout/RightMenu.vue';
   <LeftMenu />
   <RouterView />
   <Footer />
-
 </template>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

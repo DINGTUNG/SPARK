@@ -5,6 +5,7 @@
 
 @include custom-responsive("xs"){
   div.footer_content{
+    width: 100%;
     margin-left: 5vw;
 
     div.information{
@@ -270,12 +271,7 @@
 }
 
 
-
-
-
-
 footer{
-  
   width: 100%;
   background-image: url("/pictures/decorations/layout/footer.svg");
   background-repeat: no-repeat;

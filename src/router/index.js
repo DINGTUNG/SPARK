@@ -132,6 +132,11 @@ const router = createRouter({
       name: 'donate-list',
       component: () => import('@/views/pages/donate/DonateList.vue')
     },
+    {
+      path: '/service-milestone',
+      name: 'service-milestone',
+      component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
+    },
     
   ]
 })

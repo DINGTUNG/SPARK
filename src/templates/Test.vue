@@ -1,5 +1,5 @@
 <script lang="js" setup>
-
+import SideBar from '../views/pages/spark-back/SideBar.vue';
 
 </script>
 
@@ -10,7 +10,7 @@
 
       <br v-for="n in 10" :key="n">
 
-    
+      <SideBar/>
     </div>
 
   </div>

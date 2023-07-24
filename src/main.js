@@ -10,6 +10,7 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import VueReCaptcha from 'vue3-recaptcha2';
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -31,5 +32,6 @@ app.use(VueFire, {
     VueFireAuth(),
   ],
 })
+app.use(VueReCaptcha, {siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr'});
 
 app.mount('#app') 

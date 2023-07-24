@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -18,22 +18,20 @@ const goToCheckoutPageAndCloseSideList = () => {
       <h2>我要認養</h2>
       <i class="fa-regular fa-circle-xmark" @click="sponsorCartStore.hideSideList"></i>
     </div>
-
     <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">此頁面現無任何商品</p>
-
-    <div class="location_card" v-for="[locationId] in [...sponsorCartStore.cart]" :key="locationId">
-      
-      <div class="sponsor_inner">
-        <h5>{{ Location.getLocationFrom(locationId).name }}</h5>
-        <div class="card_count">
-          <i class="fa-solid fa-circle-minus" @click="sponsorCartStore.removeFromCart(locationId, 1)"></i>
-          <p>{{ sponsorCartStore.getCurrentCountInCart(locationId) }}</p>
-          <i class="fa-solid fa-circle-plus" @click="sponsorCartStore.addToCart(locationId, 1)"></i>
+    <div class="location_card_inner">
+      <div class="location_card" v-for="[locationId, count] in [...sponsorCartStore.cart]" :key="locationId">
+        <div class="sponsor_inner">
+          <h5>{{ Location.getLocationFrom(locationId).name }}</h5>
+          <div class="card_count">
+            <i class="fa-solid fa-circle-minus" @click="sponsorCartStore.removeFromCart(locationId, 1)"></i>
+            <p>{{ sponsorCartStore.getCurrentCountInCart(locationId) }}</p>
+            <i class="fa-solid fa-circle-plus" @click="sponsorCartStore.addToCart(locationId, 1)"></i>
+          </div>
+          <h5>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</h5>
         </div>
-        <h5>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</h5>
       </div>
     </div>
-
     <div class="sponsor_total">
       <div class="total_price">
         <h5>認養費用</h5>

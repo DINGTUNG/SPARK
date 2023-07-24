@@ -1,25 +1,23 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import 'animate.css';
-
+import VueRecaptcha from 'vue3-recaptcha2';
 import { useFirestore } from 'vuefire'; //import firebase
 const firebase = useFirestore(); //宣告firebase為firebase的內容
-console.log(firebase) //檢查看看
+// console.log(firebase) //檢查看看
 import { getRedirectResult, signInWithRedirect, signOut, } from 'firebase/auth'
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
-
+const { user, isPending } = useCurrentUser();
 const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
-
 // display errors if any(如果有的話就顯示錯誤)
 const error = ref(null)
-
 import { GoogleAuthProvider } from 'firebase/auth'
 const googleAuthProvider = new GoogleAuthProvider()
 //登入跳轉函式，會跳轉到google的帳號頁面
-function signinRedirect() {
+function signInRedirect() {
   signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
-    console.error('Failed signinRedirect', reason)
+    console.error('Failed signInRedirect', reason)
     error.value = reason
   })
 }
@@ -28,12 +26,32 @@ function signinRedirect() {
 onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
+      console.log(Response);
     })
     .catch((reason) => {
       console.error('Failed redirect result', reason)
       error.value = reason
     })
 })
+
+const instance_vueRecaptchaV2 = reactive({
+  data_v2SiteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr',
+  recaptchaVerified: (response_token) => {
+    console.log('驗證成功');
+    console.log(response_token);
+    // 連接後端API，給後端進行認證
+    // Connect to your Backend service.
+  },
+  recaptchaExpired: () => {
+    // 驗證過期後進行的動作
+    console.log('驗證過期啦QAQ');
+  },
+  recaptchaFailed: () => {
+    console.log('驗證失敗');
+    // 驗證失敗進行的動作
+  },
+});
+
 
 
 
@@ -91,23 +109,27 @@ const login = () => {
           <img v-if="showPassword" :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
           <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" />
         </span>
-        <div class="forgot_psw">
-          <i class="fa-solid fa-circle-question"></i>
-          <a href="#">忘記密碼</a>
+        <div class="recaptcha_forget_block">
+          <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
+            @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
+            @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
+          </vue-recaptcha>
+          <div class="forgot_psw">
+            <i class="fa-solid fa-circle-question"></i>
+            <a href="#">忘記密碼</a>
+          </div>
         </div>
       </div>
-
       <div v-if="errorAccount" class="error_account">
         {{ errorAccount }}
       </div>
       <button class="login_button" @click="login">登入</button>
-
       <div class="login_methods">
         <div class="line"></div>
         <h6>以其他方式登入</h6>
         <div class="line"></div>
       </div>
-      <button class="google_login" @click="signinRedirect">
+      <button class="google_login" @click="signInRedirect">
         <i class="fa-brands fa-google"></i>
         以 google 帳號登入
       </button>
@@ -122,7 +144,6 @@ const login = () => {
     </div>
   </div>
 </template>
-
 <style scoped lang="scss">
 @import "@/assets/sass/pages/login";
 </style>

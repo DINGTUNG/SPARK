@@ -29,6 +29,7 @@ div.sponsor_page {
 .none{
   display: flex;
   justify-content: center;
+  flex-grow: 1;
 }
 
 }
@@ -55,59 +56,64 @@ div.title {
     cursor: pointer;
   }
 }
-
-.location_card {
+.location_card_inner{
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-}
-
-div.sponsor_inner {
-  padding: 20px;
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-between;
-
-  h5 {
-    color: $primaryBgBlue;
+  .location_card {
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  div.sponsor_inner {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+  
+    h5 {
+      color: $primaryBgBlue;
+      @include flex_hm();
+  
+      @include custom-responsive("xs sm ") {
+        @include h5_MB;
+      }
+  
+      @include custom-responsive("xl xx-l") {
+        @include h5_PC;
+      }
+  
+    }
+  }
+  
+  div.card_count {
+    display: flex;
     @include flex_hm();
-
-    @include custom-responsive("xs sm ") {
-      @include h5_MB;
+  
+    p {
+      color: $basicFontColor;
+      padding: 0 20px;
+  
+      @include custom-responsive("xs sm ") {
+        @include h6_MB;
+      }
+  
+      @include custom-responsive("xl xx-l") {
+        @include h6_PC;
+      }
+  
     }
-
-    @include custom-responsive("xl xx-l") {
-      @include h5_PC;
+  
+  
+    i {
+      cursor: pointer;
+      font-size: 20px;
+      padding: 0 10px;
+      color: $primaryBgBlue;
+  
     }
-
   }
-}
-
-div.card_count {
-  display: flex;
-  @include flex_hm();
-
-  p {
-    color: $basicFontColor;
-    padding: 0 20px;
-
-    @include custom-responsive("xs sm ") {
-      @include h6_MB;
-    }
-
-    @include custom-responsive("xl xx-l") {
-      @include h6_PC;
-    }
-
-  }
-
-
-  i {
-    cursor: pointer;
-    font-size: 20px;
-    padding: 0 10px;
-    color: $primaryBgBlue;
-
-  }
+  
 }
 
 div.sponsor_total {

@@ -28,12 +28,16 @@ const picUnder = () => {
 
 const warmStory = reactive(WARM_STORY)
 const storyId = ref(null)
+
 const propsId = (id) => {
   storyId.value = id - 1
 }
 const closeStory = () => {
   storyId.value = null;
 };
+
+const page = ref(1);
+
 
 let photoDisplay = ref(0)
 const photoSelected = (index) => {
@@ -116,12 +120,14 @@ const photoAlbum = reactive(PHOTO_ALBUM)
             </div>
           </div>
         </div>
-        <div class="change-page">
-          <i class="fa-solid fa-chevron-left"></i>
-          <button class="blue">1</button>
-          <button>2</button>
-          <button>3</button>
-          <i class="fa-solid fa-chevron-right"></i>
+        <div class="text-center">
+          <v-pagination
+            v-model="page"
+            :length="3"
+            rounded="circle"
+            prev-icon="fa-solid fa-chevron-left"
+            next-icon="fa-solid fa-chevron-right"
+          ></v-pagination>
         </div>
       </section>
         <Story :storyId="storyId" @closeStory="closeStory" />

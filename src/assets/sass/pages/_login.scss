@@ -71,25 +71,16 @@ div.login_body {
         }
 
         div.error_account {
-<<<<<<< HEAD
-            color: red;          
-        }   
-=======
             color: red;
             margin-top: 10px;
         }
 
->>>>>>> 4e79d948dcae90e8e125cb9a370cec0dbb1edddd
         div.password_wrapper {
             position: relative;
 
             img {
                 position: absolute;
-<<<<<<< HEAD
-                right: 32%;
-=======
                 right: 42%;
->>>>>>> 4e79d948dcae90e8e125cb9a370cec0dbb1edddd
                 width: 25px;
                 // top: 30%;
                 cursor: pointer;
@@ -99,15 +90,9 @@ div.login_body {
             div.forgot_psw {
                 @include h6_PC;
                 position: absolute;
-<<<<<<< HEAD
-                right: 32%;
-               
-                i{
-=======
                 right: 38%;
 
                 i {
->>>>>>> 4e79d948dcae90e8e125cb9a370cec0dbb1edddd
                     color: $secondaryLightBlue2;
                     font-size: $h5Fs_PC;
                     margin-right: 5px;
@@ -134,18 +119,9 @@ div.login_body {
                 width: 35%;
                 height: 1px;
                 background-color: #bebdbd;
-<<<<<<< HEAD
-            }      
-        }      
-        div.errorAccount {
-            color: red;
-            margin: 10px 0 10px 10px;
-        }
-=======
             }
         }
 
->>>>>>> 4e79d948dcae90e8e125cb9a370cec0dbb1edddd
         button.google_login {
             @include h5_PC;
             display: block;
@@ -157,16 +133,6 @@ div.login_body {
             width: 70%;
             margin-top: 30px;
 
-<<<<<<< HEAD
-            i{
-                color: $primaryBrandWhite;
-                margin-right: 10px;
-            }
-        }
-        
-}
-}
-=======
             div.errorAccount {
                 color: red;
                 margin: 10px 0 10px 10px;
@@ -180,4 +146,3 @@ div.login_body {
         }
     }
 }
->>>>>>> 4e79d948dcae90e8e125cb9a370cec0dbb1edddd

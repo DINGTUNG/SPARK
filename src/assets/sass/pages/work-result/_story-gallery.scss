@@ -381,37 +381,6 @@ div.container{
         }
       }
     }
-    div.change-page{
-      @include custom-responsive("xs sm") {
-        display: none;
-      }
-      @include custom-responsive("xl xx-l") {
-        width: 30%;
-        margin: 3% auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-      }
-
-      i{
-        color:$primaryBrandBlue;
-        cursor: pointer;
-      }
-      button{
-        @include h5_B_PC;
-        width: 55px;
-        height: 55px;
-        border: 1px solid $primaryBrandBlue;
-        border-radius: 50%;
-        background-color:$primaryBrandWhite ;
-        color:$primaryBrandBlue;
-        cursor: pointer;
-      }
-      button.blue{
-        background-color:$primaryBrandBlue;
-        color:$primaryBrandWhite ;
-      }
-    }
     section.photo-album{
       @include custom-responsive("xs sm"){
         margin: 10% 0 45vh 0;

@@ -2,6 +2,7 @@
 
   import { ref,reactive } from 'vue'
   const page = ref(1)
+  const model = ref(true)
 
 
 
@@ -78,7 +79,7 @@
       </div>
       <v-expansion-panels variant="accordion" elevation="0">
         <v-expansion-panel
-          v-for="i in 3"
+          v-for="i in 9"
           :key="i"
           title="會員管理"
           text="會員"
@@ -126,10 +127,29 @@
             <td class="start_date">{{ item.start_date }}</td>
             <td class="end_date">{{ item.end_date }}</td>
             <td class="online">{{ item.online }}</td>
+            <td>
+              <v-switch
+              v-model="item.online"
+              :label="item.online ? '已上架' : '未上架'"
+              color="#1D3D6C"
+              density="compact"
+              hide-details="true"
+              inline
+              inset></v-switch>
+            </td>
             <td class="function">{{ item.function }}</td>
           </tr>
         </tbody>
       </v-table>
+      <v-btn
+      min-width="100"
+      color="#1D3D6C"
+      :ripple="false"
+      rounded="xl"
+      size="x-large"
+      variant="flat"
+      style="color: white;"
+      >新增</v-btn>
 
       <!-- 分頁 -->
       <div class="text-center">
@@ -143,7 +163,8 @@
           color="#E7E6E1"
         ></v-pagination>
       </div>
-
+      
+    
     </div>
 
   </div>

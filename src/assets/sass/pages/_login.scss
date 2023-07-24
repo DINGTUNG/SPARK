@@ -29,7 +29,7 @@ div.login_body {
             border: 1px solid $functionalLightGrey3;
             border-radius: 10px;
             padding: 10px;
-            width: 60%;
+            width: 70%;
             background-color: #f9f9f9;
         
             &:focus{
@@ -57,19 +57,18 @@ div.login_body {
             border-radius: $br_PC;
             border: 1px solid $primaryBrandWhite;
             height: 55px;
-            width: 63%;
+            width: 70%;
             margin-top: 50px;
         }
         div.error_account {
-            color: red;
-            margin-top: 10px;           
+            color: red;          
         }   
         div.password_wrapper {
             position: relative;
     
             img{
                 position: absolute;
-                right: 40%;
+                right: 32%;
                 width: 25px;
                 // top: 30%;
                 cursor: pointer;
@@ -78,7 +77,7 @@ div.login_body {
             div.forgot_psw{
                 @include h6_PC;
                 position: absolute;
-                right: 38%;
+                right: 32%;
                
                 i{
                     color: $secondaryLightBlue2;
@@ -94,7 +93,7 @@ div.login_body {
             align-items: center;
             display: flex;
             justify-content: space-between;
-            width: 63%;
+            width: 70%;
             margin-top: 30px;
     
             h6{
@@ -106,6 +105,10 @@ div.login_body {
                 background-color: #bebdbd;
             }      
         }      
+        div.errorAccount {
+            color: red;
+            margin: 10px 0 10px 10px;
+        }
         button.google_login {
             @include h5_PC;
             display: block;
@@ -114,18 +117,14 @@ div.login_body {
             border-radius: $br_PC;
             border: 1px solid $primaryBrandBlue;
             height: 55px;
-            width: 63%;
+            width: 70%;
             margin-top: 30px;
 
-    div.errorAccount {
-        color: red;
-        margin: 10px 0 10px 10px;
-    }
-    .login_title{
-        display: flex;
-        justify-content: space-between;
-    }
-
-}
+            i{
+                color: $primaryBrandWhite;
+                margin-right: 10px;
+            }
+        }
+        
 }
 }

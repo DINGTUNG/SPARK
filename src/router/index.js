@@ -137,6 +137,11 @@ const router = createRouter({
     name: 'register',
     component: () => import('@/views/pages/login/register/Register.vue')
   },
+  {
+    path: '/donation-project',
+    name: 'donation-project',
+    component: () => import('@/views/pages/spark-back/DonationProject.vue')
+  },
 
   ]
 })

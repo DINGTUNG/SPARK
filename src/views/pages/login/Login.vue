@@ -54,7 +54,7 @@ function showHide() {
   } else {
     passwordField.value.type = 'text';
   }
-  // 切换显示密码图标
+  // 切換顯示密碼
   showPassword.value = !showPassword.value;
 }
 

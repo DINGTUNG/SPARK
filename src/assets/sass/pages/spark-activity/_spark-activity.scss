@@ -1,0 +1,47 @@
+div.spark_activity_container {
+  width: 100%;
+  height: 300vh;
+
+  div.spark_activity_background {
+    width: 100%;
+    height: 350vh;
+    background-image: url("/pictures/spark_activity/spark_project_background.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+
+    div.main_body {
+      @include custom-responsive("xs sm") {
+        @include body_space_MB;
+      }
+
+      @include custom-responsive("xl xxl") {
+        @include body_space_PC;
+
+      }
+
+      div.img_wrap {
+        margin: auto;
+        @include flex_hm;
+        position: relative;
+        top: 20vh;
+        gap: 5vw;
+
+        img.cloud {
+          width:50%;
+        }
+        img.boy_holding_ballon {
+          width:30%;
+        }
+      }
+
+
+    }
+
+  }
+
+
+
+
+}

@@ -65,8 +65,8 @@ const menuItems = ref([
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
-    label: '星火計畫',
-    route: '/spark-project',
+    label: '星火活動',
+    route: '/spark-activity',
     img: 'pictures/decorations/layout/little_star.png'
   },
   {

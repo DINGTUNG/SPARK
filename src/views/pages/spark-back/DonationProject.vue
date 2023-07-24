@@ -126,11 +126,10 @@
             <td class="name">{{ item.name }}</td>
             <td class="start_date">{{ item.start_date }}</td>
             <td class="end_date">{{ item.end_date }}</td>
-            <td class="online">{{ item.online }}</td>
+            <td class="online">{{ item.online ? '已上架' : '未上架' }}</td>
             <td>
               <v-switch
               v-model="item.online"
-              :label="item.online ? '已上架' : '未上架'"
               color="#1D3D6C"
               density="compact"
               hide-details="true"

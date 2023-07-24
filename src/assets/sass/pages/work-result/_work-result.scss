@@ -229,9 +229,9 @@ div.bottom_wrap{
             }
             @include custom-responsive("xl xx-l") {
                 justify-content: center;
-                width: 15%;
+                width: 20vw;
                 border-radius: $br_PC;
-                gap: 6%;
+                gap: 4%;
             }
             h2{
                 

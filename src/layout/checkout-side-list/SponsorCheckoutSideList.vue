@@ -7,8 +7,13 @@ const sponsorCartStore = useSponsorCartStore();
 const router = useRouter()
 
 const goToCheckoutPageAndCloseSideList = () => {
-  router.push({ path: '/sponsor-checkout-step-1' });
-  sponsorCartStore.hideSideList();
+  if (sponsorCartStore.isCartNotEmpty) {
+    router.push({ path: '/sponsor-checkout-step-1' });
+    sponsorCartStore.hideSideList();
+  }else{
+    alert('請選擇認養地區')
+  }
+
 }
 
 </script>
@@ -18,9 +23,9 @@ const goToCheckoutPageAndCloseSideList = () => {
       <h2>我要認養</h2>
       <i class="fa-regular fa-circle-xmark" @click="sponsorCartStore.hideSideList"></i>
     </div>
-    <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">此頁面現無任何商品</p>
+    <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">請選擇認養地區</p>
     <div class="location_card_inner">
-      <div class="location_card" v-for="[locationId, count] in [...sponsorCartStore.cart]" :key="locationId">
+      <div class="location_card" v-for="[locationId] in [...sponsorCartStore.cart]" :key="locationId">
         <div class="sponsor_inner">
           <h5>{{ Location.getLocationFrom(locationId).name }}</h5>
           <div class="card_count">

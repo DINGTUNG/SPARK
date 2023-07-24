@@ -1,8 +1,8 @@
 <script setup>
+import SponsorCheckoutCard from '@/components/func-items/cards/sponsor/SponsorCheckoutCard.vue'
+import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 import PaymentPlan from '@/components/checkout/PaymentPlan.vue'
 import PaymentMethod from '@/components/checkout/PaymentMethod.vue'
-import SponsorCheckoutCard from '@/components/func-items/cards/SponsorCheckoutCard.vue'
-import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 
 
@@ -35,7 +35,7 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
       </div>
 
-      <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'" :class="filter - gold" alt="">
+      <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'"  alt="">
 
     </div>
 
@@ -44,4 +44,7 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-2';</style>
+@import '@/assets/sass/pages/sponsor/checkout/sponsor-checkout-step-2';
+
+
+</style>

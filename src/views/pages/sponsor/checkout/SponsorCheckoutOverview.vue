@@ -1,9 +1,6 @@
 <script setup>
-import SponsorOverviewTable from '@/components/func-items/table/SponsorOverviewTable.vue'
+import SponsorOverviewTable from '@/components/func-items/table/sponsor/SponsorOverviewTable.vue'
 import { RouterLink } from 'vue-router'
-
-
-
 
 </script>
 

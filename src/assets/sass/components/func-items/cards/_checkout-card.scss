@@ -42,10 +42,8 @@ div.check_out_card {
         span.cost {
           width: 33%;
         }
-
       }
     }
-
   }
 
   div.payment {
@@ -68,9 +66,16 @@ div.check_out_card {
         @include h3_PC;
 
       }
-
     }
   }
+}
 
+div.chosen_donate_project_wrap {
+  @include flex_hm;
+  gap: 8vw;
+  span.chosen_donate_project {
+    display: inline-block;
+    @include h4_PC;
+  }
 
 }

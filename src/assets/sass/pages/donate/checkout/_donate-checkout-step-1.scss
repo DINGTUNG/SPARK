@@ -3,6 +3,8 @@ div.sponsor_checkout_container {
   position: relative;
 
   div.main_body {
+    position: relative;
+
     @include custom-responsive("xs sm") {
       @include body_space_MB
     }
@@ -12,20 +14,26 @@ div.sponsor_checkout_container {
     }
 
     div.checkout_wrap {
+      position: relative;
+      top: -25vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 100px;
 
 
-      div.checkout_table_wrap {}
-
-      div.checkout_overview_wrap {
+      div.checkout_table_wrap {
         @include flex_vm;
         gap: 40px;
-        position: relative;
-        top: 0;
-        right: 0;
-
-
       }
-
     }
+
+    img {
+      position: absolute;
+      left: -12vw;
+      top: 30vh;
+      animation-name: rocket;
+    }
+
   }
 }

@@ -1,0 +1,49 @@
+table.checkout_table {
+
+  width: 700px;
+
+  caption {
+    text-align: left;
+    @include h1_PC
+  }
+
+  tr {
+    border: 0;
+
+    th,
+    td {
+      border: 0;
+      text-align: left;
+
+    }
+
+    th {
+      padding: 30px 30px 0;
+      @include h3_PC;
+      border-bottom: 5px solid $primaryBrandBlue;
+    }
+
+    th.left_column{
+      width: 70%;
+    }
+
+    td {
+      width: 30%;
+      padding: 30px 30px;
+      @include h4_PC;
+
+      i {
+        font-size: 30px;
+        color: $primaryBrandBlue;
+        cursor: pointer;
+        @include btnEffect;
+        display: block;
+        width: 15%;
+        text-align: center;
+
+      }
+    }
+
+  }
+
+}

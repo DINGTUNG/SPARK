@@ -1,15 +1,7 @@
 <script setup>
-import { ref } from 'vue';
 import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
-
-
-const tableTitle = ref("認養清單");
-
-const tableHeader =
-  ["認養地區", "認養人數", "金額"]
-
 
 
 </script>
@@ -18,14 +10,14 @@ const tableHeader =
   <table class="checkout_table">
 
     <caption>
-      {{ tableTitle }}
+      認養清單
     </caption>
 
     <thead>
       <tr>
-        <th>{{ tableHeader[0] }}</th>
-        <th>{{ tableHeader[1] }}</th>
-        <th>{{ tableHeader[2] }}</th>
+        <th>認養地區</th>
+        <th>認養人數</th>
+        <th>金額</th>
         <th></th>
       </tr>
     </thead>
@@ -61,5 +53,5 @@ const tableHeader =
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/sass/components/func-items/table/sponsor-checkout-table';
+@import '@/assets/sass/components/func-items/table/sponsor/sponsor-checkout-table';
 </style>

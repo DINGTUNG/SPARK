@@ -87,7 +87,9 @@
       </v-expansion-panels>
     </div> -->
 
-
+    <div class="logo">
+        <img :src="'pictures/logo/logo_white.svg'" alt="星火logo">
+    </div>
     <div class="table_body">
 
       <h1>捐款管理｜捐款專案</h1>

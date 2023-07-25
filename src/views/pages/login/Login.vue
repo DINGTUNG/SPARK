@@ -20,7 +20,7 @@ function signInRedirect() {
     console.error('Failed signInRedirect', reason)
     error.value = reason
     handleLoginStatusChange()
-    
+
   })
 }
 
@@ -101,7 +101,7 @@ const login = () => {
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
   } else {
-    if (enteredAccount === 'tibame' && enteredPassword === '1234' ) {
+    if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = '';
       console.log('登入成功');
       alert('登入成功');
@@ -159,7 +159,7 @@ const login = () => {
         <span>
           你還不是會員嗎？
           <i class="fa-solid fa-pen"></i>
-          <a href="#">註冊會員</a>
+          <RouterLink to="/register">註冊會員</RouterLink>
         </span>
       </div>
     </div>

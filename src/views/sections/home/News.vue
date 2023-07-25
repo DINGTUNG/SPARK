@@ -83,7 +83,7 @@ const newsContentCardList = reactive([
     padding: 0 0 6%;
   }
 
-  @include custom-responsive("md lg xl 2l") {
+  @include custom-responsive("md lg xl xx-l") {
     padding: 0 0 4%;
   }
 
@@ -93,7 +93,7 @@ const newsContentCardList = reactive([
       padding: 0 4% 0 0;
     }
 
-    @include custom-responsive("sm md lg xl 2l") {
+    @include custom-responsive("sm md lg xl xx-l") {
       width: 2.5%;
       padding: 0 1.5% 0 0;
     }
@@ -113,7 +113,7 @@ div.news_content_card_list {
     gap: 7vw 0;
   }
 
-  @include custom-responsive("md lg xl 2l") {
+  @include custom-responsive("md lg xl xx-l") {
     justify-content: space-between;
     gap: 3.5vw 0;
   }
@@ -131,7 +131,7 @@ div.news_content_card_list {
       width: 45%;
     }
 
-    @include custom-responsive("2l") {
+    @include custom-responsive("xx-l") {
       width: 30%;
       @include boxShadow_PC;
       border-radius: $br_PC;
@@ -146,7 +146,7 @@ div.news_content_card_list {
         border-radius: $br_MB $br_MB 0 0;
       }
 
-      @include custom-responsive("xl 2l") {
+      @include custom-responsive("xl xx-l") {
         border-radius: $br_PC $br_PC 0 0;
       }
 
@@ -159,7 +159,7 @@ div.news_content_card_list {
           border-radius: $br_MB $br_MB 0 0;
         }
 
-        @include custom-responsive("xl 2l") {
+        @include custom-responsive("xl xx-l") {
           border-radius: $br_PC $br_PC 0 0;
         }
 
@@ -214,7 +214,7 @@ div.news_content_card_list {
           padding: 2.5vw 2.2vw 2.5vw;
         }
 
-        @include custom-responsive(" xl 2l") {
+        @include custom-responsive(" xl xx-l") {
           padding: 1vw 1.8vw 1.6vw;
         }
 
@@ -229,7 +229,7 @@ div.news_content_card_list {
             padding-bottom: 1.2vw;
           }
 
-          @include custom-responsive("xl 2l") {
+          @include custom-responsive("xl xx-l") {
             padding-bottom: 0.1vw;
           }
         }
@@ -247,7 +247,7 @@ div.news_content_card_list {
             padding-bottom: 1.2vw;
           }
 
-          @include custom-responsive("xl 2l") {
+          @include custom-responsive("xl xx-l") {
             @include h4_B_PC;
             padding-bottom: 0.4vw;
           }
@@ -264,7 +264,7 @@ div.news_content_card_list {
             @include h6_MB;
           }
 
-          @include custom-responsive("xl 2l") {
+          @include custom-responsive("xl xx-l") {
             @include h6_PC;
           }
         }

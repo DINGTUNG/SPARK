@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 
 export class Location {
   constructor(id, name, cost, img) {
@@ -105,6 +105,9 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
   //判斷購物車收合
   const isSideListShow = ref(false)
+  watch(isSideListShow, (nVal) => {
+    console.log(nVal)
+  })
 
   const showSideList = () => {
     isSideListShow.value = true

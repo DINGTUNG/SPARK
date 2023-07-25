@@ -1,4 +1,5 @@
 div.sponsor_page {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -10,30 +11,27 @@ div.sponsor_page {
   z-index: 100;
   transition: transform 0.5s ease-in-out;
   border: 1px solid;
-  width: 30%;
-  right: -40%;
   transform: translateX(101%);
+  right: 0;
 
   &.active {
     transform: translateX(0%);
+
   }
 
-  // @include custom-responsive("xs sm ") {
-  //   width: 100%;
-  //   right: -110%;
-  //   width: 30%;
-  //   right: -40%;
-  // }
+  @include custom-responsive("xs sm ") {
+    width: 100%;
+  }
 
   @include custom-responsive("xl xx-l") {
     width: 30%;
-    right: -40%;
   }
-.none{
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-}
+
+  .none {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
 
 }
 
@@ -60,63 +58,65 @@ div.title {
     cursor: pointer;
   }
 }
-.location_card_inner{
+
+.location_card_inner {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+
   .location_card {
     display: flex;
   }
-  
+
   div.sponsor_inner {
     padding: 20px;
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
-  
+
     h5 {
       color: $primaryBgBlue;
       @include flex_hm();
-  
+
       @include custom-responsive("xs sm ") {
         @include h5_MB;
       }
-  
+
       @include custom-responsive("xl xx-l") {
         @include h5_PC;
       }
-  
+
     }
   }
-  
+
   div.card_count {
     display: flex;
     @include flex_hm();
-  
+
     p {
       color: $basicFontColor;
       padding: 0 20px;
-  
+
       @include custom-responsive("xs sm ") {
         @include h6_MB;
       }
-  
+
       @include custom-responsive("xl xx-l") {
         @include h6_PC;
       }
-  
+
     }
-  
-  
+
+
     i {
       cursor: pointer;
       font-size: 20px;
       padding: 0 10px;
       color: $primaryBgBlue;
-  
+
     }
   }
-  
+
 }
 
 div.sponsor_total {
@@ -174,12 +174,12 @@ div.blur-background {
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
   visibility: hidden;
- 
+
 }
 
 div.blur-background.show {
   opacity: 1;
   visibility: visible;
-  backdrop-filter: blur(50px);
- 
+  backdrop-filter: blur(5px);
+
 }

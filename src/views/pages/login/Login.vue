@@ -1,15 +1,15 @@
 <script setup>
-import { ref, onMounted, reactive } from 'vue';
-import { useRouter } from 'vue-router';
 import 'animate.css';
+import { ref, onMounted, reactive, watch } from 'vue';
+import { useRouter } from 'vue-router';
 import VueRecaptcha from 'vue3-recaptcha2';
 import { useFirestore } from 'vuefire'; //import firebase
 const firebase = useFirestore(); //宣告firebase為firebase的內容
-// console.log(firebase) //檢查看看
 import { getRedirectResult, signInWithRedirect, signOut, } from 'firebase/auth'
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
-const { user, isPending } = useCurrentUser();
 const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
+const user = useCurrentUser();
+const router = useRouter();
 // display errors if any(如果有的話就顯示錯誤)
 const error = ref(null)
 import { GoogleAuthProvider } from 'firebase/auth'
@@ -18,21 +18,41 @@ const googleAuthProvider = new GoogleAuthProvider()
 function signInRedirect() {
   signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
     console.error('Failed signInRedirect', reason)
-    error.value = reason
+    error.value = reason  
   })
 }
 
-// only on client side
 onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
       console.log(Response);
+     
     })
     .catch((reason) => {
       console.error('Failed redirect result', reason)
       error.value = reason
     })
 })
+
+
+
+//google登入跳轉函式:問題:跳轉遲鈍
+const handleLoginStatusChange = () => {
+  if (isLoggedIn()) {
+    console.log('使用者已登入');
+    router.push('/');
+  } else {
+    console.log('使用者已登出');
+  }
+};
+
+watch(user, handleLoginStatusChange, { deep: true });
+const isLoggedIn = () => {
+  return user.value !== null;
+};
+
+
+
 
 const instance_vueRecaptchaV2 = reactive({
   data_v2SiteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr',
@@ -55,7 +75,6 @@ const instance_vueRecaptchaV2 = reactive({
 
 
 
-const router = useRouter();
 const account = ref('');
 const password = ref('');
 const errorAccount = ref('');
@@ -68,9 +87,10 @@ function showHide() {
   } else {
     passwordField.value.type = 'text';
   }
-  // 切換顯示密碼
+  // 切换显示密码图标
   showPassword.value = !showPassword.value;
 }
+
 
 const login = () => {
   // 獲取用戶的帳密
@@ -80,6 +100,10 @@ const login = () => {
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
   } else {
+<<<<<<< HEAD
+  
+=======
+>>>>>>> dev
     if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = '';
       console.log('登入成功');
@@ -92,13 +116,13 @@ const login = () => {
   }
 };
 
-
 </script>
 <template>
   <div class="login_body">
     <img :src="'public/pictures/images/login/login.jpg'" class="title_img">
     <div class="login">
       <h1>會員登入</h1>
+      <!-- <p v-if="user">Hello {{ user.providerData.displayName }}</p> -->
       <label for="account">帳號</label>
       <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
         :class="{ 'animate__animated animate__headShake': errorAccount }">
@@ -138,7 +162,7 @@ const login = () => {
         <span>
           你還不是會員嗎？
           <i class="fa-solid fa-pen"></i>
-          <a href="#">註冊會員</a>
+          <RouterLink to="/register">註冊會員</RouterLink>
         </span>
       </div>
     </div>

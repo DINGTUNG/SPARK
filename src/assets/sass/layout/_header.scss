@@ -3,71 +3,75 @@
 
 
 header {
-  
-    .link_home {
 
-      img.logo {
-        content: url('/public/pictures/logo/logo_white.svg');
-        vertical-align: top;
-      }
+  .link_home {
+
+    img.logo {
+      content: url('/public/pictures/logo/logo_white.svg');
+      vertical-align: top;
+      margin-left: 2vw;
     }
-  
-    div.wrapper {
-      
-      nav {
-        background-image: url("/pictures/decorations/layout/star.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        ul {
-          list-style-type: none;
-  
-          li {
-            position: relative;
-            cursor: pointer;
-            padding: 20px;
-            box-sizing: border-box; 
-            
-            a.link {
-              text-decoration: none;
-              font-weight: $fWBold;
-            }
-  
-            .submenu {
-              position: absolute;
-              top: 100%;
-              left: 50%;
-              transform: translateX(-65%);
-              display: none;
-              background-color: $primaryBrandWhite;
-              border-radius: 15px;
-              width: max-content;  
-              text-align: center;
+  }
 
-              li{
-                
-                &:hover{
-                  background-color: $functionalLightGrey1;
-                  border-radius: 15px;
-                  
-                }
+  div.wrapper {
 
-                
+    nav {
+      background-image: url("/pictures/decorations/layout/star.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      ul {
+        list-style-type: none;
+
+        li {
+          position: relative;
+          cursor: pointer;
+          padding: 20px;
+          box-sizing: border-box;
+
+          a.link {
+            text-decoration: none;
+            font-weight: $fWBold;
+          }
+
+          .submenu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-65%);
+            display: none;
+            background-color: $primaryBrandWhite;
+            border-radius: 15px;
+            width: max-content;
+            text-align: center;
+
+            li {
+
+              &:hover {
+                background-color: $functionalLightGrey1;
+                border-radius: 15px;
+
               }
+
+
             }
-  
-            .submenu.active {
-              display: block;
-            }
+          }
+
+          .submenu.active {
+            display: block;
           }
         }
       }
     }
   }
+}
 
 
 
-@include custom-responsive("xs"){   //0px
-  header{
+@include custom-responsive("xs") {
+
+  //0px
+  header {
     position: fixed;
     background-color: $primaryBgBlue;
     top: 0%;
@@ -79,35 +83,35 @@ header {
     align-items: center;
     z-index: 24;
 
-    .link_home{
-      
-      img.logo{
+    .link_home {
+
+      img.logo {
         width: 200px;
       }
     }
 
-    button.nav_toggle{
-        font-size: 50px;
-        background-color: transparent;
-        color: white;
-        border: none;
-        float: right;
+    button.nav_toggle {
+      font-size: 50px;
+      background-color: transparent;
+      color: white;
+      border: none;
+      float: right;
 
-        span.burger_icon{
-          display: block;
-          width: 40px;  //20px
-          height: 5px; //2px
-          background-color: white;
-          margin: 10px 0;
-        }
+      span.burger_icon {
+        display: block;
+        width: 40px; //20px
+        height: 5px; //2px
+        background-color: white;
+        margin: 10px 0;
+      }
     }
 
-    button.open{
-      span.burger_icon:nth-child(1){
-        transform: rotate(-45deg) translate(-11px,12px);
+    button.open {
+      span.burger_icon:nth-child(1) {
+        transform: rotate(-45deg) translate(-11px, 12px);
       }
 
-      span.burger_icon:nth-child(2){
+      span.burger_icon:nth-child(2) {
         opacity: 0;
       }
 
@@ -116,25 +120,25 @@ header {
       }
     }
 
-    div.wrapper{
+    div.wrapper {
       position: absolute;
-      top:100%;
+      top: 100%;
       right: 0;
       z-index: 23;
       animation: slideIn 1s ease-in-out forwards;
 
-      nav{
+      nav {
         border-radius: 50px 0px 0px 50px;
         background-color: $primaryBgBlue;
         width: 60vw;
-        
-        ul{
+
+        ul {
           display: block;
           margin-left: 5vw;
-          
-          li{
-            
-            a.link{
+
+          li {
+
+            a.link {
               color: $primaryBrandWhite;
               font-size: 17.5px;
               font-weight: $fWBold;
@@ -167,28 +171,28 @@ div.blur-background.show {
 
 
 
-@include custom-responsive("md"){  //768px
-  header{
-     
-    .link_home{
+@include custom-responsive("md") {
 
-      img.logo{
+  //768px
+  header {
+
+    .link_home {
+
+      img.logo {
         width: 300px;
       }
     }
 
-    div.wrapper{
+    div.wrapper {
 
-      nav{
+      nav {
         width: 40vw;
 
-        ul{
+        ul {
 
-          li{
+          li {
 
-            a.link{
-
-            }
+            a.link {}
           }
         }
       }
@@ -198,8 +202,10 @@ div.blur-background.show {
 
 
 
-@include custom-responsive("xl"){   //1200px
-  header{
+@include custom-responsive("xl") {
+
+  //1200px
+  header {
     position: absolute;
     background-color: transparent;
     top: 5%;
@@ -210,46 +216,47 @@ div.blur-background.show {
     justify-content: space-between;
     align-items: center;
 
-    .link_home{
-      img.logo{
+    .link_home {
+      img.logo {
         content: url('/public/pictures/logo/logo_white_2.svg');
         width: 150px;
       }
     }
 
-    div.wrapper{
+    div.wrapper {
       position: static;
       animation: none;
-      nav{
+
+      nav {
         border-radius: 100px;
         background-color: $functionalLightGrey1;
         width: max-content;
         background-image: none;
         background-repeat: none;
         background-size: none;
-        
-        ul{
+
+        ul {
           display: flex;
           margin-left: 20px;
 
-          li{
-            
-            a.link{
+          li {
+
+            a.link {
               color: $primaryBrandBlue;
               font-size: 18px;
             }
-  
+
             a.member_login {
               background-color: $secondaryLightGold2;
-              border-radius: 100px; 
-              padding:15px 40px 15px 40px;
+              border-radius: 100px;
+              padding: 15px 40px 15px 40px;
               box-sizing: border-box;
             }
-            
+
             &:hover .submenu {
               display: block;
             }
-  
+
             .submenu.active {
               display: block;
             }
@@ -261,19 +268,22 @@ div.blur-background.show {
 }
 
 
-@include custom-responsive("xx-l"){ //1400px
-  header{
-    .link_home{
-      img.logo{
+@include custom-responsive("xx-l") {
+
+  //1400px
+  header {
+    .link_home {
+      img.logo {
         content: url('/public/pictures/logo/logo_white.svg');
         width: 300px;
       }
     }
-    div.wrapper{
-      nav{
-        ul{
-          li{
-            a.link{
+
+    div.wrapper {
+      nav {
+        ul {
+          li {
+            a.link {
               font-size: 20px;
               font-weight: $fWBold;
             }
@@ -283,4 +293,3 @@ div.blur-background.show {
     }
   }
 }
-

@@ -95,6 +95,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px 0;
+            // outline: solid 1px red;
 
             .form_title {
                 display: flex;
@@ -108,6 +109,7 @@
             }
             .form_box {
                 position: relative;
+                // outline: solid 1px red;
             }
 
             .form_box.password img, .form_box.password_check img {
@@ -132,7 +134,7 @@
                     background-color: $primaryBrandBlue;
                     border: none;
                     position: absolute;
-                    top: 0;
+                    bottom: 0;
                     right: 0;
 
                     .fa-solid {
@@ -174,5 +176,101 @@
                 margin: 50px auto;
             }
         }
+    }
+
+    // --------步驟2區塊--------
+
+    .register_main.two {
+
+        .step_item.two {
+            background-color: $primaryBrandBlue;
+        }
+
+        .label_radio_wrap {
+            padding: 10px 0 0;
+        }
+
+        .label_radio {
+            display: inline-block;
+            padding: 0 20px 0 0;
+            cursor: pointer;
+}
+
+        .input_radio {
+            border: 1px solid $functionalLightGrey3;
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+            vertical-align: middle;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .birthday_wrap {
+            display: flex;
+            justify-content: space-between;
+
+            .birthday_select {
+                position: relative;
+                width: 31%;
+
+                select{
+                    @include h5_PC;
+                    width: 100%;
+                    border: 1px solid $functionalLightGrey3;
+                    border-radius: 10px;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    color: $basicFontColor;
+                    background-color: #f9f9f9;
+                    cursor: pointer;
+
+                    &:focus{
+                        outline: 1px solid ;
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                    right: 15px;
+                    width: 18px;
+                    transform: translate(0,-50%);
+                }
+            }
+            
+            
+        }
+
+
+        .form_box.email_check {
+            margin: 0;
+            position: relative;
+        }
+
+        .label_up_file {
+            display: block;
+            background-color: #F8F7F6;
+            height: 200px;
+            border: 2px dashed $functionalLightGrey3;
+            border-radius: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+
+            .up_file_text {
+                padding: 60px 0 0 0;
+                i {
+                    font-size: 40px;
+                    color: $primaryBrandBlue;
+                }
+                p {
+                    color: $primaryBrandBlue;
+                }
+
+            }
+            
+        }
+        
     }
 }

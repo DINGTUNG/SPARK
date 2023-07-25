@@ -13,7 +13,6 @@ button {
 }
 
 
-
 //---------------------------------------------------------------------------------------
 /* ⭐regular buttons size⭐ */
 
@@ -42,6 +41,9 @@ button {
   height: 35px;
 }
 
+//---------------------------------------------------------------------------------------
+/* ⭐checkout-cards buttons size⭐ */
+
 
 @mixin checkoutCardsBtnSize_PC {
   width: 180px;
@@ -54,55 +56,30 @@ button {
 }
 
 
+//---------------------------------------------------------------------------------------
+/* ⭐spark-activity buttons size⭐ */
+
+
+@mixin sparkActivityBtnSize_PC {
+  width: 13vw;
+  height: 7vh;
+}
+
+@mixin sparkActivityBtnSize_MB {
+  width: 150px;
+  height: 35px;
+}
 
 //---------------------------------------------------------------------------------------
-/* ⭐repeat variables⭐ */
+/* ⭐dream-star buttons size⭐ */
 
-//PC
-@mixin regularBtn_PC {
-  @include regularBtnSize_PC;
-  border-radius: $regularBtnBr;
-  font-size: $regularBtnFs_PC;
+
+@mixin dreamStarPlanBtnSize_PC {
+  width: 11vw;
+  height: 5vh;
 }
 
-@mixin smallBtn_PC {
-  @include smallBtnSize_PC;
-  border-radius: $smallBtnBr;
-  font-size: $smallBtnFs_PC;
-}
-
-
-//MB
-@mixin regularBtn_MB {
-  @include regularBtnSize_MB;
-  border-radius: $regularBtnBr;
-  font-size: $regularBtnFs_MB;
-}
-
-@mixin smallBtn_MB {
-  @include smallBtnSize_MB;
-  border-radius: $smallBtnBr;
-  font-size: $smallBtnFs_MB;
-}
-
-//checkout-cards buttons
-
-@mixin checkoutCardsBtn_PC {
-  @include checkoutCardsBtnSize_PC;
-  border-radius: $checkoutBtnBr_PC;
-  font-size: $regularBtnFs_PC;
-}
-
-@mixin checkoutCardsBtn_MB {
-  @include checkoutCardsBtnSize_MB;
-  border-radius: $checkoutBtnBr_MB;
-  font-size: $smallBtnFs_MB;
-}
-
-
-
-
-/* ⭐使用說明⭐ */
-.sassUsageExample {
-  //不示範了
+@mixin dreamStarPlanBtnSize_MB {
+  width: 150px;
+  height: 35px;
 }

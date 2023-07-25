@@ -5,10 +5,8 @@ import { usePaymentStore } from '@/stores/payment.js';
 
 const paymentStore = usePaymentStore()
 
-
 const donateCartStore = useDonateCartStore();
 const memberDataStore = useMemberDataStore();
-
 
 </script>
 

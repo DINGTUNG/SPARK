@@ -9,10 +9,12 @@ import Home from '@/views/pages/home/Home.vue';
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-lin2le no-unused-vars
   scrollBehavior(to, from, savedPosition) {
     // always scroll to top
-    return { top: 0 }
+    return {
+      top: 0
+    }
   },
   routes: [{
     path: '/',
@@ -67,9 +69,9 @@ const router = createRouter({
   },
 
   {
-    path: '/spark-project',
-    name: 'spark-project',
-    component: () => import('@/views/pages/spark-project/SparkProject.vue')
+    path: '/spark-activity',
+    name: 'spark-activity',
+    component: () => import('@/views/pages/spark-activity/SparkActivity.vue')
   },
 
   {
@@ -142,7 +144,13 @@ const router = createRouter({
     name: 'donation-project',
     component: () => import('@/views/pages/spark-back/DonationProject.vue')
   },
+  {
+    path: '/service-milestone',
+    name: 'service-milestone',
+    component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
+  },
 
+<<<<<<< HEAD
     {
       path: '/login',
       name: 'login',
@@ -209,6 +217,8 @@ const router = createRouter({
       component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
     },
     
+=======
+>>>>>>> 1b1bec5f59f98ae707873be73dbfe94991cc662c
   ]
 })
 

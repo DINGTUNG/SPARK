@@ -61,7 +61,6 @@ div.title {
   flex-grow: 1;
   .location_card {
     display: flex;
-    flex-grow: 1;
   }
   
   div.sponsor_inner {
@@ -159,4 +158,24 @@ div.sponsor_total {
 .v-enter-from .v-leave-from {
   transition: right 1s ease-in-out;
   right: -100%;
+}
+
+div.blur-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+ 
+}
+
+div.blur-background.show {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(50px);
+ 
 }

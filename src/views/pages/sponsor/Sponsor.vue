@@ -58,6 +58,7 @@ const sponsorCartStore = useSponsorCartStore();
     </div>
   </div>
   <SponsorCheckoutSideList />
+
 </template>
 
 <style scoped lang="scss">

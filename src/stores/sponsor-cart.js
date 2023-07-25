@@ -89,15 +89,31 @@ export class PaymentPlan {
 
 
 export const useSponsorCartStore = defineStore('sponsor-cart', () => {
+
+  const isBlurred = ref(false);
+
+  const onAddToCartClick = () => {
+    isBlurred.value = !isBlurred.value;
+    isSideListShow = isBlurred.value;
+  };
+
+  // 在 SponsorCheckoutSideList 關閉時，移除模糊效果
+  const removeToCartClick = () => {
+    isBlurred.value = false;
+  };
+
+
   //判斷購物車收合
   const isSideListShow = ref(false)
 
   const showSideList = () => {
     isSideListShow.value = true
+    onAddToCartClick()
   }
 
   const hideSideList = () => {
     isSideListShow.value = false
+    removeToCartClick()
   }
 
   const cart = reactive(new Map())
@@ -190,7 +206,11 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     totalCost,
     getLocationTotalCost,
     getLocationCost,
-    chosenPlanType
-    // cardArrangement,
+    chosenPlanType, 
+    isBlurred,
+    onAddToCartClick,
+    removeToCartClick
+
+    
   }
 })

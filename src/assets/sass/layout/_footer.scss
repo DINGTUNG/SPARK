@@ -406,8 +406,16 @@ footer{
     }
   }
 
+  p{
+    color: $primaryBrandWhite;
+    text-align: center;
+    margin-top: 5vh;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
   div.footer_copyright{
-    margin-top: 7vh;
+    margin-top: 4vh; //7vh
     border-top: 0.5px solid $primaryBrandWhite;
 
     div.copyright{

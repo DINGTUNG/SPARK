@@ -58,7 +58,7 @@ const menuItems = ref([
     label: '認養計畫',
     route: '/sponsor',
     submenu: [
-      { label: '我要認養', route: '/' }, //尚無連結
+      { label: '我要認養', route: '/sponsor' }, 
       { label: '認養地區', route: '/sponsor-location' }
     ],
     img: 'pictures/decorations/layout/little_star.png'

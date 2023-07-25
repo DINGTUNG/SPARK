@@ -1,7 +1,6 @@
 <script setup>
   import { reactive } from "vue";
   import { BulletinBoard1, BulletinBoard2, BulletinBoard3 } from '@/constant/workResult.constant.js'
-
   
   const bulletinBoard1 = reactive(BulletinBoard1)
   const bulletinBoard2 = reactive(BulletinBoard2)

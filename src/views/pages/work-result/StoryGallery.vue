@@ -27,6 +27,7 @@ const picUnder = () => {
 }
 
 const warmStory = reactive(WARM_STORY)
+
 const storyId = ref(null)
 
 const propsId = (id) => {
@@ -125,11 +126,10 @@ const photoAlbum = reactive(PHOTO_ALBUM)
             v-model="page"
             :length="3"
             rounded="circle"
-            prev-icon="fa-solid fa-chevron-left"
-            next-icon="fa-solid fa-chevron-right"
           ></v-pagination>
         </div>
       </section>
+
         <Story :storyId="storyId" @closeStory="closeStory" />
 
       

@@ -64,7 +64,7 @@ div.container{
      
     }
     section.cover-story{
-        margin: 3% 0;
+        margin: 0% 0;
         position: relative;
         cursor: pointer;
         div.deco{
@@ -107,7 +107,6 @@ div.container{
         }
       }
       div.story{
-        margin: 8% 0;
         @include custom-responsive("xl xx-l") {
           display: flex;
           justify-content: space-evenly;
@@ -230,11 +229,11 @@ div.container{
             z-index: 0;
             @include custom-responsive("xs sm") {
               top: -15px;
-              left: -55px;
+              left: -50px;
             }
             @include custom-responsive("xl xx-l") {
               top: -15px;
-              left: -45px;
+              left: -53px;
             }
           }
         }

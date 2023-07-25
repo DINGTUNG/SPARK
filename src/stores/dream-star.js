@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
-
-// import { reactive } from 'vue';
+import { reactive } from 'vue'
 
 export class DreamStarPlanList {
   constructor(id, imgSrc, routingLink, vote, title) {
@@ -67,6 +66,13 @@ export class DreamStarPlanList {
       '/dream-star-1',
       146,
       '創意手作-動手創造分享喜悅'
+    ),
+    UNKNOWN: new DreamStarPlanList(
+      'unknown-topic',
+      '',
+      '/dream-star-1',
+      0,
+      '未知'
     )
   }
 
@@ -78,10 +84,37 @@ export class DreamStarPlanList {
     DreamStarPlanList.TOPIC.DS005,
     DreamStarPlanList.TOPIC.DS006,
     DreamStarPlanList.TOPIC.DS007,
-    DreamStarPlanList.TOPIC.DS008,
-    ]
+    DreamStarPlanList.TOPIC.DS008
+  ]
+
+
+  static getDreamStarPlanFrom = (dreamStarPlan) => {
+    for (let i = 0; i < DreamStarPlanList.TOPICS.length; i++) {
+      if (DreamStarPlanList.TOPICS[i].id == dreamStarPlan) {
+        return DreamStarPlanList.TOPICS[i]
+      }
+    }
+    return DreamStarPlanList.TOPIC.UNKNOWN;
+  }
 }
 
+
 export const useDreamStarStore = defineStore('dream-star', () => {
-  return {}
+  
+  // const voteRecord = reactive(new Map())
+
+  // const vote = (DreamStarPlanList) => {
+  //   let curCount = DreamStarPlanList.vote
+  //   voteRecord.set(dreamStarPlan, curCount + 1)
+  // }
+
+  // const getCurrentCountInVoteRecord = (dreamStarPlan) => {
+  //   return voteRecord.has(dreamStarPlan) ? voteRecord.get(dreamStarPlan) : 0
+  // }
+
+  return {
+    // voteRecord,
+    // vote,
+    // getCurrentCountInVoteRecord
+  }
 })

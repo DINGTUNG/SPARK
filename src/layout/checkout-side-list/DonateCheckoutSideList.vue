@@ -20,7 +20,6 @@ const limitPrice = () => {
 }
 
 
-
 const setPrice = (priceOption) => {
   price.value = priceOption.price
 }

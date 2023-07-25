@@ -1,7 +1,9 @@
 <script setup>
 import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
-// import { DreamStarPlanList } from '@/stores/dream-star.js';
+import { useDreamStarStore, DreamStarPlanList } from '@/stores/dream-star.js';
+
+const dreamStarStore = useDreamStarStore();
 
 const props = defineProps({
   id: String,
@@ -10,6 +12,11 @@ const props = defineProps({
   vote: Number,
   title: String,
 })
+
+
+const vote = () => {
+  return props.vote + 1
+}
 
 
 </script>
@@ -34,7 +41,7 @@ const props = defineProps({
       <img class="vote_icon" :src="'pictures/spark_activity/vote_icon.svg'" alt="vote_icon"><span>{{ props.vote }}</span>
     </p>
     <p class="title">{{ props.title }}</p>
-    <button class="vote_btn">為我加油</button>
+    <button @click="vote" class="vote_btn">為我加油</button>
 
   </div>
 </template>

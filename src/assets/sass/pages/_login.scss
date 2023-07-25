@@ -24,31 +24,40 @@ div.login_body {
             @include h5_PC;
         }
 
-        input{
+        input {
             @include h5_PC;
             border: 1px solid $functionalLightGrey3;
             border-radius: 10px;
             padding: 10px;
-            width: 60%;
+            width: 70%;
             background-color: #f9f9f9;
-        
-            &:focus{
-                outline: 1px solid ;
+
+            &:focus {
+                outline: 1px solid;
             }
-            &::placeholder{
+
+            &::placeholder {
                 @include h6_PC;
-                color: rgb(99, 99, 99,0.35);
+                color: rgb(99, 99, 99, 0.35);
             }
         }
-        input.account{
+
+        input.account {
             margin: 0 0 20px 0;
         }
-        input.password{
-            margin: 0 0 10px 0;
+
+        input.password {
+            margin: 0 0 20px 0;
         }
-        div.error_account{
+
+        .recaptcha_forget_block {
+            display: flex;
+        }
+
+        div.error_account {
             display: block;
         }
+
         button.login_button {
             @include h5_PC;
             display: block;
@@ -57,55 +66,62 @@ div.login_body {
             border-radius: $br_PC;
             border: 1px solid $primaryBrandWhite;
             height: 55px;
-            width: 63%;
+            width: 70%;
             margin-top: 50px;
         }
+
         div.error_account {
             color: red;
-            margin-top: 10px;           
-        }   
+            margin-top: 10px;
+        }
+
         div.password_wrapper {
             position: relative;
-    
-            img{
+
+            img {
                 position: absolute;
-                right: 40%;
+                right: 42%;
                 width: 25px;
                 // top: 30%;
                 cursor: pointer;
                 padding: 25px 0;
             }
-            div.forgot_psw{
+
+            div.forgot_psw {
                 @include h6_PC;
                 position: absolute;
                 right: 38%;
-               
-                i{
+
+                i {
                     color: $secondaryLightBlue2;
                     font-size: $h5Fs_PC;
                     margin-right: 5px;
                 }
-                a{
+
+                a {
                     text-decoration: none;
                 }
             }
-        }  
-        div.login_methods{
+        }
+
+        div.login_methods {
             align-items: center;
             display: flex;
             justify-content: space-between;
-            width: 63%;
+            width: 70%;
             margin-top: 30px;
-    
-            h6{
+
+            h6 {
                 color: #bebdbd;
             }
-            div.line{
+
+            div.line {
                 width: 35%;
                 height: 1px;
                 background-color: #bebdbd;
-            }      
-        }      
+            }
+        }
+
         button.google_login {
             @include h5_PC;
             display: block;
@@ -114,18 +130,19 @@ div.login_body {
             border-radius: $br_PC;
             border: 1px solid $primaryBrandBlue;
             height: 55px;
-            width: 63%;
+            width: 70%;
             margin-top: 30px;
 
-    div.errorAccount {
-        color: red;
-        margin: 10px 0 10px 10px;
-    }
-    .login_title{
-        display: flex;
-        justify-content: space-between;
-    }
+            div.errorAccount {
+                color: red;
+                margin: 10px 0 10px 10px;
+            }
 
-}
-}
+            .login_title {
+                display: flex;
+                justify-content: space-between;
+            }
+
+        }
+    }
 }

@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-
 import { ref, reactive, computed } from 'vue'
 
 export class Location {
@@ -88,19 +87,6 @@ export class PaymentPlan {
   ]
 }
 
-export class PaymentMethod {
-  constructor(id, display) {
-    this.id = id
-    this.display = display
-  }
-
-  static METHOD = {
-    CREDIT_CARD: new PaymentMethod('credit-card', '信用卡'),
-    LINE_PAY: new PaymentMethod('line-pay', 'LINE PAY')
-  }
-
-  static METHODS = [PaymentMethod.METHOD.CREDIT_CARD, PaymentMethod.METHOD.LINE_PAY]
-}
 
 export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   //判斷購物車收合
@@ -172,10 +158,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
   const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH)
 
-  const chosenMethodType = reactive(PaymentMethod.METHOD.CREDIT_CARD)
-  
-  console.log(chosenMethodType);
-
 
   // const locationCard = reactive([])
 
@@ -195,7 +177,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   // }
 
 
-
   return {
     isSideListShow,
     showSideList,
@@ -209,8 +190,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     totalCost,
     getLocationTotalCost,
     getLocationCost,
-    chosenPlanType,
-    chosenMethodType
+    chosenPlanType
     // cardArrangement,
   }
 })

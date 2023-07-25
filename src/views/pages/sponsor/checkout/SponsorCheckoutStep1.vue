@@ -1,6 +1,6 @@
 <script setup>
-import SponsorCheckoutTable from '@/components/func-items/table/SponsorCheckoutTable.vue'
-import SponsorCheckoutCard from '@/components/func-items/cards/SponsorCheckoutCard.vue'
+import SponsorCheckoutTable from '@/components/func-items/table/sponsor/SponsorCheckoutTable.vue'
+import SponsorCheckoutCard from '@/components/func-items/cards/sponsor/SponsorCheckoutCard.vue'
 import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue'
 
 

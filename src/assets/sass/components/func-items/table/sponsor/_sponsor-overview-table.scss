@@ -43,27 +43,29 @@ div.table_wrap {
         text-align: right;
 
         div {
-         display: flex;
-         justify-content: flex-end;
-span{
-  margin: 0 10px;
-}
+          display: flex;
+          justify-content: flex-end;
+
+          span {
+            margin: 0 10px;
+          }
 
           img.star {
             width: 1vw;
             margin: 0 1vw;
+
           }
         }
-
-        ;
-
-
-
       }
-
-
     }
+  }
 
 
+
+  table.sponsor_info {
+
+    td,th{
+      text-align: left;
+    }
   }
 }

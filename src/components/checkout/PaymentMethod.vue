@@ -1,11 +1,10 @@
 <script setup>
-import {toRaw } from 'vue';
-import {useSponsorCartStore,PaymentMethod } from '@/stores/sponsor-cart.js';
+import { toRaw } from 'vue';
+import { usePaymentStore,PaymentMethod } from '@/stores/payment.js';
 
-const sponsorCartStore = useSponsorCartStore()
-
+const paymentStore = usePaymentStore()
 const selectMethod = (methodType) => {
-  sponsorCartStore.chosenMethodType = methodType
+  paymentStore.chosenMethodType = methodType
 }
 
 </script>
@@ -20,7 +19,8 @@ const selectMethod = (methodType) => {
     <tr v-for="(methodType, index) in PaymentMethod.METHODS" :key="index">
       <td class="payment_method">
 
-        <input type="radio" name="payment_method" :checked="methodType === toRaw(sponsorCartStore.chosenMethodType)" @click="selectMethod(methodType)">
+        <input type="radio" name="payment_method" :checked="methodType === toRaw(paymentStore.chosenMethodType)"
+          @click="selectMethod(methodType)">
 
         <label>{{ methodType.display }}</label>
       </td>

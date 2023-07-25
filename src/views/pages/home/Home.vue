@@ -105,12 +105,8 @@ const showBranch = (index) => {
 
   <RouterLink to="/test">測試頁面</RouterLink>
   <br>
-  <RouterLink to="/sponsor-checkout-step-1">sponsor-checkout-step-1</RouterLink>
-  <br>
-  <RouterLink to="/donate-checkout-step-1">donate-checkout-step-1</RouterLink>
-  <br>
   <RouterLink to="/letter-record">會員中心</RouterLink>
-  <br>
+  <RouterLink to="/donation-project">後台測試</RouterLink>
 </template>
 
 

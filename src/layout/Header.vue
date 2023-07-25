@@ -37,7 +37,7 @@ const menuItems = ref([
     submenu: [
       { label: '故事藝廊', route: '/story-gallery' },
       { label: '歷年報告', route: '/result-report' },
-      { label: '服務里程碑', route: '/' }  //尚無連結
+      { label: '服務里程碑', route: '/service-milestone' }
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
@@ -45,8 +45,8 @@ const menuItems = ref([
     label: '認養計畫',
     route: '/sponsor',
     submenu: [
-      { label: '我要認養', route: '/sponsor-location' },
-      { label: '認養地區', route: '/' } //尚無連結
+      { label: '我要認養', route: '/' }, //尚無連結
+      { label: '認養地區', route: '/sponsor-location' } 
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
@@ -65,8 +65,8 @@ const menuItems = ref([
     img: 'pictures/decorations/layout/little_star.png'
   },
   {
-    label: '星火計畫',
-    route: '/spark-project',
+    label: '星火活動',
+    route: '/spark-activity',
     img: 'pictures/decorations/layout/little_star.png'
   },
   {

@@ -42,7 +42,7 @@ div.title {
 
   h2 {
     color: $primaryBgBlue;
-
+    margin: auto;
     @include custom-responsive("xs sm ") {
       @include h2_MB;
     }
@@ -110,7 +110,7 @@ div.title {
 
     i {
       cursor: pointer;
-      font-size: 20px;
+      font-size: 30px;
       padding: 0 10px;
       color: $primaryBgBlue;
 

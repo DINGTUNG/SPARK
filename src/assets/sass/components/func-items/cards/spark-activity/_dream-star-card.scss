@@ -5,6 +5,15 @@ div.dream_star_card_container {
     @include flex_vm;
     position: relative;
 
+    img.dream_star_background {
+
+      @include custom-responsive("xl") {
+        width: 15vw;
+        height: 15vw;
+      }
+
+
+    }
 
     div.img_wrap {
       width: 13vw;
@@ -16,6 +25,8 @@ div.dream_star_card_container {
       transform: translateY(-50%);
       top: 50%;
 
+
+
       img {
         @include imgEffect;
       }
@@ -26,16 +37,16 @@ div.dream_star_card_container {
 }
 
 
-
-
-
-
 button.watch_more {
   @include flex_hm;
   gap: 1vw;
   @include dreamStarPlanBlueBtn_PC;
   position: relative;
   top: -4vh;
+
+  @include custom-responsive("xl") {
+    font-size: 1.2vw;
+  }
 
   &:hover {
     opacity: 1;
@@ -47,8 +58,10 @@ p.vote {
   @include flex_hm;
   gap: 0.5vw;
 
+
   img {
     cursor: pointer;
+
     &:hover {
       filter: invert(91%) sepia(16%) saturate(1295%) hue-rotate(331deg) brightness(106%) contrast(102%);
     }
@@ -60,10 +73,21 @@ p.vote {
   }
 }
 
+div.title_wrap {
+  margin: 2vh;
+  @include flex_vm;
 
-p.title{
-  @include h4_B_PC;
-  color: $primaryBrandBlue;
+  p.title {
+    font-size: $h4Fs_PC;
+    font-weight: bold;
+    color: $primaryBrandBlue;
+  }
+
+  p.sub_title {
+    font-size: $h4Fs_PC;
+    color: $primaryBrandBlue;
+  }
+
 }
 
 
@@ -72,6 +96,11 @@ button.vote_btn {
   @include dreamStarPlanYellowBtn_PC;
   font-weight: bold;
 
+
+  @include custom-responsive("xl") {
+    font-size: 1.3vw;
+    padding-top: 0.4vh;
+  }
 }
 
 .link {

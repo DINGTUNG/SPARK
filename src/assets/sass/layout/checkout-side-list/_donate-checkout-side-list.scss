@@ -64,6 +64,7 @@ div.donate_price {
 
     button {
       @include smallBlueBtn_PC;
+      width: 12vw;
       @include h5_PC;
     }
 

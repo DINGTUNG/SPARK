@@ -1,16 +1,10 @@
 <script setup>
-import DreamStarCard from '@/components/func-items/cards/spark-activity/DreamStarCard.vue';
+import DreamStar from '@/views/sections/spark-activity/DreamStar.vue';
+import MessageBoard from '@/views/sections/spark-activity/MessageBoard.vue';
+import ActivityDonate from '@/views/sections/spark-activity/ActivityDonate.vue';
+
 import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
-import { useDreamStarStore, DreamStarPlanList } from '@/stores/dream-star.js';
 
-const dreamStarStore = useDreamStarStore();
-
-const router = useRouter()
-const goToDonatePageAndScrollToBottom = () => {
-  router.push({ path: '/donate' });
-  window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
-}
 
 const btnList = reactive([{
   imgSrc: 'pictures/spark_activity/planet.svg',
@@ -26,11 +20,10 @@ const btnList = reactive([{
 }])
 
 
-
 const scrollToElement = () => {
   const dreamStar = document.getElementById("dream_star");
   const messageBoard = document.getElementById("message_board");
-  const donate = document.getElementById("donate");
+  const activityDonate = document.getElementById("activityDonate");
 
   if (dreamStar) {
     dreamStar.scrollIntoView({ behavior: "smooth" });
@@ -40,12 +33,10 @@ const scrollToElement = () => {
     messageBoard.scrollIntoView({ behavior: "smooth" });
   }
 
-  else if (donate) {
-    donate.scrollIntoView({ behavior: "smooth" });
+  else if (activityDonate) {
+    activityDonate.scrollIntoView({ behavior: "smooth" });
   }
 }
-
-
 
 </script>
 
@@ -55,16 +46,17 @@ const scrollToElement = () => {
       <div class="main_body">
 
         <div class="img_wrap">
+          <div class="cloud_wrap">
           <img class="cloud" :src="'pictures/spark_activity/header_cloud.svg'" alt="">
+        </div>
           <img class="boy_holding_ballon" :src="'pictures/spark_activity/boy_holding_ballon.svg'" alt="">
         </div>
 
         <div class="btn_wrap">
           <button v-for="btn in btnList" :key="btn.title" @click="scrollToElement"><img :src="btn.imgSrc"
-              alt="">{{ btn.title }}</button>
+              alt=""><span>{{ btn.title }}</span></button>
 
         </div>
-
 
         <div class="text">
           <div class="title_wrap">
@@ -77,30 +69,25 @@ const scrollToElement = () => {
           </p>
         </div>
 
+
         <div id="dream_star">
           <img class="title" :src="'pictures/spark_activity/dream_star_title.svg'" alt="">
-          <div class="dream_star_wrap">
-            <DreamStarCard v-for="dreamStarPlan in DreamStarPlanList.TOPICS" :key="dreamStarPlan.id"
-              :imgSrc="dreamStarPlan.imgSrc" :routingLink="dreamStarPlan.routingLink" :vote="dreamStarPlan.vote"
-              :title="dreamStarPlan.title" />
-          </div>
+          <DreamStar />
         </div>
-
-        <div id="message_board">
-          <img class="title" :src="'pictures/spark_activity/message_board_title.svg'" alt="">
-
-
-        </div>
-
-        <div id="donate">
-          <img class="title" :src="'pictures/spark_activity/donate_title.svg'" alt="">
-          <p>為實現孩子們的夢想，讓我們一同參與星火計畫，攜手為他們的未來奉獻一份真摯的關懷、支持和無盡的愛！</p>
-          <img class="donate_button" :src="'pictures/spark_activity/donate_button2.svg'" alt=""
-            @click="goToDonatePageAndScrollToBottom">
-        </div>
-
-        <img class="star_sleeping" :src="'public/pictures/spark_activity/star_sleeping.svg'" alt="">
       </div>
+      
+      <div id="message_board">
+        <img class="title" :src="'pictures/spark_activity/message_board_title.svg'" alt="">
+        <MessageBoard />
+      </div>
+
+      <div id="activityDonate">
+        <img class="title" :src="'pictures/spark_activity/donate_title.svg'" alt="">
+        <ActivityDonate />
+      </div>
+
+      <img class="star_sleeping" :src="'public/pictures/spark_activity/star_sleeping.svg'" alt="">
+
     </div>
   </div>
 </template>

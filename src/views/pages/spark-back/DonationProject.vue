@@ -1,26 +1,26 @@
 <script setup>
-  import SideBar from '../spark-back/SideBar.vue';
-  import { ref,reactive,computed } from 'vue'
-  const page = ref(1)
-  const model = ref(true)
-  const dialog = ref(false)
+import SideBar from '../spark-back/SideBar.vue';
+import { ref, reactive } from 'vue'
+const page = ref(1)
+const model = ref(true)
+const dialog = ref(false)
 
-  const dialogDelete = ref(false); // 控制刪除對話框的顯示
-  const itemToDelete = ref(null); // 存儲要刪除的項目
+const dialogDelete = ref(false); // 控制刪除對話框的顯示
+const itemToDelete = ref(null); // 存儲要刪除的項目
 
-  function showDeleteDialog(item) {
-    itemToDelete.value = item; // 存儲要刪除的項目
-    dialogDelete.value = true; // 顯示刪除對話框
-  }
+function showDeleteDialog(item) {
+  itemToDelete.value = item; // 存儲要刪除的項目
+  dialogDelete.value = true; // 顯示刪除對話框
+}
 
-  function deleteItemConfirm() {
-    // 不直接執行刪除操作，僅關閉刪除對話框，讓使用者確認是否刪除
-    closeDelete(); // 關閉刪除對話框
-  }
+function deleteItemConfirm() {
+  // 不直接執行刪除操作，僅關閉刪除對話框，讓使用者確認是否刪除
+  closeDelete(); // 關閉刪除對話框
+}
 
-  function closeDelete() {
-    dialogDelete.value = false; // 隱藏刪除對話框
-    if (itemToDelete.value) {
+function closeDelete() {
+  dialogDelete.value = false; // 隱藏刪除對話框
+  if (itemToDelete.value) {
     const confirmDelete = confirm("是否確定要刪除？");
     if (confirmDelete) {
       const index = donateList.indexOf(itemToDelete.value);
@@ -34,80 +34,72 @@
 
 
 
-  const donateList = reactive([
-    {
-      no: '1',
-      id: '00001',
-      name: '扶幼捐款',
-      start_date: '2023.01.17',
-      end_date: '2028.01.17',
-    },
-    {
-      no: '2',
-      id: '00002',
-      name: '兒童保護',
-      start_date: '2023.03.08',
-      end_date: '2028.03.08',
-    },
-    {
-      no: '3',
-      id: '00003',
-      name: '助養召集令',
-      start_date: '2023.05.22',
-      end_date: '2028.05.22',
-    },
-    {
-      no: '4',
-      id: '00004',
-      name: '獎助學金',
-      start_date: '2023.06.27',
-      end_date: '2028.06.27',
-    },
-    {
-      no: '5',
-      id: '00005',
-      name: '急難救助金',
-      start_date: '2023.08.05',
-      end_date: '2028.08.05',
-    },
-    {
-      no: '6',
-      id: '00006',
-      name: '營養補助',
-      start_date: '2023.11.13',
-      end_date: '2028.11.13',
-    },
-    {
-      no: '7',
-      id: '00007',
-      name: '特殊醫療照顧',
-      start_date: '2023.12.26',
-      end_date: '2028.12.26',
-    },
-    {
-      no: '8',
-      id: '00008',
-      name: '特殊節日送暖金',
-      start_date: '2024.01.10',
-      end_date: '2028.01.10',
-    },
-  ]);
-
-
-  const itemsPerPage = 5;
-  const displayedDonateList = computed(() => {
-    const startIdx = (page.value - 1) * itemsPerPage;
-    const endIdx = startIdx + itemsPerPage;
-    return donateList.slice(startIdx, endIdx);
-  });
+const donateList = reactive([
+  {
+    no: '1',
+    id: '00001',
+    name: '扶幼捐款',
+    start_date: '2023.01.17',
+    end_date: '2028.01.17',
+  },
+  {
+    no: '2',
+    id: '00002',
+    name: '兒童保護',
+    start_date: '2023.03.08',
+    end_date: '2028.03.08',
+  },
+  {
+    no: '3',
+    id: '00003',
+    name: '助養召集令',
+    start_date: '2023.05.22',
+    end_date: '2028.05.22',
+  },
+  {
+    no: '4',
+    id: '00004',
+    name: '獎助學金',
+    start_date: '2023.06.27',
+    end_date: '2028.06.27',
+  },
+  {
+    no: '5',
+    id: '00005',
+    name: '急難救助金',
+    start_date: '2023.08.05',
+    end_date: '2028.08.05',
+  },
+  {
+    no: '6',
+    id: '00006',
+    name: '營養補助',
+    start_date: '2023.11.13',
+    end_date: '2028.11.13',
+  },
+  {
+    no: '7',
+    id: '00007',
+    name: '特殊醫療照顧',
+    start_date: '2023.12.26',
+    end_date: '2028.12.26',
+  },
+  {
+    no: '8',
+    id: '00008',
+    name: '特殊節日送暖金',
+    start_date: '2024.01.10',
+    end_date: '2028.01.10',
+  },
+])
 </script>
 
 
 <template>
   <div class="container">
-    
+
     <div class="sidebar">
-      <SideBar/>
+      <SideBar />
     </div>
     <div class="table_body">
 
@@ -124,7 +116,7 @@
             <th>
               專案名稱
             </th>
-            <th >
+            <th>
               開始日期
             </th>
             <th>
@@ -139,9 +131,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="item in displayedDonateList"
-            :key="item.id" class="no-border">
+          <tr v-for="item in donateList" :key="item.id" class="no-border">
             <td class="td_no">{{ item.no }}</td>
             <td class="id">{{ item.id }}</td>
             <td class="name">{{ item.name }}</td>
@@ -149,13 +139,8 @@
             <td class="end_date">{{ item.end_date }}</td>
             <td class="online">{{ item.online ? '已上架' : '未上架' }}</td>
             <td>
-              <v-switch
-              v-model="item.online"
-              color="#EBC483"
-              density="compact"
-              hide-details="true"
-              inline
-              inset></v-switch>
+              <v-switch v-model="item.online" color="#EBC483" density="compact" hide-details="true" inline
+                inset></v-switch>
             </td>
             <td>
               <v-icon size="small" class="me-2" @click="editItem(item.raw)">
@@ -164,36 +149,19 @@
               <v-icon size="small" @click="showDeleteDialog(item.raw)">mdi-delete</v-icon>
             </td>
           </tr>
-          
+
         </tbody>
       </v-table>
-      <v-btn
-      min-width="100"
-      color="#1D3D6C"
-      :ripple="false"
-      rounded="xl"
-      size="x-large"
-      variant="flat"
-      >新增</v-btn>
+      <v-btn class="text" id="text" min-width="100" color="#1D3D6C" :ripple="false" rounded="xl" size="x-large" variant="flat">新增</v-btn>
 
       <!-- 分頁 -->
       <div class="text-center">
-        <v-pagination
-          v-model="page"
-          :length="5"
-          rounded="circle"
-          prev-icon="mdi-chevron-left"
-          next-icon="mdi-chevron-right"
-          active-color="#F5F4EF"
-          color="#E7E6E1"
-        ></v-pagination>
+        <v-pagination v-model="page" :length="5" rounded="circle" prev-icon="mdi-chevron-left"
+          next-icon="mdi-chevron-right" active-color="#F5F4EF" color="#E7E6E1"></v-pagination>
       </div>
     </div>
 
-    <v-dialog
-      v-model="dialogDelete"
-      max-width="800px"
-      persistent="true">
+    <v-dialog v-model="dialogDelete" max-width="800px" persistent="true">
 
       <v-card>
         <v-card-title class="text-center">
@@ -201,16 +169,10 @@
         </v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-          color="#F2DFBF"
-          variant="text"
-          @click="closeDelete">
+          <v-btn color="#F2DFBF" variant="text" @click="closeDelete">
             取消
           </v-btn>
-          <v-btn
-          color="#F2DFBF"
-          variant="text"
-          @click="deleteItemConfirm">
+          <v-btn color="#F2DFBF" variant="text" @click="deleteItemConfirm">
             刪除
           </v-btn>
           <v-spacer></v-spacer>
@@ -221,10 +183,9 @@
 
 
 
-    </div>
-  </template>
+  </div>
+</template>
 
 <style scoped lang="scss">
 @import "@/assets/sass/pages/spark-back/donation-project";
-
 </style>

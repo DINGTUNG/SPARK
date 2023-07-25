@@ -227,7 +227,7 @@
 //MB
 
 @mixin sparkActivityBlueBtn_MB {
-  @include sparkActivitySize_MB;
+  @include sparkActivityBtnSize_MB;
   border-radius: $sparkActivityBtnBr_MB;
   font-size: $smallBtnFs_MB;
   background-color: $secondaryLightBlue3;
@@ -260,7 +260,7 @@
 
 //MB
 
-@mixin sparkActivityBlueBtn_MB {
+@mixin dreamStarPlanBlueBtn_MB {
   @include dreamStarPlanBtnSize_MB;
   border-radius: $dreamStarPlanBtnBr_MB;
   font-size: $smallBtnFs_MB;

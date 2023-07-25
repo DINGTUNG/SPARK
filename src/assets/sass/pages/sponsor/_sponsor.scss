@@ -214,9 +214,8 @@ div.container {
       div.card_count {
         @include flex_hm();
         margin-top: 20px;
-        border: 1px solid;
+        border: 1px solid  $primaryBgBlue;
         background-color: $primaryBgBlue;
-
         @include custom-responsive(" xs sm") {
           border-radius: $br_MB;
 
@@ -238,8 +237,8 @@ div.container {
           @include custom-responsive(" xl xx-l") {
             @include h6_PC;
             padding: 0 20px;
-            border-left: 1px solid;
-            border-right: 1px solid;
+            border-left: 1px solid  $primaryBgBlue;
+            border-right: 1px solid  $primaryBgBlue;
           }
         }
 

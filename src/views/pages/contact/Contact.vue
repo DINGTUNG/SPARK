@@ -58,7 +58,14 @@ const contact = reactive(
       </div>
       <div class="map">
         <h2>友會地點</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.249180523268!2d121.22015178247104!3d24.957635420794894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1689271174007!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="local_stick">
+          <h3>小木偶兒童發展協會</h3>
+          <h3>星火之友會</h3>
+          <h3>希望志工</h3>
+          <h3>小小花園兒童教育基金會</h3>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.249180523268!2d121.22502300000001!3d24.957636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1689271174007!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7234.498327009493!2d121.22502300000001!3d24.957636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682239b7d84999%3A0xc0471c639cddec55!2z5paw6KGX5rqq5rKz5r-x5YWs5ZyS!5e0!3m2!1szh-TW!2stw!4v1690292132265!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
       </div>
     </div>
     <img :src="'public/pictures/characters/star/star_superman.svg'" alt="星星超人" class="superman">

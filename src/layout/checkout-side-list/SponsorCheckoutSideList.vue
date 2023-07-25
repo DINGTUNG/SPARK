@@ -10,7 +10,7 @@ const goToCheckoutPageAndCloseSideList = () => {
   if (sponsorCartStore.isCartNotEmpty) {
     router.push({ path: '/sponsor-checkout-step-1' });
     sponsorCartStore.hideSideList();
-  }else{
+  } else {
     alert('請選擇認養地區')
   }
 
@@ -47,6 +47,7 @@ const goToCheckoutPageAndCloseSideList = () => {
       </div>
     </div>
   </div>
+  <div :class="['blur-background', { 'show': sponsorCartStore.isBlurred }]"></div>
 </template>
 
 <style scoped lang="scss">

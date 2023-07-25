@@ -6,7 +6,7 @@ div.donate_content_card_list {
     gap: 6vw 0;
   }
 
-  @include custom-responsive("xl 2l") {
+  @include custom-responsive("xl xx-l") {
     justify-content: space-between;
     gap: 3.5vw 0;
   }
@@ -22,7 +22,7 @@ div.donate_content_card_list {
       border-radius: $br_MB;
     }
 
-    @include custom-responsive("xl 2l") {
+    @include custom-responsive("xl xx-l") {
       width: 44%;
       @include boxShadow_PC;
       border-radius: $br_PC;
@@ -40,7 +40,7 @@ div.donate_content_card_list {
         border-radius: $br_MB $br_MB 0 0;
       }
 
-      @include custom-responsive("xl 2l") {
+      @include custom-responsive("xl xx-l") {
         border-radius: $br_PC $br_PC 0 0;
       }
 
@@ -60,7 +60,7 @@ div.donate_content_card_list {
         padding: 4vw 4.5vw;
       }
 
-      @include custom-responsive(" xl 2l") {
+      @include custom-responsive(" xl xx-l") {
         padding: 2vw 2.3vw;
       }
 
@@ -72,7 +72,7 @@ div.donate_content_card_list {
           padding-bottom: 2vw;
         }
 
-        @include custom-responsive(" xl 2l") {
+        @include custom-responsive(" xl xx-l") {
           @include h3_PC;
           padding-bottom: 0.8vw;
         }
@@ -86,7 +86,7 @@ div.donate_content_card_list {
           padding-bottom: 4vw;
         }
 
-        @include custom-responsive(" xl 2l") {
+        @include custom-responsive(" xl xx-l") {
           @include h6_PC;
           padding-bottom: 2vw;
         }
@@ -101,7 +101,7 @@ div.donate_content_card_list {
           padding-bottom: 4vw;
         }
 
-        @include custom-responsive(" xl 2l") {
+        @include custom-responsive(" xl xx-l") {
           @include h4_PC;
           padding-bottom: 2vw;
         }
@@ -115,7 +115,7 @@ div.donate_content_card_list {
           @include smallBlueBtn_MB;
         }
 
-        @include custom-responsive(" xl 2l") {
+        @include custom-responsive(" xl xx-l") {
           @include regularBlueBtn_MB;
         }
       }

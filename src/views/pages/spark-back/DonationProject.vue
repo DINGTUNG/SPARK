@@ -3,7 +3,34 @@
   import { ref,reactive } from 'vue'
   const page = ref(1)
   const model = ref(true)
+  const dialog = ref(false)
 
+  const dialogDelete = ref(false); // 控制刪除對話框的顯示
+  const itemToDelete = ref(null); // 存儲要刪除的項目
+
+  function showDeleteDialog(item) {
+    itemToDelete.value = item; // 存儲要刪除的項目
+    dialogDelete.value = true; // 顯示刪除對話框
+  }
+
+  function deleteItemConfirm() {
+    // 不直接執行刪除操作，僅關閉刪除對話框，讓使用者確認是否刪除
+    closeDelete(); // 關閉刪除對話框
+  }
+
+  function closeDelete() {
+    dialogDelete.value = false; // 隱藏刪除對話框
+    if (itemToDelete.value) {
+    const confirmDelete = confirm("是否確定要刪除？");
+    if (confirmDelete) {
+      const index = donateList.indexOf(itemToDelete.value);
+      if (index !== -1) {
+        donateList.splice(index, 1); // 從列表中刪除項目
+      }
+    }
+    itemToDelete.value = null; // 清空要刪除的項目
+  }
+}
 
 
 
@@ -71,23 +98,9 @@
 <template>
   <div class="container">
     
-    <SideBar/>
-    <!-- <div class="sidebar">
-
-      <div class="logo">
-        <img :src="'pictures/logo/logo_white.svg'" alt="星火logo">
-      </div>
-      <v-expansion-panels variant="accordion" elevation="0">
-        <v-expansion-panel
-          v-for="i in 9"
-          :key="i"
-          title="會員管理"
-          text="會員"
-        ></v-expansion-panel>
-      </v-expansion-panels>
-    </div> -->
-
-
+    <div class="sidebar">
+      <SideBar/>
+    </div>
     <div class="table_body">
 
       <h1>捐款管理｜捐款專案</h1>
@@ -130,14 +143,20 @@
             <td>
               <v-switch
               v-model="item.online"
-              color="#1D3D6C"
+              color="#EBC483"
               density="compact"
               hide-details="true"
               inline
               inset></v-switch>
             </td>
-            <td class="function">{{ item.function }}</td>
+            <td>
+              <v-icon size="small" class="me-2" @click="editItem(item.raw)">
+                mdi-pencil
+              </v-icon>
+              <v-icon size="small" @click="showDeleteDialog(item.raw)">mdi-delete</v-icon>
+            </td>
           </tr>
+          
         </tbody>
       </v-table>
       <v-btn
@@ -147,7 +166,6 @@
       rounded="xl"
       size="x-large"
       variant="flat"
-      style="color: white;"
       >新增</v-btn>
 
       <!-- 分頁 -->
@@ -162,15 +180,43 @@
           color="#E7E6E1"
         ></v-pagination>
       </div>
-      
-    
     </div>
 
-  </div>
+    <v-dialog
+      v-model="dialogDelete"
+      max-width="800px"
+      persistent="true">
+
+      <v-card>
+        <v-card-title class="text-center">
+          確定是否要刪除此捐款專案？
+        </v-card-title>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+          color="#F2DFBF"
+          variant="text"
+          @click="closeDelete">
+            取消
+          </v-btn>
+          <v-btn
+          color="#F2DFBF"
+          variant="text"
+          @click="deleteItemConfirm">
+            刪除
+          </v-btn>
+          <v-spacer></v-spacer>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+
+
+
+    </div>
   </template>
 
 <style scoped lang="scss">
 @import "@/assets/sass/pages/spark-back/donation-project";
-
 
 </style>

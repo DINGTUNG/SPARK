@@ -15,7 +15,7 @@ div.donate_container {
             @include body_space_MB;
         }
 
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
             @include body_space_PC;
         }
 
@@ -32,7 +32,7 @@ div.donate_container {
                     @include h1_MB;
                 }
 
-                @include custom-responsive("xl xxl") {
+                @include custom-responsive("xl xx-l") {
                     @include h1_PC;
                 }
             
@@ -45,7 +45,7 @@ div.donate_container {
                     width: 72%;
                 }
 
-                @include custom-responsive("xl xxl") {
+                @include custom-responsive("xl xx-l") {
                     width: 78%;
                 }
             }
@@ -62,7 +62,7 @@ div.donate_container {
             transform: translate(-50%, 0);
         }
 
-        @include custom-responsive("xl xxl") {
+        @include custom-responsive("xl xx-l") {
             left: 3%;
             bottom: -6%;
         }

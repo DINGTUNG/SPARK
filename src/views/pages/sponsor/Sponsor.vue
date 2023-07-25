@@ -52,7 +52,7 @@ const sponsorCartStore = useSponsorCartStore();
         <button class="back">回上頁</button>
         <button class="pay_list" @click="sponsorCartStore.showSideList">加入認養清單</button>
         <div class="icon_img">
-          <img :src="'pictures/characters/star/star_sleeping.svg'" alt="">
+          <img :src="'pictures/characters/star/star_sleeping.svg'" alt="sleep">
         </div>
       </div>
     </div>

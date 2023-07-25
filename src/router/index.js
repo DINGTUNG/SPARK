@@ -229,6 +229,11 @@ const router = createRouter({
       name: 'title',
       component: () => import('@/views/pages/title.vue')
     },
+    {
+      path: '/dreamStar',
+      name: 'dreamStar',
+      component: () => import('@/views/pages/spark-activity/DreamStar.vue')
+    },
     
   ]
 })

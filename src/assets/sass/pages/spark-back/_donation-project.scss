@@ -1,34 +1,24 @@
-*{
-    outline: 1px solid red;
-}
+// *{
+//     outline: 1px solid red;
+// }
 div.container {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    // justify-content: space-around;
-
 
 
     div.sidebar{
-        width: 20%;
         z-index: 100;
 
         div.logo{
             background-color: $primaryBgBlue;
             padding: 20px 0;
-
-            img{
-                width:80%;
-                display: block;
-                margin: auto;
-            
-            }
         }
     }
 
 
     div.table_body{
-        width: 65%;
+        width: 70%;
         margin: 150px auto 150px;
 
         .v-table{
@@ -56,14 +46,6 @@ div.container {
         .no-border td{
             border: none;
         }
- 
-
-        
-
-        
-
-
-
 
     }
 }

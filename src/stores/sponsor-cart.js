@@ -94,7 +94,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
   const onAddToCartClick = () => {
     isBlurred.value = !isBlurred.value;
-    isSideListShow = isBlurred.value;
+    isSideListShow.value = isBlurred.value;
   };
 
   // 在 SponsorCheckoutSideList 關閉時，移除模糊效果

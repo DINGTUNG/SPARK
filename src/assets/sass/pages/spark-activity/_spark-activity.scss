@@ -13,136 +13,138 @@ div.spark_activity_container {
 
   }
 
+  @include custom-responsive("xs sm") {
+    height: 800vh;
+  }
+
+  @include custom-responsive("xl") {
+    height: 520vh;
+  }
+
+  @include custom-responsive("xx-l") {
+    height: 520vh;
+  }
+
+
+
+  div.spark_activity_background {
+    width: 100%;
+
     @include custom-responsive("xs sm") {
-      height: 800vh;
+      height: 850vh;
     }
 
     @include custom-responsive("xl") {
-      height: 520vh;
+      height: 600vh;
     }
 
     @include custom-responsive("xx-l") {
-      height: 520vh;
+      height: 580vh;
     }
 
 
 
-    div.spark_activity_background {
-      width: 100%;
+    background-image: url("/pictures/spark_activity/spark_project_background.png");
+    // background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
 
-      @include custom-responsive("xs sm") {
-        height: 850vh;
-      }
-
-      @include custom-responsive("xl") {
-        height: 600vh;
-      }
-
-      @include custom-responsive("xx-l") {
-        height: 580vh;
-      }
+    div.main_body {
 
 
+      div.img_wrap {
+        gap: 5vw;
 
-      background-image: url("/pictures/spark_activity/spark_project_background.png");
-      // background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      position: absolute;
+        @include custom-responsive("xs sm") {
+          @include flex_vm;
+          width: 20vw;
+          margin: 10vh auto 5vh;
+        }
 
-      div.main_body {
+        @include custom-responsive("xl xx-l") {
+          flex-direction: row;
+          width: 100%;
+          margin: 20vh auto 5vh;
+        }
 
 
-        div.img_wrap {
-          gap: 5vw;
+        div.cloud_wrap {
+          @include flex_hm;
 
           @include custom-responsive("xs sm") {
-            @include flex_vm;
-            width: 20vw;
-            margin: 10vh auto 5vh;
+            width: 100vw;
+            padding: 5vh 0;
+            overflow-x: hidden;
           }
 
           @include custom-responsive("xl xx-l") {
-            flex-direction: row;
-            width: 100%;
-            margin: 20vh auto 5vh;
+            width: 60vw;
+            padding: 0;
           }
 
-
-          div.cloud_wrap {
-            @include flex_hm;
-
+          img.cloud {
             @include custom-responsive("xs sm") {
-              width: 100vw;
-              padding: 5vh 0;
-              overflow-x: hidden;
+              width: 120vw;
             }
 
             @include custom-responsive("xl xx-l") {
-              width: 60vw;
-              padding: 0;
+              width: 100%;
             }
-
-            img.cloud {
-              @include custom-responsive("xs sm") {
-                width: 120vw;
-              }
-
-              @include custom-responsive("xl xx-l") {
-                width: 100%;
-              }
-
-            }
-          }
-
-          img.boy_holding_ballon {
-
-
-            @include custom-responsive("xs sm") {
-              width: 50vw;
-            }
-
-            @include custom-responsive("xl xx-l") {
-              width: 30%;
-            }
-
 
           }
         }
 
-        div.btn_wrap {
-          display: flex;
-          justify-content: flex-end;
-          margin-bottom: 5vh;
-          gap: 1vw;
+        img.boy_holding_ballon {
+
 
           @include custom-responsive("xs sm") {
-            flex-direction: column;
+            width: 50vw;
           }
 
           @include custom-responsive("xl xx-l") {
-            flex-direction: row;
+            width: 30%;
           }
 
 
-          button {
-            padding: 0.5vw;
-            @include flex_hm;
+        }
+      }
 
-            @include btnEffect;
-            font-size: 1vw;
+      div.btn_wrap {
+        @include flex_vm;
+
+        @include custom-responsive("xs sm") {
+          flex-direction: column;
+          gap: 2vh;
+        }
+
+        @include custom-responsive("xl xx-l") {
+          flex-direction: row;
+          gap: 1vw;
+        }
 
 
-            @include custom-responsive("xs sm") {
-              @include sparkActivityBlueBtn_MB;
-              gap: 2vw;
-            }
+        button {
+          padding: 0.5vw;
+          @include flex_hm;
 
-            @include custom-responsive("xl xx-l") {
-              @include sparkActivityBlueBtn_PC;
-              gap: 0vw;
-            }
+          @include btnEffect;
+          font-size: 1vw;
 
+
+          @include custom-responsive("xs sm") {
+            @include sparkActivityBlueBtn_MB;
+            gap: 2vw;
+          }
+
+          @include custom-responsive("xl xx-l") {
+            @include sparkActivityBlueBtn_PC;
+            gap: 0vw;
+          }
+
+          div.img_wrap {
+            margin: 0;
+            width: 10vw;
 
             img {
               @include custom-responsive("xs sm") {
@@ -155,90 +157,93 @@ div.spark_activity_container {
               }
             }
 
-            span {
-              color: $primaryBrandWhite;
-
-            }
-          }
-        }
-
-        div.text {
-          @include flex_vm;
-          gap: 4vh;
-
-
-          div.title_wrap {
-            margin: 2vh;
-            text-align: center;
-
-            h2 {
-              color: $secondaryLightBlue3;
-            }
           }
 
-          p.content {
-            width: 60vw;
-            font-size: 1vw;
-            line-height: 2;
 
+          span {
+            color: $primaryBrandWhite;
 
-            span {
-              color: $decorativeOrange;
-              font-weight: bold
-            }
           }
         }
       }
 
-
-      div#dream_star {
+      div.text {
         @include flex_vm;
-        margin-bottom: 10vh;
-      }
+        gap: 4vh;
 
-      div#message_board {
-        @include flex_vm;
-        margin-bottom: 10vh;
-      }
 
-      div#activityDonate {
-        @include flex_vm;
+        div.title_wrap {
+          margin: 2vh;
+          text-align: center;
+
+          h2 {
+            color: $secondaryLightBlue3;
+          }
+        }
+
+        p.content {
+          width: 60vw;
+          font-size: 1vw;
+          line-height: 2;
+
+
+          span {
+            color: $decorativeOrange;
+            font-weight: bold
+          }
+        }
       }
     }
 
-    img.title {
-      position: relative;
-      right: 3vw;
 
-
-      @include custom-responsive("xs sm") {
-        width: 80vw;
-        margin: 5vh;
-      }
-
-      @include custom-responsive("xl xx-l") {
-
-        width: 20vw;
-        margin: 8vh;
-      }
-
+    div#dream_star {
+      @include flex_vm;
+      margin-bottom: 10vh;
     }
 
+    div#message_board {
+      @include flex_vm;
+      margin-bottom: 10vh;
+    }
 
-    img.star_sleeping {
-      width: 15vw;
-      position: absolute;
-      right: 15vw;
-      z-index: 1;
-
-      @include custom-responsive("xl") {
-
-        bottom: 66vh;
-      }
-
-      @include custom-responsive("xx-l") {
-        bottom: 47vh;
-      }
-
+    div#activityDonate {
+      @include flex_vm;
     }
   }
+
+  img.title {
+    position: relative;
+    right: 3vw;
+
+
+    @include custom-responsive("xs sm") {
+      width: 80vw;
+      margin: 5vh;
+    }
+
+    @include custom-responsive("xl xx-l") {
+
+      width: 20vw;
+      margin: 8vh;
+    }
+
+  }
+
+
+  img.star_sleeping {
+    width: 15vw;
+    position: absolute;
+    right: 15vw;
+    z-index: 1;
+
+    @include custom-responsive("xl") {
+
+      bottom: 66vh;
+    }
+
+    @include custom-responsive("xx-l") {
+      bottom: 47vh;
+    }
+
+  }
+}

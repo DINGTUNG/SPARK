@@ -47,14 +47,17 @@ const scrollToElement = () => {
 
         <div class="img_wrap">
           <div class="cloud_wrap">
-          <img class="cloud" :src="'pictures/spark_activity/header_cloud.svg'" alt="">
-        </div>
+            <img class="cloud" :src="'pictures/spark_activity/header_cloud.svg'" alt="">
+          </div>
           <img class="boy_holding_ballon" :src="'pictures/spark_activity/boy_holding_ballon.svg'" alt="">
         </div>
 
         <div class="btn_wrap">
-          <button v-for="btn in btnList" :key="btn.title" @click="scrollToElement"><img :src="btn.imgSrc"
-              alt=""><span>{{ btn.title }}</span></button>
+          <button v-for="btn in btnList" :key="btn.title" @click="scrollToElement">
+            <div class="img_wrap"> <img :src="btn.imgSrc" alt=""></div>
+
+            <span>{{ btn.title }}</span>
+          </button>
 
         </div>
 
@@ -75,7 +78,7 @@ const scrollToElement = () => {
           <DreamStar />
         </div>
       </div>
-      
+
       <div id="message_board">
         <img class="title" :src="'pictures/spark_activity/message_board_title.svg'" alt="">
         <MessageBoard />

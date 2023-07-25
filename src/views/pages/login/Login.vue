@@ -18,9 +18,7 @@ const googleAuthProvider = new GoogleAuthProvider()
 function signInRedirect() {
   signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
     console.error('Failed signInRedirect', reason)
-    error.value = reason
-    handleLoginStatusChange()
-    
+    error.value = reason  
   })
 }
 
@@ -28,6 +26,7 @@ onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
       console.log(Response);
+     
     })
     .catch((reason) => {
       console.error('Failed redirect result', reason)
@@ -91,7 +90,7 @@ function showHide() {
   // 切换显示密码图标
   showPassword.value = !showPassword.value;
 }
-console.log(user)
+
 
 const login = () => {
   // 獲取用戶的帳密
@@ -101,7 +100,8 @@ const login = () => {
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
   } else {
-    if (enteredAccount === 'tibame' && enteredPassword === '1234' ) {
+  
+    if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = '';
       console.log('登入成功');
       alert('登入成功');

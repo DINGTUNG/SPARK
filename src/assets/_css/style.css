@@ -23,7 +23,7 @@
 /* ⭐行距 line height⭐ */
 /* ⭐使用說明⭐ */
 .sassUsageExample {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.05rem;
   line-height: 48px;
@@ -35,7 +35,7 @@
 /* ⭐手機 MB⭐ */
 /* ⭐使用說明⭐ */
 .sassUsageExample {
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.2rem;
   line-height: 48px;
@@ -56,6 +56,7 @@
 /* ⭐regular buttons⭐ */
 /* ⭐small buttons⭐ */
 /* ⭐check-out buttons⭐ */
+/* ⭐spark-activity  buttons⭐ */
 /* ⭐使用說明⭐ */
 .sassUsageExample {
   border-radius: 30px;
@@ -158,12 +159,15 @@ button:active {
 
 /* ⭐regular buttons size⭐ */
 /* ⭐small buttons size⭐ */
+/* ⭐checkout-cards buttons size⭐ */
+/* ⭐spark-activity buttons size⭐ */
 /* ⭐repeat variables⭐ */
 /* ⭐使用說明⭐ */
 /* 🚩捷徑🚩 */
 /* ⭐桌機 PC buttons⭐ */
 /* ⭐手機 MB buttons⭐ */
 /* ⭐checkout-cards buttons⭐ */
+/* ⭐spark-activity buttons⭐ */
 /* 🚩捷徑🚩 */
 table,
 th,
@@ -246,7 +250,7 @@ h1 {
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 32px;
     font-weight: 700;
     letter-spacing: 0.2rem;
     line-height: auto;
@@ -281,7 +285,7 @@ h2 {
 }
 @media (min-width: 1200px) {
   h2 {
-    font-size: 2rem;
+    font-size: 28px;
     font-weight: 700;
     letter-spacing: 0.2rem;
     line-height: auto;
@@ -316,7 +320,7 @@ h3 {
 }
 @media (min-width: 1200px) {
   h3 {
-    font-size: 1.75rem;
+    font-size: 24px;
     font-weight: 700;
     letter-spacing: 0.2rem;
     line-height: auto;
@@ -351,7 +355,7 @@ h4 {
 }
 @media (min-width: 1200px) {
   h4 {
-    font-size: 1.5rem;
+    font-size: 20px;
     font-weight: 400;
     letter-spacing: 0.2rem;
     line-height: 48px;
@@ -386,7 +390,7 @@ h5 {
 }
 @media (min-width: 1200px) {
   h5 {
-    font-size: 1.25rem;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.1rem;
     line-height: 36px;
@@ -421,7 +425,7 @@ h6 {
 }
 @media (min-width: 1200px) {
   h6 {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.05rem;
     line-height: 30px;
@@ -456,7 +460,7 @@ p {
 }
 @media (min-width: 1200px) {
   p {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.05rem;
     line-height: 30px;

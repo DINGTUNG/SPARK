@@ -51,6 +51,7 @@ div.title {
   }
 
   .fa-circle-xmark {
+    @include flex_hm();
     font-size: 30px;
     cursor: pointer;
   }
@@ -119,7 +120,6 @@ div.sponsor_total {
   flex-direction: column;
   padding: 20px;
   border-radius: 0 0 0 30px;
-  height: 20%;
   background-color: $functionalLightGrey1;
 
   div.total_price {

@@ -134,6 +134,7 @@ div.title {
   .fa-circle-xmark {
     font-size: 30px;
     cursor: pointer;
+    @include flex_hm();
   }
 }
 

@@ -1,5 +1,5 @@
 <script setup> 
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 // 一顆星星代表的數量
 const peopleCount = ref(100);
@@ -62,6 +62,38 @@ const resetBanner = () => {
   currentBanner.value = banners[initialBanner];
 };
 
+
+//媒體裝置1200px以下，mouseover & mouseleave 會失效，必須要用click
+
+const isLargeScreen = ref(window.innerWidth > 1200);
+
+onMounted(() => {
+  window.addEventListener('resize', checkScreenSize);
+  checkScreenSize();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkScreenSize);
+});
+
+const checkScreenSize = () => {
+  isLargeScreen.value = window.innerWidth > 1200;
+}
+
+
+const getEventHandlers = (blockKey) => {
+  if (isLargeScreen.value) {
+    return {
+      mouseover: () => updateBanner(blockKey),
+      mouseleave: resetBanner,
+    };
+  } else {
+    return {
+      click: () => updateBanner(blockKey),
+    };
+  }
+};
+
 //輪播圖
 const firstCard = {
   image: 'pictures/images/results/service-milestone/card_first.png',
@@ -112,9 +144,9 @@ const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.p
     <div class="service_milestone_container">
 
         <div class="main_body">
-<!-- 贊助人數 -->
+<!-- 贊助人數 12345678-->
             <div class="number_of_people" @mouseleave="resetBanner">
-                <div v-for="block in numberBlocks" :key="block.id" class="number_block" @mouseover="updateBanner(block.key)" @mouseleave="resetBanner">
+                <div v-for="block in numberBlocks" :key="block.id" class="number_block" v-on="getEventHandlers(block.key)">
                     <img :src="block.imageSrc" :alt="block.altText">
                     <h5>{{ block.title }}</h5>
                     <br>
@@ -126,7 +158,7 @@ const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.p
                 <h1>服務里程碑</h1>
                 <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
             </div>
-<!-- 輪播圖1111 -->
+<!-- 輪播圖 -->
             <div class="carousel">
                 <div class="card card_first">
                     <img :src="firstCard.image" :alt="firstCard.alt">

@@ -143,7 +143,6 @@ const router = createRouter({
     component: () => import('@/views/pages/spark-back/DonationProject.vue')
   },
 
-<<<<<<< HEAD
     {
       path: '/login',
       name: 'login',
@@ -210,8 +209,6 @@ const router = createRouter({
       component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
     },
     
-=======
->>>>>>> 5576cd8b9e08329a5413015c695b4e6e4fced4ae
   ]
 })
 

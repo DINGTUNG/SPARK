@@ -82,7 +82,12 @@ div.donate_price {
     text-align: center;
     font-size: 25px;
     border: 1px solid $primaryBrandBlue;
+  }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 

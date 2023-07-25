@@ -156,10 +156,11 @@
           @include h6_PC;
           transition: .3s;
           justify-content: center;
-
+          
           .tag {
             @include h4_PC;
             margin-bottom: 4%;
+            color: $primaryBrandWhite;
           }
 
           .name {
@@ -168,12 +169,15 @@
             flex-flow: row;
             justify-content: space-between;
             align-items: center;
+            color: $primaryBrandWhite;
 
             .people {
               @include h6_PC;
+              color: $primaryBrandWhite;
 
               span {
                 @include h5_PC;
+                color: $primaryBrandWhite;
               }
             }
           }

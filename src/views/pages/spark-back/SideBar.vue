@@ -43,13 +43,13 @@ const backstageItem = ref('後台人員')
         <div class="logo">
             <img :src="'pictures/logo/logo_white.svg'" alt="星火logo">
         </div>
-      <v-list :v-model="open">
+      <v-list :v-model="open" active-class="primary">
         <v-list-group class="title" :value="memberGroup">
           <template v-slot:activator="{ props }">
             <v-list-item  v-bind="props" title="會員管理"></v-list-item>
           </template>
   
-          <v-list-item v-for="(title, i) in memberItem" :key="i" :title="title"  :value="title"></v-list-item>
+          <v-list-item  v-for="(title, i) in memberItem" :key="i" :title="title"  :value="title"></v-list-item>
         </v-list-group>
         <v-list-group class="title" :value="newsGroup">
             <template v-slot:activator="{ props }">
@@ -109,6 +109,16 @@ const backstageItem = ref('後台人員')
     }
     div.title{
         text-align: center;
+        
+    }
+    ::v-deep .v-list-item__content{
+      .v-list-item-title{
+        color: $primaryBgBlue;
+        font-weight: bold;
+      }
+      ::v-deep .v-icon{
+        color: $primaryBgBlue;
+      }
         
     }
 </style>

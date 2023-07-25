@@ -14,6 +14,14 @@ const Days = reactive([
     '請選擇日期', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
 ])
 
+
+const showOne = ref(true);
+
+const switchPage = () => {
+    showOne.value = !showOne.value;
+}
+
+
 function showHide() {
     if (passwordField.value.type === 'password') {
         passwordField.value.type = 'password';
@@ -226,7 +234,23 @@ function showHide() {
                 </div>
                 <button class="next_step">送出</button>
             </div>
+
+
+            <div v-if="showOne" class="test1">
+                <p>區塊1</p>
+                <button class="change" @click="switchPage">送出</button>
+            </div>
+
+            <div v-else class="test2">
+                <p>區塊2</p>
+            </div>
+
+
+
+
+
         </div>
+
 
     </div>
 </template>
@@ -234,8 +258,11 @@ function showHide() {
 <style scoped lang="scss">
 @import "@/assets/sass/pages/register";
 
+.test1 {
+    background-color: red;
 
-.v-select {
-    color: indigo-darken-3;
+    button {
+        background-color: aquamarine;
+    }
 }
 </style>

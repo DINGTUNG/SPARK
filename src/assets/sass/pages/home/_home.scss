@@ -437,12 +437,13 @@
 
     }
 
+    // 第一個是台東中心
     .branch_dot {
             position: absolute;       
             background-color: $primaryAccentGold;
             border: 5px solid $secondaryLightGold1;
-            width: 10px;
-            height: 10px;
+            width: 20px;
+            height: 20px;
             border-radius:50%;  
             cursor: pointer;
             transition: .2s;
@@ -451,28 +452,30 @@
                 border: 5px solid #fff;
             }
             @include custom-responsive("xs sm md") {
-                top: 40%;
-                left: 51%;
+                top: 39%;
+                left: 50.5%;
             }
             @include custom-responsive("lg xl xx-l") {
-                top: 56%;
-                left: 50%;
+                top: 55.5%;
+                left: 48.5%;
             }
     }
-    
+            // 台北中心
             .branch_dot:nth-child(2) {
                 @include custom-responsive("xs sm md") {
-                top: 4%;
-                left: 61%;
+                top: 3.8%;
+                left: 57%;
             }
                 @include custom-responsive("lg xl xx-l") {
                 top: 5%;
-                left: 55%;
+                left: 52%;
             }
             }
+
+            // 台中中心
             .branch_dot:nth-child(3) {
                 @include custom-responsive("xs sm md") {
-                top: 18%;
+                top: 17%;
                 left: 46%;
             }
                 @include custom-responsive("lg xl xx-l") {
@@ -480,14 +483,16 @@
                 left: 46%;
             }
             }
+
+            // 台南中心
             .branch_dot:nth-child(4) {
                 @include custom-responsive("xs sm md") {
-                top: 37%;
-                left: 39%;
+                top: 35%;
+                left: 39.5%;
             }
                 @include custom-responsive("lg xl xx-l") {
                 top: 50%;
-                left: 42%;
+                left: 43%;
             }
             }
 

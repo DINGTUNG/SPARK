@@ -107,27 +107,13 @@
       <v-table>
         <thead>
           <tr>
-            <th>
-              No.
-            </th>
-            <th>
-              專案編號
-            </th>
-            <th>
-              專案名稱
-            </th>
-            <th >
-              開始日期
-            </th>
-            <th>
-              結束日期
-            </th>
-            <th>
-              狀態
-            </th>
-            <th>
-              功能
-            </th>
+            <th>No.</th>
+            <th>專案編號</th>
+            <th>專案名稱</th>
+            <th >開始日期</th>
+            <th>結束日期</th>
+            <th>狀態</th>
+            <th>功能</th>
           </tr>
         </thead>
         <tbody>
@@ -160,6 +146,7 @@
         </tbody>
       </v-table>
       <v-btn
+      class="add_btn"
       min-width="100"
       color="#1D3D6C"
       :ripple="false"
@@ -171,13 +158,14 @@
       <!-- 分頁 -->
       <div class="text-center">
         <v-pagination
+          class="page_num"
           v-model="page"
           :length="5"
           rounded="circle"
           prev-icon="mdi-chevron-left"
           next-icon="mdi-chevron-right"
-          active-color="#F5F4EF"
-          color="#E7E6E1"
+          active-color="#BBD0F7"
+          color="#BBD0F7"
         ></v-pagination>
       </div>
     </div>
@@ -187,7 +175,7 @@
       max-width="800px"
       persistent="true">
 
-      <v-card>
+      <v-card class="delete_dialog">
         <v-card-title class="text-center">
           確定是否要刪除此捐款專案？
         </v-card-title>

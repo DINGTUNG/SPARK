@@ -46,6 +46,10 @@ div.container {
         .no-border td{
             border: none;
         }
-
+        ::v-deep .add_btn{
+            .v-btn__content{
+                color: white;
+            }     
+        }
     }
 }

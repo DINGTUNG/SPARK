@@ -129,7 +129,7 @@ const backstageItem = ref('後台人員')
     ::v-deep .v-list-item__append .v-icon{
       display: none;
     }
-    ::v-deep .v-list-group__items{
+    :deep(.v-list-group__items){
       background-color: #F5F4EF;
       .v-list-item__content{
         .v-list-item-title{
@@ -139,12 +139,12 @@ const backstageItem = ref('後台人員')
       }
 
     }
-    ::v-deep .v-icon{
+    :deep( .v-icon){
       position: absolute;
       top:4px;
       right: 50px;
      }
-    ::v-deep .v-list-item__content{
+    :deep( .v-list-item__content){
       .v-list-item-title{
         color: $primaryBgBlue;
         font-weight: bold;

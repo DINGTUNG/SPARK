@@ -96,7 +96,7 @@ const scrollToElement = () => {
         <ActivityDonate />
       </div>
 
-      <img class="star_sleeping" :src="'public/pictures/spark_activity/star_sleeping.svg'" alt="">
+      <img class="star_sleeping" :src="'pictures/spark_activity/star_sleeping.svg'" alt="">
 
     </div>
   </div>

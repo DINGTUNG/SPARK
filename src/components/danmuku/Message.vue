@@ -76,7 +76,7 @@ div.message_wrap {
     height: 8vw;
     z-index: -10;
     position: absolute;
-    top: -22vh;
+    top: -23vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -149,8 +149,30 @@ div.message_wrap {
   color: $primaryBrandWhite;
 }
 
+.star_turtle {
+  background-color: rgb(121, 197, 111);
+  color: rgb(255, 242, 170);
+}
+
 .tiny_tanuki {
   background-color: purple;
   color: gold;
 }
+
+.charlie_brown {
+  background-color: rgb(244, 255, 32);
+  color: rgb(0, 0, 0);
+}
+.phone_phone {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.wasp {
+  background-color: rgb(209, 110, 5);
+  color: rgb(253, 217, 72);
+}
+
+
+
 </style>

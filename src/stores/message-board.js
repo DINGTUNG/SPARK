@@ -42,20 +42,36 @@ export const useMessageBoardStore = defineStore('message-board', () => {
       content: '狸貓炸彈',
       imgSrc: 'pictures/test/狸貓側臉.png'
     },
-    {
-      color: 'default',
-      content: '狸貓封封',
-      imgSrc: 'pictures/test/禿頭海豹裝萌.png'
-    },
+
     {
       color: 'default',
       content: '狸貓使魔',
       imgSrc: 'pictures/test/狸貓寶寶.png'
     },
     {
+      color: 'star_turtle',
+      content: '星龜',
+      imgSrc: 'pictures/test/狸貓在星龜身上黏嘴巴.png'
+    },
+    {
       color: 'tiny_tanuki',
       content: '小狸貓',
       imgSrc: 'pictures/test/小狸貓可愛愛.png'
+    },
+    {
+      color: 'charlie_brown',
+      content: '查理布朗',
+      imgSrc: 'pictures/test/查理.png'
+    },
+    {
+      color: 'phone_phone',
+      content: '狸貓封封',
+      imgSrc: 'pictures/test/狸猫封封.png'
+    },
+    {
+      color: 'wasp',
+      content: '黃蜂',
+      imgSrc: 'pictures/test/黃蜂.gif'
     }
   ])
 

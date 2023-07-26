@@ -14,37 +14,37 @@ export class Location {
       'taipei',
       '台北星火',
       2000,
-      'public/pictures/decorations/illustration/location.svg'
+      'pictures/decorations/illustration/location.svg'
     ),
     TAICHUNG: new Location(
       'taichung',
       '台中星火',
       2000,
-      'public/pictures/decorations/illustration/location.svg'
+      'pictures/decorations/illustration/location.svg'
     ),
     TAINAN: new Location(
       'tainan',
       '台南星火',
       2000,
-      'public/pictures/decorations/illustration/location.svg'
+      'pictures/decorations/illustration/location.svg'
     ),
     TAITUNG: new Location(
       'taitung',
       '台東星火',
       2000,
-      'public/pictures/decorations/illustration/location.svg'
+      'pictures/decorations/illustration/location.svg'
     ),
     TANUKILAND: new Location(
       'tanukiland',
       '星之狸貓',
       520,
-      'public/pictures/test/禿頭海豹貓嘴2.png'
+      'pictures/test/禿頭海豹貓嘴2.png'
     ),
     UNKNOWN: new Location(
       'unknown-type',
       '未知',
       0,
-      'public/pictures/decorations/illustration/location.svg'
+      'pictures/decorations/illustration/location.svg'
     )
   }
 

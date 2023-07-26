@@ -35,7 +35,7 @@ const memberDataStore = useMemberDataStore();
       <tfoot>
         <td colspan="4" class="total">
           <div>
-            <img class="star" :src="'/public/pictures/decorations/illustration/orange_asterisk_single_2.svg'"
+            <img class="star" :src="'pictures/decorations/illustration/orange_asterisk_single_2.svg'"
               alt=""><span>捐款總計</span><span>NTD {{ donateCartStore.chosenPrice }}</span>
           </div>
         </td>

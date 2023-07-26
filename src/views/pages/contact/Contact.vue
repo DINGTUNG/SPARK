@@ -33,7 +33,7 @@ const contact = reactive(
 
 <template>
   <div class="title_img">
-    <img :src="'public/pictures/images/contact/banner.png.png'" alt="">
+    <img :src="'pictures/images/contact/banner.png.png'" alt="">
   </div>
   <div class="container">
     <div class="main_body">
@@ -68,8 +68,8 @@ const contact = reactive(
         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7234.498327009493!2d121.22502300000001!3d24.957636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682239b7d84999%3A0xc0471c639cddec55!2z5paw6KGX5rqq5rKz5r-x5YWs5ZyS!5e0!3m2!1szh-TW!2stw!4v1690292132265!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
       </div>
     </div>
-    <img :src="'public/pictures/characters/star/star_superman.svg'" alt="星星超人" class="superman">
-    <img :src="'public/pictures/decorations/illustration/contact_star.svg'" alt="碎星" class="contact_star">
+    <img :src="'pictures/characters/star/star_superman.svg'" alt="星星超人" class="superman">
+    <img :src="'pictures/decorations/illustration/contact_star.svg'" alt="碎星" class="contact_star">
   </div>
   </div>
 </template>

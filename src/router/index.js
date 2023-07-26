@@ -9,7 +9,7 @@ import Home from '@/views/pages/home/Home.vue';
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
-
+  // eslint-disable-next-lin2le no-unused-vars
   // scrollBehavior(to, from, savedPosition) {
   //   // always scroll to top
   //   return {
@@ -17,7 +17,7 @@ const router = createRouter({
   //   }
   // },
   routes: [{
-    path: '/',
+    path: '',
     name: 'home',
     component: Home,
     meta: {
@@ -219,19 +219,6 @@ const router = createRouter({
     name: 'service-milestone',
     component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
   },
-<<<<<<< HEAD
-  {
-    path: '/title',
-    name: 'title',
-    component: () => import('@/views/pages/title.vue')
-  },
-  {
-    path: '/dreamStar',
-    name: 'dreamStar',
-    component: () => import('@/views/pages/spark-activity/DreamStar.vue')
-  },
-=======
->>>>>>> 40caf2adcc5358c90688f6cb7e27c51aa910661a
   ]
 })
 

@@ -118,7 +118,7 @@ const login = () => {
 </script>
 <template>
   <div class="login_body">
-    <img :src="'public/pictures/images/login/login.jpg'" class="title_img">
+    <img :src="'pictures/images/login/login.jpg'" class="title_img">
     <div class="login">
       <h1>會員登入</h1>
       <!-- <p v-if="user">Hello {{ user.providerData.displayName }}</p> -->
@@ -129,8 +129,8 @@ const login = () => {
       <div class="password_wrapper" ref="passwordField" :class="{ 'animate__animated animate__headShake': errorAccount }">
         <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
         <span class="toggle" @click="showHide">
-          <img v-if="showPassword" :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
-          <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" />
+          <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'" alt="hide" />
+          <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" />
         </span>
         <div class="recaptcha_forget_block">
           <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"

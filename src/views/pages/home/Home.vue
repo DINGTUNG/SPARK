@@ -93,7 +93,7 @@ const showBranch = (index) => {
           </transition>
 
         </div>
-        <img :src="'pictures/characters/girl/girl_bubbling.svg'" alt="girl_bubbling" class="girl_bubbling">
+        <img :src="'/pictures/characters/girl/girl_bubbling.svg'" alt="girl_bubbling" class="girl_bubbling">
       </div>
 
       <div class="section_news">

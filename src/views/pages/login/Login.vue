@@ -127,20 +127,12 @@ const login = () => {
       <label for="password">密碼</label>
 
       <div class="password_wrapper" ref="passwordField" :class="{ 'animate__animated animate__headShake': errorAccount }">
-<<<<<<< HEAD
-        <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
-        <span class="toggle" @click="showHide">
-          <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'" alt="hide" />
-          <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" />
-        </span>
-=======
         <div class="password_block">
           <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
           <span class="toggle" @click="showHide"> <img v-if="showPassword"
               :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
             <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" /></span>
         </div>
->>>>>>> dev
         <div class="recaptcha_forget_block">
           <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
             @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"

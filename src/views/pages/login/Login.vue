@@ -130,8 +130,8 @@ const login = () => {
         <div class="password_block">
           <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
           <span class="toggle" @click="showHide"> <img v-if="showPassword"
-              :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
-            <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" /></span>
+              :src="'pictures/images/login/eye_hide.svg'" alt="hide" />
+            <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>
         </div>
         <div class="recaptcha_forget_block">
           <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"

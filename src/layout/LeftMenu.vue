@@ -115,7 +115,31 @@ watch(() => currentRoute.name, (newRouteName) => {
         routeName: "donate-list",
       },
     ];
-  };
+  } else if (newRouteName === "letter-record" || newRouteName === "adoption-record" || newRouteName === "donate-record" || newRouteName === "modify-meminfo") {
+    menuTitle.value = "會員中心";
+    bulletinList.value = [
+      {
+        id: 1,
+        title: "認養紀錄",
+        routeName: "adoption-record",
+      },
+      {
+        id: 2,
+        title: "捐款紀錄",
+        routeName: "donate-record",
+      },
+      {
+        id: 3,
+        title: "感謝函專區",
+        routeName: "letter-record",
+      },
+      {
+        id: 4,
+        title: "修改基本資料",
+        routeName: "modify-meminfo",
+      },
+    ];
+  } 
 }, { immediate: true }); //初始化的時候立即執行一次，而不是等到監聽的數據變化的時候再執行
 
 </script>

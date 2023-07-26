@@ -46,45 +46,58 @@ const backstageItem = ref('後台人員')
                 <div class="logo">
                     <img :src="'pictures/logo/logo_white.svg'" alt="星火logo">
                 </div>
-              <v-list :v-model="open" density="compact">
-                <v-list-group class="title" :value="memberGroup">
+              <v-list :v-model="open" density="compact" class="mt-4">
+                <v-list-group class="title mt-1 mb-1" :value="memberGroup">
                   <template v-slot:activator="{ props }">
-                    <v-list-item  v-bind="props" title="會員管理"></v-list-item>
+                    <v-list-item v-bind="props" title="會員管理">
+                      <v-icon icon="mdi-chevron-down" color="#1D3D6C" size="large"></v-icon>
+                    </v-list-item>
                   </template>
                   <v-list-item  v-for="(title, i) in memberItem" :key="i" :title="title"  :value="title"></v-list-item>
                 </v-list-group>
-                <v-list-group class="title" :value="newsGroup">
+                <v-list-group class="title  mt-1" :value="newsGroup">
                     <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" class="none-icon" :title="newsItem"></v-list-item>
+                    <v-list-item v-bind="props" :title="newsItem">
+                    </v-list-item>
                   </template>
                 </v-list-group>
-                <v-list-group class="title" :value="sponsorGroup">
+                <v-list-group class="title  mt-1" :value="sponsorGroup">
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" title="認養管理"></v-list-item>
+                    <v-list-item v-bind="props" title="認養管理">
+                      <v-icon icon="mdi-chevron-down" color="#1D3D6C" size="large"></v-icon>
+                    </v-list-item>
                   </template>
                   <v-list-item v-for="(title, i) in sponsorItem" :key="i" :value="title" :title="title"></v-list-item>
                 </v-list-group>
-                <v-list-group class="title" :value="donationGroup">
+                <v-list-group class="title mt-1" :value="donationGroup">
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" title="捐款管理"></v-list-item>
+                    <v-list-item v-bind="props" title="捐款管理">
+                      <v-icon icon="mdi-chevron-down" color="#1D3D6C" size="large"></v-icon>
+                    </v-list-item>
                   </template>
                   <v-list-item v-for="(title, i) in donationItem" :key="i" :value="title" :title="title"></v-list-item>
                 </v-list-group>
-                <v-list-group class="title" :value="activityGroup">
+                <v-list-group class="title  mt-1" :value="activityGroup">
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" title="活動管理"></v-list-item>
+                    <v-list-item v-bind="props" title="活動管理">
+                      <v-icon icon="mdi-chevron-down" color="#1D3D6C" size="large"></v-icon>
+                    </v-list-item>
                   </template>
                   <v-list-item v-for="(title, i) in activityItem" :key="i" :value="title" :title="title"></v-list-item>
                 </v-list-group>
-                <v-list-group class="title" :value="resultGroup">
+                <v-list-group class="title mt-1" :value="resultGroup">
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" title="成果管理"></v-list-item>
+                    <v-list-item v-bind="props" title="成果管理">
+                      <v-icon icon="mdi-chevron-down" color="#1D3D6C" size="large"></v-icon>
+                    </v-list-item>
                   </template>
                   <v-list-item v-for="(title, i) in resultItem" :key="i" :value="title" :title="title"></v-list-item>
                 </v-list-group>
-                <v-list-group class="title" :value="backstageGroup">
+                <v-list-group class="title mt-1" :value="backstageGroup">
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" title="後台管理"></v-list-item>
+                    <v-list-item v-bind="props" title="後台管理">
+                      <v-icon icon="mdi-chevron-down" color="#1D3D6C" size="large"></v-icon>
+                    </v-list-item>
                   </template>
                   <v-list-item :title="backstageItem"></v-list-item>
                 </v-list-group>
@@ -113,13 +126,29 @@ const backstageItem = ref('後台人員')
         text-align: center;
         
     }
+    ::v-deep .v-list-item__append .v-icon{
+      display: none;
+    }
     ::v-deep .v-list-group__items{
       background-color: #F5F4EF;
+      .v-list-item__content{
+        .v-list-item-title{
+          font-size:16px ;
+          color: #3D3A35;
+        }
+      }
+
     }
+    ::v-deep .v-icon{
+      position: absolute;
+      top:4px;
+      right: 50px;
+     }
     ::v-deep .v-list-item__content{
       .v-list-item-title{
         color: $primaryBgBlue;
         font-weight: bold;
+        font-size: 18px;
       }
         
     }

@@ -39,61 +39,63 @@ const backstageItem = ref('後台人員')
 </script>
 
 <template>
-    <v-card width="260">
-        <div class="logo">
-            <img :src="'pictures/logo/logo_white.svg'" alt="星火logo">
-        </div>
-      <v-list :v-model="open" active-class="primary">
-        <v-list-group class="title" :value="memberGroup">
-          <template v-slot:activator="{ props }">
-            <v-list-item  v-bind="props" title="會員管理"></v-list-item>
-          </template>
-  
-          <v-list-item  v-for="(title, i) in memberItem" :key="i" :title="title"  :value="title"></v-list-item>
-        </v-list-group>
-        <v-list-group class="title" :value="newsGroup">
-            <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" :title="newsItem"></v-list-item>
-          </template>
-        </v-list-group>
-
-        <v-list-group class="title" :value="sponsorGroup">
-          <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" title="認養管理"></v-list-item>
-          </template>
-  
-          <v-list-item v-for="(title, i) in sponsorItem" :key="i" :value="title" :title="title"></v-list-item>
-        </v-list-group>
-        <v-list-group class="title" :value="donationGroup">
-          <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" title="捐款管理"></v-list-item>
-          </template>
-  
-          <v-list-item v-for="(title, i) in donationItem" :key="i" :value="title" :title="title"></v-list-item>
-        </v-list-group>
-        <v-list-group class="title" :value="activityGroup">
-          <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" title="活動管理"></v-list-item>
-          </template>
-  
-          <v-list-item v-for="(title, i) in activityItem" :key="i" :value="title" :title="title"></v-list-item>
-        </v-list-group>
-        <v-list-group class="title" :value="resultGroup">
-          <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" title="成果管理"></v-list-item>
-          </template>
-  
-          <v-list-item v-for="(title, i) in resultItem" :key="i" :value="title" :title="title"></v-list-item>
-        </v-list-group>
-        <v-list-group class="title" :value="backstageGroup">
-          <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" title="後台管理"></v-list-item>
-          </template>
-  
-          <v-list-item :title="backstageItem"></v-list-item>
-        </v-list-group>
-      </v-list>
-    </v-card>
+    
+      <v-card>
+        <v-layout>
+          <v-navigation-drawer permanent width="250">
+                <div class="logo">
+                    <img :src="'pictures/logo/logo_white.svg'" alt="星火logo">
+                </div>
+              <v-list :v-model="open" density="compact">
+                <v-list-group class="title" :value="memberGroup">
+                  <template v-slot:activator="{ props }">
+                    <v-list-item  v-bind="props" title="會員管理"></v-list-item>
+                  </template>
+                  <v-list-item  v-for="(title, i) in memberItem" :key="i" :title="title"  :value="title"></v-list-item>
+                </v-list-group>
+                <v-list-group class="title" :value="newsGroup">
+                    <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" class="none-icon" :title="newsItem"></v-list-item>
+                  </template>
+                </v-list-group>
+                <v-list-group class="title" :value="sponsorGroup">
+                  <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" title="認養管理"></v-list-item>
+                  </template>
+                  <v-list-item v-for="(title, i) in sponsorItem" :key="i" :value="title" :title="title"></v-list-item>
+                </v-list-group>
+                <v-list-group class="title" :value="donationGroup">
+                  <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" title="捐款管理"></v-list-item>
+                  </template>
+                  <v-list-item v-for="(title, i) in donationItem" :key="i" :value="title" :title="title"></v-list-item>
+                </v-list-group>
+                <v-list-group class="title" :value="activityGroup">
+                  <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" title="活動管理"></v-list-item>
+                  </template>
+                  <v-list-item v-for="(title, i) in activityItem" :key="i" :value="title" :title="title"></v-list-item>
+                </v-list-group>
+                <v-list-group class="title" :value="resultGroup">
+                  <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" title="成果管理"></v-list-item>
+                  </template>
+                  <v-list-item v-for="(title, i) in resultItem" :key="i" :value="title" :title="title"></v-list-item>
+                </v-list-group>
+                <v-list-group class="title" :value="backstageGroup">
+                  <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" title="後台管理"></v-list-item>
+                  </template>
+                  <v-list-item :title="backstageItem"></v-list-item>
+                </v-list-group>
+              </v-list>
+              <v-sheet color="#1D3D6C" class="justify-center text-center bottom" width="250">
+                <p class="pa-6 text-white" >
+                管理員<a href="#" class="text-white ms-4">登出</a></p>
+              </v-sheet>
+          </v-navigation-drawer>
+        </v-layout>
+      </v-card>
   </template>
 
 <style scoped lang="scss">
@@ -111,14 +113,18 @@ const backstageItem = ref('後台人員')
         text-align: center;
         
     }
+    ::v-deep .v-list-group__items{
+      background-color: #F5F4EF;
+    }
     ::v-deep .v-list-item__content{
       .v-list-item-title{
         color: $primaryBgBlue;
         font-weight: bold;
       }
-      ::v-deep .v-icon{
-        color: $primaryBgBlue;
-      }
         
+    }
+    div.bottom{
+      position: fixed;
+      bottom: 0;
     }
 </style>

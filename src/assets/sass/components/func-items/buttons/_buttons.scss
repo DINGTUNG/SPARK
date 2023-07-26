@@ -61,13 +61,13 @@ button {
 
 
 @mixin sparkActivityBtnSize_PC {
-  width: 13vw;
-  height: 7vh;
+  width: 16vw;
+  height: 8vh;
 }
 
 @mixin sparkActivityBtnSize_MB {
-  width: 150px;
-  height: 35px;
+  width: 50vw;
+  height: 5vh;
 }
 
 //---------------------------------------------------------------------------------------
@@ -80,6 +80,6 @@ button {
 }
 
 @mixin dreamStarPlanBtnSize_MB {
-  width: 150px;
-  height: 35px;
+  width: 45vw;
+  height: 5vh;
 }

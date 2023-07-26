@@ -9,13 +9,13 @@ import Home from '@/views/pages/home/Home.vue';
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
-  // eslint-disable-next-lin2le no-unused-vars
-  scrollBehavior(to, from, savedPosition) {
-    // always scroll to top
-    return {
-      top: 0
-    }
-  },
+
+  // scrollBehavior(to, from, savedPosition) {
+  //   // always scroll to top
+  //   return {
+  //     top: 0
+  //   }
+  // },
   routes: [{
     path: '/',
     name: 'home',
@@ -190,6 +190,18 @@ const router = createRouter({
     path: '/register',
     name: 'register',
     component: () => import('@/views/pages/login/register/Register.vue'),
+    children: [
+      {
+        path: '',
+        name: 'register-step-one',
+        component: () => import('@/components/login/register/RegisterStepOne.vue')
+      },
+      {
+        path: 'register-step-two',
+        name: 'register-step-two',
+        component: () => import('@/components/login/register/RegisterStepTwo.vue')
+      },
+    ],
     meta: {
       hideHeader: true,
       hideFooter: true,
@@ -207,6 +219,7 @@ const router = createRouter({
     name: 'service-milestone',
     component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
   },
+<<<<<<< HEAD
   {
     path: '/title',
     name: 'title',
@@ -217,6 +230,8 @@ const router = createRouter({
     name: 'dreamStar',
     component: () => import('@/views/pages/spark-activity/DreamStar.vue')
   },
+=======
+>>>>>>> 40caf2adcc5358c90688f6cb7e27c51aa910661a
   ]
 })
 

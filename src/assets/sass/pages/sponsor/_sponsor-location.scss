@@ -332,10 +332,26 @@
             color: $basicFontColor;
             @include boxShadow_PC;
             cursor: pointer;
+              .tag {
+                color: $basicFontColor;
+              }
+    
+              .name {
+                color: $basicFontColor;
+    
+                .people {
+                  color:$basicFontColor;
+    
+                  span {
+ 
+                    color:$basicFontColor;
+                  }
+                }
+            }
           }
-        }
+          
 
-      }
+        }
     }
     div.deco-stars {
       position: absolute;
@@ -358,6 +374,7 @@
       right: -35%;
     }
   }
+}
 }
 
 .v-enter-active,

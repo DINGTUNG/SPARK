@@ -18,7 +18,7 @@ const googleAuthProvider = new GoogleAuthProvider()
 function signInRedirect() {
   signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
     console.error('Failed signInRedirect', reason)
-    error.value = reason  
+    error.value = reason
   })
 }
 
@@ -26,7 +26,7 @@ onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
       console.log(Response);
-     
+
     })
     .catch((reason) => {
       console.error('Failed redirect result', reason)

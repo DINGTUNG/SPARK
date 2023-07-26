@@ -1,9 +1,7 @@
 <script setup>
 import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useDreamStarStore, DreamStarPlanList } from '@/stores/dream-star.js';
 
-const dreamStarStore = useDreamStarStore();
 
 const props = defineProps({
   id: String,
@@ -11,12 +9,13 @@ const props = defineProps({
   routingLink: String,
   vote: Number,
   title: String,
+  subTitle: String
 })
 
 
-const vote = () => {
-  return props.vote + 1
-}
+// const voteThisPlan = () => {
+//   return DreamStarPlanList.vote += 1;
+// }
 
 
 </script>
@@ -24,7 +23,7 @@ const vote = () => {
   <div class="dream_star_card_container">
 
     <div class="dream_star_card_wrap">
-      <img :src="'pictures/spark_activity/dream_star_background.svg'" alt="">
+      <img class="dream_star_background" :src="'pictures/spark_activity/dream_star_background.svg'" alt="">
 
       <div class="img_wrap">
         <img :src="props.imgSrc" alt="">
@@ -40,8 +39,12 @@ const vote = () => {
     <p class="vote">
       <img class="vote_icon" :src="'pictures/spark_activity/vote_icon.svg'" alt="vote_icon"><span>{{ props.vote }}</span>
     </p>
-    <p class="title">{{ props.title }}</p>
-    <button @click="vote" class="vote_btn">為我加油</button>
+
+    <div class="title_wrap">
+      <p class="title">{{ props.title }}</p>
+      <p class="sub_title">{{ props.subTitle }}</p>
+    </div>
+    <button @click="voteThisPlan" class="vote_btn">為我加油</button>
 
   </div>
 </template>

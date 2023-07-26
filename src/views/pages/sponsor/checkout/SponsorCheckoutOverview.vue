@@ -1,7 +1,13 @@
 <script setup>
 import SponsorOverviewTable from '@/components/func-items/table/sponsor/SponsorOverviewTable.vue'
-import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
+
+const goToHomePageTop = () => {
+  router.push({ path: '/' });
+  window.scrollTo(0, 0);
+}
 </script>
 
 <template>
@@ -22,7 +28,7 @@ import { RouterLink } from 'vue-router'
         <SponsorOverviewTable />
       </div>
 
-      <RouterLink to="/" class="link home"><button>返回首頁</button></RouterLink>
+      <button @click="goToHomePageTop">返回首頁</button>
 
       <img class="deco" :src="'public/pictures/decorations/illustration/shooting_star_golden2.svg'" alt="">
 

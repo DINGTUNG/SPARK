@@ -1,0 +1,161 @@
+div.letter_record_container {
+    width: 100%;
+
+    div.main_body {
+        margin: auto;
+        position: relative;
+
+        @include custom-responsive("xs sm") {
+            @include body_space_MB;
+        }
+
+        @include custom-responsive("xl xxl") {
+            @include body_space_PC;
+        }
+
+        img.deco{
+            position: absolute;
+            &:nth-child(1){
+                width: 5%;
+                right: 0px;
+                top: -100px;
+            }
+            &:nth-child(2){
+                width: 18%;
+                bottom: -110px;
+                left: -80px;
+            }
+        }
+
+        div.table{
+            margin-bottom: 100px;
+            margin-top: 300px;
+            position: relative;
+
+            div.title{
+                display: flex;
+
+                img.love_book{
+                    width: 5%;
+                }
+                h1{
+                  color: $primaryBgBlue;
+                  margin-left: 15px;
+                }
+            }
+            
+            div.text p{
+            margin-top: 20px;
+            @include h6_PC;
+            }
+            div.talk{
+                position: absolute;
+                right: 10px;
+                top: -55px;
+
+                img{
+                    width: 50%;
+                }
+            }
+
+            .banner{
+                position: absolute;
+                right: -500px;
+                top: -70px;
+
+                img{
+                    width: 30%;
+                    height: 30%;
+                }
+            }
+
+
+            table.letter_table{
+                border-radius: 15px;
+                overflow: hidden;
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 70px;
+                margin-bottom: 50px;
+     
+                tr.table_title{
+                    @include h5_PC;
+    
+                    th{
+                        color: $primaryBrandWhite;
+                        text-align: left;
+                        padding: 10px 0 10px 30px;
+                        background-color: $primaryBgBlue;                     
+                    }
+                }
+
+                tr.info{
+                    @include h6_PC;
+ 
+                    td{
+                        text-align: left;
+                        padding: 15px 0 15px 30px;
+                        color: $basicFontColor;
+                        background-color:#ffffff;
+                        height:50px;                
+                        border: 1px solid $functionalLightGrey3;
+                        transition: .3s;
+                    }
+                    .click_jpg{
+                        color: $secondaryLightBlue3;
+                    }
+                    &:hover td{
+                        background-color:$functionalLightGrey1;
+                    }
+                }
+            }
+            
+            ::v-deep .v-pagination__item--is-active .v-btn__overlay{
+                border: 1px solid $secondaryDarkBlue;
+                color:white;
+                opacity: 0.2;
+            }
+            ::v-deep .mdi:before{
+                color:$primaryBrandBlue;
+            }
+            ::v-deep .v-btn__content{
+                color:$primaryBrandBlue;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+            
+              
+            dialog.modal-dialog {
+                position: relative;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-40%, -50%);
+                border: none;
+                outline: none;
+                background-color: transparent;
+                overflow: hidden;
+
+                button.close_btn{
+                    width: 8%;
+                    top: 0;
+                    right: 15%;
+                    position: absolute;
+                }
+
+                img{
+                    max-width: 75%;
+                    max-height: 75%;
+                }
+            }            
+        }
+    }
+}

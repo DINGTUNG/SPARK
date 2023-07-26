@@ -124,9 +124,8 @@ div.spark_activity_container {
         @include custom-responsive("xl xx-l") {
           flex-direction: row;
           gap: 1vw;
-          margin: 10vh;
+          margin: 10vh 0 8vh;
           position: relative;
-          right: -10vw;
         }
 
 
@@ -147,7 +146,7 @@ div.spark_activity_container {
             gap: 0vw;
             padding: 0vw;
             justify-content: flex-start;
-            font-size: 1.5vw;
+            font-size: 1.2vw;
           }
 
           div.img_wrap {
@@ -201,7 +200,7 @@ div.spark_activity_container {
         }
 
         @include custom-responsive("xl xx-l") {
-          gap: 4vh;
+          gap: 2vh;
         }
 
 
@@ -257,15 +256,12 @@ div.spark_activity_container {
 
 
     div#dream_star {
-      margin-top: 10vh;
       @include flex_vm;
-      margin-bottom: 0;
-
     }
 
     div#message_board {
       @include flex_vm;
-      margin-bottom: 5vh;
+      margin: 5vh 0 10vh;
     }
 
     div#activity_donate {

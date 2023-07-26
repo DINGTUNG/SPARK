@@ -173,6 +173,15 @@ div.message_wrap {
   color: rgb(253, 217, 72);
 }
 
+.mole {
+  background-color: rgb(9, 158, 46);
+  color: rgb(243, 139, 28);
+}
+.float_bomb {
+  background-color: rgb(228, 236, 22);
+  color: rgb(100, 199, 8);
+}
+
 
 
 </style>

@@ -54,7 +54,7 @@ export class DonateProject {
       '支持有營養需求但無法獲得足夠營養的人們，提供營養補助食品、營養品、營養教育和餐飲計畫等。有助於改善孩童的營養狀況，促進身體發育和健康。',
       115300
     ),
-    SPARK_PROJECT: new DonateProject(
+    SPARK_ACTIVITY: new DonateProject(
       'D007',
       'pictures/images/donate/donate-content/D007_spark_project.jpg',
       '星火活動-夢想之星',
@@ -85,7 +85,7 @@ export class DonateProject {
     DonateProject.TYPE.SCHOLARSHIP,
     DonateProject.TYPE.EMERGENCY_RELIEF_FUND,
     DonateProject.TYPE.NUTRITIONAL_SUPPLEMENTS,
-    DonateProject.TYPE.SPARK_PROJECT
+    DonateProject.TYPE.SPARK_ACTIVITY
   ]
 }
 

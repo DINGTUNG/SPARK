@@ -9,13 +9,13 @@ import Home from '@/views/pages/home/Home.vue';
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
-  // eslint-disable-next-lin2le no-unused-vars
-  scrollBehavior(to, from, savedPosition) {
-    // always scroll to top
-    return {
-      top: 0
-    }
-  },
+
+  // scrollBehavior(to, from, savedPosition) {
+  //   // always scroll to top
+  //   return {
+  //     top: 0
+  //   }
+  // },
   routes: [{
     path: '/',
     name: 'home',

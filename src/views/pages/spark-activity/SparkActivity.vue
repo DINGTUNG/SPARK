@@ -91,7 +91,7 @@ const scrollToElement = () => {
         <MessageBoard />
       </div>
 
-      <div ref="activityDonate" id="activityDonate">
+      <div ref="activityDonate" id="activity_donate">
         <img class="title" :src="'pictures/spark_activity/donate_title.svg'" alt="">
         <ActivityDonate />
       </div>

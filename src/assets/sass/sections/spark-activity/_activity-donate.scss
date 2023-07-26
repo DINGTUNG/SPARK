@@ -12,6 +12,7 @@ div.activity_donate {
     }
 
     @include custom-responsive("xl xx-l") {
+      margin:0;
       width: 50vw;
       @include h4_B_PC;
     }

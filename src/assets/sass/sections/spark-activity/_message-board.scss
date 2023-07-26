@@ -2,8 +2,8 @@ p.text {
   text-align: center;
   color: $primaryBrandBlue;
   width: 80vw;
-
-  margin: 3vh auto;
+  @include h4_B_PC;
+  margin: 3vh auto 5vh;
 }
 
 

@@ -1,11 +1,23 @@
 <script setup>
+import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+
+import { useDonateCartStore, DonateProject } from '@/stores/donate-cart.js';
+const donateCartStore = useDonateCartStore();
 
 const router = useRouter()
 const goToDonatePageAndScrollToBottom = () => {
   router.push({ path: '/donate' });
-  window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+  // window.scrollTo(0, (document.body.scrollHeight-500) || (document.documentElement.scrollHeight));
+  window.scrollTo(0, 3000);
+  donateCartStore.showSideList()
+  donateCartStore.chosenDonateProject = reactive(DonateProject.TYPE.SPARK_ACTIVITY)
 }
+
+
+
+
+
 </script>
 
 <template>

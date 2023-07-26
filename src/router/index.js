@@ -137,7 +137,19 @@ const router = createRouter({
   {
     path: '/register',
     name: 'register',
-    component: () => import('@/views/pages/login/register/Register.vue')
+    component: () => import('@/views/pages/login/register/Register.vue'),
+    children: [
+      {
+        path: '',
+        name: 'register-step-one',
+        component: () => import('@/components/login/register/RegisterStepOne.vue')
+      },
+      {
+        path: 'register-step-two',
+        name: 'register-step-two',
+        component: () => import('@/components/login/register/RegisterStepTwo.vue')
+      },
+    ]
   },
   {
     path: '/donation-project',

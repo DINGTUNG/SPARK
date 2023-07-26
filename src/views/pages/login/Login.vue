@@ -18,7 +18,7 @@ const googleAuthProvider = new GoogleAuthProvider()
 function signInRedirect() {
   signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
     console.error('Failed signInRedirect', reason)
-    error.value = reason  
+    error.value = reason
   })
 }
 
@@ -26,7 +26,7 @@ onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
       console.log(Response);
-     
+
     })
     .catch((reason) => {
       console.error('Failed redirect result', reason)
@@ -100,10 +100,6 @@ const login = () => {
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
   } else {
-<<<<<<< HEAD
-  
-=======
->>>>>>> dev
     if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = '';
       console.log('登入成功');

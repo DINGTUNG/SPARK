@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { reactive } from "vue";
+import { RouterView } from 'vue-router'
 
 const passwordField = ref(null);
 const showPassword = ref(true);
@@ -40,8 +41,16 @@ function showHide() {
             <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">
         </div>
 
+
+        <div class="register_main">
+
+            <!-- router-view 是巢狀路由的第一個子區塊 -->
+            <router-view />
+
+        </div>
+
         <!---------- 步驟1區塊 ---------->
-        <div class="register_main one">
+        <!-- <div class="register_main one">
             <div class="main_header">
                 <h1 class="header_title">註冊會員</h1>
                 <div class="header_step">
@@ -105,10 +114,14 @@ function showHide() {
                 </div>
                 <button class="next_step">下一步</button>
             </div>
-        </div>
+        </div> -->
+
+
+        <!-- <router-link to="register-step-one"></router-link> -->
+
 
         <!---------- 步驟2區塊 ---------->
-        <div class="register_main two">
+        <!-- <div class="register_main two">
             <div class="main_header">
                 <h1 class="header_title">註冊會員</h1>
                 <div class="header_step">
@@ -249,7 +262,7 @@ function showHide() {
 
 
 
-        </div>
+        </div> -->
 
 
     </div>
@@ -257,12 +270,4 @@ function showHide() {
 
 <style scoped lang="scss">
 @import "@/assets/sass/pages/register";
-
-.test1 {
-    background-color: red;
-
-    button {
-        background-color: aquamarine;
-    }
-}
 </style>

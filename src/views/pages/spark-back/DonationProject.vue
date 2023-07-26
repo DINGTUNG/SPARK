@@ -211,12 +211,6 @@ const donateList = reactive([
   },
 ])
 
-const itemsPerPage = 5;
-  const displayedDonateList = computed(() => {
-    const startIdx = (page.value - 1) * itemsPerPage;
-    const endIdx = startIdx + itemsPerPage;
-    return donateList.slice(startIdx, endIdx);
-  });
 </script>
 
 
@@ -263,7 +257,7 @@ const itemsPerPage = 5;
           </tr>
         </tbody>
       </v-table>
-      
+
       <v-btn class="text" min-width="100" color="#1D3D6C" :ripple="false" rounded="xl" size="x-large" variant="flat">新增</v-btn>
 
       <!-- 分頁 -->

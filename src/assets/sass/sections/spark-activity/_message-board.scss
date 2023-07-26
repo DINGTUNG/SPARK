@@ -6,14 +6,11 @@ p.text {
   margin: 3vh auto 5vh;
 }
 
-
-
 div.danmaku {
   position: relative;
   overflow: hidden;
   width: 100%;
-
-  border: 1px solid black;
+  // border: 1px solid black;
   box-sizing: border-box;
 
   @include custom-responsive("xs sm") {
@@ -22,16 +19,6 @@ div.danmaku {
 
   @include custom-responsive("xl xx-l") {
     height: 60vh;
-  }
-
-
-
-  .vue_danmaku {
-
-    width: 100%;
-    height: 50vh;
-    color: red;
-
   }
 
 

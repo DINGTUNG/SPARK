@@ -36,9 +36,9 @@ div.sponsor_page {
 }
 
 div.title {
+  position: relative;
   padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
+  @include flex_hm();
 
   h2 {
     color: $primaryBgBlue;
@@ -51,12 +51,16 @@ div.title {
       @include h2_PC;
     }
   }
-
   .fa-circle-xmark {
     @include flex_hm();
     font-size: 30px;
     cursor: pointer;
+    position: absolute;
+    top: 30%;
+    right: 5%;
   }
+  
+
 }
 
 .location_card_inner {
@@ -71,10 +75,11 @@ div.title {
   div.sponsor_inner {
     padding: 20px 40px;
     flex-grow: 1;
-    display: flex;
+    @include flex_hm();
     justify-content: space-between;
 
     h5 {
+      width: 33%;
       color: $primaryBgBlue;
       @include flex_hm();
 
@@ -92,8 +97,10 @@ div.title {
   div.card_count {
     display: flex;
     @include flex_hm();
+    width: 33%;
 
     p {
+      width: 33%;
       color: $basicFontColor;
       padding: 0 20px;
 
@@ -133,8 +140,8 @@ div.sponsor_total {
     justify-content: space-between;
 
     h5 {
+      
       color: $basicFontColor;
-
       @include custom-responsive("xs sm ") {
         @include h5_MB;
       }

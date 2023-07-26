@@ -13,8 +13,7 @@ import DonateCheckoutSideList from '@/layout/checkout-side-list/DonateCheckoutSi
     <div class="main_body">
       <div class="title_wrap">
         <h1 class="title">捐款內容</h1>
-        <div class="titleline">
-        </div>
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
       <DonateContentCard />
       <div class="deco_flowering">

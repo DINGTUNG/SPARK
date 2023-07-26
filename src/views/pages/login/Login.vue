@@ -36,20 +36,20 @@ onMounted(() => {
 
 
 
-//google登入跳轉函式:問題:跳轉遲鈍
-// const handleLoginStatusChange = () => {
-//   if (isLoggedIn()) {
-//     console.log('使用者已登入');
-//     router.push('/');
-//   } else {
-//     console.log('使用者已登出');
-//   }
-// };
+// google登入跳轉函式:問題:跳轉遲鈍
+const handleLoginStatusChange = () => {
+  if (isLoggedIn()) {
+    console.log('使用者已登入');
+    router.push('/');
+  } else {
+    console.log('使用者已登出');
+  }
+};
 
-// watch(user, handleLoginStatusChange, { deep: true });
-// const isLoggedIn = () => {
-//   return user.value !== null;
-// };
+watch(user, handleLoginStatusChange, { deep: true });
+const isLoggedIn = () => {
+  return user.value !== null;
+};
 
 
 

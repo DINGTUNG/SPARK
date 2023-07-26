@@ -13,11 +13,11 @@
 
 .main_body {
   @include custom-responsive("xs sm") {
-    @include body_space_MB
+    @include body_space_MB;
   }
 
   @include custom-responsive("xl xxl") {
-    @include body_space_PC
+    @include body_space_PC;
   }
 
 }

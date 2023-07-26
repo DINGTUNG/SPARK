@@ -111,7 +111,6 @@ const news = reactive(
                   </div>
                 </a>
               </div>
-
             </div>
           </div>
         </div>

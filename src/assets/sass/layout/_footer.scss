@@ -2,17 +2,14 @@
 @import '@/assets/sass/base/fonts/fonts-mixin';
 @import '@/assets/sass/base/rwd/breakpoints';
 
-
+// 媒體裝置xs (min-width:0px)
 @include custom-responsive("xs"){
   div.footer_content{
     width: 100vw;
     padding: 0 10vw;
-    // margin-left: 5vw;
 
     div.information{
-
       div.logo{
-        
         img{
           width: 300px;
           margin-top: 15vh;
@@ -20,7 +17,6 @@
       }
 
       div.business_hours{
-        
         span{
           margin-bottom: 3vh;
         }
@@ -39,7 +35,6 @@
       }
 
       div.location{
-
         span.headquarters{
           font-size: 14px;
         }
@@ -55,9 +50,7 @@
     }
 
     div.items{
-
       div.list{
-  
         div{
           display: none;
         }
@@ -66,9 +59,7 @@
 
     div.newsletter{
       margin-top: 5vh;
-
       label{
-
         h6{
           font-size: $h6Fs_MB;
           color: $primaryBrandWhite;
@@ -83,38 +74,28 @@
   }
 
   div.footer_copyright{
-
     div.copyright{
       justify-content: center;
       padding: 20px;
 
       span{
         font-size: 14px;
-        
       }
     }
   } 
 }
 
-
+// 媒體裝置md (min-width:768px)
 @include custom-responsive("md"){
   div.footer_content{
-
     div.information{
-
       div.logo{
-        
         img{
-          width: 400px;
+          width: 350px;
         }
       }
 
       div.business_hours{
-        
-        span{
-          
-        }
-        
         span.service_hours{
           font-size: 16px;
         }
@@ -129,7 +110,6 @@
       }
 
       div.location{
-
         span.headquarters{
           font-size: 16px;
         }
@@ -137,40 +117,19 @@
         span{
           font-size: 16px;
         }
-
-        i{
-          
-        }
-      }
-    }
-
-    div.items{
-
-      div.list{
-  
-        div{
-          
-        }
       }
     }
 
     div.newsletter{
-      
       label{
-
         h6{
           font-size: $h6Fs_PC;
         }
-      }
-
-      input{
-       
       }
     }
   }
 
   div.footer_copyright{
-
     div.copyright{
       justify-content: flex-end;
       padding: 30px;
@@ -182,49 +141,25 @@
   } 
 }
 
-
+// 媒體裝置xl (min-width:1200px)
 @include custom-responsive("xl"){
   div.footer_content{
     display: flex;
 
     div.information{
-      
       div.logo{
-        
         img{
           margin-top: 20vh;
         }
       }
 
       div.business_hours{
-        
         span{
           margin-bottom: 1vh;
-        }
-        
-        span.service_hours{
-          
-        }
-
-        span.time{
-          
-        }
-
-        span.date{
-          
         }
       }
 
       div.location{
-
-        span.headquarters{
-          
-        }
-
-        span{
-          
-        }
-
         i{
           margin-right: 1vw;
         }
@@ -232,9 +167,9 @@
     }
 
     div.items{
-
       div.list{
           margin-top: 20vh;
+
         div{
           display: block;
         }
@@ -243,9 +178,8 @@
 
     div.newsletter{
       margin-top: 8vh;
-
+      
       label{
-
         h6{
           font-size: $h6Fs_PC;
         }
@@ -259,19 +193,14 @@
   }
 
   div.footer_copyright{
-
     div.copyright{
       justify-content: flex-end;
       padding: 30px;
-
-      span{
-        
-      }
     }
   } 
 }
 
-
+//共用
 footer{
   width: 100%;
   background-repeat: no-repeat;
@@ -293,7 +222,7 @@ footer{
   }
 
   div.footer_content{
-    justify-content: space-around;
+    justify-content: space-between;
 
     div.information{
       margin-right: 5vw; 
@@ -304,7 +233,6 @@ footer{
       }
 
       div.business_hours{
-
         span{
           display: block;
           color: $primaryBrandWhite;
@@ -326,7 +254,6 @@ footer{
           letter-spacing: $h6Ls;
           font-family:  "Noto Sans TC";
         }
-
       }
 
       div.location{
@@ -356,7 +283,6 @@ footer{
     }
 
     div.items{
-
       div.list{
         display: flex;
 
@@ -371,7 +297,6 @@ footer{
               color: $primaryBrandWhite;
               text-decoration: none;
             }
-
           }
 
           h6{
@@ -387,10 +312,7 @@ footer{
       }
 
       div.newsletter{
-
-
         label{
-          
           h6{
             letter-spacing: $h6Ls;
           }
@@ -424,16 +346,18 @@ footer{
     margin-top: 5vh;
     padding: 10px;
     box-sizing: border-box;
+    font-size: 16px;
   }
 
   div.footer_copyright{
-    margin-top: 4vh; //7vh
+    margin-top: 4vh;
     border-top: 0.5px solid $primaryBrandWhite;
 
     div.copyright{
       display: flex;
       box-sizing: border-box;
       letter-spacing: $h6Ls;
+      
       span{
         color: $primaryBrandWhite;
       }

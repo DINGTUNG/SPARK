@@ -1,11 +1,9 @@
 <script setup>
-
+//引入
 import { RouterLink, useRoute } from 'vue-router';
 import { ref, computed, watch } from 'vue';
 
-const menuTitle = ref("");
-const bulletinList = ref([]);
-
+//左側導覽列的陣列高度
 const menuHeight = computed(() => {
   let baseHeight = 214; // 初始高度
   let itemHeight = 62; // 每增加一個陣列的高度
@@ -13,7 +11,12 @@ const menuHeight = computed(() => {
   return totalHeight;
 });
 
-const currentRoute = useRoute(); // 取得當前路徑的資訊(src/router/index.js)
+//追蹤其變化的包裝器
+const menuTitle = ref(""); 
+const bulletinList = ref([]);
+
+// 取得當前路徑的資訊(src/router/index.js)
+const currentRoute = useRoute(); 
 
 // 監聽當前路徑的變化，更新各陣列的內容
 watch(() => currentRoute.name, (newRouteName) => {
@@ -112,8 +115,32 @@ watch(() => currentRoute.name, (newRouteName) => {
         routeName: "donate-list",
       },
     ];
-  };
-});
+  } else if (newRouteName === "letter-record" || newRouteName === "adoption-record" || newRouteName === "donate-record" || newRouteName === "modify-meminfo") {
+    menuTitle.value = "會員中心";
+    bulletinList.value = [
+      {
+        id: 1,
+        title: "認養紀錄",
+        routeName: "adoption-record",
+      },
+      {
+        id: 2,
+        title: "捐款紀錄",
+        routeName: "donate-record",
+      },
+      {
+        id: 3,
+        title: "感謝函專區",
+        routeName: "letter-record",
+      },
+      {
+        id: 4,
+        title: "修改基本資料",
+        routeName: "modify-meminfo",
+      },
+    ];
+  } 
+}, { immediate: true }); //初始化的時候立即執行一次，而不是等到監聽的數據變化的時候再執行
 
 </script>
 

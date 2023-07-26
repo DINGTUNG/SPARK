@@ -229,38 +229,6 @@ const router = createRouter({
     name: 'dreamStar',
     component: () => import('@/views/pages/spark-activity/DreamStar.vue')
   },
-  {
-    path: '/adoption-record',
-    name: 'adoption-record',
-    component: () => import('@/views/pages/member-center/AdoptionRecord.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
-  },
-  {
-    path: '/letter-record',
-    name: 'letter-record',
-    component: () => import('@/views/pages/member-center/LetterRecord.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
-  },
-  {
-    path: '/modify-meminfo',
-    name: 'modify-meminfo',
-    component: () => import('@/views/pages/member-center/ModifyMeminfo.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
-  },
-  {
-    path: '/donate-record',
-    name: 'donate-record',
-    component: () => import('@/views/pages/member-center/DonateRecord.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
-  },
   ]
 })
 

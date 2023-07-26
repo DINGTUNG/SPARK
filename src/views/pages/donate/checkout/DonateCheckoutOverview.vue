@@ -1,6 +1,14 @@
 <script setup>
 import DonateOverviewTable from '@/components/func-items/table/donate/DonateOverviewTable.vue'
-import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const goToHomePageTop = () => {
+  router.push({ path: '/' });
+  window.scrollTo(0, 0);
+}
+
 
 </script>
 
@@ -22,7 +30,9 @@ import { RouterLink } from 'vue-router'
         <DonateOverviewTable />
       </div>
 
-      <RouterLink to="/" class="link home"><button>返回首頁</button></RouterLink>
+      <button @click="goToHomePageTop">
+        返回首頁
+      </button>
 
       <img class="deco" :src="'public/pictures/decorations/illustration/shooting_star_golden2.svg'" alt="">
 

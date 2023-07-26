@@ -72,7 +72,7 @@ div.check_out_card {
 
 div.chosen_donate_project_wrap {
   @include flex_hm;
-  gap: 8vw;
+  gap: 5vw;
   span.chosen_donate_project {
     display: inline-block;
     @include h4_PC;

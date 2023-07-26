@@ -10,6 +10,7 @@ const goToCheckoutPageAndCloseSideList = () => {
   if (sponsorCartStore.isCartNotEmpty) {
     router.push({ path: '/sponsor-checkout-step-1' });
     sponsorCartStore.hideSideList();
+    window.scrollTo(0, 0);
   } else {
     alert('請選擇認養地區')
   }

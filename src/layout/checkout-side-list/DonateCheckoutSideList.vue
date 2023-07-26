@@ -32,6 +32,7 @@ const goToCheckoutPage = () => {
       path: '/donate-checkout-step-1'
     })
     donateCartStore.hideSideList()
+    window.scrollTo(0, 0);
   } else (
     alert('請選擇捐款專案')
   )

@@ -4,13 +4,16 @@ import { defineProps } from 'vue'
 
 const props = defineProps({
   content: String,
-  color: String
+  color: String,
+  imgSrc: String
 })
 
 const emit = defineEmits(['atTheEnd'])
 
-const speed = getRandom(6, 12) * 1000
-const location = ref("right_start")
+const direction = (getRandom(0, 10) < 5) ? "left" : "right"
+
+const speed = getRandom(1, 12) * 1000
+const location = ref(direction + "_start")
 const delay = 500
 const offset = `${getRandom(0, 50)}%`
 
@@ -21,7 +24,7 @@ const duration = computed(() => {
 
 onMounted(() => {
   setTimeout(() => {
-    location.value = "right_end"
+    location.value = direction + "_end"
   }, delay)
   setTimeout(() => {
     emit('atTheEnd')
@@ -37,6 +40,10 @@ function getRandom(min, max) {
 <template>
   <div class="message_wrap marquee_animate" :class="[location, (getRandom(0, 10) < 5) ? 'top_offset' : 'bottom_offset']">
 
+    <div class="img_wrap">
+        <img :src="props.imgSrc" alt="">
+      </div>
+
     <span class="message" :class="props.color">
       {{ props.content }}
     </span>
@@ -49,6 +56,8 @@ function getRandom(min, max) {
 
 div.message_wrap {
   position: absolute;
+  @include flex_vm;
+
 
   span.message {
     cursor: pointer;
@@ -58,14 +67,34 @@ div.message_wrap {
     border-radius: 100px;
     font-size: $h4Fs_PC;
     font-weight: bold;
+    z-index: 10;
   }
+
+  div.img_wrap {
+      // border: 1px solid black;
+      width: 8vw;
+      height: 8vw;
+      z-index: -10;
+      position: absolute;
+      top: -16vh;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      img {
+
+        width: 8vw;
+      }
+
+    }
 
 }
 
 .left_start {
   left: 0;
 
-  // transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 .left_end {
@@ -110,8 +139,13 @@ div.message_wrap {
   color: $primaryBrandBlue;
 }
 
-.red {
-  background-color: red;
-  color: white;
+.user {
+  background-color: $primaryBgBlue;
+  color: $primaryBrandWhite;
+}
+
+.tiny_tanuki {
+  background-color: purple;
+  color: gold;
 }
 </style>

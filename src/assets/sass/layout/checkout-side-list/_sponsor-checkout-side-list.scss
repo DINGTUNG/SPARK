@@ -1,47 +1,48 @@
 div.sponsor_page {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   position: fixed;
- 
   top: 0;
   height: 100vh;
   background-color: $primaryBrandWhite;
   order: 99;
   border-radius: 30px 0 0 30px;
   z-index: 100;
-  transition: right 0.5s ease-in-out;
-  border: 1px solid;
+  transition: transform 0.5s ease-in-out;
+  box-shadow: -1px 2px 8px #9e9b9b;
+  transform: translateX(101%);
+  right: 0;
 
   &.active {
-    right: 0;
-    position: fixed;
+    transform: translateX(0%);
+
   }
 
   @include custom-responsive("xs sm ") {
     width: 100%;
-    right: -110%;
   }
 
   @include custom-responsive("xl xx-l") {
     width: 30%;
-    right: -40%;
   }
-.none{
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-}
+
+  .none {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
 
 }
 
 div.title {
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
 
   h2 {
     color: $primaryBgBlue;
-
+    margin: auto;
     @include custom-responsive("xs sm ") {
       @include h2_MB;
     }
@@ -52,68 +53,70 @@ div.title {
   }
 
   .fa-circle-xmark {
+    @include flex_hm();
     font-size: 30px;
     cursor: pointer;
   }
 }
-.location_card_inner{
+
+.location_card_inner {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+
   .location_card {
     display: flex;
-    flex-grow: 1;
   }
-  
+
   div.sponsor_inner {
-    padding: 20px;
+    padding: 20px 40px;
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
-  
+
     h5 {
       color: $primaryBgBlue;
       @include flex_hm();
-  
+
       @include custom-responsive("xs sm ") {
         @include h5_MB;
       }
-  
+
       @include custom-responsive("xl xx-l") {
         @include h5_PC;
       }
-  
+
     }
   }
-  
+
   div.card_count {
     display: flex;
     @include flex_hm();
-  
+
     p {
       color: $basicFontColor;
       padding: 0 20px;
-  
+
       @include custom-responsive("xs sm ") {
         @include h6_MB;
       }
-  
+
       @include custom-responsive("xl xx-l") {
         @include h6_PC;
       }
-  
+
     }
-  
-  
+
+
     i {
       cursor: pointer;
-      font-size: 20px;
+      font-size: 30px;
       padding: 0 10px;
       color: $primaryBgBlue;
-  
+
     }
   }
-  
+
 }
 
 div.sponsor_total {
@@ -121,7 +124,6 @@ div.sponsor_total {
   flex-direction: column;
   padding: 20px;
   border-radius: 0 0 0 30px;
-  height: 20%;
   background-color: $functionalLightGrey1;
 
   div.total_price {
@@ -160,4 +162,24 @@ div.sponsor_total {
 .v-enter-from .v-leave-from {
   transition: right 1s ease-in-out;
   right: -100%;
+}
+
+div.blur-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+
+}
+
+div.blur-background.show {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(5px);
+
 }

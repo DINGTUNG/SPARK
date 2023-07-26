@@ -1,0 +1,34 @@
+div.activity_donate {
+  @include flex_vm;
+
+  p {
+    text-align: center;
+    color: $primaryBrandBlue;
+
+    @include custom-responsive("xs sm") {
+      width: 80vw;
+      @include h5_B_PC;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      width: 50vw;
+      @include h4_B_PC;
+    }
+
+  }
+
+  img.donate_button {
+
+    margin: 5vh;
+    @include btnEffect;
+
+    @include custom-responsive("xs sm") {
+      width: 80vw;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      width: 35vw;
+    }
+
+  }
+}

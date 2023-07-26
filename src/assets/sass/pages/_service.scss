@@ -163,9 +163,10 @@
                     align-items: flex-start;
                     flex-direction: row-reverse;
                     div.left-card{
+                        flex-shrink: 0;
                         position: relative;
-                        left: 5%;
-                        top: 13vh;
+                        left: 15%;
+                        top: 15vh;
                         z-index: 22;
                         width: 55%;
                         background-color: $functionalLightGrey1;
@@ -197,9 +198,9 @@
                     }
                     }
                     div.right-pic{
-                        position: relative;
                         width: 60%;
                         right: 5%;
+                        flex-shrink: 0;
                         img{
                             width: 100%;
                             object-fit: cover;
@@ -259,6 +260,26 @@
             }
         }
     }
+}
+@include custom-responsive('xx-l'){
+    div.container{
+        width: 100%;
+        div.main_body{
+            section.project_deteils{
+                div.top{
+                    div.left-card{
+                        width: 45%;
+                        left: 5%;
+                    }
+                    div.right-pic{
+                        width: 50%;
+                        right: 10%;
+                    }
+                }
+        
+            }
+        }
+}
 }
 
 

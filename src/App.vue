@@ -1,6 +1,6 @@
 <script setup>
 
-import { RouterView } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router'
 
 // import { provide } from 'vue'
 // import getImgSrc from './utils/getImgSrc.js'
@@ -12,14 +12,17 @@ import Footer from '@/layout/Footer.vue';
 import LeftMenu from '@/layout/LeftMenu.vue';
 import RightMenu from '@/layout/RightMenu.vue';
 
-</script>
 
+const route = useRoute();
+
+</script>
+<!--  -->
 <template>
-  <Header />
-  <RightMenu />
-  <LeftMenu />
+  <Header v-if="!route.meta.hideHeader" />
+  <RightMenu v-if="!route.meta.hideRightMenu"/>
+  <LeftMenu v-if="!route.meta.hideLeftMenu"/>
   <RouterView />
-  <Footer />
+  <Footer v-if="!route.meta.hideFooter" />
 </template>
 
 <style lang="scss"></style>

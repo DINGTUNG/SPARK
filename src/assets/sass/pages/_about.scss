@@ -1,7 +1,3 @@
-// *{
-// //     outline: 1px solid red;
-// // }
-
 div.about_banner{
     width: 100%;
     img{
@@ -27,11 +23,11 @@ div.about_container {
             position: absolute;
             &:nth-child(1){
                 right: -380px;
-                top: 1330px;
+                top: 1250px;
             }
             &:nth-child(2){
                 width: 15%;
-                top: 1550px;
+                top: 1470px;
                 right: -180px;
             }
             &:nth-child(3){
@@ -88,27 +84,22 @@ div.about_container {
                 }
             }
         }
-        // div.title_text{
-
-        // }
 
         //3張展開的照片
         div.card_wrapper{
+            position: relative;
             margin: auto;
-            display: flex;
-            justify-content: space-between;
             align-items: center;
+            position: relative; 
+
             @include custom-responsive(" xs sm") {
                 margin: 30px 0 40px;
-              }
-              @include custom-responsive(" xl xxl") {
+            }
+            @include custom-responsive(" xl xxl") {
                 margin: 50px 0;
-              }
-            
-          
-            .about_card_1 {
-            
-              transform: rotate(-10deg);
+            }
+
+            .about_card_1 {          
           
               img {
                 width: 100%;   
@@ -122,43 +113,72 @@ div.about_container {
                 display: block;
               }
               @include custom-responsive(" xl xxl") {
+                width: 25%;
+                position: absolute;
+                top: 14%;
+                left: 35%;
+                animation: expandCards1 .4s forwards;
+                animation-delay: 1000ms; 
                 display: block;
+                z-index: -1; 
               }
             }
+            @keyframes expandCards1 {
+                0% {
+                transform: translateX(0%) rotate(0deg);
+                }
+                100% {
+                transform: translateX(-130%) rotate(-10deg);
+                }
+            }
+
             .about_card_2 {
           
                 img {
-                width: 100%;          
-                border-radius: $br_PC;
+                    width: 100%;          
+                    border-radius: $br_PC;
                 }
                 @include custom-responsive(" xs sm") {
-                width: 100%;
-                margin: auto;
+                    width: 100%;
+                    margin: auto;
                 }
                 @include custom-responsive(" md lg xl xxl") {
-                width: 40%;
-                display: block;
+                    width: 35%;
+                    display: block;
                 }
             }
             .about_card_3 {
-                transform: rotate(10deg);
           
                 img {
-                width: 100%;
-                border-radius: $br_PC;
+                    width: 100%;
+                    border-radius: $br_PC;
                 }
                 @include custom-responsive(" xs sm") {
-                display: none;
+                    display: none;
                 }
                 @include custom-responsive(" md lg") {
-                width: 25%;
-                display: block;
+                    width: 25%;
+                    display: block;
                 }
                 @include custom-responsive(" xl xxl") {
-                display: block;
-                }
-            
-            }         
+                    width: 25%;
+                    position: absolute;
+                    top: 10%;
+                    right:35%;
+                    animation: expandCards3 .4s forwards;
+                    animation-delay: 1000ms;
+                    z-index: -1; 
+                    display: block;
+                }         
+            }
+                @keyframes expandCards3 {
+                    0% {
+                    transform: translateX(0%) rotate(0deg);
+                    }
+                    100% {
+                    transform: translateX(130%) rotate(10deg);
+                    }
+                }      
         }
 
         //緣起
@@ -265,25 +285,7 @@ div.about_container {
             div.bgc_primaryblue{
                 background-color: $primaryBrandBlue;
                 padding-bottom: 5px;
-
-                // div.bottom_line::before{
-                //     position: absolute;
-                //     content: '';
-                //     width: 100%;
-                //     height: 1px;
-                //     background-color: rgb(255, 255, 255, 0.3);
-
-                //     @include custom-responsive(" xs sm") {
-                //        display: none;
-                //     }
-                //     @include custom-responsive(" md lg") {
-                //         margin-top: -170px;
-                //     }
-                //     @include custom-responsive(" xl xxl") {
-                //         margin-top: -197px;
-                  
-                //     }
-                // }              
+            
                 div.bottom_line{
                     position: relative;
                     margin: 20px auto;
@@ -291,24 +293,6 @@ div.about_container {
                     height: 1px;
                     background-color: rgb(255, 255, 255, 0.3);
                 }
-                // div.bottom_line::after{
-                //     position: absolute;
-                //     content: '';
-                //     width: 100%;
-                //     height: 1px;
-                //     background-color: rgb(255, 255, 255, 0.3);
-
-                //     @include custom-responsive(" xs sm") {
-                //         display: none;
-                //     }
-                //     @include custom-responsive(" md lg") {
-                //         margin-top: -360px;
-                //     }
-                //     @include custom-responsive(" xl xxl") {
-                //         margin-top: -412px;
-                  
-                //     }
-                // }
 
                 div.vision_content{
                     color: $primaryBrandWhite;
@@ -496,7 +480,7 @@ div.about_container {
                 justify-content: space-between;
             }
             @include custom-responsive(" xl xxl") {
-                padding: 20px 0 35px;
+                padding: 60px 0 35px;
                 align-items: center;
                 justify-content: space-between;
             }
@@ -590,7 +574,7 @@ div.about_container {
                           height: 105px;
                         }
                         @include custom-responsive(" xl xxl") {                 
-                           height: 80px;
+                           height: 100px;
                         }                  
                     }
                 }

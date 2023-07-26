@@ -1,18 +1,34 @@
 div.login_body {
     display: flex;
-    margin-bottom: 100px;
-
 
     img.title_img {
-        width: 33%;
-        height: 100vh;
+        @include custom-responsive("xs sm ") {
+            display: none;
+        }
+
+        @include custom-responsive("xl xx-l") {
+            display: block;
+            width: 33%;
+        }
     }
 
     div.login {
-        width: 50%;
+       
         padding: 8% 0 0 10%;
         display: flex;
         flex-direction: column;
+
+        @include custom-responsive("xs sm ") {
+
+        }
+
+        @include custom-responsive("sm xl") {
+            width: 60%;
+        }
+
+        @include custom-responsive("xl xx-l") {
+            width: 50%;
+        }
 
         h1 {
             color: $primaryBrandBlue;
@@ -29,7 +45,7 @@ div.login_body {
             border: 1px solid $functionalLightGrey3;
             border-radius: 10px;
             padding: 10px;
-            width: 70%;
+
             background-color: #f9f9f9;
 
             &:focus {
@@ -39,6 +55,14 @@ div.login_body {
             &::placeholder {
                 @include h6_PC;
                 color: rgb(99, 99, 99, 0.35);
+            }
+
+            @include custom-responsive("xs sm ") {
+                width: 100%;
+            }
+
+            @include custom-responsive("xl xx-l") {
+                width: 70%;
             }
         }
 
@@ -51,7 +75,36 @@ div.login_body {
         }
 
         .recaptcha_forget_block {
-            display: flex;
+            @include custom-responsive("xs sm ") {
+                display: block;
+            }
+
+            @include custom-responsive("xl xx-l") {
+                display: flex;
+            }
+
+            div.forgot_psw {
+                @include h6_PC;
+
+
+                i {
+                    color: $secondaryLightBlue2;
+                    font-size: $h5Fs_PC;
+                    margin-right: 5px;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+
+                @include custom-responsive("xs sm ") {
+                    padding: 10px 0 0 0;
+                }
+
+                @include custom-responsive("xl xx-l") {
+                    padding-left: 30px;
+                }
+            }
         }
 
         div.error_account {
@@ -76,32 +129,29 @@ div.login_body {
         }
 
         div.password_wrapper {
-            position: relative;
+           
+            div.password_block{
+                 position: relative;
+                display: flex;
+            }
 
             img {
                 position: absolute;
-                right: 32%;
+               
                 width: 25px;
-                // top: 30%;
+                top: 0;
                 cursor: pointer;
                 padding: 25px 0;
-            }
-
-            div.forgot_psw {
-                @include h6_PC;
-                position: absolute;
-                right: 38%;
-
-                i {
-                    color: $secondaryLightBlue2;
-                    font-size: $h5Fs_PC;
-                    margin-right: 5px;
+                @include custom-responsive("xs sm ") {
+                    left: 90%;
                 }
 
-                a {
-                    text-decoration: none;
+                @include custom-responsive("xl xx-l") {
+                    left: 60%;
                 }
             }
+
+
         }
 
         div.login_methods {

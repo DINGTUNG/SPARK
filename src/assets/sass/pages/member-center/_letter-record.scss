@@ -108,15 +108,15 @@ div.letter_record_container {
                 }
             }
             
-            ::v-deep .v-pagination__item--is-active .v-btn__overlay{
+            :deep(.v-pagination__item--is-active .v-btn__overlay){
                 border: 1px solid $secondaryDarkBlue;
                 color:white;
                 opacity: 0.2;
             }
-            ::v-deep .mdi:before{
+            :deep(.mdi:before){
                 color:$primaryBrandBlue;
             }
-            ::v-deep .v-btn__content{
+            :deep(.v-btn__content){
                 color:$primaryBrandBlue;
             }
 

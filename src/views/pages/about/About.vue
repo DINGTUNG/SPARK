@@ -1,5 +1,7 @@
 <script setup>
   import { reactive } from 'vue'
+
+
   const visionContents = reactive([
     {
       id: 1,
@@ -142,11 +144,20 @@
       <div class="title_text">
         <p>星火兒童協會是一個致力於幫助弱勢兒童的非營利組織。我們以教育、健康和福利支援為核心，點燃希望之星。透過資源整合、社區合作和創新計畫，我們提升兒童的生活品質，培養他們的潛能與自信，成為未來堅強有影響力的領袖。關愛、教育和社會參與是我們創造美好世界的使命，讓我們攜手為每個孩子的未來點亮一道光芒。</p>
       </div>
+      
+
       <div class="card_wrapper">
-        <div v-for="index in 3" :class="'about_card_' + index" :key="index">
-            <img :src="'pictures/images/about/about_card_' + index + '.jpg'" :alt="'照片' + index">
+        <div class="about_card_1 animate-on-scroll">
+          <img src="pictures/images/about/about_card_1.jpg" alt="照片1">
+        </div>
+        <div class="about_card_2">
+          <img src="pictures/images/about/about_card_2.jpg" alt="照片3">
+        </div>
+        <div class="about_card_3 animate-on-scroll">
+          <img src="pictures/images/about/about_card_3.jpg" alt="照片2">
         </div>
       </div>
+
       <div class="origin_title">
         <h2>緣起</h2>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">

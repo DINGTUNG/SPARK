@@ -43,7 +43,7 @@ const router = createRouter({
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/views/pages/about/About.vue')
+    component: () => import('@/views/pages/about/About.vue'),
   },
   {
     path: '/sponsor-location',
@@ -66,6 +66,7 @@ const router = createRouter({
     component: () => import('../views/pages/work-result/WorkResult.vue'),
     meta: {
       hideLeftMenu: true,
+      hideRightMenu: true,
     }
   },
   {
@@ -218,6 +219,16 @@ const router = createRouter({
     path: '/service-milestone',
     name: 'service-milestone',
     component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
+  },
+  {
+    path: '/title',
+    name: 'title',
+    component: () => import('@/views/pages/title.vue')
+  },
+  {
+    path: '/dreamStar',
+    name: 'dreamStar',
+    component: () => import('@/views/pages/spark-activity/DreamStar.vue')
   },
   ]
 })

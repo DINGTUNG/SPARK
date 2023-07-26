@@ -7,20 +7,24 @@ div.title_img {
 div.container {
     width: 100%;
     position: relative;
+
     div.main_body {
         width: 62.5vw;
         margin: auto;
 
         div.title_block {
             display: flex;
+
             @include custom-responsive(" xs sm") {
                 padding: 20px 0 30px;
                 align-items: center;
                 justify-content: center;
             }
+
             @include custom-responsive(" md lg") {
                 justify-content: space-between;
             }
+
             @include custom-responsive(" xl xxl") {
                 padding: 20px 0 35px;
                 align-items: center;
@@ -40,19 +44,23 @@ div.container {
                 }
 
             }
-            img.deco_line{
 
-                @include custom-responsive(" xs sm") {                   
+            img.deco_line {
+
+                @include custom-responsive(" xs sm") {
                     display: none;
                 }
+
                 @include custom-responsive("md") {
                     width: 70%;
                     display: block;
                 }
+
                 @include custom-responsive("lg") {
                     display: block;
                 }
-                @include custom-responsive(" xl xxl") {                 
+
+                @include custom-responsive(" xl xxl") {
                     display: block;
                 }
             }
@@ -149,9 +157,10 @@ div.container {
             }
 
             div.map {
+
                 h2 {
                     color: $primaryBgBlue;
-                    padding: 50px 0 30px;
+                    padding: 50px 0 10px;
 
                     @include custom-responsive(" xs sm") {
                         @include h2_MB;
@@ -160,39 +169,64 @@ div.container {
                     @include custom-responsive(" xl xxl") {
                         @include h2_PC;
                     }
-
                 }
 
                 iframe {
                     width: 100%;
                 }
+
+                .local_stick {
+                    display: flex;
+
+
+                    h3 {
+                        color: $primaryBgBlue;
+                        padding: 10px 0 30px;
+
+                        @include custom-responsive(" xs sm") {
+                            @include h3_MB;
+                        }
+
+                        @include custom-responsive(" xl xxl") {
+                            @include h3_PC;
+                        }
+
+                    }
+                    h3::after{
+                        content: "/"; 
+                    }
+                    h3:last-child::after {
+                        content: none; 
+                      }
+                }
             }
         }
-    }
 
-    img.superman {
-        position: relative;
+        img.superman {
+            position: relative;
 
-        @include custom-responsive(" xs sm") {
-            display: none
+            @include custom-responsive(" xs sm") {
+                display: none
+            }
+
+            @include custom-responsive(" xl xxl") {
+                display: block;
+                left: 100%;
+            }
         }
 
-        @include custom-responsive(" xl xxl") {
-            display: block;
-            left: 100%;
-        }
-    }
+        img.contact_star {
+            position: absolute;
 
-    img.contact_star{
-        position: absolute;
-        @include custom-responsive(" xs sm") {
-            display: none
-        }
+            @include custom-responsive(" xs sm") {
+                display: none
+            }
 
-        @include custom-responsive(" xl xxl") {
-            display: block;
-            top: 50%;
-            left: 0;
+            @include custom-responsive(" xl xxl") {
+                display: block;
+                top: 50%;
+                left: 0;
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 const contact = reactive(
   [
     {
@@ -27,7 +27,36 @@ const contact = reactive(
       article: '創立於民國87年，致力於貧困兒童的教育扶助事業，由各界學者專家、德高望重仕紳及熱心公益人士組成，以其學識、經驗及影響力，促進貧困兒童的教育發展，並且致力促進與政府、社會及有關機構之友好合作關係，並籌募經費及提供專業意見，推動扶幼教育工作。',
     },
   ]
-)
+);
+const activeLocationIndex = ref(0);
+const locations = reactive([
+
+  { latitude: 25.0376, longitude: 121.5647}, // 小木偶兒童發展協會的經緯度
+  { latitude: 24.9873, longitude: 121.3165 }, // 星火之友會的經緯度
+  { latitude: 25.1249, longitude: 121.4642 }, // 希望志工的經緯度
+  { latitude: 24.6789, longitude: 120.8765 }, // 小小花園兒童教育基金會的經緯度
+]);
+
+
+
+const toggleLocation = (index) => {
+  // if (activeLocationIndex.value === index) {
+  //   // 如果已經選擇了當前的地點，則取消選擇
+  //   activeLocationIndex.value = 0;
+  // } else {
+  //   // 否則，選擇當前點擊的地點
+  //   activeLocationIndex.value = index;
+  //   console.log(activeLocationIndex)
+  activeLocationIndex.value = index
+  // }
+};
+
+// 根據地點的經緯度，返回 Google 地圖的 iframe URL
+const getMapUrl = (latitude, longitude) => {
+  return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.249180523268!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1689271174007!5m2!1szh-TW!2stw`;
+};
+
+
 
 </script>
 
@@ -37,43 +66,43 @@ const contact = reactive(
   </div>
   <div class="container">
     <div class="main_body">
-    <div class="title_block">
-      <h1>星火之友</h1>
+      <div class="title_block">
+        <h1>星火之友</h1>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
-    </div>
-    <div class="title_text">
-      <p>星星之火，可以燎原，星火協會一直以來致力於促進貧困兒童的福祉促進，歷盡大小風雨，在這過程中的背後，少不了各界善心人士的各方支持幫忙，如今的星火能夠成長茁壯，少不了這些友會的共同努力~</p>
-      <div class="border_line"></div>
-    </div>
-    <div class="contact_block">
-      <div class="contact_message" v-for="item in contact" :key="item.index">
-        <div class="contact_message_inner">
-          <img :src="item.img">
-          <div class="contact_text">
-            <h4>{{ item.title }}</h4>
-            <p>{{ item.article }}</p>
+      </div>
+      <div class="title_text">
+        <p>星星之火，可以燎原，星火協會一直以來致力於促進貧困兒童的福祉促進，歷盡大小風雨，在這過程中的背後，少不了各界善心人士的各方支持幫忙，如今的星火能夠成長茁壯，少不了這些友會的共同努力~</p>
+        <div class="border_line"></div>
+      </div>
+      <div class="contact_block">
+        <div class="contact_message" v-for="item in contact" :key="item.index">
+          <div class="contact_message_inner">
+            <img :src="item.img">
+            <div class="contact_text">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.article }}</p>
+            </div>
           </div>
+          <div class="text_line"></div>
         </div>
-        <div class="text_line"></div>
-      </div>
-      <div class="map">
-        <h2>友會地點</h2>
-        <div class="local_stick">
-          <h3>小木偶兒童發展協會</h3>
-          <h3>星火之友會</h3>
-          <h3>希望志工</h3>
-          <h3>小小花園兒童教育基金會</h3>
+        <div class="map">
+          <h2>友會地點</h2>
+          <div class="local_stick">
+            <h3 @click="toggleLocation(0)">小木偶兒童發展協會</h3>
+            <h3 @click="toggleLocation(1)">星火之友會</h3>
+            <h3 @click="toggleLocation(2)">希望志工</h3>
+            <h3 @click="toggleLocation(3)">小小花園兒童教育基金會</h3>
+          </div>
+          <iframe :src="getMapUrl(locations[activeLocationIndex].latitude, locations[activeLocationIndex].longitude)"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.249180523268!2d121.22502300000001!3d24.957636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1689271174007!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7234.498327009493!2d121.22502300000001!3d24.957636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682239b7d84999%3A0xc0471c639cddec55!2z5paw6KGX5rqq5rKz5r-x5YWs5ZyS!5e0!3m2!1szh-TW!2stw!4v1690292132265!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
       </div>
+      <img :src="'public/pictures/characters/star/star_superman.svg'" alt="星星超人" class="superman">
+      <img :src="'public/pictures/decorations/illustration/contact_star.svg'" alt="碎星" class="contact_star">
     </div>
-    <img :src="'pictures/characters/star/star_superman.svg'" alt="星星超人" class="superman">
-    <img :src="'pictures/decorations/illustration/contact_star.svg'" alt="碎星" class="contact_star">
-  </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-@import'@/assets/sass/pages/contact';
-</style>
+<style scoped lang="scss">@import'@/assets/sass/pages/contact';</style>

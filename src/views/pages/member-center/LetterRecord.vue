@@ -6,7 +6,7 @@ const infoModal = ref(null);
 
 function openModal(imageSrc) {
   modalImageSrc.value = imageSrc;
-  infoModal.value.showModal(); // 使用 infoModal.value 來顯示彈跳視窗
+  infoModal.value.showModal();
 }
 
 function closeImageModal() {
@@ -119,8 +119,8 @@ const letterData = reactive([
           <td>{{ data.childId }}</td>
           <td>{{ data.date }}</td>
           <td>{{ data.location }}</td>
-          <td class="click_jpg" @click="openModal(data.jpgPath)">
-            {{ data.jpgPath }}
+          <td class="click_jpg" @click="openModal(data.jpgPath)" style="cursor: pointer;">
+            {{ '✦ 來自' + data.childId + '小朋友的感謝信 ✦' }}
           </td>
         </tr>
       </table>
@@ -155,7 +155,6 @@ const letterData = reactive([
       </div>
     </div>
   </div>
-
 </div>
 
 </template>

@@ -138,7 +138,7 @@ div.letter_record_container {
                 position: fixed;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate(-40%, -50%);
                 border: none;
                 outline: none;
                 background-color: transparent;
@@ -147,13 +147,13 @@ div.letter_record_container {
                 button.close_btn{
                     width: 8%;
                     top: 0;
-                    right: 80px;
+                    right: 15%;
                     position: absolute;
                 }
 
                 img{
-                    max-width: 80%;
-                    max-height: 80%;
+                    max-width: 75%;
+                    max-height: 75%;
                 }
             }            
         }

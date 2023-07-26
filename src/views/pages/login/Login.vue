@@ -10,8 +10,8 @@ import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
 const user = useCurrentUser();
 const router = useRouter();
-// display errors if any(如果有的話就顯示錯誤)
-const error = ref(null)
+const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
+const Membership = ref(false)
 import { GoogleAuthProvider } from 'firebase/auth'
 const googleAuthProvider = new GoogleAuthProvider()
 //登入跳轉函式，會跳轉到google的帳號頁面
@@ -25,7 +25,7 @@ function signInRedirect() {
 onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
-      console.log(Response);
+      // console.log(Response);
 
     })
     .catch((reason) => {
@@ -37,19 +37,19 @@ onMounted(() => {
 
 
 //google登入跳轉函式:問題:跳轉遲鈍
-const handleLoginStatusChange = () => {
-  if (isLoggedIn()) {
-    console.log('使用者已登入');
-    router.push('/');
-  } else {
-    console.log('使用者已登出');
-  }
-};
+// const handleLoginStatusChange = () => {
+//   if (isLoggedIn()) {
+//     console.log('使用者已登入');
+//     router.push('/');
+//   } else {
+//     console.log('使用者已登出');
+//   }
+// };
 
-watch(user, handleLoginStatusChange, { deep: true });
-const isLoggedIn = () => {
-  return user.value !== null;
-};
+// watch(user, handleLoginStatusChange, { deep: true });
+// const isLoggedIn = () => {
+//   return user.value !== null;
+// };
 
 
 
@@ -73,7 +73,7 @@ const instance_vueRecaptchaV2 = reactive({
   },
 });
 
-
+console.log(Membership.value)
 
 
 const account = ref('');
@@ -105,16 +105,15 @@ const login = () => {
   } else {
     if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = '';
-      console.log('登入成功');
       alert('登入成功');
+      Membership.value = true;
       router.push({ path: '/' });
+      return Membership;
     } else {
-      console.log('帳號或密碼不正確');
       errorAccount.value = '帳號或密碼不正確';
     }
   }
 };
-
 </script>
 <template>
   <div class="login_body">
@@ -126,12 +125,14 @@ const login = () => {
       <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
         :class="{ 'animate__animated animate__headShake': errorAccount }">
       <label for="password">密碼</label>
+
       <div class="password_wrapper" ref="passwordField" :class="{ 'animate__animated animate__headShake': errorAccount }">
-        <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
-        <span class="toggle" @click="showHide">
-          <img v-if="showPassword" :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
-          <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" />
-        </span>
+        <div class="password_block">
+          <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
+          <span class="toggle" @click="showHide"> <img v-if="showPassword"
+              :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
+            <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" /></span>
+        </div>
         <div class="recaptcha_forget_block">
           <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
             @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"

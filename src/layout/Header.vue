@@ -46,7 +46,7 @@ const menuItems = ref([
   },
   {
     label: '成果佈告欄',
-    route: '/story-gallery',
+    route: '/work-result',
     submenu: [
       { label: '故事藝廊', route: '/story-gallery' },
       { label: '歷年報告', route: '/result-report' },

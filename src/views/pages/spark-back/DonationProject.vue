@@ -210,6 +210,13 @@ const donateList = reactive([
     end_date: '2028.01.10',
   },
 ])
+
+const itemsPerPage = 5;
+  const displayedDonateList = computed(() => {
+    const startIdx = (page.value - 1) * itemsPerPage;
+    const endIdx = startIdx + itemsPerPage;
+    return donateList.slice(startIdx, endIdx);
+  });
 </script>
 
 

@@ -43,7 +43,7 @@ const router = createRouter({
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/views/pages/about/About.vue')
+    component: () => import('@/views/pages/about/About.vue'),
   },
   {
     path: '/sponsor-location',
@@ -66,6 +66,7 @@ const router = createRouter({
     component: () => import('../views/pages/work-result/WorkResult.vue'),
     meta: {
       hideLeftMenu: true,
+      hideRightMenu: true,
     }
   },
   {
@@ -228,38 +229,6 @@ const router = createRouter({
     path: '/dreamStar',
     name: 'dreamStar',
     component: () => import('@/views/pages/spark-activity/DreamStar.vue')
-  },
-  {
-    path: '/adoption-record',
-    name: 'adoption-record',
-    component: () => import('@/views/pages/member-center/AdoptionRecord.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
-  },
-  {
-    path: '/letter-record',
-    name: 'letter-record',
-    component: () => import('@/views/pages/member-center/LetterRecord.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
-  },
-  {
-    path: '/modify-meminfo',
-    name: 'modify-meminfo',
-    component: () => import('@/views/pages/member-center/ModifyMeminfo.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
-  },
-  {
-    path: '/donate-record',
-    name: 'donate-record',
-    component: () => import('@/views/pages/member-center/DonateRecord.vue'),
-    meta: {
-      hideRightMenu: true,
-    }
   },
   ]
 })

@@ -1,6 +1,6 @@
 <script setup>
 import 'animate.css';
-import { ref, onMounted, reactive, watch } from 'vue';
+import { ref, onMounted, reactive, watch, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import VueRecaptcha from 'vue3-recaptcha2';
 import { useFirestore } from 'vuefire'; //import firebase
@@ -19,8 +19,6 @@ function signInRedirect() {
   signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
     console.error('Failed signInRedirect', reason)
     error.value = reason
-    handleLoginStatusChange()
-
   })
 }
 
@@ -28,6 +26,7 @@ onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
       console.log(Response);
+
     })
     .catch((reason) => {
       console.error('Failed redirect result', reason)
@@ -54,7 +53,7 @@ const isLoggedIn = () => {
 
 
 
-
+const isValidToken = ref(false)
 const instance_vueRecaptchaV2 = reactive({
   data_v2SiteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr',
   recaptchaVerified: (response_token) => {
@@ -62,6 +61,7 @@ const instance_vueRecaptchaV2 = reactive({
     console.log(response_token);
     // 連接後端API，給後端進行認證
     // Connect to your Backend service.
+    isValidToken.value = true;
   },
   recaptchaExpired: () => {
     // 驗證過期後進行的動作
@@ -91,7 +91,7 @@ function showHide() {
   // 切换显示密码图标
   showPassword.value = !showPassword.value;
 }
-console.log(user)
+
 
 const login = () => {
   // 獲取用戶的帳密
@@ -100,6 +100,8 @@ const login = () => {
   // 進行驗證
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
+  } else if (!isValidToken.value) {
+    errorAccount.value = '請進行驗證';
   } else {
     if (enteredAccount === 'tibame' && enteredPassword === '1234') {
       errorAccount.value = '';

@@ -13,11 +13,12 @@
     div.left_menu_container{
        display: block;
        position: absolute;
-       top: 75vh;
+       top: 42vw;
        left: 0;
        width: 15vw;
        @include boxShadow_PC;
        border-radius: 0px 25px 25px 0px;
+       z-index: 1000; 
        h3{
         font-size: $h3Fs_PC;
         color: $primaryBrandBlue;

@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { reactive } from "vue";
+import { RouterView } from 'vue-router'
 
 const passwordField = ref(null);
 const showPassword = ref(true);
@@ -13,6 +14,14 @@ const Months = reactive([
 const Days = reactive([
     '請選擇日期', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
 ])
+
+
+const showOne = ref(true);
+
+const switchPage = () => {
+    showOne.value = !showOne.value;
+}
+
 
 function showHide() {
     if (passwordField.value.type === 'password') {
@@ -32,8 +41,16 @@ function showHide() {
             <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">
         </div>
 
+
+        <div class="register_main">
+
+            <!-- router-view 是巢狀路由的第一個子區塊 -->
+            <router-view />
+
+        </div>
+
         <!---------- 步驟1區塊 ---------->
-        <div class="register_main one">
+        <!-- <div class="register_main one">
             <div class="main_header">
                 <h1 class="header_title">註冊會員</h1>
                 <div class="header_step">
@@ -97,10 +114,14 @@ function showHide() {
                 </div>
                 <button class="next_step">下一步</button>
             </div>
-        </div>
+        </div> -->
+
+
+        <!-- <router-link to="register-step-one"></router-link> -->
+
 
         <!---------- 步驟2區塊 ---------->
-        <div class="register_main two">
+        <!-- <div class="register_main two">
             <div class="main_header">
                 <h1 class="header_title">註冊會員</h1>
                 <div class="header_step">
@@ -226,16 +247,27 @@ function showHide() {
                 </div>
                 <button class="next_step">送出</button>
             </div>
-        </div>
+
+
+            <div v-if="showOne" class="test1">
+                <p>區塊1</p>
+                <button class="change" @click="switchPage">送出</button>
+            </div>
+
+            <div v-else class="test2">
+                <p>區塊2</p>
+            </div>
+
+
+
+
+
+        </div> -->
+
 
     </div>
 </template>
 
 <style scoped lang="scss">
 @import "@/assets/sass/pages/register";
-
-
-.v-select {
-    color: indigo-darken-3;
-}
 </style>

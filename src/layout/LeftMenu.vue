@@ -18,72 +18,101 @@ const currentRoute = useRoute(); // 取得當前路徑的資訊(src/router/index
 // 監聽當前路徑的變化，更新各陣列的內容
 watch(() => currentRoute.name, (newRouteName) => {
   if (newRouteName === "home") {
-    menuTitle.value = "服務里程碑";
+    menuTitle.value = "";
     bulletinList.value = [
       {
         id: 1,
-        title: "認養地區",
+        title: "",
         routeName: "",
       },
       {
         id: 2,
-        title: "捐款善心榜",
+        title: "",
         routeName: "",
       },
       {
         id: 3,
-        title: "捐款善心榜",
+        title: "",
         routeName: "",
       },
       {
         id: 4,
-        title: "捐款善心榜",
+        title: "",
         routeName: "",
       },
     ];
-  } else if (newRouteName === "sponsor") {
-    menuTitle.value = "認養計畫";
+  } else if (newRouteName === "about") {
+    menuTitle.value = "認識星火";
     bulletinList.value = [
       {
         id: 1,
-        title: "認養地區",
+        title: "緣起",
         routeName: ""
       },
       {
         id: 2,
-        title: "我要認養",
+        title: "願景",
+        routeName: "",
+      },
+      {
+        id: 3,
+        title: "服務據點",
+        routeName: "",
+      },
+      {
+        id: 4,
+        title: "認養/捐款Q/A",
         routeName: "",
       },
     ];
-  } else if (newRouteName === "sponsor-location") {
+  } else if (newRouteName === "story-gallery" || newRouteName === "rest" || newRouteName === "service-milestone") {
+    menuTitle.value = "成果佈告欄";
+    bulletinList.value = [
+      {
+        id: 1,
+        title: "故事藝廊",
+        routeName: "story-gallery",
+      },
+      {
+        id: 2,
+        title: "歷年報告",
+        routeName: "result-report",
+      },
+      {
+        id: 3,
+        title: "服務里程碑",
+        routeName: "service-milestone",
+      },
+    ];
+  } else if (newRouteName === "sponsor" || newRouteName === "sponsor-location") {
     menuTitle.value = "認養計畫";
     bulletinList.value = [
       {
         id: 1,
-        title: "認養地區",
-        routeName: ""
+        title: "我要認養",
+        routeName: "sponsor",
       },
       {
         id: 2,
-        title: "我要認養",
-        routeName: "",
+        title: "認養地區",
+        routeName: "sponsor-location",
       },
     ];
-  } else if (newRouteName === "donate") {
+  } else if (newRouteName === "donate" || newRouteName === "donate-list") {
     menuTitle.value = "捐款專案";
     bulletinList.value = [
       {
         id: 1,
         title: "捐款內容",
-        routeName: ""
+        routeName: "donate",
       },
       {
         id: 2,
         title: "捐款善心榜",
-        routeName: "",
+        routeName: "donate-list",
       },
     ];
-  }
+  };
 });
 
 </script>

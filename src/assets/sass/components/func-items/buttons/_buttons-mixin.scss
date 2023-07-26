@@ -7,14 +7,15 @@
 //手機 MB buttons 54
 
 
-
 //---------------------------------------------------------------------------------------
 /* ⭐桌機 PC buttons⭐ */
 
 //🔵
 //regular
 @mixin regularBlueBtn_PC {
-  @include regularBtn_PC;
+  @include regularBtnSize_PC;
+  border-radius: $regularBtnBr;
+  font-size: $regularBtnFs_PC;
   background-color: $btnBlue;
   color: $btnWhite;
   border: 0;
@@ -24,7 +25,9 @@
 
 //small
 @mixin smallBlueBtn_PC {
-  @include smallBtn_PC;
+  @include smallBtnSize_PC;
+  border-radius: $smallBtnBr;
+  font-size: $smallBtnFs_PC;
   background-color: $btnBlue;
   color: $btnWhite;
   border: 0;
@@ -36,7 +39,9 @@
 //⚪
 //regular
 @mixin regularWhiteBtn_PC {
-  @include regularBtn_PC;
+  @include regularBtnSize_PC;
+  border-radius: $regularBtnBr;
+  font-size: $regularBtnFs_PC;
   background-color: $btnWhite;
   color: $btnBlue;
   border: 1px solid $btnBlue;
@@ -46,7 +51,9 @@
 
 //small
 @mixin smallWhiteBtn_PC {
-  @include smallBtn_PC;
+  @include smallBtnSize_PC;
+  border-radius: $smallBtnBr;
+  font-size: $smallBtnFs_PC;
   background-color: $btnWhite;
   color: $btnBlue;
   border: 1px solid $btnBlue;
@@ -58,7 +65,9 @@
 //🟡
 //regular
 @mixin regularGoldBtn_PC {
-  @include regularBtn_PC;
+  @include regularBtnSize_PC;
+  border-radius: $regularBtnBr;
+  font-size: $regularBtnFs_PC;
   background-color: $btnGold;
   color: $btnWhite;
   border: 0;
@@ -68,7 +77,9 @@
 
 //small
 @mixin smallGoldBtn_PC {
-  @include smallBtn_PC;
+  @include smallBtnSize_PC;
+  border-radius: $smallBtnBr;
+  font-size: $smallBtnFs_PC;
   background-color: $btnGold;
   color: $btnWhite;
   border: 0;
@@ -80,7 +91,9 @@
 //🔵
 //regular
 @mixin regularBlueBtn_MB {
-  @include regularBtn_MB;
+  @include regularBtnSize_MB;
+  border-radius: $regularBtnBr;
+  font-size: $regularBtnFs_MB;
   background-color: $btnBlue;
   color: $btnWhite;
   border: 0;
@@ -90,7 +103,9 @@
 
 //small
 @mixin smallBlueBtn_MB {
-  @include smallBtn_MB;
+  @include smallBtnSize_MB;
+  border-radius: $smallBtnBr;
+  font-size: $smallBtnFs_MB;
   background-color: $btnBlue;
   color: $btnWhite;
   border: 0;
@@ -102,7 +117,9 @@
 //⚪
 //regular
 @mixin regularWhiteBtn_MB {
-  @include regularBtn_MB;
+  @include regularBtnSize_MB;
+  border-radius: $regularBtnBr;
+  font-size: $regularBtnFs_MB;
   background-color: $btnWhite;
   color: $btnBlue;
   border: 1px solid $btnBlue;
@@ -112,7 +129,9 @@
 
 //small
 @mixin smallWhiteBtn_MB {
-  @include smallBtn_MB;
+  @include smallBtnSize_MB;
+  border-radius: $smallBtnBr;
+  font-size: $smallBtnFs_MB;
   background-color: $btnWhite;
   color: $btnBlue;
   border: 1px solid $btnBlue;
@@ -124,7 +143,9 @@
 //🟡
 //regular
 @mixin regularGoldBtn_MB {
-  @include regularBtn_MB;
+  @include regularBtnSize_MB;
+  border-radius: $regularBtnBr;
+  font-size: $regularBtnFs_MB;
   background-color: $btnGold;
   color: $btnWhite;
   border: 0;
@@ -134,7 +155,9 @@
 
 //small
 @mixin smallGoldBtn_MB {
-  @include smallBtn_MB;
+  @include smallBtnSize_MB;
+  border-radius: $smallBtnBr;
+  font-size: $smallBtnFs_MB;
   background-color: $btnGold;
   color: $btnWhite;
   border: 0;
@@ -150,15 +173,18 @@
 //PC
 
 @mixin checkoutCardsBlueBtn_PC {
-  @include checkoutCardsBtn_PC;
+  @include checkoutCardsBtnSize_PC;
+  border-radius: $checkoutBtnBr_PC;
+  font-size: $regularBtnFs_PC;
   background-color: $btnBlue;
   color: $btnWhite;
   border: 0;
 }
 
-
 @mixin checkoutCardsWhiteBtn_PC {
-  @include checkoutCardsBtn_PC;
+  @include checkoutCardsBtnSize_PC;
+  border-radius: $checkoutBtnBr_PC;
+  font-size: $regularBtnFs_PC;
   background-color: $btnWhite;
   color: $btnBlue;
   border: 1px solid $btnBlue;
@@ -167,16 +193,89 @@
 //MB
 
 @mixin checkoutCardsBlueBtn_MB {
-  @include checkoutCardsBtn_MB;
+  @include checkoutCardsBtnSize_MB;
+  border-radius: $checkoutBtnBr_MB;
+  font-size: $smallBtnFs_MB;
   background-color: $btnBlue;
   color: $btnWhite;
   border: 0;
 }
 
-
 @mixin checkoutCardsWhiteBtn_MB {
-  @include checkoutCardsBtn_MB;
+  @include checkoutCardsBtnSize_MB;
+  border-radius: $checkoutBtnBr_MB;
+  font-size: $smallBtnFs_MB;
   background-color: $btnWhite;
   color: $btnBlue;
   border: 1px solid $btnBlue;
 }
+
+//---------------------------------------------------------------------------------------
+/* ⭐spark-activity buttons⭐ */
+
+//PC
+
+@mixin sparkActivityBlueBtn_PC {
+  @include sparkActivityBtnSize_PC;
+  border-radius: $sparkActivityBtnBr_PC;
+  font-size: $regularBtnFs_PC;
+  background-color: $secondaryLightBlue3;
+  color: $btnWhite;
+  border: 0;
+}
+
+//MB
+
+@mixin sparkActivityBlueBtn_MB {
+  @include sparkActivityBtnSize_MB;
+  border-radius: $sparkActivityBtnBr_MB;
+  font-size: $smallBtnFs_MB;
+  background-color: $secondaryLightBlue3;
+  color: $btnWhite;
+  border: 0;
+}
+
+//---------------------------------------------------------------------------------------
+/* ⭐dream-star buttons⭐ */
+
+//PC
+
+@mixin dreamStarPlanBlueBtn_PC {
+  @include dreamStarPlanBtnSize_PC;
+  border-radius: $dreamStarPlanBtnBr_PC;
+  font-size: $regularBtnFs_PC;
+  background-color: $secondaryLightBlue3;
+  color: $btnWhite;
+  border: 0;
+}
+
+@mixin dreamStarPlanYellowBtn_PC {
+  @include dreamStarPlanBtnSize_PC;
+  border-radius: $dreamStarPlanBtnBr_PC;
+  font-size: $regularBtnFs_PC;
+  background-color: $decorativeYellow;
+  color: $primaryBrandBlue;
+  border: 0;
+}
+
+//MB
+
+@mixin dreamStarPlanBlueBtn_MB {
+  @include dreamStarPlanBtnSize_MB;
+  border-radius: $dreamStarPlanBtnBr_MB;
+  font-size: $smallBtnFs_MB;
+  background-color: $secondaryLightBlue3;
+  color: $btnWhite;
+  border: 0;
+}
+
+@mixin dreamStarPlanYellowBtn_MB {
+  @include dreamStarPlanBtnSize_MB;
+  border-radius: $dreamStarPlanBtnBr_MB;
+  font-size: $smallBtnFs_MB;
+  background-color: $decorativeYellow;
+  color: $primaryBrandBlue;
+  border: 0;
+}
+
+

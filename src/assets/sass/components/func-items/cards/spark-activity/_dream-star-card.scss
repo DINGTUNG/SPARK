@@ -1,0 +1,160 @@
+div.dream_star_card_container {
+  @include flex_vm;
+
+  @include custom-responsive("xs sm") {
+    margin: 3vh;
+  }
+
+  @include custom-responsive("xl xx-l") {}
+
+  div.dream_star_card_wrap {
+    @include flex_vm;
+    position: relative;
+
+
+
+
+    img.dream_star_background {
+
+      @include custom-responsive("xl") {
+        width: 15vw;
+        height: 15vw;
+      }
+    }
+
+    div.img_wrap {
+      border-radius: 50%;
+      border: 5px solid $primaryBrandWhite;
+      overflow: hidden;
+      position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
+
+
+      @include custom-responsive("xs sm") {
+        width: 60vw;
+        height: 60vw;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        width: 13vw;
+        height: 13vw;
+      }
+
+
+
+
+      img {
+        @include imgEffect;
+
+      }
+
+    }
+  }
+
+}
+
+
+button.watch_more {
+  @include flex_hm;
+  gap: 1vw;
+
+  position: relative;
+  top: -4vh;
+
+  @include custom-responsive("xs sm") {
+    @include dreamStarPlanBlueBtn_MB;
+  }
+
+
+  @include custom-responsive("xl") {
+    @include dreamStarPlanBlueBtn_PC;
+    font-size: 1.2vw;
+  }
+
+  @include custom-responsive("xx-l") {
+    @include dreamStarPlanBlueBtn_PC;
+  }
+
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+p.vote {
+  margin-top: -2vh;
+  @include flex_hm;
+  gap: 0.5vw;
+
+
+  img {
+    cursor: pointer;
+
+    &:hover {
+      filter: invert(91%) sepia(16%) saturate(1295%) hue-rotate(331deg) brightness(106%) contrast(102%);
+    }
+  }
+
+  span {
+    color: $primaryBrandBlue;
+    @include h3_PC;
+  }
+}
+
+div.title_wrap {
+
+  @include flex_vm;
+
+  @include custom-responsive("xs sm") {
+    margin: 1vh;
+  }
+
+  @include custom-responsive("xl xx-l") {
+    margin: 2vh;
+  }
+
+  p.title {
+    font-size: $h4Fs_PC;
+    font-weight: bold;
+    color: $primaryBrandBlue;
+  }
+
+  p.sub_title {
+    font-size: $h4Fs_PC;
+    color: $primaryBrandBlue;
+  }
+
+}
+
+
+
+button.vote_btn {
+  font-weight: bold;
+
+
+  @include custom-responsive("xs sm") {
+    @include dreamStarPlanYellowBtn_MB;
+
+  }
+
+  @include custom-responsive("xl") {
+    font-size: 1.3vw;
+    padding-top: 0.4vh;
+    @include dreamStarPlanYellowBtn_PC;
+
+  }
+
+  @include custom-responsive("xx-l") {
+    @include dreamStarPlanYellowBtn_PC;
+
+  }
+
+
+
+
+}
+
+.link {
+  text-decoration: none;
+}

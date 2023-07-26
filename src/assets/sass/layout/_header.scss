@@ -72,6 +72,7 @@ header {
 
   //0px
   header {
+    width: 100vw;
     position: fixed;
     background-color: $primaryBgBlue;
     top: 0%;
@@ -209,11 +210,9 @@ div.blur-background.show {
     position: absolute;
     background-color: transparent;
     top: 5%;
-    left: 1%;
-    right: 1%;
     padding: 0px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 
     .link_home {

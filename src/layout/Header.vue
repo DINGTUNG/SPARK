@@ -1,6 +1,6 @@
 <script setup>
-import { ref, watchEffect } from 'vue';
-import { RouterLink } from 'vue-router';
+import { ref, watchEffect, watch } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
 
 let isNavOpen = ref(false);
 let isLargeScreen = ref(window.matchMedia("(min-width: 1200px)").matches);
@@ -20,11 +20,24 @@ watchEffect(() => {
 const activeSubMenu = ref(null);
 const activeImage = ref(null);
 
+const currentRoute = useRoute();
+
+const imgSrc = ref('')
+
+watch(() => currentRoute.name, (newRouteName) => {
+  if (newRouteName === "spark-activity") {
+    imgSrc.value = 'pictures/logo/logo_blue.svg'
+  } else {
+    imgSrc.value = 'pictures/logo/logo_white.svg'
+  }
+})
+//暫時沒有作用
+
 const menuItems = ref([
   {
     label: '認識星火',
     route: '/about',
-    img: 'pictures/decorations/layout/little_star.png' 
+    img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '服務內容',
@@ -45,8 +58,8 @@ const menuItems = ref([
     label: '認養計畫',
     route: '/sponsor',
     submenu: [
-      { label: '我要認養', route: '/' }, //尚無連結
-      { label: '認養地區', route: '/sponsor-location' } 
+      { label: '我要認養', route: '/sponsor' }, 
+      { label: '認養地區', route: '/sponsor-location' }
     ],
     img: 'pictures/decorations/layout/little_star.png'
   },
@@ -118,7 +131,7 @@ const closeNav = () => {
 <template>
   <header>
     <RouterLink to="/" class="link_home">
-      <img alt="Spark logo" class="logo" :src="'pictures/logo/logo_white.svg'" />
+      <img alt="Spark logo" class="logo" :src="imgSrc" />
     </RouterLink>
 
     <button class="nav_toggle" v-if="!isLargeScreen" @click="toggleNav" v-bind:class="{ open: isNavOpen }">
@@ -132,11 +145,7 @@ const closeNav = () => {
         <ul>
           <li v-for="(item, index) in menuItems" :key="index">
             <template v-if="item.submenu && !isLargeScreen">
-              <a
-                class="link"
-                @click="toggleSubMenu(index)"
-                :class="{ 'active': activeSubMenu === index }"
-              >
+              <a class="link" @click="toggleSubMenu(index)" :class="{ 'active': activeSubMenu === index }">
                 {{ item.label }}
                 <span class="submenu_icon"></span>
               </a>
@@ -147,38 +156,20 @@ const closeNav = () => {
               </ul>
             </template>
             <template v-else>
-              <RouterLink
-                v-if="item.route"
-                :to="item.route"
-                :class="['link', { 'member_login': item.label === '會員登入' }]"
+              <RouterLink v-if="item.route" :to="item.route" :class="['link', { 'member_login': item.label === '會員登入' }]"
                 @mouseover="item.label !== '會員登入' ? showSubMenu(index) : null"
-                @mouseleave="item.label !== '會員登入' ? hideSubMenu() : null"
-              >
+                @mouseleave="item.label !== '會員登入' ? hideSubMenu() : null">
                 {{ item.label }}
               </RouterLink>
-              <a
-                v-else
-                :href="item.route"
-                class="link"
-                @mouseover="showSubMenu(index)"
-                @mouseleave="hideSubMenu"
-              >
+              <a v-else :href="item.route" class="link" @mouseover="showSubMenu(index)" @mouseleave="hideSubMenu">
                 {{ item.label }}
               </a>
               <img
                 v-if="(isLargeScreen && (activeImage === index || activeSubMenu === index)) || (!isLargeScreen && activeImage === index)"
-                :src="item.img"
-                alt="Image"
-                class="hover_image"
-                style="position: absolute; left: -5px; top: 50%; transform: translateY(-50%);"
-              />
-              <ul
-                v-if="item.submenu"
-                class="submenu"
-                :class="{ 'active': activeSubMenu === index }"
-                @mouseover="showImage(index)"
-                @mouseleave="hideImage"
-              >
+                :src="item.img" alt="Image" class="hover_image"
+                style="position: absolute; left: -5px; top: 50%; transform: translateY(-50%);" />
+              <ul v-if="item.submenu" class="submenu" :class="{ 'active': activeSubMenu === index }"
+                @mouseover="showImage(index)" @mouseleave="hideImage">
                 <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
                   <RouterLink :to="subItem.route" class="link">{{ subItem.label }}</RouterLink>
                 </li>
@@ -201,6 +192,7 @@ const closeNav = () => {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(0%);
   }

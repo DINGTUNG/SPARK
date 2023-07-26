@@ -162,16 +162,18 @@
         }
     }
 }
-@include custom-responsive("xxl"){
+@include custom-responsive("xx-l"){
     .rightMenu{
         width: 6vw;
         ul{     
             padding: 0;   
-            li{     
+            li{ 
+                @include h6_PC;
                 padding: 8% 0;
                 width: 100%;
                 a{
                     width: 100%;
+                    @include h6_PC;
                 }
                 div.icon{
                     width: 60%;

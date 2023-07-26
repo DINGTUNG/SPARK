@@ -5,7 +5,6 @@ import { YEAR_REPORT } from "@/constant/resultReport.constant";
 let years = reactive(YEAR_REPORT);
 
 </script>
-
 <template>
   <div class="title_img">
     <img :src="'pictures/images/sponsor/banner.png'" alt="banner">
@@ -18,8 +17,8 @@ let years = reactive(YEAR_REPORT);
       </div>
       <div class="report_inner">
         <div class="year_report">
-          <img class="water_can" :src="'pictures/decorations/illustration/watering _can.svg'" alt="">
-          <img class="sprout" :src="'pictures/decorations/illustration/sprout.svg'" alt="">
+          <img class="water_can" :src="'pictures/decorations/illustration/watering _can.svg'" alt="water">
+          <img class="sprout" :src="'pictures/decorations/illustration/sprout.svg'" alt="sprout">
           <h2>年度報告</h2>
           <div class="year_inner">
             <div class="year_card" v-for="item in years" :key="item.id">
@@ -41,7 +40,7 @@ let years = reactive(YEAR_REPORT);
             <div class="financial_card" v-for="item in years" :key="item.id">
               <div class="financial_card_inner">
                 <div class="financial_img">
-                  <img :src="'pictures/decorations/illustration/book.svg'" alt="">
+                  <img :src="'pictures/decorations/illustration/book.svg'" alt="financial">
                 </div>
                 <div class="financial_text">
                   <p>{{ item.year }}年</p>
@@ -58,5 +57,5 @@ let years = reactive(YEAR_REPORT);
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/pages/work-result/result-report.scss'
+@import'@/assets/sass/pages/work-result/result-report.scss';
 </style>

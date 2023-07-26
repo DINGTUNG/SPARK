@@ -213,7 +213,13 @@ const router = createRouter({
   {
     path: '/donation-project',
     name: 'donation-project',
-    component: () => import('@/views/pages/spark-back/DonationProject.vue')
+    component: () => import('@/views/pages/spark-back/DonationProject.vue'),
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+      hideLeftMenu: true,
+      hideRightMenu: true,
+    }
   },
   {
     path: '/service-milestone',

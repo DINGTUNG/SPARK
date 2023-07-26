@@ -19,6 +19,7 @@
     "firebase": "^10.1.0",
     "pinia": "^2.1.4",
     "vue": "^3.3.4",
+    "vue-fb-customer-chat": "^0.2.2",
     "vue-router": "^4.2.2",
     "vue3-danmaku": "^1.5.0",
     "vue3-marquee": "^4.0.0",

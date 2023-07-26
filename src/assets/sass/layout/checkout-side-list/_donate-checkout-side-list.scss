@@ -13,6 +13,7 @@ div.donate_page {
   border: 1px solid;
   transform: translateX(101%);
   right: 0;
+
   &.active {
     transform: translateX(0%);
 
@@ -63,9 +64,17 @@ div.donate_price {
     }
 
     button {
-      @include smallBlueBtn_PC;
-      width: 12vw;
-      @include h5_PC;
+
+      @include custom-responsive("xs sm ") {
+        @include h5_MB;
+        @include smallBlueBtn_MB;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        @include h5_PC;
+        @include smallBlueBtn_PC;
+
+      }
     }
 
 
@@ -228,7 +237,14 @@ div.donate_total {
   button {
     @include flex_hm();
     margin-top: 20px;
-    @include regularBlueBtn_PC;
+
+    @include custom-responsive("xs sm ") {
+      @include smallBlueBtn_MB;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      @include regularBlueBtn_PC;
+    }
 
   }
 

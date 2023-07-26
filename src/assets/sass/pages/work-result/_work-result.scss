@@ -202,6 +202,9 @@ div.bottom_wrap{
     width: 100%;
     position: relative;
     z-index: 5;
+    @include custom-responsive("xs sm") {
+        margin:  2% 0 6%;
+    }
     @include custom-responsive("xl xx-l") {
         margin: -5% 0 3%;
     }
@@ -223,7 +226,7 @@ div.bottom_wrap{
             align-items: center;
 
             @include custom-responsive("xs sm") {
-                width: 40vw;
+                width: 42vw;
                 border-radius: $br_MB;
                 padding: 3%;
             }

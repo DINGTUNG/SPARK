@@ -148,13 +148,13 @@
 
       <div class="card_wrapper">
         <div class="about_card_1 animate-on-scroll">
-          <img src="pictures/images/about/about_card_1.jpg" alt="照片1">
+          <img :src="'pictures/images/about/about_card_1.jpg'" alt="照片1">
         </div>
         <div class="about_card_2">
-          <img src="pictures/images/about/about_card_2.jpg" alt="照片3">
+          <img :src="'pictures/images/about/about_card_2.jpg'" alt="照片3">
         </div>
         <div class="about_card_3 animate-on-scroll">
-          <img src="pictures/images/about/about_card_3.jpg" alt="照片2">
+          <img :src="'pictures/images/about/about_card_3.jpg'" alt="照片2">
         </div>
       </div>
 

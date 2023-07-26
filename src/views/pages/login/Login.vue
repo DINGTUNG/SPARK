@@ -88,7 +88,7 @@ function showHide() {
   } else {
     passwordField.value.type = 'text';
   }
-  // 切换显示密码图标
+  // 切換顯示密碼圖標
   showPassword.value = !showPassword.value;
 }
 
@@ -103,7 +103,7 @@ const login = () => {
   } else if (!isValidToken.value) {
     errorAccount.value = '請進行驗證';
   } else {
-    if (enteredAccount === 'tibame' && enteredPassword === '1234') {
+    if (enteredAccount === 'spark' && enteredPassword === '1234') {
       errorAccount.value = '';
       alert('登入成功');
       Membership.value = true;

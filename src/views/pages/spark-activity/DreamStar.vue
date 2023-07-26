@@ -20,11 +20,15 @@
           </div>
         </div>
 
-        <div class="project_inner">
-          <h2></h2>
+        <div class="dream_content">
+          <div class="subtitle">
+            <h2>夢想內容</h2>
+            <img src="" alt="">
+          </div>
           <p></p>
         </div>
-        <div class="project_design">
+
+        <div class="dream_plan">
           <h2></h2>
           <div class="design_block">
 

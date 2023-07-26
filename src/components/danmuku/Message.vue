@@ -41,8 +41,8 @@ function getRandom(min, max) {
   <div class="message_wrap marquee_animate" :class="[location, (getRandom(0, 10) < 5) ? 'top_offset' : 'bottom_offset']">
 
     <div class="img_wrap">
-        <img :src="props.imgSrc" alt="">
-      </div>
+      <img :src="props.imgSrc" alt="">
+    </div>
 
     <span class="message" :class="props.color">
       {{ props.content }}
@@ -71,23 +71,28 @@ div.message_wrap {
   }
 
   div.img_wrap {
-      // border: 1px solid black;
+    // border: 1px solid black;
+    width: 8vw;
+    height: 8vw;
+    z-index: -10;
+    position: absolute;
+    top: -22vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    cursor: pointer;
+
+    img {
+      transform: translateY(50%);
       width: 8vw;
-      height: 8vw;
-      z-index: -10;
-      position: absolute;
-      top: -16vh;
 
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-
-      img {
-
-        width: 8vw;
+      &:hover {
+        transform: scale(5);
       }
 
     }
+
+  }
 
 }
 

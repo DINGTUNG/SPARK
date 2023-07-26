@@ -219,7 +219,6 @@ const router = createRouter({
     name: 'service-milestone',
     component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
   },
-<<<<<<< HEAD
   {
     path: '/title',
     name: 'title',
@@ -230,8 +229,6 @@ const router = createRouter({
     name: 'dreamStar',
     component: () => import('@/views/pages/spark-activity/DreamStar.vue')
   },
-=======
->>>>>>> 40caf2adcc5358c90688f6cb7e27c51aa910661a
   ]
 })
 

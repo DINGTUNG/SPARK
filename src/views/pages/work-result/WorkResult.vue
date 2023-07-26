@@ -67,12 +67,12 @@
       <div class="item">
         <h2>歷年報告</h2>
         <i class="fa-solid fa-clipboard-list"></i>
-        <Router-link to="/">點我前往</Router-link>
+        <Router-link to="/result-report">點我前往</Router-link>
       </div>
       <div class="item">
         <h2>服務里程碑</h2>
         <i class="fa-solid fa-flag"></i>
-        <Router-link to="/">點我前往</Router-link>
+        <Router-link to="/service-milestone">點我前往</Router-link>
       </div>
     </div>
     </div>

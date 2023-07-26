@@ -24,7 +24,7 @@ const createDisplayMessages = () => {
 
 <template>
   <div v-for="[id, message] in messageBoardStore.currentDisplayMessages" :key="id">
-    <Message :content="message.content" :color="message.color" @atTheEnd="messageBoardStore.removeMessage(id)" />
+    <Message :content="message.content" :color="message.color" @atTheEnd="messageBoardStore.removeDisplayMessage(id)" />
   </div>
 </template>
 

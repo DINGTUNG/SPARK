@@ -1,9 +1,18 @@
 div.dream_star_card_container {
   @include flex_vm;
 
+  @include custom-responsive("xs sm") {
+    margin: 3vh;
+  }
+
+  @include custom-responsive("xl xx-l") {}
+
   div.dream_star_card_wrap {
     @include flex_vm;
     position: relative;
+
+
+
 
     img.dream_star_background {
 
@@ -11,13 +20,9 @@ div.dream_star_card_container {
         width: 15vw;
         height: 15vw;
       }
-
-
     }
 
     div.img_wrap {
-      width: 13vw;
-      height: 13vw;
       border-radius: 50%;
       border: 5px solid $primaryBrandWhite;
       overflow: hidden;
@@ -26,9 +31,22 @@ div.dream_star_card_container {
       top: 50%;
 
 
+      @include custom-responsive("xs sm") {
+        width: 60vw;
+        height: 60vw;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        width: 13vw;
+        height: 13vw;
+      }
+
+
+
 
       img {
         @include imgEffect;
+
       }
 
     }
@@ -40,13 +58,24 @@ div.dream_star_card_container {
 button.watch_more {
   @include flex_hm;
   gap: 1vw;
-  @include dreamStarPlanBlueBtn_PC;
+
   position: relative;
   top: -4vh;
 
+  @include custom-responsive("xs sm") {
+    @include dreamStarPlanBlueBtn_MB;
+  }
+
+
   @include custom-responsive("xl") {
+    @include dreamStarPlanBlueBtn_PC;
     font-size: 1.2vw;
   }
+
+  @include custom-responsive("xx-l") {
+    @include dreamStarPlanBlueBtn_PC;
+  }
+
 
   &:hover {
     opacity: 1;
@@ -74,8 +103,16 @@ p.vote {
 }
 
 div.title_wrap {
-  margin: 2vh;
+
   @include flex_vm;
+
+  @include custom-responsive("xs sm") {
+    margin: 1vh;
+  }
+
+  @include custom-responsive("xl xx-l") {
+    margin: 2vh;
+  }
 
   p.title {
     font-size: $h4Fs_PC;
@@ -93,14 +130,29 @@ div.title_wrap {
 
 
 button.vote_btn {
-  @include dreamStarPlanYellowBtn_PC;
   font-weight: bold;
 
+
+  @include custom-responsive("xs sm") {
+    @include dreamStarPlanYellowBtn_MB;
+
+  }
 
   @include custom-responsive("xl") {
     font-size: 1.3vw;
     padding-top: 0.4vh;
+    @include dreamStarPlanYellowBtn_PC;
+
   }
+
+  @include custom-responsive("xx-l") {
+    @include dreamStarPlanYellowBtn_PC;
+
+  }
+
+
+
+
 }
 
 .link {

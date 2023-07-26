@@ -210,11 +210,9 @@ div.blur-background.show {
     position: absolute;
     background-color: transparent;
     top: 5%;
-    left: 1%;
-    right: 1%;
     padding: 0px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 
     .link_home {

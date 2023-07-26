@@ -1,15 +1,27 @@
+p.text {
+  text-align: center;
+  color: $primaryBrandBlue;
+  width: 80vw;
+
+  margin: 3vh auto;
+}
+
+
+
 div.danmaku {
   width: 100%;
 
-  border: 2px solid black;
+  border: 1px solid black;
+  box-sizing: border-box;
 
   @include custom-responsive("xs sm") {
-    height: 45vh;
+    height: 35vh;
   }
 
   @include custom-responsive("xl xx-l") {
     height: 60vh;
   }
+
 
 
   .vue_danmaku {
@@ -19,7 +31,6 @@ div.danmaku {
     color: red;
 
   }
-
 
 
 }
@@ -44,7 +55,6 @@ div.input_text {
   @include flex_hm;
 
   @include custom-responsive("xs sm") {
-    width: 30vw;
     flex-direction: column;
     gap: 3vh;
   }

@@ -16,7 +16,9 @@ const danmus = MessageBoardStore.messageStore
 </script>
 
 <template>
+      <p class="text">謝謝您給予孩子們的祝福，祝福語都將在圓夢計畫期間實際實現，並送到孩子們的手中！</p>
   <div class="danmaku">
+
     <Message />
     <!-- 
     <vue-danmaku class="vue_danmaku" ref="danmaku" v-model:danmus="danmus" useSlot loop :channels="3" :speed=100

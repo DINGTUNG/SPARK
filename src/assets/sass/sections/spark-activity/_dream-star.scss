@@ -1,8 +1,7 @@
 div.dream_star_wrap {
-  width: 70vw;
+  width: 80vw;
   @include flex_hm;
   flex-wrap: wrap;
-  gap: 2vw;
 
   margin: 0 0 5vw;
 }

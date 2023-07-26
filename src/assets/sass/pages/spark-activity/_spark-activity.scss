@@ -14,15 +14,15 @@ div.spark_activity_container {
   }
 
   @include custom-responsive("xs sm") {
-    height: 800vh;
+    height: 850vh;
   }
 
   @include custom-responsive("xl") {
-    height: 520vh;
+    height: 600vh;
   }
 
   @include custom-responsive("xx-l") {
-    height: 520vh;
+    height: 570vh;
   }
 
 
@@ -31,20 +31,23 @@ div.spark_activity_container {
     width: 100%;
 
     @include custom-responsive("xs sm") {
-      height: 850vh;
+      height: 930vh;
+      background-image: url("/pictures/spark_activity/spark_project_background_MB.png");
     }
 
     @include custom-responsive("xl") {
-      height: 600vh;
+      height: 620vh;
+      background-image: url("/pictures/spark_activity/spark_project_background.png");
     }
 
     @include custom-responsive("xx-l") {
-      height: 580vh;
+      height: 590vh;
+      background-image: url("/pictures/spark_activity/spark_project_background.png");
     }
 
 
 
-    background-image: url("/pictures/spark_activity/spark_project_background.png");
+
     // background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -121,30 +124,48 @@ div.spark_activity_container {
         @include custom-responsive("xl xx-l") {
           flex-direction: row;
           gap: 1vw;
+          margin: 10vh;
+          position: relative;
+          right: -10vw;
         }
 
 
         button {
-          padding: 0.5vw;
-          @include flex_hm;
 
+          @include flex_hm;
           @include btnEffect;
-          font-size: 1vw;
+
 
 
           @include custom-responsive("xs sm") {
             @include sparkActivityBlueBtn_MB;
             gap: 2vw;
+            justify-content: flex-start;
+            padding-left: 5vw;
+            padding: 0.5vw;
+            font-size: 1vw;
           }
 
           @include custom-responsive("xl xx-l") {
             @include sparkActivityBlueBtn_PC;
             gap: 0vw;
+            padding: 0vw;
+            justify-content: flex-start;
+            font-size: 1.5vw;
           }
 
           div.img_wrap {
             margin: 0;
-            width: 10vw;
+
+
+            @include custom-responsive("xs sm") {
+              width: 10vw;
+            }
+
+            @include custom-responsive("xl xx-l") {
+              width: 5vw;
+            }
+
 
             img {
               @include custom-responsive("xs sm") {
@@ -154,37 +175,80 @@ div.spark_activity_container {
               @include custom-responsive("xl xx-l") {
                 margin: 0.5vw;
                 transform: scale(0.8);
+
               }
             }
 
           }
 
-
           span {
             color: $primaryBrandWhite;
-
           }
+        }
+
+        button:nth-child(1) {
+          @include custom-responsive("xs sm") {}
+
+          @include custom-responsive("xl xx-l") {
+            display: none;
+          }
+
         }
       }
 
       div.text {
         @include flex_vm;
-        gap: 4vh;
+
+
+        @include custom-responsive("xs sm") {
+          gap: 0;
+        }
+
+        @include custom-responsive("xl xx-l") {
+          gap: 4vh;
+        }
 
 
         div.title_wrap {
-          margin: 2vh;
+
           text-align: center;
+
+          @include custom-responsive("xs sm") {
+            margin: 5vh 0 2vh;
+          }
+
+          @include custom-responsive("xl xx-l") {
+            margin: 2vh;
+          }
+
+
 
           h2 {
             color: $secondaryLightBlue3;
           }
+
+          img {
+            @include custom-responsive("xs sm") {
+              width: 80vw;
+            }
+
+            @include custom-responsive("xl xx-l") {
+              width: 100%;
+            }
+          }
         }
 
         p.content {
-          width: 60vw;
-          font-size: 1vw;
           line-height: 2;
+
+          @include custom-responsive("xs sm") {
+            width: 80vw;
+          }
+
+          @include custom-responsive("xl xx-l") {
+            width: 60vw;
+            font-size: 1vw;
+          }
 
 
           span {
@@ -197,8 +261,17 @@ div.spark_activity_container {
 
 
     div#dream_star {
+      margin-top: 10vh;
       @include flex_vm;
-      margin-bottom: 10vh;
+
+
+      @include custom-responsive("xs sm") {
+        margin-bottom: 0;
+      }
+    
+      @include custom-responsive("xl xx-l") {
+        margin-bottom: 10vh;
+      }
     }
 
     div#message_board {
@@ -212,13 +285,13 @@ div.spark_activity_container {
   }
 
   img.title {
-    position: relative;
-    right: 3vw;
 
+    position: relative;
 
     @include custom-responsive("xs sm") {
+      @include flex_hm;
       width: 80vw;
-      margin: 5vh;
+      margin:auto;
     }
 
     @include custom-responsive("xl xx-l") {
@@ -231,18 +304,19 @@ div.spark_activity_container {
 
 
   img.star_sleeping {
-    width: 15vw;
     position: absolute;
-    right: 15vw;
     z-index: 1;
 
-    @include custom-responsive("xl") {
-
-      bottom: 66vh;
+    @include custom-responsive("xs sm") {
+      right: 10vw;
+      width: 25vw;
+      bottom: 75vh;
     }
 
-    @include custom-responsive("xx-l") {
-      bottom: 47vh;
+    @include custom-responsive("xl xx-l") {
+      right: 15vw;
+      width: 15vw;
+      bottom: 10vh;
     }
 
   }

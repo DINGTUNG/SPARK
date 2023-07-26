@@ -6,6 +6,7 @@ div.activity_donate {
     color: $primaryBrandBlue;
 
     @include custom-responsive("xs sm") {
+      margin-top: 5vh;
       width: 80vw;
       @include h5_B_PC;
     }
@@ -23,7 +24,7 @@ div.activity_donate {
     @include btnEffect;
 
     @include custom-responsive("xs sm") {
-      width: 80vw;
+      width: 70vw;
     }
 
     @include custom-responsive("xl xx-l") {

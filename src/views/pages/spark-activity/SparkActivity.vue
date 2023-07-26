@@ -3,39 +3,46 @@ import DreamStar from '@/views/sections/spark-activity/DreamStar.vue';
 import MessageBoard from '@/views/sections/spark-activity/MessageBoard.vue';
 import ActivityDonate from '@/views/sections/spark-activity/ActivityDonate.vue';
 
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 
 const btnList = reactive([{
+  ref: "begin",
+  imgSrc: 'pictures/spark_activity/rocket.svg',
+  title: "　夢想啟程"
+},
+{
+  ref: "dreamStar",
   imgSrc: 'pictures/spark_activity/planet.svg',
   title: "探索夢想之星"
 },
 {
+  ref: "messageBoard",
   imgSrc: 'pictures/spark_activity/spark.svg',
   title: "夢想祝福小站"
 },
 {
+  ref: "activityDonate",
   imgSrc: 'pictures/spark_activity/dollar.svg',
   title: "支持夢想星球"
 }])
 
 
+const dreamStar = ref(null)
+const messageBoard = ref(null)
+const activityDonate = ref(null)
+
+
 const scrollToElement = () => {
-  const dreamStar = document.getElementById("dream_star");
-  const messageBoard = document.getElementById("message_board");
-  const activityDonate = document.getElementById("activityDonate");
-
-  if (dreamStar) {
-    dreamStar.scrollIntoView({ behavior: "smooth" });
-  }
-
-  else if (messageBoard) {
-    messageBoard.scrollIntoView({ behavior: "smooth" });
-  }
-
-  else if (activityDonate) {
-    activityDonate.scrollIntoView({ behavior: "smooth" });
-  }
+  if (dreamStar.value) {
+    dreamStar.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  if (messageBoard.value) {
+    messageBoard.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  if (activityDonate.value) {
+    activityDonate.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 }
 
 </script>
@@ -73,18 +80,18 @@ const scrollToElement = () => {
         </div>
 
 
-        <div id="dream_star">
+        <div ref="dreamStar" id="dream_star">
           <img class="title" :src="'pictures/spark_activity/dream_star_title.svg'" alt="">
           <DreamStar />
         </div>
       </div>
 
-      <div id="message_board">
+      <div ref="messageBoard" id="message_board">
         <img class="title" :src="'pictures/spark_activity/message_board_title.svg'" alt="">
         <MessageBoard />
       </div>
 
-      <div id="activityDonate">
+      <div ref="activityDonate" id="activityDonate">
         <img class="title" :src="'pictures/spark_activity/donate_title.svg'" alt="">
         <ActivityDonate />
       </div>

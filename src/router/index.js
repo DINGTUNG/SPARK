@@ -251,6 +251,11 @@ const router = createRouter({
     name: 'dreamStar',
     component: () => import('@/views/pages/spark-activity/DreamStar.vue')
   },
+  {
+    path: '/modify-meminfo',
+    name: 'modify-meminfo',
+    component: () => import('@/views/pages/member-center/ModifyMeminfo.vue')
+  },
   ]
 })
 

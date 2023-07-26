@@ -1,6 +1,6 @@
 <script setup>
 import SideBar from '../spark-back/SideBar.vue';
-import { ref, reactive } from 'vue'
+import { ref, reactive,computed  } from 'vue'
 const page = ref(1)
 const model = ref(true)
 const dialog = ref(false)
@@ -92,6 +92,13 @@ const donateList = reactive([
     end_date: '2028.01.10',
   },
 ])
+
+const itemsPerPage = 5;
+  const displayedDonateList = computed(() => {
+    const startIdx = (page.value - 1) * itemsPerPage;
+    const endIdx = startIdx + itemsPerPage;
+    return donateList.slice(startIdx, endIdx);
+  });
 </script>
 
 
@@ -117,7 +124,7 @@ const donateList = reactive([
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in donateList" :key="item.id" class="no-border">
+          <tr v-for="item in displayedDonateList" :key="item.id" class="no-border">
             <td class="td_no">{{ item.no }}</td>
             <td class="id">{{ item.id }}</td>
             <td class="name">{{ item.name }}</td>

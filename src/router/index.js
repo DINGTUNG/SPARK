@@ -43,7 +43,7 @@ const router = createRouter({
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/views/pages/about/About.vue')
+    component: () => import('@/views/pages/about/About.vue'),
   },
   {
     path: '/sponsor-location',
@@ -66,6 +66,7 @@ const router = createRouter({
     component: () => import('../views/pages/work-result/WorkResult.vue'),
     meta: {
       hideLeftMenu: true,
+      hideRightMenu: true,
     }
   },
   {

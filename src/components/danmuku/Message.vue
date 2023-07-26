@@ -1,26 +1,44 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed, defineEmits } from 'vue';
+import { defineProps } from 'vue'
 
-const testOffset = ref("50px")
-
-function test() {
-  testOffset.value = '50px'
-}
-
-const root = ref(null)
-
-onMounted(() => {
-  console.log(root);
+const props = defineProps({
+  content: String,
+  color: String
 })
 
+const emit = defineEmits(['atTheEnd'])
+
+const speed = getRandom(6, 12) * 1000
+const location = ref("right_start")
+const delay = 500
+const offset = `${getRandom(0, 50)}%`
+
+const duration = computed(() => {
+  return (speed / 1000) + "s"
+})
+
+
+onMounted(() => {
+  setTimeout(() => {
+    location.value = "right_end"
+  }, delay)
+  setTimeout(() => {
+    emit('atTheEnd')
+  }, speed + delay)
+})
+
+function getRandom(min, max) {
+  return Math.floor(Math.random() * max) + min;
+};
 
 </script>
 
 <template>
-  <div ref="root" class="message_wrap test_right">
+  <div class="message_wrap marquee_animate" :class="[location, (getRandom(0, 10) < 5) ? 'top_offset' : 'bottom_offset']">
 
-    <span @click="test" class="message">
-      狸貓仔!!!大肥豬!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    <span class="message" :class="props.color">
+      {{ props.content }}
     </span>
 
   </div>
@@ -31,46 +49,69 @@ onMounted(() => {
 
 div.message_wrap {
   position: absolute;
-  animation: marquee 10s linear;
 
   span.message {
-    
     cursor: pointer;
     padding: 1vw 2vw;
     display: inline-block;
     text-align: center;
     border-radius: 100px;
-    background-color: $messageColor;
     font-size: $h4Fs_PC;
-    color: $primaryBrandBlue;
     font-weight: bold;
-
   }
 
 }
 
-.test {
-  right: v-bind(testOffset);
+.left_start {
+  left: 0;
+
+  // transform: translateX(-100%);
 }
 
-.test_left {
-  left: v-bind(testOffset);
-  transform: translateX(-100%);
+.left_end {
+  left: 0;
+
+  transform: translateX(100vw);
 }
 
-.test_right {
-  right: v-bind(testOffset);
+
+.right_start {
+  right: 0;
+
   transform: translateX(100%);
 }
 
+.right_end {
+  // right: 100vw;
+  right: 0;
 
-// @keyframes marquee {
-//   0% {
-//     transform: translateX(100vw);
-//   }
+  transform: translateX(-100vw);
+}
 
-//   100% {
-//     transform: translateX(-100vw);
-//   }
-// }
+.marquee_animate {
+  transition-property: all;
+  // transition-duration: 4s;
+
+  transition-duration: v-bind(duration);
+  transition-timing-function: linear;
+}
+
+.top_offset {
+  top: v-bind(offset);
+}
+
+.bottom_offset {
+  bottom: v-bind(offset);
+}
+
+
+.default {
+  background-color: $messageColor;
+  color: $primaryBrandBlue;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
 </style>

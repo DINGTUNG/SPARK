@@ -207,96 +207,16 @@ const router = createRouter({
     name: 'service-milestone',
     component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
   },
-<<<<<<< HEAD
-
-=======
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/pages/login/Login.vue')
-    },
-    {
-      path: '/sponsor-checkout-step-1',
-      name: 'sponsor-checkout-step-1',
-      component: () => import('@/views/pages/sponsor/checkout/SponsorCheckoutStep1.vue')
-    },
-    {
-      path: '/sponsor-checkout-step-2',
-      name: 'sponsor-checkout-step-2',
-      component: () => import('@/views/pages/sponsor/checkout/SponsorCheckoutStep2.vue')
-    },
-    {
-      path: '/sponsor-checkout-step-3',
-      name: 'sponsor-checkout-step-3',
-      component: () => import('@/views/pages/sponsor/checkout/SponsorCheckoutStep3.vue')
-    },
-    {
-      path: '/sponsor-checkout-overview',
-      name: 'sponsor-checkout-overview',
-      component: () => import('@/views/pages/sponsor/checkout/SponsorCheckoutOverview.vue')
-    },
-    {
-      path: '/donate-checkout-step-1',
-      name: 'donate-checkout-step-1',
-      component: () => import('@/views/pages/donate/checkout/DonateCheckoutStep1.vue')
-    },
-    {
-      path: '/donate-checkout-step-2',
-      name: 'donate-checkout-step-2',
-      component: () => import('@/views/pages/donate/checkout/DonateCheckoutStep2.vue')
-    },
-    {
-      path: '/donate-checkout-overview',
-      name: 'donate-checkout-overview',
-      component: () => import('@/views/pages/donate/checkout/DonateCheckoutOverview.vue')
-    },
-    {
-      path: '/result-report',
-      name: 'rest',
-      component: () => import('@/views/pages/work-result/ResultReport.vue')
-    },
-    {
-      path: '/letter-record',
-      name: 'letter-record',
-      component: () => import('@/views/pages/member-center/LetterRecord.vue')
-    },
-    {
-      path: '/donate-list',
-      name: 'donate-list',
-      component: () => import('@/views/pages/donate/DonateList.vue')
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: () => import('@/views/pages/login/register/Register.vue')
-    },
-    {
-      path: '/donation-project',
-      name: 'donation-project',
-      component: () => import('@/views/pages/spark-back/DonationProject.vue')
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: () => import('@/templates/Test.vue')
-    },
-    {
-      path: '/service-milestone',
-      name: 'service-milestone',
-      component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
-    },
-    {
-      path: '/title',
-      name: 'title',
-      component: () => import('@/views/pages/title.vue')
-    },
-    {
-      path: '/dreamStar',
-      name: 'dreamStar',
-      component: () => import('@/views/pages/spark-activity/DreamStar.vue')
-    },
-    
->>>>>>> 5be8a1e89fcc9df30ce7e9e25f21dfc7ff74f977
+  {
+    path: '/title',
+    name: 'title',
+    component: () => import('@/views/pages/title.vue')
+  },
+  {
+    path: '/dreamStar',
+    name: 'dreamStar',
+    component: () => import('@/views/pages/spark-activity/DreamStar.vue')
+  },
   ]
 })
 

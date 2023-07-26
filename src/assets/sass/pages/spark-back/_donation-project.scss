@@ -25,9 +25,41 @@ div.container {
       margin-bottom: 50px;
     }
 
-    h1 {
-      color: $primaryBrandBlue;
-      margin-bottom: 50px;
+
+    div.table_body{
+        width: 70%;
+        margin: 150px auto 150px;
+
+        .v-table{
+            margin-bottom: 50px;
+        }
+
+        h1{
+            color:$primaryBrandBlue;
+            margin-bottom: 50px;
+        }
+        th{
+            @include h5_B_PC;
+            color: $basicFontColor;
+        }
+        td{
+            @include h6_PC;
+            color: $basicFontColor;       
+        }
+        tbody tr:nth-child(odd) {
+            background-color:$functionalLightGrey1;
+        }      
+        tbody tr:nth-child(even) {
+        background-color: $primaryBrandWhite;
+        }
+        .no-border td{
+            border: none;
+        }
+        ::v-deep .add_btn{
+            .v-btn__content{
+                color: white;
+            }     
+        }
     }
 
     th {

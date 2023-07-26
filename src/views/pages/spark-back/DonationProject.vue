@@ -107,27 +107,13 @@ const donateList = reactive([
       <v-table>
         <thead>
           <tr>
-            <th>
-              No.
-            </th>
-            <th>
-              專案編號
-            </th>
-            <th>
-              專案名稱
-            </th>
-            <th>
-              開始日期
-            </th>
-            <th>
-              結束日期
-            </th>
-            <th>
-              狀態
-            </th>
-            <th>
-              功能
-            </th>
+            <th>No.</th>
+            <th>專案編號</th>
+            <th>專案名稱</th>
+            <th >開始日期</th>
+            <th>結束日期</th>
+            <th>狀態</th>
+            <th>功能</th>
           </tr>
         </thead>
         <tbody>
@@ -163,7 +149,7 @@ const donateList = reactive([
 
     <v-dialog v-model="dialogDelete" max-width="800px" persistent="true">
 
-      <v-card>
+      <v-card class="delete_dialog">
         <v-card-title class="text-center">
           確定是否要刪除此捐款專案？
         </v-card-title>

@@ -3,7 +3,7 @@ div.result_display{
     overflow: hidden;
     width: 100%;
     @include custom-responsive("xs sm") {
-        background-image: url(../../../../../public/pictures/images/results/work-result/background_image.png);
+        background-image: url('/pictures/images/results/work-result/background_image.png');
         background-position: center top;
         background-size: cover;
         padding: 25% 0 16%;

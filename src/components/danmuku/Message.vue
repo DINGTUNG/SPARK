@@ -1,10 +1,10 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const testOffset = ref("0")
+const testOffset = ref("50px")
 
 function test() {
-  testOffset.value = '200px'
+  testOffset.value = '50px'
 }
 
 const root = ref(null)
@@ -19,9 +19,9 @@ onMounted(() => {
 <template>
   <div ref="root" class="message_wrap test_right">
 
-    <!-- <span @click="test" class="message">
+    <span @click="test" class="message">
       狸貓仔!!!大肥豬!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    </span> -->
+    </span>
 
   </div>
 </template>
@@ -34,6 +34,7 @@ div.message_wrap {
   animation: marquee 10s linear;
 
   span.message {
+    
     cursor: pointer;
     padding: 1vw 2vw;
     display: inline-block;
@@ -63,13 +64,13 @@ div.message_wrap {
 }
 
 
-@keyframes marquee {
-  0% {
-    transform: translateX(100vw);
-  }
+// @keyframes marquee {
+//   0% {
+//     transform: translateX(100vw);
+//   }
 
-  100% {
-    transform: translateX(-100vw);
-  }
-}
+//   100% {
+//     transform: translateX(-100vw);
+//   }
+// }
 </style>

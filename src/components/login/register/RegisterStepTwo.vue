@@ -69,19 +69,19 @@ const Days = reactive([
                     <select name="year" id="year">
                         <option v-for="year in Years">{{ year }}</option>
                     </select>
-                    <img src="/pictures/images/login/chevron_down.svg" />
+                    <img :src="'pictures/images/login/chevron_down.svg'" />
                 </div>
                 <div class="birthday_select">
                     <select name="month" id="month">
                         <option v-for="month in Months">{{ month }}</option>
                     </select>
-                    <img src="/pictures/images/login/chevron_down.svg" />
+                    <img :src="'pictures/images/login/chevron_down.svg'" />
                 </div>
                 <div class="birthday_select">
                     <select name="day" id="day">
                         <option v-for="day in Days">{{ day }}</option>
                     </select>
-                    <img src="/pictures/images/login/chevron_down.svg" />
+                    <img :src="'pictures/images/login/chevron_down.svg'" />
                 </div>
 
 

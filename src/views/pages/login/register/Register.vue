@@ -86,8 +86,8 @@ function showHide() {
                         <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" id="password"
                             placeholder="請輸入英數字8至20字元" minlength="8" maxlength="20">
                         <span class="toggle" @click="showHide">
-                            <img v-if="showPassword" :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
-                            <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" />
+                            <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'" alt="hide" />
+                            <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" />
                         </span>
                     </div>
                 </div>
@@ -97,8 +97,8 @@ function showHide() {
                         <input :type="showPassword ? 'password' : 'text'" class="password_check" v-model="password_check"
                             id="password_check" placeholder="請再輸入一次密碼" minlength="8" maxlength="20">
                         <span class="toggle" @click="showHide">
-                            <img v-if="showPassword" :src="'public/pictures/images/login/eye_hide.svg'" alt="hide" />
-                            <img v-else :src="'public/pictures/images/login/eye_show.svg'" alt="show" />
+                            <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'" alt="hide" />
+                            <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" />
                         </span>
                     </div>
                 </div>
@@ -172,19 +172,19 @@ function showHide() {
                             <select name="year" id="year">
                                 <option v-for="year in Years">{{ year }}</option>
                             </select>
-                            <img :src="'public/pictures/images/login/chevron_down.svg'" />
+                            <img :src="'pictures/images/login/chevron_down.svg'" />
                         </div>
                         <div class="birthday_select">
                             <select name="month" id="month">
                                 <option v-for="month in Months">{{ month }}</option>
                             </select>
-                            <img :src="'public/pictures/images/login/chevron_down.svg'" />
+                            <img :src="'pictures/images/login/chevron_down.svg'" />
                         </div>
                         <div class="birthday_select">
                             <select name="day" id="day">
                                 <option v-for="day in Days">{{ day }}</option>
                             </select>
-                            <img :src="'public/pictures/images/login/chevron_down.svg'" />
+                            <img :src="'pictures/images/login/chevron_down.svg'" />
                         </div>
 
 

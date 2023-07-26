@@ -62,7 +62,7 @@ const getMapUrl = (latitude, longitude) => {
 
 <template>
   <div class="title_img">
-    <img :src="'public/pictures/images/contact/banner.png.png'" alt="">
+    <img :src="'pictures/images/contact/banner.png.png'" alt="">
   </div>
   <div class="container">
     <div class="main_body">
@@ -99,7 +99,7 @@ const getMapUrl = (latitude, longitude) => {
           </iframe>
         </div>
       </div>
-      <img :src="'public/pictures/characters/star/star_superman.svg'" alt="星星超人" class="superman">
+      <img :src="'pictures/characters/star/star_superman.svg'" alt="星星超人" class="superman">
       <img :src="'public/pictures/decorations/illustration/contact_star.svg'" alt="碎星" class="contact_star">
     </div>
   </div>

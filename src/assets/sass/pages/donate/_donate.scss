@@ -11,6 +11,7 @@ div.donate_container {
 
     div.main_body {
         margin: auto;
+        padding: 0 0 70px;
         @include custom-responsive("xs sm") {
             @include body_space_MB;
         }
@@ -38,22 +39,27 @@ div.donate_container {
             
             }
 
-            div.titleline {  
-                height: 1px;
-                background-color: $primaryBrandBlue;
-                @include custom-responsive("xs sm") {
-                    width: 72%;
-                }
+            img.deco_line{
 
-                @include custom-responsive("xl xx-l") {
-                    width: 78%;
+                @include custom-responsive(" xs sm") {                   
+                    display: none;
+                }
+                @include custom-responsive("md") {
+                    width: 70%;
+                    display: block;
+                }
+                @include custom-responsive("lg") {
+                    display: block;
+                }
+                @include custom-responsive(" xl xxl") {                 
+                    display: block;
                 }
             }
 
         }
 
     }
-    .deco_flowering {
+    div.deco_flowering {
         position: absolute;
 
         @include custom-responsive("xs sm") {
@@ -63,12 +69,12 @@ div.donate_container {
         }
 
         @include custom-responsive("xl xx-l") {
-            left: 3%;
-            bottom: -6%;
+            left: 13%;
+            bottom: -4%;
         }
 
         img {
-            width: 90%;
+            width: 80%;
         }
     }
 

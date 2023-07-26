@@ -34,7 +34,7 @@ const goToHomePageTop = () => {
         返回首頁
       </button>
 
-      <img class="deco" :src="'public/pictures/decorations/illustration/shooting_star_golden2.svg'" alt="">
+      <img class="deco" :src="'pictures/decorations/illustration/shooting_star_golden2.svg'" alt="">
 
     </div>
   </div>

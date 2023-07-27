@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
-import { publicPath } from '@/plugins/axios.js'
+import { publicPath } from '@/plugins/dynamic-url.js'
 
 // const props = defineProps(['className', 'imgURL', 'alt'])
 

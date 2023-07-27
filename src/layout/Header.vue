@@ -1,6 +1,6 @@
 <script setup>
-import { ref, watchEffect, watch } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
+import { ref, watchEffect, watch, computed, onMounted, onUnmounted} from 'vue';
+import { RouterLink, useRoute} from 'vue-router';
 
 let isNavOpen = ref(false);
 let isLargeScreen = ref(window.matchMedia("(min-width: 1200px)").matches);
@@ -20,19 +20,44 @@ watchEffect(() => {
 const activeSubMenu = ref(null);
 const activeImage = ref(null);
 
-const currentRoute = useRoute();
+//header logo的變化
+const imgSrc = ref('pictures/logo/logo_white.svg') // Default
+const currentRoute = useRoute()
 
-const imgSrc = ref('')
+const mediaQuery1200 = window.matchMedia('(max-width: 1200px)')
+const mediaQuery1201to1399 = window.matchMedia('(min-width: 1201px) and (max-width: 1399px)')
 
-watch(() => currentRoute.name, (newRouteName) => {
-  if (newRouteName === "spark-activity") {
-    imgSrc.value = 'pictures/logo/logo_blue.svg'
-  } else {
+const updateImageSource = (newRouteName) => {
+  if (mediaQuery1200.matches) {
     imgSrc.value = 'pictures/logo/logo_white.svg'
+  } else if (mediaQuery1201to1399.matches) {
+    if (newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
+      imgSrc.value = 'pictures/logo/logo_white_second.svg';
+    } else {
+      imgSrc.value = 'pictures/logo/logo_blue_second.svg';
+    }
+  } else {
+    if (newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
+      imgSrc.value = 'pictures/logo/logo_white.svg';
+    } else {
+      imgSrc.value = 'pictures/logo/logo_blue.svg';
+    }
   }
-})
-//暫時沒有作用
+}
 
+watch(() => currentRoute.name, updateImageSource)
+
+onMounted(() => {
+  mediaQuery1200.addEventListener('change', () => updateImageSource(currentRoute.name))
+  mediaQuery1201to1399.addEventListener('change', () => updateImageSource(currentRoute.name))
+})
+
+onUnmounted(() => {
+  mediaQuery1200.removeEventListener('change', () => updateImageSource(currentRoute.name))
+  mediaQuery1201to1399.removeEventListener('change', () => updateImageSource(currentRoute.name))
+})
+
+//
 const menuItems = ref([
   {
     label: '認識星火',
@@ -58,7 +83,7 @@ const menuItems = ref([
     label: '認養計畫',
     route: '/sponsor',
     submenu: [
-      { label: '我要認養', route: '/sponsor' }, 
+      { label: '我要認養', route: '/sponsor' },
       { label: '認養地區', route: '/sponsor-location' }
     ],
     img: 'pictures/decorations/layout/little_star.png'
@@ -131,7 +156,7 @@ const closeNav = () => {
 <template>
   <header>
     <RouterLink to="/" class="link_home">
-      <img alt="Spark logo" class="logo" :src="imgSrc" />
+      <img alt="Spark logo" class="logo" :src="imgSrc"/>
     </RouterLink>
 
     <button class="nav_toggle" v-if="!isLargeScreen" @click="toggleNav" v-bind:class="{ open: isNavOpen }">

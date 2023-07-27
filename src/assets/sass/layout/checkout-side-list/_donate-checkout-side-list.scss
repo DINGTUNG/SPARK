@@ -37,6 +37,11 @@ h3 {
   display: inline-block;
   margin: 20px 40px;
 
+  @include custom-responsive("xl xxl") {
+    font-size: 1.5vw;
+  }
+
+
 }
 
 
@@ -72,7 +77,7 @@ div.donate_price {
 
       @include custom-responsive("xl xx-l") {
         @include h5_PC;
-        @include smallBlueBtn_PC;
+        @include checkoutSideListBtn_PC;
 
       }
     }
@@ -84,13 +89,25 @@ div.donate_price {
     display: block;
     margin: auto;
     margin-top: 30px;
-    height: 100px;
-    width: 80%;
+
     border-radius: $br_PC;
     padding-left: 10px;
     text-align: center;
     font-size: 25px;
     border: 1px solid $primaryBrandBlue;
+
+    @include custom-responsive("xs sm") {
+      height: 100px;
+      width: 80%;
+    }
+
+    @include custom-responsive("xl xxl") {
+      height: 10vh;
+      width: 80%;
+    }
+
+
+
   }
 
   input::-webkit-outer-spin-button,
@@ -107,6 +124,8 @@ div.img {
   align-items: flex-end;
 
   img {
+    position: absolute;
+    bottom: 20vh;
     margin-right: 30px;
   }
 
@@ -206,7 +225,6 @@ div.donate_total {
   flex-direction: column;
   padding: 20px;
   border-radius: 0 0 0 30px;
-  height: 20%;
   background-color: $functionalLightGrey1;
 
   div.total_price {

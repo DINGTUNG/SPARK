@@ -180,13 +180,17 @@ const letterData = reactive([
         <div class="talk">
 
 
-          <!-- <Images :imgURL="'pictures/images/member-center/talk.svg'" :alt="'test'" /> -->
+          <Images :imgSrc="'pictures/images/member-center/talk.svg'" :alt="'test'" />
 
 
           <!-- <img :src="'pictures/images/member-center/talk.svg'" alt="小朋友說的話"> -->
         </div>
         <div class="banner">
-          <img :src="'pictures/images/member-center/banner_1.png'" alt="小朋友照">
+
+          <Images :imgSrc="'pictures/images/member-center/banner_1.png'" :alt="'test'" />
+
+
+          <!-- <img :src="'pictures/images/member-center/banner_1.png'" alt="小朋友照"> -->
         </div>
 
 

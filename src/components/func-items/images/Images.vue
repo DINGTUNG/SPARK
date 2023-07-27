@@ -1,12 +1,12 @@
 <script setup>
-import { defineProps, onMounted } from 'vue'
-import { publicPath, testPath } from '@/plugins/axios.js'
+import { defineProps } from 'vue'
+import { publicPath } from '@/plugins/axios.js'
 
 // const props = defineProps(['className', 'imgURL', 'alt'])
 
-onMounted(() => {
-  console.log("testPath", testPath);
-})
+// onMounted(() => {
+//   console.log("testPath", testPath);
+// })
 
 const props = defineProps({
   class: String,
@@ -16,5 +16,5 @@ const props = defineProps({
 </script>
 
 <template>
-  <img :class="className" :src="`${publicPath}${imgURL}`" :alt="alt" />
+  <img :class="className" :src="`${publicPath}${imgSrc}`" :alt="alt" />
 </template>

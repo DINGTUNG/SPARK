@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:tibame": "vite build --mode tibame",
     "sudo dev": "sudo npm run dev",
     "sudo build": "sudo npm run build",
     "build:staging": "vite build --mode staging",

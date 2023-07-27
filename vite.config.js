@@ -49,7 +49,8 @@ export default defineConfig({
   // base: "/chd102/g3", //緯育
   // base: "/SPARK/", //github pages
 
-  base: process.env.NODE_ENV === 'production' ? '/chd102/g3/' : '/SPARK/',
+  base: process.env.NODE_ENV === 'tibame' ? '/chd102/g3/' : '/SPARK/',
+  
 
   //swiper使用
   chainWebpack: (config) => {

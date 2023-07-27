@@ -18,7 +18,7 @@ const router = useRouter();
                     <h2>前台</h2>
                 </div>
                 <div class="title_img_back">
-                    <img :src="'pictures/images/title/back.png'" alt="back">
+                    <img :src="'pictures/images/title/back.png'" alt="back" @click="router.push({ path: '/donation-project' })" >
                     <h2>後台</h2>
                 </div>
             </div>

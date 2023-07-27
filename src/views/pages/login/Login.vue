@@ -14,18 +14,7 @@ const router = useRouter();
 const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
 import { GoogleAuthProvider } from 'firebase/auth'
 const googleAuthProvider = new GoogleAuthProvider()
-
-//test
-const logStore = useLogStore();
-//test
-
-
-
-
-
-
-
-
+const logStore = useLogStore();//假帳號js
 
 
 //登入跳轉函式，會跳轉到google的帳號頁面
@@ -35,7 +24,7 @@ function signInRedirect() {
     error.value = reason
   })
 }
-
+//vFire-google
 onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
@@ -49,7 +38,6 @@ onMounted(() => {
 })
 
 
-
 // google登入跳轉函式:問題:跳轉遲鈍
 const handleLoginStatusChange = () => {
   if (isLoggedIn()) {
@@ -60,15 +48,13 @@ const handleLoginStatusChange = () => {
     console.log('使用者已登出');
   }
 };
-
 watch(user, handleLoginStatusChange, { deep: true });
 const isLoggedIn = () => {
   return user.value !== null;
 };
 
 
-
-const isValidToken = ref(false)
+const isValidToken = ref(false)//reCapthcha的判斷
 const instance_vueRecaptchaV2 = reactive({
   data_v2SiteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr',
   recaptchaVerified: (response_token) => {
@@ -90,6 +76,8 @@ const instance_vueRecaptchaV2 = reactive({
 
 
 
+
+// 一般帳號登入
 const account = ref('');
 const password = ref('');
 const errorAccount = ref('');
@@ -105,7 +93,6 @@ function showHide() {
   // 切換顯示密碼圖標
   showPassword.value = !showPassword.value;
 }
-
 
 const login = () => {
   const enteredAccount = account.value; // 獲取用戶的帳密
@@ -134,6 +121,7 @@ const login = () => {
     }
   }
 };
+
 </script>
 <template>
   <div class="login_body">

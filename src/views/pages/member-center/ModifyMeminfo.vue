@@ -28,13 +28,19 @@ const Days = reactive([
                     <label for="name">姓名*</label>
                     <input type="text" class="name" id="name" value="蔡頭瓜" maxlength="30">
                     <div class="label_radio_wrap name_title">
-                        <label class="label_radio"><input type="radio" name="name_title" value="male" 
-                        checked
-                        class="input_radio">先生</label>
-                        <label class="label_radio"><input type="radio" name="name_title" value="female"
-                        class="input_radio">小姐</label>
-                        <label class="label_radio"><input type="radio" name="name_title" value="company"
-                        class="input_radio">公司</label>
+                        <div class="radio_item">
+                            <label class="label_radio"><input type="radio" name="name_title" value="male"
+                            checked
+                            class="input_radio ">先生</label>
+                        </div>
+                        <div class="radio_item">
+                            <label class="label_radio"><input type="radio" name="name_title" value="female"
+                            class="input_radio">小姐</label>
+                        </div>
+                        <div class="radio_item">
+                            <label class="label_radio"><input type="radio" name="name_title" value="company"
+                            class="input_radio">公司</label>
+                        </div>
                     </div>
                 </div>
             <div class="form_item">
@@ -92,15 +98,15 @@ const Days = reactive([
                 </div>
                 <div class="form_item">
                     <label for="receipt">發票種類*</label>
-                        <div class="label_radio_wrap">
-                        <label class="receipt"><input type="radio" name="receipt" value="personal"
-                                class="input_radio">個人發票</label>
-                        <label class="receipt"><input type="radio" name="receipt" value="tax_id"
-                                class="input_radio">統編發票</label>
-                        <label class="receipt"><input type="radio" name="receipt" value="donate"
-                        checked
-                        class="input_radio">捐贈發票</label>
-                        <label class="receipt"><input type="radio" name="receipt" value="paper" class="input_radio">紙本發票</label>
+                        <div class="label_radio_wrap receipt">
+                            <label class="receipt"><input type="radio" name="receipt" value="personal"
+                                    class="input_radio">個人發票</label>
+                            <label class="receipt"><input type="radio" name="receipt" value="tax_id"
+                                    class="input_radio">統編發票</label>
+                            <label class="receipt"><input type="radio" name="receipt" value="donate"
+                            checked
+                            class="input_radio">捐贈發票</label>
+                            <label class="receipt"><input type="radio" name="receipt" value="paper" class="input_radio">紙本發票</label>
                     </div>
                 </div>
                 <button class="confirm" type="button">

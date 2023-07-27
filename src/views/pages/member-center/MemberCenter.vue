@@ -24,22 +24,29 @@ const getButtonStyle = (routePath) => {
 </template>
 
 <style scoped lang="scss">
+@include custom-responsive ("xs sm") {
+  .navigation_button_MB{
+      width: 80vw;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      margin: 15vh auto 0;
+      .current-route{
+        @include smallBlueBtn_MB;
+      }
+      .another-route{
+        @include smallWhiteBtn_MB;
+      }
+      a{
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      line-height: 35px;
+    }
+  }
+}
 
-.navigation_button_MB{
-  width: 80vw;
-  display: flex;
-  flex-wrap: wrap;
-}
-.current-route{
-  @include smallBlueBtn_MB;
-}
-.another-route{
-  @include smallWhiteBtn_MB;
-}
-a{
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  line-height: 35px;
-}
+
+
 </style>

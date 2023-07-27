@@ -41,6 +41,23 @@ button {
   height: 35px;
 }
 
+
+//---------------------------------------------------------------------------------------
+/* ⭐checkout-sidelist buttons size⭐ */
+
+
+@mixin checkoutSideListBtnSize_PC {
+  width: 12vw;
+  height: 6vh;
+}
+
+@mixin checkoutSideListBtnSize_MB {
+  width: 150px;
+  height: 35px;
+}
+
+
+
 //---------------------------------------------------------------------------------------
 /* ⭐checkout-cards buttons size⭐ */
 

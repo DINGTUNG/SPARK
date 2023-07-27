@@ -21,6 +21,7 @@
         :gradient="true"
         :gradient-color="[38, 60, 119]"
         gradient-length="30%"
+        :duration="40"
         >
           <img v-for=" (img, index) in bulletinBoard1 " :key="index" :src="img"/>
         </Vue3Marquee>
@@ -28,12 +29,14 @@
         :gradient="true"
         :gradient-color="[38, 60, 119]"
         gradient-length="30%"
+        :duration="40"
         :direction="'reverse'">
           <img v-for=" (img, index) in bulletinBoard2 " :key="index" :src="img"/>
         </Vue3Marquee>
         <Vue3Marquee
         :gradient="true"
         :gradient-color="[38, 60, 119]"
+        :duration="40"
         gradient-length="30%">
           <img v-for=" (img, index) in bulletinBoard3 " :key="index" :src="img"/>
         </Vue3Marquee>

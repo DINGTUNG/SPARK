@@ -5,90 +5,110 @@
 }
 
 div.container {
+    div.main_body {
+        position: relative;
+        margin: auto;
+        @include custom-responsive("xs sm") {
+            @include body_space_MB;
+        }
+        @include custom-responsive("xl xxl") {
+            @include body_space_PC;
+        }
+    }
+
     div.title_block {
         display: flex;
+
         @include custom-responsive(" xs sm") {
             padding: 20px 0 30px;
             align-items: center;
             justify-content: center;
         }
+
         @include custom-responsive(" md lg") {
             justify-content: space-between;
         }
+
         @include custom-responsive(" xl xx-l") {
             padding: 20px 0 35px;
             align-items: center;
             justify-content: space-between;
         }
-    
+
         h1 {
             color: $primaryBgBlue;
-    
+
             @include custom-responsive(" xs sm") {
                 @include h1_MB;
-    
+
             }
-    
+
             @include custom-responsive(" xl xx-l") {
                 @include h1_PC;
             }
-    
+
         }
-        img.deco_line{
-    
-            @include custom-responsive(" xs sm") {                   
+
+        img.deco_line {
+
+            @include custom-responsive(" xs sm") {
                 display: none;
             }
+
             @include custom-responsive("md") {
                 width: 70%;
                 display: block;
             }
+
             @include custom-responsive("lg") {
                 display: block;
             }
-            @include custom-responsive(" xl xx-l") {                 
+
+            @include custom-responsive(" xl xx-l") {
                 display: block;
             }
         }
     }
+
     div.report_inner {
-        margin-top: 200px;
-    
+        margin-bottom: 100px;
         @include custom-responsive("xs sm") {
             display: block;
+            margin-top: 70px;
         }
-    
+
         @include custom-responsive("xl xx-l") {
             display: flex;
+            margin-top: 200px;
         }
-    
-    
+
+
         div.year_report {
             position: relative;
             background-color: $primaryBrandBlue;
             border-radius: $br_PC;
-    
+
             @include custom-responsive("xs sm") {
                 border-radius: $br_MB;
                 width: 100%;
                 margin: auto;
             }
-    
+
             @include custom-responsive("xl xx-l") {
                 border-radius: $br_PC;
                 width: 50%;
                 margin-right: 20px;
             }
-    
+
             img.water_can {
                 position: absolute;
-    
+
                 @include custom-responsive("xs sm") {
                     width: 100px;
                     height: 100px;
                     top: -70px;
                 }
-    
+
                 @include custom-responsive("xl xx-l") {
                     width: 200px;
                     height: 200px;
@@ -96,17 +116,17 @@ div.container {
                     left: 0;
                 }
             }
-    
+
             img.sprout {
                 position: absolute;
-    
+
                 @include custom-responsive("xs sm") {
                     width: 100px;
                     height: 100px;
                     top: -70px;
                     left: 50%;
                 }
-    
+
                 @include custom-responsive("xl xx-l") {
                     width: 200px;
                     height: 200px;
@@ -114,97 +134,106 @@ div.container {
                     left: 60%;
                 }
             }
-    
+
             h2 {
                 padding: 50px;
                 text-align: center;
                 color: $primaryBgWhite;
-    
+
                 @include custom-responsive("xs sm") {
                     @include h2_MB;
                 }
-    
+
                 @include custom-responsive("xl xx-l") {
                     @include h2_PC;
                 }
-    
+
             }
-    
+
             div.year_inner {
                 display: flex;
                 justify-content: space-evenly;
                 flex-wrap: wrap;
                 padding-bottom: 50px;
-    
+
                 div.year_card {
                     padding: 50px 10px;
                     width: 45%;
                     @include flex_hm();
                     flex-direction: column;
-    
+
+
+                    .year_img {
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+
                     div.year_text {
                         display: flex;
                         flex-direction: column;
-    
+
                         p {
                             text-align: center;
                             color: $primaryBgWhite;
-    
+
                             @include custom-responsive(" xs sm") {
                                 @include h6_MB;
                             }
-    
+
                             @include custom-responsive(" xl xx-l") {
                                 @include h6_PC;
                             }
                         }
-    
+
                         button {
                             @include custom-responsive("xs sm") {
                                 @include smallWhiteBtn_PC;
                                 width: 120px;
                                 height: 35px;
                             }
-    
+
                             @include custom-responsive("xl xx-l") {
                                 @include smallWhiteBtn_PC;
                                 width: 168px;
                                 height: 40px;
                             }
-    
                         }
+
                     }
                 }
             }
         }
     }
+
     div.financial_report {
         position: relative;
         display: flex;
         flex-direction: column;
         background-color: $primaryBrandBlue;
-    
+
         @include custom-responsive(" xs sm") {
             border-radius: $br_MB;
             margin-top: 50px;
         }
-    
+
         @include custom-responsive(" xl xx-l") {
             border-radius: $br_PC;
             margin: 0 20px 0 0;
             width: 50%;
         }
-    
+
         img.flower {
             position: absolute;
-    
+
             @include custom-responsive(" xs sm") {
                 width: 100px;
                 height: 100px;
                 top: -70px;
                 left: 50%;
             }
-    
+
             @include custom-responsive(" xl xx-l") {
                 width: 200px;
                 height: 200px;
@@ -212,99 +241,99 @@ div.container {
                 left: 60%;
             }
         }
-    
+
         h2 {
             padding: 50px;
             text-align: center;
             color: $primaryBgWhite;
-    
+
             @include custom-responsive(" xs sm") {
                 @include h2_MB;
             }
-    
+
             @include custom-responsive(" xl xx-l") {
                 @include h2_PC;
             }
         }
-    
+
         div.financial_inner {
             display: flex;
             flex-direction: column;
-    
+
             div.financial_card {
                 width: 90%;
                 height: 150px;
                 background-color: $primaryBgWhite;
                 margin: 25px auto;
-    
+
                 @include custom-responsive(" xs sm") {
                     border-radius: $br_MB;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
                 }
-    
+
                 @include custom-responsive(" xl xx-l") {
                     border-radius: $br_MB;
-                    flex-direction:row;
+                    flex-direction: row;
                     @include flex_hm();
-                    
+
                 }
-    
+
                 .financial_card_inner {
                     @include custom-responsive(" xs sm") {
                         display: flex;
                         align-self: center;
                     }
-    
+
                     @include custom-responsive(" xl xx-l") {
                         display: contents;
                     }
                 }
-    
+
                 div.financial_img {
-    
+
                     @include custom-responsive(" xs sm") {
                         margin: 0;
                     }
-    
+
                     @include custom-responsive(" xl xx-l") {
                         margin-left: 50px;
                     }
-    
+
                     img {
                         width: 50px;
                         height: 50px;
                     }
                 }
-    
+
                 div.financial_text {
                     flex-grow: 1;
                     margin-left: 25px;
-    
+
                     p {
                         color: $primaryBrandBlue;
-    
+
                         @include custom-responsive(" xs sm") {
                             @include h6_MB;
                         }
-    
+
                         @include custom-responsive(" xl xx-l") {
                             @include h6_PC;
                         }
                     }
                 }
-    
+
                 button {
                     font-size: 1rem;
-    
+
                     @include custom-responsive(" xs sm") {
                         @include regularBlueBtn_MB;
                         width: 126px;
                         height: 40px;
                         align-self: center
                     }
-    
+
                     @include custom-responsive(" xl xx-l") {
                         @include regularBlueBtn_PC;
                         width: 126px;
@@ -314,8 +343,8 @@ div.container {
                 }
             }
         }
-    
-    
-    
+
+
+
     }
 }

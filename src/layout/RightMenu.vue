@@ -76,6 +76,7 @@ const top = () => {
   </div>
   <SponsorCheckoutSideList />
   <DonateCheckoutSideList />
+  <div id=”fb-root”></div>
 </template>
 
 <style scoped lang="scss">

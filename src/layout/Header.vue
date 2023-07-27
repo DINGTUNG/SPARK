@@ -17,9 +17,12 @@ watchEffect(() => {
   isLargeScreen.value = mediaQuery.matches;
 });
 
+const currentRoute = useRoute();
+
 const activeSubMenu = ref(null);
 const activeImage = ref(null);
 
+<<<<<<< HEAD
 //header logo的變化
 const imgSrc = ref('pictures/logo/logo_white.svg') // Default
 const currentRoute = useRoute()
@@ -44,6 +47,20 @@ const updateImageSource = (newRouteName) => {
     }
   }
 }
+=======
+const imgSrc = ref('')
+
+
+watch(() => currentRoute.name, (newRouteName) => {
+  if (newRouteName === "home") {
+    imgSrc.value = 'pictures/logo/logo_white.svg';
+  }else{
+    imgSrc.value = 'pictures/logo/logo_blue.svg';
+
+  }
+})
+
+>>>>>>> 11f3023555916aa0a832d7102c9263d8a392b5fc
 
 watch(() => currentRoute.name, updateImageSource)
 
@@ -83,7 +100,7 @@ const menuItems = ref([
     label: '認養計畫',
     route: '/sponsor',
     submenu: [
-      { label: '我要認養', route: '/sponsor' }, 
+      { label: '我要認養', route: '/sponsor' },
       { label: '認養地區', route: '/sponsor-location' }
     ],
     img: 'pictures/decorations/layout/little_star.png'
@@ -156,7 +173,12 @@ const closeNav = () => {
 <template>
   <header>
     <RouterLink to="/" class="link_home">
+<<<<<<< HEAD
       <img alt="Spark logo" class="logo" :src="imgSrc"/>
+=======
+      <img alt="Spark logo" class="logo"
+        :src="imgSrc" />
+>>>>>>> 11f3023555916aa0a832d7102c9263d8a392b5fc
     </RouterLink>
 
     <button class="nav_toggle" v-if="!isLargeScreen" @click="toggleNav" v-bind:class="{ open: isNavOpen }">

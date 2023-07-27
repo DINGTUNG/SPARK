@@ -13,6 +13,7 @@ div.donate_page {
   border: 1px solid;
   transform: translateX(101%);
   right: 0;
+
   &.active {
     transform: translateX(0%);
 
@@ -35,6 +36,11 @@ div.donate_page {
 h3 {
   display: inline-block;
   margin: 20px 40px;
+
+  @include custom-responsive("xl xxl") {
+    font-size: 1.5vw;
+  }
+
 
 }
 
@@ -63,9 +69,17 @@ div.donate_price {
     }
 
     button {
-      @include smallBlueBtn_PC;
-      width: 12vw;
-      @include h5_PC;
+
+      @include custom-responsive("xs sm ") {
+        @include h5_MB;
+        @include smallBlueBtn_MB;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        @include h5_PC;
+        @include checkoutSideListBtn_PC;
+
+      }
     }
 
 
@@ -75,13 +89,25 @@ div.donate_price {
     display: block;
     margin: auto;
     margin-top: 30px;
-    height: 100px;
-    width: 80%;
+
     border-radius: $br_PC;
     padding-left: 10px;
     text-align: center;
     font-size: 25px;
     border: 1px solid $primaryBrandBlue;
+
+    @include custom-responsive("xs sm") {
+      height: 100px;
+      width: 80%;
+    }
+
+    @include custom-responsive("xl xxl") {
+      height: 10vh;
+      width: 80%;
+    }
+
+
+
   }
 
   input::-webkit-outer-spin-button,
@@ -98,6 +124,8 @@ div.img {
   align-items: flex-end;
 
   img {
+    position: absolute;
+    bottom: 20vh;
     margin-right: 30px;
   }
 
@@ -197,7 +225,6 @@ div.donate_total {
   flex-direction: column;
   padding: 20px;
   border-radius: 0 0 0 30px;
-  height: 20%;
   background-color: $functionalLightGrey1;
 
   div.total_price {
@@ -228,7 +255,14 @@ div.donate_total {
   button {
     @include flex_hm();
     margin-top: 20px;
-    @include regularBlueBtn_PC;
+
+    @include custom-responsive("xs sm ") {
+      @include smallBlueBtn_MB;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      @include regularBlueBtn_PC;
+    }
 
   }
 

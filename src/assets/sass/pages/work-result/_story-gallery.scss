@@ -30,12 +30,16 @@ div.container{
       @include body_space_PC
     }
     div.switch-button {
-      margin-left: auto;
-      width: fit-content;
       display: flex;
+      @include custom-responsive("xs sm") {
+        width: 100%;
+      }
+      @include custom-responsive("xl xx-l") {
+        margin-left: auto;
+      }
       a{
         text-align: center;
-        line-height: 55px;
+        line-height: 40px;
         text-decoration: none;
         display: inline-block;
         @include custom-responsive("xs sm"){
@@ -49,8 +53,10 @@ div.container{
           }
         }
         @include custom-responsive("xl xx-l") {
+          margin-left: auto;
           @include h3_PC;
           margin: 0 10px;
+          line-height: 55px;
           &:nth-child(1){
             @include regularBlueBtn_PC;
           }
@@ -87,9 +93,11 @@ div.container{
           @include custom-responsive("xs sm"){
             @include h1_MB;
             width: fit-content;
+            margin:3% auto 8%;
           }
           @include custom-responsive("xl xx-l") {
               @include h1_PC;
+              margin: 0;
           }
         }
         div.decorative_line{
@@ -263,7 +271,8 @@ div.container{
             background-color: $functionalLightGrey1;
             @include boxShadow_MB;
             border-radius: $br_MB;
-            margin:4% 0;
+            margin:4% auto;
+            
           }
           @include custom-responsive("xl xx-l") {
             margin:2% 0;
@@ -382,10 +391,12 @@ div.container{
     }
     section.photo-album{
       @include custom-responsive("xs sm"){
-        margin: 10% 0 45vh 0;
+        margin: 10% 0 0 0;
+        padding: 0 0 45vh 0 ;
       }
       @include custom-responsive("xl xx-l"){
-        margin: 10% 0;
+        margin: 10% 0 5%;
+        padding: 0;
       }
       
       position: relative;
@@ -511,9 +522,8 @@ div.container{
           color: $basicFontColor;
           @include custom-responsive("xs sm") {
             width: 90%;
-            margin: auto;
             position: absolute;
-            top: 145%;
+            bottom: -15%;
             transform: translate(-50%, -50%);
             left: 50%;
           }

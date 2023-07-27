@@ -23,7 +23,7 @@ const goToCheckoutPageAndCloseSideList = () => {
     <div class="title">
       <h2>我要認養</h2>
       <i class="fa-regular fa-circle-xmark" @click="sponsorCartStore.hideSideList"></i>
-    </div>
+    </div>  
     <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">請選擇認養地區</p>
     <div class="location_card_inner">
       <div class="location_card" v-for="[locationId] in [...sponsorCartStore.cart]" :key="locationId">

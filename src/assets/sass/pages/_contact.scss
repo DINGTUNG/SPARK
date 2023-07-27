@@ -9,8 +9,14 @@ div.container {
     position: relative;
 
     div.main_body {
-        width: 62.5vw;
+        position: relative;
         margin: auto;
+        @include custom-responsive("xs sm") {
+            @include body_space_MB;
+        }
+        @include custom-responsive("xl xxl") {
+            @include body_space_PC;
+        }
 
         div.title_block {
             display: flex;
@@ -85,7 +91,7 @@ div.container {
             div.contact_message {
                 div.contact_message_inner {
                     align-items: center;
-                    padding: 20px 0;
+                    padding: 50px 0;
 
                     @include custom-responsive(" xs sm") {}
 
@@ -115,6 +121,7 @@ div.container {
 
                     @include custom-responsive(" xl xxl") {
                         padding-left: 50px;
+                        align-self: flex-start;
                     }
 
                     h4 {
@@ -145,14 +152,13 @@ div.container {
                         }
 
 
-
                     }
 
                 }
 
                 .text_line {
                     width: 100%;
-                    border: 1px solid $functionalLightGrey4;
+                    border-bottom: 1px solid $functionalLightGrey4;
                 }
             }
 
@@ -176,26 +182,39 @@ div.container {
                 }
 
                 .local_stick {
-                    display: flex;
+                    @include custom-responsive(" xs sm") {
+                       display: block;
+                    }
 
+                    @include custom-responsive(" xl xxl") {
+                        display: flex;
+                    }
 
-                    h3 {
-                        color: $primaryBgBlue;
-                        padding: 10px 0 30px;
-
+                    h4 {
+                        color: $primaryBgBlue;                   
                         @include custom-responsive(" xs sm") {
-                            @include h3_MB;
+                            @include h6_MB;
+                            padding: 5px 0 5px;
                         }
 
                         @include custom-responsive(" xl xxl") {
-                            @include h3_PC;
+                            @include h4_PC;
+                            padding: 10px 0 30px;
                         }
 
                     }
-                    h3::after{
-                        content: "/"; 
+                    h4::after{
+                        @include custom-responsive(" xs sm") {
+                            content: ""; 
+                        }
+
+                        @include custom-responsive(" xl xxl") {
+                            content: "|"; 
+                            padding: 0 5px;
+                        }
+                       
                     }
-                    h3:last-child::after {
+                    h4:last-child::after {
                         content: none; 
                       }
                 }
@@ -211,7 +230,7 @@ div.container {
 
             @include custom-responsive(" xl xxl") {
                 display: block;
-                left: 100%;
+                left: 90%;
             }
         }
 
@@ -225,7 +244,7 @@ div.container {
             @include custom-responsive(" xl xxl") {
                 display: block;
                 top: 50%;
-                left: 0;
+                left: -30%;
             }
         }
     }

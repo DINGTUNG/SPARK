@@ -166,6 +166,26 @@
 ;
 
 
+//---------------------------------------------------------------------------------------
+/* ⭐checkout-cards buttons⭐ */
+
+
+@mixin checkoutSideListBtn_PC {
+  @include checkoutSideListBtnSize_PC;
+  border-radius: $checkoutBtnBr_PC;
+  font-size: $regularBtnFs_PC;
+  background-color: $btnBlue;
+  color: $btnWhite;
+  border: 0;
+}
+
+
+
+
+
+
+
+
 
 //---------------------------------------------------------------------------------------
 /* ⭐checkout-cards buttons⭐ */

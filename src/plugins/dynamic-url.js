@@ -1,8 +1,8 @@
 export const publicPath = process.env.NODE_ENV === "tibame" 
 ? "/chd102/g3/" 
-: "/"
+: "/SPARK/"
 
-// SPARK/
+
 // export const testPath = process.env.NODE_ENV
 
 // export const publicPath = "tanuki"

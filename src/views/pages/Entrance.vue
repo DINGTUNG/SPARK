@@ -14,7 +14,7 @@ const router = useRouter();
             </div>
             <div class="title_img">
                 <div class="title_img_font">
-                    <img :src="'pictures/images/title/Front.png'" alt="font" @click="router.push({ path: '/' })">
+                    <img :src="'pictures/images/title/Front.png'" alt="font" @click="router.push({ path: '/home' })">
                     <h2>前台</h2>
                 </div>
                 <div class="title_img_back">

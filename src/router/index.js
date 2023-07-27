@@ -3,7 +3,7 @@ import {
   createWebHistory
 } from 'vue-router'
 
-import Home from '@/views/pages/home/Home.vue';
+import Entrance from '@/views/pages/Entrance.vue';
 
 
 const router = createRouter({
@@ -18,8 +18,21 @@ const router = createRouter({
   // },
   routes: [{
     path: '',
+    name: 'entrance',
+    component: Entrance,
+    meta: {
+      hideLeftMenu: true,
+      hideRightMenu: true,
+      hideHeader: true,
+      hideFooter: true,
+    }
+  },
+
+
+  {
+    path: '/home',
     name: 'home',
-    component: Home,
+    component: () => import('@/views/pages/home/Home.vue'),
     meta: {
       hideLeftMenu: true,
     }
@@ -251,11 +264,6 @@ const router = createRouter({
     path: '/service-milestone',
     name: 'service-milestone',
     component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
-  },
-  {
-    path: '/title',
-    name: 'title',
-    component: () => import('@/views/pages/title.vue')
   },
   {
     path: '/dreamStar',

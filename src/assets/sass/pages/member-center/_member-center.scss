@@ -1,0 +1,12 @@
+div.page_title{
+    
+    @include regularBlueBtn_MB;
+
+
+    @include custom-responsive(" xs sm md lg"){
+        display: block;
+    }
+    @include custom-responsive(" xl xx-l") {
+        display: none;
+    }
+}

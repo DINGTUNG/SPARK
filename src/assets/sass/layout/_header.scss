@@ -1,20 +1,15 @@
 @import "@/assets/sass/base/color";
 @import"@/assets/sass/base/fonts/fonts";
 
-
+//共用
 header {
-
   .link_home {
-
     img.logo {
-      content: url('/pictures/logo/logo_white.svg');
       vertical-align: top;
-      margin-left: 2vw;
     }
   }
 
   div.wrapper {
-
     nav {
       background-image: url("/pictures/decorations/layout/star.png");
       background-repeat: no-repeat;
@@ -67,10 +62,8 @@ header {
 }
 
 
-
+//媒體裝置(min-widt:0px)
 @include custom-responsive("xs") {
-
-  //0px
   header {
     width: 100vw;
     position: fixed;
@@ -85,7 +78,6 @@ header {
     z-index: 24;
 
     .link_home {
-
       img.logo {
         width: 200px;
       }
@@ -170,32 +162,18 @@ div.blur-background.show {
 }
 
 
-
-
+//媒體裝置(min-widt:768px)
 @include custom-responsive("md") {
-
-  //768px
   header {
-
     .link_home {
-
       img.logo {
         width: 300px;
       }
     }
 
     div.wrapper {
-
       nav {
         width: 40vw;
-
-        ul {
-
-          li {
-
-            a.link {}
-          }
-        }
       }
     }
   }
@@ -203,21 +181,19 @@ div.blur-background.show {
 
 
 
+//媒體裝置(min-widt:1200px)
 @include custom-responsive("xl") {
-
-  //1200px
   header {
     position: absolute;
     background-color: transparent;
     top: 5%;
     padding: 0px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 
     .link_home {
       img.logo {
-        content: url('/public/pictures/logo/logo_white_2.svg');
         width: 150px;
       }
     }
@@ -236,6 +212,7 @@ div.blur-background.show {
 
         ul {
           display: flex;
+          justify-content: space-evenly;
           margin-left: 20px;
 
           li {
@@ -267,13 +244,11 @@ div.blur-background.show {
 }
 
 
+//媒體裝置(min-widt:1400px)
 @include custom-responsive("xx-l") {
-
-  //1400px
   header {
     .link_home {
       img.logo {
-        content: url('/public/pictures/logo/logo_white.svg');
         width: 300px;
       }
     }

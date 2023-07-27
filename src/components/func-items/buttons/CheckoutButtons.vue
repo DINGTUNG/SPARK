@@ -1,7 +1,6 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
 
-
 const router = useRouter()
 const currentRoute = useRoute()
 

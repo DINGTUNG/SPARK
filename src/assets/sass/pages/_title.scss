@@ -60,6 +60,7 @@
                 top: -450% !important;
                 left: -150% !important;
                 cursor: pointer;
+                transition: opacity .5s ease-in-out;
                 animation: boy_float 1.9s 1s ease-in-out infinite alternate;
 
                 @keyframes boy_float {
@@ -90,7 +91,9 @@
                 top: -535% !important;
                 left: -300% !important;
                 position: absolute;
-                animation: boy_float 1.9s 1s ease-in-out infinite alternate;
+                transition: opacity .5s ease-in-out;
+                animation: boy_float 1.9s 1s 
+                ease-in-out infinite alternate;
 
                 @keyframes boy_float {
                     0% {

@@ -72,6 +72,16 @@ export const useMessageBoardStore = defineStore('message-board', () => {
       color: 'wasp',
       content: '黃蜂',
       imgSrc: 'pictures/test/黃蜂.gif'
+    },
+    {
+      color: 'mole',
+      content: '大地鼠',
+      imgSrc: 'pictures/test/大地鼠.gif'
+    },
+    {
+      color: 'float_bomb',
+      content: '漂浮炸彈',
+      imgSrc: 'pictures/test/漂浮炸彈.gif'
     }
   ])
 

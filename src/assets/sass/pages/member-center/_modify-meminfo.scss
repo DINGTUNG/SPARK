@@ -1,7 +1,153 @@
 .container{
+    margin-top: 20vh;
     width: 100%;
     .main_body{
-        background-color: beige;
-        height: 100vh;
+            @include custom-responsive("xs sm") {
+              @include body_space_MB;
+            }
+          
+            @include custom-responsive("xl xx-l") {
+              @include body_space_PC;
+            }
+          }
+          .title{
+            margin:0 0 3% 15%;
+            h1{
+              @include h1_PC;
+              color: $primaryBrandBlue;
+            }
+            h5{
+              @include h5_PC;
+              color:#9E9E9E;
+            }
+          }
+          .main_form {
+            padding: 5vh 0 0;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px 0;
+            // outline: solid 1px red;
+            .form_item{
+              display: flex;
+              position: relative;
+              gap: 2vw;
+              label{
+                width: 18%;
+                text-align: end;
+                line-height: 58px;
+              }
+              .name_title{
+                position: absolute;
+                top: 0;
+                @include custom-responsive("xl") {
+                  right: -100px;
+                }
+                @include custom-responsive("xx-l") {
+                  right: -70px;
+                }
+                .label_radio{
+                  display: inline-block;
+                  width: fit-content;
+                }
+                cursor: pointer;          
+              }
+
+            }
+            .form_title {
+                display: flex;
+                align-items: center;
+    
+                .fa-solid {
+                    font-size: 26px;
+                    color: $primaryBrandBlue;
+                    padding: 0 10px 0 0;
+                }
+            }
+    
+            .input_radio {
+                width: 24px;
+                height: 24px;
+                margin: 0 5px 0 15px;
+                vertical-align: middle;
+                background-color: #f9f9f9;
+                cursor: pointer;
+                border: none;
+                &:focus{
+                  outline: none;
+              }
+                // outline: solid 1px red;
+            }
+    
+            .birthday_wrap {
+                display: flex;
+                justify-content: space-between;
+    
+                .birthday_select {
+                    position: relative;
+                    width: 31%;
+    
+                    select{
+                        @include h5_PC;
+                        width: 105%;
+                        border: 1px solid $functionalLightGrey3;
+                        border-radius: 10px;
+                        padding: 10px;
+                        margin-right:20px;
+                        box-sizing: border-box;
+                        color: $basicFontColor;
+                        background-color: #f9f9f9;
+                        cursor: pointer;
+    
+                        &:focus{
+                            outline: 1px solid ;
+                        }
+                    }
+    
+                    i{
+                        position: absolute;
+                        top: 50%;
+                        right: 0px;
+                        font-size: 16px;
+                        transform: translate(0,-50%);
+                    }
+                }   
+            }
+    
+    
+            h4 {
+                color: $primaryBrandBlue;
+            }
+    
+            label {
+                @include h5_PC;
+            }
+    
+            .submit {
+                @include regularBlueBtn_PC;
+                margin: 50px auto;
+            }
+            button.confirm{
+              @include regularBlueBtn_PC;
+              margin: 5% auto;
+            }
+        }
+        
     }
-}
+    input {
+      @include h5_PC;
+      border: 1px solid $functionalLightGrey3;
+      border-radius: 10px;
+      padding: 10px;
+      width: 60%;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+  
+      &:focus{
+          outline: 1px solid ;
+      }
+      &::placeholder{
+          @include h6_PC;
+          color: rgb(99, 99, 99, 0.35);
+      }
+  }

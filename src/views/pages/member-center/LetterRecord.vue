@@ -3,6 +3,7 @@ import { ref, reactive, computed } from 'vue';
 const page = ref(1)
 const modalImageSrc = ref('');
 const infoModal = ref(null);
+
 const imageUrl = new URL('/pictures/decorations/illustration/love_book.svg', import.meta.url)
 
 function openModal(imageSrc) {

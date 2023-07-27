@@ -1,5 +1,7 @@
 .container{
+  @include custom-responsive("xl xx-l") {
     margin-top: 20vh;
+  }
     width: 100%;
     .main_body{
             @include custom-responsive("xs sm") {
@@ -11,14 +13,31 @@
             }
           }
           .title{
-            margin:0 0 3% 15%;
+            @include custom-responsive("xs sm") {
+              margin: 2% auto;
+            }
+            @include custom-responsive("xl xx-l") {
+                margin:0 0 3% 15%;
+            }
+            
             h1{
-              @include h1_PC;
               color: $primaryBrandBlue;
+              @include custom-responsive("xs sm") {
+                @include h1_PC;
+              }
+              @include custom-responsive("xl xx-l") {
+                @include h1_MB;
+              }
+              
             }
             h5{
-              @include h5_PC;
               color:#9E9E9E;
+              @include custom-responsive("xs sm") {
+                @include h5_MB;
+              }
+              @include custom-responsive("xl xx-l") {
+                @include h5_PC;
+              }
             }
           }
           .main_form {
@@ -30,25 +49,55 @@
             // outline: solid 1px red;
             .form_item{
               display: flex;
-              position: relative;
-              gap: 2vw;
+              @include custom-responsive("xs sm") {
+                  flex-direction: column;
+              }
+              @include custom-responsive("xl xx-l") {
+                  position: relative;
+                  flex-direction: row;
+                  gap: 2vw;
+              }
+
               label{
-                width: 18%;
-                text-align: end;
-                line-height: 58px;
+                @include custom-responsive("xl xx-l") {
+                    width: 18%;
+                    text-align: end;
+                    line-height: 58px;
+                }
+
               }
               .name_title{
-                position: absolute;
-                top: 0;
+                @include custom-responsive("xs sm") {
+                  position: static;
+                  margin: 10px auto 4px;
+                }
+                @include custom-responsive("xl xx-l") {
+                    position: absolute;
+                    top: 0;
+                    margin: 0;
+                    display: flex;
+                    width: fit-content;
+                }
+
                 @include custom-responsive("xl") {
-                  right: -100px;
+                  right: -120px;
                 }
                 @include custom-responsive("xx-l") {
-                  right: -70px;
+                  right: -100px;
                 }
-                .label_radio{
+                .radio_item{
                   display: inline-block;
-                  width: fit-content;
+                  @include custom-responsive("xs sm") {
+                      margin: 0 12px 0 5px;
+    
+                  }
+                  @include custom-responsive("xx-l") {
+                      width: 100%;
+                  }
+                  input{
+                    margin-right: 10px;
+                  }
+                  
                 }
                 cursor: pointer;          
               }
@@ -64,11 +113,37 @@
                     padding: 0 10px 0 0;
                 }
             }
-    
+            @include custom-responsive("xs sm") {
+              .receipt{
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                .input_radio{
+                  margin:0;
+                }
+                label{
+                  margin-right: 15px;
+                }
+              }
+            }
+            @include custom-responsive("xl xx-l") {
+              .receipt{
+                margin: 0 15px;
+                display: inline-block;
+                .input_radio{
+                  margin: 0 5px;
+                }
+                label{
+                  margin-left:0px;
+                  width: fit-content;
+                }
+              }
+            }
             .input_radio {
                 width: 24px;
                 height: 24px;
-                margin: 0 5px 0 15px;
+                
                 vertical-align: middle;
                 background-color: #f9f9f9;
                 cursor: pointer;
@@ -120,29 +195,44 @@
             }
     
             label {
-                @include h5_PC;
+              @include custom-responsive("xs sm") {
+                @include h5_MB; 
+              }
+              @include custom-responsive("xl xx-l") {
+                  @include h5_PC; 
+              }
+                
             }
     
-            .submit {
-                @include regularBlueBtn_PC;
-                margin: 50px auto;
-            }
             button.confirm{
-              @include regularBlueBtn_PC;
-              margin: 5% auto;
+             
+              @include custom-responsive("xs sm") {
+                @include regularBlueBtn_MB;
+                margin: 7% auto 10%;
+              }
+              @include custom-responsive("xl xx-l") {
+                  @include regularBlueBtn_PC;
+                  margin: 5% auto;
+            }
+
             }
         }
         
     }
     input {
-      @include h5_PC;
       border: 1px solid $functionalLightGrey3;
       border-radius: 10px;
-      padding: 10px;
-      width: 60%;
+      padding: 10px;      
       box-sizing: border-box;
       background-color: #f9f9f9;
-  
+      @include custom-responsive("xs sm") {
+        width: 100%;
+        @include h5_MB;
+      }
+      @include custom-responsive("xl xx-l") {
+        @include h5_PC;
+        width: 60%;
+      }
       &:focus{
           outline: 1px solid ;
       }

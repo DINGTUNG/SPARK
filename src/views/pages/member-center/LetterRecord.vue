@@ -166,7 +166,7 @@ const letterData = reactive([
 
     <div class="table">
       <div class="title">
-        <img class="love_book" :src="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾">
+        <img class="love_book" :src="'/pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾">
         <h1>感謝函專區</h1>
       </div>
       <div class="text">

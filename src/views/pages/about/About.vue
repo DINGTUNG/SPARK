@@ -5,7 +5,7 @@
   const visionContents = reactive([
     {
       id: 1,
-      icon: 'pictures/icons/about/icon_1.svg',
+      icon: '/pictures/icons/about/icon_1.svg',
       alt: '我們運用的icon',
       title: '我們運用',
       description: '社會工作的專業方法，致力於貧困家庭兒童的生活扶助、保護受虐及需要專業照顧的兒童，包括提供營養飲食、醫療保健、教育資源、心理輔導⋯⋯等，我們與專業人士合作，致力於創造一個溫暖、安全且有機會的環境。'

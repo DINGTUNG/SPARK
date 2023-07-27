@@ -13,7 +13,7 @@ div.letter_record_container {
             @include body_space_PC;
         }
 
-        .deco{
+        #deco{
             position: absolute;
             &:nth-child(1){
 
@@ -44,7 +44,7 @@ div.letter_record_container {
             div.title{
                 display: flex;
 
-                .love_book{
+                #love_book{
 
                     @include custom-responsive("xs sm md") {
                         width: 45px;                     
@@ -66,7 +66,7 @@ div.letter_record_container {
             
             div.talk{
                 
-                .talk_img{                    
+                #talk_img{                    
                     position: absolute;
                     @include custom-responsive("lg xl"){
                         right: 20px;
@@ -93,7 +93,7 @@ div.letter_record_container {
                 right: -520px;
                 top: -70px;
 
-                .banner_img{
+                #banner_img{
                     width: 30%;
                     height: 30%;
                 }

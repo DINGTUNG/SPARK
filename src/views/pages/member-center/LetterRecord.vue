@@ -160,15 +160,15 @@ const letterData = reactive([
   <div class="letter_record_container">
     <div class="main_body">
 
-      <Images class="deco" :imgSrc="'pictures/decorations/illustration/smilestar.svg'" alt="微笑星星裝飾" />
-      <Images class="deco" :imgSrc="'pictures/decorations/illustration/telescope_2.svg'" alt="望遠鏡裝飾" />
+      <Images id="deco" :imgSrc="'pictures/decorations/illustration/smilestar.svg'" alt="微笑星星裝飾" />
+      <Images id="deco" :imgSrc="'pictures/decorations/illustration/telescope_2.svg'" alt="望遠鏡裝飾" />
 
 
 
       <div class="table">
         <div class="title">
 
-          <Images class="love_book" :imgSrc="imageUrl" alt="感謝函裝飾" />
+          <Images id="love_book" :imgSrc="imageUrl" alt="感謝函裝飾" />
           <h1>感謝函專區</h1>
         </div>
         <div class="text">
@@ -180,14 +180,14 @@ const letterData = reactive([
         <div class="talk">
 
 
-          <Images class="talk_img" :imgSrc="'pictures/images/member-center/talk.svg'" :alt="'test'" />
+          <Images id="talk_img" :imgSrc="'pictures/images/member-center/talk.svg'" :alt="'test'" />
 
 
           <!-- <img :src="'pictures/images/member-center/talk.svg'" alt="小朋友說的話"> -->
         </div>
         <div class="banner">
 
-          <Images class="banner_img" :imgSrc="'pictures/images/member-center/banner_1.png'" :alt="'test'" />
+          <Images id="banner_img" :imgSrc="'pictures/images/member-center/banner_1.png'" :alt="'test'" />
 
 
           <!-- <img :src="'pictures/images/member-center/banner_1.png'" alt="小朋友照"> -->

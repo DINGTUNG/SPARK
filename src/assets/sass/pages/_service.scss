@@ -1,6 +1,12 @@
 
 @include custom-responsive('xs'){
     div.banner{
+        @include custom-responsive("xs sm") {
+            margin-top: 80px;
+          }
+          @include custom-responsive("xl xx-l"){
+            margin: 0;
+          }
         width: 100%;
         img.MB{
             width: 100%;

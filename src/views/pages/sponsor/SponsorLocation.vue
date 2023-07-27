@@ -233,7 +233,7 @@
           <transition>
             <div class="branch-details" v-if="selectedBranch !== null">
               <div class="text">
-                <h2>{{ branches[selectedBranch].name }}</h2>
+                <h3>{{ branches[selectedBranch].name }}</h3>
                 <p><i class="fa-solid fa-location-dot"></i>：{{ branches[selectedBranch].address }}</p>
                 <p><i class="fa-solid fa-phone"></i>：{{ branches[selectedBranch].phoneNumber }}</p>
                 <p><i class="fa-solid fa-envelope"></i>：{{ branches[selectedBranch].email }}</p>

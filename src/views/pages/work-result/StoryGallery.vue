@@ -45,6 +45,8 @@ const photoSelected = (index) => {
   photoDisplay.value = index
 }
 const photoAlbum = reactive(PHOTO_ALBUM)
+
+
 </script>
 
 <template>
@@ -56,7 +58,7 @@ const photoAlbum = reactive(PHOTO_ALBUM)
     <div class="main_body">
       <div class="switch-button">
         <a href="#warm-story">溫馨事紀</a>
-        <a href="#photo-album">星火寫真</a>
+        <a href="#photo-album" >星火寫真</a>
       </div>
       <section class="cover-story">
         <div class="deco">

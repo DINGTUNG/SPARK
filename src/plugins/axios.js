@@ -1,4 +1,4 @@
-export const publicPath = process.env.NODE_ENV === "production" 
+export const publicPath = process.env.NODE_ENV === "tibame" 
 ? "/chd102/g3/" 
 : "/"
 

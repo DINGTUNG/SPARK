@@ -16,9 +16,18 @@ div.letter_record_container {
         img.deco{
             position: absolute;
             &:nth-child(1){
-                width: 6%;
-                right: -30px;
-                top: -100px;
+
+                @include custom-responsive("xs sm md") {
+                    width: 65px;
+                    right: 20px;
+                    top: -40px;
+                }
+        
+                @include custom-responsive("lg xl xx-l") {
+                    width: 65px;
+                    right: -30px;
+                    top: -100px;
+                }
             }
             &:nth-child(2){
                 width: 18%;
@@ -36,8 +45,16 @@ div.letter_record_container {
                 display: flex;
 
                 img.love_book{
-                    width: 5%;
+
+                    @include custom-responsive("xs sm md") {
+                        width: 45px;                     
+                    }
+            
+                    @include custom-responsive("lg xl xx-l") {
+                        width: 45px;                 
+                    }
                 }
+
                 h1{
                   color: $primaryBgBlue;
                   margin-left: 15px;
@@ -98,6 +115,11 @@ div.letter_record_container {
                 margin-bottom: 50px;
                 margin-top: 70px;
 
+                @media (max-width: 992px) {
+                     margin-top: 40px;
+                }
+
+
 
 
                 thead{
@@ -123,7 +145,7 @@ div.letter_record_container {
                         @include h5_MB;
                         display: block;
                         width: 100%;
-                        margin-bottom: 20px;
+                        margin-bottom: 30px;
                     }
 
  

@@ -18,6 +18,8 @@ const bulletinList = ref([]);
 // 取得當前路徑的資訊(src/router/index.js)
 const currentRoute = useRoute();
 
+//
+
 // 監聽當前路徑的變化，更新各陣列的內容
 watch(() => currentRoute.name, (newRouteName) => {
   if (newRouteName === "home") {

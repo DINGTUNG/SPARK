@@ -183,6 +183,11 @@ const router = createRouter({
     component: () => import('@/views/pages/member-center/LetterRecord.vue')
   },
   {
+    path: '/member-center',
+    name: 'member-center',
+    component: () => import('@/views/pages/member-center/MemberCenter.vue')
+  },
+  {
     path: '/adoption-record',
     name: 'adoption-record',
     component: () => import('@/views/pages/member-center/AdoptionRecord.vue')

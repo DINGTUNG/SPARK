@@ -22,32 +22,6 @@ const currentRoute = useRoute();
 const activeSubMenu = ref(null);
 const activeImage = ref(null);
 
-<<<<<<< HEAD
-//header logo的變化
-const imgSrc = ref('pictures/logo/logo_white.svg') // Default
-const currentRoute = useRoute()
-
-const mediaQuery1200 = window.matchMedia('(max-width: 1200px)')
-const mediaQuery1201to1399 = window.matchMedia('(min-width: 1201px) and (max-width: 1399px)')
-
-const updateImageSource = (newRouteName) => {
-  if (mediaQuery1200.matches) {
-    imgSrc.value = 'pictures/logo/logo_white.svg'
-  } else if (mediaQuery1201to1399.matches) {
-    if (newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white_second.svg';
-    } else {
-      imgSrc.value = 'pictures/logo/logo_blue_second.svg';
-    }
-  } else {
-    if (newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white.svg';
-    } else {
-      imgSrc.value = 'pictures/logo/logo_blue.svg';
-    }
-  }
-}
-=======
 const imgSrc = ref('')
 
 
@@ -60,7 +34,6 @@ watch(() => currentRoute.name, (newRouteName) => {
   }
 })
 
->>>>>>> 11f3023555916aa0a832d7102c9263d8a392b5fc
 
 watch(() => currentRoute.name, updateImageSource)
 

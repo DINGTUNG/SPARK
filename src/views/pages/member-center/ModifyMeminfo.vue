@@ -17,7 +17,7 @@ const Days = reactive([
         <div class="main_body">
             <div class="main_form">
             <div class="title">
-                <h1>修改基本資料</h1>
+                <h1>修改會員資料</h1>
                 <h5>會員編號 brt98439849d</h5>
             </div>
                 <div class="form_item">

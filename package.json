@@ -16,6 +16,7 @@
   "dependencies": {
     "@vueuse/core": "^10.2.1",
     "animate.css": "^4.1.1",
+    "axios": "^1.4.0",
     "firebase": "^10.1.0",
     "pinia": "^2.1.4",
     "vee-validate": "^4.10.8",

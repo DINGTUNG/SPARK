@@ -12,7 +12,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import VueReCaptcha from 'vue3-recaptcha2';
-
+import Images from '../src/components/Image.vue'
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -26,7 +26,9 @@ app.use(router)
 app.use(pinia)
 app.use(Vue3Marquee)
 app.use(vuetify)
-
+app.use(register)
+app.component('Images', Images)
+app.mount("#app")
 
 //使用viewfire
 app.use(VueFire, {

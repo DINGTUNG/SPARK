@@ -160,15 +160,15 @@ const letterData = reactive([
   <div class="letter_record_container">
     <div class="main_body">
 
-      <img class="deco" :src="'pictures/decorations/illustration/smilestar.svg'" alt="微笑星星裝飾">
-      <img class="deco" :src="'pictures/decorations/illustration/telescope_2.svg'" alt="望遠鏡裝飾">
+      <Images class="deco" :imgSrc="'pictures/decorations/illustration/smilestar.svg'" alt="微笑星星裝飾" />
+      <Images class="deco" :imgSrc="'pictures/decorations/illustration/telescope_2.svg'" alt="望遠鏡裝飾" />
 
 
 
       <div class="table">
         <div class="title">
 
-          <img class="love_book" :src="imageUrl" alt="感謝函裝飾">
+          <Images class="love_book" :imgSrc="imageUrl" alt="感謝函裝飾" />
           <h1>感謝函專區</h1>
         </div>
         <div class="text">
@@ -180,14 +180,14 @@ const letterData = reactive([
         <div class="talk">
 
 
-          <Images :imgSrc="'pictures/images/member-center/talk.svg'" :alt="'test'" />
+          <Images class="talk_img" :imgSrc="'pictures/images/member-center/talk.svg'" :alt="'test'" />
 
 
           <!-- <img :src="'pictures/images/member-center/talk.svg'" alt="小朋友說的話"> -->
         </div>
         <div class="banner">
 
-          <Images :imgSrc="'pictures/images/member-center/banner_1.png'" :alt="'test'" />
+          <Images class="banner_img" :imgSrc="'pictures/images/member-center/banner_1.png'" :alt="'test'" />
 
 
           <!-- <img :src="'pictures/images/member-center/banner_1.png'" alt="小朋友照"> -->
@@ -222,16 +222,16 @@ const letterData = reactive([
         <div ref="modalContainer" class="modal-container">
           <div v-if="modalImageSrc !== ''" class="overlay" @click="closeImageModal"></div>
           <dialog ref="infoModal" :open="modalImageSrc !== ''" class="modal-dialog" @click="closeImageModal">
-            <img :src="modalImageSrc" alt="Image" />
+            <Images :imgSrc="modalImageSrc" alt="Image" />
             <button class="close_btn">
-              <img :src="'pictures/icons/close-button/big_white.svg'" alt="Close" />
+              <Images class="btn_icon" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button>
           </dialog>
         </div>
 
         <!-- 分頁 -->
         <div class="text-center">
-          <v-pagination class="page_num" v-model="page" :length="3" rounded="circle" prev-icon="mdi-chevron-left"
+          <v-pagination class="page_num" v-model="page" :length="3"   rounded="circle" prev-icon="mdi-chevron-left"
             next-icon="mdi-chevron-right" active-color="#F5F4EF" color="#E7E6E1"></v-pagination>
         </div>
       </div>

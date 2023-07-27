@@ -3,6 +3,7 @@ import { ref, reactive, computed } from 'vue';
 const page = ref(1)
 const modalImageSrc = ref('');
 const infoModal = ref(null);
+const imageUrl = new URL('/pictures/decorations/illustration/love_book.svg', import.meta.url)
 
 function openModal(imageSrc) {
   modalImageSrc.value = imageSrc;
@@ -166,7 +167,7 @@ const letterData = reactive([
 
     <div class="table">
       <div class="title">
-        <img class="love_book" :src="'/pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾">
+        <img class="love_book" :src="imageUrl" alt="感謝函裝飾">
         <h1>感謝函專區</h1>
       </div>
       <div class="text">

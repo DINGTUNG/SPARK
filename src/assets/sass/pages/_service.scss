@@ -234,9 +234,18 @@
                 position: absolute;
                 z-index: 0;
                 &:nth-child(1){
+                    @keyframes hide_and_seek {
+                        0% {
+                            transform: rotate(1deg);
+                        }
+                        100% {
+                            transform: rotate(3deg);
+                        }
+                    }
                     width: 20%;
                     top:5%;
                     left: -200px;
+                    animation: hide_and_seek infinite;
                 }
                 &:nth-child(2){
                     width: 28%;
@@ -281,6 +290,7 @@
         }
 }
 }
+
 
 
 

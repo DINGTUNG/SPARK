@@ -155,7 +155,7 @@ const closeNav = () => {
 
 <template>
   <header>
-    <RouterLink to="/" class="link_home">
+    <RouterLink to="/home" class="link_home">
       <img alt="Spark logo" class="logo" :src="imgSrc"/>
     </RouterLink>
 

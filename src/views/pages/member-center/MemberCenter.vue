@@ -46,7 +46,11 @@ const getButtonStyle = (routePath) => {
     }
   }
 }
-
+@include custom-responsive ("xl xx-l") {
+  .navigation_button_MB{
+    display: none;
+  }
+}
 
 
 </style>

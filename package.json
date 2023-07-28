@@ -19,6 +19,7 @@
     "axios": "^1.4.0",
     "firebase": "^10.1.0",
     "pinia": "^2.1.4",
+    "swiper": "^10.0.4",
     "vee-validate": "^4.10.8",
     "vue": "^3.3.4",
     "vue-fb-customer-chat": "^0.2.2",

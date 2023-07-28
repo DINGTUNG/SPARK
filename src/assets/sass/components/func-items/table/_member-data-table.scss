@@ -6,7 +6,20 @@ table.member_data_table {
   border-top: 0;
   border-radius: 15px;
   overflow: hidden;
-  width: 800px;
+
+
+  @include custom-responsive("xs sm") {
+
+  }
+
+  @include custom-responsive("xl") {
+    width: 50vw;
+  }
+  @include custom-responsive("xx-l") {
+    width: 40vw;
+  }
+
+
 
   caption {
     text-align: left;
@@ -51,9 +64,17 @@ table.member_data_table {
   }
 
   td {
-    padding: 20px 30px;
     border-bottom: 1px solid $functionalLightGrey2;
     @include h6_PC;
+
+  @include custom-responsive("xs sm") {
+
+  }
+
+  @include custom-responsive("xl xx-l") {
+    padding: 1vh 2vw;
+  }
+
 
     span {
       display: inline-block;
@@ -62,7 +83,7 @@ table.member_data_table {
   }
 
   td.title {
-    width: 20%;
+    width: 25%;
     font-weight: bold;
   }
 

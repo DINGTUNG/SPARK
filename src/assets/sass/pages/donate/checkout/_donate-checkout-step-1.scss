@@ -59,12 +59,7 @@ div.sponsor_checkout_container {
         @include flex_vm;
 
         @include custom-responsive("xs sm") {
-          order: 1;
           gap: 2vh;
-        }
-
-        @include custom-responsive("xl xxl") {
-          order: 0
         }
       }
 

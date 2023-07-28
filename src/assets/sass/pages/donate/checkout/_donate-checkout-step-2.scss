@@ -2,6 +2,14 @@ div.donate_checkout_container {
   width: 100%;
   position: relative;
 
+  @include custom-responsive("xs sm") {
+    height: 130vh;
+  }
+
+  @include custom-responsive("xl xx-l") {
+    height: 150vh;
+  }
+
   div.main_body {
     position: relative;
 
@@ -15,10 +23,29 @@ div.donate_checkout_container {
 
     div.checkout_wrap {
       position: relative;
-      top: -25vh;
-      @include flex_hm;
-      align-items: flex-start;
-      gap: 50px;
+      display: flex;
+      justify-content: center;
+
+      @include custom-responsive("xs sm") {
+        flex-direction: column;
+        align-items: center;
+        top: 15vh;
+        gap: 3vh;
+      }
+
+      @include custom-responsive("xl") {
+        gap: 50px;
+      }
+
+      @include custom-responsive("xx-l") {
+        gap: 100px;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        flex-direction: row;
+        align-items: flex-start;
+        top: 25vh;
+      }
 
       div.member_data_table {
         @include flex_vm;
@@ -34,11 +61,12 @@ div.donate_checkout_container {
       transform: rotateY(180deg);
       position: absolute;
       right: -12vw;
-      top: 50vh;
+      top: 100vh;
 
+
+      @include custom-responsive("xl xx-l") {
+        width: 50%;
+      }
     }
-
-
-
   }
 }

@@ -54,7 +54,7 @@ const linkSectionList = reactive(
           routingName: "/work-result"
         }, {
           title: "歷年報告",
-          routingName: "/work-result"
+          routingName: "/result-report"
         }, {
           title: "服務里程碑",
           routingName: "/work-result"

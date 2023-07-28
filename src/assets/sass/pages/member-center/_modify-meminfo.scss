@@ -53,6 +53,7 @@
                 display: none;
               }
               @include custom-responsive("xl xx-l") {
+                display: block;
                 #star1{
                   position: absolute;
                   top:12%;

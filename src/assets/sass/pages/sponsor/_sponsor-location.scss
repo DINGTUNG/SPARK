@@ -1,12 +1,7 @@
-@import '@/assets/sass/base/color';
-@import '@/assets/sass/base/fonts/fonts-mixin';
-@import '@/assets/sass/base/box-shadow';
-@import '@/assets/sass/base/border-radius';
-@import '@/assets/sass/base/rwd/breakpoints';
-
 
 @include custom-responsive('xs') {
   div.banner {
+    margin-top: 85px;
     width: 100%;
     .PC-banner{
       display: none;
@@ -74,7 +69,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 70vw;
+            width: 80vw;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -89,8 +84,8 @@
               bottom: 6%;
             }
 
-            h2 {
-              @include h2_MB;
+            h3 {
+              @include h3_MB;
               color: $primaryBrandBlue;
             }
 
@@ -104,8 +99,9 @@
             }
 
             div.pic {
-              width: 60%;
-              height: 60%;
+              margin-top: 10px;
+              width: 60vw;
+              height: 50vw;
 
               img {
                 width: 100%;
@@ -260,6 +256,7 @@
 @include custom-responsive('xl'){
   div.banner{
     width: 100%;
+    margin: 0;
     .PC-banner{
       display: block;
     }

@@ -134,8 +134,8 @@ const login = () => {
 
     <div class="login">
       <h1>會員登入</h1>
-      <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
-      <p v-else>請登入帳號密碼</p>
+      <!-- <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
+      <p v-else>請登入帳號密碼</p> -->
       <label for="account">帳號</label>
       <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
         :class="{ 'animate__animated animate__headShake': errorAccount }">

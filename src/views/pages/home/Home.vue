@@ -1,6 +1,3 @@
-<!-- Manychat -->
-<!-- <script src="//widget.manychat.com/110950745410488.js" defer="defer"></script>
-<script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script> -->
 <script setup>
 import { RouterLink } from 'vue-router'
 import News from '@/views/sections/home/News.vue';

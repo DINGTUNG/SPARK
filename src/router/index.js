@@ -196,7 +196,7 @@ const router = createRouter({
     component: () => import('@/views/pages/member-center/MemberCenter.vue'),
     children:[
       {
-        path: '',
+        path: 'adoption-record',
         name: 'adoption-record',
         component: () => import('@/views/pages/member-center/AdoptionRecord.vue')
       },

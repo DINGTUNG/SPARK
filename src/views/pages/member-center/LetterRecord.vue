@@ -233,4 +233,9 @@ const letterData = reactive([
 
 <style scoped lang="scss">
 @import "@/assets/sass/pages/member-center/letter-record";
+
+.love_book{
+
+  width: 2%;
+}
 </style>

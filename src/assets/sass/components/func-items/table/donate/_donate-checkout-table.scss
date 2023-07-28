@@ -1,10 +1,29 @@
 table.checkout_table {
 
-  width: 700px;
+  @include custom-responsive("xs sm") {
+    width: 80vw;
+  }
+
+
+  @include custom-responsive("xl xx-l") {
+    width: 40vw;
+  }
 
   caption {
     text-align: left;
-    @include h1_PC
+
+    @include custom-responsive("xs sm") {
+      @include h3_PC
+    }
+  
+    @include custom-responsive("xl") {
+      @include h3_PC
+    }
+
+    @include custom-responsive("xx-l") {
+      @include h1_PC
+    }
+
   }
 
   tr {
@@ -18,19 +37,59 @@ table.checkout_table {
     }
 
     th {
-      padding: 30px 30px 0;
-      @include h3_PC;
       border-bottom: 5px solid $primaryBrandBlue;
+
+      @include custom-responsive("xs sm") {
+        @include h6_PC;
+        font-weight: bold;
+        padding: 2vw 2vw 0;
+      }
+
+      @include custom-responsive("xl") {
+        @include h6_PC;
+        font-weight: bold;
+        padding: 2vw 2vw 0;
+      }
+
+      @include custom-responsive("xx-l") {
+        @include h4_B_PC;
+        padding: 1vw 2vw 0;
+      }
+
+      @include custom-responsive("xl xx-l") {
+
+      }
     }
 
     th.left_column{
-      width: 70%;
+
+
+      @include custom-responsive("xs sm") {
+        width: 40%;
+      }
+    
+      @include custom-responsive("xl xx-l") {
+        width: 70%;
+      }
     }
 
     td {
-      width: 30%;
-      padding: 30px 30px;
-      @include h4_PC;
+  
+      @include custom-responsive("xs sm") {
+        padding: 2vw 2vw 0;
+        @include h6_PC;
+      }
+
+      @include custom-responsive("xl") {
+        padding: 3vh 2vw;
+        @include h6_PC;
+      }
+
+      @include custom-responsive("xx-l") {
+        width: 30%;
+        padding: 30px 30px;
+        @include h5_PC;
+      }
 
       i {
         font-size: 30px;
@@ -40,6 +99,13 @@ table.checkout_table {
         display: block;
         width: 15%;
         text-align: center;
+        @include custom-responsive("xl") {
+          font-size: 25px;
+        }
+      
+        @include custom-responsive("xx-l") {
+          font-size: 30px;
+        }
 
       }
     }

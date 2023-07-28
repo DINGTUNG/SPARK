@@ -3,6 +3,7 @@ div.table_wrap {
 
   @include custom-responsive("xs sm") {
     gap: 3vh;
+
     table.sponsor_info_PC {
       display: none;
     }
@@ -76,12 +77,13 @@ div.table_wrap {
 
     td.title {
       font-weight: bold;
+
       @include custom-responsive("xs sm") {
         @include h6_MB;
         font-weight: bold;
         padding-left: 5vw;
       }
-    
+
       @include custom-responsive("xl xx-l") {
         @include h5_PC;
         font-weight: bold;
@@ -94,12 +96,13 @@ div.table_wrap {
         background-color: $functionalLightGrey1;
         ;
         text-align: right;
-        
 
+  
         @include custom-responsive("xs sm") {
           @include h6_MB;
+          font-weight: bold;
         }
-      
+
         @include custom-responsive("xl xx-l") {
           @include h4_B_PC;
         }
@@ -115,13 +118,13 @@ div.table_wrap {
           }
 
           img.star {
-           
+
             margin: 0 1vw;
 
             @include custom-responsive("xs sm") {
               width: 3vw;
             }
-          
+
             @include custom-responsive("xl xx-l") {
               width: 1vw;
             }
@@ -134,8 +137,7 @@ div.table_wrap {
 
 
   table.sponsor_info {
-    @include custom-responsive("xs sm") {
-    }
+    @include custom-responsive("xs sm") {}
 
     @include custom-responsive("xl xx-l") {}
 

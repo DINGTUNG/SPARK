@@ -89,9 +89,15 @@ div.table_wrap {
       td.total {
         background-color: $functionalLightGrey1;
         ;
-
-        @include h4_B_PC;
         text-align: right;
+        @include custom-responsive("xs sm") {
+          @include h6_MB;
+          font-weight: bold;
+        }
+      
+        @include custom-responsive("xl xx-l") {
+          @include h4_B_PC;
+        }
 
         div {
           display: flex;

@@ -1,35 +1,44 @@
 div.login_body {
     display: flex;
 
-    img.title_img {
-        @include custom-responsive("xs sm ") {
-            display: none;
+    .register_banner {
+        background-image: url('/pictures/images/login/login_banner_PC.jpg');
+        background-size: cover;
+        background-position: center;
+        width: 36%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+
+        p {
+            position: absolute;
+            top: 12%;
+            left: 70%;
+            color: white;
+            writing-mode: vertical-rl;
+            font-size: 20px;
+            letter-spacing: 10px;
+            line-height: 2.7;
         }
 
-        @include custom-responsive("xl xx-l") {
-            display: block;
-            width: 33%;
+        img {
+            width: 12%;
+            position: absolute;
+            top: 58%;
+            left: 72%;
         }
     }
 
     div.login {
        
-        padding: 8% 0 0 10%;
+        padding: 60px 0 0 0;
+        margin-left: 46%;
         display: flex;
         flex-direction: column;
 
-        @include custom-responsive("xs sm ") {
-
-        }
-
-        @include custom-responsive("sm xl") {
-            width: 60%;
-        }
-
-        @include custom-responsive("xl xx-l") {
-            width: 50%;
-        }
-
+     
         h1 {
             color: $primaryBrandBlue;
             font-size: $h1Fs_PC;
@@ -62,7 +71,7 @@ div.login_body {
             }
 
             @include custom-responsive("xl xx-l") {
-                width: 70%;
+                width: 100%;
             }
         }
 
@@ -119,7 +128,7 @@ div.login_body {
             border-radius: $br_PC;
             border: 1px solid $primaryBrandWhite;
             height: 55px;
-            width: 70%;
+            width: 100%;
             margin-top: 50px;
         }
 
@@ -136,8 +145,7 @@ div.login_body {
             }
 
             img {
-                position: absolute;
-               
+                position: absolute;            
                 width: 25px;
                 top: 0;
                 cursor: pointer;
@@ -147,7 +155,7 @@ div.login_body {
                 }
 
                 @include custom-responsive("xl xx-l") {
-                    left: 60%;
+                    right: 8%;
                 }
             }
 
@@ -158,7 +166,7 @@ div.login_body {
             align-items: center;
             display: flex;
             justify-content: space-between;
-            width: 70%;
+            width: 100%;
             margin-top: 30px;
 
             h6 {
@@ -172,6 +180,10 @@ div.login_body {
             }
         }
 
+        div.error_account {
+            color: red;
+            margin: 10px 0 10px 10px;
+        }
         button.google_login {
             @include h5_PC;
             display: block;
@@ -180,17 +192,26 @@ div.login_body {
             border-radius: $br_PC;
             border: 1px solid $primaryBrandBlue;
             height: 55px;
-            width: 70%;
+            width: 100%;
             margin-top: 30px;
 
-            div.errorAccount {
-                color: red;
-                margin: 10px 0 10px 10px;
+            i{
+                color: $primaryBrandWhite;
+                margin-right: 5px;
             }
 
-            .login_title {
-                display: flex;
-                justify-content: space-between;
+        }
+
+        div.signup{
+            text-align: right;
+            margin-top: 10px;
+
+            i{
+                color: $secondaryLightBlue2;
+                margin-right: 5px;
+            }
+            .signup_link{
+                color: $secondaryLightBlue2;
             }
 
         }

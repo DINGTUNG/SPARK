@@ -23,10 +23,10 @@
         <div class="dream_wrap content">
           <img :src="'pictures/spark_activity/dream_star/clip.svg'" alt="clip" class="clip">
           <div class="dream_dashline">
-            <img src="" alt="" class="shine">
+            <img :src="'pictures/spark_activity/dream_star/shine.svg'" alt="shine" class="shine">
             <div class="subtitle">
               <h2>夢想內容</h2>
-              <img src="" alt="" class="subtitle_bg">
+              <!-- <img :src="'pictures/spark_activity/dream_star/subtitle_bg.svg'" alt="subtitle_bg" class="subtitle_bg"> -->
             </div>
             <p>
               我們將帶領小朋友們展開一場奇幻而美妙的音樂之旅。在那裡，每個孩子都擁有一把屬於自己的音樂魔杖。這場旅程將引導他們探索不同的樂器，從小提琴到鋼琴，從吉他到鼓，讓他們發現自己的音樂天賦和獨特的音樂風格，他們將參與音樂工作坊和課程，與專業音樂家互動學習，掌握各種技巧和表演技巧。這段音樂夢想旅程將成為孩子們未來人生的寶貴資產，為他們建立堅實的基礎。透過音樂，他們將發現自己的潛力和價值，並培養堅持不懈、努力奮鬥的精神，這些寶貴的品質將伴隨他們走向未來的道路，助他們克服挑戰，實現更大的夢想。<br>
@@ -38,8 +38,7 @@
         <div class="dream_wrap plan">
           <img :src="'pictures/spark_activity/dream_star/clip.svg'" alt="clip" class="clip">
           <div class="dream_dashline">
-            <img src="" alt="" class="clip">
-            <img src="" alt="" class="shine">
+            <img :src="'pictures/spark_activity/dream_star/shine.svg'" alt="shine" class="shine">
             <div class="subtitle">
               <h2>夢想規劃</h2>
               <img src="" alt="" class="subtitle_bg">

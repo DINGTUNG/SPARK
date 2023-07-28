@@ -69,8 +69,42 @@
             .dream_dashline {
                 width: 100%;
                 box-sizing: border-box;
-                padding: 0 6.5% 3%;
+                padding: 3% 6.5%;
                 border: 2px dashed $secondaryLightBlue1;
+                position: relative;
+
+                .shine {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+
+                .subtitle {
+
+                    h2 {
+                        color: $primaryBrandBlue;
+                        position: relative;
+
+                    &::before {
+                        content: "";
+                        background-image: url("/pictures/spark_activity/dream_star/subtitle_bg.svg");
+                        height: 200px;
+                        width: 200px;
+                        // position: absolute;
+                        // top: 0;
+                        // left: 0;
+                        margin-right: -30px;
+                        background-color: aqua;
+                        }
+
+                    }
+                }
+
+                span {
+                    color: $decorativeOrange;
+                    font-weight: 700;
+                }
+                
             }
 
             .clip {

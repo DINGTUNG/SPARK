@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const goToHomePageTop = () => {
-  router.push({ path: '/' });
+  router.push({ path: '/home' });
   window.scrollTo(0, 0);
 }
 </script>

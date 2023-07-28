@@ -299,18 +299,22 @@
           div.branch-details {
             border-radius: $br_PC;
             @include boxShadow_PC;
-            width: 125%;
+            width: 40vw;
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-between;
-
-            h2 {
-              @include h2_PC;
+            .text{
+              width: 52%;
+              margin-right: 5%;
+            }
+            h3 {
+              @include h3_PC;
+              color: $primaryBrandBlue;
             }
 
             p {
-              @include h5_PC;
-              margin: 8% 0;
+              @include h6_PC;
+              margin: 8% 3%;
             }
 
             div.pic {
@@ -356,7 +360,7 @@
     div.deco-stars {
       position: absolute;
       display: block!important;
-      top: 40%;
+      top: 50%;
       left: -20%;
       width: 10vw;
       img{

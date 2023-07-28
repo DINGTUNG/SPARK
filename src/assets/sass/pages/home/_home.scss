@@ -30,7 +30,7 @@
 
     .banner {
     width: 100%;
-    background-image: url(/public/pictures/images/home/home_banner_bg.png);
+    background-image: url('/pictures/images/home/home_banner_bg.png');
     background-size: cover;
     background-position: left;
     position: relative;
@@ -329,7 +329,7 @@
 
     .home_banner_cloud {
         width: 100%;
-        background-image: url(/public/pictures/images/home/home_banner_cloud.svg);
+        background-image: url('/pictures/images/home/home_banner_cloud.svg');
         background-size: cover;
         position: absolute;
         left: 0;

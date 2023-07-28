@@ -1,6 +1,7 @@
 <script setup>
 import 'animate.css';
-import { ref, onMounted, reactive, watch, nextTick } from 'vue';
+import { useLogStore } from '@/stores/text-log.js'
+import { ref, onMounted, reactive, watch, } from 'vue';
 import { useRouter } from 'vue-router';
 import VueRecaptcha from 'vue3-recaptcha2';
 import { useFirestore } from 'vuefire'; //import firebase
@@ -11,9 +12,11 @@ const auth = useFirebaseAuth() // only exists on client side，這行只能僅�
 const user = useCurrentUser();
 const router = useRouter();
 const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
-const Membership = ref(false)
 import { GoogleAuthProvider } from 'firebase/auth'
 const googleAuthProvider = new GoogleAuthProvider()
+const logStore = useLogStore();//假帳號js
+
+
 //登入跳轉函式，會跳轉到google的帳號頁面
 function signInRedirect() {
   signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
@@ -21,7 +24,7 @@ function signInRedirect() {
     error.value = reason
   })
 }
-
+//vFire-google
 onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
@@ -35,25 +38,23 @@ onMounted(() => {
 })
 
 
-
 // google登入跳轉函式:問題:跳轉遲鈍
 const handleLoginStatusChange = () => {
   if (isLoggedIn()) {
     console.log('使用者已登入');
-    router.push('/');
+
+    router.push('/home');
   } else {
     console.log('使用者已登出');
   }
 };
-
 watch(user, handleLoginStatusChange, { deep: true });
 const isLoggedIn = () => {
   return user.value !== null;
 };
 
 
-
-const isValidToken = ref(false)
+const isValidToken = ref(false)//reCapthcha的判斷
 const instance_vueRecaptchaV2 = reactive({
   data_v2SiteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr',
   recaptchaVerified: (response_token) => {
@@ -73,9 +74,10 @@ const instance_vueRecaptchaV2 = reactive({
   },
 });
 
-console.log(Membership.value)
 
 
+
+// 一般帳號登入
 const account = ref('');
 const password = ref('');
 const errorAccount = ref('');
@@ -92,10 +94,8 @@ function showHide() {
   showPassword.value = !showPassword.value;
 }
 
-
 const login = () => {
-  // 獲取用戶的帳密
-  const enteredAccount = account.value;
+  const enteredAccount = account.value; // 獲取用戶的帳密
   const enteredPassword = password.value;
   // 進行驗證
   if (enteredAccount === '' || enteredPassword === '') {
@@ -103,24 +103,33 @@ const login = () => {
   } else if (!isValidToken.value) {
     errorAccount.value = '請進行驗證';
   } else {
-    if (enteredAccount === 'spark' && enteredPassword === '1234') {
+    const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
+    if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
+      logStore.log.forEach((item) => {
+        item.state = false
+      });
+      logStore.log[userIndex].state = true;
+      logStore.a = userIndex;
       errorAccount.value = '';
-      alert('登入成功');
-      Membership.value = true;
-      router.push({ path: '/' });
-      return Membership;
+      alert(`登入成功：${logStore.log[userIndex].name}`);
+      router.push({ path: '/home' });
+      account.value = '';
+      password.value = '';
+
     } else {
       errorAccount.value = '帳號或密碼不正確';
     }
   }
 };
+
 </script>
 <template>
   <div class="login_body">
     <img :src="'pictures/images/login/login.jpg'" class="title_img">
     <div class="login">
       <h1>會員登入</h1>
-      <!-- <p v-if="user">Hello {{ user.providerData.displayName }}</p> -->
+      <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
+      <p v-else>請登入帳號密碼</p>
       <label for="account">帳號</label>
       <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
         :class="{ 'animate__animated animate__headShake': errorAccount }">
@@ -129,8 +138,8 @@ const login = () => {
       <div class="password_wrapper" ref="passwordField" :class="{ 'animate__animated animate__headShake': errorAccount }">
         <div class="password_block">
           <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
-          <span class="toggle" @click="showHide"> <img v-if="showPassword"
-              :src="'pictures/images/login/eye_hide.svg'" alt="hide" />
+          <span class="toggle" @click="showHide"> <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'"
+              alt="hide" />
             <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>
         </div>
         <div class="recaptcha_forget_block">

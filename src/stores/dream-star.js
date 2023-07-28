@@ -17,7 +17,7 @@ export class DreamStarPlanList {
     DS001: new DreamStarPlanList(
       'DS001',
       'pictures/images/spark-activity/dream_star_plan_1.png',
-      '/dream-star-1',
+      '/dreamStar',
       197,
       '美食大師',
       '烹飪歷險記'
@@ -25,7 +25,7 @@ export class DreamStarPlanList {
     DS002: new DreamStarPlanList(
       'DS002',
       'pictures/images/spark-activity/dream_star_plan_2.png',
-      '/dream-star-1',
+      '/dreamStar',
       255,
       '繪畫奇想',
       '彩筆揮灑繽紛世界'
@@ -33,7 +33,7 @@ export class DreamStarPlanList {
     DS003: new DreamStarPlanList(
       'DS003',
       'pictures/images/spark-activity/dream_star_plan_3.png',
-      '/dream-star-1',
+      '/dreamStar',
       255,
       '音樂星光',
       '樂韻奏鳴的天空旅程'
@@ -41,7 +41,7 @@ export class DreamStarPlanList {
     DS004: new DreamStarPlanList(
       'DS004',
       'pictures/images/spark-activity/dream_star_plan_4.png',
-      '/dream-star-1',
+      '/dreamStar',
       328,
       '體育勇者',
       '挑戰極限勇者之旅'
@@ -49,7 +49,7 @@ export class DreamStarPlanList {
     DS005: new DreamStarPlanList(
       'DS005',
       'pictures/images/spark-activity/dream_star_plan_5.png',
-      '/dream-star-1',
+      '/dreamStar',
       332,
       '環保探險家',
       '地球奇幻護衛隊'
@@ -57,7 +57,7 @@ export class DreamStarPlanList {
     DS006: new DreamStarPlanList(
       'DS006',
       'pictures/images/spark-activity/dream_star_plan_6.png',
-      '/dream-star-1',
+      '/dreamStar',
       255,
       '小科學家',
       '探索神秘世界'
@@ -65,7 +65,7 @@ export class DreamStarPlanList {
     DS007: new DreamStarPlanList(
       'DS007',
       'pictures/images/spark-activity/dream_star_plan_7.png',
-      '/dream-star-1',
+      '/dreamStar',
       146,
       '動物園園長',
       '照顧和保護動物'
@@ -73,7 +73,7 @@ export class DreamStarPlanList {
     DS008: new DreamStarPlanList(
       'DS008',
       'pictures/images/spark-activity/dream_star_plan_8.png',
-      '/dream-star-1',
+      '/dreamStar',
       146,
       '創意手作',
       '動手創造分享喜悅'
@@ -81,7 +81,7 @@ export class DreamStarPlanList {
     UNKNOWN: new DreamStarPlanList(
       'unknown-topic',
       '',
-      '/dream-star-1',
+      '/dreamStar',
       0,
       '未知'
     )

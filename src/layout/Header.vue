@@ -155,8 +155,13 @@ const closeNav = () => {
 
 <template>
   <header>
+<<<<<<< HEAD
     <RouterLink to="/" class="link_home">
       <img alt="Spark logo" class="logo" :src="imgSrc"/>
+=======
+    <RouterLink to="/home" class="link_home">
+      <Images id="logo" :imgSrc="imgSrc" :alt="Sparklogo"/>
+>>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
     </RouterLink>
 
     <button class="nav_toggle" v-if="!isLargeScreen" @click="toggleNav" v-bind:class="{ open: isNavOpen }">
@@ -189,10 +194,9 @@ const closeNav = () => {
               <a v-else :href="item.route" class="link" @mouseover="showSubMenu(index)" @mouseleave="hideSubMenu">
                 {{ item.label }}
               </a>
-              <img
-                v-if="(isLargeScreen && (activeImage === index || activeSubMenu === index)) || (!isLargeScreen && activeImage === index)"
-                :src="item.img" alt="Image" class="hover_image"
-                style="position: absolute; left: -5px; top: 50%; transform: translateY(-50%);" />
+              <Images v-if="(isLargeScreen && (activeImage === index || activeSubMenu === index)) || (!isLargeScreen && activeImage === index)"
+                 :alt="Image" class="hover_image"
+                style="position: absolute; left: -5px; top: 50%; transform: translateY(-50%);" :imgSrc="item.img" />
               <ul v-if="item.submenu" class="submenu" :class="{ 'active': activeSubMenu === index }"
                 @mouseover="showImage(index)" @mouseleave="hideImage">
                 <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">

@@ -6,8 +6,6 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
-
-
 // https://vitejs.dev/config/
 export default defineConfig({
   css: {
@@ -34,7 +32,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: [/^node:.*/],
+      external: [/^node:.*/]
       // output: {
       //   entryFileNames: `assets/[name].js`,
       //   chunkFileNames: `assets/[name].js`,
@@ -48,9 +46,11 @@ export default defineConfig({
     }
   },
 
-  // base: "/chd102/g3", //緯育
-  base: "/SPARK/", //github pages
+  base: "/chd102/g3/", //緯育
+  // base: "/SPARK/", //github pages
 
+
+  
 
   //swiper使用
   chainWebpack: (config) => {

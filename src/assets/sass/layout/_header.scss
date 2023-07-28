@@ -4,7 +4,11 @@
 //共用
 header {
   .link_home {
+<<<<<<< HEAD
     img.logo {
+=======
+    #logo {
+>>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
       vertical-align: top;
     }
   }
@@ -78,7 +82,7 @@ header {
     z-index: 24;
 
     .link_home {
-      img.logo {
+      #logo {
         width: 200px;
       }
     }
@@ -166,7 +170,7 @@ div.blur-background.show {
 @include custom-responsive("md") {
   header {
     .link_home {
-      img.logo {
+      #logo {
         width: 300px;
       }
     }
@@ -193,7 +197,11 @@ div.blur-background.show {
     align-items: center;
 
     .link_home {
+<<<<<<< HEAD
       img.logo {
+=======
+      #logo {
+>>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
         width: 150px;
       }
     }
@@ -248,7 +256,11 @@ div.blur-background.show {
 @include custom-responsive("xx-l") {
   header {
     .link_home {
+<<<<<<< HEAD
       img.logo {
+=======
+      #logo {
+>>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
         width: 300px;
       }
     }

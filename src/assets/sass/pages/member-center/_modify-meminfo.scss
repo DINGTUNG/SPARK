@@ -1,0 +1,270 @@
+.container{
+    @include custom-responsive("xl xx-l") {
+      margin-top: 20vh;
+    }
+    width: 100%;
+    .main_body{
+            @include custom-responsive("xs sm") {
+              @include body_space_MB;
+            }
+          
+            @include custom-responsive("xl xx-l") {
+              @include body_space_PC;
+            }
+          }
+          .title{
+            @include custom-responsive("xs sm") {
+              margin: 2% auto;
+            }
+            @include custom-responsive("xl xx-l") {
+                margin:0 0 3% 15%;
+            }
+            
+            h1{
+              color: $primaryBrandBlue;
+              @include custom-responsive("xs sm") {
+                @include h1_PC;
+              }
+              @include custom-responsive("xl xx-l") {
+                @include h1_MB;
+              }
+              
+            }
+            h5{
+              color:#9E9E9E;
+              @include custom-responsive("xs sm") {
+                @include h5_MB;
+              }
+              @include custom-responsive("xl xx-l") {
+                @include h5_PC;
+              }
+            }
+          }
+          .main_form {
+            padding: 5vh 0 0;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px 0;
+            position: relative;
+            // outline: solid 1px red;
+            .deco{
+              @include custom-responsive("xs sm") {
+                display: none;
+              }
+              @include custom-responsive("xl xx-l") {
+                #star1{
+                  position: absolute;
+                  top:12%;
+                  right: 10%;
+                  width: 3vw;
+                }
+                #star2{
+                  position: absolute;
+                  top:16%;
+                  right: 4%;
+                  width: 3vw;
+                }
+                #rocket{
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                  width:5cqw;
+                }
+              }
+
+            }
+            .form_item{
+              display: flex;
+              @include custom-responsive("xs sm") {
+                  flex-direction: column;
+              }
+              @include custom-responsive("xl xx-l") {
+                  position: relative;
+                  flex-direction: row;
+                  gap: 2vw;
+              }
+
+              label{
+                @include custom-responsive("xl xx-l") {
+                    width: 18%;
+                    text-align: end;
+                    line-height: 58px;
+                }
+
+              }
+              .name_title{
+                @include custom-responsive("xs sm") {
+                  position: static;
+                  margin: 10px auto 4px;
+                }
+                @include custom-responsive("xl xx-l") {
+                    position: absolute;
+                    top: 0;
+                    margin: 0;
+                    display: flex;
+                    width: fit-content;
+                }
+
+                @include custom-responsive("xl") {
+                  right: -120px;
+                }
+                @include custom-responsive("xx-l") {
+                  right: -100px;
+                }
+                .radio_item{
+                  display: inline-block;
+                  @include custom-responsive("xs sm") {
+                      margin: 0 12px 0 5px;
+    
+                  }
+                  @include custom-responsive("xx-l") {
+                      width: 100%;
+                  }
+                  input{
+                    margin-right: 10px;
+                  }
+                  
+                }
+                cursor: pointer;          
+              }
+
+            }
+            .form_title {
+                display: flex;
+                align-items: center;
+    
+                .fa-solid {
+                    font-size: 26px;
+                    color: $primaryBrandBlue;
+                    padding: 0 10px 0 0;
+                }
+            }
+            @include custom-responsive("xs sm") {
+              .receipt{
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                .input_radio{
+                  margin:0;
+                }
+                label{
+                  margin-right: 15px;
+                }
+              }
+            }
+            @include custom-responsive("xl xx-l") {
+              .receipt{
+                margin: 0 15px;
+                display: inline-block;
+                .input_radio{
+                  margin: 0 5px;
+                }
+                label{
+                  margin-left:0px;
+                  width: fit-content;
+                }
+              }
+            }
+            .input_radio {
+                width: 24px;
+                height: 24px;
+                
+                vertical-align: middle;
+                background-color: #f9f9f9;
+                cursor: pointer;
+                border: none;
+                &:focus{
+                  outline: none;
+              }
+                // outline: solid 1px red;
+            }
+    
+            .birthday_wrap {
+                display: flex;
+                justify-content: space-between;
+    
+                .birthday_select {
+                    position: relative;
+                    width: 31%;
+    
+                    select{
+                        @include h5_PC;
+                        width: 105%;
+                        border: 1px solid $functionalLightGrey3;
+                        border-radius: 10px;
+                        padding: 10px;
+                        margin-right:20px;
+                        box-sizing: border-box;
+                        color: $basicFontColor;
+                        background-color: #f9f9f9;
+                        cursor: pointer;
+    
+                        &:focus{
+                            outline: 1px solid ;
+                        }
+                    }
+    
+                    i{
+                        position: absolute;
+                        top: 50%;
+                        right: 0px;
+                        font-size: 16px;
+                        transform: translate(0,-50%);
+                    }
+                }   
+            }
+    
+    
+            h4 {
+                color: $primaryBrandBlue;
+            }
+    
+            label {
+              @include custom-responsive("xs sm") {
+                @include h5_MB; 
+              }
+              @include custom-responsive("xl xx-l") {
+                  @include h5_PC; 
+              }
+                
+            }
+    
+            button.confirm{
+             
+              @include custom-responsive("xs sm") {
+                @include regularBlueBtn_MB;
+                margin: 7% auto 10%;
+              }
+              @include custom-responsive("xl xx-l") {
+                  @include regularBlueBtn_PC;
+                  margin: 5% auto;
+            }
+
+            }
+        }
+        
+    }
+    input {
+      border: 1px solid $functionalLightGrey3;
+      border-radius: 10px;
+      padding: 10px;      
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      @include custom-responsive("xs sm") {
+        width: 100%;
+        @include h5_MB;
+      }
+      @include custom-responsive("xl xx-l") {
+        @include h5_PC;
+        width: 60%;
+      }
+      &:focus{
+          outline: 1px solid ;
+      }
+      &::placeholder{
+          @include h6_PC;
+          color: rgb(99, 99, 99, 0.35);
+      }
+  }

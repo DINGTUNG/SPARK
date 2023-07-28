@@ -3,7 +3,7 @@ div.sponsor_checkout_container {
   position: relative;
 
   @include custom-responsive("xs sm") {
-    height: 130vh;
+    height: 190vh;
   }
 
   @include custom-responsive("xl xx-l") {

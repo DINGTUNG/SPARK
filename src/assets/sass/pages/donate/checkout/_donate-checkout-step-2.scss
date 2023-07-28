@@ -3,7 +3,7 @@ div.donate_checkout_container {
   position: relative;
 
   @include custom-responsive("xs sm") {
-    height: 200vh;
+    height: 190vh;
   }
 
   @include custom-responsive("xl xx-l") {
@@ -63,7 +63,9 @@ div.donate_checkout_container {
       right: -12vw;
       top: 100vh;
 
-
+      @include custom-responsive("xs sm") {
+        display: none;
+      }
       @include custom-responsive("xl xx-l") {
         width: 50%;
       }

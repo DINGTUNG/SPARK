@@ -32,7 +32,7 @@ div.letter_record_container {
             &:nth-child(2){
                 width: 18%;
                 bottom: -110px;
-                left: -80px;
+                left: -50px;
 
                 @media (max-width: 992px) { 
                     display: none;
@@ -223,7 +223,7 @@ div.letter_record_container {
                 color:$primaryBrandBlue;
             }
 
-            #overlay {
+            .overlay {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -234,25 +234,32 @@ div.letter_record_container {
             }
             
               
-            dialog#modal-dialog {
+            dialog.modal-dialog {
                 position: relative;
                 position: fixed;
                 border: none;
                 outline: none;
                 background-color: transparent;
                 overflow: hidden;
+                
+                .letter{
+                    width: 30vw;
+                }
 
                 @media (max-width: 767px){
+                    position: absolute;
                     transform: translate(-17%, -15%);
                     top: 25%;
                     left: 25%;
                 }
                 @include custom-responsive("md lg") {
+                    position: absolute;
                     top: 27%;
                     left: 27%;
                     transform: translate(-7%, -15%);
                 }
                 @include custom-responsive("xl xx-l") {
+                    position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-40%, -50%);

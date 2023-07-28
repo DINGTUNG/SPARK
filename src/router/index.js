@@ -196,22 +196,22 @@ const router = createRouter({
     component: () => import('@/views/pages/member-center/MemberCenter.vue'),
     children:[
       {
-        path: '/adoption-record',
+        path: 'adoption-record',
         name: 'adoption-record',
         component: () => import('@/views/pages/member-center/AdoptionRecord.vue')
       },
       {
-        path: '/donate-record',
+        path: 'donate-record',
         name: 'donate-record',
         component: () => import('@/views/pages/member-center/DonateRecord.vue')
       },
       {
-        path: '/letter-record',
+        path: 'letter-record',
         name: 'letter-record',
         component: () => import('@/views/pages/member-center/LetterRecord.vue')
       },
       {
-        path: '/modify-meminfo',
+        path: 'modify-meminfo',
         name: 'modify-meminfo',
         component: () => import('@/views/pages/member-center/ModifyMeminfo.vue')
       },

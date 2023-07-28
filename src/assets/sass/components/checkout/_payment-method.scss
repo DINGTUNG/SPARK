@@ -62,8 +62,12 @@ table.checkout_table {
       @include custom-responsive("xs sm") {
         @include h5_PC;
       }
+
+      @include custom-responsive("xl") {
+        @include h5_PC;
+      }
   
-      @include custom-responsive("xl xx-l") {
+      @include custom-responsive("xx-l") {
         @include h4_PC;
       }
     }

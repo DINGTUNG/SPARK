@@ -45,7 +45,7 @@ table.checkout_table {
       }
 
       @include custom-responsive("xl") {
-        @include h6_PC;
+        @include h5_PC;
         font-weight: bold;
         padding: 2vw 2vw 0;
       }
@@ -81,7 +81,7 @@ table.checkout_table {
 
       @include custom-responsive("xl") {
         padding: 3vh 2vw;
-        @include h6_PC;
+        @include h5_PC;
       }
 
       @include custom-responsive("xx-l") {

@@ -112,6 +112,7 @@ const login = () => {
       logStore.a = userIndex;
       errorAccount.value = '';
       alert(`登入成功：${logStore.log[userIndex].name}`);
+      console.log(logStore.log[userIndex].state)
       router.push({ path: '/home' });
       account.value = '';
       password.value = '';

@@ -1,6 +1,15 @@
 .title_img {
     img {
         width: 100%;
+
+        @include custom-responsive("xs sm") {
+            margin-top: 85px;
+        }
+
+        @include custom-responsive("xl xxl") {
+            margin-top: 0;
+        }
+
     }
 }
 
@@ -8,9 +17,11 @@ div.container {
     div.main_body {
         position: relative;
         margin: auto;
+
         @include custom-responsive("xs sm") {
             @include body_space_MB;
         }
+
         @include custom-responsive("xl xxl") {
             @include body_space_PC;
         }
@@ -72,6 +83,7 @@ div.container {
 
     div.report_inner {
         margin-bottom: 100px;
+
         @include custom-responsive("xs sm") {
             display: block;
             margin-top: 70px;

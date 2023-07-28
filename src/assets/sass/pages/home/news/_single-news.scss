@@ -1,25 +1,39 @@
 div.title_img {
     img {
         width: 100%;
+
+        @include custom-responsive("xs sm") {
+            margin-top: 85px;
+        }
+
+        @include custom-responsive("xl xxl") {
+            margin-top: 0;
+        }
+
     }
 }
 
 div.container {
     width: 100%;
+
     div.main_body {
         width: 62.5vw;
         margin: auto;
     }
+
     div.title_block {
         display: flex;
+
         @include custom-responsive(" xs sm") {
             padding: 20px 0 30px;
             align-items: center;
             justify-content: center;
         }
+
         @include custom-responsive(" md lg") {
             justify-content: space-between;
         }
+
         @include custom-responsive(" xl xx-l") {
             padding: 20px 0 35px;
             align-items: center;
@@ -39,19 +53,23 @@ div.container {
             }
 
         }
-        img.deco_line{
 
-            @include custom-responsive(" xs sm") {                   
+        img.deco_line {
+
+            @include custom-responsive(" xs sm") {
                 display: none;
             }
+
             @include custom-responsive("md") {
                 width: 70%;
                 display: block;
             }
+
             @include custom-responsive("lg") {
                 display: block;
             }
-            @include custom-responsive(" xl xx-l") {                 
+
+            @include custom-responsive(" xl xx-l") {
                 display: block;
             }
         }
@@ -98,7 +116,7 @@ div.container {
 
         div.article {
             div.article_block {
-                
+
                 @include custom-responsive("xx-l") {
                     display: flex;
                     padding-bottom: 30px;
@@ -126,8 +144,9 @@ div.container {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+
                     @include custom-responsive(" xs sm") {
-                        padding-bottom:50px;
+                        padding-bottom: 50px;
                     }
 
                     @include custom-responsive(" xx-l") {
@@ -203,6 +222,7 @@ div.container {
             flex-wrap: wrap;
             gap: 30px;
             padding-bottom: 20%;
+
             div.news_card {
                 @include custom-responsive("xs sm") {
                     width: 100%;
@@ -301,6 +321,7 @@ div.container {
                         }
 
                     }
+
                     p {
                         display: -webkit-box;
                         -webkit-line-clamp: 3;
@@ -318,8 +339,9 @@ div.container {
                         }
                     }
 
-                  
+
                 }
+
                 &:hover .card_img::before {
                     opacity: .6;
                 }

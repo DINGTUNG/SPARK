@@ -1,15 +1,30 @@
 div.sponsor_checkout_overview_container {
   width: 100%;
   position: relative;
-  margin:5vh 0 30vh;
+
+  @include custom-responsive("xs sm") {
+    margin-top: -5vh;
+    height: 155vh;
+  }
+
+  @include custom-responsive("xl") {
+    margin-top: 5vh;
+    height: 190vh;
+
+  }
+
+  @include custom-responsive("xx-l") {
+    margin-top: 5vh;
+    height: 160vh;
+
+  }
 
   div.main_body {
-   
+
     position: relative;
     top: 20vh;
     @include flex_vm;
     gap: 50px;
-
 
     @include custom-responsive("xs sm") {
       @include body_space_MB
@@ -17,61 +32,94 @@ div.sponsor_checkout_overview_container {
 
     @include custom-responsive("xl xxl") {
       @include body_space_PC;
+    }
 
-      div.header_wrap {
-        @include flex_hm;
-        gap: 20px;
-
+    div.header_wrap {
+      @include flex_hm;
+      @include custom-responsive("xs sm") {
+        align-items: flex-start;
 
         div.text {
-          @include flex_vm;
-          gap: 20px;
-
 
           h2.title {
-            text-align: center;
-            display: inline-block;
-            width: 700px;
-            @include h3_PC;
-            color: $primaryAccentGold;
+            @include h4_B_PC;
+            line-height: 1.5;
+            width: 70vw;
           }
 
           p.content {
-            display: inline-block;
+            width: 70vw;
+          }
+        }
+
+      }
+
+      @include custom-responsive("xl xx-l") {
+        gap: 20px;
+        div.text {
+
+          h2.title {
+            @include h3_PC;
             width: 700px;
-            @include h6_PC;
           }
 
+          p.content {
+            width: 700px;
+          }
         }
 
-        img {
+      }
+
+      img {
+        @include custom-responsive("xs sm") {
+          width: 10vw;
+          margin-top: 4vh;
+        }
+
+        @include custom-responsive("xl xx-l") {
+          margin-top: 0;
           width: 150px;
         }
+
       }
 
+      div.text {
+        @include flex_vm;
+        gap: 20px;
 
-      div.sponsor_overview_table {
+        h2.title {
+          text-align: center;
+          display: inline-block;
+          color: $primaryAccentGold;
+        }
+
+        p.content {
+          display: inline-block;
+          @include h6_PC;
+        }
       }
-
-
-      button {}
-
-
-      img.deco {
-        position: absolute;
-        top: 30vh;
-        z-index: -10;
-      }
-
     }
 
+    div.sponsor_overview_table {}
 
+    button {}
 
-    button {
-      @include regularBlueBtn_PC;
+    img.deco {
+      position: absolute;
+      top: 30vh;
+      z-index: -10;
 
+      @include custom-responsive("xs sm") {
+        display: none
+      }
+
+      @include custom-responsive("xl xx-l") {
+        display: block
+      }
     }
+  }
 
-
+  button {
+    @include regularBlueBtn_PC;
   }
 }

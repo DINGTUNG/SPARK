@@ -1,6 +1,26 @@
 div.table_wrap {
   @include flex_vm;
-  gap: 50px;
+
+  @include custom-responsive("xs sm") {
+    gap: 3vh;
+    table.donate_info_PC {
+      display: none;
+    }
+
+    table.donate_info_MB {
+      display: block;
+    }
+  }
+
+  @include custom-responsive("xl xx-l") {
+    table.donate_info_PC {
+      display: block;
+    }
+
+    table.donate_info_MB {
+      display: none;
+    }
+  }
 
 
   table {
@@ -11,8 +31,16 @@ div.table_wrap {
     border-top: 0;
     border-radius: 15px;
     overflow: hidden;
-    width: 800px;
     background-color: $primaryBgWhite;
+
+    @include custom-responsive("xs sm") {
+      width: 80vw;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      width: 50vw;
+    }
+
 
     th {
       background-color: $primaryBgBlue;
@@ -20,21 +48,44 @@ div.table_wrap {
       @include h5_PC;
       text-align: left;
       padding-left: 30px;
+
+
+      @include custom-responsive("xs sm") {
+        width: 80vw;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        width: 50vw;
+      }
     }
 
     td {
-      padding: 20px 30px;
       border-bottom: 1px solid $functionalLightGrey2;
       @include h6_PC;
       text-align: center;
+
+      @include custom-responsive("xs sm") {
+        padding: 0vh 2vw;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        padding: 2vh 2vw;
+      }
+
     }
 
     td.title {
       font-weight: bold;
+      @include custom-responsive("xs sm") {
+        padding-left: 5vw;
+      }
+    
+      @include custom-responsive("xl xx-l") {
+        padding-left: 3vw;
+      }
     }
 
     tfoot {
-
       td.total {
         background-color: $functionalLightGrey1;
         ;
@@ -51,8 +102,16 @@ div.table_wrap {
           }
 
           img.star {
-            width: 1vw;
+           
             margin: 0 1vw;
+
+            @include custom-responsive("xs sm") {
+              width: 5vw;
+            }
+          
+            @include custom-responsive("xl xx-l") {
+              width: 1vw;
+            }
 
           }
         }
@@ -61,10 +120,15 @@ div.table_wrap {
   }
 
 
-
   table.donate_info {
+    @include custom-responsive("xs sm") {
+    }
 
-    td,th{
+    @include custom-responsive("xl xx-l") {}
+
+
+    td,
+    th {
       text-align: left;
     }
   }

@@ -33,7 +33,7 @@ div.sponsor_checkout_container {
         flex-direction: column;
         align-items: center;
         top: 15vh;
-        gap: 3vh;
+        gap: 5vh;
       }
 
       @include custom-responsive("xl") {
@@ -56,9 +56,11 @@ div.sponsor_checkout_container {
 
 
       div.checkout_table_wrap {
+        @include flex_vm;
 
         @include custom-responsive("xs sm") {
-          order: 1
+          order: 1;
+          gap: 2vh;
         }
 
         @include custom-responsive("xl xxl") {
@@ -69,6 +71,7 @@ div.sponsor_checkout_container {
       div.checkout_overview_wrap {
         @include flex_vm;
         gap: 40px;
+
       }
     }
 

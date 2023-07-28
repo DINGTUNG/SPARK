@@ -241,46 +241,65 @@ div.letter_record_container {
                 outline: none;
                 background-color: transparent;
                 overflow: hidden;
+
                 
                 .letter{
-                    width: 30vw;
+                    width: 100%;
                 }
 
-                @media (max-width: 767px){
-                    position: absolute;
-                    transform: translate(-17%, -15%);
-                    top: 25%;
-                    left: 25%;
-                }
-                @include custom-responsive("md lg") {
-                    position: absolute;
-                    top: 27%;
-                    left: 27%;
-                    transform: translate(-7%, -15%);
-                }
-                @include custom-responsive("xl xx-l") {
-                    position: absolute;
+                @include custom-responsive("xs") {       
                     top: 50%;
                     left: 50%;
-                    transform: translate(-40%, -50%);
+                    transform: translate(-50%, -50%);
+                    width: 80%;  
+                }
+                @include custom-responsive("sm") {       
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 70%;  
+                }
+                @include custom-responsive("md") {       
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 55%;  
+                }
+                @include custom-responsive("lg") {       
+                    top: 53%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50%;  
+                }
+                @include custom-responsive("xl") {
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 45%;  
+                }
+                @include custom-responsive("xx-l") {
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 36%;  
                 }
 
 
-                button.close_btn{
-                    width: 4.5rem;
-                    top: 0;
-                    position: absolute;
+                // button.close_btn{
+                //     width: 4.5rem;
+                //     top: 0;
+                //     position: absolute;
 
-                    @media (max-width: 992px){
-                       display: none;
-                    }
-                    @include custom-responsive("lg") {
-                        right: 11%;
-                    }
-                    @include custom-responsive("xl xx-l") {
-                        right: 13%;
-                    }
-                }
+                //     @media (max-width: 992px){
+                //        display: none;
+                //     }
+                //     @include custom-responsive("lg") {
+                //         right: 11%;
+                //     }
+                //     @include custom-responsive("xl xx-l") {
+                //         right: -50px;
+                //     }
+                // }
 
                 .btn_icon{
                     max-width: 75%;

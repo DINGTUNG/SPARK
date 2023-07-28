@@ -57,7 +57,7 @@ export class DonateProject {
     SPARK_ACTIVITY: new DonateProject(
       'D007',
       'pictures/images/donate/donate-content/D007_spark_project.jpg',
-      '星火活動-夢想之星',
+      '夢想之星',
       '讓孩子們探索自我，提出他們的夢想計畫，並邀請您投給您最愛的組別，為該組爭取「夢想成真」獎金！讓我們一同以熱情激勵，為孩子們的夢想點燃璀璨星火。',
       87900
     ),

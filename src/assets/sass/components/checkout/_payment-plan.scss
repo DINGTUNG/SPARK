@@ -1,31 +1,74 @@
 table.checkout_table {
 
-  width: 700px;
+  @include custom-responsive("xs sm") {
+    width: 80vw;
+  }
+
+
+  @include custom-responsive("xl xx-l") {
+    width: 40vw;
+  }
+
 
   caption {
     text-align: left;
     @include h2_PC;
     border-bottom: 5px solid $primaryBrandBlue;
     padding: 10px 0;
+
+
+    @include custom-responsive("xs sm") {
+      @include h3_PC
+    }
+
+    @include custom-responsive("xl") {
+      @include h3_PC
+    }
+
+    @include custom-responsive("xx-l") {
+      @include h1_PC
+    }
   }
 
 }
 
 
+
 div.payment_plan_wrap {
   @include flex_hm;
+
+  @include custom-responsive("xs sm") {
+    flex-wrap: wrap
+  }
+
+  @include custom-responsive("xl xx-l") {
+    flex-wrap: nowrap
+  }
 
   div.payment_plan {
     @include flex_hm;
     @include h4_PC;
-    width: 150px;
-    height: 100px;
-    border-radius: $br_PC;
-    margin: 20px 10px;
+    border-radius: 20px;
     border: 2px solid $primaryBrandBlue;
     @include btnEffect;
     color: $primaryBrandBlue;
     background-color: $primaryBrandWhite;
+
+    @include custom-responsive("xs sm") {
+      width: 30vw;
+      height: 11vh;
+      margin: 2vh 3vw 0;
+
+    }
+
+    @include custom-responsive("xl xx-l") {
+      width: 8vw;
+      height: 11vh;
+      margin: 20px 10px;
+    }
+
+
+
   }
 
   div.chosen {

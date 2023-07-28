@@ -1,6 +1,15 @@
 div.donate_checkout_container {
   width: 100%;
   position: relative;
+  
+  @include custom-responsive("xs sm") {
+    height: 110vh;
+  }
+
+  @include custom-responsive("xl xx-l") {
+    height: 100vh;
+  }
+
 
   div.main_body {
     position: relative;

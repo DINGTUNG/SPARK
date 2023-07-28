@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watchEffect, watch, computed, onMounted, onUnmounted} from 'vue';
+import { ref, watchEffect, watch, onMounted, onUnmounted} from 'vue';
 import { RouterLink, useRoute} from 'vue-router';
 
 let isNavOpen = ref(false);
@@ -169,17 +169,22 @@ const closeNav = () => {
       <nav>
         <ul>
           <li v-for="(item, index) in menuItems" :key="index">
+
             <template v-if="item.submenu && !isLargeScreen">
               <a class="link" @click="toggleSubMenu(index)" :class="{ 'active': activeSubMenu === index }">
                 {{ item.label }}
                 <span class="submenu_icon"></span>
               </a>
+              
               <ul v-show="activeSubMenu === index">
                 <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
                   <RouterLink :to="subItem.route" class="link">{{ subItem.label }}</RouterLink>
                 </li>
               </ul>
             </template>
+
+
+
             <template v-else>
               <RouterLink v-if="item.route" :to="item.route" :class="['link', { 'member_login': item.label === '會員登入' }]"
                 @mouseover="item.label !== '會員登入' ? showSubMenu(index) : null"

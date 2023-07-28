@@ -76,7 +76,7 @@ table.checkout_table {
   
       @include custom-responsive("xs sm") {
         padding: 2vw 2vw 0;
-        @include h6_PC;
+        @include h5_PC;
       }
 
       @include custom-responsive("xl") {

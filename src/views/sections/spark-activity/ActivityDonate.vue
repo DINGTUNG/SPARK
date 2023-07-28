@@ -9,7 +9,7 @@ const router = useRouter()
 const goToDonatePageAndScrollToBottom = () => {
   router.push({ path: '/donate' });
   // window.scrollTo(0, (document.body.scrollHeight-500) || (document.documentElement.scrollHeight));
-  window.scrollTo(0, 3000);
+  window.scrollTo(0, 2900);
   donateCartStore.showSideList()
   donateCartStore.chosenDonateProject = reactive(DonateProject.TYPE.SPARK_ACTIVITY)
 }

@@ -203,7 +203,7 @@ div.container {
 
                     h4 {
                         color: $primaryBgBlue;
-
+                        cursor: pointer;
                         @include custom-responsive(" xs sm") {
                             @include h6_MB;
                             padding: 5px 0 5px;

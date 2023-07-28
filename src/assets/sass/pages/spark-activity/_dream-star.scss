@@ -64,7 +64,16 @@
             box-sizing: border-box;
             padding: 3%;
             margin: 6% 0;
+            border-radius: 1.3vw;
+            box-shadow: 0 0 12px #A8CEF0;
             position: relative;
+
+            
+            .clip {
+                position: absolute;
+                top: -34px;
+                left: 55px;
+            }
 
             .dream_dashline {
                 width: 100%;
@@ -85,33 +94,20 @@
                         color: $primaryBrandBlue;
                         position: relative;
 
-                    &::before {
-                        content: "";
-                        background-image: url("/pictures/spark_activity/dream_star/subtitle_bg.svg");
-                        height: 200px;
-                        width: 200px;
-                        // position: absolute;
-                        // top: 0;
-                        // left: 0;
-                        margin-right: -30px;
-                        background-color: aqua;
-                        }
-
                     }
                 }
 
-                span {
+                .goal_wrap {
+                    display: flex;
+                }
+
+                .article_highlight {
                     color: $decorativeOrange;
                     font-weight: 700;
                 }
                 
             }
 
-            .clip {
-                position: absolute;
-                top: -8%;
-                left: 5%;
-            }
             
         
         }

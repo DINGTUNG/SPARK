@@ -27,7 +27,7 @@ const submitMessage = () => {
   </div>
 
   <div class="input_text">
-    <input class="input" id="input" type="text" placeholder="歡迎留下鼓勵孩子們勇敢追夢的話吧！" v-model="userMessage" autocomplete="on">
+    <input class="input" id="input" type="text" placeholder="歡迎留下鼓勵孩子們勇敢追夢的話吧！" v-model="userMessage" autocomplete="on" @keyup.enter="submitMessage">
     <button type="submit" @click="submitMessage" class="send">Go!</button>
   </div>
 </template>

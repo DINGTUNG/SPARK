@@ -208,15 +208,15 @@ const letterData = reactive([
           </tbody>
         </table>
 
-        <div v-if="modalImageSrc !== ''" class="overlay" @click="closeImageModal"></div>
+        <!-- <div v-if="modalImageSrc !== ''" class="overlay" @click="closeImageModal"></div> -->
 
         <!-- 彈窗 -->
-        <div ref="modalContainer" id="modal-container">
-          <div v-if="modalImageSrc !== ''" id="overlay" @click="closeImageModal"></div>
-          <dialog ref="infoModal" :open="modalImageSrc !== ''" id="modal-dialog" @click="closeImageModal">
-            <Images id="letter" :imgSrc="modalImageSrc" alt="Image" />
-            <button id="close_btn">
-              <Images id="btn_icon" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
+        <div ref="modalContainer" class="modal-container">
+          <div v-if="modalImageSrc !== ''" class="overlay" @click="closeImageModal"></div>
+          <dialog ref="infoModal" :open="modalImageSrc !== ''" class="modal-dialog" @click="closeImageModal">
+            <Images :imgSrc="modalImageSrc" alt="Image" class="textttt" />
+            <button class="close_btn">
+              <Images class="btn_icon" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button>
           </dialog>
         </div>

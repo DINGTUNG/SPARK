@@ -60,8 +60,7 @@
       position: relative;
 
       img {
-        cursor: pointer;
-        transition: opacity .5s ease-in-out;
+
         animation: boy_float 1.9s 1s ease-in-out infinite alternate;
 
         @keyframes boy_float {
@@ -87,8 +86,6 @@
       position: relative;
 
       img {
-        cursor: pointer;
-        transition: opacity .5s ease-in-out;
         animation: boy_float 1.9s 1s ease-in-out infinite alternate;
 
         @keyframes boy_float {
@@ -156,6 +153,8 @@
 img.img {
   position: absolute;
   width: 15vw;
+  cursor: pointer;
+  transition: opacity .2s ease-in-out;
 }
 
 div.title_img_front,

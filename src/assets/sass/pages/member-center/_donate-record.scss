@@ -130,7 +130,7 @@ div.donate_record_container {
                                 @media (max-width: 992px) {         
                                     @include h6_MB;
                                     padding: 5px 15px;
-                                    margin: 20px 10px;
+                                    margin: 10px 10px;
                                 }
 
                                 span{
@@ -174,6 +174,7 @@ div.donate_record_container {
                                 @include regularGoldBtn_MB;
                                 padding: 12px 50px;
                                 line-height: 12px;
+                                margin: 10px 0;
                             }
                         }
                     }

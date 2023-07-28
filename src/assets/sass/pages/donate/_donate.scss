@@ -1,6 +1,14 @@
 .banner {
         width: 100%;
 
+        @include custom-responsive("xs") {
+            margin-top: 85px;
+        }
+
+        @include custom-responsive("xl xx-l") {
+            margin-top: 0px;
+        }
+
         img {
             width: 100%;
         }

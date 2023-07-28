@@ -50,24 +50,17 @@ div.container{
         display: inline-block;
         @include custom-responsive("xs sm"){
           @include h3_MB;
-          margin: 8% 0;
-          &:nth-child(1){
-            @include regularBlueBtn_MB;
-          }
-          &:nth-child(2){
-            @include regularWhiteBtn_MB;
-          }
+          margin: 8% 2%;
+          @include regularWhiteBtn_MB;
         }
         @include custom-responsive("xl xx-l") {
           margin-left: auto;
           @include h3_PC;
           margin: 0 10px;
           line-height: 50px;
-          &:nth-child(1){
-            @include smallWhiteBtn_PC;
-          }
-          &:nth-child(2){
-            @include smallWhiteBtn_PC;
+          @include smallWhiteBtn_PC;
+          &:hover{
+            @include smallBlueBtn_PC;
           }
         }
 
@@ -80,12 +73,19 @@ div.container{
         position: relative;
         cursor: pointer;
         div.deco{
-          position: absolute;
-          top: 15%;
-          right: 10%;
-          img{
-            width: 5vw;
+          @include custom-responsive("xs sm") {
+            display: none;
           }
+          @include custom-responsive("xl xx-l") {
+            position: absolute;
+            display: block;
+            top: 15%;
+            right: 10%;
+            img{
+              width: 5vw;
+            }
+          }
+
         }
         div.title{
 
@@ -196,16 +196,22 @@ div.container{
     section.warm-story{
       position: relative;
       div.deco{
-        position: absolute;
-        width: 10vw;
-        bottom:5%;
-        left: -15%;
-        img{
-          width: 100%;
+        @include custom-responsive("xs sm") {
+          display: none;
         }
-        &:nth-child(2){
-          top: 10%;
-          left: 100%;
+        @include custom-responsive("xl xx-l") {
+          position: absolute;
+          display: block;
+          width: 12vw;
+          bottom:16%;
+          left: -19%;
+          img{
+            width: 100%;
+          }
+          &:nth-child(2){
+            top: 3%;
+            left: 102%;
+          }
         }
       }
       div.title{
@@ -412,11 +418,17 @@ div.container{
         }
         @include custom-responsive("xl xx-l") {
           position: absolute;
-          width: 20vw;
-          bottom: 0;
-          left: -25%;
+          display: block;
+          width: 13vw;
+          bottom:0;
+          left: -22%;
           img{
             width: 100%;
+          }
+          &:nth-child(2){
+            width: 4vw;
+            left: 86%;
+            top: 10%;
           }
         }
 

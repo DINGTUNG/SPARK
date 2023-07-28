@@ -65,8 +65,8 @@ const goToCheckoutPage = () => {
 
     </div>
     <div class="img">
-      <img :src="'pictures/decorations/illustration/blue_shooting_stars.svg'" alt="流星" class="star">
-      <img :src="'pictures/characters/star/star_superman.svg'" alt="超人" class="man">
+      <Images :imgSrc="'pictures/decorations/illustration/blue_shooting_stars.svg'" :alt="流星" id="star"/>
+      <Images :imgSrc="'pictures/characters/star/star_superman.svg'" :alt="超人" id="man"/>
     </div>
     <div class="donate_total">
       <div class="total_price">

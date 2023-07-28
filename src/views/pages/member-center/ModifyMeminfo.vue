@@ -16,6 +16,11 @@ const Days = reactive([
     <div class="container">
         <div class="main_body">
             <div class="main_form">
+                <div class="deco">
+                    <Images id="star1" :imgSrc="'pictures/decorations/illustration/smilestar_golden.svg'" :alt="'金星星'" />
+                    <Images id="star2" :imgSrc="'pictures/decorations/illustration/smilestar_yellow.svg'" :alt="'黃星星'" />
+                    <Images id="rocket" :imgSrc="'pictures/decorations/illustration/rocket_with_gold_fire.svg'" :alt="'火箭'" />
+                </div>
             <div class="title">
                 <h1>修改會員資料</h1>
                 <h5>會員編號 brt98439849d</h5>

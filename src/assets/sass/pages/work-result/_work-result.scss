@@ -126,7 +126,7 @@ div.result_display{
                 margin: 2% auto 5%;
             }
             @include custom-responsive("xl xx-l") {
-                margin: 4%;
+                margin: 4% 4% 4% 10%;
             }
 
             h2{

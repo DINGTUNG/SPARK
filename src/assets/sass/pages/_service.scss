@@ -1,6 +1,12 @@
 
 @include custom-responsive('xs'){
     div.banner{
+        @include custom-responsive("xs sm") {
+            margin-top: 80px;
+          }
+          @include custom-responsive("xl xx-l"){
+            margin: 0;
+          }
         width: 100%;
         img.MB{
             width: 100%;
@@ -234,9 +240,18 @@
                 position: absolute;
                 z-index: 0;
                 &:nth-child(1){
+                    @keyframes hide_and_seek {
+                        0% {
+                            transform: rotate(1deg);
+                        }
+                        100% {
+                            transform: rotate(3deg);
+                        }
+                    }
                     width: 20%;
                     top:5%;
                     left: -200px;
+                    animation: hide_and_seek infinite;
                 }
                 &:nth-child(2){
                     width: 28%;
@@ -281,6 +296,7 @@
         }
 }
 }
+
 
 
 

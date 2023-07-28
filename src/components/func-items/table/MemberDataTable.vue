@@ -50,7 +50,7 @@ const memberDataStore = useMemberDataStore();
     </tr>
 
     <tr>
-      <td class="title">身分證字號</td>
+      <td class="title" id="id_title">身分證字號</td>
       <td colspan="3" >{{ memberDataStore.memberData.id }}</td>
 
     </tr>

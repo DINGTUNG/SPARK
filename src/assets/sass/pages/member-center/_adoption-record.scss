@@ -1,0 +1,259 @@
+div.adoption_record_container {
+    width: 100%;
+
+    div.main_body {
+        margin: auto;
+        position: relative;
+
+        @include custom-responsive("xs sm") {
+            @include body_space_MB;
+        }
+
+        @include custom-responsive("xl xx-l") {
+            @include body_space_PC;
+        }
+
+        #deco{
+            position: absolute;
+            &:nth-child(1){
+
+                @include custom-responsive("xs sm md") {
+                    width: 55px;
+                    right: 10px;
+                    top: -20px;
+                }
+        
+                @include custom-responsive("lg xl xx-l") {
+                    width: 65px;
+                    right: -30px;
+                    top: -100px;
+                }
+            }
+            &:nth-child(2){
+                width: 18%;
+                bottom: -110px;
+                left: -80px;
+
+                @media (max-width: 992px) { 
+                    display: none;
+                }
+            }
+        }
+
+        div.table{
+            margin-bottom: 100px;
+            margin-top: 60px;
+            position: relative;
+
+            div.title{
+                display: flex;
+
+                #love_book{
+
+                    @include custom-responsive("xs sm md") {
+                        display: none;               
+                    }
+            
+                    @include custom-responsive("lg xl xx-l") {
+                        display: block;      
+                        width: 45px;                 
+                    }
+                }
+
+                h1{
+                  color: $primaryBgBlue;
+                  margin-left: 15px;
+
+                    @media (max-width: 992px) { 
+                        @include h1_MB;
+                        margin: auto;       
+                   
+                    }
+                }
+            }
+            div.text{
+                margin-top: 25px;
+
+                @media (max-width: 992px) { 
+                    @include h5_MB;                 
+                }
+            }
+
+            div.date_block{
+                margin-top: 30px;
+
+                div.date_picker{
+                    background-color: $primaryBgBlue;
+                    border-radius: 15px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding: 20px 0;
+                    align-items: center;
+
+                    @media (max-width: 992px){               
+                       flex-wrap: wrap;
+                    }
+
+                    span {
+                        @include h5_B_PC;
+                        color: $primaryBrandWhite;
+                    }
+                        
+                    div.date_choose{
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            color:$primaryBrandWhite;
+
+                            .date{
+                                display: flex;
+                                justify-content: space-around;
+                                background-color:$primaryBrandWhite;
+                                padding: 12px 30px;
+                                border-radius: 15px;
+                                border: 2px solid $secondaryLightBlue1;
+                                margin: 0 30px;
+                                align-items: center;
+
+                                @media (max-width: 992px) {         
+                                    @include h6_MB;
+                                    padding: 5px 15px;
+                                    margin: 20px 10px;
+                                }
+
+                                span{
+                                    @include h6_PC;
+                                    color: $primaryBrandBlue;
+                                    margin-right:20px;
+
+                                    @media (max-width: 992px){               
+                                        flex-wrap: wrap;
+                                        margin-right:20px;
+                                     }
+                                }
+                                i{
+                                    color: $primaryBrandBlue;
+                                    font-size: 21px;
+                                    cursor: pointer;
+                                }
+                            }
+                    }
+                
+                    .search{
+                        button{
+                            @include h5_B_PC;
+                            color: $primaryBrandBlue;
+                            background-color: $secondaryLightGold2;
+                            padding: 12px 50px;
+                            border-radius: 50px;
+
+                            @media (max-width: 992px) {
+                                @include h5_B_MB;
+                                color: $primaryBrandBlue;
+                                @include regularGoldBtn_MB;
+                                padding: 12px 50px;
+                                line-height: 12px;
+                            }
+                        }
+                    }
+      
+                }
+    
+                h6{
+                    @include h6_PC;
+                    color:$secondaryLightBlue2;
+                    margin-top: 10px;
+
+                    @media (max-width: 992px) { 
+                        @include h6_MB;        
+                        margin-top: 20px;
+                    }
+                }
+
+            }
+            
+        
+            table.adoption_table{
+                border-radius: 15px;
+                overflow: hidden;
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 50px;
+                margin-top: 40px;
+
+                @media (max-width: 992px) {
+                     margin-top: 40px;
+                }
+
+
+                thead{
+                    @include h5_PC;
+
+                    @media (max-width: 992px) {
+                        display: none;
+                    }
+
+                  
+                    th{
+                        color: $primaryBrandWhite;
+                        text-align: left;
+                        padding: 10px 0 10px 30px;
+                        background-color: $primaryBgBlue;     
+                    }
+                }
+
+                tr.info{
+                    @include h6_PC;
+
+                    @media (max-width: 992px){
+                        @include h5_MB;
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 30px;
+                    }
+
+ 
+                    td{
+                        text-align: left;
+                        padding: 15px 0 15px 30px;
+                        color: $basicFontColor;
+                        background-color:#ffffff; 
+                        border: 1px solid $functionalLightGrey3;
+                        transition: .3s;
+
+                        @media (max-width: 992px){               
+                            text-align: right;
+                            padding-right: 5%;
+                            display: block;
+                            width: 100%;
+                            position: relative;
+                            border: 0.5px solid $functionalLightGrey3;
+                        }
+                    }
+
+                    td::before{
+                        @media (max-width: 992px){     
+                            content: attr(data-title);          
+                            position: absolute;
+                            left:0;
+                            padding-left:15px;
+                            text-align: left;
+                            @include h5_MB;
+                        }
+                    }
+
+                    td.count{
+                        @media (max-width: 992px){
+                            @include h5_B_MB;
+                            color: $secondaryLightBlue3;
+                            background-color: $functionalBgLightGrey1;
+                        }
+                    }
+                    &:hover td{
+                        background-color:$functionalLightGrey1;
+                    }
+                }
+            }
+        }
+    }
+}

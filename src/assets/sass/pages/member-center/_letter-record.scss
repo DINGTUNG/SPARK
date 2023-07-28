@@ -18,9 +18,9 @@ div.letter_record_container {
             &:nth-child(1){
 
                 @include custom-responsive("xs sm md") {
-                    width: 65px;
-                    right: 20px;
-                    top: -40px;
+                    width: 55px;
+                    right: 10px;
+                    top: -20px;
                 }
         
                 @include custom-responsive("lg xl xx-l") {
@@ -33,12 +33,16 @@ div.letter_record_container {
                 width: 18%;
                 bottom: -110px;
                 left: -80px;
+
+                @media (max-width: 992px) { 
+                    display: none;
+                }
             }
         }
 
         div.table{
             margin-bottom: 100px;
-            margin-top: 280px;
+            margin-top: 60px;
             position: relative;
 
             div.title{
@@ -47,10 +51,11 @@ div.letter_record_container {
                 #love_book{
 
                     @include custom-responsive("xs sm md") {
-                        width: 45px;                     
+                        display: none;               
                     }
             
                     @include custom-responsive("lg xl xx-l") {
+                        display: block;      
                         width: 45px;                 
                     }
                 }
@@ -58,6 +63,11 @@ div.letter_record_container {
                 h1{
                   color: $primaryBgBlue;
                   margin-left: 15px;
+
+                  @media (max-width: 992px) { 
+                    @include h1_MB;
+                    margin: auto;               
+                    }
                 }
             }
             div.text{
@@ -207,7 +217,7 @@ div.letter_record_container {
                 color:$primaryBrandBlue;
             }
 
-            .overlay {
+            #overlay {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -218,7 +228,7 @@ div.letter_record_container {
             }
             
               
-            dialog.modal-dialog {
+            dialog#modal-dialog {
                 position: relative;
                 position: fixed;
                 border: none;

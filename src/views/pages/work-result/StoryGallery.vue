@@ -92,7 +92,7 @@ const photoAlbum = reactive(PHOTO_ALBUM)
           <img :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星" />
         </div>
         <div class="deco">
-          <img :src="'pictures/decorations/illustration/golden_star_3.svg'" alt="星星裝飾" />
+          <img :src="'pictures/decorations/illustration/three_asterisk.svg'" alt="流星" />
         </div>
         <div class="title">
           <div class="name">
@@ -137,7 +137,10 @@ const photoAlbum = reactive(PHOTO_ALBUM)
       
       <section class="photo-album" id="photo-album">
         <div class="deco">
-          <img :src="'pictures/characters/girl/girl_bubbling.svg'" alt="" />
+          <img :src="'pictures/characters/girl/girl_hugging_star.svg'" alt="" />
+        </div>
+        <div class="deco">
+          <img :src="'pictures/decorations/illustration/smilestar_blue.svg'" alt="" />
         </div>
         <div class="title">
           <div class="name">

@@ -210,7 +210,7 @@ div.container {
         @include custom-responsive(" xl xx-l") {
           @include h5_B_PC;
           border-radius: $br_PC;
-          margin: 0 40px 0 0;
+          margin: 0 40px 10px 0;
         }
 
         .card_title {

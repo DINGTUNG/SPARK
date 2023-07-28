@@ -21,8 +21,8 @@
         </div>
 
         <div class="dream_wrap content">
+          <img :src="'pictures/spark_activity/dream_star/clip.svg'" alt="clip" class="clip">
           <div class="dream_dashline">
-            <img src="" alt="" class="clip">
             <img src="" alt="" class="shine">
             <div class="subtitle">
               <h2>夢想內容</h2>
@@ -36,27 +36,30 @@
         </div>
 
         <div class="dream_wrap plan">
-          <img src="" alt="" class="clip">
-          <img src="" alt="" class="shine">
-          <div class="subtitle">
-            <h2>夢想規劃</h2>
-            <img src="" alt="" class="subtitle_bg">
-          </div>
-          <div class="goal_wrap">
-            <div class="goal_term">
-              <span>短期目標</span>
-              <img src="" alt="">
-              <p>培養對音樂的興趣和熱愛<br>享受音樂的樂趣並表達自己</p>
+          <img :src="'pictures/spark_activity/dream_star/clip.svg'" alt="clip" class="clip">
+          <div class="dream_dashline">
+            <img src="" alt="" class="clip">
+            <img src="" alt="" class="shine">
+            <div class="subtitle">
+              <h2>夢想規劃</h2>
+              <img src="" alt="" class="subtitle_bg">
             </div>
-            <div class="goal_term">
-              <span>中期目標</span>
-              <img src="" alt="">
-              <p>提供專業音樂指導和訓練<br>培養團隊合作的意識</p>
-            </div>
-            <div class="goal_term">
-              <span>長期目標</span>
-              <img src="" alt="">
-              <p>讓孩子們參與音樂比賽和演出<br>舉辦音樂演奏會和公益音樂活動</p>
+            <div class="goal_wrap">
+              <div class="goal_term">
+                <span>短期目標</span>
+                <img src="" alt="">
+                <p>培養對音樂的興趣和熱愛<br>享受音樂的樂趣並表達自己</p>
+              </div>
+              <div class="goal_term">
+                <span>中期目標</span>
+                <img src="" alt="">
+                <p>提供專業音樂指導和訓練<br>培養團隊合作的意識</p>
+              </div>
+              <div class="goal_term">
+                <span>長期目標</span>
+                <img src="" alt="">
+                <p>讓孩子們參與音樂比賽和演出<br>舉辦音樂演奏會和公益音樂活動</p>
+              </div>
             </div>
           </div>
         </div>

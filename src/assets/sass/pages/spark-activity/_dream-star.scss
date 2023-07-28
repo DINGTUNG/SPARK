@@ -63,12 +63,20 @@
             width: 100%;
             box-sizing: border-box;
             padding: 3%;
-            margin: 5% 0;
+            margin: 6% 0;
+            position: relative;
+
             .dream_dashline {
                 width: 100%;
                 box-sizing: border-box;
                 padding: 0 6.5% 3%;
                 border: 2px dashed $secondaryLightBlue1;
+            }
+
+            .clip {
+                position: absolute;
+                top: -8%;
+                left: 5%;
             }
             
         

@@ -82,7 +82,11 @@
         font-size: 14px;
       }
     }
-  } 
+  }
+  
+  p{
+    font-size: 14px;
+  }
 }
 
 // 媒體裝置md (min-width:768px)
@@ -138,7 +142,11 @@
         font-size: 16px;
       }
     }
-  } 
+  }
+  
+  p{
+    font-size: 16px;
+  }
 }
 
 // 媒體裝置xl (min-width:1200px)
@@ -349,7 +357,6 @@ footer{
     margin-top: 5vh;
     padding: 10px;
     box-sizing: border-box;
-    font-size: 16px;
   }
 
   div.footer_copyright{

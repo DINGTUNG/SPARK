@@ -243,23 +243,23 @@ div.letter_record_container {
                 overflow: hidden;
                 
                 .letter{
-                    width: 30vw;
+                    width: 100px;
                 }
 
                 @media (max-width: 767px){
-                    position: absolute;
+          
                     transform: translate(-17%, -15%);
                     top: 25%;
                     left: 25%;
                 }
                 @include custom-responsive("md lg") {
-                    position: absolute;
+         
                     top: 27%;
                     left: 27%;
                     transform: translate(-7%, -15%);
                 }
                 @include custom-responsive("xl xx-l") {
-                    position: absolute;
+         
                     top: 50%;
                     left: 50%;
                     transform: translate(-40%, -50%);

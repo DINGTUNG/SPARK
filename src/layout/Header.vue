@@ -155,13 +155,8 @@ const closeNav = () => {
 
 <template>
   <header>
-<<<<<<< HEAD
-    <RouterLink to="/" class="link_home">
-      <img alt="Spark logo" class="logo" :src="imgSrc"/>
-=======
     <RouterLink to="/home" class="link_home">
       <Images id="logo" :imgSrc="imgSrc" :alt="Sparklogo"/>
->>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
     </RouterLink>
 
     <button class="nav_toggle" v-if="!isLargeScreen" @click="toggleNav" v-bind:class="{ open: isNavOpen }">

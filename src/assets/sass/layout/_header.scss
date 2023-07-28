@@ -4,11 +4,7 @@
 //共用
 header {
   .link_home {
-<<<<<<< HEAD
-    img.logo {
-=======
     #logo {
->>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
       vertical-align: top;
     }
   }
@@ -49,9 +45,7 @@ header {
               &:hover {
                 background-color: $functionalLightGrey1;
                 border-radius: 15px;
-
               }
-
 
             }
           }
@@ -197,11 +191,7 @@ div.blur-background.show {
     align-items: center;
 
     .link_home {
-<<<<<<< HEAD
-      img.logo {
-=======
       #logo {
->>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
         width: 150px;
       }
     }
@@ -256,11 +246,7 @@ div.blur-background.show {
 @include custom-responsive("xx-l") {
   header {
     .link_home {
-<<<<<<< HEAD
-      img.logo {
-=======
       #logo {
->>>>>>> 5d02e9bbc2f861f4ff17f38dcd59f8cba693071c
         width: 300px;
       }
     }

@@ -223,7 +223,7 @@ div.container {
 
         img.superman {
             position: relative;
-
+            animation: bubble 3s infinite;
             @include custom-responsive(" xs sm") {
                 display: none
             }
@@ -246,6 +246,20 @@ div.container {
                 top: 50%;
                 left: -30%;
             }
+        }
+    }
+
+    @keyframes bubble {
+        0% {
+            transform: translateY(0);
+        }
+    
+        50% {
+            transform: translateY(35px);
+        }
+    
+        100% {
+            transform: translateY(0);
         }
     }
 }

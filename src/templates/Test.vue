@@ -1,16 +1,15 @@
-<script lang="js" setup>
-import SideBar from '../views/pages/spark-back/SideBar.vue';
-
+<script setup>
+import { useLogStore } from '../stores/text-log.js';
+const logStore = useLogStore();
 </script>
+
 
 
 <template>
   <div class="about_container">
     <div class="main_body">
 
-      <br v-for="n in 10" :key="n">
-
-      <SideBar/>
+      <p>hello,{{ logStore.log[0].name }}</p>
     </div>
 
   </div>
@@ -19,6 +18,7 @@ import SideBar from '../views/pages/spark-back/SideBar.vue';
 <style scoped lang="scss">
 @import '@/assets/sass/test';
 </style>
+
 
 
 

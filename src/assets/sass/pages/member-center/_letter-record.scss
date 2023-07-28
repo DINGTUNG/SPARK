@@ -13,12 +13,21 @@ div.letter_record_container {
             @include body_space_PC;
         }
 
-        img.deco{
+        #deco{
             position: absolute;
             &:nth-child(1){
-                width: 6%;
-                right: -30px;
-                top: -100px;
+
+                @include custom-responsive("xs sm md") {
+                    width: 65px;
+                    right: 20px;
+                    top: -40px;
+                }
+        
+                @include custom-responsive("lg xl xx-l") {
+                    width: 65px;
+                    right: -30px;
+                    top: -100px;
+                }
             }
             &:nth-child(2){
                 width: 18%;
@@ -35,9 +44,17 @@ div.letter_record_container {
             div.title{
                 display: flex;
 
-                img.love_book{
-                    width: 5%;
+                #love_book{
+
+                    @include custom-responsive("xs sm md") {
+                        width: 45px;                     
+                    }
+            
+                    @include custom-responsive("lg xl xx-l") {
+                        width: 45px;                 
+                    }
                 }
+
                 h1{
                   color: $primaryBgBlue;
                   margin-left: 15px;
@@ -49,7 +66,7 @@ div.letter_record_container {
             
             div.talk{
                 
-                img{                    
+                #talk_img{                    
                     position: absolute;
                     @include custom-responsive("lg xl"){
                         right: 20px;
@@ -76,7 +93,7 @@ div.letter_record_container {
                 right: -520px;
                 top: -70px;
 
-                img{
+                #banner_img{
                     width: 30%;
                     height: 30%;
                 }
@@ -97,6 +114,11 @@ div.letter_record_container {
                 width: 100%;
                 margin-bottom: 50px;
                 margin-top: 70px;
+
+                @media (max-width: 992px) {
+                     margin-top: 40px;
+                }
+
 
 
 
@@ -123,7 +145,7 @@ div.letter_record_container {
                         @include h5_MB;
                         display: block;
                         width: 100%;
-                        margin-bottom: 20px;
+                        margin-bottom: 30px;
                     }
 
  
@@ -237,7 +259,7 @@ div.letter_record_container {
                     }
                 }
 
-                img{
+                .btn_icon{
                     max-width: 75%;
                     max-height: 75%;
 

@@ -97,12 +97,14 @@ div.title {
   div.card_count {
     display: flex;
     @include flex_hm();
-    width: 33%;
+    width: 30%;
+    margin: 0 10px;
 
     p {
-      width: 33%;
+      width: 30%;
+      @include flex_hm();
       color: $basicFontColor;
-      padding: 0 20px;
+      padding: 0 10px;
 
       @include custom-responsive("xs sm ") {
         @include h6_MB;

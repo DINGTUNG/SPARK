@@ -3,7 +3,7 @@ import {
   createWebHistory
 } from 'vue-router'
 
-import Home from '@/views/pages/home/Home.vue';
+import Entrance from '@/views/pages/Entrance.vue';
 
 
 const router = createRouter({
@@ -18,8 +18,21 @@ const router = createRouter({
   // },
   routes: [{
     path: '',
+    name: 'entrance',
+    component: Entrance,
+    meta: {
+      hideLeftMenu: true,
+      hideRightMenu: true,
+      hideHeader: true,
+      hideFooter: true,
+    }
+  },
+
+
+  {
+    path: '/home',
     name: 'home',
-    component: Home,
+    component: () => import('@/views/pages/home/Home.vue'),
     meta: {
       hideLeftMenu: true,
     }
@@ -178,30 +191,36 @@ const router = createRouter({
     component: () => import('@/views/pages/work-result/ResultReport.vue')
   },
   {
-    path: '/letter-record',
-    name: 'letter-record',
-    component: () => import('@/views/pages/member-center/LetterRecord.vue')
-  },
-  {
     path: '/member-center',
     name: 'member-center',
-    component: () => import('@/views/pages/member-center/MemberCenter.vue')
+    component: () => import('@/views/pages/member-center/MemberCenter.vue'),
+    children:[
+      {
+        path: '',
+        name: 'adoption-record',
+        component: () => import('@/views/pages/member-center/AdoptionRecord.vue')
+      },
+      {
+        path: 'donate-record',
+        name: 'donate-record',
+        component: () => import('@/views/pages/member-center/DonateRecord.vue')
+      },
+      {
+        path: 'letter-record',
+        name: 'letter-record',
+        component: () => import('@/views/pages/member-center/LetterRecord.vue')
+      },
+      {
+        path: 'modify-meminfo',
+        name: 'modify-meminfo',
+        component: () => import('@/views/pages/member-center/ModifyMeminfo.vue')
+      },
+
+    ]
   },
-  {
-    path: '/adoption-record',
-    name: 'adoption-record',
-    component: () => import('@/views/pages/member-center/AdoptionRecord.vue')
-  },
-  {
-    path: '/donate-record',
-    name: 'donate-record',
-    component: () => import('@/views/pages/member-center/DonateRecord.vue')
-  },
-  {
-    path: '/modify-meminfo',
-    name: 'modify-meminfo',
-    component: () => import('@/views/pages/member-center/ModifyMeminfo.vue')
-  },
+
+
+
   {
     path: '/donate-list',
     name: 'donate-list',
@@ -245,11 +264,6 @@ const router = createRouter({
     path: '/service-milestone',
     name: 'service-milestone',
     component: () => import('@/views/pages/work-result/ServiceMilestone.vue')
-  },
-  {
-    path: '/title',
-    name: 'title',
-    component: () => import('@/views/pages/title.vue')
   },
   {
     path: '/dreamStar',

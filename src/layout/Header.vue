@@ -152,7 +152,6 @@ const closeNav = () => {
 };
 </script>
 
-
 <template>
   <header>
     <RouterLink to="/home" class="link_home">
@@ -176,14 +175,14 @@ const closeNav = () => {
               </a>
               <ul v-show="activeSubMenu === index">
                 <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
-                  <RouterLink :to="subItem.route" class="link">{{ subItem.label }}</RouterLink>
+                  <RouterLink :to="subItem.route" class="link" @click="toggleNav">{{ subItem.label }}</RouterLink>
                 </li>
               </ul>
             </template>
             <template v-else>
               <RouterLink v-if="item.route" :to="item.route" :class="['link', { 'member_login': item.label === '會員登入' }]"
                 @mouseover="item.label !== '會員登入' ? showSubMenu(index) : null"
-                @mouseleave="item.label !== '會員登入' ? hideSubMenu() : null">
+                @mouseleave="item.label !== '會員登入' ? hideSubMenu() : null" @click="toggleNav">
                 {{ item.label }}
               </RouterLink>
               <a v-else :href="item.route" class="link" @mouseover="showSubMenu(index)" @mouseleave="hideSubMenu">

@@ -214,7 +214,7 @@ const letterData = reactive([
           <div v-if="modalImageSrc !== ''" :class="'overlay'" id="overlay" @click="closeImageModal"></div>
 
           <dialog ref="infoModal" :open="modalImageSrc !== ''" :class="'modal-dialog'" @click="closeImageModal">
-            <Images id="letter" :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
+            <Images :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
             <button id="close_btn" :class="'close_btn'">
               <Images id="btn_icon" :class="'btn_icon'" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button>

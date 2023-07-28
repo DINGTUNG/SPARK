@@ -78,23 +78,22 @@ const donateData = reactive([
           <h1>捐款紀錄</h1>
         </div>
         <div class="text">
-          <p>非常感謝您的無私愛心捐款！您的善舉將為我們帶來無比的溫暖與希望，讓我們一同為更美好的明天努力。
-            <br>
-            在這光輝的路上，我們深切感受到您的陪伴與支持，謝謝您成為這份愛心的重要一環！
+          <p>您的愛心猶如星光般閃耀，為星火帶來改變與希望，成為這份愛心工程的重要支持者，我們深切感受到您的陪伴與愛意，謝謝您成為這份使命中不可或缺的一環。
+            <br>您的善舉將在他們的生命中留下深遠的印記，讓我們共同見證一個更溫暖、更關愛的世界。
           </p>
         </div>
 
         <div class="date_block">
           <div class="date_picker">
-            <span>選擇捐款日期</span>
+            <span>選擇認養日期</span>
             <div class="date_choose">
               <div class="date">
-                <span>2022/09/20</span>
+                <span>2022/07/23</span>
                 <i class="fa-solid fa-calendar-days"></i>
               </div>
-              ～
+              <span class="wave">～</span>
               <div class="date">
-                <span>2022/09/20</span>
+                <span>2022/07/23</span>
                 <i class="fa-solid fa-calendar-days"></i>
               </div>
             </div>
@@ -104,6 +103,7 @@ const donateData = reactive([
           </div>
           <h6>親愛的會員您好，本會提供近付款狀態查詢，查詢區間以一年為限。若有任何問題請您來電04-22012345轉881、880由專人為您服務。</h6>
         </div>
+        
         
 
 

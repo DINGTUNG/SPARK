@@ -6,7 +6,18 @@ table.member_data_table {
   border-top: 0;
   border-radius: 15px;
   overflow: hidden;
-  width: 800px;
+
+
+
+  @include custom-responsive("xl") {
+    width: 50vw;
+  }
+
+  @include custom-responsive("xx-l") {
+    width: 40vw;
+  }
+
+
 
   caption {
     text-align: left;
@@ -14,7 +25,15 @@ table.member_data_table {
     padding: 10px 0;
 
     span {
-      @include h6_PC;
+
+
+      @include custom-responsive("xs sm") {
+        font-size: 13px
+      }
+
+      @include custom-responsive("xl xx-l") {
+        @include h6_PC;
+      }
     }
   }
 
@@ -23,18 +42,40 @@ table.member_data_table {
     color: $primaryBrandWhite;
     @include h5_PC;
     text-align: left;
-    padding-left: 30px;
+
+    @include custom-responsive("xs sm") {
+      padding-left: 20px;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      padding-left: 30px;
+    }
+
   }
 
   th.mem_file {
     border-radius: 15px 0 0 0;
+    width: 30%;
+
   }
 
   th.mem_id_title {
+    text-align: center;
     border-radius: 0;
+    padding-left: 0;
+
+    @include custom-responsive("xs sm") {
+      width: 30%;
+    }
+  
+    @include custom-responsive("xl xx-l") {
+      width: 0%;
+    }
+
   }
 
   th.mem_id {
+    padding: 1vh 2vw;
     border-radius: 0 15px 0 0;
     @include h6_PC;
 
@@ -50,10 +91,24 @@ table.member_data_table {
     border-radius: 0px;
   }
 
+  td.account_data {
+    padding-left: 5vw;
+  }
+
   td {
-    padding: 20px 30px;
     border-bottom: 1px solid $functionalLightGrey2;
-    @include h6_PC;
+  
+
+    @include custom-responsive("xs sm") {
+      @include h6_PC;
+      font-size: 14px;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      padding: 1vh 2vw;
+      @include h6_PC;
+    }
+
 
     span {
       display: inline-block;
@@ -62,8 +117,18 @@ table.member_data_table {
   }
 
   td.title {
-    width: 20%;
+
     font-weight: bold;
+
+    @include custom-responsive("xs sm") {
+      padding-left: 3vw;
+      width: 25%;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      width: 25%;
+    }
+
   }
 
 

@@ -1,6 +1,15 @@
 .title_img {
     img {
         width: 100%;
+
+        @include custom-responsive("xs sm") {
+            margin-top: 85px;
+        }
+
+        @include custom-responsive("xl xxl") {
+            margin-top: 0;
+        }
+
     }
 }
 
@@ -8,9 +17,11 @@ div.container {
     div.main_body {
         position: relative;
         margin: auto;
+
         @include custom-responsive("xs sm") {
             @include body_space_MB;
         }
+
         @include custom-responsive("xl xxl") {
             @include body_space_PC;
         }
@@ -72,6 +83,7 @@ div.container {
 
     div.report_inner {
         margin-bottom: 100px;
+        gap: 50px;
         @include custom-responsive("xs sm") {
             display: block;
             margin-top: 70px;
@@ -97,7 +109,7 @@ div.container {
             @include custom-responsive("xl xx-l") {
                 border-radius: $br_PC;
                 width: 50%;
-                margin-right: 20px;
+              
             }
 
             img.water_can {
@@ -110,9 +122,7 @@ div.container {
                 }
 
                 @include custom-responsive("xl xx-l") {
-                    width: 200px;
-                    height: 200px;
-                    top: -150px;
+                    top: -75px;
                     left: 0;
                 }
             }
@@ -128,9 +138,7 @@ div.container {
                 }
 
                 @include custom-responsive("xl xx-l") {
-                    width: 200px;
-                    height: 200px;
-                    top: -140px;
+                    top: -65px;
                     left: 60%;
                 }
             }
@@ -155,9 +163,17 @@ div.container {
                 justify-content: space-evenly;
                 flex-wrap: wrap;
                 padding-bottom: 50px;
+                @include custom-responsive("xs sm") {
+                   margin-bottom: 50px
+                }
+
+                @include custom-responsive("xl xx-l") {
+                    margin-bottom: 0;
+                }
 
                 div.year_card {
-                    padding: 50px 10px;
+                    padding: 30px 10px;
+                    margin: 20px 0;
                     width: 45%;
                     @include flex_hm();
                     flex-direction: column;
@@ -184,6 +200,7 @@ div.container {
 
                             @include custom-responsive(" xl xx-l") {
                                 @include h6_PC;
+                               
                             }
                         }
 
@@ -196,7 +213,7 @@ div.container {
 
                             @include custom-responsive("xl xx-l") {
                                 @include smallWhiteBtn_PC;
-                                width: 168px;
+                                width: 130px;
                                 height: 40px;
                             }
                         }
@@ -215,12 +232,11 @@ div.container {
 
         @include custom-responsive(" xs sm") {
             border-radius: $br_MB;
-            margin-top: 50px;
         }
 
         @include custom-responsive(" xl xx-l") {
             border-radius: $br_PC;
-            margin: 0 20px 0 0;
+    
             width: 50%;
         }
 
@@ -235,9 +251,7 @@ div.container {
             }
 
             @include custom-responsive(" xl xx-l") {
-                width: 200px;
-                height: 200px;
-                top: -140px;
+                top: -70px;
                 left: 60%;
             }
         }
@@ -262,9 +276,9 @@ div.container {
 
             div.financial_card {
                 width: 90%;
-                height: 150px;
                 background-color: $primaryBgWhite;
                 margin: 25px auto;
+                padding: 25px 0;
 
                 @include custom-responsive(" xs sm") {
                     border-radius: $br_MB;
@@ -298,7 +312,7 @@ div.container {
                     }
 
                     @include custom-responsive(" xl xx-l") {
-                        margin-left: 50px;
+                        margin-left: 10px;
                     }
 
                     img {
@@ -325,8 +339,8 @@ div.container {
                 }
 
                 button {
+                    @include flex_vm();
                     font-size: 1rem;
-
                     @include custom-responsive(" xs sm") {
                         @include regularBlueBtn_MB;
                         width: 126px;
@@ -336,9 +350,10 @@ div.container {
 
                     @include custom-responsive(" xl xx-l") {
                         @include regularBlueBtn_PC;
-                        width: 126px;
+                        width: 100px;
                         height: 40px;
-                        margin-right: 50px;
+                        margin-right: 10px;
+
                     }
                 }
             }

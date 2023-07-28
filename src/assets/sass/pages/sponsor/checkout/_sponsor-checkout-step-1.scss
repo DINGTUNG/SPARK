@@ -57,13 +57,6 @@ div.sponsor_checkout_container {
 
       div.checkout_table_wrap {
 
-        @include custom-responsive("xs sm") {
-          order: 1
-        }
-
-        @include custom-responsive("xl xxl") {
-          order: 0
-        }
       }
 
       div.checkout_overview_wrap {
@@ -85,8 +78,6 @@ div.sponsor_checkout_container {
         left: -15vw;
         top: 70vh;
       }
-
-
     }
 
     // @keyframes rocket {

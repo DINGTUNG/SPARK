@@ -100,7 +100,7 @@ const adoptionData = reactive([
                 <span>2022/07/23</span>
                 <i class="fa-solid fa-calendar-days"></i>
               </div>
-              ～
+              <span class="wave">～</span>
               <div class="date">
                 <span>2022/07/23</span>
                 <i class="fa-solid fa-calendar-days"></i>

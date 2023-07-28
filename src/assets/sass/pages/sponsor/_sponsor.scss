@@ -2,6 +2,16 @@ div.title_img {
   img {
     width: 100%;
   }
+
+  @include custom-responsive("xs sm") {
+    margin-top: 85px;
+  }
+
+  @include custom-responsive("xl xxl") {
+    margin-top: 0;
+  }
+
+
 }
 
 div.container {
@@ -81,11 +91,14 @@ div.container {
 
     .sponsor_img {
       width: 100%;
+      @include flex_vm();
 
       img {
+
         @include custom-responsive(" xs sm") {
           width: 100%;
           border-radius: $br_MB;
+
         }
 
         @include custom-responsive(" xl xx-l") {
@@ -143,7 +156,7 @@ div.container {
     width: 100%;
     height: 1px;
     background-color: $primaryBgBlue;
-    
+
   }
 
   div.sponsor_location {
@@ -200,7 +213,7 @@ div.container {
         @include custom-responsive(" xl xx-l") {
           @include h5_B_PC;
           border-radius: $br_PC;
-          margin: 0 40px 0 0;
+          margin: 0 40px 10px 0;
         }
 
         .card_title {
@@ -294,8 +307,9 @@ div.container {
 
   div.button {
     @include flex_hm();
+
     @include custom-responsive(" xs sm") {
-     margin-bottom: 100px;
+      margin-bottom: 100px;
     }
 
     @include custom-responsive(" xl xx-l") {
@@ -339,7 +353,7 @@ div.container {
     }
 
     div.icon_img {
-      position: relative;    
+      position: relative;
       left: 300px;
 
       @include custom-responsive(" xs sm") {

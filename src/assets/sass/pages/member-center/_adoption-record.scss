@@ -31,7 +31,7 @@ div.adoption_record_container {
             }
             &:nth-child(2){
                 width: 18%;
-                bottom: -110px;
+                bottom: -180px;
                 left: -80px;
 
                 @media (max-width: 992px) { 
@@ -41,7 +41,7 @@ div.adoption_record_container {
         }
 
         div.table{
-            margin-bottom: 100px;
+            margin-bottom: 150px;
             margin-top: 280px;
             position: relative;
 
@@ -104,10 +104,18 @@ div.adoption_record_container {
                     }
                         
                     div.date_choose{
-                            display: flex;
-                            justify-content: space-around;
                             align-items: center;
                             color:$primaryBrandWhite;
+
+                            @include custom-responsive("xs") {
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                            }
+                            @include custom-responsive("lg xl xx-l") {
+                                display: flex;
+                                justify-content: space-around;
+                            }
 
                             .date{
                                 display: flex;
@@ -118,14 +126,15 @@ div.adoption_record_container {
                                 border: 2px solid $secondaryLightBlue1;
                                 margin: 0 30px;
                                 align-items: center;
+                       
 
                                 @media (max-width: 992px) {         
                                     @include h6_MB;
                                     padding: 5px 15px;
-                                    margin: 20px 10px;
+                                    margin: 10px 10px;
                                 }
 
-                                span{
+                                span{   
                                     @include h6_PC;
                                     color: $primaryBrandBlue;
                                     margin-right:20px;
@@ -139,6 +148,15 @@ div.adoption_record_container {
                                     color: $primaryBrandBlue;
                                     font-size: 21px;
                                     cursor: pointer;
+                                }
+                            }
+                            .wave{
+                                @media (max-width:480px){ 
+                                    display: none;
+                                }
+                                
+                                @include custom-responsive(" sm lg xl xx-l") {
+                                    display: block;
                                 }
                             }
                     }
@@ -157,6 +175,7 @@ div.adoption_record_container {
                                 @include regularGoldBtn_MB;
                                 padding: 12px 50px;
                                 line-height: 12px;
+                                margin: 10px 0;
                             }
                         }
                     }

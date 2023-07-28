@@ -1,7 +1,7 @@
 .container{
-  @include custom-responsive("xs sm") {
-    margin-top: 20vh;
-  }
+    @include custom-responsive("xl xx-l") {
+      margin-top: 20vh;
+    }
     width: 100%;
     .main_body{
             @include custom-responsive("xs sm") {
@@ -49,24 +49,30 @@
             position: relative;
             // outline: solid 1px red;
             .deco{
-              #star1{
-                position: absolute;
-                top:12%;
-                right: 10%;
-                width: 3vw;
+              @include custom-responsive("xs sm") {
+                display: none;
               }
-              #star2{
-                position: absolute;
-                top:16%;
-                right: 4%;
-                width: 3vw;
+              @include custom-responsive("xl xx-l") {
+                #star1{
+                  position: absolute;
+                  top:12%;
+                  right: 10%;
+                  width: 3vw;
+                }
+                #star2{
+                  position: absolute;
+                  top:16%;
+                  right: 4%;
+                  width: 3vw;
+                }
+                #rocket{
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                  width:5cqw;
+                }
               }
-              #rocket{
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width:5cqw;
-              }
+
             }
             .form_item{
               display: flex;

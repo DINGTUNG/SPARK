@@ -91,7 +91,7 @@
     div.information{
       div.logo{
         img{
-          width: 350px;
+          width: 300px; //原先350px
         }
       }
 
@@ -222,10 +222,11 @@ footer{
   }
 
   div.footer_content{
-    justify-content: space-between;
+    justify-content: space-around; // 7/28原先space-between
 
     div.information{
-      margin-right: 5vw; 
+      margin-right: 5vw;
+      margin-left: -2vw; // 7/28新增
 
       div.logo{
         width: 20%; 
@@ -283,6 +284,8 @@ footer{
     }
 
     div.items{
+      margin-right: -2vw; // 7/28新增
+
       div.list{
         display: flex;
 

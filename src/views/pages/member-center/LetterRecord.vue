@@ -164,11 +164,10 @@ const letterData = reactive([
       <Images id="deco" :imgSrc="'pictures/decorations/illustration/telescope_2.svg'" alt="望遠鏡裝飾" />
 
 
-
       <div class="table">
         <div class="title">
 
-          <Images :class="'love_book'" :imgSrc="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾" />
+          <Images id="love_book" :imgSrc="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾" />
           <h1>感謝函專區</h1>
         </div>
         <div class="text">
@@ -177,20 +176,13 @@ const letterData = reactive([
             由衷感謝您對我們的一直支持和無微不至的愛護～願您繼續擁有幸福的日子！
           </p>
         </div>
+
+
         <div class="talk">
-
-
           <Images id="talk_img" :imgSrc="'pictures/images/member-center/talk.svg'" :alt="'test'" />
-
-
-          <!-- <img :src="'pictures/images/member-center/talk.svg'" alt="小朋友說的話"> -->
         </div>
         <div class="banner">
-
           <Images id="banner_img" :imgSrc="'pictures/images/member-center/banner_1.png'" :alt="'test'" />
-
-
-          <!-- <img :src="'pictures/images/member-center/banner_1.png'" alt="小朋友照"> -->
         </div>
 
 
@@ -216,15 +208,15 @@ const letterData = reactive([
           </tbody>
         </table>
 
-        <div v-if="modalImageSrc !== ''" class="overlay" @click="closeImageModal"></div>
 
         <!-- 彈窗 -->
-        <div ref="modalContainer" class="modal-container">
-          <div v-if="modalImageSrc !== ''" class="overlay" @click="closeImageModal"></div>
-          <dialog ref="infoModal" :open="modalImageSrc !== ''" class="modal-dialog" @click="closeImageModal">
-            <Images :imgSrc="modalImageSrc" alt="Image" />
-            <button class="close_btn">
-              <Images class="btn_icon" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
+        <div ref="modalContainer" :class="'modal-container'" id="modal-container">
+          <div v-if="modalImageSrc !== ''" :class="'overlay'" id="overlay" @click="closeImageModal"></div>
+
+          <dialog ref="infoModal" :open="modalImageSrc !== ''" :class="'modal-dialog'" @click="closeImageModal">
+            <Images id="letter" :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
+            <button id="close_btn" :class="'close_btn'">
+              <Images id="btn_icon" :class="'btn_icon'" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button>
           </dialog>
         </div>

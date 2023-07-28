@@ -1,4 +1,9 @@
 table.checkout_table {
+  @include custom-responsive("xs sm") {
+    width: 80vw;
+  }
+
+
   @include custom-responsive("xl xx-l") {
     width: 40vw;
   }
@@ -6,6 +11,10 @@ table.checkout_table {
   caption {
     text-align: left;
 
+    @include custom-responsive("xs sm") {
+      @include h3_PC
+    }
+  
     @include custom-responsive("xl") {
       @include h3_PC
     }
@@ -34,6 +43,12 @@ table.checkout_table {
     th {
       border-bottom: 5px solid $primaryBrandBlue;
 
+      @include custom-responsive("xs sm") {
+        @include h6_PC;
+        font-weight: bold;
+        padding: 2vw 2vw 0;
+      }
+
       @include custom-responsive("xl") {
         @include h6_PC;
         font-weight: bold;
@@ -52,6 +67,11 @@ table.checkout_table {
     }
 
     td {
+
+      @include custom-responsive("xs sm") {
+        padding: 2vh 2vw;
+        @include h6_PC;
+      }
 
       @include custom-responsive("xl") {
         padding: 3vh 2vw;

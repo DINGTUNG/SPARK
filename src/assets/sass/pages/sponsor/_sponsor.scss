@@ -90,27 +90,39 @@ div.container {
     }
 
     .sponsor_img {
-      width: 50%;
       @include flex_vm();
+
+      @include custom-responsive(" xs sm") {
+        width: 100%;
+
+
+      }
+
+      @include custom-responsive(" xl xx-l") {
+        width: 50%;
+      }
 
       .mySwiper {
         width: 100%;
         height: 100%;
+
         img {
           vertical-align: middle;
+
           @include custom-responsive(" xs sm") {
             width: 100%;
             border-radius: $br_MB;
-  
+
           }
-  
+
           @include custom-responsive(" xl xx-l") {
             border-radius: $br_PC;
             width: 100%;
           }
+        }
+
       }
-     
-      }
+
       .swiper-pagination-bullet {
         display: none;
       }

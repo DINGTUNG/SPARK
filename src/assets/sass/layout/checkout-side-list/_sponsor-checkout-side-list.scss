@@ -88,7 +88,7 @@ div.title {
       }
 
       @include custom-responsive("xl xx-l") {
-        @include h5_PC;
+        @include h6_PC;
       }
 
     }

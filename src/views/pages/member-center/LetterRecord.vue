@@ -167,7 +167,7 @@ const letterData = reactive([
       <div class="table">
         <div class="title">
 
-          <Images id="love_book" :imgSrc="imageUrl" alt="感謝函裝飾" />
+          <Images id="love_book" :imgSrc="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾" />
           <h1>感謝函專區</h1>
         </div>
         <div class="text">
@@ -208,15 +208,15 @@ const letterData = reactive([
           </tbody>
         </table>
 
-        <div v-if="modalImageSrc !== ''" class="overlay" @click="closeImageModal"></div>
 
         <!-- 彈窗 -->
-        <div ref="modalContainer" id="modal-container">
-          <div v-if="modalImageSrc !== ''" id="overlay" @click="closeImageModal"></div>
-          <dialog ref="infoModal" :open="modalImageSrc !== ''" id="modal-dialog" @click="closeImageModal">
-            <Images id="letter" :imgSrc="modalImageSrc" alt="Image" />
-            <button id="close_btn">
-              <Images id="btn_icon" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
+        <div ref="modalContainer" :class="'modal-container'" id="modal-container">
+          <div v-if="modalImageSrc !== ''" :class="'overlay'" id="overlay" @click="closeImageModal"></div>
+
+          <dialog ref="infoModal" :open="modalImageSrc !== ''" :class="'modal-dialog'" @click="closeImageModal">
+            <Images id="letter" :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
+            <button id="close_btn" :class="'close_btn'">
+              <Images id="btn_icon" :class="'btn_icon'" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button>
           </dialog>
         </div>

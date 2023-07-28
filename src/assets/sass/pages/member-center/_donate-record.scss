@@ -31,8 +31,8 @@ div.donate_record_container {
             }
             &:nth-child(2){
                 width: 18%;
-                bottom: -110px;
-                left: -80px;
+                bottom: -180px;
+                left: -50px;
 
                 @media (max-width: 992px) { 
                     display: none;
@@ -41,7 +41,7 @@ div.donate_record_container {
         }
 
         div.table{
-            margin-bottom: 100px;
+            margin-bottom: 150px;
             margin-top: 280px;
             position: relative;
 

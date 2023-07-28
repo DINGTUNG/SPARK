@@ -82,7 +82,7 @@ const adoptionData = reactive([
 
       <div class="table">
         <div class="title">
-          <Images id="love_book" :imgSrc="imageUrl" alt="裝飾" />
+          <Images id="love_book" :imgSrc="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾" />
           <h1>認養紀錄</h1>
         </div>
         <div class="text">

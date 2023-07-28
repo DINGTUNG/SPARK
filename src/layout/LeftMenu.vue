@@ -15,10 +15,21 @@ const menuHeight = computed(() => {
 const menuTitle = ref(""); 
 const bulletinList = ref([]);
 
+//針對左側導覽列個頁面的高度設定
+const route = useRoute();
+
+const topValue = computed(() => {
+  if (route.name === 'letter-record' || route.name === 'adoption-record' || route.name === 'donate-record' || route.name === 'modify-meminfo') {
+    return 25; // 根據不同的路由路徑，回傳不同的 top 值  
+  } else if (route.name === '') {
+    return 40; 
+  } else {
+    return 75; 
+  }
+});
+
 // 取得當前路徑的資訊(src/router/index.js)
 const currentRoute = useRoute();
-
-//
 
 // 監聽當前路徑的變化，更新各陣列的內容
 watch(() => currentRoute.name, (newRouteName) => {
@@ -66,11 +77,11 @@ watch(() => currentRoute.name, (newRouteName) => {
       },
       {
         id: 4,
-        title: "認養/捐款Q/A",
+        title: "認養/捐款Q&A",
         routeName: "",
       },
     ];
-  } else if (newRouteName === "story-gallery" || newRouteName === "rest" || newRouteName === "service-milestone") {
+  } else if (newRouteName === "story-gallery" || newRouteName === "result-report" || newRouteName === "service-milestone") {
     menuTitle.value = "成果佈告欄";
     bulletinList.value = [
       {
@@ -147,7 +158,7 @@ watch(() => currentRoute.name, (newRouteName) => {
 </script>
 
 <template>
-  <div class="left_menu_container" :style="{ height: menuHeight + 'px' }">
+  <div class="left_menu_container" :style="{ height: menuHeight + 'px' , top: topValue + 'vh' }"> 
     <h3>{{ menuTitle }}</h3>
     <ul>
       <li v-for="item in bulletinList" :key="item.id">

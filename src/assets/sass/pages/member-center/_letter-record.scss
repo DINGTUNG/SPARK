@@ -18,9 +18,9 @@ div.letter_record_container {
             &:nth-child(1){
 
                 @include custom-responsive("xs sm md") {
-                    width: 65px;
-                    right: 20px;
-                    top: -40px;
+                    width: 55px;
+                    right: 10px;
+                    top: -20px;
                 }
         
                 @include custom-responsive("lg xl xx-l") {
@@ -32,7 +32,11 @@ div.letter_record_container {
             &:nth-child(2){
                 width: 18%;
                 bottom: -110px;
-                left: -80px;
+                left: -50px;
+
+                @media (max-width: 992px) { 
+                    display: none;
+                }
             }
         }
 
@@ -41,16 +45,23 @@ div.letter_record_container {
             margin-top: 280px;
             position: relative;
 
+            @media (max-width: 992px) { 
+                margin-top: 60px;
+            }
+
+
+
             div.title{
                 display: flex;
 
                 #love_book{
 
                     @include custom-responsive("xs sm md") {
-                        width: 45px;                     
+                        display: none;               
                     }
             
                     @include custom-responsive("lg xl xx-l") {
+                        display: block;      
                         width: 45px;                 
                     }
                 }
@@ -58,6 +69,11 @@ div.letter_record_container {
                 h1{
                   color: $primaryBgBlue;
                   margin-left: 15px;
+
+                  @media (max-width: 992px) { 
+                    @include h1_MB;
+                    margin: auto;               
+                    }
                 }
             }
             div.text{
@@ -225,18 +241,25 @@ div.letter_record_container {
                 outline: none;
                 background-color: transparent;
                 overflow: hidden;
+                
+                .letter{
+                    width: 30vw;
+                }
 
                 @media (max-width: 767px){
+                    position: absolute;
                     transform: translate(-17%, -15%);
                     top: 25%;
                     left: 25%;
                 }
                 @include custom-responsive("md lg") {
+                    position: absolute;
                     top: 27%;
                     left: 27%;
                     transform: translate(-7%, -15%);
                 }
                 @include custom-responsive("xl xx-l") {
+                    position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-40%, -50%);

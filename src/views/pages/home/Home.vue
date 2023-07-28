@@ -77,7 +77,7 @@ const showBranch = (index) => {
         <div class="intro_map">
           <img :src="'pictures/images/home/blue_taiwan.svg'" alt="blue_taiwan">
 
-          <div class="branch_dot" v-for="(branch, index) in branches" @click="showBranch(index)"></div>
+          <!-- <div class="branch_dot" v-for="(branch, index) in branches" @click="showBranch(index)"></div> -->
 
 
           <transition>

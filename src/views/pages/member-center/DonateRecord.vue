@@ -86,15 +86,15 @@ const donateData = reactive([
 
         <div class="date_block">
           <div class="date_picker">
-            <span>選擇捐款日期</span>
+            <span>選擇認養日期</span>
             <div class="date_choose">
               <div class="date">
-                <span>2022/09/20</span>
+                <span>2022/07/23</span>
                 <i class="fa-solid fa-calendar-days"></i>
               </div>
-              ～
+              <span class="wave">～</span>
               <div class="date">
-                <span>2022/09/20</span>
+                <span>2022/07/23</span>
                 <i class="fa-solid fa-calendar-days"></i>
               </div>
             </div>
@@ -104,6 +104,7 @@ const donateData = reactive([
           </div>
           <h6>親愛的會員您好，本會提供近付款狀態查詢，查詢區間以一年為限。若有任何問題請您來電04-22012345轉881、880由專人為您服務。</h6>
         </div>
+        
         
 
 

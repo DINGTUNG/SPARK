@@ -69,7 +69,7 @@ div.service_milestone_container{
             display: flex;
             justify-content: space-between;
             margin-top: 20%; 
-            display: none;  //暫時關閉
+            // display: none;  //暫時開啟
 
             div.card{
                 @include boxShadow_PC;

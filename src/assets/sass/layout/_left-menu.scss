@@ -13,7 +13,7 @@
     div.left_menu_container{
        display: block;
        position: absolute;
-       top: 42vw;
+    //    top: 42vw;  //已在script setup設定
        left: 0;
        width: 15vw;
        @include boxShadow_PC;
@@ -43,6 +43,7 @@
        }
     }
  }
+
 
 
 

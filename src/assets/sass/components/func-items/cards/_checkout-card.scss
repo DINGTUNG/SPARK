@@ -73,7 +73,16 @@ div.check_out_card {
           }
         }
         span.name {
-          padding-left: 20px;
+
+          @include custom-responsive("xs sm") {
+            padding-left: 0;
+          }
+        
+          @include custom-responsive("xl xx-l") {
+            padding-left: 20px;
+          }
+        
+
         }
 
       }
@@ -123,7 +132,15 @@ div.check_out_card {
 
 div.chosen_donate_project_wrap {
   @include flex_hm;
-  gap: 5vw;
+
+    @include custom-responsive("xs sm") {
+      gap: 10vw;
+  }
+
+  @include custom-responsive("xl xx-l") {
+    gap: 5vw;
+  }
+
 
   span.chosen_donate_project {
     display: inline-block;

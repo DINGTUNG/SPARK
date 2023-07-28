@@ -16,5 +16,5 @@ const props = defineProps({
 </script>
 
 <template>
-  <img :class="className" :src="`${publicPath}${imgSrc}`" :alt="alt" />
+  <img :class="class" :src="`${publicPath}${imgSrc}`" :alt="alt" />
 </template>

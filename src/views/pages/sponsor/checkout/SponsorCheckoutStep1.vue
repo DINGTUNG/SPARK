@@ -9,8 +9,6 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
 
 <template>
   <div class="sponsor_checkout_container">
-    <!-- 撐開頁面之臨時空間 -->
-    <br v-for="n in 20" :key="n">
 
     <div class="main_body">
       <div class="checkout_wrap">

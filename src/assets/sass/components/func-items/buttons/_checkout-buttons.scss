@@ -8,7 +8,7 @@ div.check_out_buttons_container {
       @include checkoutCardsWhiteBtn_MB
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include checkoutCardsWhiteBtn_PC
     }
   }
@@ -20,7 +20,7 @@ div.check_out_buttons_container {
       @include checkoutCardsBlueBtn_MB
     }
 
-    @include custom-responsive("xl xxl") {
+    @include custom-responsive("xl xx-l") {
       @include checkoutCardsBlueBtn_PC
     }
 

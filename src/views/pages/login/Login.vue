@@ -125,7 +125,12 @@ const login = () => {
 </script>
 <template>
   <div class="login_body">
-    <img :src="'pictures/images/login/login.jpg'" class="title_img">
+    <div class="register_banner">
+            <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
+            <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">
+    </div>
+
+
     <div class="login">
       <h1>會員登入</h1>
       <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
@@ -171,7 +176,7 @@ const login = () => {
         <span>
           你還不是會員嗎？
           <i class="fa-solid fa-pen"></i>
-          <RouterLink to="/register">註冊會員</RouterLink>
+          <RouterLink to="/register" class="signup_link">註冊會員</RouterLink>
         </span>
       </div>
     </div>

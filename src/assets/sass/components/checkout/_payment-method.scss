@@ -1,28 +1,75 @@
 table.checkout_table {
 
-  width: 700px;
+  @include custom-responsive("xs sm") {
+    width: 80vw;
+  }
+
+
+  @include custom-responsive("xl xx-l") {
+    width: 40vw;
+  }
 
   caption {
     text-align: left;
-    @include h2_PC;
     border-bottom: 5px solid $primaryBrandBlue;
     padding: 10px 0;
+
+    @include custom-responsive("xs sm") {
+      @include h3_PC
+    }
+
+    @include custom-responsive("xl") {
+      @include h3_PC
+    }
+
+    @include custom-responsive("xx-l") {
+      @include h1_PC
+    }
   }
 
 
   td.payment_method {
     border-bottom: 1px solid $functionalLightGrey3;
-    padding: 20px;
+
+    @include custom-responsive("xs sm") {
+      padding: 0.8vh;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      padding: 20px;
+    }
+
+
 
     input[type="radio"] {
       accent-color: $primaryBrandBlue;
       transform: scale(2);
       border: 3px solid primaryBrandBlue;
+
+      @include custom-responsive("xs sm") {
+        transform: scale(1.5);
+      }
+  
+      @include custom-responsive("xl xx-l") {
+        transform: scale(2);
+      }
     }
 
     label {
       margin-left: 20px;
-      @include h4_PC;
+      
+
+      @include custom-responsive("xs sm") {
+        @include h5_PC;
+      }
+
+      @include custom-responsive("xl") {
+        @include h5_PC;
+      }
+  
+      @include custom-responsive("xx-l") {
+        @include h4_PC;
+      }
     }
 
 

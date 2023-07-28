@@ -19,7 +19,7 @@ const bulletinList = ref([]);
 const route = useRoute();
 
 const topValue = computed(() => {
-  if (route.name === 'letter-record') {
+  if (route.name === 'letter-record' || route.name === 'adoption-record' || route.name === 'donate-record' || route.name === 'modify-meminfo') {
     return 25; // 根據不同的路由路徑，回傳不同的 top 值  
   } else if (route.name === '') {
     return 40; 

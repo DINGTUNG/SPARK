@@ -126,16 +126,19 @@ const login = () => {
 </script>
 <template>
   <div class="login_body">
-    <div class="register_banner">
-            <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
-            <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">
+    <div class="login_banner_PC">
+        <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
+        <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">        
+    </div>
+    <div class="login_banner_MB">
+        <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
+        <img :src="'pictures/logo/logo_white_second.svg'" alt="logo" class="logo">        
     </div>
 
 
     <div class="login">
       <h1>會員登入</h1>
-      <!-- <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
-      <p v-else>請登入帳號密碼</p> -->
+      <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
       <label for="account">帳號</label>
       <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
         :class="{ 'animate__animated animate__headShake': errorAccount }">

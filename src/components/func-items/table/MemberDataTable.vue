@@ -51,7 +51,7 @@ const memberDataStore = useMemberDataStore();
 
     <tr>
       <td class="title">身分證字號</td>
-      <td colspan="3">{{ memberDataStore.memberData.id }}</td>
+      <td colspan="3" >{{ memberDataStore.memberData.id }}</td>
 
     </tr>
 
@@ -87,7 +87,7 @@ const memberDataStore = useMemberDataStore();
     </tr>
 
     <tr>
-      <td colspan="2">{{ memberDataStore.memberData.account }}</td>
+      <td class="account_data" colspan="2">{{ memberDataStore.memberData.account }}</td>
     </tr>
 
   </table>

@@ -65,7 +65,9 @@ div.sponsor_checkout_container {
       right: -12vw;
       top: 100vh;
 
-
+      @include custom-responsive("xs sm") {
+        display: none;
+      }
       @include custom-responsive("xl xx-l") {
         width: 50%;
       }

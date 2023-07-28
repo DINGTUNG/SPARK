@@ -94,7 +94,7 @@ const adoptionData = reactive([
 
         <div class="date_block">
           <div class="date_picker">
-            <span>選擇捐款日期</span>
+            <span>選擇認養日期</span>
             <div class="date_choose">
               <div class="date">
                 <span>2022/07/23</span>

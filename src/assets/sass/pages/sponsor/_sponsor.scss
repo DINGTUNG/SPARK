@@ -91,11 +91,14 @@ div.container {
 
     .sponsor_img {
       width: 100%;
+      @include flex_vm();
 
       img {
+
         @include custom-responsive(" xs sm") {
           width: 100%;
           border-radius: $br_MB;
+
         }
 
         @include custom-responsive(" xl xx-l") {

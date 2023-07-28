@@ -1,7 +1,8 @@
 <script setup>
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
-
 import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -21,7 +22,6 @@ const sponsorCartStore = useSponsorCartStore();
         <div class="sponsor_img">
           <img :src="'pictures/images/sponsor/introduction.jpg'" alt="">
         </div>
-
         <div class="sponsor_text">
           <h4>認養兒童方案</h4>
           <p>

@@ -21,7 +21,7 @@ const router = useRouter();
           <div class="box">
             <img :src="'pictures/images/title/front2.svg'" alt="front2" @click="router.push({ path: '/home' })"
               class="front2 img">
-            <img :src="'pictures/images/title/front.png'" alt="front" @click="router.push({ path: '/home' })"
+            <img :src="'pictures/images/title/Front.png'" alt="front" @click="router.push({ path: '/home' })"
               class="front1 img">
           </div>
           <h2>前台</h2>

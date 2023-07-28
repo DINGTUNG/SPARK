@@ -1,9 +1,3 @@
-@import '@/assets/sass/base/color';
-@import '@/assets/sass/base/fonts/fonts-mixin';
-@import '@/assets/sass/base/box-shadow';
-@import '@/assets/sass/base/border-radius';
-@import '@/assets/sass/base/rwd/breakpoints';
-
 
 @include custom-responsive('xs') {
   div.banner {
@@ -105,8 +99,9 @@
             }
 
             div.pic {
-              width: 65%;
-              height: 65%;
+              margin-top: 10px;
+              width: 60vw;
+              height: 50vw;
 
               img {
                 width: 100%;

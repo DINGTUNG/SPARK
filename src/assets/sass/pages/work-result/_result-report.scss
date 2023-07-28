@@ -312,7 +312,7 @@ div.container {
                     }
 
                     @include custom-responsive(" xl xx-l") {
-                        margin-left: 50px;
+                        margin-left: 10px;
                     }
 
                     img {
@@ -339,6 +339,7 @@ div.container {
                 }
 
                 button {
+                    @include flex_vm();
                     font-size: 1rem;
                     @include custom-responsive(" xs sm") {
                         @include regularBlueBtn_MB;
@@ -349,9 +350,10 @@ div.container {
 
                     @include custom-responsive(" xl xx-l") {
                         @include regularBlueBtn_PC;
-                        width: 200px;
+                        width: 100px;
                         height: 40px;
-                        margin-right: 50px;
+                        margin-right: 10px;
+
                     }
                 }
             }

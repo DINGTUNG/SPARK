@@ -1,6 +1,8 @@
 div.sponsor_checkout_container {
   width: 100%;
+  height: 100vh;
   position: relative;
+
 
   div.main_body {
     position: relative;
@@ -15,13 +17,42 @@ div.sponsor_checkout_container {
 
     div.checkout_wrap {
       position: relative;
-      top: -25vh;
+
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 100px;
 
-      div.checkout_table_wrap {}
+      @include custom-responsive("xs sm") {
+        flex-direction: column;
+        top: 15vh;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        flex-direction: row;
+        top: 25vh;
+      }
+
+
+      @include custom-responsive("xl") {
+
+        gap: 50px;
+      }
+
+      @include custom-responsive("xx-l") {
+
+        gap: 100px;
+      }
+
+      div.checkout_table_wrap {
+
+        @include custom-responsive("xs sm") {
+          order: 1
+        }
+
+        @include custom-responsive("xl xxl") {
+          order: 0
+        }
+      }
 
       div.checkout_overview_wrap {
         @include flex_vm;
@@ -31,9 +62,16 @@ div.sponsor_checkout_container {
 
     img {
       position: absolute;
-      left: -12vw;
-      top: 30vh;
+
+
       animation-name: rocket;
+
+      @include custom-responsive("xl") {
+        width: 10%;
+        left: -15vw;
+        top: 70vh;
+      }
+
 
     }
 

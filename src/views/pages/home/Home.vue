@@ -1,6 +1,6 @@
 <!-- Manychat -->
-<script src="//widget.manychat.com/110950745410488.js" defer="defer"></script>
-<script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script>
+<!-- <script src="//widget.manychat.com/110950745410488.js" defer="defer"></script>
+<script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script> -->
 <script setup>
 import { RouterLink } from 'vue-router'
 import News from '@/views/sections/home/News.vue';
@@ -80,7 +80,7 @@ const showBranch = (index) => {
         <div class="intro_map">
           <img :src="'pictures/images/home/blue_taiwan.svg'" alt="blue_taiwan">
 
-          <div class="branch_dot" v-for="(branch, index) in branches" @click="showBranch(index)"></div>
+          <!-- <div class="branch_dot" v-for="(branch, index) in branches" @click="showBranch(index)"></div> -->
 
 
           <transition>

@@ -168,7 +168,7 @@ const letterData = reactive([
       <div class="table">
         <div class="title">
 
-          <Images id="love_book" :imgSrc="imageUrl" alt="感謝函裝飾" />
+          <Images :class="'love_book'" :imgSrc="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾" />
           <h1>感謝函專區</h1>
         </div>
         <div class="text">
@@ -241,4 +241,9 @@ const letterData = reactive([
 
 <style scoped lang="scss">
 @import "@/assets/sass/pages/member-center/letter-record";
+
+.love_book{
+
+  width: 2%;
+}
 </style>

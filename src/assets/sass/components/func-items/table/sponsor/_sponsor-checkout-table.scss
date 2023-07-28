@@ -1,52 +1,84 @@
 table.checkout_table {
-
-  width: 700px;
+  @include custom-responsive("xl xx-l") {
+    width: 40vw;
+  }
 
   caption {
     text-align: left;
-    @include h1_PC
+
+    @include custom-responsive("xl") {
+      @include h3_PC
+    }
+
+    @include custom-responsive("xx-l") {
+      @include h1_PC
+    }
+
   }
 
   tbody {
     tr {
       border-bottom: 1px solid $functionalLightGrey3;
-
-      td {}
     }
   }
 
   tr {
     border: 0;
 
-
     th,
     td {
       border: 0;
       text-align: left;
-
     }
 
     th {
-      padding: 30px 30px 0;
-      @include h4_B_PC;
       border-bottom: 5px solid $primaryBrandBlue;
+
+      @include custom-responsive("xl") {
+        @include h6_PC;
+        font-weight: bold;
+        padding: 2vw 2vw 0;
+      }
+
+      @include custom-responsive("xx-l") {
+        @include h4_B_PC;
+        padding: 1vw 2vw 0;
+      }
+
+      @include custom-responsive("xl xx-l") {
+
+      }
 
     }
 
     td {
-      width: 30%;
-      padding: 30px 30px;
-      @include h5_PC;
+
+      @include custom-responsive("xl") {
+        padding: 3vh 2vw;
+        @include h6_PC;
+      }
+
+      @include custom-responsive("xx-l") {
+        width: 30%;
+        padding: 30px 30px;
+        @include h5_PC;
+      }
 
       i {
-        font-size: 30px;
+   
         color: $primaryBrandBlue;
         cursor: pointer;
         @include btnEffect;
         display: block;
         width: 15%;
         text-align: center;
-
+        @include custom-responsive("xl") {
+          font-size: 25px;
+        }
+      
+        @include custom-responsive("xx-l") {
+          font-size: 30px;
+        }
       }
     }
 
@@ -65,7 +97,7 @@ table.checkout_table {
     }
 
     td.discard {
-      width: 10%;
+      width: 5%;
 
     }
 

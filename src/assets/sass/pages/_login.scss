@@ -1,7 +1,7 @@
 div.login_body {
     display: flex;
 
-    .register_banner {
+    div.login_banner_PC {
         background-image: url('/pictures/images/login/login_banner_PC.jpg');
         background-size: cover;
         background-position: center;
@@ -11,6 +11,13 @@ div.login_body {
         top: 0;
         left: 0;
         z-index: 50;
+
+        @include custom-responsive(" xs sm lg "){
+            display: none;
+        }
+        @include custom-responsive(" xl xx-l "){
+            display: block;
+        }    
 
         p {
             position: absolute;
@@ -24,25 +31,73 @@ div.login_body {
         }
 
         img {
-            width: 12%;
-            position: absolute;
-            top: 58%;
-            left: 72%;
+                width: 90px;
+                position: absolute;
+                top: 58%;
+                left: 68%;
+            }
         }
+      
+
+    div.login_banner_MB {
+        background-image: url('/pictures/images/login/login_banner_MB.jpg');
+        background-size: cover;
+        background-position: center ;
+        width: 100vw;
+        height: 300px;
+        position: fixed;
+        top: 0;
+        z-index: 50;
+
+
+        @include custom-responsive(" xs sm lg "){
+            display: block;
+        }
+        @include custom-responsive(" xl xx-l "){
+            display: none;
+        }    
+
+        p {
+            position: absolute;
+            color: white;
+            font-size: 17.5px;
+            letter-spacing: 10px;
+            line-height: 1.8;
+            left: 10%;
+            top: 48%;
+            text-shadow: 3px 3px 5px rgb(20, 31, 49) ;
+        }
+
+        img {
+                width: 140px;
+                position: absolute;
+                top: 17%;
+                left: 10%;
+            }
+
     }
 
+
     div.login {
-       
-        padding: 60px 0 0 0;
-        margin-left: 46%;
-        display: flex;
-        flex-direction: column;
+
+        @include custom-responsive(" xs sm md lg "){
+            margin: 300px auto 0;
+            text-align: left;
+        }
+        @include custom-responsive(" xl xx-l "){
+            margin: 60px auto 0;
+            margin-left: 46%;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
 
      
         h1 {
             color: $primaryBrandBlue;
             font-size: $h1Fs_PC;
             padding: 40px 0px;
+            text-align: center;
         }
 
         label {
@@ -50,12 +105,6 @@ div.login_body {
         }
 
         input {
-            @include h5_PC;
-            border: 1px solid $functionalLightGrey3;
-            border-radius: 10px;
-            padding: 10px;
-
-            background-color: #f9f9f9;
 
             &:focus {
                 outline: 1px solid;
@@ -68,10 +117,21 @@ div.login_body {
 
             @include custom-responsive("xs sm ") {
                 width: 100%;
+                @include h5_MB;
+                border: 1px solid $functionalLightGrey3;
+                border-radius: 10px;
+                padding: 15px 60px 15px 15px;
+                background-color: #f9f9f9;
+                
             }
 
             @include custom-responsive("xl xx-l") {
                 width: 100%;
+                @include h5_PC;
+                border: 1px solid $functionalLightGrey3;
+                border-radius: 10px;
+                padding: 10px;
+                background-color: #f9f9f9;
             }
         }
 
@@ -130,6 +190,10 @@ div.login_body {
             height: 55px;
             width: 100%;
             margin-top: 50px;
+
+            @include custom-responsive("xs sm ") {
+                margin-top: 20px;
+            }
         }
 
         div.error_account {
@@ -151,7 +215,7 @@ div.login_body {
                 cursor: pointer;
                 padding: 25px 0;
                 @include custom-responsive("xs sm ") {
-                    left: 90%;
+                    right: 6%;
                 }
 
                 @include custom-responsive("xl xx-l") {
@@ -168,15 +232,22 @@ div.login_body {
             justify-content: space-between;
             width: 100%;
             margin-top: 30px;
+            
 
             h6 {
                 color: #bebdbd;
             }
 
             div.line {
-                width: 35%;
-                height: 1px;
-                background-color: #bebdbd;
+
+                @include custom-responsive("xs sm ") {
+                    width: 25%;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    width: 35%;
+                    height: 1px;
+                    background-color: #bebdbd;
+                }
             }
         }
 
@@ -205,6 +276,14 @@ div.login_body {
         div.signup{
             text-align: right;
             margin-top: 10px;
+
+            @include custom-responsive("xs sm ") {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 60px;
+            }
+
+            
 
             i{
                 color: $secondaryLightBlue2;

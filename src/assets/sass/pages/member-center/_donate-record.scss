@@ -104,10 +104,18 @@ div.donate_record_container {
                     }
                         
                     div.date_choose{
+                        align-items: center;
+                        color:$primaryBrandWhite;
+
+                        @include custom-responsive("xs") {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                        }
+                        @include custom-responsive("lg xl xx-l") {
                             display: flex;
                             justify-content: space-around;
-                            align-items: center;
-                            color:$primaryBrandWhite;
+                        }
 
                             .date{
                                 display: flex;
@@ -139,6 +147,15 @@ div.donate_record_container {
                                     color: $primaryBrandBlue;
                                     font-size: 21px;
                                     cursor: pointer;
+                                }
+                            }
+                            .wave{
+                                @media (max-width:480px){ 
+                                    display: none;
+                                }
+                                
+                                @include custom-responsive(" sm lg xl xx-l") {
+                                    display: block;
                                 }
                             }
                     }

@@ -74,6 +74,10 @@ div.donate_list_container{
 
 
 @include custom-responsive("xs"){ //0px
+    div.donate_list_banner{
+        margin-top: 85px;
+    }
+
     div.donate_list_container{
         div.main_body{
             @include body_space_MB;
@@ -124,7 +128,7 @@ div.donate_list_container{
             }
 
             .bar_image {
-                margin-bottom: 60px;
+                margin-bottom: 70px;
                 width: 100%;
             }
         }
@@ -172,6 +176,10 @@ div.donate_list_container{
 
 
 @include custom-responsive("xl"){ //1200px
+    div.donate_list_banner{
+        margin-top: 0px;
+    }
+
     div.donate_list_container{
         div.main_body{
             @include body_space_PC;

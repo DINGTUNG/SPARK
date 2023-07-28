@@ -64,20 +64,50 @@
             box-sizing: border-box;
             padding: 3%;
             margin: 6% 0;
+            border-radius: 1.3vw;
+            box-shadow: 0 0 12px #A8CEF0;
             position: relative;
+
+            
+            .clip {
+                position: absolute;
+                top: -34px;
+                left: 55px;
+            }
 
             .dream_dashline {
                 width: 100%;
                 box-sizing: border-box;
-                padding: 0 6.5% 3%;
+                padding: 3% 6.5%;
                 border: 2px dashed $secondaryLightBlue1;
+                position: relative;
+
+                .shine {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+
+                .subtitle {
+
+                    h2 {
+                        color: $primaryBrandBlue;
+                        position: relative;
+
+                    }
+                }
+
+                .goal_wrap {
+                    display: flex;
+                }
+
+                .article_highlight {
+                    color: $decorativeOrange;
+                    font-weight: 700;
+                }
+                
             }
 
-            .clip {
-                position: absolute;
-                top: -8%;
-                left: 5%;
-            }
             
         
         }

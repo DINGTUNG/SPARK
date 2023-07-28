@@ -41,11 +41,11 @@ header {
             text-align: center;
 
             li {
+              height: 100%;
 
               &:hover {
                 background-color: $functionalLightGrey1;
                 border-radius: 15px;
-
               }
 
 
@@ -216,7 +216,6 @@ div.blur-background.show {
           margin-left: 20px;
 
           li {
-
             a.link {
               color: $primaryBrandBlue;
               font-size: 18px;

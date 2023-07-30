@@ -2,10 +2,20 @@
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
 import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+// import required modules
+import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
+const modules = [EffectFade, Navigation, Pagination, Autoplay];
+
+
+
 
 const sponsorCartStore = useSponsorCartStore();
-
 </script>
 
 <template>
@@ -20,7 +30,20 @@ const sponsorCartStore = useSponsorCartStore();
       </div>
       <div class="sponsor_block">
         <div class="sponsor_img">
-          <img :src="'pictures/images/sponsor/introduction.jpg'" alt="">
+          <swiper :spaceBetween="30" 
+          :effect="'fade'" 
+          :navigation="false" 
+          :autoplay="{
+            delay: 2000,
+            disableOnInteraction: false,
+          }" 
+          :pagination="false"
+           :modules="modules" class="mySwiper">
+            <swiper-slide><img :src="'pictures/images/sponsor/introduction.jpg'" alt=""></swiper-slide>
+            <swiper-slide><img :src="'pictures/images/sponsor/introduction2.jpg'" /></swiper-slide>
+            <swiper-slide><img :src="'pictures/images/sponsor/introduction3.jpg'" /></swiper-slide>
+            <swiper-slide><img :src="'pictures/images/sponsor/introduction4.jpg'" /></swiper-slide>
+          </swiper>    
         </div>
         <div class="sponsor_text">
           <h4>認養兒童方案</h4>
@@ -58,7 +81,6 @@ const sponsorCartStore = useSponsorCartStore();
     </div>
   </div>
   <SponsorCheckoutSideList />
-
 </template>
 
 <style scoped lang="scss">

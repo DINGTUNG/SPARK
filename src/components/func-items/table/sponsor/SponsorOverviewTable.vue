@@ -47,7 +47,7 @@ const memberDataStore = useMemberDataStore();
 
     </table>
 
-    <table class="sponsor_info">
+    <table class="sponsor_info sponsor_info_PC">
       <tr>
         <th colspan="4">認養資訊</th>
       </tr>
@@ -84,7 +84,44 @@ const memberDataStore = useMemberDataStore();
     </table>
 
 
+    <table class="sponsor_info sponsor_info_MB">
+      <tr>
+        <th colspan="2">認養資訊</th>
+      </tr>
+      <tr>
+        <td class="title">姓名</td>
+        <td>{{ memberDataStore.memberData.name }}</td>
+      </tr>
+      <tr>
+        <td class="title">會員編號</td>
+        <td>{{ memberDataStore.memberData.memId }}</td>
+      </tr>
+      <tr>
+        <td class="title">公司</td>
+        <td>{{ memberDataStore.memberData.companyName }}</td>
+      </tr>
+      <tr>
+        <td class="title">統一編號</td>
+        <td>{{ memberDataStore.memberData.gui }}</td>
+      </tr>
+      <tr>
+        <td class="title">Email</td>
+        <td>{{ memberDataStore.memberData.email }}</td>
+      </tr>
+      <tr>
+        <td class="title">定期繳款方案</td>
+        <td>一次繳清</td>
+      </tr>
+      <tr>
+        <td class="title">手機</td>
+        <td>{{ memberDataStore.memberData.mobile }}</td>
+      </tr>
+      <tr>
+        <td class="title">繳款方式</td>
+        <td>{{ paymentStore.chosenMethodType.display }}</td>
+      </tr>
 
+    </table>
 
 
   </div>

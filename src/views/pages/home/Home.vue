@@ -1,7 +1,12 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { useRoute, RouterLink, useRouter } from 'vue-router'
 import News from '@/views/sections/home/News.vue';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import Loading from '@/layout/Loading.vue';
+// import { query } from 'express';
+
+const route = useRoute();
+const router = useRouter();
 
 const branches = ref([
   { area: "北部", name: "台北星火中心", num: 1800 },
@@ -22,12 +27,19 @@ const showBranch = (index) => {
   // curNum.value = isShow ? `${branches.value[index].num}` : "";
 };
 
+const isLoading = ref(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    router.push({ name: "home", query: "" })
+    isLoading.value = false;
+  }, 1500);
+});
 </script>
 
-
 <template>
-  <div>
-
+  <Loading v-if="route.query.showLoading" />
+  <div v-else>
     <div class="banner_container">
       <div class="banner">
         <!-- <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg"> -->

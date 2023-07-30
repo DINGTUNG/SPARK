@@ -28,21 +28,21 @@ const btnList = reactive([{
 }])
 
 
+const begin = ref(null)
 const dreamStar = ref(null)
 const messageBoard = ref(null)
 const activityDonate = ref(null)
 
-
-const scrollToElement = () => {
-  if (dreamStar.value) {
+const scrollToElement = (refName) => {
+  if (refName == btnList[1].ref) {
     dreamStar.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-  if (messageBoard.value) {
+  } else if (refName == btnList[2].ref) {
     messageBoard.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-  if (activityDonate.value) {
+  } else if (refName == btnList[3].ref) {
     activityDonate.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  } else if (refName == btnList[0].ref) {
+    begin.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 </script>
@@ -60,7 +60,7 @@ const scrollToElement = () => {
         </div>
 
         <div class="btn_wrap">
-          <button v-for="btn in btnList" :key="btn.title" @click="scrollToElement">
+          <button v-for="btn in btnList" :key="btn.title" @click="scrollToElement(btn.ref)" :ref="btn.ref">
             <div class="img_wrap"> <img :src="btn.imgSrc" alt=""></div>
 
             <span>{{ btn.title }}</span>
@@ -68,7 +68,7 @@ const scrollToElement = () => {
 
         </div>
 
-        <div class="text">
+        <div class="text" ref="begin" id="begin">
           <div class="title_wrap">
             <h2 class="title">喚醒孩子們內心的夢想</h2>
             <img :src="'pictures/spark_activity/deco_line.svg'" alt="">

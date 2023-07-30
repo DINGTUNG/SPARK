@@ -132,7 +132,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   const addToCart = (locationId, addCount) => {
     let curCount = getCurrentCountInCart(locationId)
     cart.set(locationId, curCount + addCount)
-    // cardArrangement(curCount)
+   
   }
 
   const removeFromCart = (locationId, removeCount) => {
@@ -144,7 +144,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     } else {
       cart.delete(locationId)
     }
-    // cardArrangement(curCount)
+    
   }
 
   const getCurrentCountInCart = (locationId) => {
@@ -177,23 +177,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
   const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH)
 
-
-  // const locationCard = reactive([])
-
-  // const cardArrangement = (locationID, curCount) => {
-  //   const currentIndex = locationCard.value.findIndex((item) => item.id === locationID) //
-
-  //   if (curCount !== 0 && currentIndex === -1) {
-  //     //
-  //     const appendedObject = locationList.value.find((item) => item.id === locationID)
-  //     locationCard.value.push(appendedObject)
-  //     return
-  //   }
-
-  //   if (curCount === 0 && currentIndex !== -1) {
-  //     locationCard.value.splice(currentIndex, 1)
-  //   }
-  // }
 
 
   return {

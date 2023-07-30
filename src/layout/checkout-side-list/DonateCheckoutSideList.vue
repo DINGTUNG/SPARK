@@ -65,8 +65,8 @@ const goToCheckoutPage = () => {
 
     </div>
     <div class="img">
-      <Images :imgSrc="'pictures/decorations/illustration/blue_shooting_stars.svg'" :alt="流星" id="star"/>
-      <Images :imgSrc="'pictures/characters/star/star_superman.svg'" :alt="超人" id="man"/>
+      <Images :imgSrc="'pictures/decorations/illustration/blue_shooting_stars.svg'" :alt="'流星'" id="star"/>
+      <Images :imgSrc="'pictures/characters/star/star_superman.svg'" :alt="'超人'" id="man"/>
     </div>
     <div class="donate_total">
       <div class="total_price">
@@ -78,8 +78,8 @@ const goToCheckoutPage = () => {
       </div>
     </div>
   </div>
+  <div :class="['blur-background', { 'show': donateCartStore.isBlurred }]"></div>
 </template>
-
 <style scoped lang="scss">
 @import'@/assets/sass/layout/checkout-side-list/_donate-checkout-side-list';
 </style>

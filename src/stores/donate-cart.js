@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia'
-import { ref, reactive } from 'vue'
+import { ref, reactive,computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+
 
 
 export class DonateProject {
@@ -113,18 +116,35 @@ export class PriceOption {
 }
 
 
-
-
-
-
 export const useDonateCartStore = defineStore('donate-cart', () => {
+  const currentRoutePath = computed(() => router.currentRoute.value.path);
+  const isBlurred = ref(false);
+  const router = useRouter();
+
+
+  const onAddToCartClick = () => {
+    if (currentRoutePath.value === '/donate') {
+      isBlurred.value = false;
+    } else {
+      isBlurred.value = !isBlurred.value;
+    }
+   
+  };
+
+  // 在 SponsorCheckoutSideList 關閉時，移除模糊效果
+  const removeToCartClick = () => {
+    isBlurred.value = false;
+  };
+
   const isSideListShow = ref(false)
 
   const showSideList = () => {
     isSideListShow.value = true
+    onAddToCartClick()
   }
   const hideSideList = () => {
     isSideListShow.value = false
+    removeToCartClick()
   }
 
 
@@ -132,14 +152,14 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
 
   const chosenPrice = ref(100)
 
-
-
-
   return {
     isSideListShow,
     showSideList,
     hideSideList,
     chosenPrice,
-    chosenDonateProject
+    chosenDonateProject,
+    isBlurred,
+    onAddToCartClick,
+    removeToCartClick
   }
 })

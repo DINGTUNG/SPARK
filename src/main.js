@@ -13,6 +13,20 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import VueReCaptcha from 'vue3-recaptcha2';
 import Images from '@/components/func-items/images/Images.vue'
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// init Swiper:
+const swiper = new Swiper('.swiper', {
+  // configure Swiper to use modules
+  modules: [Navigation, Pagination],
+
+});
 
 const pinia = createPinia()
 const app = createApp(App)

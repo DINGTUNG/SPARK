@@ -1,6 +1,27 @@
 div.table_wrap {
   @include flex_vm;
-  gap: 50px;
+
+  @include custom-responsive("xs sm") {
+    gap: 3vh;
+
+    table.sponsor_info_PC {
+      display: none;
+    }
+
+    table.sponsor_info_MB {
+      display: block;
+    }
+  }
+
+  @include custom-responsive("xl xx-l") {
+    table.sponsor_info_PC {
+      display: block;
+    }
+
+    table.sponsor_info_MB {
+      display: none;
+    }
+  }
 
 
   table {
@@ -11,8 +32,16 @@ div.table_wrap {
     border-top: 0;
     border-radius: 15px;
     overflow: hidden;
-    width: 800px;
     background-color: $primaryBgWhite;
+
+    @include custom-responsive("xs sm") {
+      width: 80vw;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      width: 50vw;
+    }
+
 
     th {
       background-color: $primaryBgBlue;
@@ -20,27 +49,65 @@ div.table_wrap {
       @include h5_PC;
       text-align: left;
       padding-left: 30px;
+
+
+      @include custom-responsive("xs sm") {
+        width: 80vw;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        width: 50vw;
+      }
     }
 
     td {
-      padding: 20px 30px;
       border-bottom: 1px solid $functionalLightGrey2;
       @include h6_PC;
       text-align: center;
+
+      @include custom-responsive("xs sm") {
+        padding: 0vh 2vw;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        padding: 2vh 2vw;
+      }
+
     }
 
     td.title {
       font-weight: bold;
+
+      @include custom-responsive("xs sm") {
+        @include h6_MB;
+        font-weight: bold;
+        padding-left: 5vw;
+      }
+
+      @include custom-responsive("xl xx-l") {
+        @include h5_PC;
+        font-weight: bold;
+        padding-left: 3vw;
+      }
     }
 
     tfoot {
-
       td.total {
         background-color: $functionalLightGrey1;
         ;
-
-        @include h4_B_PC;
         text-align: right;
+
+  
+        @include custom-responsive("xs sm") {
+          @include h6_MB;
+          font-weight: bold;
+        }
+
+        @include custom-responsive("xl xx-l") {
+          @include h4_B_PC;
+        }
+
+
 
         div {
           display: flex;
@@ -51,8 +118,16 @@ div.table_wrap {
           }
 
           img.star {
-            width: 1vw;
+
             margin: 0 1vw;
+
+            @include custom-responsive("xs sm") {
+              width: 3vw;
+            }
+
+            @include custom-responsive("xl xx-l") {
+              width: 1vw;
+            }
 
           }
         }
@@ -61,10 +136,14 @@ div.table_wrap {
   }
 
 
-
   table.sponsor_info {
+    @include custom-responsive("xs sm") {}
 
-    td,th{
+    @include custom-responsive("xl xx-l") {}
+
+
+    td,
+    th {
       text-align: left;
     }
   }

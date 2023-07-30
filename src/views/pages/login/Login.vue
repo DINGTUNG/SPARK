@@ -127,55 +127,57 @@ const login = () => {
 <template>
   <div class="login_body">
     <div class="login_banner_PC">
-        <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
-        <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">        
+      <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
+      <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">
     </div>
     <div class="login_banner_MB">
-        <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
-        <img :src="'pictures/logo/logo_white_second.svg'" alt="logo" class="logo">        
+      <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
+      <img :src="'pictures/logo/logo_white_second.svg'" alt="logo" class="logo">
     </div>
 
 
     <div class="login">
       <h1>會員登入</h1>
       <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
-      <label for="account">帳號</label>
-      <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
-        :class="{ 'animate__animated animate__headShake': errorAccount }">
-      <label for="password">密碼</label>
-
-      <div class="password_wrapper" ref="passwordField" :class="{ 'animate__animated animate__headShake': errorAccount }">
-        <div class="password_block">
-          <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼">
-          <span class="toggle" @click="showHide"> <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'"
-              alt="hide" />
-            <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>
-        </div>
-        <div class="recaptcha_forget_block">
-          <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
-            @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
-            @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
-          </vue-recaptcha>
-          <div class="forgot_psw">
-            <i class="fa-solid fa-circle-question"></i>
-            <a href="#">忘記密碼</a>
+      <form action="login.php" method="post">
+        <label for="account">帳號</label>
+        <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
+          :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId">
+        <label for="password">密碼</label>
+        <div class="password_wrapper" ref="passwordField"
+          :class="{ 'animate__animated animate__headShake': errorAccount }">
+          <div class="password_block">
+            <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼"
+              name="memPsw">
+            <span class="toggle" @click="showHide"> <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'"
+                alt="hide" />
+              <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>
+          </div>
+          <div class="recaptcha_forget_block">
+            <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
+              @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
+              @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
+            </vue-recaptcha>
+            <div class="forgot_psw">
+              <i class="fa-solid fa-circle-question"></i>
+              <a href="#">忘記密碼</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div v-if="errorAccount" class="error_account">
-        {{ errorAccount }}
-      </div>
-      <button class="login_button" @click="login">登入</button>
-      <div class="login_methods">
-        <div class="line"></div>
-        <h6>以其他方式登入</h6>
-        <div class="line"></div>
-      </div>
-      <button class="google_login" @click="signInRedirect">
-        <i class="fa-brands fa-google"></i>
-        以 google 帳號登入
-      </button>
-
+        <div v-if="errorAccount" class="error_account">
+          {{ errorAccount }}
+        </div>
+        <button class="login_button" @click="login">登入</button>
+        <div class="login_methods">
+          <div class="line"></div>
+          <h6>以其他方式登入</h6>
+          <div class="line"></div>
+        </div>
+        <button class="google_login" @click="signInRedirect">
+          <i class="fa-brands fa-google"></i>
+          以 google 帳號登入
+        </button>
+      </form>
       <div class="signup">
         <span>
           你還不是會員嗎？

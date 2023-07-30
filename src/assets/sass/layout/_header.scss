@@ -267,9 +267,11 @@ header.header_MB{
   backdrop-filter: blur(5px);
   transition: opacity 0.1s ease-in-out;
   opacity: 0;
-  z-index: 23; /* 確保在nav之下 */
+  z-index: 5; /* 確保在nav之下 */
+  visibility: hidden;
 }
 
 .show {
   opacity: 1;
+  visibility: visible;
 }

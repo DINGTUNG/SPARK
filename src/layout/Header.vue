@@ -1,29 +1,12 @@
 <script setup>
-import { ref, watchEffect, watch, onMounted, onUnmounted} from 'vue';
-import { RouterLink, useRoute} from 'vue-router';
+//【引入】
+import { ref, watch, onMounted, onUnmounted} from 'vue';
+import { RouterLink, useRoute, useRouter} from 'vue-router';
 
-let isNavOpen = ref(false);
-let isLargeScreen = ref(window.matchMedia("(min-width: 1200px)").matches);
-let showWrapper = ref(false);
-
-watchEffect(() => {
-  const mediaQuery = window.matchMedia("(min-width: 1200px)");
-  mediaQuery.addEventListener('change', () => {
-    isLargeScreen.value = mediaQuery.matches;
-    if (!isLargeScreen.value) {
-      showWrapper.value = false;
-    }
-  });
-  isLargeScreen.value = mediaQuery.matches;
-});
-
-const activeSubMenu = ref(null);
-const activeImage = ref(null);
-
-//header logo的變化
-const imgSrc = ref('pictures/logo/logo_white.svg') // Default
+//【header logo change for PC & MB】
+const imgSrc = ref('pictures/logo/logo_blue.svg') // Default
 const currentRoute = useRoute()
-
+//mediaQuery for PC & MB
 const mediaQuery1200 = window.matchMedia('(max-width: 1200px)')
 const mediaQuery1201to1399 = window.matchMedia('(min-width: 1201px) and (max-width: 1399px)')
 
@@ -57,175 +40,207 @@ onUnmounted(() => {
   mediaQuery1201to1399.removeEventListener('change', () => updateImageSource(currentRoute.name))
 })
 
-//
+//【定義動態生成的導覽列菜單】
 const menuItems = ref([
   {
     label: '認識星火',
     route: '/about',
-    img: 'pictures/decorations/layout/little_star.png'
+    image: 'pictures/decorations/layout/little_star.png',
+    active: false,
+    clicked: false,
   },
   {
     label: '服務內容',
-    route: '/service',
-    img: 'pictures/decorations/layout/little_star.png'
+    route: '/service', 
+    image: 'pictures/decorations/layout/little_star.png',
+    active: false,
+    clicked: false,
   },
   {
     label: '成果佈告欄',
     route: '/work-result',
-    submenu: [
+    image: 'pictures/decorations/layout/little_star.png',
+    active: false,
+    clicked: false, 
+    children: [ 
       { label: '故事藝廊', route: '/story-gallery' },
       { label: '歷年報告', route: '/result-report' },
-      { label: '服務里程碑', route: '/service-milestone' }
+      { label: '服務里程碑', route: '/service-milestone' },
     ],
-    img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '認養計畫',
     route: '/sponsor',
-    submenu: [
+    image: 'pictures/decorations/layout/little_star.png',
+    active: false,
+    clicked: false, 
+    children: [ 
       { label: '我要認養', route: '/sponsor' },
-      { label: '認養地區', route: '/sponsor-location' }
+      { label: '認養地區', route: '/sponsor-location' },
     ],
-    img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '捐款專案',
     route: '/donate',
-    submenu: [
+    image: 'pictures/decorations/layout/little_star.png',
+    active: false,
+    clicked: false, 
+    children: [ 
       { label: '捐款內容', route: '/donate' },
-      { label: '捐款善心榜', route: '/donate-list' }
+      { label: '捐款善心榜', route: '/donate-list' },
     ],
-    img: 'pictures/decorations/layout/little_star.png'
   },
   {
     label: '星火之友',
-    route: '/contact',
-    img: 'pictures/decorations/layout/little_star.png'
+    route: '/contact', 
+    image: 'pictures/decorations/layout/little_star.png',
+    active: false,
+    clicked: false,
   },
   {
     label: '星火活動',
-    route: '/spark-activity',
-    img: 'pictures/decorations/layout/little_star.png'
+    route: '/spark-activity', 
+    image: 'pictures/decorations/layout/little_star.png',
+    active: false,
+    clicked: false,
   },
   {
     label: '會員登入',
-    route: 'login',
+    route: '/login', 
   },
 ]);
 
-const showSubMenu = (index) => {
-  activeSubMenu.value = index;
-};
-
-const hideSubMenu = () => {
-  activeSubMenu.value = null;
-};
-
-const showImage = (index) => {
-  activeImage.value = index;
-};
-
-const hideImage = () => {
-  activeImage.value = null;
-};
-
-const toggleNav = () => {
-  if (!isLargeScreen.value) {
-    isNavOpen.value = !isNavOpen.value;
-    showWrapper.value = isNavOpen.value;
+//【小星星的@mouseenter & @mouseleave & @click 的設定】
+const hoverItem = (item) => {
+  if (!item.clicked) {
+    item.active = true;
   }
 };
 
-const toggleSubMenu = (index) => {
-  if (activeSubMenu.value === index) {
-    activeSubMenu.value = null;
+const deactivateItem = (item) => {
+  if (!item.clicked) {
+    item.active = false;
+  }
+};
+
+const activateItem = (item, index) => {
+  menuItems.value.forEach((menuItem) => {
+    menuItem.active = menuItem === item;
+    menuItem.clicked = menuItem === item;
+  });
+  sessionStorage.setItem('activeItem', index);
+};
+
+onMounted(() => {
+  const activeItem = sessionStorage.getItem('activeItem');
+  if (activeItem !== null) {
+    menuItems.value[activeItem].active = true;
+    menuItems.value[activeItem].clicked = true;
+  }
+});
+
+//【回上一頁時，圖檔依舊在此頁面的原位】
+let route = useRoute();
+
+watch(route, (newRoute) => {
+  let activeItemIndex = menuItems.value.findIndex(item => 
+    item.route === newRoute.path || (item.children && item.children.some(child => child.route === newRoute.path))
+  );
+  
+  menuItems.value.forEach((item, index) => {
+    if (index === activeItemIndex) {
+      item.active = true;
+      item.clicked = true;
+    } else {
+      item.active = false;
+      item.clicked = false;
+    }
+  });
+
+  if (activeItemIndex > -1) {
+    sessionStorage.setItem('activeItem', activeItemIndex);
   } else {
-    activeSubMenu.value = index;
+    sessionStorage.removeItem('activeItem');
   }
-};
+});
 
-const closeNav = () => {
-  if (isNavOpen.value && isLargeScreen.value) {
-    isNavOpen.value = false;
-    showWrapper.value = false;
-  }
-};
+//【hamburder 開關】
+let navVisible = ref(false);
+
+//【頁面跳轉時置頂】
+const router = useRouter();
+
+router.afterEach(() => {
+  window.scrollTo(0, 0);
+});
 </script>
 
+
+
 <template>
-  <header>
+  <!-- 【header 桌機版】 -->
+  <header class="header_PC">
+    <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
       <Images id="logo" :imgSrc="imgSrc" :alt="Sparklogo"/>
     </RouterLink>
-
-    <button class="nav_toggle" v-if="!isLargeScreen" @click="toggleNav" v-bind:class="{ open: isNavOpen }">
-      <span class="burger_icon"></span>
-      <span class="burger_icon"></span>
-      <span class="burger_icon"></span>
-    </button>
-
-    <div class="wrapper" v-show="isLargeScreen || showWrapper">
-      <nav>
-        <ul>
-          <li v-for="(item, index) in menuItems" :key="index">
-
-            <template v-if="item.submenu && !isLargeScreen">
-              <a class="link" @click="toggleSubMenu(index)" :class="{ 'active': activeSubMenu === index }">
-                {{ item.label }}
-                <span class="submenu_icon"></span>
-              </a>
-              
-              <ul v-show="activeSubMenu === index">
-                <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
-                  <RouterLink :to="subItem.route" class="link" @click="toggleNav">{{ subItem.label }}</RouterLink>
-                </li>
-              </ul>
-            </template>
-
-
-
-            <template v-else>
-              <RouterLink v-if="item.route" :to="item.route" :class="['link', { 'member_login': item.label === '會員登入' }]"
-                @mouseover="item.label !== '會員登入' ? showSubMenu(index) : null"
-                @mouseleave="item.label !== '會員登入' ? hideSubMenu() : null" @click="toggleNav">
-                {{ item.label }}
-              </RouterLink>
-              <a v-else :href="item.route" class="link" @mouseover="showSubMenu(index)" @mouseleave="hideSubMenu">
-                {{ item.label }}
-              </a>
-              <Images v-if="(isLargeScreen && (activeImage === index || activeSubMenu === index)) || (!isLargeScreen && activeImage === index)"
-                 :alt="Image" class="hover_image"
-                style="position: absolute; left: -5px; top: 50%; transform: translateY(-50%);" :imgSrc="item.img" />
-              <ul v-if="item.submenu" class="submenu" :class="{ 'active': activeSubMenu === index }"
-                @mouseover="showImage(index)" @mouseleave="hideImage">
-                <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
-                  <RouterLink :to="subItem.route" class="link">{{ subItem.label }}</RouterLink>
-                </li>
-              </ul>
-            </template>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <!-- 【Navigation bar】 -->
+    <nav>
+      <ul>
+        <!-- main menu -->
+        <li v-for="(item, index) in menuItems" :key="index" class="menu_item" @mouseenter="hoverItem(item)" @mouseleave="deactivateItem(item)" @click="activateItem(item, index)">
+          <RouterLink :to="item.route" :class="['link_main', { 'member_login': item.label === '會員登入' }]">{{ item.label }}</RouterLink>
+          <img v-if="item.active" :src="item.image" class="menu_icon">
+          <!-- submenu -->
+          <ul v-if="item.children">
+            <li v-for="(child, childIndex) in item.children" :key="childIndex" class="submenu_item">
+              <RouterLink :to="child.route" class="link_child">{{ child.label }}</RouterLink>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
-  <div :class="['blur-background', { 'show': isNavOpen }]"></div>
+
+
+  <!-- 【heder 手機版】 -->
+  <header class="header_MB">
+    <!-- 【logo】 -->
+    <RouterLink to="/home" class="link_home">
+      <Images id="logo" :imgSrc="imgSrc" :alt="Sparklogo"/>
+    </RouterLink>
+    <!-- hamburger -->
+    <button class="nav_toggle"  @click="navVisible = !navVisible">  <!--turn on & turn off -->
+      <span class="burger_icon" :class="{'toggle': navVisible}"></span>
+      <span class="burger_icon" :class="{'toggle': navVisible}"></span>
+      <span class="burger_icon" :class="{'toggle': navVisible}"></span>
+    </button>
+    <!-- main menu -->
+    <nav v-show="navVisible"> <!-- click hamburger before show main menu -->
+      <ul>
+        <!-- main menu -->
+        <li v-for="(item, index) in menuItems" :key="index" class="menu_item">
+          <RouterLink :to="item.route" class="link link_main"  @click="navVisible = !navVisible">{{ item.label }}</RouterLink>
+          <!-- submenu -->
+          <ul v-if="item.children">
+            <li v-for="(child, childIndex) in item.children" :key="childIndex" class="submenu_item">
+              <RouterLink :to="child.route" class="link link_child" @click="navVisible = !navVisible">{{ child.label }}</RouterLink>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- blur_background -->
+  <div :class="['blur_background', { 'show': navVisible }]"></div>
 </template>
-
-
 
 <style scoped lang="scss">
 @import "@/assets/sass/layout/header";
 
-@keyframes slideIn {
-  0% {
-    transform: translateX(100%);
-  }
 
-  100% {
-    transform: translateX(0%);
-  }
-}
 </style>
+
 
 
 

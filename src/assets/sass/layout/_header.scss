@@ -1,267 +1,275 @@
-@import "@/assets/sass/base/color";
-@import"@/assets/sass/base/fonts/fonts";
-
-//共用
-header {
-  .link_home {
-    #logo {
-      vertical-align: top;
-    }
+// 【header 桌機版】
+header.header_PC{
+  width: 100%;
+  justify-content: space-around;  //暫定
+  align-items: center;
+  position: absolute;
+  background-color: transparent;
+  top: 5%;
+  z-index: 24;
+  @include custom-responsive("xs"){
+      display: none;
+  }
+  @include custom-responsive("xl"){
+      display: flex;
   }
 
-  div.wrapper {
-    nav {
-      background-image: url("/pictures/decorations/layout/star.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-
-      ul {
-        list-style-type: none;
-
-        li {
-          position: relative;
-          cursor: pointer;
-          padding: 20px;
-          box-sizing: border-box;
-
-          a.link {
-            text-decoration: none;
-            font-weight: $fWBold;
+  .link_home{
+      #logo{
+          vertical-align: top;
+          @include custom-responsive("xl"){
+              width: 150px;
           }
+          @include custom-responsive("xx-l"){
+              width: 300px;
+          }
+      }
+  }
 
-          .submenu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-65%);
-            display: none;
-            background-color: $primaryBrandWhite;
-            border-radius: 15px;
-            width: max-content;
-            text-align: center;
+  nav{
+      width: max-content;
+      background-color: $functionalLightGrey1;
+      border-radius: 100px;
 
-            li {
-              height: 100%;
+      ul{
+          display: flex;
+          justify-content: space-evenly;
+          list-style: none;
+          margin-left: 20px;
 
-              &:hover {
-                background-color: $functionalLightGrey1;
-                border-radius: 15px;
+          li {
+              position: relative; // 確保子選單相對於主選單定位
+              text-align: center;
+              box-sizing: border-box;
+              @include custom-responsive("xl"){
+                  padding: 18px;
+              }
+              @include custom-responsive("xx-l"){
+                  padding: 20px;
+              }
+              
+              .link_main{
+                  text-decoration: none;
+                  color: $primaryBrandBlue;
+                  font-weight: $fWBold;
+                  @include custom-responsive("xl"){
+                      font-size: 1.125rem;
+                  }
+                  @include custom-responsive("xx-l"){
+                      font-size: 1.25rem;
+                  }
               }
 
-            }
-          }
+              .member_login{
+                  background-color: $secondaryLightGold2;
+                  border-radius: 100px;
+                  box-sizing: border-box;
+                  @include custom-responsive("xl"){
+                      padding: 13px 38px 13px 38px;
+                  }
+                  @include custom-responsive("xx-l"){
+                      padding: 15px 40px 15px 40px;
+                  }
+              }
 
-          .submenu.active {
-            display: block;
+              //小星星的設定
+              img.menu_icon{
+                  position: absolute;
+                  left: -5%;
+              }
+
+              // 定義子選單的初始顯示狀態
+              ul {
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 50%;
+                  transform: translateX(-65%);
+                  background-color: $primaryBgWhite;
+                  z-index: 1; // 確保子選單在主選單之上
+                  white-space: nowrap;
+              }
+        
+              // 主選單懸停時，顯示子選單
+              &:hover {
+                  ul{
+                      display: block;
+                      border-radius: 15px;
+
+                      li{
+                          .link_child{
+                              text-decoration: none;
+                              color: $primaryBrandBlue;
+                              font-weight: $fWBold;
+                              @include custom-responsive("xl"){
+                                  font-size: 1.125rem;
+                              }
+                              @include custom-responsive("xx-l"){
+                                  font-size: 1.25rem;
+                              }
+                          }
+
+                          &:hover{
+                              background-color: $functionalLightGrey1;
+                              border-radius: 15px;
+                          }
+                      }
+                  }
+              }
           }
-        }
       }
-    }
   }
 }
 
 
-//媒體裝置(min-widt:0px)
-@include custom-responsive("xs") {
-  header {
-    width: 100vw;
-    position: fixed;
-    background-color: $primaryBgBlue;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 24;
+//【header 手機版】
+header.header_MB{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 51;
+  background-color: $primaryBgBlue;
+  padding: 15px;
+  box-sizing: border-box;
+  @include custom-responsive("xs"){
+      display: block;
+  }
+  @include custom-responsive("xl"){
+      display: none;
+  }
 
-    .link_home {
-      #logo {
-        width: 200px;
+  .link_home{
+      #logo{
+          vertical-align: top;
+          @include custom-responsive("xs"){
+              width: 210px
+          }
+          @include custom-responsive("md"){
+              width: 250px;
+          }
       }
-    }
+  }
 
-    button.nav_toggle {
-      font-size: 50px;
-      background-color: transparent;
-      color: white;
-      border: none;
+  button.nav_toggle {
       float: right;
 
       span.burger_icon {
         display: block;
-        width: 40px; //20px
-        height: 5px; //2px
-        background-color: white;
+        width: 40px;
+        height: 5px; 
+        background-color: $primaryBgWhite;
         margin: 10px 0;
-      }
-    }
-
-    button.open {
-      span.burger_icon:nth-child(1) {
-        transform: rotate(-45deg) translate(-11px, 12px);
+        transition: transform 0.6s ease, opacity 0.1s ease;
       }
 
-      span.burger_icon:nth-child(2) {
-        opacity: 0;
+      .burger_icon.toggle:nth-child(1) {
+          transform: rotate(45deg) translate(10px, 11px)
       }
-
-      span.burger_icon:nth-child(3) {
-        transform: rotate(45deg) translate(-7px, -11px);
+        
+        .burger_icon.toggle:nth-child(2) {
+            opacity: 0;
       }
-    }
-
-    div.wrapper {
+        
+        .burger_icon.toggle:nth-child(3) {
+          transform: rotate(-45deg) translate(10px, -12px);
+      }
+  }
+  
+  nav{
       position: absolute;
       top: 100%;
       right: 0;
-      z-index: 23;
+      background-color: $primaryBgBlue;
+      width: 60vw;
+      border-radius: 30px 0px 0px 30px;
+      background-image: url("/pictures/decorations/layout/star.png");
+      background-repeat: no-repeat;
+      background-size: cover;
       animation: slideIn 1s ease-in-out forwards;
-
-      nav {
-        border-radius: 50px 0px 0px 50px;
-        background-color: $primaryBgBlue;
-        width: 60vw;
-
-        ul {
-          display: block;
-          margin-left: 5vw;
-
-          li {
-
-            a.link {
-              color: $primaryBrandWhite;
-              font-size: 17.5px;
-              font-weight: $fWBold;
-            }
+      @keyframes slideIn {
+          0% {
+            transform: translateX(100%);
           }
-        }
+        
+          100% {
+            transform: translateX(0%);
+          }
       }
-    }
+
+      @include custom-responsive("xs"){
+          width: 60vw;
+      }
+      @include custom-responsive("md"){
+          width: 50vw;
+      }
+
+      ul{
+          list-style-type: none;
+
+          li.menu_item{
+              @include custom-responsive("xs"){
+                  margin-left: 50px;
+              }
+              @include custom-responsive("md"){
+                  margin-left: 80px;
+              }
+
+              .link_main{
+                  text-decoration: none;
+                  padding: 12px;
+                  box-sizing: border-box; 
+                  display: block;
+                  color: $primaryBgWhite;
+                  font-weight: $fWBold;
+                  @include custom-responsive("xs"){
+                      font-size: 1rem;
+                  }
+                  @include custom-responsive("md"){
+                      font-size: 1.09375rem;
+                  }
+              }
+
+              ul{
+                  li.submenu_item{  
+                      .link_child{
+                          text-decoration: none;
+                          padding: 12px;
+                          box-sizing: border-box; 
+                          display: block;
+                          color: $primaryBgWhite;
+                          font-weight: $fWBold;
+                          @include custom-responsive("xs"){
+                              font-size: 1rem;
+                          }
+                          @include custom-responsive("md"){
+                              font-size: 1.09375rem;
+                          }
+                      }
+                  }
+              }
+          }
+      }
   }
 }
 
-div.blur-background {
+// 背景模糊
+.blur_background {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   backdrop-filter: blur(5px);
-  z-index: 10;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
   opacity: 0;
-  visibility: hidden;
+  z-index: 23; /* 確保在nav之下 */
 }
 
-div.blur-background.show {
+.show {
   opacity: 1;
-  visibility: visible;
-}
-
-
-//媒體裝置(min-widt:768px)
-@include custom-responsive("md") {
-  header {
-    .link_home {
-      #logo {
-        width: 300px;
-      }
-    }
-
-    div.wrapper {
-      nav {
-        width: 40vw;
-      }
-    }
-  }
-}
-
-
-
-//媒體裝置(min-widt:1200px)
-@include custom-responsive("xl") {
-  header {
-    position: absolute;
-    background-color: transparent;
-    top: 5%;
-    padding: 0px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .link_home {
-      #logo {
-        width: 150px;
-      }
-    }
-
-    div.wrapper {
-      position: static;
-      animation: none;
-
-      nav {
-        border-radius: 100px;
-        background-color: $functionalLightGrey1;
-        width: max-content;
-        background-image: none;
-        background-repeat: none;
-        background-size: none;
-
-        ul {
-          display: flex;
-          justify-content: space-evenly;
-          margin-left: 20px;
-
-          li {
-            a.link {
-              color: $primaryBrandBlue;
-              font-size: 18px;
-            }
-
-            a.member_login {
-              background-color: $secondaryLightGold2;
-              border-radius: 100px;
-              padding: 15px 40px 15px 40px;
-              box-sizing: border-box;
-            }
-
-            &:hover .submenu {
-              display: block;
-            }
-
-            .submenu.active {
-              display: block;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-
-//媒體裝置(min-widt:1400px)
-@include custom-responsive("xx-l") {
-  header {
-    .link_home {
-      #logo {
-        width: 300px;
-      }
-    }
-
-    div.wrapper {
-      nav {
-        ul {
-          li {
-            a.link {
-              font-size: 20px;
-              font-weight: $fWBold;
-            }
-          }
-        }
-      }
-    }
-  }
 }

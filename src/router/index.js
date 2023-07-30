@@ -183,7 +183,13 @@ const router = createRouter({
   {
     path: '/test',
     name: 'test',
-    component: () => import('@/templates/Test.vue')
+    component: () => import('@/templates/Test.vue'),
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+      hideLeftMenu: true,
+      hideRightMenu: true,
+    }
   },
   {
     path: '/result-report',

@@ -24,9 +24,10 @@ const iconDisplay = ref('none')
 
 const handleMouseMove = (e) => {
   if (container.value.contains(e.target)){
-    iconLeft.value = e.pageX - 320 + "px";
-    iconTop.value = e.pageY - 800 + "px";
+    iconLeft.value = e.pageX + 20 + "px";
+    iconTop.value = e.pageY + 15 + "px";
     iconDisplay.value = "block"
+    console.log(e.pageX, iconLeft.value,  e.pageY, iconTop.value);
   } else {
     iconDisplay.value = "none"
   }
@@ -66,6 +67,9 @@ const photoAlbum = reactive(PHOTO_ALBUM)
 </script>
 
 <template>
+    <i class="fa-solid fa-computer-mouse" id="icon"
+  :style="{ left: iconLeft, top: iconTop , display:iconDisplay }"
+  ></i>
   <div class="banner">
     <img class="PC" :src="'pictures/images/results/story-gallery/banner.jpg'" alt="banner" />
     <img class="MB" :src="'pictures/images/results/story-gallery/banner_MB.png'" alt="banner" />
@@ -88,10 +92,7 @@ const photoAlbum = reactive(PHOTO_ALBUM)
         </div>
 
         <transition name="fade" mode="out-in">
-          <div class="story" ref="container" :key="displayStory" @click="switchClick" @mousemove="handleMouseMove">
-            <i class="fa-solid fa-computer-mouse" id="icon"
-            :style="{ left: iconLeft, top: iconTop , display:iconDisplay }"
-            ></i>
+          <div class="story" ref="container" :key="displayStory" @click="switchClick">
             <div class="pic">
               <img :src="coverStory[displayStory].imgUrl" alt="封面故事照片" />
               <div class="pic_under">

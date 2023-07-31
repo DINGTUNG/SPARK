@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import  Story  from '@/views/sections/work-result/Story.vue'
 import { COVER_STORY, WARM_STORY, PHOTO_ALBUM} from '@/constant/storyGallery.constant.js'
 
@@ -15,6 +15,22 @@ const switchStory = () => {
 const switchClick = () => {
   switchStory()
   picUnder()
+}
+
+const container = ref(null)
+const iconLeft = ref("0px");
+const iconTop = ref("0px");
+const iconDisplay = ref('none')
+
+const handleMouseMove = (e) => {
+  if (container.value.contains(e.target)){
+    iconLeft.value = e.pageX + 20 + "px";
+    iconTop.value = e.pageY + 15 + "px";
+    iconDisplay.value = "block"
+    console.log(e.pageX, iconLeft.value,  e.pageY, iconTop.value);
+  } else {
+    iconDisplay.value = "none"
+  }
 }
 
 const picUnderIndex = ref(1)
@@ -47,14 +63,18 @@ const photoSelected = (index) => {
 const photoAlbum = reactive(PHOTO_ALBUM)
 
 
+
 </script>
 
 <template>
+    <i class="fa-solid fa-computer-mouse" id="icon"
+  :style="{ left: iconLeft, top: iconTop , display:iconDisplay }"
+  ></i>
   <div class="banner">
     <img class="PC" :src="'pictures/images/results/story-gallery/banner.jpg'" alt="banner" />
     <img class="MB" :src="'pictures/images/results/story-gallery/banner_MB.png'" alt="banner" />
   </div>
-  <div class="container">
+  <div class="container" @mousemove="handleMouseMove">
     <div class="main_body">
       <div class="switch-button">
         <a href="#warm-story">溫馨事紀</a>
@@ -72,7 +92,7 @@ const photoAlbum = reactive(PHOTO_ALBUM)
         </div>
 
         <transition name="fade" mode="out-in">
-          <div class="story" :key="displayStory" @click="switchClick">
+          <div class="story" ref="container" :key="displayStory" @click="switchClick">
             <div class="pic">
               <img :src="coverStory[displayStory].imgUrl" alt="封面故事照片" />
               <div class="pic_under">
@@ -189,6 +209,12 @@ const photoAlbum = reactive(PHOTO_ALBUM)
 <style scoped lang="scss">
 @import '@/assets/sass/pages/work-result/story-gallery';
 
+#icon{
+  position: absolute;
+  font-size: 20px;
+  z-index: 22;
+  color: $primaryAccentGold;
+}
 .fade-enter-from{
   opacity:0
 }

@@ -132,6 +132,7 @@
           justify-content: space-evenly;
           align-items: center;
           flex-direction: row;
+          top: 50%;
         }
         @include custom-responsive("xx-l") {
           width: 60vw;

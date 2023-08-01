@@ -8,7 +8,6 @@ const infoModal = ref(null);
 function openModal(imageSrc) {
   modalImageSrc.value = imageSrc;
   infoModal.value.showModal();
-
 }
 
 function closeImageModal() {
@@ -210,16 +209,14 @@ const letterData = reactive([
 
 
         <!-- 彈窗 -->
-        <div ref="modalContainer" :class="'modal-container'" id="modal-container">
-          <div v-if="modalImageSrc !== ''" :class="'overlay'" id="overlay" @click="closeImageModal"></div>
-
-          <dialog ref="infoModal" :open="modalImageSrc !== ''" :class="'modal-dialog'" @click="closeImageModal">
+          <dialog ref="infoModal" 
+          :class="'modal-dialog'" @click="closeImageModal">
             <Images :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
-            <!-- <button id="close_btn" :class="'close_btn'">
+            <!-- <button :class="'close_btn'">
               <Images id="btn_icon" :class="'btn_icon'" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button> -->
           </dialog>
-        </div>
+
 
         <!-- 分頁 -->
         <div class="text-center">

@@ -1,6 +1,6 @@
 <script setup>
-import { reactive } from 'vue';
-
+import { ref,reactive } from 'vue';
+const date = ref();
 
 const adoptionData = reactive([
   {
@@ -94,17 +94,9 @@ const adoptionData = reactive([
 
         <div class="date_block">
           <div class="date_picker">
-            <span>選擇認養日期</span>
+            <span>選擇日期區間</span>
             <div class="date_choose">
-              <div class="date">
-                <span>2022/07/23</span>
-                <i class="fa-solid fa-calendar-days"></i>
-              </div>
-              <span class="wave">～</span>
-              <div class="date">
-                <span>2022/07/23</span>
-                <i class="fa-solid fa-calendar-days"></i>
-              </div>
+                <VueDatePicker v-model="date" range max-range="365"  :enable-time-picker="false"/>
             </div>
             <div class="search">
               <button>查詢</button>

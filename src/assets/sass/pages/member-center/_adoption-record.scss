@@ -90,13 +90,10 @@ div.adoption_record_container {
                     background-color: $primaryBgBlue;
                     border-radius: 15px;
                     display: flex;
-                    justify-content: space-evenly;
-                    padding: 20px 0;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    padding: 20px 20px;
                     align-items: center;
-
-                    @media (max-width: 992px){               
-                       flex-wrap: wrap;
-                    }
 
                     span {
                         @include h5_B_PC;
@@ -104,61 +101,64 @@ div.adoption_record_container {
                     }
                         
                     div.date_choose{
-                            align-items: center;
-                            color:$primaryBrandWhite;
+                        align-items: center;
+                        color:$primaryBrandWhite;
+                        padding: 0 50px;
+                        margin: 5px;
 
-                            @include custom-responsive("xs") {
-                                display: flex;
-                                flex-wrap: wrap;
-                                justify-content: center;
+                        :deep(.dp__input_icon_pad){
+                            border: 2px solid $secondaryLightBlue1;
+                            border-radius: 10px;
+                            padding: 10px 10px 10px 40px;
+                            width: 130%;
+                            transform: translateX(-10%);
+
+                            @media (max-width: 992px) {
+                                width: 150%;
+                                transform: translateX(-16%);
                             }
-                            @include custom-responsive("lg xl xx-l") {
-                                display: flex;
-                                justify-content: space-around;
+                        }
+                        :deep(.dp__input_icon){
+                            left: -12%;
+
+                            @media (max-width: 992px) {
+                                left: -22%;
                             }
+                        }
+                        :deep(.dp__clear_icon){
+                            right: -16%;
 
-                            .date{
-                                display: flex;
-                                justify-content: space-around;
-                                background-color:$primaryBrandWhite;
-                                padding: 12px 30px;
-                                border-radius: 15px;
-                                border: 2px solid $secondaryLightBlue1;
-                                margin: 0 30px;
-                                align-items: center;
-                       
-
-                                @media (max-width: 992px) {         
-                                    @include h6_MB;
-                                    padding: 5px 15px;
-                                    margin: 10px 10px;
-                                }
-
-                                span{   
-                                    @include h6_PC;
-                                    color: $primaryBrandBlue;
-                                    margin-right:20px;
-
-                                    @media (max-width: 992px){               
-                                        flex-wrap: wrap;
-                                        margin-right:20px;
-                                     }
-                                }
-                                i{
-                                    color: $primaryBrandBlue;
-                                    font-size: 21px;
-                                    cursor: pointer;
-                                }
+                            @media (max-width: 992px) {
+                                right: -25%;
                             }
-                            .wave{
-                                @media (max-width:480px){ 
-                                    display: none;
-                                }
-                                
-                                @include custom-responsive(" sm lg xl xx-l") {
-                                    display: block;
-                                }
+                        }
+                        :deep(.dp__action_select){
+                            background-color:$secondaryLightBlue2;
+                        }
+                        :deep(.dp__action_cancel){
+                            &:hover{
+                                border: 1px solid $secondaryLightBlue2;
                             }
+                        }
+                        :deep(.dp__range_start, .dp__range_end){
+                            background-color: $secondaryLightBlue2;
+                        }
+                        :deep(.dp__action_button){
+                            line-height:0;
+                            padding: 15px 15px;
+                            margin-left: 8px;
+                        }
+
+                        @include custom-responsive("xs") {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                        }
+                        @include custom-responsive("lg xl xx-l") {
+                            display: flex;
+                            justify-content: space-around;
+                        }
+                          
                     }
                 
                     .search{
@@ -266,6 +266,8 @@ div.adoption_record_container {
                     }
 
                     td.count{
+                        color: $primaryBrandBlue;
+
                         @media (max-width: 992px){
                             @include h5_B_MB;
                             color: $secondaryLightBlue3;

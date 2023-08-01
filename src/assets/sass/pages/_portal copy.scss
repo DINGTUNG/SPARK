@@ -37,10 +37,12 @@
 
 @keyframes boy_float {
   0% {
+    top: -80%;
     transform: rotate(8deg);
   }
 
   100% {
+    top: -72%;
     transform: rotate(-6deg);
   }
 }
@@ -86,15 +88,13 @@ div.login_container {
 
   div.portal_img_wrap {
     @include flex_hm;
-    gap: 8vw;
 
     div.portal_img_front,
     div.portal_img_back {
       @include flex_vm;
-
+      position: relative;
 
       div.box {
-        position: relative;
         @include flex_hm;
         width: 20vw;
         height: 20vw;
@@ -118,6 +118,9 @@ div.login_container {
       }
 
       h2 {
+        padding-top: 20px;
+        @include h2_PC;
+        @include flex_hm;
         color: $primaryBrandWhite;
       }
     }

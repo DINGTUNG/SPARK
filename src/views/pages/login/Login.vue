@@ -154,10 +154,10 @@ const login = () => {
               <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>
           </div>
           <div class="recaptcha_forget_block">
-            <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
-              @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
-              @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
-            </vue-recaptcha>
+              <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
+                @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
+                @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
+              </vue-recaptcha>
             <div class="forgot_psw">
               <i class="fa-solid fa-circle-question"></i>
               <a href="#">忘記密碼</a>

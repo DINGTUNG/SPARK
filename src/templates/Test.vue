@@ -32,6 +32,5 @@ body {
   margin: 0;
   padding: 0;
 }
-</script>
 
-<style scoped lang="scss"></style>
+</style>

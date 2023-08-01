@@ -20,7 +20,7 @@ const router = useRouter();
           <div class="box">
             <img :src="'pictures/images/title/front2.svg'" alt="front2"
               @click="router.push({ name: 'home', query: { showLoading: true } })" class="front2 img">
-            <img :src="'pictures/images/title/front.png'" alt="front" @click="router.push({ name: 'home', query: { showLoading: true } })"
+            <img :src="'public/pictures/images/title/Front.png'" alt="front" @click="router.push({ name: 'home', query: { showLoading: true } })"
               class="front1 img">
           </div>
           <h2>前台</h2>

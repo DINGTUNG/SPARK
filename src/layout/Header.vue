@@ -182,7 +182,7 @@ router.afterEach(() => {
   <header class="header_PC">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <Images id="logo" :imgSrc="imgSrc" :alt="Sparklogo"/>
+      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo"/>
     </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>
@@ -207,7 +207,7 @@ router.afterEach(() => {
   <header class="header_MB">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <Images id="logo" :imgSrc="imgSrc" :alt="Sparklogo"/>
+      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo"/>
     </RouterLink>
     <!-- hamburger -->
     <button class="nav_toggle"  @click="navVisible = !navVisible">  <!--turn on & turn off -->

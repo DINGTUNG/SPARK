@@ -10,11 +10,10 @@ const router = useRouter();
       <img :src="'pictures/decorations/illustration/shooting_star_white.svg'" alt="shoot" class="shooting_star_white">
 
       <div class="title_text">
-        <img :src="'pictures/images/title/title.png'" alt="title" class="title">
-
+        <img :src="'pictures/images/title/title.png'" alt="logo" class="logo">
         <img :src="'pictures/images/title/shoot.png'" alt="shoot" class="shoot">
-
       </div>
+
       <div class="title_img">
         <div class="title_img_front">
           <div class="box">
@@ -39,8 +38,8 @@ const router = useRouter();
           <h2>後台</h2>
         </div>
       </div>
-      <div class="star_img">
-        <img :src="'pictures/images/title/star.svg'" alt="star">
+      <div>
+        <img class="star_img" :src="'pictures/images/title/star.svg'" alt="star">
       </div>
     </div>
 

@@ -4,7 +4,7 @@
     <div class="animation_wrap">
       <img class="logo" :src="'pictures/logo/logo_blue.svg'" alt="">
       <img class="animate__animated animate__bounceIn animate__infinite star" :src="'pictures/characters/star/star_superman.svg'" alt="">
-      <p class="animate__animated animate__lightSpeedInLeft">即將抵達星火總部</p>
+      <p class="animate__animated animate__lightSpeedInLeft">即將抵達星火總部...</p>
 
     </div>
 

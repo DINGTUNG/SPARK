@@ -68,7 +68,7 @@ const scrollToElement = (refName) => {
 
         </div>
 
-        <div class="text">
+        <div class="text" ref="begin" id="begin">
           <div class="title_wrap">
             <h2 class="title">喚醒孩子們內心的夢想</h2>
             <img :src="'pictures/spark_activity/deco_line.svg'" alt="">

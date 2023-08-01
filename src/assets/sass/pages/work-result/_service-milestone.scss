@@ -1,11 +1,19 @@
+//【banner】
 div.service_milestone_banner{
     width: 100%; 
+    @include custom-responsive("xs"){
+        margin-top: 85px;
+    }
+    @include custom-responsive("xl"){
+        margin-top: 0px;
+    }
 
     img{
         width: 100%; 
     }
 }
 
+//【一顆發光星星代表】
 div.service_milestone_star_info{ 
     align-items: center; 
     justify-content: space-around; 
@@ -15,6 +23,12 @@ div.service_milestone_star_info{
     padding: 10px;  
     box-sizing: border-box;  
     position: absolute;
+    @include custom-responsive("xs"){
+        display: none;
+    }
+    @include custom-responsive("xl"){
+        display: flex;
+    }
    
 
     div.info{
@@ -22,8 +36,8 @@ div.service_milestone_star_info{
         text-align: center;
 
         span{
-           font-size: 14px;
-           color: $primaryBrandWhite;
+            font-size: 14px;
+            color: $primaryBrandWhite;
         }
 
         span.number{
@@ -32,72 +46,225 @@ div.service_milestone_star_info{
     }
 }
 
+//
 div.service_milestone_container{
     width: 100%;
 
     div.main_body{
-
+        @include custom-responsive("xs"){
+            @include body_space_MB;
+        }
+        @include custom-responsive("xl"){
+            @include body_space_PC;
+        }
+//【贊助人數】
         div.number_of_people{
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
 
             div.number_block{
-               letter-spacing: .05rem;
-               text-align: center;
+                letter-spacing: .05rem;
+                text-align: center;
+                @include custom-responsive("xs"){
+                    width: 100%;
+                    margin-top: 50px;
+                }
+                @include custom-responsive("md"){
+                    width: 50%;
+                }
+                @include custom-responsive("xl"){
+                    margin-top: -5%;
+                    width: 25%;
+                }
 
                h5{
-                margin-top: 30px;
-               }
+                    margin-top: 30px;
+                    @include custom-responsive("xs"){
+                        @include h5_MB;
+                    }
+                    @include custom-responsive("md"){
+                        @include h5_PC;
+                    }
+                    @include custom-responsive("xl"){
+                        @include h5_PC;
+                    }
+                }
 
-               span.number{
-                font-weight: $fWBold;
-               }
+               span{
+                    @include custom-responsive("xs"){
+                        font-size: 14px;
+                    }
+                    @include custom-responsive("md"){
+                        font-size: 16px;
+                    }
+                    @include custom-responsive("xl"){
+                        font-size: 16px;
+                    }    
+                }
+
+                span.number{
+                    font-weight: $fWBold;
+                    @include custom-responsive("xs"){
+                        font-size: 28px; 
+                    }
+                    @include custom-responsive("md"){
+                        font-size: 32px; 
+                    }
+                    @include custom-responsive("xl"){
+                        font-size: 32px; 
+                    }
+                }
+
+                &:active{
+                    span.number{
+                        @include custom-responsive("xs"){
+                            color:$decorativeOrange;
+                        }
+                        @include custom-responsive("xl"){
+                            color:$decorativeOrange
+                        }
+                    }
+                }
             }
         }
-
+// 【裝飾線】
         div.title_block{
             display: flex;
             margin-top: 7%;
+            @include custom-responsive("xs"){
+                padding: 20px 0 30px;
+                align-items: center;
+                justify-content: center;
+            }
+            @include custom-responsive("md"){
+                justify-content: space-between;
+            }
+            @include custom-responsive("xl"){
+                padding: 20px 0 35px;
+                align-items: center;
+                justify-content: space-between;
+            }
 
-            h1 {
+            h1{
                 color: $primaryBrandBlue;
+                @include custom-responsive("xs"){
+                    @include h1_MB;
+                }
+                @include custom-responsive("xl"){
+                    @include h1_PC;
+                }
+            }
+
+            img.deco_line{
+                @include custom-responsive("xs"){
+                    display: none;
+                }
+                @include custom-responsive("md"){
+                    width: 60%;
+                    display: block;
+                }
+                @include custom-responsive("xl"){
+                    width: 70%;
+                }
             }
         }
-
-        .carousel{
+//【輪播圖】
+        div.carousel{
             display: flex;
-            justify-content: space-between;
-            margin-top: 20%; 
-            // display: none;  //暫時開啟
-
+            justify-content: space-between; 
+            margin-bottom: 10%;
+            position: relative;
+            @include custom-responsive("xs"){
+                margin-top: 30%;
+            }
+            @include custom-responsive("md"){
+                margin-top: 20%;
+            }
+            
             div.card{
                 @include boxShadow_PC;
-                width: 40%;
                 border-radius: 30px;
-                padding: 40px;
+                @include custom-responsive("xs"){
+                    padding: 20px;
+                    width: 60%;
+                }
+                @include custom-responsive("md"){
+                    padding: 25px;
+                    width: 40%;
+                }
+                @include custom-responsive("xl"){
+                    padding: 30px;
+                    width: 30%;
+                }
+                @include custom-responsive("xx-l"){
+                    padding: 40px;
+                }
 
                 img{
                     width: 100%;
-                    margin-top: -50%;
+                    margin-top: -60%;
                     margin-bottom: 10%;
                 }
 
                 span{
-                    font-size: 24px;
                     color: $primaryAccentGold;
                     font-weight: $fWBold;
                     letter-spacing:$regularBtnLs_PC;
+                    @include custom-responsive("xs"){
+                        font-size: 21px;
+                    }
+                    @include custom-responsive("xl"){
+                        font-size: 24px;
+                    }
                 }
 
                 h4{
-                    @include h4_B_PC;
                     margin-top: 10%;
+                    @include custom-responsive("xs"){
+                        @include h4_B_MB;
+                    }
+                    @include custom-responsive("xl"){
+                        @include h4_B_PC;
+                    }
                 }
 
                 h5{
-                    @include h5_PC;
                     margin-bottom: 10%;
+                    @include custom-responsive("xs"){
+                        @include h5_MB;
+                        margin-top: 10%;
+                    }
+                    @include custom-responsive("xl"){
+                        @include h5_PC;
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            div.size_1, .size_3{
+                @include custom-responsive("xs"){
+                    display: none;
+                }
+                @include custom-responsive("md"){
+                    display: block;
+                    transform: scale(0.6);
+                }
+                @include custom-responsive("xl"){
+                    transform: scale(0.7);
+                }
+            }
+
+            div.size_2{
+                @include custom-responsive("xs"){
+                    margin: auto;
+                }
+                @include custom-responsive("md"){
+                    margin: 0%;
+                    transform: scale(1);
+                }
+                @include custom-responsive("xl"){
+                    transform: scale(1.1);
                 }
             }
 
@@ -105,168 +272,43 @@ div.service_milestone_container{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%); 
+                @include custom-responsive("xs"){
+                    width: 12%; 
+                    height: 12%;
+                    margin-top: -10%;
+                }
+                @include custom-responsive("md"){
+                    width: 4%; 
+                    height: 4%;
+                    margin-top: 0;
+                }
+                
                 img{
                     width: 100%;
                 }
             }
-        }
-    }
-}
 
-
-//----------------------------------------------------------------------
-
-@include custom-responsive("xs"){  //0px
-    div.service_milestone_banner{
-        margin-top: 85px;
-    }
-
-
-    div.service_milestone_star_info{
-        display: none;
-    }   
-
-    div.service_milestone_container{
-        div.main_body{
-            @include body_space_MB;
-
-            div.number_of_people{
-                div.number_block{
-                    width: 100%;
-                    margin-top: 50px;
-
-                   h5{
-                    @include h5_MB;
-                   }
-    
-                   span{
-                    font-size: 14px;
-                   }
-    
-                   span.number{
-                    font-size: 28px;
-                   }
-
-                   &:active{
-                    span.number {
-                        color:$decorativeOrange
-                      }
-                   }
+            div.arrow_left{
+                @include custom-responsive("xs"){
+                    left: 0%;
+                }
+                @include custom-responsive("md"){
+                    left: 27.5%;
                 }
             }
 
-            div.title_block{
-                padding: 20px 0 30px;
-                align-items: center;
-                justify-content: center;
-
-                h1{
-                    @include h1_MB;
+            div.arrow_right{
+                @include custom-responsive("xs"){
+                    right: 0%;
                 }
-
-                img.deco_line{
-                    display: none;
-                }
+                @include custom-responsive("md"){
+                    right: 27.5%;
+                } 
             }
         }
     }
 }
 
-
-@include custom-responsive("md"){  //768px
-    div.service_milestone_container{
-        div.main_body{
-
-            div.number_of_people{
-
-                div.number_block{
-                    width: 50%;
-                   h5{
-                    @include h5_PC;
-                   }
-    
-                   span{
-                    font-size: 16px;
-                   }
-    
-                   span.number{
-                    font-size: 32px;
-                   }
-                }
-            }
-
-            div.title_block{
-                justify-content: space-between;
-
-                img.deco_line{
-                    width: 60%;
-                    display: block;
-                }
-            }
-        }
-    }
-}
-
-
-@include custom-responsive("xl"){ //1200px
-    div.service_milestone_banner{
-        margin-top: 0px;
-    }
-
-    div.service_milestone_star_info{
-        display: flex;
-    } 
-
-    div.service_milestone_container{
-        div.main_body{
-            @include body_space_PC;
-
-
-            div.number_of_people{
-
-                div.number_block{
-                    margin-top: -5%;
-                    width: 25%;
-                   h5{
-                    @include h5_PC;
-                   }
-    
-                   span{
-                    font-size: 16px;
-                   }
-    
-                   span.number{
-                    font-size: 32px;
-                   }
-
-                   &:hover{
-                    span.number {
-                        color:$decorativeOrange
-                      }
-                   }
-                }
-            }
-
-
-            div.title_block{
-                padding: 20px 0 35px;
-                align-items: center;
-                justify-content: space-between;
-
-                h1{
-                    @include h1_PC;
-                }
-
-                img.deco_line{
-                    width: 70%;
-                }
-            }
-        }
-    }
-}
-
-
-@include custom-responsive("xx-l"){
-    
-}

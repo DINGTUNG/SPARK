@@ -24,6 +24,7 @@
     "vee-validate": "^4.10.8",
     "vue": "^3.3.4",
     "vue-fb-customer-chat": "^0.2.2",
+    "vue-loading-overlay": "6.0",
     "vue-router": "^4.2.2",
     "vue3-marquee": "^4.0.0",
     "vue3-recaptcha2": "^1.8.0",

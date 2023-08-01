@@ -15,7 +15,8 @@ import VueReCaptcha from 'vue3-recaptcha2';
 import Images from '@/components/func-items/images/Images.vue'
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
-// import Swiper and modules styles
+
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

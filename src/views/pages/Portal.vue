@@ -3,7 +3,6 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 </script>
 
-
 <template>
   <div class="body">
     <div class="title_block">
@@ -19,9 +18,9 @@ const router = useRouter();
       <div class="title_img">
         <div class="title_img_front">
           <div class="box">
-            <img :src="'pictures/images/title/front2.svg'" alt="front2" @click="router.push({ path: '/home' })"
-              class="front2 img">
-            <img :src="'pictures/images/title/front.png'" alt="front" @click="router.push({ path: '/home' })"
+            <img :src="'pictures/images/title/front2.svg'" alt="front2"
+              @click="router.push({ name: 'home', query: { showLoading: true } })" class="front2 img">
+            <img :src="'pictures/images/title/front.png'" alt="front" @click="router.push({ name: 'home', query: { showLoading: true } })"
               class="front1 img">
           </div>
           <h2>前台</h2>
@@ -49,5 +48,5 @@ const router = useRouter();
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/sass/pages/_entrance";
+@import "@/assets/sass/pages/portal";
 </style>

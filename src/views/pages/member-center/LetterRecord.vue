@@ -34,7 +34,7 @@ const letterData = reactive([
     childId: "00008",
     date: "2023.09.05",
     location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
+    jpgPath: "pictures/images/member-center/child_letter_2.png",
   },
   {
     childId: "00030",
@@ -165,7 +165,6 @@ const letterData = reactive([
 
       <div class="table">
         <div class="title">
-
           <Images id="love_book" :imgSrc="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾" />
           <h1>感謝函專區</h1>
         </div>
@@ -209,6 +208,7 @@ const letterData = reactive([
 
 
         <!-- 彈窗 -->
+        <transition>
           <dialog ref="infoModal" 
           :class="'modal-dialog'" @click="closeImageModal">
             <Images :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
@@ -216,6 +216,7 @@ const letterData = reactive([
               <Images id="btn_icon" :class="'btn_icon'" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button> -->
           </dialog>
+        </transition>
 
 
         <!-- 分頁 -->

@@ -19,6 +19,9 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+//datepicker
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 
 // init Swiper:
 const swiper = new Swiper('.swiper', {
@@ -39,6 +42,8 @@ app.use(router)
 app.use(pinia)
 app.use(vuetify)
 app.component('Images', Images)
+app.component('VueDatePicker', VueDatePicker);
+
 
 //使用viewfire
 app.use(VueFire, {

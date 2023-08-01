@@ -4,20 +4,50 @@
 
 div.dream_star_container {
     width: 100%;
-    height: 300vh;
+    @include custom-responsive("xs") {
+        height: 430vh;
+    }
+    @include custom-responsive("sm") {
+        height: 480vh;
+    }
+    @include custom-responsive("md") {
+        height: 420vh;
+    }
+    @include custom-responsive("lg") {
+        height: 270vh;
+    }
+    @include custom-responsive("xl") {
+        height: 270vh;
+    }
+    @include custom-responsive("xx-l") {
+        height: 149vw;
+    }
 
     div.dream_star_background {
         width: 100%;
-        height: 320vh;
         background-image: url("/pictures/spark_activity/dream_star/dream_star_page_background.jpg");
         background-position: center;
         background-size: cover;
         position: absolute;
 
-
-
-
-
+        @include custom-responsive("xs") {
+            height: 510vh;
+        }
+        @include custom-responsive("sm") {
+            height: 560vh;
+        }
+        @include custom-responsive("md") {
+            height: 500vh;
+        }
+        @include custom-responsive("lg") {
+            height: 355vh;
+        }
+        @include custom-responsive("xl") {
+            height: 290vh;
+        }
+        @include custom-responsive("xx-l") {
+            height: 159vw;
+        }
     }
 
     .carousel {
@@ -28,7 +58,6 @@ div.dream_star_container {
             width: 90vw;
             padding: 35vw 0 12vw;
         }
-
         @include custom-responsive("md lg xl xxl") {
             width: 80vw;
             padding: 13vw 0 5vw;
@@ -95,37 +124,37 @@ div.dream_star_container {
         :deep(.mdi-chevron-left.mdi.v-icon.notranslate.v-theme--light.v-icon--size-default){
             color: $primaryBrandBlue;
             @include custom-responsive("xs sm") {
-            font-size: 2rem;
+                font-size: 2rem;
             }
 
             @include custom-responsive("md") {
-            font-size: 2.5rem;
+                font-size: 2.5rem;
             }
 
             @include custom-responsive("lg xl xxl") {
-            font-size: 3rem;
+                font-size: 3rem;
             }
         }
         // slider的右按鈕箭頭
         :deep(.mdi-chevron-right.mdi.v-icon.notranslate.v-theme--light.v-icon--size-default){
             color: $primaryBrandBlue;
             @include custom-responsive("xs sm") {
-            font-size: 2rem;
+                font-size: 2rem;
             }
 
             @include custom-responsive("md") {
-            font-size: 2.5rem;
+                font-size: 2.5rem;
             }
 
             @include custom-responsive("lg xl xxl") {
-            font-size: 3rem;
+                font-size: 3rem;
             }
         }
 
         // slider的張數點點
         :deep(.v-carousel__controls){
             @media (max-width: 576px) { 
-                    display: none;
+                display: none;
             }
         }
 
@@ -134,7 +163,7 @@ div.dream_star_container {
             color: white;
         }
 
-        .slide_white {
+        img.slide_white {
             width: 96%;
             position: absolute;
             left: 1vw;
@@ -150,34 +179,29 @@ div.dream_star_container {
     }
 
 
-    .main_body {
+    div.main_body {
         @include custom-responsive("xs sm") {
-        @include body_space_MB;
-    }
+            @include body_space_MB;
+        }
 
         @include custom-responsive("xl xxl") {
-        @include body_space_PC;
-    }
+            @include body_space_PC;
+        }
 
-        .title_wrap {
-
-
-            @include custom-responsive("xs sm") {
-
-            }
+        div.title_wrap {
             @include custom-responsive("md lg xl xxl") {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
 
-            .title_text {
+            div.title_text {
                 @include custom-responsive("xs sm") {
-                        padding: 0 0 8vw;
-                    }
+                    padding: 0 0 8vw;
+                }
                 @include custom-responsive("md lg xl xxl") {
-                        padding: 0 0 0;
-                    }
+                    padding: 0 0 0;
+                }
 
                 h1 {
                     color: $primaryBrandBlue;
@@ -194,11 +218,11 @@ div.dream_star_container {
                         color: $primaryBrandBlue;
                         padding: 0 1vw 0 0;
                         @include custom-responsive("xs sm") {
-                        display: block;
-                    }
-                    @include custom-responsive("md lg xl xxl") {
-                        display: inline-block;
-                    }
+                            display: block;
+                        }
+                        @include custom-responsive("md lg xl xxl") {
+                            display: inline-block;
+                        }
                     }
                 }
 
@@ -214,7 +238,7 @@ div.dream_star_container {
                 }
             }
 
-            .vote_wrap {
+            div.vote_wrap {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -223,15 +247,15 @@ div.dream_star_container {
                 border-radius: 50px;
 
                 @include custom-responsive("xs sm") {
-                        width: 150px;
-                        padding: 6px 15px;
-                        margin: auto;
-                    }
-                    @include custom-responsive("md lg xl xxl") {
-                        width: 180px;
-                        padding: 10px 35px;
-                        margin: 0;
-                    }
+                    width: 150px;
+                    padding: 6px 15px;
+                    margin: auto;
+                }
+                @include custom-responsive("md lg xl xxl") {
+                    width: 180px;
+                    padding: 10px 35px;
+                    margin: 0;
+                }
 
                 img {
                     @include custom-responsive("xs sm") {
@@ -242,11 +266,9 @@ div.dream_star_container {
                     }
                 }
                 
-                .vote_number {
-                    font-family: 'Lato';
+                span.vote_number {
                     font-weight: 700;
                     color: $primaryBrandBlue;
-
                     @include custom-responsive("xs sm") {
                         font-size: 28px;
                     }
@@ -257,58 +279,94 @@ div.dream_star_container {
             }
         }
 
-        .dream_wrap {
+        div.dream_wrap {
             background-color: white;
             width: 100%;
             box-sizing: border-box;
-            padding: 3%;
-            margin: 9% 0;
-            border-radius: 1.3vw;
             box-shadow: 0 0 12px #A8CEF0;
             position: relative;
 
             @include custom-responsive("xs sm") {
-
+                padding: 6%;
+                margin: 18% 0;
+                border-radius: $br_MB;
             }
             @include custom-responsive("md lg xl xxl") {
-
+                padding: 3%;
+                margin: 9% 0;
+                border-radius: $br_PC;
             }
             
-            .clip {
+            img.clip {
                 position: absolute;
-                top: -34px;
-                left: 55px;
+                @include custom-responsive("xs sm") {
+                    top: -35px;
+                    left: 50%;
+                    transform: translate(-50%,0);
+                }
+                @include custom-responsive("md lg xl xxl") {
+                    top: -34px;
+                    left: 55px;
+                    transform: translate(0,0);
+                }
             }
 
-            .dream_dashline {
+            div.dream_dashline {
                 width: 100%;
                 box-sizing: border-box;
                 padding: 3.5% 6.5%;
                 border: 2px dashed $secondaryLightBlue1;
                 position: relative;
 
-                .shine {
+                img.shine {
                     position: absolute;
                     top: 20px;
                     right: 20px;
+                    @include custom-responsive("xs sm") {
+                        display: none;
+                    }
+                    @include custom-responsive("md lg xl xxl") {
+                        display: block;
+                    }
                 }
 
-                .subtitle {
+                div.subtitle {
                     position: relative;
-                    padding: 0 0 30px 0;
+                    @include custom-responsive("xs sm md") {
+                        text-align: center;
+                        margin: 20px 0 20px 0;
+                    }
+                    @include custom-responsive("lg xl xxl") {
+                        text-align: left;
+                        margin: 0 0 30px 0;
+                    }
 
                     h2 {
                         color: $primaryBrandBlue;
                         position: relative;
                         z-index: 1;
+                        @include custom-responsive("xs sm md") {
+                            @include h2_MB;
+                        }
+                        @include custom-responsive("lg xl xxl") {
+                            @include h2_PC;
+                        }
                     }
 
                     img {
                         width: 140px;
                         position: absolute;
-                        top: 0;
-                        left: -9px;
                         z-index: 0;
+                        @include custom-responsive("xs sm md") {
+                            top: 0;
+                            left: 50%;
+                            transform: translate(-50%,0);
+                        }
+                        @include custom-responsive("lg xl xxl") {
+                            top: 0;
+                            left: -9px;
+                            transform: translate(0,0);
+                        }
                     }
                 }
 
@@ -316,36 +374,59 @@ div.dream_star_container {
                     color: $primaryBrandBlue;
                 }
 
-                .article_highlight {
+                span.article_highlight {
                     color: $decorativeOrange;
                     font-weight: 700;
-                }
-                
+                }    
             }
 
             
-            .goal_wrap {
-                display: flex;
-                justify-content: space-between;
+            div.goal_wrap {
                 position: relative;
 
-                .goal_term {
-                    width: 22%;
+                @include custom-responsive("lg xl xxl") {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                div.goal_term {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
 
+                    @include custom-responsive("xs sm md") {
+                        width: 100%;
+                        padding: 12% 0;
+                    }
+                    @include custom-responsive("lg xl xxl") {
+                        width: 22%;
+                        padding: 0;
+                    }
+
                     h5 {
-                        @include h5_B_PC;
                         color: $primaryBrandBlue;
                         background-color: #DDEDFF;
                         padding: 2px 15px;
                         border-radius: 30px;
+
+                        @include custom-responsive("xs sm md") {
+                            @include h5_B_MB;
+                        }
+                        @include custom-responsive("lg xl xxl") {
+                            @include h5_B_PC;
+                        }
                     }
 
-                    .term_pic {
+                    div.term_pic {
                         width: 170px;
                         padding: 5px 0 20px;
+
+                        @include custom-responsive("xs sm md") {
+                            display: none;
+                        }
+                        @include custom-responsive("lg xl xxl") {
+                            display: block;
+                        }
 
                         img {
                             width: 100%;
@@ -354,19 +435,41 @@ div.dream_star_container {
 
                     p {
                         text-align: center;
+                        @include custom-responsive("xs sm md") {
+                            padding: 3% 0;
+                        }
+                            @include custom-responsive("lg xl xxl") {
+                            padding: 0;
+                        }
                     }
                 }
 
-                .term_arrow {
+                img.term_arrow {
                     position: absolute;
-                    top: 6%;
-                    left: 29%;
+                    @include custom-responsive("xs sm md") {
+                        top: 30%;
+                        left: 50%;
+                        transform: rotate(90deg) translate(0,120%);
+                    }
+                    @include custom-responsive("lg xl xxl") {
+                        top: 6%;
+                        left: 29%;
+                        transform: rotate(0deg) translate(0,0);
+                    }
                 }
 
                 .term_arrow + .term_arrow {
                     position: absolute;
-                    top: 6%;
-                    left: 68%;
+                    @include custom-responsive("xs sm md") {
+                        top: 64%;
+                        left: 50%;
+                        transform: rotate(90deg) translate(0,120%);
+                    }
+                    @include custom-responsive("lg xl xxl") {
+                        top: 6%;
+                        left: 68%;
+                        transform: rotate(0deg) translate(0,0);
+                    }
                 }
 
                 .goal_line {
@@ -376,48 +479,83 @@ div.dream_star_container {
                     position: absolute;
                     top: 112px;
                     left: 0;
-                }
-                
+
+                    @include custom-responsive("xs sm md lg") {
+                        display: none;
+                    }
+                    @include custom-responsive("xl xxl") {
+                        display: block;
+                    }
+                }  
             }
-        
         }
 
-        .button_wrap {
+        div.button_wrap {
             display: flex;
-            justify-content: center;
-            gap: 0 50px;
 
-            .button_start {
-                @include dreamStarPlanYellowBtn_PC;
-                width: 280px;
-                letter-spacing: 0.3rem;
+            @include custom-responsive("xs sm md") {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px 0; 
+            }
+            @include custom-responsive("lg xl xxl") {
+                flex-direction: row;
+                justify-content: center;
+                gap: 0 50px;
             }
 
-            .button_support {
-                @include dreamStarPlanBlueBtn_PC;
-                width: 280px;
-                letter-spacing: 0.3rem;
+            button.button_start {
+                @include custom-responsive("xs sm md") {
+                    @include dreamStarPlanYellowBtn_MB;
+                    width: 240px;
+                    height: 50px;
+                    border-radius: 30px;
+                    letter-spacing: 0.1rem;
+                }
+                @include custom-responsive("lg xl xxl") {
+                    @include dreamStarPlanYellowBtn_PC;
+                    width: 280px;
+                    letter-spacing: 0.3rem;
+                }
             }
-        }
-        
+
+            button.button_support {
+                @include custom-responsive("xs sm md") {
+                    @include dreamStarPlanBlueBtn_MB;
+                    width: 240px;
+                    height: 50px;
+                    border-radius: 30px;
+                    letter-spacing: 0.1rem;
+                }
+                @include custom-responsive("lg xl xxl") {
+                    @include dreamStarPlanBlueBtn_PC;
+                    width: 280px;
+                    letter-spacing: 0.3rem;
+                }
+            }
+        } 
     }
 
     img.star_sleeping {
-    position: absolute;
-    z-index: 1;
+        position: absolute;
+        z-index: 1;
 
-    @include custom-responsive("xs sm") {
-      right: 10vw;
-      width: 25vw;
-      bottom: 75vh;
+        @include custom-responsive("xs sm") {
+        right: 10vw;
+        width: 25vw;
+        bottom: 75vh;
+        }
+
+        @include custom-responsive("md lg") {
+        right: 10vw;
+        width: 20vw;
+        bottom: 75vh;
+        }
+
+        @include custom-responsive("xl xx-l") {
+        right: 15vw;
+        width: 15vw;
+        bottom: 10vh;
+        }
     }
-
-    @include custom-responsive("xl xx-l") {
-      right: 15vw;
-      width: 15vw;
-      bottom: 10vh;
-    }
-
-  }
-
 }

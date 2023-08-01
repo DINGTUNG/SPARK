@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
+import { RouterLink } from 'vue-router'
 
 const slideList = reactive([{
   imgSrc: 'pictures/images/spark-activity/dream-star/slide_pic_1.png',
@@ -98,8 +99,12 @@ const slideList = reactive([{
         </div>
 
         <div class="button_wrap">
-          <button class="button_start">夢想起點</button>
+
+          <RouterLink to="/spark-activity">
+            <button class="button_start">夢想起點</button>
+          </RouterLink>
           <button class="button_support">點我支持夢想</button>
+
         </div>
       </div>
 

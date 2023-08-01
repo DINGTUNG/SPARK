@@ -28,7 +28,7 @@ function signInRedirect() {
 onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
-      // console.log(Response);
+      console.log(Response);
 
     })
     .catch((reason) => {
@@ -139,7 +139,7 @@ const login = () => {
     <div class="login">
       <h1>會員登入</h1>
       <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
-      <form action="login.php" method="post">
+      <form action="" method="">
         <label for="account">帳號</label>
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
           :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId">

@@ -1,59 +1,258 @@
-.dream_star_container {
+*{
+    font-family: "Lato", "Noto Sans TC", "Font Awesome 6 Free";
+}
+
+div.dream_star_container {
     width: 100%;
     height: 300vh;
 
-    .dream_star_background {
+    div.dream_star_background {
         width: 100%;
         height: 320vh;
         background-image: url("/pictures/spark_activity/dream_star/dream_star_page_background.jpg");
         background-position: center;
         background-size: cover;
         position: absolute;
+
+
+
+
+
     }
 
     .carousel {
-        padding: 20vh 0 10vh;
-        text-align: center;
-        
+        margin: auto;
+        position: relative;
+
+        @include custom-responsive("xs sm") {
+            width: 90vw;
+            padding: 35vw 0 12vw;
+        }
+
+        @include custom-responsive("md lg xl xxl") {
+            width: 80vw;
+            padding: 13vw 0 5vw;
+        }
+
+        // slider的整個範圍
+        :deep(.v-window.v-theme--light.v-carousel.v-carousel--hide-delimiter-background){
+            z-index: 1;
+            filter: drop-shadow(0 0 7px rgba(168, 206, 240, 0.5))
+        }
+
+        // slider的圖片
+        :deep(.v-responsive.v-img){
+            margin: auto;
+        }
+
+        // slider的左按鈕
+        :deep(.v-btn.v-btn--elevated.v-btn--icon.v-theme--light.v-btn--density-default.v-btn--size-default.v-btn--variant-elevated.v-window__left){
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0,-50%);
+
+            @include custom-responsive("xs sm") {
+                width: 9vw;
+                height: 9vw;
+            }
+
+            @include custom-responsive("md") {
+                width: 7vw;
+                height: 7vw;
+            }
+
+            @include custom-responsive("lg xl xxl") {
+                width: 4vw;
+                height: 4vw;
+            }
+        }
+
+        // slider的右按鈕
+        :deep(.v-btn.v-btn--elevated.v-btn--icon.v-theme--light.v-btn--density-default.v-btn--size-default.v-btn--variant-elevated.v-window__right){
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(0,-50%);
+
+            @include custom-responsive("xs sm") {
+                width: 9vw;
+                height: 9vw;
+            }
+
+            @include custom-responsive("md") {
+                width: 7vw;
+                height: 7vw;
+            }
+
+            @include custom-responsive("lg xl xxl") {
+                width: 4vw;
+                height: 4vw;
+            }
+        }
+
+        // slider的左按鈕箭頭
+        :deep(.mdi-chevron-left.mdi.v-icon.notranslate.v-theme--light.v-icon--size-default){
+            color: $primaryBrandBlue;
+            @include custom-responsive("xs sm") {
+            font-size: 2rem;
+            }
+
+            @include custom-responsive("md") {
+            font-size: 2.5rem;
+            }
+
+            @include custom-responsive("lg xl xxl") {
+            font-size: 3rem;
+            }
+        }
+        // slider的右按鈕箭頭
+        :deep(.mdi-chevron-right.mdi.v-icon.notranslate.v-theme--light.v-icon--size-default){
+            color: $primaryBrandBlue;
+            @include custom-responsive("xs sm") {
+            font-size: 2rem;
+            }
+
+            @include custom-responsive("md") {
+            font-size: 2.5rem;
+            }
+
+            @include custom-responsive("lg xl xxl") {
+            font-size: 3rem;
+            }
+        }
+
+        // slider的張數點點
+        :deep(.v-carousel__controls){
+            @media (max-width: 576px) { 
+                    display: none;
+            }
+        }
+
+        // slider的張數點點顏色
+        :deep(.mdi-circle.mdi.v-icon.notranslate.v-theme--light.v-icon--size-default){
+            color: white;
+        }
+
+        .slide_white {
+            width: 96%;
+            position: absolute;
+            left: 1vw;
+            z-index: 0;
+
+            @include custom-responsive("xs sm") {
+                top: 34vw;
+            }
+            @include custom-responsive("md lg xl xxl") {
+                top: 12.5vw;
+            }
+        }
     }
 
+
     .main_body {
+        @include custom-responsive("xs sm") {
+        @include body_space_MB;
+    }
+
+        @include custom-responsive("xl xxl") {
+        @include body_space_PC;
+    }
 
         .title_wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+
+            @include custom-responsive("xs sm") {
+
+            }
+            @include custom-responsive("md lg xl xxl") {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
             .title_text {
+                @include custom-responsive("xs sm") {
+                        padding: 0 0 8vw;
+                    }
+                @include custom-responsive("md lg xl xxl") {
+                        padding: 0 0 0;
+                    }
+
                 h1 {
                     color: $primaryBrandBlue;
                     padding: 0 0 .5vw;
+                    @include custom-responsive("xs sm") {
+                        @include h2_MB;
+                        text-align: center
+                    }
+                    @include custom-responsive("md lg xl xxl") {
+                        @include h1_PC;
+                    }
 
                     span {
                         color: $primaryBrandBlue;
-                        display: inline-block;
                         padding: 0 1vw 0 0;
+                        @include custom-responsive("xs sm") {
+                        display: block;
+                    }
+                    @include custom-responsive("md lg xl xxl") {
+                        display: inline-block;
+                    }
                     }
                 }
 
                 img {
-                    width: 480px;
+                    @include custom-responsive("xs sm") {
+                        display: block;
+                        margin: auto;
+                        width: 300px;
+                    }
+                    @include custom-responsive("md lg xl xxl") {
+                        width: 480px;
+                    }
                 }
             }
 
             .vote_wrap {
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 gap: 0 15px;
                 background-color: $decorativeYellow;
-                padding: 10px 35px;
                 border-radius: 50px;
 
+                @include custom-responsive("xs sm") {
+                        width: 150px;
+                        padding: 6px 15px;
+                        margin: auto;
+                    }
+                    @include custom-responsive("md lg xl xxl") {
+                        width: 180px;
+                        padding: 10px 35px;
+                        margin: 0;
+                    }
+
+                img {
+                    @include custom-responsive("xs sm") {
+                        width: 32px;
+                    }
+                    @include custom-responsive("md lg xl xxl") {
+                        width: 46px;
+                    }
+                }
+                
                 .vote_number {
-                    font-size: 40px;
                     font-family: 'Lato';
                     font-weight: 700;
                     color: $primaryBrandBlue;
+
+                    @include custom-responsive("xs sm") {
+                        font-size: 28px;
+                    }
+                    @include custom-responsive("md lg xl xxl") {
+                        font-size: 40px;
+                    }
                 }
             }
         }
@@ -63,11 +262,17 @@
             width: 100%;
             box-sizing: border-box;
             padding: 3%;
-            margin: 6% 0;
+            margin: 9% 0;
             border-radius: 1.3vw;
             box-shadow: 0 0 12px #A8CEF0;
             position: relative;
 
+            @include custom-responsive("xs sm") {
+
+            }
+            @include custom-responsive("md lg xl xxl") {
+
+            }
             
             .clip {
                 position: absolute;
@@ -78,7 +283,7 @@
             .dream_dashline {
                 width: 100%;
                 box-sizing: border-box;
-                padding: 3% 6.5%;
+                padding: 3.5% 6.5%;
                 border: 2px dashed $secondaryLightBlue1;
                 position: relative;
 
@@ -89,16 +294,26 @@
                 }
 
                 .subtitle {
+                    position: relative;
+                    padding: 0 0 30px 0;
 
                     h2 {
                         color: $primaryBrandBlue;
                         position: relative;
+                        z-index: 1;
+                    }
 
+                    img {
+                        width: 140px;
+                        position: absolute;
+                        top: 0;
+                        left: -9px;
+                        z-index: 0;
                     }
                 }
 
-                .goal_wrap {
-                    display: flex;
+                p {
+                    color: $primaryBrandBlue;
                 }
 
                 .article_highlight {
@@ -109,10 +324,100 @@
             }
 
             
+            .goal_wrap {
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+
+                .goal_term {
+                    width: 22%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    h5 {
+                        @include h5_B_PC;
+                        color: $primaryBrandBlue;
+                        background-color: #DDEDFF;
+                        padding: 2px 15px;
+                        border-radius: 30px;
+                    }
+
+                    .term_pic {
+                        width: 170px;
+                        padding: 5px 0 20px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    p {
+                        text-align: center;
+                    }
+                }
+
+                .term_arrow {
+                    position: absolute;
+                    top: 6%;
+                    left: 29%;
+                }
+
+                .term_arrow + .term_arrow {
+                    position: absolute;
+                    top: 6%;
+                    left: 68%;
+                }
+
+                .goal_line {
+                    background-color: $primaryBrandBlue;
+                    height: 3px;
+                    width: 100%;
+                    position: absolute;
+                    top: 112px;
+                    left: 0;
+                }
+                
+            }
         
         }
 
+        .button_wrap {
+            display: flex;
+            justify-content: center;
+            gap: 0 50px;
+
+            .button_start {
+                @include dreamStarPlanYellowBtn_PC;
+                width: 280px;
+                letter-spacing: 0.3rem;
+            }
+
+            .button_support {
+                @include dreamStarPlanBlueBtn_PC;
+                width: 280px;
+                letter-spacing: 0.3rem;
+            }
+        }
         
     }
+
+    img.star_sleeping {
+    position: absolute;
+    z-index: 1;
+
+    @include custom-responsive("xs sm") {
+      right: 10vw;
+      width: 25vw;
+      bottom: 75vh;
+    }
+
+    @include custom-responsive("xl xx-l") {
+      right: 15vw;
+      width: 15vw;
+      bottom: 10vh;
+    }
+
+  }
 
 }

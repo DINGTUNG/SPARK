@@ -1,10 +1,11 @@
 <script setup> 
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+//【引入】
+import { ref, onMounted, onBeforeUnmount, onUnmounted, computed, watchEffect } from 'vue';
 
-// 一顆星星代表的數量
+//【 一顆星星代表的數量】
 const peopleCount = ref(100);
 
-//贊助人數
+//【贊助人數】
 const numberBlocks = [
   {
     id: 1,
@@ -40,7 +41,7 @@ const numberBlocks = [
   }
 ];
 
-//改變banner
+//【改變banner】
 const baseBannerPath = 'pictures/images/results/service-milestone/';
 
 const banners = {
@@ -63,7 +64,7 @@ const resetBanner = () => {
 };
 
 
-//媒體裝置1200px以下，mouseover & mouseleave 會失效，必須要用click
+//【媒體裝置1200px以下，mouseover & mouseleave 會失效，必須要用click】
 
 const isLargeScreen = ref(window.innerWidth > 1200);
 
@@ -94,33 +95,64 @@ const getEventHandlers = (blockKey) => {
   }
 };
 
-//輪播圖
-const firstCard = {
-  image: 'pictures/images/results/service-milestone/card_first.png',
-  alt: '暖心聖誕',
-  date: '2022.12',
-  title: '聖心聖誕',
-  description: '邀請士元火鍋店為孩子們準備豐富的火鍋大餐',
-};
-
-const secondCard = {
-  image: 'pictures/images/results/service-milestone/card_second.png',
-  alt: '環境小尖兵',
-  date: '2023.02',
-  title: '環境小尖兵',
-  description: '帶領孩子們前往海邊淨灘，為環保盡一份心力',
-};
-
-const thirdCard = {
-  image: 'pictures/images/results/service-milestone/card_third.png',
-  alt: '愛心稻田',
-  date: '2023.06',
-  title: '愛心稻田',
-  description: '疫情解封後，首次到田裡體驗務農的辛勞，學習感恩',
-};
+//【輪播圖數據】
+const carouselData = [
+  {
+    image: 'pictures/images/results/service-milestone/card_first.png',
+    alt: '暖心聖誕',
+    date: '2022.12',
+    title: '暖心聖誕',
+    description: '邀請士元火鍋店為孩子們準備豐富的火鍋大餐',
+  },
+  {
+    image: 'pictures/images/results/service-milestone/card_second.png',
+    alt: '環境小尖兵',
+    date: '2023.02',
+    title: '環境小尖兵',
+    description: '帶領孩子們前往海邊淨灘，為環保盡一份心力',
+  },
+  {
+    image: 'pictures/images/results/service-milestone/card_third.png',
+    alt: '愛心稻田',
+    date: '2023.06',
+    title: '愛心稻田',
+    description: '疫情解封後，首次到田裡體驗務農的辛勞，學習感恩',
+  },
+];
 
 const leftArrowImage = 'pictures/images/results/service-milestone/arrow_left.png';
 const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.png';
+
+//【輪播圖動畫】
+let currentSlide = ref(0)
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % carouselData.length
+}
+
+const previousSlide = () => {
+  currentSlide.value = (currentSlide.value + carouselData.length - 1) % carouselData.length
+}
+
+let intervalId
+
+onMounted(() => {
+  // 每三秒自動轉到下一頁
+  intervalId = setInterval(nextSlide, 3000)
+})
+
+onUnmounted(() => {
+  // 組件被卸載時，清除定時器
+  clearInterval(intervalId)
+})
+
+const visibleSlides = computed(() => {
+  let slides = []
+  for (let i = 0; i < 3; i++) {
+    slides.push(carouselData[(currentSlide.value + i) % carouselData.length])
+  }
+  return slides
+})
 </script>
 
 
@@ -140,11 +172,10 @@ const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.p
             <span class="number">{{peopleCount}}<span>人次</span></span>     
         </div>
     </div>
-
+<!--  -->
     <div class="service_milestone_container">
-
         <div class="main_body">
-<!-- 贊助人數 12345678-->
+<!-- 贊助人數 -->
             <div class="number_of_people" @mouseleave="resetBanner">
                 <div v-for="block in numberBlocks" :key="block.id" class="number_block" v-on="getEventHandlers(block.key)">
                     <img :src="block.imageSrc" :alt="block.altText">
@@ -160,34 +191,20 @@ const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.p
             </div>
 <!-- 輪播圖 -->
             <div class="carousel">
-                <div class="card card_first">
-                    <img :src="firstCard.image" :alt="firstCard.alt">
-                    <span>{{ firstCard.date }}</span>
-                    <h4>{{ firstCard.title }}</h4>
-                    <h5>{{ firstCard.description }}</h5>
-                </div>
+              <div v-for="(card, index) in visibleSlides" :key="card.id" :class="`card card_${index + 1} size_${index + 1}`">
+                <img :src="card.image" :alt="card.alt">
+                <span>{{ card.date }}</span>
+                <h4>{{ card.title }}</h4>
+                <h5>{{ card.description }}</h5>
+              </div>
 
-                <div class="arrow arrow_left">
-                    <img :src="leftArrowImage" alt="左鍵頭">
-                </div>
+              <div class="arrow arrow_left" @click="previousSlide">
+                <img :src="leftArrowImage" alt="左箭頭">
+              </div>
 
-                <div class="card card_second">
-                    <img :src="secondCard.image" :alt="secondCard.alt">
-                    <span>{{ secondCard.date }}</span>
-                    <h4>{{ secondCard.title }}</h4>
-                    <h5>{{ secondCard.description }}</h5>
-                </div>
-
-                <div class="arrow arrow_right">
-                    <img :src="rightArrowImage" alt="右鍵頭">
-                </div>
-
-                <div class="card card_third">
-                    <img :src="thirdCard.image" :alt="thirdCard.alt">
-                    <span>{{ thirdCard.date }}</span>
-                    <h4>{{ thirdCard.title }}</h4>
-                    <h5>{{ thirdCard.description }}</h5>
-                </div>
+              <div class="arrow arrow_right" @click="nextSlide">
+                <img :src="rightArrowImage" alt="右箭頭">
+              </div>
             </div>
             
             

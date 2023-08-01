@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import  Story  from '@/views/sections/work-result/Story.vue'
 import { COVER_STORY, WARM_STORY, PHOTO_ALBUM} from '@/constant/storyGallery.constant.js'
 
@@ -16,6 +16,27 @@ const switchClick = () => {
   switchStory()
   picUnder()
 }
+
+let timer = null;
+const container = ref(null)
+const iconLeft = ref("0px");
+const iconTop = ref("0px");
+const iconDisplay = ref('none')
+
+const handleMouseMove = (e) => {
+  clearTimeout(timer);
+  if (container.value.contains(e.target)){
+    iconLeft.value = e.pageX + 20 + "px";
+    iconTop.value = e.pageY + 15 + "px";
+    iconDisplay.value = "block"
+  } else {
+    iconDisplay.value = "none"
+  }
+  timer = setTimeout(() => {
+    iconDisplay.value = "none";
+  }, 2000);
+}
+
 
 const picUnderIndex = ref(1)
 const picUnder = () => {
@@ -47,14 +68,20 @@ const photoSelected = (index) => {
 const photoAlbum = reactive(PHOTO_ALBUM)
 
 
+
 </script>
 
 <template>
+    <div class="mouse" :style="{ left: iconLeft, top: iconTop , display:iconDisplay }">
+      <i class="fa-solid fa-computer-mouse" id="icon"></i>
+      <span>點擊切換</span>    
+    </div>
+
   <div class="banner">
     <img class="PC" :src="'pictures/images/results/story-gallery/banner.jpg'" alt="banner" />
     <img class="MB" :src="'pictures/images/results/story-gallery/banner_MB.png'" alt="banner" />
   </div>
-  <div class="container">
+  <div class="container" @mousemove="handleMouseMove">
     <div class="main_body">
       <div class="switch-button">
         <a href="#warm-story">溫馨事紀</a>
@@ -72,7 +99,7 @@ const photoAlbum = reactive(PHOTO_ALBUM)
         </div>
 
         <transition name="fade" mode="out-in">
-          <div class="story" :key="displayStory" @click="switchClick">
+          <div class="story" ref="container" :key="displayStory" @click="switchClick">
             <div class="pic">
               <img :src="coverStory[displayStory].imgUrl" alt="封面故事照片" />
               <div class="pic_under">
@@ -188,6 +215,20 @@ const photoAlbum = reactive(PHOTO_ALBUM)
 
 <style scoped lang="scss">
 @import '@/assets/sass/pages/work-result/story-gallery';
+
+.mouse{
+  position: absolute;
+  span{
+    color: $primaryBrandBlue;
+    margin-left: 1vw;
+    font-weight: bold;
+  }
+  #icon{
+    color: $primaryBrandBlue;
+    font-size: 20px;
+  }
+  z-index: 22;
+}
 
 .fade-enter-from{
   opacity:0

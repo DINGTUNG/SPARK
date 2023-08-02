@@ -1,82 +1,143 @@
-    .main_header {
+    *{
+        font-family: 'Lato', 'Noto Sans TC', "Font Awesome 6 Free";
+    }
+    
+    div.main_header {
         display: flex;
         flex-direction: column;
         gap: 35px 0;
 
+        @include custom-responsive(" xs sm md lg "){
+            align-items: center;
+            padding: 40px 0 10px;
+            }
+        @include custom-responsive(" xl xx-l "){
+            align-items: start;
+            padding: 0;
+            }
+
         h1 {
             color: $primaryBrandBlue;
+            @include custom-responsive(" xs sm md lg "){
+                @include h1_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h1_PC;
+            }
         }
 
-        .header_step {
+        div.header_step {
             display: flex;
             align-items: center;
             gap: 0 30px;
 
-            .step_item {
-                width: 112px;
-                height: 112px;
+            div.step_item {
                 border-radius: 50%;
                 background-color: $functionalLightGrey4;
-                font-family: 'Lato', 'Noto Sans TC';
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
 
-                .step_text {
-                    @include h6_PC;
+                @include custom-responsive(" xs sm md lg "){
+                    width: 75px;
+                    height: 75px;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    width: 112px;
+                    height: 112px;
+                }
+
+                div.step_text {
                     color: white;
                     margin: 0 0 -10px;
+                    @include custom-responsive(" xs sm md lg "){
+                        @include h6_MB;
+                    }
+                    @include custom-responsive(" xl xx-l "){
+                        @include h6_PC;
+                    }
                 }
-                .step_number {
-                    font-size: 48px;
+                div.step_number {
                     color: white;
+                    @include custom-responsive(" xs sm md lg "){
+                        font-size: 32px;
+                    }
+                    @include custom-responsive(" xl xx-l "){
+                        font-size: 48px;
+                    }
                 }
             }
-            .step_item.one {
+            div.step_item.one {
                 background-color: $primaryBrandBlue;
             }
 
-            .fa-solid {
-                font-size: 32px;
+            i.fa-solid {
                 color: $functionalLightGrey4;
+                @include custom-responsive(" xs sm md lg "){
+                    font-size: 24px;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    font-size: 32px;
+                }
             }
         }
 
-        .header_notice {
+        p.header_notice {
             max-width: 520px;
+            width: 88%;
             box-sizing: border-box;
             padding: 18px;
             border: 1px solid $secondaryLightBlue2;
             border-radius: 5px;
-            @include h6_PC;
             color: $secondaryLightBlue2;
+            @include custom-responsive(" xs sm md lg "){
+                @include h6_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h6_PC;
+            }
         }
     }
 
-    .main_form {
+    div.main_form {
         max-width: 520px;
+        width: 88%;
         padding: 30px 0 0 0;
         display: flex;
         flex-direction: column;
         gap: 15px 0;
-        // outline: solid 1px red;
+        @include custom-responsive(" xs sm md lg "){
+            margin: auto;
+        }
+        @include custom-responsive(" xl xx-l "){
+            margin: 0;
+        }
 
-        .form_title {
+        div.form_title {
             display: flex;
             align-items: center;
 
-            .fa-solid {
+            i.fa-solid {
                 font-size: 26px;
                 color: $primaryBrandBlue;
                 padding: 0 10px 0 0;
             }
+
+            h4 {
+                @include custom-responsive(" xs sm md lg "){
+                    @include h4_B_MB;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include h4_B_PC;
+                }
+            }
         }
-        .form_box {
+        div.form_box {
             position: relative;
         }
 
-        .form_box.password img, .form_box.password_check img {
+        div.form_box.password img, div.form_box.password_check img {
             position: absolute;
             top: 50%;
             right: 20px;
@@ -85,28 +146,46 @@
             transform: translate(0,-50%);
         }
 
-        .form_box.email_check {
+        div.form_box.email_check {
             margin: 50px 0 0 0;
             position: relative;
-
-            button {
-                @include h5_PC;
-                width: 155px;
-                padding: 11px;
-                border-radius: 0 10px 10px 0;
+            button {  
                 color: white;
                 background-color: $primaryBrandBlue;
                 border: none;
                 position: absolute;
-                bottom: 0;
-                right: 0;
 
-                .fa-solid {
-                color: white;
-                padding: 0 10px 0 0;
+                @include custom-responsive(" xs sm md lg "){
+                    @include h5_MB;
+                    width: 155px;
+                    padding: 6px;
+                    border-radius: 20px;
+                    bottom: -51px;
+                    right: 0;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include h5_PC;
+                    width: 155px;
+                    padding: 11px;
+                    border-radius: 0 10px 10px 0;
+                    bottom: 0;
+                    right: 0;
+                }
+
+                i.fa-solid {
+                    color: white;
+                    padding: 0 10px 0 0;
+                }
             }
+        }
+
+        div.form_box.check_number {
+            @include custom-responsive(" xs sm md lg "){
+                padding-top: 50px;
             }
-            
+            @include custom-responsive(" xl xx-l "){
+                padding-top: 0;
+            }
         }
 
         h4 {
@@ -114,31 +193,55 @@
         }
 
         label {
-            @include h5_PC;
+            @include custom-responsive(" xs sm md lg "){
+                @include h5_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h5_PC;
+            }
         }
 
         input{
-            @include h5_PC;
             border: 1px solid $functionalLightGrey3;
             border-radius: 10px;
             padding: 10px;
             width: 100%;
             box-sizing: border-box;
             background-color: #f9f9f9;
+            @include custom-responsive(" xs sm md lg "){
+                @include h5_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h5_PC;
+            }
         
             &:focus{
                 outline: 1px solid ;
             }
             &::placeholder{
-                @include h6_PC;
                 color: rgb(99, 99, 99,0.35);
+                @include custom-responsive(" xs sm md lg "){
+                    @include h6_MB;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include h6_PC;
+                }
             }
         }
         
         .next_step {
-            margin: 50px auto;
+            text-align: center;
+            width: 100%;
             button {
-                @include regularBlueBtn_PC;
+                @include custom-responsive(" xs sm md lg "){
+                    @include regularBlueBtn_MB;
+                    width: 100%;
+                    margin: 35px auto 110px;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include regularBlueBtn_PC;
+                    margin: 50px auto 0;
+                }
             }
         }
     }

@@ -1,3 +1,20 @@
+@keyframes shooting_star {
+  0% {
+    top: -10%;
+    left: 55%;
+  }
+
+  75% {
+    top: -10%;
+    left: 55%;
+  }
+
+  100% {
+    top: 48%;
+    left: -15%;
+  }
+}
+
 @keyframes star_shine {
   50% {
     filter: drop-shadow(0 0 0 rgba(250, 230, 126, 0));
@@ -18,152 +35,91 @@
   animation-direction: alternate;
 }
 
+@keyframes boy_float {
+  0% {
+    transform: rotate(8deg);
+  }
 
-.body {
+  100% {
+    transform: rotate(-6deg);
+  }
+}
+
+div.portal_container {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100%;
-  background-image: url('/pictures/images/title/background.png');
+  background-image: url('/pictures/portal/background.png');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-}
 
-.title_block {
-  width: 90%;
-  margin: auto;
 
-  div.title_text {
-    position: relative;
-    padding-top: 100px;
-    width: 79%;
-    margin: auto;
-    @include flex_vm;
 
-    img.title {
-      width: 30vw;
-      margin: auto;
-    }
-
-    img.shoot {
-      width: 25vw;
-      position: absolute;
-      right: -10vw;
-    }
+  img.shooting_star_white {
+    position: absolute;
+    animation: shooting_star 6s 1s ease-in-out infinite;
+    width: 5%;
   }
 
-  div.title_img {
+
+  img.logo {
+    width: 30vw;
+    margin: 10vh auto;
+  }
+
+  img.shooting_star_gold {
+    width: 20vw;
+    position: absolute;
+    top: 10vh;
+    right: 6vw;
+  }
+
+  img.three_stars {
+    @include shine(star_shine, 2.5s, 0.5s);
+    width: 15vw;
+    position: absolute;
+    top: 60vh;
+    left: 5vw;
+  }
+
+  div.portal_img_wrap {
     @include flex_hm;
-    margin-top: 10vh;
-    gap: 10vw;
+    gap: 8vw;
 
-    div.title_img_front {
-      position: relative;
+    div.portal_img_front,
+    div.portal_img_back {
+      @include flex_vm;
 
-      img {
 
-        animation: boy_float 1.9s 1s ease-in-out infinite alternate;
+      div.box {
+        position: relative;
+        @include flex_hm;
+        width: 20vw;
+        height: 20vw;
 
-        @keyframes boy_float {
-          0% {
-            top: -80%;
-            transform: rotate(8deg);
+        img {
+          animation: boy_float 1.9s 1s ease-in-out infinite alternate;
+          position: absolute;
+          width: 15vw;
+          cursor: pointer;
+          transition: opacity .2s ease-in-out;
+        }
+
+
+        img.front1,
+        img.back1 {
+          &:hover {
+            opacity: 0;
           }
 
-          100% {
-            top: -72%;
-            transform: rotate(-6deg);
-          }
         }
       }
 
-      .front1:hover {
-        opacity: 0;
+      h2 {
+        color: $primaryBrandWhite;
       }
-
-    }
-
-    div.title_img_back {
-      position: relative;
-
-      img {
-        animation: boy_float 1.9s 1s ease-in-out infinite alternate;
-
-        @keyframes boy_float {
-          0% {
-            transform: rotate(8deg);
-          }
-
-          100% {
-            transform: rotate(-6deg);
-          }
-        }
-
-      }
-
-      .back1:hover {
-        opacity: 0;
-      }
-
-    }
-
-  }
-
-
-  h2 {
-    padding-top: 20px;
-    @include h2_PC;
-    @include flex_hm;
-    color: $primaryBrandWhite;
-  }
-
-
-}
-
-.shooting_star_white {
-  position: absolute;
-  animation: shooting_star 6s 1s ease-in-out infinite;
-  width: 5%;
-
-  @keyframes shooting_star {
-    0% {
-      top: -10%;
-      left: 55%;
-    }
-
-    75% {
-      top: -10%;
-      left: 55%;
-    }
-
-    100% {
-      top: 48%;
-      left: -15%;
     }
   }
-
-}
-
-.star_img img {
-  @include shine(star_shine, 2.5s, 0.5s);
-  position: absolute;
-  width: 15vw;
-  top: 60vh;
-}
-
-img.img {
-  position: absolute;
-  width: 15vw;
-  cursor: pointer;
-  transition: opacity .2s ease-in-out;
-}
-
-div.title_img_front,
-div.title_img_back {
-  @include flex_vm;
-}
-
-div.box{
-  @include flex_hm;
-  width: 20vw;
-  height: 20vw;
 }

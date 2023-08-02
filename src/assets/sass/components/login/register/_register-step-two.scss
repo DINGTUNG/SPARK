@@ -1,101 +1,161 @@
     input {
-        @include h5_PC;
         border: 1px solid $functionalLightGrey3;
         border-radius: 10px;
         padding: 10px;
         width: 100%;
         box-sizing: border-box;
         background-color: #f9f9f9;
+        @include custom-responsive(" xs sm md lg "){
+            @include h5_MB;
+        }
+        @include custom-responsive(" xl xx-l "){
+            @include h5_PC;
+        }
     
         &:focus{
             outline: 1px solid ;
         }
         &::placeholder{
-            @include h6_PC;
-            color: rgb(99, 99, 99, 0.35);
+            color: rgb(99, 99, 99,0.35);
+            @include custom-responsive(" xs sm md lg "){
+                @include h6_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h6_PC;
+            }
         }
     }
     
-    .main_header {
+    div.main_header {
         display: flex;
         flex-direction: column;
         gap: 35px 0;
+        @include custom-responsive(" xs sm md lg "){
+            align-items: center;
+            padding: 40px 0 10px;
+            }
+        @include custom-responsive(" xl xx-l "){
+            align-items: start;
+            padding: 0;
+            }
 
         h1 {
             color: $primaryBrandBlue;
+            @include custom-responsive(" xs sm md lg "){
+                @include h1_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h1_PC;
+            }
         }
 
-        .header_step {
+        div.header_step {
             display: flex;
             align-items: center;
             gap: 0 30px;
 
-            .step_item {
-                width: 112px;
-                height: 112px;
+            div.step_item {
                 border-radius: 50%;
                 background-color: $primaryBrandBlue;
-                font-family: 'Lato', 'Noto Sans TC';
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
 
-                .step_text {
-                    @include h6_PC;
+                @include custom-responsive(" xs sm md lg "){
+                    width: 75px;
+                    height: 75px;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    width: 112px;
+                    height: 112px;
+                }
+
+                div.step_text {
                     color: white;
                     margin: 0 0 -10px;
+                    @include custom-responsive(" xs sm md lg "){
+                        @include h6_MB;
+                    }
+                    @include custom-responsive(" xl xx-l "){
+                        @include h6_PC;
+                    }
                 }
-                .step_number {
-                    font-size: 48px;
+                div.step_number {
                     color: white;
+                    @include custom-responsive(" xs sm md lg "){
+                        font-size: 32px;
+                    }
+                    @include custom-responsive(" xl xx-l "){
+                        font-size: 48px;
+                    }
                 }
-            }
-            .step_item.one {
-                background-color: $primaryBrandBlue;
             }
 
-            .fa-solid {
-                font-size: 32px;
+            i.fa-solid {
                 color: $functionalLightGrey4;
+                @include custom-responsive(" xs sm md lg "){
+                    font-size: 24px;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    font-size: 32px;
+                }
             }
         }
 
-        .header_notice {
+        p.header_notice {
             max-width: 520px;
+            width: 88%;
             box-sizing: border-box;
             padding: 18px;
             border: 1px solid $secondaryLightBlue2;
             border-radius: 5px;
-            @include h6_PC;
             color: $secondaryLightBlue2;
+            @include custom-responsive(" xs sm md lg "){
+                @include h6_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h6_PC;
+            }
         }
     }
 
-    .main_form {
+    div.main_form {
         max-width: 520px;
+        width: 88%;
         padding: 30px 0 0 0;
         display: flex;
         flex-direction: column;
         gap: 15px 0;
-        // outline: solid 1px red;
+        @include custom-responsive(" xs sm md lg "){
+            margin: auto;
+        }
+        @include custom-responsive(" xl xx-l "){
+            margin: 0;
+        }
 
-        .form_title {
+        div.form_title {
             display: flex;
             align-items: center;
 
-            .fa-solid {
+            i.fa-solid {
                 font-size: 26px;
                 color: $primaryBrandBlue;
                 padding: 0 10px 0 0;
             }
         }
-        .form_box {
+
+        div.form_box {
             position: relative;
         }
 
-        .label_radio_wrap {
-            padding: 10px 0 0;
+        div.label_radio_wrap {
+            @include custom-responsive(" xs sm md lg "){
+                padding: 5px 0 0;
+            }
+            @include custom-responsive(" xl xx-l "){
+                padding: 10px 0 0;
+            }
         }
 
         .label_radio {
@@ -104,27 +164,32 @@
             cursor: pointer;
         }
 
-        .input_radio {
+        input.input_radio {
             border: 1px solid $functionalLightGrey3;
-            width: 24px;
-            height: 24px;
             margin-right: 5px;
             vertical-align: middle;
             background-color: #f9f9f9;
             cursor: pointer;
-            // outline: solid 1px red;
+
+            @include custom-responsive(" xs sm md lg "){
+                width: 18px;
+                height: 18px;
+            }
+            @include custom-responsive(" xl xx-l "){
+                width: 24px;
+                height: 24px;
+            }
         }
 
-        .birthday_wrap {
+        div.birthday_wrap {
             display: flex;
             justify-content: space-between;
 
-            .birthday_select {
+            div.birthday_select {
                 position: relative;
                 width: 31%;
 
                 select{
-                    @include h5_PC;
                     width: 100%;
                     border: 1px solid $functionalLightGrey3;
                     border-radius: 10px;
@@ -134,6 +199,13 @@
                     background-color: #f9f9f9;
                     cursor: pointer;
 
+                    @include custom-responsive(" xs sm md lg "){
+                        @include h5_MB;
+                    }
+                    @include custom-responsive(" xl xx-l "){
+                        @include h5_PC;
+                    }
+
                     &:focus{
                         outline: 1px solid ;
                     }
@@ -142,33 +214,58 @@
                 img {
                     position: absolute;
                     top: 50%;
-                    right: 15px;
-                    width: 18px;
                     transform: translate(0,-50%);
+                    cursor: pointer;
+
+                    @include custom-responsive(" xs sm md lg "){
+                        width: 12px;
+                        right: 12px;
+                    }
+                    @include custom-responsive(" xl xx-l "){
+                        width: 18px;
+                        right: 15px;
+                    }
                 }
             }   
         }
 
         .form_box.email_check {
             position: relative;
+            @include custom-responsive(" xs sm md lg "){
+                margin-bottom: 38px;
+            }
+            @include custom-responsive(" xl xx-l "){
+                margin-bottom: 0;
+            }
 
-            button {
-                @include h5_PC;
-                width: 155px;
-                padding: 11px;
-                border-radius: 0 10px 10px 0;
+            button {  
                 color: white;
                 background-color: $primaryBrandBlue;
                 border: none;
                 position: absolute;
-                bottom: 0;
-                right: 0;
 
-                .fa-solid {
-                color: white;
-                padding: 0 10px 0 0;
+                @include custom-responsive(" xs sm md lg "){
+                    @include h5_MB;
+                    width: 155px;
+                    padding: 6px;
+                    border-radius: 20px;
+                    bottom: -51px;
+                    right: 0;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include h5_PC;
+                    width: 155px;
+                    padding: 11px;
+                    border-radius: 0 10px 10px 0;
+                    bottom: 0;
+                    right: 0;
+                }
+
+                i.fa-solid {
+                    color: white;
+                    padding: 0 10px 0 0;
+                }
             }
-            }    
         }
 
         h4 {
@@ -176,7 +273,12 @@
         }
 
         label {
-            @include h5_PC;
+            @include custom-responsive(" xs sm md lg "){
+                @include h5_MB;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include h5_PC;
+            }
         }
 
         .label_up_file {
@@ -188,6 +290,12 @@
             box-sizing: border-box;
             text-align: center;
             cursor: pointer;
+            @include custom-responsive(" xs sm md lg "){
+                margin-top: 10px;
+            }
+            @include custom-responsive(" xl xx-l "){
+                margin-top: 0;
+            }
 
             .up_file_text {
                 padding: 60px 0 0 0;
@@ -202,8 +310,15 @@
         }
 
         .submit {
-            @include regularBlueBtn_PC;
-            margin: 50px auto;
+            @include custom-responsive(" xs sm md lg "){
+                @include regularBlueBtn_MB;
+                width: 100%;
+                margin: 35px auto 110px;
+            }
+            @include custom-responsive(" xl xx-l "){
+                @include regularBlueBtn_PC;
+                margin: 50px auto 0;
+            }
         }
     }
         

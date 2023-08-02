@@ -3,8 +3,7 @@ import {
 } from 'pinia';
 
 
-
-import { reactive,ref } from 'vue'
+import { reactive } from 'vue'
 export const useLogStore = defineStore('log', () => {
     const log = reactive([
         {
@@ -36,7 +35,7 @@ export const useLogStore = defineStore('log', () => {
         }
     ])
 
-    let token = ref(0)
+    const a = reactive(0)
 
     const setName = (log, payload) => {
         log[index].name = payload;
@@ -46,6 +45,6 @@ export const useLogStore = defineStore('log', () => {
     return {
         log,
         setName,
-        token
+        a
     }
 })

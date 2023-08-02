@@ -7,9 +7,9 @@ import { RouterView } from 'vue-router'
     <div class="register_container">
         <div class="register_banner">
             <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
-            <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo">
+            <img :src="'pictures/logo/logo_white_vertical.png'" alt="logo" class="logo_vertical">
+            <img :src="'pictures/logo/logo_white_second.svg'" alt="logo" class="logo_horizontal">
         </div>
-
 
         <div class="register_main">
 

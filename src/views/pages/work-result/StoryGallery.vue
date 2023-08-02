@@ -17,21 +17,26 @@ const switchClick = () => {
   picUnder()
 }
 
+let timer = null;
 const container = ref(null)
 const iconLeft = ref("0px");
 const iconTop = ref("0px");
 const iconDisplay = ref('none')
 
 const handleMouseMove = (e) => {
+  clearTimeout(timer);
   if (container.value.contains(e.target)){
     iconLeft.value = e.pageX + 20 + "px";
     iconTop.value = e.pageY + 15 + "px";
     iconDisplay.value = "block"
-    console.log(e.pageX, iconLeft.value,  e.pageY, iconTop.value);
   } else {
     iconDisplay.value = "none"
   }
+  timer = setTimeout(() => {
+    iconDisplay.value = "none";
+  }, 2000);
 }
+
 
 const picUnderIndex = ref(1)
 const picUnder = () => {
@@ -67,9 +72,11 @@ const photoAlbum = reactive(PHOTO_ALBUM)
 </script>
 
 <template>
-    <i class="fa-solid fa-computer-mouse" id="icon"
-  :style="{ left: iconLeft, top: iconTop , display:iconDisplay }"
-  ></i>
+    <div class="mouse" :style="{ left: iconLeft, top: iconTop , display:iconDisplay }">
+      <i class="fa-solid fa-computer-mouse" id="icon"></i>
+      <span>點擊切換</span>    
+    </div>
+
   <div class="banner">
     <img class="PC" :src="'pictures/images/results/story-gallery/banner.jpg'" alt="banner" />
     <img class="MB" :src="'pictures/images/results/story-gallery/banner_MB.png'" alt="banner" />
@@ -209,12 +216,20 @@ const photoAlbum = reactive(PHOTO_ALBUM)
 <style scoped lang="scss">
 @import '@/assets/sass/pages/work-result/story-gallery';
 
-#icon{
+.mouse{
   position: absolute;
-  font-size: 20px;
+  span{
+    color: $primaryBrandBlue;
+    margin-left: 1vw;
+    font-weight: bold;
+  }
+  #icon{
+    color: $primaryBrandBlue;
+    font-size: 20px;
+  }
   z-index: 22;
-  color: $primaryAccentGold;
 }
+
 .fade-enter-from{
   opacity:0
 }

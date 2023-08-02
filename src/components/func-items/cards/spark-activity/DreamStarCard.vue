@@ -1,7 +1,9 @@
 <script setup>
 import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useDreamStarStore,DreamStarList } from '@/stores/dream-star.js';
 
+const dreamStarStore = useDreamStarStore()
 
 const props = defineProps({
   id: String,
@@ -11,11 +13,6 @@ const props = defineProps({
   title: String,
   subTitle: String
 })
-
-
-// const voteThisPlan = () => {
-//   return DreamStarPlanList.vote += 1;
-// }
 
 
 </script>
@@ -44,7 +41,7 @@ const props = defineProps({
       <p class="title">{{ props.title }}</p>
       <p class="sub_title">{{ props.subTitle }}</p>
     </div>
-    <button @click="voteThisPlan" class="vote_btn">為我加油</button>
+    <button @click="dreamStarStore.voteThisProject(  DreamStarList.getDreamStarFrom(props.id).id, 1)" class="vote_btn">為我加油</button>
 
   </div>
 </template>

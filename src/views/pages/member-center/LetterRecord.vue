@@ -8,7 +8,6 @@ const infoModal = ref(null);
 function openModal(imageSrc) {
   modalImageSrc.value = imageSrc;
   infoModal.value.showModal();
-
 }
 
 function closeImageModal() {
@@ -35,7 +34,7 @@ const letterData = reactive([
     childId: "00008",
     date: "2023.09.05",
     location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
+    jpgPath: "pictures/images/member-center/child_letter_2.png",
   },
   {
     childId: "00030",
@@ -166,7 +165,6 @@ const letterData = reactive([
 
       <div class="table">
         <div class="title">
-
           <Images id="love_book" :imgSrc="'pictures/decorations/illustration/love_book.svg'" alt="感謝函裝飾" />
           <h1>感謝函專區</h1>
         </div>
@@ -210,16 +208,16 @@ const letterData = reactive([
 
 
         <!-- 彈窗 -->
-        <div ref="modalContainer" :class="'modal-container'" id="modal-container">
-          <div v-if="modalImageSrc !== ''" :class="'overlay'" id="overlay" @click="closeImageModal"></div>
-
-          <dialog ref="infoModal" :open="modalImageSrc !== ''" :class="'modal-dialog'" @click="closeImageModal">
+        <transition>
+          <dialog ref="infoModal" 
+          :class="'modal-dialog'" @click="closeImageModal">
             <Images :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
-            <!-- <button id="close_btn" :class="'close_btn'">
+            <!-- <button :class="'close_btn'">
               <Images id="btn_icon" :class="'btn_icon'" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
             </button> -->
           </dialog>
-        </div>
+        </transition>
+
 
         <!-- 分頁 -->
         <div class="text-center">

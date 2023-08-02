@@ -39,19 +39,19 @@ onMounted(() => {
 
 
 // google登入跳轉函式:問題:跳轉遲鈍
-const handleLoginStatusChange = () => {
-  if (isLoggedIn()) {
-    console.log('使用者已登入');
+// const handleLoginStatusChange = () => {
+//   if (isLoggedIn()) {
+//     console.log('使用者已登入');
 
-    router.push('/home');
-  } else {
-    console.log('使用者已登出');
-  }
-};
-watch(user, handleLoginStatusChange, { deep: true });
-const isLoggedIn = () => {
-  return user.value !== null;
-};
+//     router.push('/home');
+//   } else {
+//     console.log('使用者已登出');
+//   }
+// };
+// watch(user, handleLoginStatusChange, { deep: true });
+// const isLoggedIn = () => {
+//   return user.value !== null;
+// };
 
 
 const isValidToken = ref(false)//reCapthcha的判斷
@@ -109,7 +109,7 @@ const login = () => {
         item.state = false
       });
       logStore.log[userIndex].state = true;
-      logStore.a = userIndex;
+      logStore.token = userIndex;
       errorAccount.value = '';
       alert(`登入成功：${logStore.log[userIndex].name}`);
       console.log(logStore.log[userIndex].state)
@@ -138,7 +138,7 @@ const login = () => {
 
     <div class="login">
       <h1>會員登入</h1>
-      <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
+      <p v-if="logStore.log[logStore.token].state">Hello {{ logStore.log[logStore.token].name }}</p>
       <form action="" method="">
         <label for="account">帳號</label>
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"

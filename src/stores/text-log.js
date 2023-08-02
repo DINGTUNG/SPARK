@@ -4,7 +4,7 @@ import {
 
 
 
-import { reactive } from 'vue'
+import { reactive,ref } from 'vue'
 export const useLogStore = defineStore('log', () => {
     const log = reactive([
         {
@@ -36,7 +36,7 @@ export const useLogStore = defineStore('log', () => {
         }
     ])
 
-    const a = reactive(0)
+    const token = ref(0)
 
     const setName = (log, payload) => {
         log[index].name = payload;
@@ -46,6 +46,6 @@ export const useLogStore = defineStore('log', () => {
     return {
         log,
         setName,
-        a
+        token
     }
 })

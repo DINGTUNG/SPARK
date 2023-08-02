@@ -13,24 +13,10 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import VueReCaptcha from 'vue3-recaptcha2';
 import Images from '@/components/func-items/images/Images.vue'
-// import Swiper from 'swiper';
-// import { Navigation, Pagination } from 'swiper/modules';
 
-
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
 //datepicker
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
-
-// init Swiper:
-// const swiper = new Swiper('.swiper', {
-//   // configure Swiper to use modules
-//   modules: [Navigation, Pagination],
-
-// });
-
 const pinia = createPinia()
 const app = createApp(App)
 const vuetify = createVuetify({
@@ -47,12 +33,7 @@ app.component('VueDatePicker', VueDatePicker);
 
 
 //使用viewfire
-app.use(VueFire, {
-  firebaseApp,
-  modules: [
-    VueFireAuth(),
-  ],
-})
-app.use(VueReCaptcha, {siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr'});
+app.use(VueFire, {firebaseApp,modules: [VueFireAuth(),],})
+app.use(VueReCaptcha, { siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr' });
 
 app.mount('#app') 

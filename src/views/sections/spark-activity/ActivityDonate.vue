@@ -11,7 +11,7 @@ const D007 = ref(null)
 
 const goToDonatePageAndScrollToBottom = () => {
   router.push({ path: '/donate' });
-
+  window.scrollTo(0, 2900)
   donateCartStore.showSideListForActivityDonate();
   donateCartStore.chosenDonateProject = reactive(DonateProject.TYPE.SPARK_ACTIVITY)
   scrollToElement();

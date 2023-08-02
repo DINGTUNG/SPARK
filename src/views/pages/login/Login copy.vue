@@ -1,8 +1,86 @@
 <script setup>
-import { useLoginStore } from '@/stores/login.js'
-import { ref } from 'vue';
-// import { useRouter } from 'vue-router';
-const logStore = useLoginStore()
+import { useLogStore } from '@/stores/login-dummy-data.js'
+import { ref, onMounted, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+
+import VueRecaptcha from 'vue3-recaptcha2';
+
+import { useFirestore, useCurrentUser, useFirebaseAuth } from 'vuefire'; //import firebase
+const firebase = useFirestore(); //宣告firebase為firebase的內容
+import { getRedirectResult, signInWithRedirect, GoogleAuthProvider, signOut, getAuth, updatePassword } from 'firebase/auth'
+const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
+const user = useCurrentUser();
+const router = useRouter();
+const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
+const googleAuthProvider = new GoogleAuthProvider()
+const logStore = useLogStore();//假帳號js
+// const newPassword = getASecureRandomPassword();
+
+// updatePassword(user, newPassword).then(() => {
+//   console.log('重設密碼成功');
+// }).catch((error) => {
+//   console.log('重設密碼失敗');
+// });
+
+//登入跳轉函式，會跳轉到google的帳號頁面
+function signInRedirect() {
+  signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
+    console.error('Failed signInRedirect', reason)
+    error.value = reason
+  })
+}
+//vFire-google
+onMounted(() => {
+  getRedirectResult(auth)
+    .then((Response) => {
+      console.log(Response);
+
+    })
+    .catch((reason) => {
+      console.error('Failed redirect result', reason)
+      error.value = reason
+    })
+})
+
+
+// google登入跳轉函式:問題:跳轉遲鈍
+// const handleLoginStatusChange = () => {
+//   if (isLoggedIn()) {
+//     console.log('使用者已登入');
+
+//     router.push('/home');
+//   } else {
+//     console.log('使用者已登出');
+//   }
+// };
+// watch(user, handleLoginStatusChange, { deep: true });
+// const isLoggedIn = () => {
+//   return user.value !== null;
+// };
+
+
+const isValidToken = ref(false)//reCapthcha的判斷
+const instance_vueRecaptchaV2 = reactive({
+  data_v2SiteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr',
+  recaptchaVerified: (response_token) => {
+    console.log('驗證成功');
+    console.log(response_token);
+    // 連接後端API，給後端進行認證
+    // Connect to your Backend service.
+    isValidToken.value = true;
+  },
+  recaptchaExpired: () => {
+    // 驗證過期後進行的動作
+    console.log('驗證過期啦QAQ');
+  },
+  recaptchaFailed: () => {
+    console.log('驗證失敗');
+    // 驗證失敗進行的動作
+  },
+});
+
+
+
 
 // 一般帳號登入
 const account = ref('');
@@ -18,7 +96,7 @@ function showHide() {
     passwordField.value.type = 'text';
   }
   // 切換顯示密碼圖標
-  showPassword.value = false;
+  showPassword.value = !showPassword.value;
 }
 
 const login = () => {
@@ -65,7 +143,7 @@ const login = () => {
 
     <div class="login">
       <h1>會員登入</h1>
-      <p></p>
+      <p v-if="logStore.log[logStore.token].state">Hello {{ logStore.log[logStore.token].name }}</p>
       <form action="" method="">
         <label for="account">帳號</label>
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
@@ -81,7 +159,10 @@ const login = () => {
               <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>
           </div>
           <div class="recaptcha_forget_block">
-           
+            <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
+              @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
+              @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
+            </vue-recaptcha>
             <div class="forgot_psw">
               <i class="fa-solid fa-circle-question"></i>
               <a href="#">忘記密碼</a>

@@ -41,7 +41,7 @@ const props = defineProps({
       <p class="title">{{ props.title }}</p>
       <p class="sub_title">{{ props.subTitle }}</p>
     </div>
-    <button @click="dreamStarStore.voteThisProject(  DreamStarList.TOPIC.DS001.id, 1)" class="vote_btn">為我加油</button>
+    <button @click="dreamStarStore.voteThisProject(  DreamStarList.getDreamStarFrom(props.id).id, 1)" class="vote_btn">為我加油</button>
 
   </div>
 </template>

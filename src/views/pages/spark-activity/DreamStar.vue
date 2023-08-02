@@ -1,9 +1,8 @@
 <script setup>
 import { reactive } from 'vue';
 import { RouterLink } from 'vue-router'
-import { useDreamStarStore,DreamStarList } from '@/stores/dream-star.js';
+import { useDreamStarStore } from '@/stores/dream-star.js';
 const dreamStarStore = useDreamStarStore()
-
 
 const slideList = reactive([{
   imgSrc: 'pictures/images/spark-activity/dream-star/slide_pic_1.png',
@@ -45,7 +44,7 @@ const slideList = reactive([{
           </div>
           <div class="vote_wrap">
             <img :src="'pictures/spark_activity/dream_star/vote_star.svg'" alt="">
-            <span class="vote_number">{{ dreamStarStore.getCurrentCountInVoteRecord(dreamStarId) }}</span>
+            <span class="vote_number">{{ dreamStarStore.getCurrentCountInVoteRecord(dreamStarStore.selectedDreamStar) }}</span>
           </div>
         </div>
 

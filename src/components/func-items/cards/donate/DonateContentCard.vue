@@ -20,7 +20,7 @@ function showSideList(donateProject) {
 <template>
   <div class="donate_content_card_list">
     <div class="donate_content_card" v-for="donateProject in DonateProject.TYPES" :key="donateProject.id"
-      :ref="donateProject.ref">
+      :ref="donateProject.ref" :id="donateProject.id">
       <div class="card_pic">
         <img :src="donateProject.imgSrc" :alt="donateProject.title">
       </div>

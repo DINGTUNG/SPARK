@@ -106,7 +106,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   //判斷購物車收合
   const isSideListShow = ref(false)
   watch(isSideListShow, (nVal) => {
-    console.log(nVal)
+
   })
 
   const showSideList = () => {
@@ -132,7 +132,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   const addToCart = (locationId, addCount) => {
     let curCount = getCurrentCountInCart(locationId)
     cart.set(locationId, curCount + addCount)
-   
+  
   }
 
   const removeFromCart = (locationId, removeCount) => {
@@ -156,7 +156,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
     cart.forEach((count, locationId) => {
       // console.log(count, (locationId));
-
       cost += getLocationTotalCost(locationId)
     })
 
@@ -197,6 +196,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     onAddToCartClick,
     removeToCartClick
 
-    
+
   }
 })

@@ -1,6 +1,8 @@
 <script setup>
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
 import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
+
+
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
@@ -8,11 +10,8 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-// import required modules
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 const modules = [EffectFade, Navigation, Pagination, Autoplay];
-
-
 
 
 const sponsorCartStore = useSponsorCartStore();

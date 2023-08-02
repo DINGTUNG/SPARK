@@ -1,21 +1,26 @@
 <script setup>
-import 'animate.css';
-import { useLogStore } from '@/stores/text-log.js'
-import { ref, onMounted, reactive, watch, } from 'vue';
+import { useLogStore } from '@/stores/login-dummy-data.js'
+import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
+
 import VueRecaptcha from 'vue3-recaptcha2';
-import { useFirestore } from 'vuefire'; //import firebase
+
+import { useFirestore, useCurrentUser, useFirebaseAuth } from 'vuefire'; //import firebase
 const firebase = useFirestore(); //宣告firebase為firebase的內容
-import { getRedirectResult, signInWithRedirect, signOut, } from 'firebase/auth'
-import { useCurrentUser, useFirebaseAuth } from 'vuefire'
+import { getRedirectResult, signInWithRedirect, GoogleAuthProvider, signOut, getAuth, updatePassword } from 'firebase/auth'
 const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
 const user = useCurrentUser();
 const router = useRouter();
 const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
-import { GoogleAuthProvider } from 'firebase/auth'
 const googleAuthProvider = new GoogleAuthProvider()
 const logStore = useLogStore();//假帳號js
+// const newPassword = getASecureRandomPassword();
 
+// updatePassword(user, newPassword).then(() => {
+//   console.log('重設密碼成功');
+// }).catch((error) => {
+//   console.log('重設密碼失敗');
+// });
 
 //登入跳轉函式，會跳轉到google的帳號頁面
 function signInRedirect() {
@@ -39,19 +44,19 @@ onMounted(() => {
 
 
 // google登入跳轉函式:問題:跳轉遲鈍
-const handleLoginStatusChange = () => {
-  if (isLoggedIn()) {
-    console.log('使用者已登入');
+// const handleLoginStatusChange = () => {
+//   if (isLoggedIn()) {
+//     console.log('使用者已登入');
 
-    router.push('/home');
-  } else {
-    console.log('使用者已登出');
-  }
-};
-watch(user, handleLoginStatusChange, { deep: true });
-const isLoggedIn = () => {
-  return user.value !== null;
-};
+//     router.push('/home');
+//   } else {
+//     console.log('使用者已登出');
+//   }
+// };
+// watch(user, handleLoginStatusChange, { deep: true });
+// const isLoggedIn = () => {
+//   return user.value !== null;
+// };
 
 
 const isValidToken = ref(false)//reCapthcha的判斷
@@ -100,16 +105,21 @@ const login = () => {
   // 進行驗證
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
-  } else if (!isValidToken.value) {
-    errorAccount.value = '請進行驗證';
+  // } else if (!isValidToken.value) {
+  //   errorAccount.value = '請進行驗證';
   } else {
     const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
     if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
       logStore.log.forEach((item) => {
         item.state = false
       });
-      logStore.log[userIndex].state = true;
+<<<<<<< HEAD
+      logStore.log[userIndex].state = true; 
       logStore.a = userIndex;
+=======
+      logStore.log[userIndex].state = true;
+      logStore.token = userIndex;
+>>>>>>> f86cd1e2cbc676b78eaf53477b9e787d1889d4c5
       errorAccount.value = '';
       alert(`登入成功：${logStore.log[userIndex].name}`);
       console.log(logStore.log[userIndex].state)
@@ -138,17 +148,17 @@ const login = () => {
 
     <div class="login">
       <h1>會員登入</h1>
-      <p v-if="logStore.log[logStore.a].state">Hello {{ logStore.log[logStore.a].name }}</p>
+      <p v-if="logStore.log[logStore.token].state">Hello {{ logStore.log[logStore.token].name }}</p>
       <form action="" method="">
         <label for="account">帳號</label>
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
-          :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId">
+          :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId" autocomplete="username">
         <label for="password">密碼</label>
         <div class="password_wrapper" ref="passwordField"
           :class="{ 'animate__animated animate__headShake': errorAccount }">
           <div class="password_block">
             <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼"
-              name="memPsw">
+              name="memPsw" autocomplete="current-password">
             <span class="toggle" @click="showHide"> <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'"
                 alt="hide" />
               <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>

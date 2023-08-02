@@ -29,7 +29,7 @@ const router = createRouter({
       name: 'home',
       component: Home,
       meta: {
-        hideLeftMenu: true
+        hideLeftMenu: true,
       }
     },
     {
@@ -51,7 +51,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: () => import('@/views/pages/about/About.vue')
+      component: () => import('@/views/pages/about/About.vue'),
     },
     {
       path: '/sponsor-location',
@@ -271,8 +271,11 @@ const router = createRouter({
     {
       path: '/dreamStar',
       name: 'dreamStar',
-      component: () => import('@/views/pages/spark-activity/DreamStar.vue')
-    }
+      component: () => import('@/views/pages/spark-activity/DreamStar.vue'),
+      meta: {
+        hideLeftMenu: true,
+      }
+    },
   ]
 })
 

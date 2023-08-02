@@ -10,10 +10,10 @@ export class PaymentMethod {
 
   static METHOD = {
     CREDIT_CARD: new PaymentMethod('credit-card', '信用卡'),
-    LINE_PAY: new PaymentMethod('line-pay', 'LINE PAY')
+    CONVENIENCE_STORE: new PaymentMethod('convenience-store', '超商繳費')
   }
 
-  static METHODS = [PaymentMethod.METHOD.CREDIT_CARD, PaymentMethod.METHOD.LINE_PAY]
+  static METHODS = [PaymentMethod.METHOD.CREDIT_CARD, PaymentMethod.METHOD.CONVENIENCE_STORE]
 }
 
 export const usePaymentStore = defineStore('payment', () => {

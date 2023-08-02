@@ -1,10 +1,16 @@
 <script setup>
 //【引入】
+<<<<<<< HEAD
 import { ref, watch, onMounted, onUnmounted} from 'vue';
 import { RouterLink, useRoute, useRouter} from 'vue-router';
+import { useLogStore } from '@/stores/text-log.js'   // 關於會員登入
+=======
+import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
+>>>>>>> f86cd1e2cbc676b78eaf53477b9e787d1889d4c5
 
 //【header logo change for PC & MB】
-const imgSrc = ref('pictures/logo/logo_blue.svg') // Default
+const imgSrc = ref('pictures/logo/logo_white.svg') // Default
 const currentRoute = useRoute()
 //mediaQuery for PC & MB
 const mediaQuery1200 = window.matchMedia('(max-width: 1200px)')
@@ -14,13 +20,13 @@ const updateImageSource = (newRouteName) => {
   if (mediaQuery1200.matches) {
     imgSrc.value = 'pictures/logo/logo_white.svg'
   } else if (mediaQuery1201to1399.matches) {
-    if (newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
+    if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
       imgSrc.value = 'pictures/logo/logo_white_second.svg';
     } else {
       imgSrc.value = 'pictures/logo/logo_blue_second.svg';
     }
   } else {
-    if (newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
+    if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
       imgSrc.value = 'pictures/logo/logo_white.svg';
     } else {
       imgSrc.value = 'pictures/logo/logo_blue.svg';
@@ -30,7 +36,8 @@ const updateImageSource = (newRouteName) => {
 
 watch(() => currentRoute.name, updateImageSource)
 
-onMounted(() => {
+onMounted(() => {  
+  updateImageSource(currentRoute.name) //新增此行，主要原因是一進首頁都會logo會先消失，然後要重新整理才會出現
   mediaQuery1200.addEventListener('change', () => updateImageSource(currentRoute.name))
   mediaQuery1201to1399.addEventListener('change', () => updateImageSource(currentRoute.name))
 })
@@ -51,7 +58,7 @@ const menuItems = ref([
   },
   {
     label: '服務內容',
-    route: '/service', 
+    route: '/service',
     image: 'pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
@@ -61,8 +68,8 @@ const menuItems = ref([
     route: '/work-result',
     image: 'pictures/decorations/layout/little_star.png',
     active: false,
-    clicked: false, 
-    children: [ 
+    clicked: false,
+    children: [
       { label: '故事藝廊', route: '/story-gallery' },
       { label: '歷年報告', route: '/result-report' },
       { label: '服務里程碑', route: '/service-milestone' },
@@ -73,8 +80,8 @@ const menuItems = ref([
     route: '/sponsor',
     image: 'pictures/decorations/layout/little_star.png',
     active: false,
-    clicked: false, 
-    children: [ 
+    clicked: false,
+    children: [
       { label: '我要認養', route: '/sponsor' },
       { label: '認養地區', route: '/sponsor-location' },
     ],
@@ -84,29 +91,29 @@ const menuItems = ref([
     route: '/donate',
     image: 'pictures/decorations/layout/little_star.png',
     active: false,
-    clicked: false, 
-    children: [ 
+    clicked: false,
+    children: [
       { label: '捐款內容', route: '/donate' },
       { label: '捐款善心榜', route: '/donate-list' },
     ],
   },
   {
     label: '星火之友',
-    route: '/contact', 
+    route: '/contact',
     image: 'pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '星火活動',
-    route: '/spark-activity', 
+    route: '/spark-activity',
     image: 'pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '會員登入',
-    route: '/login', 
+    route: '/login',
   },
 ]);
 
@@ -143,10 +150,10 @@ onMounted(() => {
 let route = useRoute();
 
 watch(route, (newRoute) => {
-  let activeItemIndex = menuItems.value.findIndex(item => 
+  let activeItemIndex = menuItems.value.findIndex(item =>
     item.route === newRoute.path || (item.children && item.children.some(child => child.route === newRoute.path))
   );
-  
+
   menuItems.value.forEach((item, index) => {
     if (index === activeItemIndex) {
       item.active = true;
@@ -173,6 +180,10 @@ const router = useRouter();
 router.afterEach(() => {
   window.scrollTo(0, 0);
 });
+
+//【會員登入後，變成會員中心】
+
+
 </script>
 
 
@@ -182,14 +193,16 @@ router.afterEach(() => {
   <header class="header_PC">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo"/>
+      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo" />
     </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>
       <ul>
         <!-- main menu -->
-        <li v-for="(item, index) in menuItems" :key="index" class="menu_item" @mouseenter="hoverItem(item)" @mouseleave="deactivateItem(item)" @click="activateItem(item, index)">
-          <RouterLink :to="item.route" :class="['link_main', { 'member_login': item.label === '會員登入' }]">{{ item.label }}</RouterLink>
+        <li v-for="(item, index) in menuItems" :key="index" class="menu_item" @mouseenter="hoverItem(item)"
+          @mouseleave="deactivateItem(item)" @click="activateItem(item, index)">
+          <RouterLink :to="item.route" :class="['link_main', { 'member_login': item.label === '會員登入' }]">{{ item.label }}
+          </RouterLink>
           <img v-if="item.active" :src="item.image" class="menu_icon">
           <!-- submenu -->
           <ul v-if="item.children">
@@ -207,24 +220,26 @@ router.afterEach(() => {
   <header class="header_MB">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo"/>
+      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo" />
     </RouterLink>
     <!-- hamburger -->
-    <button class="nav_toggle"  @click="navVisible = !navVisible">  <!--turn on & turn off -->
-      <span class="burger_icon" :class="{'toggle': navVisible}"></span>
-      <span class="burger_icon" :class="{'toggle': navVisible}"></span>
-      <span class="burger_icon" :class="{'toggle': navVisible}"></span>
+    <button class="nav_toggle" @click="navVisible = !navVisible"> <!--turn on & turn off -->
+      <span class="burger_icon" :class="{ 'toggle': navVisible }"></span>
+      <span class="burger_icon" :class="{ 'toggle': navVisible }"></span>
+      <span class="burger_icon" :class="{ 'toggle': navVisible }"></span>
     </button>
     <!-- main menu -->
     <nav v-show="navVisible"> <!-- click hamburger before show main menu -->
       <ul>
         <!-- main menu -->
         <li v-for="(item, index) in menuItems" :key="index" class="menu_item">
-          <RouterLink :to="item.route" class="link link_main"  @click="navVisible = !navVisible">{{ item.label }}</RouterLink>
+          <RouterLink :to="item.route" class="link link_main" @click="navVisible = !navVisible">{{ item.label }}
+          </RouterLink>
           <!-- submenu -->
           <ul v-if="item.children">
             <li v-for="(child, childIndex) in item.children" :key="childIndex" class="submenu_item">
-              <RouterLink :to="child.route" class="link link_child" @click="navVisible = !navVisible">{{ child.label }}</RouterLink>
+              <RouterLink :to="child.route" class="link link_child" @click="navVisible = !navVisible">{{ child.label }}
+              </RouterLink>
             </li>
           </ul>
         </li>
@@ -237,8 +252,6 @@ router.afterEach(() => {
 
 <style scoped lang="scss">
 @import "@/assets/sass/layout/header";
-
-
 </style>
 
 

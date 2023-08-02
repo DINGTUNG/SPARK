@@ -124,7 +124,7 @@ const linkSectionList = reactive(
       <div class="information">
 
         <div class="logo">
-          <Images :imgSrc="'pictures/logo/logo_white.svg'" :alt="Sparklogo"/>
+          <Images :imgSrc="'pictures/logo/logo_white.svg'" alt="Sparklogo"/>
         </div>
 
         <div class="business_hours">

@@ -1,9 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref, reactive,computed } from 'vue'
-import { useRouter } from 'vue-router'
-
-
-
+import { ref, reactive, computed, watch } from 'vue'
+import { useRouter,useRoute } from 'vue-router'
 
 export class DonateProject {
   constructor(id, imgSrc, title, content, fundSum) {
@@ -71,14 +68,7 @@ export class DonateProject {
       '散播幸福散播愛，請支持並贊助二狸貓熱呼呼的番薯!',
       520
     ),
-    DEFAULT: new DonateProject(
-      '',
-      '',
-      '請選擇捐款方案',
-      '',
-      0
-    )
-    
+    DEFAULT: new DonateProject('', '', '請選擇捐款方案', '', 0)
   }
 
   static TYPES = [
@@ -115,26 +105,26 @@ export class PriceOption {
   ]
 }
 
-
 export const useDonateCartStore = defineStore('donate-cart', () => {
-  const currentRoutePath = computed(() => router.currentRoute.value.path);
-  const isBlurred = ref(false);
-  const router = useRouter();
 
+  const currentRoute = useRoute()
+  const isBlurred = ref(false)
+
+  // const currentRoutePath = computed(() => router.currentRoute.value.name)
+  // const router = useRouter()
 
   const onAddToCartClick = () => {
-    if (currentRoutePath.value === '/donate') {
-      isBlurred.value = false;
+    if (currentRoute.name === 'donate') {
+      isBlurred.value = false
     } else {
-      isBlurred.value = !isBlurred.value;
+      isBlurred.value = true
     }
-   
-  };
+  }
 
   // 在 SponsorCheckoutSideList 關閉時，移除模糊效果
   const removeToCartClick = () => {
-    isBlurred.value = false;
-  };
+    isBlurred.value = false
+  }
 
   const isSideListShow = ref(false)
 
@@ -147,10 +137,10 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     removeToCartClick()
   }
 
-
   const chosenDonateProject = reactive(DonateProject.TYPE.DEFAULT)
 
   const chosenPrice = ref(100)
+
 
   return {
     isSideListShow,

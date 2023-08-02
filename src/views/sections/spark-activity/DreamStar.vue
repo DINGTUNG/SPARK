@@ -1,8 +1,7 @@
 <script setup>
 import DreamStarCard from '@/components/func-items/cards/spark-activity/DreamStarCard.vue';
-import { DreamStarPlanList } from '@/stores/dream-star.js';
-
-// const dreamStarStore = useDreamStarStore();
+import { useDreamStarStore, DreamStarList } from '@/stores/dream-star.js';
+const dreamStarStore = useDreamStarStore()
 
 </script>
 
@@ -10,9 +9,9 @@ import { DreamStarPlanList } from '@/stores/dream-star.js';
   <div>
 
     <div class="dream_star_wrap">
-      <DreamStarCard v-for="dreamStarPlan in DreamStarPlanList.TOPICS" :key="dreamStarPlan.id"
-        :imgSrc="dreamStarPlan.imgSrc" :routingLink="dreamStarPlan.routingLink" :vote="dreamStarPlan.vote"
-        :title="dreamStarPlan.title" :subTitle="dreamStarPlan.subTitle" />
+      <DreamStarCard v-for="dreamStar in DreamStarList.TOPICS" :key="dreamStar.id" :imgSrc="dreamStar.imgSrc"
+        :routingLink="dreamStar.routingLink" :vote="dreamStarStore.getCurrentCountInVoteRecord(dreamStar.id)"
+        :title="dreamStar.title" :subTitle="dreamStar.subTitle" />
     </div>
   </div>
 </template>

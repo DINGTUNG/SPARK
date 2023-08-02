@@ -22,12 +22,12 @@ const router = useRouter();
       </div>
 
       <div class="portal_img_back">
-        <div class="box">
-          <img :src="'pictures/portal/back2.svg'" alt="back2" @click="router.push({ path: '/donation-project' })"
-            class="back2 img">
-          <img :src="'pictures/portal/back.png'" alt="back" @click="router.push({ path: '/donation-project' })"
-            class="back1 img">
-        </div>
+        <a href="https://www.buymeacoffee.com/tanuki.jr">
+          <div class="box">
+            <img :src="'pictures/portal/back2.svg'" alt="back2" class="back2 img">
+            <img :src="'pictures/portal/back.png'" alt="back" class="back1 img">
+          </div>
+        </a>
         <h2>後台</h2>
       </div>
     </div>

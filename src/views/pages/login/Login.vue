@@ -1,21 +1,26 @@
 <script setup>
-import 'animate.css';
-import { useLogStore } from '@/stores/text-log.js'
-import { ref, onMounted, reactive, watch, } from 'vue';
+import { useLogStore } from '@/stores/login-dummy-data.js'
+import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
+
 import VueRecaptcha from 'vue3-recaptcha2';
-import { useFirestore } from 'vuefire'; //import firebase
+
+import { useFirestore, useCurrentUser, useFirebaseAuth } from 'vuefire'; //import firebase
 const firebase = useFirestore(); //宣告firebase為firebase的內容
-import { getRedirectResult, signInWithRedirect, signOut, } from 'firebase/auth'
-import { useCurrentUser, useFirebaseAuth } from 'vuefire'
+import { getRedirectResult, signInWithRedirect, GoogleAuthProvider, signOut, getAuth, updatePassword } from 'firebase/auth'
 const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
 const user = useCurrentUser();
 const router = useRouter();
 const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
-import { GoogleAuthProvider } from 'firebase/auth'
 const googleAuthProvider = new GoogleAuthProvider()
 const logStore = useLogStore();//假帳號js
+// const newPassword = getASecureRandomPassword();
 
+// updatePassword(user, newPassword).then(() => {
+//   console.log('重設密碼成功');
+// }).catch((error) => {
+//   console.log('重設密碼失敗');
+// });
 
 //登入跳轉函式，會跳轉到google的帳號頁面
 function signInRedirect() {
@@ -154,10 +159,10 @@ const login = () => {
               <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>
           </div>
           <div class="recaptcha_forget_block">
-              <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
-                @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
-                @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
-              </vue-recaptcha>
+            <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
+              @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
+              @fail="instance_vueRecaptchaV2.recaptchaFailed" ref="vueRecaptcha">
+            </vue-recaptcha>
             <div class="forgot_psw">
               <i class="fa-solid fa-circle-question"></i>
               <a href="#">忘記密碼</a>

@@ -4,7 +4,7 @@ const router = useRouter();
 </script>
 
 <template>
-  <div class="login_container">
+  <div class="portal_container" >
     <img :src="'pictures/portal/shooting_star_white.svg'" alt="shooting_star_white" class="shooting_star_white">
     <img :src="'pictures/portal/logo.png'" alt="logo" class="logo">
     <img :src="'pictures/portal/shooting_star_gold.png'" alt="shooting_star_gold" class="shooting_star_gold">

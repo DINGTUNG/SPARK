@@ -1,26 +1,27 @@
 <script setup>
-import { reactive } from 'vue';
+import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
 import { useDonateCartStore, DonateProject } from '@/stores/donate-cart.js';
 const donateCartStore = useDonateCartStore();
 
 const router = useRouter()
+
+const D007 = ref(null)
+
 const goToDonatePageAndScrollToBottom = () => {
   router.push({ path: '/donate' });
-  window.scrollTo(0, 2900);
-  donateCartStore.showSideListForActivityDonate()
+
+  donateCartStore.showSideListForActivityDonate();
   donateCartStore.chosenDonateProject = reactive(DonateProject.TYPE.SPARK_ACTIVITY)
+  scrollToElement();
 }
 
-
-// const scrollToElement = () => {
-//   router.push({ path: '/donate' });
-//   donateCartStore.chosenDonateProject = reactive(DonateProject.TYPE.SPARK_ACTIVITY);
-//   donateCartStore.showSideList();
-//   useDonateCartStore.D007.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-// }
+const scrollToElement = (refName) => {
+  if (refName == DonateProject.TYPE[6].ref) {
+    D007.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 </script>
 

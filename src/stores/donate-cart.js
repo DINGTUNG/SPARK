@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref, reactive, computed, watch } from 'vue'
-import { useRouter,useRoute } from 'vue-router'
+import { ref, reactive} from 'vue'
+import { useRoute } from 'vue-router'
 
 export class DonateProject {
   constructor(id, imgSrc, title, content, fundSum) {
@@ -132,6 +132,11 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     isSideListShow.value = true
     onAddToCartClick()
   }
+
+  const showSideListForActivityDonate = () => {
+    isSideListShow.value = true
+    isBlurred.value = false
+  }
   const hideSideList = () => {
     isSideListShow.value = false
     removeToCartClick()
@@ -150,6 +155,7 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     chosenDonateProject,
     isBlurred,
     onAddToCartClick,
-    removeToCartClick
+    removeToCartClick,
+    showSideListForActivityDonate
   }
 })

@@ -144,6 +144,7 @@ const login = () => {
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
           :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId" autocomplete="username">
         <label for="password">密碼</label>
+      </form>
         <div class="password_wrapper" ref="passwordField"
           :class="{ 'animate__animated animate__headShake': errorAccount }">
           <div class="password_block">
@@ -177,7 +178,6 @@ const login = () => {
           <i class="fa-brands fa-google"></i>
           以 google 帳號登入
         </button>
-      </form>
       <div class="signup">
         <span>
           你還不是會員嗎？

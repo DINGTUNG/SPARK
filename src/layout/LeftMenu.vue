@@ -64,21 +64,25 @@ watch(() => currentRoute.name, (newRouteName) => {
         id: 1,
         title: "緣起",
         routeName: "",
+        elementId: "origin",  //引入about.vue 緣起的id
       },
       {
         id: 2,
         title: "願景",
         routeName: "",
+        elementId: "vision", //引入about.vue 願景的id
       },
       {
         id: 3,
         title: "服務據點",
         routeName: "",
+        elementId: "branch", //引入about.vue 服務據點的id
       },
       {
         id: 4,
         title: "認養/捐款Q&A",
         routeName: "",
+        elementId: "faq", //引入about.vue 認養/捐款Q&A的id
       },
     ];
   } else if (newRouteName === "story-gallery" || newRouteName === "result-report" || newRouteName === "service-milestone") {
@@ -155,13 +159,21 @@ watch(() => currentRoute.name, (newRouteName) => {
   } 
 }, { immediate: true }); //初始化的時候立即執行一次，而不是等到監聽的數據變化的時候再執行
 
+
+//【點擊elementId時，滑動到該區塊】
+const scrollTo = (elementId) => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
 
 <template>
   <div class="left_menu_container" :style="{ height: menuHeight + 'px' , top: topValue + 'vh' }"> 
     <h3>{{ menuTitle }}</h3>
     <ul>
-      <li v-for="item in bulletinList" :key="item.id">
+      <li v-for="item in bulletinList" :key="item.id" @click="scrollTo(item.elementId)">  <!-- @click="scrollTo(item.elementId)" 表示當該元素被點擊時，將會呼叫 scrollTo 函數並將 item.elementId 做為參數傳入，通常用來實現頁面滾動到指定元素的效果。 -->
         <RouterLink :to="{ name: item.routeName }" class="link">
           <h4>{{ item.title }}</h4>
         </RouterLink>

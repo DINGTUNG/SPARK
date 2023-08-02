@@ -253,6 +253,17 @@ const router = createRouter({
       }
     },
     {
+      path: '/letter-animation',
+      name: 'letter-animation',
+      component: () => import('@/views/pages/letter-animation/LetterAnimation.vue'),
+      meta: {
+        hideHeader: true,
+        hideFooter: true,
+        hideLeftMenu: true,
+        hideRightMenu: true
+      }
+    },
+    {
       path: '/service-milestone',
       name: 'service-milestone',
       component: () => import('@/views/pages/work-result/ServiceMilestone.vue')

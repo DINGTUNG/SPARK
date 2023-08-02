@@ -54,6 +54,7 @@ const Days = reactive([
                 </div>
             </div>
         </div>
+
         <div class="form_row">
             <label for="id_number">身分證字號*</label>
             <div class="form_box id_number">
@@ -61,6 +62,7 @@ const Days = reactive([
                     maxlength="10">
             </div>
         </div>
+
         <div class="form_row">
             <label for="birthday">生日*</label>
             <div class="birthday_wrap">
@@ -83,16 +85,15 @@ const Days = reactive([
                     <Images :imgSrc="'pictures/images/login/chevron_down.svg'" />
                 </div>
 
-
             </div>
         </div>
-        <div class="form_box email_check">
+        <!-- <div class="form_box email_check">
             <label for="email_check">E-mail*</label>
             <input type="email" class="email_check" id="email_check" value="spark@gmail.com" disabled>
             <button>
                 <i class="fa-solid fa-paper-plane"></i>已驗證
             </button>
-        </div>
+        </div> -->
         <div class="form_row">
             <label for="cellphone">手機*</label>
             <div class="form_box cellphone">
@@ -100,24 +101,28 @@ const Days = reactive([
                     maxlength="10">
             </div>
         </div>
+
         <div class="form_row">
             <label for="local_phone">住家電話</label>
             <div class="form_box local_phone">
                 <input type="text" class="local_phone" v-model="local_phone" id="local_phone" placeholder="請輸入住家電話">
             </div>
         </div>
+
         <div class="form_row">
             <label for="work_phone">公司電話*(如個人則非必填)</label>
             <div class="form_box work_phone">
                 <input type="text" class="work_phone" v-model="work_phone" id="work_phone" placeholder="請輸入公司電話">
             </div>
         </div>
+
         <div class="form_row">
             <label for="address">地址*</label>
             <div class="form_box address">
                 <input type="text" class="address" v-model="address" id="address" placeholder="請輸入地址">
             </div>
         </div>
+
         <div class="form_row">
             <label for="receipt">發票種類*</label>
             <div class="label_radio_wrap">
@@ -130,6 +135,7 @@ const Days = reactive([
                 <label class="label_radio"><input type="radio" name="receipt" value="paper" class="input_radio">紙本發票</label>
             </div>
         </div>
+
         <div class="form_row">
             <h5>會員頭貼</h5>
             <label class="label_up_file">

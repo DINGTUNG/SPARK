@@ -1,276 +1,80 @@
-
-.register_container {
+div.register_container {
     width: 100%;
 
-    .register_banner {
-        background-image: url('/pictures/images/login/login_banner_PC.jpg');
-        background-size: cover;
-        background-position: center;
-        width: 36%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 50;
+    div.register_banner {
+            background-size: cover;
+            background-position: center;
+
+        @include custom-responsive(" xs sm md lg "){
+            background-image: url('/pictures/images/login/login_banner_MB.jpg');
+            width: 100vw;
+            height: 300px;
+        }
+        @include custom-responsive(" xl xx-l "){
+            background-image: url('/pictures/images/login/login_banner_PC.jpg');
+            width: 36%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
 
         p {
             position: absolute;
-            top: 12%;
-            left: 70%;
             color: white;
-            writing-mode: vertical-rl;
-            font-size: 20px;
-            letter-spacing: 10px;
-            line-height: 2.7;
+
+            @include custom-responsive(" xs sm md lg "){
+                font-size: 17.5px;
+                letter-spacing: 10px;
+                line-height: 1.8;
+                top: 25%;
+                left: 10.2%;
+                text-shadow: 3px 3px 5px rgb(20, 31, 49) ;
+            }
+            @include custom-responsive(" xl xx-l "){
+                font-size: 20px;
+                letter-spacing: 10px;
+                line-height: 2.7;
+                top: 12%;
+                left: 70%;
+                writing-mode: vertical-rl;
+            }
         }
 
-        img {
+        img.logo_vertical {
             width: 12%;
             position: absolute;
             top: 58%;
             left: 72%;
+            @include custom-responsive(" xs sm md lg "){
+                display: none;
+            }
+            @include custom-responsive(" xl xx-l "){
+                display: block;
+            }
         }
+
+        img.logo_horizontal {
+            width: 140px;
+            position: absolute;
+            top: 8%;
+            left: 10.2%;
+
+            @include custom-responsive(" xl xx-l "){
+                display: none;
+            }
+        }
+
     }
     .register_main {
-        padding: 105px 0 160px 46%;
-
-        // .main_header {
-        //     display: flex;
-        //     flex-direction: column;
-        //     gap: 35px 0;
-
-        //     h1 {
-        //         color: $primaryBrandBlue;
-        //     }
-
-        //     .header_step {
-        //         display: flex;
-        //         align-items: center;
-        //         gap: 0 30px;
-
-        //         .step_item {
-        //             width: 112px;
-        //             height: 112px;
-        //             border-radius: 50%;
-        //             background-color: $functionalLightGrey4;
-        //             font-family: 'Lato', 'Noto Sans TC';
-        //             display: flex;
-        //             flex-direction: column;
-        //             align-items: center;
-        //             justify-content: center;
-
-        //             .step_text {
-        //                 @include h6_PC;
-        //                 color: white;
-        //             }
-        //             .step_number {
-        //                 font-size: 48px;
-        //                 color: white;
-        //             }
-        //         }
-        //         .step_item.one {
-        //             background-color: $primaryBrandBlue;
-        //         }
-
-        //         .fa-solid {
-        //             font-size: 32px;
-        //             color: $functionalLightGrey4;
-        //         }
-        //     }
-
-        //     .header_notice {
-        //         max-width: 520px;
-        //         box-sizing: border-box;
-        //         padding: 18px;
-        //         border: 1px solid $secondaryLightBlue2;
-        //         border-radius: 5px;
-        //         @include h6_PC;
-        //         color: $secondaryLightBlue2;
-        //     }
-        // }
-
-        // .main_form {
-        //     max-width: 520px;
-        //     padding: 30px 0 0 0;
-        //     display: flex;
-        //     flex-direction: column;
-        //     gap: 15px 0;
-        //     // outline: solid 1px red;
-
-        //     .form_title {
-        //         display: flex;
-        //         align-items: center;
-
-        //         .fa-solid {
-        //             font-size: 26px;
-        //             color: $primaryBrandBlue;
-        //             padding: 0 10px 0 0;
-        //         }
-        //     }
-        //     .form_box {
-        //         position: relative;
-        //         // outline: solid 1px red;
-        //     }
-
-        //     .form_box.password img, .form_box.password_check img {
-        //         position: absolute;
-        //         top: 50%;
-        //         right: 20px;
-        //         width: 25px;
-        //         cursor: pointer;
-        //         transform: translate(0,-50%);
-        //     }
-
-        //     .form_box.email_check {
-        //         margin: 50px 0 0 0;
-        //         position: relative;
-
-        //         button {
-        //             @include h5_PC;
-        //             width: 155px;
-        //             padding: 11px;
-        //             border-radius: 0 10px 10px 0;
-        //             color: white;
-        //             background-color: $primaryBrandBlue;
-        //             border: none;
-        //             position: absolute;
-        //             bottom: 0;
-        //             right: 0;
-
-        //             .fa-solid {
-        //             color: white;
-        //             padding: 0 10px 0 0;
-        //         }
-        //         }
-                
-        //     }
-
-        //     h4 {
-        //         color: $primaryBrandBlue;
-        //     }
-
-        //     label {
-        //         @include h5_PC;
-        //     }
-
-        //     input{
-        //         @include h5_PC;
-        //         border: 1px solid $functionalLightGrey3;
-        //         border-radius: 10px;
-        //         padding: 10px;
-        //         width: 100%;
-        //         box-sizing: border-box;
-        //         background-color: #f9f9f9;
-            
-        //         &:focus{
-        //             outline: 1px solid ;
-        //         }
-        //         &::placeholder{
-        //             @include h6_PC;
-        //             color: rgb(99, 99, 99,0.35);
-        //         }
-        //     }
-            
-        //     .next_step {
-        //         @include regularBlueBtn_PC;
-        //         margin: 50px auto;
-        //     }
-        // }
+        
+        @include custom-responsive(" xs sm md lg "){
+            // padding: 50px 25% 50px 25%;
+        }
+        @include custom-responsive(" xl xx-l "){
+            padding: 105px 0 160px 46%;
+        }
     }
 
-    // --------步驟2區塊--------
-
-//     .register_main.two {
-
-//         .step_item.two {
-//             background-color: $primaryBrandBlue;
-//         }
-
-//         .label_radio_wrap {
-//             padding: 10px 0 0;
-//         }
-
-//         .label_radio {
-//             display: inline-block;
-//             padding: 0 20px 0 0;
-//             cursor: pointer;
-// }
-
-//         .input_radio {
-//             border: 1px solid $functionalLightGrey3;
-//             width: 24px;
-//             height: 24px;
-//             margin-right: 5px;
-//             vertical-align: middle;
-//             background-color: #f9f9f9;
-//             cursor: pointer;
-//         }
-
-//         .birthday_wrap {
-//             display: flex;
-//             justify-content: space-between;
-
-//             .birthday_select {
-//                 position: relative;
-//                 width: 31%;
-
-//                 select{
-//                     @include h5_PC;
-//                     width: 100%;
-//                     border: 1px solid $functionalLightGrey3;
-//                     border-radius: 10px;
-//                     padding: 10px;
-//                     box-sizing: border-box;
-//                     color: $basicFontColor;
-//                     background-color: #f9f9f9;
-//                     cursor: pointer;
-
-//                     &:focus{
-//                         outline: 1px solid ;
-//                     }
-//                 }
-
-//                 img {
-//                     position: absolute;
-//                     top: 50%;
-//                     right: 15px;
-//                     width: 18px;
-//                     transform: translate(0,-50%);
-//                 }
-//             }
-            
-            
-//         }
-
-
-//         .form_box.email_check {
-//             margin: 0;
-//             position: relative;
-//         }
-
-//         .label_up_file {
-//             display: block;
-//             background-color: #F8F7F6;
-//             height: 200px;
-//             border: 2px dashed $functionalLightGrey3;
-//             border-radius: 10px;
-//             box-sizing: border-box;
-//             text-align: center;
-//             cursor: pointer;
-
-//             .up_file_text {
-//                 padding: 60px 0 0 0;
-//                 i {
-//                     font-size: 40px;
-//                     color: $primaryBrandBlue;
-//                 }
-//                 p {
-//                     color: $primaryBrandBlue;
-//                 }
-
-//             }
-            
-//         }
-        
-//     }
   }

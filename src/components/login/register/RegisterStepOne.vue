@@ -75,7 +75,7 @@ function showHide() {
                 <i class="fa-solid fa-paper-plane"></i>寄送驗證碼
             </button>
         </div>
-        <div class="form_box">
+        <div class="form_box check_number">
             <input type="text" class="safety_code" v-model="safety_code" id="safety_code" placeholder="請輸入收到之驗證碼">
         </div>
 

@@ -120,9 +120,6 @@ onMounted(() => {
   <RouterLink to="/member-center">會員中心</RouterLink>
   <br>
   <RouterLink to="/donation-project">後台測試</RouterLink>
-  <br>
-  <br>
-  <RouterLink to="/dreamStar">dreamstar</RouterLink>
 </template>
 
 

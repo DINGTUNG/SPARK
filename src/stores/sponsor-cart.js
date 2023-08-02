@@ -106,7 +106,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   //判斷購物車收合
   const isSideListShow = ref(false)
   watch(isSideListShow, (nVal) => {
-    console.log(nVal)
+
   })
 
   const showSideList = () => {

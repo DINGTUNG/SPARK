@@ -30,9 +30,6 @@ app.use(pinia)
 app.use(vuetify)
 app.component('Images', Images)
 app.component('VueDatePicker', VueDatePicker);
-
-
-//使用viewfire
 app.use(VueFire, {firebaseApp,modules: [VueFireAuth(),],})
 app.use(VueReCaptcha, { siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr' });
 

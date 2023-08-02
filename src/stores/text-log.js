@@ -36,7 +36,7 @@ export const useLogStore = defineStore('log', () => {
         }
     ])
 
-    const token = ref(0)
+    let token = ref(0)
 
     const setName = (log, payload) => {
         log[index].name = payload;

@@ -293,5 +293,5 @@ const donateList = reactive([
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/sass/pages/spark-back/donation-project";
+@import "@/assets/sass/pages/donate/donation-project";
 </style>

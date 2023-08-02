@@ -14,11 +14,13 @@ function showSideList(donateProject) {
   donateCartStore.showSideList()
 }
 
+
 </script>
 
 <template>
   <div class="donate_content_card_list">
-    <div class="donate_content_card" v-for="donateProject in DonateProject.TYPES" :key="donateProject.id">
+    <div class="donate_content_card" v-for="donateProject in DonateProject.TYPES" :key="donateProject.id"
+      :ref="donateProject.ref">
       <div class="card_pic">
         <img :src="donateProject.imgSrc" :alt="donateProject.title">
       </div>
@@ -37,9 +39,9 @@ function showSideList(donateProject) {
         <img :src="DonateProject.TYPE.SIAWASE_TANUKI.imgSrc" alt="DonateProject.TYPE.SIAWASE_TANUKI.">
       </div>
       <div class="card_content">
-        <h3>{{DonateProject.TYPE.SIAWASE_TANUKI.title}}</h3>
-        <p>{{DonateProject.TYPE.SIAWASE_TANUKI.content}}</p>
-        <h4>捐款累計 {{DonateProject.TYPE.SIAWASE_TANUKI.fundSum}}🍠</h4>
+        <h3>{{ DonateProject.TYPE.SIAWASE_TANUKI.title }}</h3>
+        <p>{{ DonateProject.TYPE.SIAWASE_TANUKI.content }}</p>
+        <h4>捐款累計 {{ DonateProject.TYPE.SIAWASE_TANUKI.fundSum }}🍠</h4>
         <button @click="openDonatePage">前往贊助</button>
       </div>
     </div>

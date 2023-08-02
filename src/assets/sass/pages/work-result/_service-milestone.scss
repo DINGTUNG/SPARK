@@ -118,12 +118,15 @@ div.service_milestone_container{
 
                 &:active{
                     span.number{
-                        @include custom-responsive("xs"){
-                            color:$decorativeOrange;
-                        }
+                        color:$decorativeOrange;     
+                    }
+                }
+
+                &:hover{
+                    span.number{
                         @include custom-responsive("xl"){
-                            color:$decorativeOrange
-                        }
+                            color:$decorativeOrange;
+                        }     
                     }
                 }
             }
@@ -179,7 +182,23 @@ div.service_milestone_container{
                 margin-top: 30%;
             }
             @include custom-responsive("md"){
-                margin-top: 20%;
+                margin-top: 25%;
+            }
+
+            img.spark_image{
+                position: absolute;
+                right: 10%;
+                width: 25%;
+                @include custom-responsive("xs"){
+                    display: none;
+                }
+                @include custom-responsive("md"){
+                    display: block;
+                    top: -50%;
+                }
+                @include custom-responsive("xx-l"){
+                    top: -60%;
+                }
             }
             
             div.card{
@@ -238,6 +257,30 @@ div.service_milestone_container{
                     @include custom-responsive("xl"){
                         @include h5_PC;
                         margin-top: 0;
+                    }
+                }
+
+                img.star_image{
+                    width: 15%;
+                    position: absolute;
+                    top: 20%;
+                    left: 0;
+                    @include custom-responsive("xs"){
+                        display: none;
+                    }@include custom-responsive("md"){
+                        display: block;
+                    }
+                }
+
+                img.meteor_image{
+                    width: 40%;
+                    position: absolute;
+                    bottom: 0%;
+                    right: -15%;
+                    @include custom-responsive("xs"){
+                        display: none;
+                    }@include custom-responsive("md"){
+                        display: block;
                     }
                 }
             }

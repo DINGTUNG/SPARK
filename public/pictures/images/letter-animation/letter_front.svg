@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Objects" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1152 728.33">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #f2dfbf;
+      }
+
+      .cls-3 {
+        filter: url(#drop-shadow-2);
+      }
+    </style>
+    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="-5"/>
+      <feGaussianBlur result="blur" stdDeviation="8"/>
+      <feFlood flood-color="#6b615d" flood-opacity=".3"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path class="cls-1" d="m19.67,25.82l526.32-307.14c14.5-8.48,32.45-8.48,46.95,0L1119.37,25.82l-549.85,318.77L19.67,25.82Z"/>
+  <polygon class="cls-2" points="1152 0 1152 728.33 0 728.33 0 0 576 333.52 1152 0"/>
+  <path class="cls-3" d="m0,728.33l9.12-60.37c7.29-22.05,22.77-40.47,43.24-51.43l489.07-317.85c21.59-11.56,47.54-11.56,69.14,0l489.07,317.85c20.48,10.97,35.96,29.38,43.24,51.43l9.12,60.37H0Z"/>
+</svg>

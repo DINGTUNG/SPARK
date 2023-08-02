@@ -1,4 +1,5 @@
 <script setup>
+
 import DreamStar from '@/views/sections/spark-activity/DreamStar.vue';
 import MessageBoard from '@/views/sections/spark-activity/MessageBoard.vue';
 import ActivityDonate from '@/views/sections/spark-activity/ActivityDonate.vue';

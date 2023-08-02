@@ -14,8 +14,6 @@ import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 const modules = [EffectFade, Navigation, Pagination, Autoplay];
 
 
-
-
 const sponsorCartStore = useSponsorCartStore();
 </script>
 

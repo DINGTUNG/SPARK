@@ -208,15 +208,10 @@ const letterData = reactive([
 
 
         <!-- 彈窗 -->
-        <transition>
-          <dialog ref="infoModal" 
-          :class="'modal-dialog'" @click="closeImageModal">
-            <Images :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
-            <!-- <button :class="'close_btn'">
-              <Images id="btn_icon" :class="'btn_icon'" :imgSrc="'pictures/icons/close-button/big_white.svg'" alt="Close" />
-            </button> -->
-          </dialog>
-        </transition>
+        <dialog ref="infoModal" 
+        :class="'modal-dialog'" @click="closeImageModal">
+          <Images :class="'letter'" :imgSrc="modalImageSrc" alt="Image" />
+        </dialog>
 
 
         <!-- 分頁 -->

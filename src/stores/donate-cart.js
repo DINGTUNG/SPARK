@@ -1,13 +1,11 @@
 import { defineStore } from 'pinia'
-import { ref, reactive,computed } from 'vue'
-import { useRouter } from 'vue-router'
-
-
-
+import { ref, reactive } from 'vue'
+import { useRoute } from 'vue-router'
 
 export class DonateProject {
-  constructor(id, imgSrc, title, content, fundSum) {
+  constructor(id, ref, imgSrc, title, content, fundSum) {
     this.id = id
+    this.ref = ref
     this.imgSrc = imgSrc
     this.title = title
     this.content = content
@@ -17,12 +15,14 @@ export class DonateProject {
   static TYPE = {
     KIDS_SUPPORT: new DonateProject(
       'D001',
+      'D001',
       'pictures/images/donate/donate-content/D001_kids_support.jpg',
       '扶幼捐款',
       '支持需要幫助的幼兒。通過捐贈金錢，我們能夠提供營養、醫療、教育和其他基本需求，讓這些幼兒擁有更好的生活和未來。',
       114900
     ),
     KIDS_PROTECTION: new DonateProject(
+      'D002',
       'D002',
       'pictures/images/donate/donate-content/D002_kids_protection.jpg',
       '兒童保護',
@@ -31,12 +31,14 @@ export class DonateProject {
     ),
     KIDS_SPONSOR: new DonateProject(
       'D003',
+      'D003',
       'pictures/images/donate/donate-content/D003_kids_sponsor.jpg',
       '助養召集令',
       '提供受助者孩童所需的經濟援助，為受助者提供穩定的支持，幫助他們改善生活狀況，獲得更好的教育和醫療資源，並提供更積極的未來展望。',
       21500
     ),
     SCHOLARSHIP: new DonateProject(
+      'D004',
       'D004',
       'pictures/images/donate/donate-content/D004_scholarship.jpg',
       '獎助學金',
@@ -45,12 +47,14 @@ export class DonateProject {
     ),
     EMERGENCY_RELIEF_FUND: new DonateProject(
       'D005',
+      'D005',
       'pictures/images/donate/donate-content/D005_emergency_ relief_fund.jpg',
       '急難救助金',
       '支援在緊急情況下遭遇困境的孩童，提供迅速而有效的援助。這些情況可能包括自然災害、人道危機、健康危機、家庭悲劇或其他緊急狀況。',
       107660
     ),
     NUTRITIONAL_SUPPLEMENTS: new DonateProject(
+      'D006',
       'D006',
       'pictures/images/donate/donate-content/D006_nutritional_supplements.jpg',
       '營養補助',
@@ -59,6 +63,7 @@ export class DonateProject {
     ),
     SPARK_ACTIVITY: new DonateProject(
       'D007',
+      'D007',
       'pictures/images/donate/donate-content/D007_spark_project.jpg',
       '夢想之星',
       '讓孩子們探索自我，提出他們的夢想計畫，並邀請您投給您最愛的組別，為該組爭取「夢想成真」獎金！讓我們一同以熱情激勵，為孩子們的夢想點燃璀璨星火。',
@@ -66,19 +71,13 @@ export class DonateProject {
     ),
     SIAWASE_TANUKI: new DonateProject(
       'D520',
+      'D520',
       'pictures/test/tanuki-rectangle.png',
       '幸福狸貓',
       '散播幸福散播愛，請支持並贊助二狸貓熱呼呼的番薯!',
       520
     ),
-    DEFAULT: new DonateProject(
-      '',
-      '',
-      '請選擇捐款方案',
-      '',
-      0
-    )
-    
+    DEFAULT: new DonateProject('', '', '', '請選擇捐款方案', '', 0)
   }
 
   static TYPES = [
@@ -115,26 +114,25 @@ export class PriceOption {
   ]
 }
 
-
 export const useDonateCartStore = defineStore('donate-cart', () => {
-  const currentRoutePath = computed(() => router.currentRoute.value.path);
-  const isBlurred = ref(false);
-  const router = useRouter();
+  const currentRoute = useRoute()
+  const isBlurred = ref(false)
 
+  // const currentRoutePath = computed(() => router.currentRoute.value.name)
+  // const router = useRouter()
 
   const onAddToCartClick = () => {
-    if (currentRoutePath.value === '/donate') {
-      isBlurred.value = false;
+    if (currentRoute.name === 'donate') {
+      isBlurred.value = false
     } else {
-      isBlurred.value = !isBlurred.value;
+      isBlurred.value = true
     }
-   
-  };
+  }
 
   // 在 SponsorCheckoutSideList 關閉時，移除模糊效果
   const removeToCartClick = () => {
-    isBlurred.value = false;
-  };
+    isBlurred.value = false
+  }
 
   const isSideListShow = ref(false)
 
@@ -142,11 +140,15 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     isSideListShow.value = true
     onAddToCartClick()
   }
+
+  const showSideListForActivityDonate = () => {
+    isSideListShow.value = true
+    isBlurred.value = false
+  }
   const hideSideList = () => {
     isSideListShow.value = false
     removeToCartClick()
   }
-
 
   const chosenDonateProject = reactive(DonateProject.TYPE.DEFAULT)
 
@@ -160,6 +162,7 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     chosenDonateProject,
     isBlurred,
     onAddToCartClick,
-    removeToCartClick
+    removeToCartClick,
+    showSideListForActivityDonate
   }
 })

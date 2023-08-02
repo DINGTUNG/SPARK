@@ -103,6 +103,9 @@ const carouselData = [
     date: '2022.12',
     title: '暖心聖誕',
     description: '邀請士元火鍋店為孩子們準備豐富的火鍋大餐',
+    starImage: 'pictures/images/results/service-milestone/star.png',
+    meteorImage: 'pictures/images/results/service-milestone/meteor.png',
+
   },
   {
     image: 'pictures/images/results/service-milestone/card_second.png',
@@ -110,6 +113,8 @@ const carouselData = [
     date: '2023.02',
     title: '環境小尖兵',
     description: '帶領孩子們前往海邊淨灘，為環保盡一份心力',
+    starImage: 'pictures/images/results/service-milestone/star.png',
+    meteorImage: 'pictures/images/results/service-milestone/meteor.png',
   },
   {
     image: 'pictures/images/results/service-milestone/card_third.png',
@@ -117,6 +122,8 @@ const carouselData = [
     date: '2023.06',
     title: '愛心稻田',
     description: '疫情解封後，首次到田裡體驗務農的辛勞，學習感恩',
+    starImage: 'pictures/images/results/service-milestone/star.png',
+    meteorImage: 'pictures/images/results/service-milestone/meteor.png',
   },
 ];
 
@@ -191,11 +198,17 @@ const visibleSlides = computed(() => {
             </div>
 <!-- 輪播圖 -->
             <div class="carousel">
+              <!-- spark小插圖 -->
+              <img src="pictures/images/results/service-milestone/spark.png" alt="Spark Image" class="spark_image">
+
               <div v-for="(card, index) in visibleSlides" :key="card.id" :class="`card card_${index + 1} size_${index + 1}`">
                 <img :src="card.image" :alt="card.alt">
                 <span>{{ card.date }}</span>
                 <h4>{{ card.title }}</h4>
                 <h5>{{ card.description }}</h5>
+                <!-- 卡片中的小插圖 -->
+                <img :src="card.starImage" :alt="`Star Image ${index + 1}`" class="star_image">
+                <img :src="card.meteorImage" :alt="`Meteor Image ${index + 1}`" class="meteor_image">    
               </div>
 
               <div class="arrow arrow_left" @click="previousSlide">

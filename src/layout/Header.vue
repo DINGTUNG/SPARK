@@ -2,6 +2,7 @@
 //【引入】
 import { ref, watch, onMounted, onUnmounted} from 'vue';
 import { RouterLink, useRoute, useRouter} from 'vue-router';
+import { useLogStore } from '@/stores/text-log.js'   // 關於會員登入
 
 //【header logo change for PC & MB】
 const imgSrc = ref('pictures/logo/logo_blue.svg') // Default
@@ -30,7 +31,8 @@ const updateImageSource = (newRouteName) => {
 
 watch(() => currentRoute.name, updateImageSource)
 
-onMounted(() => {
+onMounted(() => {  
+  updateImageSource(currentRoute.name) //新增此行，主要原因是一進首頁都會logo會先消失，然後要重新整理才會出現
   mediaQuery1200.addEventListener('change', () => updateImageSource(currentRoute.name))
   mediaQuery1201to1399.addEventListener('change', () => updateImageSource(currentRoute.name))
 })
@@ -173,6 +175,10 @@ const router = useRouter();
 router.afterEach(() => {
   window.scrollTo(0, 0);
 });
+
+//【會員登入後，變成會員中心】
+
+
 </script>
 
 
@@ -237,8 +243,6 @@ router.afterEach(() => {
 
 <style scoped lang="scss">
 @import "@/assets/sass/layout/header";
-
-
 </style>
 
 

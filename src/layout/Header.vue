@@ -1,13 +1,7 @@
 <script setup>
 //【引入】
-<<<<<<< HEAD
-import { ref, watch, onMounted, onUnmounted} from 'vue';
-import { RouterLink, useRoute, useRouter} from 'vue-router';
-import { useLogStore } from '@/stores/text-log.js'   // 關於會員登入
-=======
 import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
->>>>>>> f86cd1e2cbc676b78eaf53477b9e787d1889d4c5
 
 //【header logo change for PC & MB】
 const imgSrc = ref('pictures/logo/logo_white.svg') // Default
@@ -204,6 +198,7 @@ router.afterEach(() => {
           <RouterLink :to="item.route" :class="['link_main', { 'member_login': item.label === '會員登入' }]">{{ item.label }}
           </RouterLink>
           <img v-if="item.active" :src="item.image" class="menu_icon">
+          
           <!-- submenu -->
           <ul v-if="item.children">
             <li v-for="(child, childIndex) in item.children" :key="childIndex" class="submenu_item">

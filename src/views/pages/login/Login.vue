@@ -1,5 +1,5 @@
 <script setup>
-import { useLogStore } from '@/stores/login-dummy-data.js'
+import { useLoginStore } from '@/stores/login.js'
 import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -13,7 +13,7 @@ const user = useCurrentUser();
 const router = useRouter();
 const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
 const googleAuthProvider = new GoogleAuthProvider()
-const logStore = useLogStore();//假帳號js
+const loginStore = useLoginStore();//假帳號js
 // const newPassword = getASecureRandomPassword();
 
 // updatePassword(user, newPassword).then(() => {
@@ -108,21 +108,16 @@ const login = () => {
   // } else if (!isValidToken.value) {
   //   errorAccount.value = '請進行驗證';
   } else {
-    const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
-    if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
-      logStore.log.forEach((item) => {
+    const userIndex = loginDummyDataStore.log.findIndex((item) => item.name === enteredAccount);
+    if (userIndex !== -1 && loginDummyDataStore.log[userIndex].pass === enteredPassword) {
+      loginDummyDataStore.log.forEach((item) => {
         item.state = false
       });
-<<<<<<< HEAD
-      logStore.log[userIndex].state = true; 
-      logStore.a = userIndex;
-=======
-      logStore.log[userIndex].state = true;
-      logStore.token = userIndex;
->>>>>>> f86cd1e2cbc676b78eaf53477b9e787d1889d4c5
+      loginDummyDataStore.log[userIndex].state = true;
+      loginDummyDataStore.a = userIndex;
       errorAccount.value = '';
-      alert(`登入成功：${logStore.log[userIndex].name}`);
-      console.log(logStore.log[userIndex].state)
+      alert(`登入成功：${loginDummyDataStore.log[userIndex].name}`);
+      console.log(loginDummyDataStore.log[userIndex].state)
       router.push({ path: '/home' });
       account.value = '';
       password.value = '';
@@ -148,7 +143,7 @@ const login = () => {
 
     <div class="login">
       <h1>會員登入</h1>
-      <p v-if="logStore.log[logStore.token].state">Hello {{ logStore.log[logStore.token].name }}</p>
+      <p v-if="loginDummyDataStore.log[loginDummyDataStore.token].state">Hello {{ loginDummyDataStore.log[loginDummyDataStore.token].name }}</p>
       <form action="" method="">
         <label for="account">帳號</label>
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"

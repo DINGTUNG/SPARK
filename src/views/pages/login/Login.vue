@@ -142,13 +142,13 @@ const login = () => {
       <form action="" method="">
         <label for="account">帳號</label>
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
-          :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId">
+          :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId" autocomplete="username">
         <label for="password">密碼</label>
         <div class="password_wrapper" ref="passwordField"
           :class="{ 'animate__animated animate__headShake': errorAccount }">
           <div class="password_block">
             <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" placeholder="輸入您的密碼"
-              name="memPsw">
+              name="memPsw" autocomplete="current-password">
             <span class="toggle" @click="showHide"> <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'"
                 alt="hide" />
               <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" /></span>

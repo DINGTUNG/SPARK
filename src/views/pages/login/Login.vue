@@ -113,13 +113,8 @@ const login = () => {
       logStore.log.forEach((item) => {
         item.state = false
       });
-<<<<<<< HEAD
-      logStore.log[userIndex].state = true; 
-      logStore.a = userIndex;
-=======
       logStore.log[userIndex].state = true;
       logStore.token = userIndex;
->>>>>>> f86cd1e2cbc676b78eaf53477b9e787d1889d4c5
       errorAccount.value = '';
       alert(`登入成功：${logStore.log[userIndex].name}`);
       console.log(logStore.log[userIndex].state)

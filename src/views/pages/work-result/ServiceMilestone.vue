@@ -199,7 +199,7 @@ const visibleSlides = computed(() => {
 <!-- 輪播圖 -->
             <div class="carousel">
               <!-- spark小插圖 -->
-              <img src="pictures/images/results/service-milestone/spark.png" alt="Spark Image" class="spark_image">
+              <img :src="'pictures/images/results/service-milestone/spark.png'" alt="Spark Image" class="spark_image">
 
               <div v-for="(card, index) in visibleSlides" :key="card.id" :class="`card card_${index + 1} size_${index + 1}`">
                 <img :src="card.image" :alt="card.alt">

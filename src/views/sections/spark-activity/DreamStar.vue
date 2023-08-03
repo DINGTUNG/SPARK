@@ -11,7 +11,9 @@ const dreamStarStore = useDreamStarStore()
     <div class="dream_star_wrap">
       <DreamStarCard v-for="dreamStar in DreamStarList.TOPICS" :key="dreamStar.id" :imgSrc="dreamStar.imgSrc"
         :routingLink="dreamStar.routingLink" :vote="dreamStarStore.getCurrentCountInVoteRecord(dreamStar.id)"
-        :title="dreamStar.title" :subTitle="dreamStar.subTitle" :id="dreamStar.id" />
+        :title="dreamStar.title" :subTitle="dreamStar.subTitle" :id="dreamStar.id" @watchMore="() => {
+          dreamStarStore.selectedDreamStar = dreamStar.id
+        }" />
     </div>
   </div>
 </template>

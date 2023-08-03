@@ -80,7 +80,7 @@ const router = createRouter({
     {
       path: '/story-gallery',
       name: 'story-gallery',
-      component: () => import('../views/pages/work-result/StoryGallery.vue')
+      component: () => import('@/views/pages/work-result/StoryGallery.vue')
     },
 
     {
@@ -234,17 +234,6 @@ const router = createRouter({
           component: () => import('@/components/login/register/RegisterStepTwo.vue')
         }
       ],
-      meta: {
-        hideHeader: true,
-        hideFooter: true,
-        hideLeftMenu: true,
-        hideRightMenu: true
-      }
-    },
-    {
-      path: '/donation-project',
-      name: 'donation-project',
-      component: () => import('@/views/pages/spark-back/DonationProject.vue'),
       meta: {
         hideHeader: true,
         hideFooter: true,

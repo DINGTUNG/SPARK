@@ -1,5 +1,5 @@
 <script setup>
-import { useLogStore } from '@/stores/login.js'
+import { useLogStore } from '@/stores/login-dummy-data.js'
 import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 

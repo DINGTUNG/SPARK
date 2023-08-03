@@ -1,8 +1,7 @@
 <script setup>
 //【引入】
-import { ref, watch, onMounted, onUnmounted} from 'vue';
-import { RouterLink, useRoute, useRouter} from 'vue-router';
-import { useLogStore } from '@/stores/text-log.js'   // 關於會員登入
+import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 
 //【header logo change for PC & MB】
 const imgSrc = ref('pictures/logo/logo_white.svg') // Default
@@ -195,6 +194,7 @@ router.afterEach(() => {
         <li v-for="(item, index) in menuItems" :key="index" class="menu_item" @mouseenter="hoverItem(item)" @mouseleave="deactivateItem(item)" @click="activateItem(item, index)">
           <RouterLink :to="item.route" class="link_main">{{ item.label }}</RouterLink>
           <img v-if="item.active" :src="item.image" class="menu_icon">
+          
           <!-- submenu -->
           <ul v-if="item.children">
             <li v-for="(child, childIndex) in item.children" :key="childIndex" class="submenu_item">

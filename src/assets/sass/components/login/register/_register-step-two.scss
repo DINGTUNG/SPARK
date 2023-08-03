@@ -126,7 +126,7 @@
         padding: 30px 0 0 0;
         display: flex;
         flex-direction: column;
-        gap: 15px 0;
+        gap: 20px 0;
         @include custom-responsive(" xs sm md lg "){
             margin: auto;
         }
@@ -227,45 +227,6 @@
                     }
                 }
             }   
-        }
-
-        .form_box.email_check {
-            position: relative;
-            @include custom-responsive(" xs sm md lg "){
-                margin-bottom: 38px;
-            }
-            @include custom-responsive(" xl xx-l "){
-                margin-bottom: 0;
-            }
-
-            button {  
-                color: white;
-                background-color: $primaryBrandBlue;
-                border: none;
-                position: absolute;
-
-                @include custom-responsive(" xs sm md lg "){
-                    @include h5_MB;
-                    width: 155px;
-                    padding: 6px;
-                    border-radius: 20px;
-                    bottom: -51px;
-                    right: 0;
-                }
-                @include custom-responsive(" xl xx-l "){
-                    @include h5_PC;
-                    width: 155px;
-                    padding: 11px;
-                    border-radius: 0 10px 10px 0;
-                    bottom: 0;
-                    right: 0;
-                }
-
-                i.fa-solid {
-                    color: white;
-                    padding: 0 10px 0 0;
-                }
-            }
         }
 
         h4 {

@@ -1,36 +1,54 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+
+//pinia
 import { createPinia } from 'pinia'
+
+//animate.css
 import 'animate.css'
+
+//Vue3Marquee
 import Vue3Marquee from 'vue3-marquee'
-import { VueFire, VueFireAuth } from 'vuefire' //引入viewFire
-import { firebaseApp } from './firebase' //引入viewFire
+
+//vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
-import VueReCaptcha from 'vue3-recaptcha2';
-import Images from '@/components/func-items/images/Images.vue'
 
 //datepicker
-import VueDatePicker from '@vuepic/vue-datepicker';
+import VueDatePicker from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
-const pinia = createPinia()
+
+//viewFire
+import { VueFire, VueFireAuth } from 'vuefire'
+import { firebaseApp } from './firebase'
+
+//VueReCaptcha
+import VueReCaptcha from 'vue3-recaptcha2'
+import Images from '@/components/func-items/images/Images.vue'
+
 const app = createApp(App)
+const pinia = createPinia()
 const vuetify = createVuetify({
   components,
-  directives,
+  directives
 })
 
-app.use(Vue3Marquee)
 app.use(router)
 app.use(pinia)
+app.use(Vue3Marquee)
 app.use(vuetify)
+app.component('VueDatePicker', VueDatePicker)
 app.component('Images', Images)
-app.component('VueDatePicker', VueDatePicker);
-app.use(VueFire, {firebaseApp,modules: [VueFireAuth(),],})
-app.use(VueReCaptcha, { siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr' });
 
-app.mount('#app') 
+app.use(VueFire, { 
+  firebaseApp, 
+  modules: [
+    VueFireAuth()
+  ] })
+app.use(VueReCaptcha, { siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr' })
+
+app.mount('#app')

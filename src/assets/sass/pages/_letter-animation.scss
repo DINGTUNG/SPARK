@@ -31,13 +31,12 @@
 
             .card{
                 position:absolute;         
-                bottom: 20%;
+                bottom:20%;
                 width: 30%;
                 left: 35%;
                 z-index: -1;
                 text-align: center;
                 transition: all 0.5s ease-in-out;
-
 
                 img.child_letter{
                     width: 100%;                          
@@ -95,8 +94,9 @@
     }
 
     .card{
-        transform: translateY(-70%) scale(3);
+        transform: translateY(-90%) scale(3);
         transition-delay: 1.3s;
+        // z-index: 2;
 
         .close-icon{
             transform: translateY(-50%) scale(0.5);
@@ -107,4 +107,5 @@
 .bg-wrapper .flap .open_icon {
   transform: rotate(45deg);
   transition-delay: 0.5s;
+//   z-index: initial;
 }

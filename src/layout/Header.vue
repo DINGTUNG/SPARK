@@ -1,8 +1,7 @@
 <script setup>
 //【引入】
-import { ref, watch, onMounted, onUnmounted} from 'vue';
-import { RouterLink, useRoute, useRouter} from 'vue-router';
-import { useLogStore } from '@/stores/text-log.js'   // 關於會員登入
+import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 
 //【header logo change for PC & MB】
 const imgSrc = ref('pictures/logo/logo_white.svg') // Default
@@ -106,11 +105,10 @@ const menuItems = ref([
     active: false,
     clicked: false,
   },
-  {
-    label: '會員登入',
-    route: '/login',
-  },
 ]);
+
+//【會員登入連結】
+
 
 //【小星星的@mouseenter & @mouseleave & @click 的設定】
 const hoverItem = (item) => {
@@ -166,7 +164,7 @@ watch(route, (newRoute) => {
   }
 });
 
-//【hamburder 開關】
+//【hamburger 開關】
 let navVisible = ref(false);
 
 //【頁面跳轉時置頂】
@@ -177,7 +175,6 @@ router.afterEach(() => {
 });
 
 //【會員登入後，變成會員中心】
-
 
 </script>
 
@@ -194,17 +191,21 @@ router.afterEach(() => {
     <nav>
       <ul>
         <!-- main menu -->
-        <li v-for="(item, index) in menuItems" :key="index" class="menu_item" @mouseenter="hoverItem(item)"
-          @mouseleave="deactivateItem(item)" @click="activateItem(item, index)">
-          <RouterLink :to="item.route" :class="['link_main', { 'member_login': item.label === '會員登入' }]">{{ item.label }}
-          </RouterLink>
+        <li v-for="(item, index) in menuItems" :key="index" class="menu_item" @mouseenter="hoverItem(item)" @mouseleave="deactivateItem(item)" @click="activateItem(item, index)">
+          <RouterLink :to="item.route" class="link_main">{{ item.label }}</RouterLink>
           <img v-if="item.active" :src="item.image" class="menu_icon">
+          
           <!-- submenu -->
           <ul v-if="item.children">
             <li v-for="(child, childIndex) in item.children" :key="childIndex" class="submenu_item">
               <RouterLink :to="child.route" class="link_child">{{ child.label }}</RouterLink>
             </li>
           </ul>
+        </li>
+
+        <!-- 會員登入連結 -->
+        <li class="member_login">
+          <RouterLink to="/login" class="login">會員登入</RouterLink>
         </li>
       </ul>
     </nav>
@@ -228,15 +229,18 @@ router.afterEach(() => {
       <ul>
         <!-- main menu -->
         <li v-for="(item, index) in menuItems" :key="index" class="menu_item">
-          <RouterLink :to="item.route" class="link link_main" @click="navVisible = !navVisible">{{ item.label }}
-          </RouterLink>
+          <RouterLink :to="item.route" class="link_main" @click="navVisible = !navVisible">{{ item.label }}</RouterLink>
           <!-- submenu -->
           <ul v-if="item.children">
             <li v-for="(child, childIndex) in item.children" :key="childIndex" class="submenu_item">
-              <RouterLink :to="child.route" class="link link_child" @click="navVisible = !navVisible">{{ child.label }}
-              </RouterLink>
+              <RouterLink :to="child.route" class="link_child" @click="navVisible = !navVisible">{{ child.label }}</RouterLink>
             </li>
           </ul>
+        </li>
+
+        <!-- 會員登入連結 -->
+        <li class="member_login">
+          <RouterLink to="/login" class="login">會員登入</RouterLink>
         </li>
       </ul>
     </nav>

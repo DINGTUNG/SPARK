@@ -158,7 +158,7 @@ const closeAllFaq = (item) => {
         </div>
       </div>
 
-      <div class="origin_title">
+      <div class="origin_title" id="origin">
         <h2>緣起</h2>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
@@ -171,7 +171,7 @@ const closeAllFaq = (item) => {
         <p>
           星火協會的成立源於對兒童福祉的關切，而我們的成長則得益於我們不斷擴展的服務和承諾。未來，我們將繼續以孩子們的需求為中心，不斷探索和實踐創新的方法，為他們提供更多的支援和機會。</p>
       </div>
-      <div class="vision_title">
+      <div class="vision_title" id="vision">
         <h2>願景</h2>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
@@ -196,7 +196,7 @@ const closeAllFaq = (item) => {
         <img class="floor" :src="'pictures/decorations/illustration/floor.svg'" alt="地板背景">
       </div>
 
-      <div class="branch_title">
+      <div class="branch_title" id="branch">
         <h2>服務據點</h2>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
@@ -213,7 +213,7 @@ const closeAllFaq = (item) => {
       </div>
 
       <!-- FAQ -->
-      <div class="faq_title">
+      <div class="faq_title" id="faq">
         <h2>認養/捐款 Q&A</h2>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>

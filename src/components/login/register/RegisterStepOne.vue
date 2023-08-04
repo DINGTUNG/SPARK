@@ -40,13 +40,21 @@ function showHide() {
             <i class="fa-solid fa-circle-user"></i>
             <h4>您的帳號密碼</h4>
         </div>
+
         <div class="form_row">
-            <label for="account">帳號*</label>
+            <label for="account">帳號/電子信箱*</label>
             <div class="form_box account">
-                <input type="text" class="account" v-model="account" id="account" placeholder="請輸入英數字8至20字元" minlength="8"
-                    maxlength="20">
+                <input type="email" class="account" v-model="account" id="account" placeholder="請輸入電子信箱">
+                <button>
+                    <i class="fa-solid fa-paper-plane"></i>寄送驗證碼
+                </button>
             </div>
         </div>
+
+        <div class="form_box check_number">
+            <input type="text" class="safety_code" v-model="safety_code" id="safety_code" placeholder="請輸入信箱收到之驗證碼">
+        </div>
+
         <div class="form_row">
             <label for="password">密碼*</label>
             <div class="form_box password" ref="passwordField">
@@ -58,6 +66,7 @@ function showHide() {
                 </span>
             </div>
         </div>
+
         <div class="form_row">
             <label for="password_check">確認密碼*</label>
             <div class="form_box password_check" ref="passwordField">
@@ -68,15 +77,6 @@ function showHide() {
                     <img v-else :src="'pictures/images/login/eye_show.svg'" alt="show" />
                 </span>
             </div>
-        </div>
-        <div class="form_box email_check">
-            <input type="email" class="email_check" v-model="email_check" id="email_check" placeholder="請輸入Email並點擊寄送驗證碼">
-            <button>
-                <i class="fa-solid fa-paper-plane"></i>寄送驗證碼
-            </button>
-        </div>
-        <div class="form_box check_number">
-            <input type="text" class="safety_code" v-model="safety_code" id="safety_code" placeholder="請輸入收到之驗證碼">
         </div>
 
         <RouterLink to="/register/register-step-two" class="next_step">

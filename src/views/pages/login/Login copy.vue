@@ -2,7 +2,9 @@
 import { useLogStore } from '@/stores/login-dummy-data.js'
 import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
+
 import VueRecaptcha from 'vue3-recaptcha2';
+
 import { useFirestore, useCurrentUser, useFirebaseAuth } from 'vuefire'; //import firebase
 const firebase = useFirestore(); //宣告firebase為firebase的內容
 import { getRedirectResult, signInWithRedirect, GoogleAuthProvider, signOut, getAuth, updatePassword } from 'firebase/auth'
@@ -13,6 +15,7 @@ const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
 const googleAuthProvider = new GoogleAuthProvider()
 const logStore = useLogStore();//假帳號js
 // const newPassword = getASecureRandomPassword();
+
 // updatePassword(user, newPassword).then(() => {
 //   console.log('重設密碼成功');
 // }).catch((error) => {
@@ -31,12 +34,30 @@ onMounted(() => {
   getRedirectResult(auth)
     .then((Response) => {
       console.log(Response);
+
     })
     .catch((reason) => {
       console.error('Failed redirect result', reason)
       error.value = reason
     })
 })
+
+
+// google登入跳轉函式:問題:跳轉遲鈍
+// const handleLoginStatusChange = () => {
+//   if (isLoggedIn()) {
+//     console.log('使用者已登入');
+
+//     router.push('/home');
+//   } else {
+//     console.log('使用者已登出');
+//   }
+// };
+// watch(user, handleLoginStatusChange, { deep: true });
+// const isLoggedIn = () => {
+//   return user.value !== null;
+// };
+
 
 const isValidToken = ref(false)//reCapthcha的判斷
 const instance_vueRecaptchaV2 = reactive({
@@ -57,6 +78,8 @@ const instance_vueRecaptchaV2 = reactive({
     // 驗證失敗進行的動作
   },
 });
+
+
 
 
 // 一般帳號登入
@@ -116,6 +139,8 @@ const login = () => {
       <p>助貧不是一個人做很多<br>是每個人都做了一點</p>
       <img :src="'pictures/logo/logo_white_second.svg'" alt="logo" class="logo">
     </div>
+
+
     <div class="login">
       <h1>會員登入</h1>
       <p v-if="logStore.log[logStore.token].state">Hello {{ logStore.log[logStore.token].name }}</p>
@@ -124,7 +149,6 @@ const login = () => {
         <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
           :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId" autocomplete="username">
         <label for="password">密碼</label>
-      </form>
         <div class="password_wrapper" ref="passwordField"
           :class="{ 'animate__animated animate__headShake': errorAccount }">
           <div class="password_block">
@@ -158,6 +182,7 @@ const login = () => {
           <i class="fa-brands fa-google"></i>
           以 google 帳號登入
         </button>
+      </form>
       <div class="signup">
         <span>
           你還不是會員嗎？

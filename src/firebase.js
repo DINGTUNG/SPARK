@@ -4,6 +4,7 @@
 //firebas的引入區塊
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection } from 'firebase/firestore'
+import { getAuth } from "firebase/auth";
 // ... other firebase imports //要引入其他功能請在這裡寫
 
 

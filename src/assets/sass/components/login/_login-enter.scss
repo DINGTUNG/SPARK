@@ -1,0 +1,224 @@
+    div.login {
+        @include custom-responsive(" xs sm "){
+            width: 90%;
+            margin: 200px auto 0;
+            text-align: left;
+        }
+    
+        @include custom-responsive(" md lg "){
+            width: 50%;
+            margin: 200px auto 0;
+            text-align: left;
+        }
+        @include custom-responsive(" xl xx-l "){
+            width: 30%;
+            margin: 60px auto 0;
+            margin-left: 46%;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+     
+        h1 {
+            color: $primaryBrandBlue;
+            font-size: $h1Fs_PC;
+            padding: 40px 0px;
+            text-align: center;
+        }
+
+        label {
+            @include h5_PC;
+        }
+
+        input {
+
+            &:focus {
+                outline: 1px solid;
+            }
+
+            &::placeholder {
+                @include h6_PC;
+                color: rgb(99, 99, 99, 0.35);
+            }
+
+            @include custom-responsive("xs sm ") {
+                width: 100%;
+                @include h5_MB;
+                border: 1px solid $functionalLightGrey3;
+                border-radius: 10px;
+                padding: 15px 60px 15px 15px;
+                background-color: #f9f9f9;
+                
+            }
+
+            @include custom-responsive("xl xx-l") {
+                width: 100%;
+                @include h5_PC;
+                border: 1px solid $functionalLightGrey3;
+                border-radius: 10px;
+                padding: 10px;
+                background-color: #f9f9f9;
+            }
+        }
+
+        input.account {
+            margin: 0 0 20px 0;
+        }
+
+        input.password {
+            margin: 0 0 20px 0;
+        }
+
+        .recaptcha_forget_block {
+            @include custom-responsive("xs sm ") {
+                display: block;
+            }
+
+            @include custom-responsive("xl xx-l") {
+                display: flex;
+            }
+
+            div.forgot_psw {
+                @include h6_PC;
+
+
+                i {
+                    color: $secondaryLightBlue2;
+                    font-size: $h5Fs_PC;
+                    margin-right: 5px;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+
+                @include custom-responsive("xs sm ") {
+                    padding: 10px 0 0 0;
+                }
+
+                @include custom-responsive("xl xx-l") {
+                    padding-left: 30px;
+                }
+            }
+        }
+
+        div.error_account {
+            display: block;
+        }
+
+        button.login_button {
+            @include h5_PC;
+            display: block;
+            background-color: $primaryAccentGold;
+            color: $primaryBrandWhite;
+            border-radius: $br_PC;
+            border: 1px solid $primaryBrandWhite;
+            height: 55px;
+            width: 100%;
+            margin-top: 50px;
+
+            @include custom-responsive("xs sm ") {
+                margin-top: 20px;
+            }
+        }
+
+        div.error_account {
+            color: red;
+            margin-top: 10px;
+        }
+
+        div.password_wrapper {
+           
+            div.password_block{
+                 position: relative;
+                display: flex;
+            }
+
+            img {
+                position: absolute;            
+                width: 25px;
+                top: 0;
+                cursor: pointer;
+                padding: 25px 0;
+                @include custom-responsive("xs sm ") {
+                    right: 6%;
+                }
+
+                @include custom-responsive("xl xx-l") {
+                    right: 8%;
+                }
+            }
+
+
+        }
+
+        div.login_methods {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 30px;
+            
+
+            h6 {
+                color: #bebdbd;
+            }
+
+            div.line {
+
+                @include custom-responsive("xs sm ") {
+                    width: 25%;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    width: 35%;
+                    height: 1px;
+                    background-color: #bebdbd;
+                }
+            }
+        }
+
+        div.error_account {
+            color: red;
+            margin: 10px 0 10px 10px;
+        }
+        button.google_login {
+            @include h5_PC;
+            display: block;
+            background-color: $primaryBgBlue;
+            color: $primaryBrandWhite;
+            border-radius: $br_PC;
+            border: 1px solid $primaryBrandBlue;
+            height: 55px;
+            width: 100%;
+            margin-top: 30px;
+
+            i{
+                color: $primaryBrandWhite;
+                margin-right: 5px;
+            }
+
+        }
+
+        div.signup{
+            text-align: right;
+            margin-top: 10px;
+
+            @include custom-responsive("xs sm ") {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 60px;
+            }
+
+            
+
+            i{
+                color: $secondaryLightBlue2;
+                margin-right: 5px;
+            }
+            .signup_link{
+                color: $secondaryLightBlue2;
+            }
+
+        }
+    }

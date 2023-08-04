@@ -105,12 +105,19 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('@/views/pages/login/Login.vue'),
-      meta: {
-        hideHeader: true,
-        hideFooter: true,
-        hideLeftMenu: true,
-        hideRightMenu: true
-      }
+      children: [
+        {
+          path: '',
+          name: 'login-enter',
+          component: () => import('../components/login/LoginEnter.vue')
+        }],
+        meta: {
+          hideHeader: true,
+          hideFooter: true,
+          hideLeftMenu: true,
+          hideRightMenu: true
+        },
+   
     },
     {
       path: '/sponsor-checkout-step-1',
@@ -212,7 +219,6 @@ const router = createRouter({
         }
       ]
     },
-
     {
       path: '/donate-list',
       name: 'donate-list',

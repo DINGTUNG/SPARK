@@ -126,7 +126,6 @@ const login = () => {
 <template>
     <div class="login">
         <h1>會員登入</h1>
-        <!-- <p v-if="logStore.log[logStore.token].state">Hello {{ logStore.log[logStore.token].name }}</p> -->
         <label for="account">帳號
             <input type="text" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
                 :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId" autocomplete="username">
@@ -150,7 +149,7 @@ const login = () => {
             </vue-recaptcha>
             <div class="forgot_psw">
                 <i class="fa-solid fa-circle-question"></i>
-                <router-link to="/login/forget">忘記密碼</router-link>
+                <router-link to="/login-forget">忘記密碼</router-link>
                 <router-view />
             </div>
         </div>

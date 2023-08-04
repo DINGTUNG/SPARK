@@ -109,8 +109,14 @@ const router = createRouter({
         {
           path: '',
           name: 'login-enter',
-          component: () => import('../components/login/LoginEnter.vue')
-        }],
+          component: () => import('@/components/login/LoginEnter.vue')
+        },
+        {
+          path: '/login-forget',
+          name: 'login-forget',
+          component: () => import('@/components/login/Login-Forget.vue')
+        }
+      ],
         meta: {
           hideHeader: true,
           hideFooter: true,

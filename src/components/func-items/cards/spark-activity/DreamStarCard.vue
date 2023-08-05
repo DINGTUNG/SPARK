@@ -1,8 +1,9 @@
 <script setup>
 import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useDreamStarStore,DreamStarList } from '@/stores/dream-star.js';
+import { useDreamStarStore } from '@/stores/dream-star.js';
 
+const emits = defineEmits(['watchMore'])
 const dreamStarStore = useDreamStarStore()
 
 const props = defineProps({
@@ -29,7 +30,7 @@ const props = defineProps({
     </div>
 
     <RouterLink :to="props.routingLink" class="link watch_more">
-      <button class="watch_more">點我探索
+      <button class="watch_more" @click="emits('watchMore')">點我探索
         <img :src="'pictures/spark_activity/arrow.svg'" alt="">
       </button>
     </RouterLink>
@@ -41,7 +42,7 @@ const props = defineProps({
       <p class="title">{{ props.title }}</p>
       <p class="sub_title">{{ props.subTitle }}</p>
     </div>
-    <button @click="dreamStarStore.voteThisProject(  DreamStarList.getDreamStarFrom(props.id).id, 1)" class="vote_btn">為我加油</button>
+    <button @click="dreamStarStore.voteThisProject(props.id, 1)" class="vote_btn">為我加油</button>
 
   </div>
 </template>

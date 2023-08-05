@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { reactive } from 'vue'
+import { ref,reactive } from 'vue'
 
 export class DreamStarList {
   constructor(id, imgSrc, routingLink, title, subTitle) {
@@ -98,16 +98,19 @@ export const useDreamStarStore = defineStore('dream-star', () => {
     let curCount = getCurrentCountInVoteRecord(dreamStarId)
     voteRecord.set(dreamStarId, curCount + addCount)
 
-  console.log(voteRecord);
+    console.log(voteRecord)
   }
 
   const getCurrentCountInVoteRecord = (dreamStarId) => {
     return voteRecord.has(dreamStarId) ? voteRecord.get(dreamStarId) : 0
   }
 
+  const selectedDreamStar = ref('DS003')
+
   return {
     voteRecord,
     voteThisProject,
-    getCurrentCountInVoteRecord
+    getCurrentCountInVoteRecord,
+    selectedDreamStar
   }
 })

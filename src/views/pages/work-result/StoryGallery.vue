@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref } from 'vue'
 import  Story  from '@/views/sections/work-result/Story.vue'
 import { COVER_STORY, WARM_STORY, PHOTO_ALBUM} from '@/constant/storyGallery.constant.js'
 
@@ -67,8 +67,16 @@ const photoSelected = (index) => {
 }
 const photoAlbum = reactive(PHOTO_ALBUM)
 
+const container1 = ref(null)
+const container2 = ref(null) 
 
-
+const scrollTo = (area) => {
+   if( area == container1.value) {
+    container1.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   } else if ( area == container2.value ) {
+    container2.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   }
+}
 </script>
 
 <template>
@@ -84,8 +92,8 @@ const photoAlbum = reactive(PHOTO_ALBUM)
   <div class="container" @mousemove="handleMouseMove">
     <div class="main_body">
       <div class="switch-button">
-        <a href="#warm-story">溫馨事紀</a>
-        <a href="#photo-album" >星火寫真</a>
+        <a @click="scrollTo(container1)">溫馨事紀</a>
+        <a @click="scrollTo(container2)">星火寫真</a>
       </div>
       <section class="cover-story">
         <div class="deco">
@@ -114,7 +122,7 @@ const photoAlbum = reactive(PHOTO_ALBUM)
           </div>
         </transition>
       </section>
-      <section class="warm-story" id="warm-story">
+      <section class="warm-story" ref="container1">
         <div class="deco">
           <img :src="'pictures/decorations/illustration/shooting_stars_2.svg'" alt="流星" />
         </div>
@@ -162,7 +170,7 @@ const photoAlbum = reactive(PHOTO_ALBUM)
         <Story :storyId="storyId" @closeStory="closeStory" />
 
       
-      <section class="photo-album" id="photo-album">
+      <section class="photo-album" ref="container2">
         <div class="deco">
           <img :src="'pictures/characters/girl/girl_hugging_star.svg'" alt="" />
         </div>

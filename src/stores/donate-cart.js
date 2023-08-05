@@ -154,6 +154,8 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
 
   const chosenPrice = ref(100)
 
+
+
   return {
     isSideListShow,
     showSideList,

@@ -80,7 +80,7 @@ const router = createRouter({
     {
       path: '/story-gallery',
       name: 'story-gallery',
-      component: () => import('../views/pages/work-result/StoryGallery.vue')
+      component: () => import('@/views/pages/work-result/StoryGallery.vue')
     },
 
     {
@@ -105,12 +105,25 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('@/views/pages/login/Login.vue'),
-      meta: {
-        hideHeader: true,
-        hideFooter: true,
-        hideLeftMenu: true,
-        hideRightMenu: true
-      }
+      children: [
+        {
+          path: '',
+          name: 'login-enter',
+          component: () => import('@/components/login/LoginEnter.vue')
+        },
+        {
+          path: '/login-forget',
+          name: 'login-forget',
+          component: () => import('@/components/login/Login-Forget.vue')
+        }
+      ],
+        meta: {
+          hideHeader: true,
+          hideFooter: true,
+          hideLeftMenu: true,
+          hideRightMenu: true
+        },
+   
     },
     {
       path: '/sponsor-checkout-step-1',
@@ -212,7 +225,6 @@ const router = createRouter({
         }
       ]
     },
-
     {
       path: '/donate-list',
       name: 'donate-list',
@@ -234,17 +246,6 @@ const router = createRouter({
           component: () => import('@/components/login/register/RegisterStepTwo.vue')
         }
       ],
-      meta: {
-        hideHeader: true,
-        hideFooter: true,
-        hideLeftMenu: true,
-        hideRightMenu: true
-      }
-    },
-    {
-      path: '/donation-project',
-      name: 'donation-project',
-      component: () => import('@/views/pages/spark-back/DonationProject.vue'),
       meta: {
         hideHeader: true,
         hideFooter: true,

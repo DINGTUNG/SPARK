@@ -40,6 +40,47 @@
               }
             }
           }
+
+          label.label_up_file {
+            display: block;
+            background-color: #F8F7F6;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed $functionalLightGrey3;
+            border-radius: 200px;  
+            text-align: center;
+            margin: 0 auto 30px;
+            cursor: pointer;
+            @include custom-responsive(" xs sm md lg "){
+                margin-top: 10px;
+            }
+            @include custom-responsive(" xl xx-l "){
+                margin-top: 0;
+            }
+
+            .up_file_text {
+              padding: 60px 0 0;
+
+                i {
+                    font-size: 2.5rem;
+                    color: $primaryBrandBlue;
+                }
+                p {
+                    color: $primaryBrandBlue;
+                }
+            }
+            img{
+              display: block;
+              background-color: #F8F7F6;
+              width: 200px;
+              height: 200px;
+              border: 2px dashed $functionalLightGrey3;
+              border-radius: 200px;  
+              text-align: center;
+              margin: 0 auto 30px;
+            }
+        }
+        
           .main_form {
             padding: 5vh 0 0;
             margin: auto;
@@ -47,7 +88,6 @@
             flex-direction: column;
             gap: 15px 0;
             position: relative;
-            // outline: solid 1px red;
             .deco{
               @include custom-responsive("xs sm") {
                 display: none;
@@ -179,7 +219,6 @@
                 &:focus{
                   outline: none;
               }
-                // outline: solid 1px red;
             }
     
             .birthday_wrap {

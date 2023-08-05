@@ -6,13 +6,9 @@ const getButtonStyle = (routePath) => {
           return 'current-route'
         }else{
           return 'another-route'
-        }
-      ;
+        };
 };
-
-
 </script>
-
 <template>
     <div class="navigation_button_MB">
       <router-link :class="getButtonStyle('/member-center')" to="/member-center">認養紀錄</router-link>
@@ -22,7 +18,6 @@ const getButtonStyle = (routePath) => {
     </div>
     <router-view/>
 </template>
-
 <style scoped lang="scss">
 @include custom-responsive ("xs sm") {
   .navigation_button_MB{

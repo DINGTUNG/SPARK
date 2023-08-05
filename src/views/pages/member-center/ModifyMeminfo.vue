@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue';
+import { ref,reactive } from 'vue';
 
 const Years = reactive([
     2005, '請選擇年份', 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
@@ -11,6 +11,15 @@ const Days = reactive([
     19, '請選擇日期', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
 ])
 
+const selectedFile = ref(null);
+const imageUrl = ref('');
+
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  selectedFile.value = file;
+  imageUrl.value = URL.createObjectURL(file);
+};
+
 </script>
 <template>
     <div class="container">
@@ -21,10 +30,24 @@ const Days = reactive([
                     <Images id="star2" :imgSrc="'pictures/decorations/illustration/smilestar_yellow.svg'" :alt="'黃星星'" />
                     <Images id="rocket" :imgSrc="'pictures/decorations/illustration/rocket_with_gold_fire.svg'" :alt="'火箭'" />
                 </div>
-            <div class="title">
-                <h1>修改會員資料</h1>
-                <h5>會員編號 brt98439849d</h5>
-            </div>
+                <div class="title">
+                    <h1>會員基本資料</h1>
+                    <h5>會員編號 A330</h5>
+                </div>
+
+                <!-- 上傳大頭照 -->
+                <form class="form_row">
+                    <label class="label_up_file" >
+                        <input type="file" name="up_file" id="up_file" style="display:none" accept="image/gif, image/jpeg, image/png" @change="handleFileChange">
+                        <!-- <div class="up_file_text">
+                            <i class="fa-solid fa-file-arrow-up"></i>
+                            <p>點擊以上傳圖片</p>
+                        </div> -->
+                        <img :src="imageUrl" />
+                    </label>
+                </form>
+
+
                 <div class="form_item">
                     <label for="account">帳號</label>
                     <input type="text" placeholder="TouGua0919" disabled>

@@ -69,7 +69,6 @@ const adoptionData = reactive([
   },
 ])
 
-
 </script>
 
 <template>

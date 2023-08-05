@@ -48,6 +48,7 @@ div.container{
         line-height: 40px;
         text-decoration: none;
         display: inline-block;
+        cursor: pointer;
         @include custom-responsive("xs sm"){
           @include h3_MB;
           margin: 8% 2%;

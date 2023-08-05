@@ -1,5 +1,35 @@
 <script setup>
-import { ref,reactive } from 'vue';
+import { ref,reactive, onMounted } from 'vue';
+
+const memberData = ref({
+    name: '蔡頭瓜',
+    id_number: 'T123008889',
+    birthday: '1991-09-19',
+    cellphone: '0978099123',
+    local_phone: '02-12345678',
+    work_phone: '03-425-1108',
+    address: '320桃園市中壢區復興路46號9樓',
+    receipt: 'donate'
+});
+const isEditMode = ref(false);
+
+const toggleEditMode = () => {
+  isEditMode.value = !isEditMode.value;
+};
+const saveData = () => {
+  localStorage.setItem('memberData', JSON.stringify(memberData.value));
+  toggleEditMode();
+};
+const cancelEdit = () => {
+  const data = JSON.parse(localStorage.getItem('memberData') || '{}');
+  Object.assign(memberData.value, data);
+  toggleEditMode();
+};
+onMounted(() => {
+  const data = JSON.parse(localStorage.getItem('memberData') || '{}');
+  Object.assign(memberData.value, data);
+});
+
 
 const Years = reactive([
     2005, '請選擇年份', 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
@@ -36,49 +66,58 @@ const handleFileChange = (event) => {
                 </div>
 
                 <!-- 上傳大頭照 -->
-                <form class="form_row">
-                    <label class="label_up_file" >
-                        <input type="file" name="up_file" id="up_file" style="display:none" accept="image/gif, image/jpeg, image/png" @change="handleFileChange">
-                        <!-- <div class="up_file_text">
-                            <i class="fa-solid fa-file-arrow-up"></i>
-                            <p>點擊以上傳圖片</p>
-                        </div> -->
-                        <img :src="imageUrl" />
-                    </label>
-                </form>
-
-
+                <label class="label_up_file" >
+                    <input
+                    type="file"
+                    name="up_file"
+                    id="up_file"
+                    style="display:none"
+                    accept="image/gif, image/jpeg, image/png" @change="handleFileChange">
+                    <div v-if="!imageUrl" class="up_file_text">
+                        <i class="fa-solid fa-file-arrow-up"></i>
+                        <p>點擊上傳圖片</p>
+                    </div>
+                    <img v-show="imageUrl" :src="imageUrl" />
+                </label>
+                
+                
                 <div class="form_item">
-                    <label for="account">帳號</label>
+                    <label for="account">帳號：</label>
                     <input type="text" placeholder="TouGua0919" disabled>
                 </div>
                 <div class="form_item">
-                    <label for="name">姓名*</label>
-                    <input type="text" class="name" id="name" value="蔡頭瓜" maxlength="30">
+                    <label for="name">姓名*：</label>
+                    <input v-if="isEditMode"
+                    type="text" class="name" id="name"
+                    v-model="memberData.name"
+                    maxlength="30">
+                    <span v-else>{{ memberData.name }}</span>
                     <div class="label_radio_wrap name_title">
                         <div class="radio_item">
                             <label class="label_radio"><input type="radio" name="name_title" value="male"
                             checked
-                            class="input_radio ">先生</label>
+                            class="input_radio " disabled>先生</label>
                         </div>
                         <div class="radio_item">
                             <label class="label_radio"><input type="radio" name="name_title" value="female"
-                            class="input_radio">小姐</label>
+                            class="input_radio" disabled>小姐</label>
                         </div>
                         <div class="radio_item">
                             <label class="label_radio"><input type="radio" name="name_title" value="company"
-                            class="input_radio">公司</label>
+                            class="input_radio" disabled>公司</label>
                         </div>
                     </div>
                 </div>
-            <div class="form_item">
-                <label for="id_number">身分證字號*</label>
-                <input type="text" class="id_number" v-model="id_number" id="id_number" placeholder="T123008889"
-                disabled
-                maxlength="10">
-            </div>
+
                 <div class="form_item">
-                    <label for="birthday">生日*</label>
+                    <label for="id_number">身分證字號*：</label>
+                    <input type="text" class="id_number" v-model="id_number" id="id_number" placeholder="T123008889"
+                    disabled
+                    maxlength="10">
+                </div>
+
+                <div class="form_item">
+                    <label for="birthday">生日*：</label>
                     <div class="birthday_wrap">
                         <div class="birthday_select">
                             <select  name="year" id="year">
@@ -102,44 +141,72 @@ const handleFileChange = (event) => {
                 </div>
         
                 <div class="form_item">
-                    <label for="cellphone">手機*</label>
-                    <input type="text" class="cellphone"  id="cellphone" value="0978099123"
-                        maxlength="10">
+                    <label for="cellphone">手機*：</label>
+                    <input v-if="isEditMode"
+                    v-model="memberData.cellphone"
+                    type="text"
+                    id="cellphone"
+                    maxlength="10">
+                    <span v-else>{{ memberData.cellphone }}</span>
                 </div>
          
         
                 <div class="form_item">
-                    <label for="local_phone">住家電話</label>
-                    <input type="text" class="local_phone"  id="local_phone" placeholder="請輸入住家電話">
-
+                    <label for="local_phone">住家電話：</label>
+                    <input v-if="isEditMode" type="text" 
+                    v-model="memberData.local_phone"
+                    id="local_phone"
+                    placeholder="請輸入住家電話">
+                    <span v-else>{{ memberData.local_phone }}</span>
                 </div>
        
                 <div class="form_item">
-                    <label for="work_phone">公司電話</label>
-                    <input type="text" class="work_phone"  id="work_phone" value="03-425-1108">
+                    <label for="work_phone">公司電話：</label>
+                    <input v-if="isEditMode" type="text"
+                    v-model="memberData.work_phone"
+                    id="work_phone">
+                    <span v-else>{{ memberData.work_phone }}</span>
                 </div>
-
         
                 <div class="form_item">
-                    <label for="address">地址*</label>
-                    <input type="text" class="address"  id="address" value="320桃園市中壢區復興路46號9樓">
+                    <label for="address">地址*：</label>
+                    <input v-if="isEditMode" type="text"
+                    id="address"
+                    v-model="memberData.address">
+                    <span v-else>{{ memberData.address }}</span>
                 </div>
                 <div class="form_item">
-                    <label for="receipt">發票種類*</label>
+                    <label for="receipt">發票種類*：</label>
                         <div class="label_radio_wrap receipt">
-                            <label class="receipt"><input type="radio" name="receipt" value="personal"
-                                    class="input_radio">個人發票</label>
-                            <label class="receipt"><input type="radio" name="receipt" value="tax_id"
-                                    class="input_radio">統編發票</label>
-                            <label class="receipt"><input type="radio" name="receipt" value="donate"
-                            checked
-                            class="input_radio">捐贈發票</label>
-                            <label class="receipt"><input type="radio" name="receipt" value="paper" class="input_radio">紙本發票</label>
-                    </div>
+                            <label class="receipt">
+                                <input type="radio" name="receipt" value="personal"
+                                class="input_radio">個人發票
+                            </label>
+                            <label class="receipt">
+                                <input type="radio" name="receipt" value="tax_id"
+                                class="input_radio">統編發票
+                            </label>
+                            <label class="receipt">
+                                <input type="radio" name="receipt" value="donate" checked
+                                class="input_radio">捐贈發票
+                            </label>
+                            <label class="receipt">
+                                <input type="radio" name="receipt" value="paper" class="input_radio">紙本發票
+                            </label>
+                        </div>
                 </div>
-                <button class="confirm" type="button">
-                    確認修改
-                </button>
+
+                <div class="confirm_button">
+                    <button class="confirm" type="button"
+                    :class="{ gold : isEditMode }"  @click="saveData">
+                    {{ isEditMode ? '確認修改' : '修改基本資料' }}
+                    </button>
+                    <button v-if="isEditMode"
+                        class="cancel"
+                        type="button"
+                        @click="cancelEdit">取消
+                    </button>
+                </div>
             </div>
         </div>
     </div>

@@ -105,21 +105,16 @@ const login = () => {
   // 進行驗證
   if (enteredAccount === '' || enteredPassword === '') {
     errorAccount.value = '請輸入帳號或密碼';
-  // } else if (!isValidToken.value) {
-  //   errorAccount.value = '請進行驗證';
+    // } else if (!isValidToken.value) {
+    //   errorAccount.value = '請進行驗證';
   } else {
     const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
     if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
       logStore.log.forEach((item) => {
         item.state = false
       });
-<<<<<<< HEAD
-      logStore.log[userIndex].state = true; 
-      logStore.a = userIndex;
-=======
       logStore.log[userIndex].state = true;
       logStore.token = userIndex;
->>>>>>> f86cd1e2cbc676b78eaf53477b9e787d1889d4c5
       errorAccount.value = '';
       alert(`登入成功：${logStore.log[userIndex].name}`);
       console.log(logStore.log[userIndex].state)

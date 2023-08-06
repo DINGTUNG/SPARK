@@ -2,9 +2,17 @@
 import { ref } from 'vue';
 import { reactive } from "vue";
 import { RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router';
+
+const account = ref('');
+const password = ref('');
+const safety_code = ref('');
+const password_check = ref('');
+const errorContent = ref('');
 
 const passwordField = ref(null);
 const showPassword = ref(true);
+
 
 function showHide() {
     if (passwordField.value.type === 'password') {
@@ -15,6 +23,38 @@ function showHide() {
     // 切換顯示密碼圖示
     showPassword.value = !showPassword.value;
 }
+
+function alertSafetyCode() {
+    const enteredAccount = account.value;
+    if (enteredAccount === '' || enteredAccount.indexOf('@') == -1 || enteredAccount.indexOf('com') == -1) {
+        alert('小寶貝，你的信箱格式有問題');
+    } else {
+        alert('驗證碼已經寄出囉，偷偷告訴你是「0000」');
+    }
+
+}
+
+const nextStep = () => {
+    const enteredAccount = account.value;
+    const enteredPassword = password.value;
+    const enteredSafetyCode = safety_code.value;
+    const enteredPasswordCheck = password_check.value;
+
+    if (enteredAccount === '') {
+        errorContent.value = '帳號欄跟你的戶頭一樣空耶';
+    } else if (enteredAccount.indexOf('@') == -1 || enteredAccount.indexOf('com') == -1) {
+        errorContent.value = '信箱不要亂填，我都有在看^^';
+    } else if (enteredSafetyCode !== '0000') {
+        errorContent.value = '驗證碼要確定餒？';
+    } else if (enteredPassword.length < 8) {
+        errorContent.value = '就說密碼要8碼你在那邊！';
+    } else if (enteredPasswordCheck === '' || enteredPasswordCheck !== enteredPassword) {
+        errorContent.value = '兩組密碼不一樣啦是不是老番顛';
+    } else {
+        errorContent.value = '讚讚，但我不知道怎麼前往下一頁';
+    }
+}
+
 </script>
 
 <template>
@@ -45,13 +85,13 @@ function showHide() {
             <label for="account">帳號/電子信箱*</label>
             <div class="form_box account">
                 <input type="email" class="account" v-model="account" id="account" placeholder="請輸入電子信箱">
-                <button>
+                <button @click="alertSafetyCode">
                     <i class="fa-solid fa-paper-plane"></i>寄送驗證碼
                 </button>
             </div>
         </div>
 
-        <div class="form_box check_number">
+        <div class="form_box safety_code">
             <input type="text" class="safety_code" v-model="safety_code" id="safety_code" placeholder="請輸入信箱收到之驗證碼">
         </div>
 
@@ -79,8 +119,16 @@ function showHide() {
             </div>
         </div>
 
-        <RouterLink to="/register/register-step-two" class="next_step">
-            <button>下一步</button>
+        <div v-if="errorContent" class="error_content">
+            {{ errorContent }}
+        </div>
+
+        <!-- <RouterLink to="/register/register-step-two" class="next_step">
+            <button @click="nextStep">下一步</button>
+        </RouterLink> -->
+
+        <RouterLink to="" class="next_step">
+            <button @click="nextStep">下一步</button>
         </RouterLink>
     </div>
 </template>

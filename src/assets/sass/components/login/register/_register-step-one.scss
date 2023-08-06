@@ -179,7 +179,7 @@
             transform: translate(0,-50%);
         }
 
-        div.form_box.check_number {
+        div.form_box.safety_code {
             @include custom-responsive(" xs sm md lg "){
                 padding-top: 50px;
             }
@@ -227,6 +227,11 @@
                     @include h6_PC;
                 }
             }
+        }
+
+        .error_content {
+            @include h6_PC;
+            color: red;
         }
         
         .next_step {

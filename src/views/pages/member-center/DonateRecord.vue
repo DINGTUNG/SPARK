@@ -97,9 +97,6 @@ const donateData = reactive([
           <h6>親愛的會員您好，本會提供近付款狀態查詢，查詢區間以一年為限。若有任何問題請您來電04-22012345轉881、880由專人為您服務。</h6>
         </div>
         
-        
-
-
         <table class="donate_table">
           <thead>
             <tr class="table_title">

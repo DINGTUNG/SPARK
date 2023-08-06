@@ -125,10 +125,48 @@ header.header_PC{
                         font-size: 1.25rem;
                     }
                 }
+
+                //以下為會員中心的部分
+                &:hover{
+                    div.dropdown_menu{
+                        display: block;
+                    }
+                }
+
+                div.dropdown_menu {
+                    display: none;  
+                    position: absolute; 
+                    background-color: $primaryBgWhite; 
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    border-radius: 15px;
+                  
+                    a{ 
+                      color: $primaryBrandBlue;
+                      font-weight: $fWBold;
+                      text-decoration: none;
+                      display: block;
+                      box-sizing: border-box;
+                      @include custom-responsive("xl"){
+                        font-size: 1.125rem;
+                        padding: 18px;
+                      }
+                      @include custom-responsive("xx-l"){
+                        font-size: 1.25rem;
+                        padding: 20px;
+                      }
+
+                        &:hover{
+                            background-color: $functionalLightGrey1;  
+                            border-radius: 15px; 
+                        }
+                    }
+                }
             }
         }
     }
-  }
+}
   
   
   //【header 手機版】
@@ -190,6 +228,8 @@ header.header_PC{
     }
     
     nav{
+        overflow-y: auto;  //只在需要時才會出現垂直滾動捲軸
+        max-height: 75vh;  //菜單高度
         position: absolute;
         top: 100%;
         right: 0;
@@ -285,10 +325,26 @@ header.header_PC{
                         font-size: 1.09375rem;
                     }
                 }
+                //以下為會員中心的部分
+                div.dropdown_menu{
+                    .link{
+                        display: block;
+                        color: $primaryBgWhite;
+                        font-weight: $fWBold;
+                        text-decoration: none;
+                        padding: 12px;
+                        @include custom-responsive("xs"){
+                            font-size: 1rem;
+                        }
+                        @include custom-responsive("md"){
+                            font-size: 1.09375rem;
+                        }
+                    }
+                }
             }
         }
     }
-  }
+}
   
   // 背景模糊
   .blur_background {

@@ -1,83 +1,94 @@
 <script setup>
-import { useLogStore } from '@/stores/login-dummy-data.js'
-import { ref, onMounted, reactive } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useFirestore, useCurrentUser, useFirebaseAuth } from 'vuefire'; //import firebase
-const firebase = useFirestore(); //宣告firebase為firebase的內容
-import { getRedirectResult,  GoogleAuthProvider,  verifyPasswordResetCode, confirmPasswordReset } from 'firebase/auth'
-const auth = useFirebaseAuth() // only exists on client side，這行只能僅存在於前端(client side)
-const user = useCurrentUser();
+import { useFirebaseAuth } from 'vuefire';
+import { verifyPasswordResetCode, confirmPasswordReset,sendPasswordResetEmail } from 'firebase/auth';
+
+const auth = useFirebaseAuth();
 const router = useRouter();
-const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
-const googleAuthProvider = new GoogleAuthProvider()
+const errorAccount = ref('');
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-onMounted(() => {
-  getRedirectResult(auth)
-    .then((Response) => {
-      console.log(Response);
+const langResources = {
+  en: {
+    resetScreenTitle: 'Reset Password',
+    newPasswordLabel: 'Please enter your new password:',
+    continueButton: 'Continue',
+    successMessage: 'Password reset successful!',
+    errorMessage: 'Error occurred during password reset.',
+  },
+  zh: {
+    resetScreenTitle: '重置密碼',
+    newPasswordLabel: '請輸入新密碼：',
+    continueButton: '繼續',
+    successMessage: '密碼重置成功！',
+    errorMessage: '重置密碼時發生錯誤。',
+  }
+};
 
-    })
-    .catch((reason) => {
-      console.error('Failed redirect result', reason)
-      error.value = reason
-    })
-})
+const email = ref('');
+const newPassword = ref('');
+const errorPassword = ref('');
+const resetScreenVisible = ref(false);
 
-
-function handleResetPassword(auth, actionCode, continueUrl, lang) {
-  // Localize the UI to the selected language as determined by the lang
-  // parameter.
-
+const handleResetPassword = (actionCode, lang) => {
+  const texts = langResources[lang] || langResources['zh'];
   // Verify the password reset code is valid.
   verifyPasswordResetCode(auth, actionCode).then((email) => {
     const accountEmail = email;
 
-    // TODO: Show the reset screen with the user's email and ask the user for
-    // the new password.
-    const newPassword = "...";
+    // Show the reset screen with the user's email and ask the user for the new password.
+    resetScreenVisible.value = true;
 
-    // Save the new password.
-    confirmPasswordReset(auth, actionCode, newPassword).then((resp) => {
+  }).catch((error) => {
+    alert('驗證重置密碼動作代碼錯誤:', error);
+  });
+}
+
+const showResetScreen = () => {
+  // You can use Vue's binding syntax here to show the reset password screen
+  // and let the user enter a new password.
+}
+
+const sendEmail = () => {
+  const enteredEmail = email.value;
+  if (enteredEmail === '') {
+    errorAccount.value = '請輸入信箱';
+  } else if (!emailRegex.test(enteredEmail)) {
+    errorAccount.value = '請輸入正確的信箱格式';
+  } else {
+    handleResetPassword('actionCode', 'en');
+    sendPasswordResetEmail(auth, enteredEmail)
+      .then(() => {
+        alert('驗證信已寄出，請檢查您的信箱。');
+      })
+      .catch((error) => {
+        alert('寄送驗證信時發生錯誤:', error); 
+      });
+  }
+}
+
+const continueReset = () => {
+  const newPasswordValue = newPassword.value;
+  if (!newPasswordValue) {
+    errorPassword.value = '請輸入新密碼';
+  } else {
+    confirmPasswordReset(auth, 'actionCode', newPasswordValue).then((resp) => {
       // Password reset has been confirmed and new password updated.
-
+      alert('密碼重置成功！');
       // TODO: Display a link back to the app, or sign-in the user directly
       // if the page belongs to the same domain as the app:
-      // auth.signInWithEmailAndPassword(accountEmail, newPassword);
-
+      // auth.signInWithEmailAndPassword(accountEmail, newPasswordValue);
       // TODO: If a continue URL is available, display a button which on
       // click redirects the user back to the app via continueUrl with
       // additional state determined from that URL's parameters.
     }).catch((error) => {
-      // Error occurred during confirmation. The code might have expired or the
-      // password is too weak.
+      alert('確認重置密碼錯誤:', error);
     });
-  }).catch((error) => {
-    // Invalid or expired action code. Ask user to try to reset the password
-    // again.
-  });
-}
-
-
-
-const email = ref('')
-const errorAccount = ref('');
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const sendEmail = () => {
-  const enterEmail = email.value
-  if (email.value === '') {
-    errorAccount.value = '請輸入信箱';
-  } else if(!emailRegex.test(enterEmail)) {
-    errorAccount.value = '請輸入正確的信箱格式';
-  }else{
-    console.log()
-    handleResetPassword()
   }
 }
-
-
-
-
 </script>
+
 <template>
   <div class="login">
     <h1>忘記密碼</h1>
@@ -85,6 +96,16 @@ const sendEmail = () => {
       <label for="account">請輸入您的信箱以進行驗證</label>
       <input type="email" class="email" v-model="email" placeholder="輸入您的信箱"
         :class="{ 'animate__animated animate__headShake': errorAccount }" name="memId">
+
+      <!-- Show the reset password screen -->
+      <div v-if="resetScreenVisible">
+        <label for="newPassword">{{ texts.newPasswordLabel }}</label>
+        <input type="password" class="newPassword" v-model="newPassword" placeholder="輸入您的新密碼">
+        <button @click="continueReset">{{ texts.continueButton }}</button>
+        <div v-if="errorPassword" class="error_password">
+          {{ errorPassword }}
+        </div>
+      </div>
     </form>
     <button class="login_button" @click="sendEmail">寄送驗證信</button>
     <div v-if="errorAccount" class="error_account">
@@ -92,6 +113,7 @@ const sendEmail = () => {
     </div>
   </div>
 </template>
+
 <style scoped lang="scss">
 @import "@/assets/sass/components/login/forget";
 </style>

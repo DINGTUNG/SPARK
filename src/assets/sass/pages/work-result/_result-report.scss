@@ -172,8 +172,7 @@ div.container {
                 }
 
                 div.year_card {
-                    padding: 30px 10px;
-                    margin: 20px 0;
+                    padding: 10px 10px;
                     width: 45%;
                     @include flex_hm();
                     flex-direction: column;

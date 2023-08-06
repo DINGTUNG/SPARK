@@ -31,7 +31,6 @@ function alertSafetyCode() {
     } else {
         alert('驗證碼已經寄出囉，偷偷告訴你是「0000」');
     }
-
 }
 
 const nextStep = () => {

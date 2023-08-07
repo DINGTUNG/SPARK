@@ -105,33 +105,33 @@ onMounted(() => {
         <div class="article">
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="item.img">
+              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_first}`">
             </div>
-            <div :class="item.position">
+            <div class="article_block_text">
               <p>{{ item.news_content_first }}</p>
             </div>
           </div>
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="item.img">
+              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_second}`">
             </div>
-            <div :class="item.position">
+            <div class="article_block_text">
               <p>{{ item.news_content_second }}</p>
             </div>
           </div>
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="item.img">
+              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_third}`">
             </div>
-            <div :class="item.position">
+            <div class="article_block_text">
               <p>{{ item.news_content_third }}</p>
             </div>
           </div>
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="item.img">
+              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_fourth}`">
             </div>
-            <div :class="item.position">
+            <div class="article_block_text">
               <p>{{ item.news_content_fourth }}</p>
             </div>
           </div>

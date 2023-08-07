@@ -2,7 +2,6 @@
 import { reactive,onMounted } from 'vue';
 import { YEAR_REPORT } from "@/constant/resultReport.constant";
 import axios from 'axios'
-
 // let years = reactive(YEAR_REPORT);
 
 const reportsYearList = reactive([])

@@ -1,10 +1,48 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive,onMounted } from 'vue';
 import { YEAR_REPORT } from "@/constant/resultReport.constant";
+import axios from 'axios'
+// let years = reactive(YEAR_REPORT);
 
-let years = reactive(YEAR_REPORT);
+const reportsYearList = reactive([])
+async function reportsYearConnection() {
+  try {
+    const response = await axios.post('http://localhost/SPARK_BACK/php/results/reports/reports_year.php')
+    console.log(response)
 
+    if (response.data.length > 0) {
+      response.data.forEach(element => {
+        reportsYearList.push(element)
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const reportsFinancialList = reactive([])
+async function reportsFinancialConnection() {
+  try {
+    const response = await axios.post('http://localhost/SPARK_BACK/php/results/reports/reports_financial.php')
+    console.log(response)
+
+    if (response.data.length > 0) {
+      response.data.forEach(element => {
+        reportsFinancialList.push(element)
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+onMounted(() => {
+  reportsYearConnection()
+  reportsFinancialConnection()
+  
+})
 </script>
+
 <template>
   <div class="title_img">
     <img :src="'pictures/images/sponsor/banner.png'" alt="banner">
@@ -21,30 +59,30 @@ let years = reactive(YEAR_REPORT);
           <img class="sprout" :src="'pictures/decorations/illustration/sprout.svg'" alt="sprout">
           <h2>年度報告</h2>
           <div class="year_inner">
-            <div class="year_card" v-for="item in years" :key="item.id">
+            <div class="year_card" v-for="item in reportsYearList" :key="item.report_no">
               <div class="year_img">
                 <img :src="'pictures/images/results/report/result.png'">
               </div>
               <div class="year_text">
-                <p>{{ item.year }}年</p>
-                <p>星火執行業務報告</p>
+                <p>{{ item.report_year }}年</p>
+                <p>{{ item.report_title }}</p>
                 <button>下載檔案</button>
               </div>
             </div>
           </div>
         </div>
         <div class="financial_report">
-          <img class="flower" :src="'pictures/decorations/illustration/flower.svg'" alt="">
+          <img class="flower" :src="'pictures/decorations/illustration/flower.svg'" alt="flower">
           <h2>財務報告</h2>
           <div class="financial_inner">
-            <div class="financial_card" v-for="item in years" :key="item.id">
+            <div class="financial_card" v-for="item in reportsFinancialList" :key="item.report_no">
               <div class="financial_card_inner">
                 <div class="financial_img">
                   <img :src="'pictures/decorations/illustration/book.svg'" alt="financial">
                 </div>
                 <div class="financial_text">
-                  <p>{{ item.year }}年</p>
-                  <p>星火執行財務報告</p>
+                  <p>{{ item.report_year }}年</p>
+                  <p>{{ item.report_title }}</p>
                 </div>
               </div>
               <button>下載檔案</button>

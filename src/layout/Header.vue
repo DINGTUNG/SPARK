@@ -1,7 +1,8 @@
 <script setup>
 //【引入】
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted, watchEffect } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
+import { useLogStore } from '@/stores/login-dummy-data.js'
 
 //【header logo change for PC & MB】
 const imgSrc = ref('pictures/logo/logo_white.svg') // Default
@@ -107,9 +108,6 @@ const menuItems = ref([
   },
 ]);
 
-//【會員登入連結】
-
-
 //【小星星的@mouseenter & @mouseleave & @click 的設定】
 const hoverItem = (item) => {
   if (!item.clicked) {
@@ -175,7 +173,36 @@ router.afterEach(() => {
 });
 
 //【會員登入後，變成會員中心】
+const logStore = useLogStore();
+const loginLabel = ref('會員登入');
+const linkTo = ref('/login');
 
+const updateLoginState = (loggedIn) => {
+  loginLabel.value = loggedIn ? '會員中心' : '會員登入';
+  linkTo.value = loggedIn ? '/member-center' : '/login';
+  localStorage.setItem('loggedInUserState', loggedIn.toString());
+};
+
+onMounted(async () => {
+  // 等待 logStore 初始化完成
+  await logStore.ready;
+  const loggedInUserState = localStorage.getItem('loggedInUserState') === 'true';
+  updateLoginState(loggedInUserState);
+});
+
+watchEffect(() => {
+  const loggedInUserState = logStore.log.some(item => item.state);
+  updateLoginState(loggedInUserState);
+});
+
+const logout = () => {
+  const loggedOutUserState = logStore.log.some(item => item.state=false);
+  updateLoginState(loggedOutUserState);
+  console.log(loggedOutUserState)
+
+  const router = useRouter();
+  router.push('/home');
+};
 </script>
 
 
@@ -205,7 +232,14 @@ router.afterEach(() => {
 
         <!-- 會員登入連結 -->
         <li class="member_login">
-          <RouterLink to="/login" class="login">會員登入</RouterLink>
+          <RouterLink :to="linkTo" class="login">{{ loginLabel }}</RouterLink>
+          <div class="dropdown_menu" v-if="loginLabel === '會員中心'">
+            <RouterLink to="/member-center">認養紀錄</RouterLink>
+            <RouterLink to="/member-center/donate-record">捐款紀錄</RouterLink>
+            <RouterLink to="/member-center/letter-record">感謝函專區</RouterLink>
+            <RouterLink to="/member-center/modify-meminfo">修改基本資料</RouterLink>
+            <a href="#" @click.prevent="logout">登出</a>
+          </div>
         </li>
       </ul>
     </nav>
@@ -240,7 +274,14 @@ router.afterEach(() => {
 
         <!-- 會員登入連結 -->
         <li class="member_login">
-          <RouterLink to="/login" class="login">會員登入</RouterLink>
+          <RouterLink :to="linkTo" class="login">{{ loginLabel }}</RouterLink>
+          <div class="dropdown_menu" v-if="loginLabel === '會員中心'">
+            <RouterLink to="/member-center" class="link" @click="navVisible = !navVisible">認養紀錄</RouterLink>
+            <RouterLink to="/member-center/donate-record" class="link" @click="navVisible = !navVisible">捐款紀錄</RouterLink>
+            <RouterLink to="/member-center/letter-record" class="link" @click="navVisible = !navVisible">感謝函專區</RouterLink>
+            <RouterLink to="/member-center/modify-meminfo" class="link" @click="navVisible = !navVisible">修改基本資料</RouterLink>
+            <a href="#" @click.prevent="logout" class="link">登出</a>
+          </div>
         </li>
       </ul>
     </nav>

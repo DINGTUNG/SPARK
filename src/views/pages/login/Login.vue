@@ -13,7 +13,7 @@ const router = useRouter();
       <img :src="'pictures/logo/logo_white_second.svg'" alt="logo" class="logo">
     </div>
   </div>
-    <router-view />
+  <router-view />
 </template>
 <style scoped lang="scss">
 @import "@/assets/sass/pages/login";

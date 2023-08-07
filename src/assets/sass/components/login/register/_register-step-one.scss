@@ -179,7 +179,7 @@
             transform: translate(0,-50%);
         }
 
-        div.form_box.check_number {
+        div.form_box.safety_code {
             @include custom-responsive(" xs sm md lg "){
                 padding-top: 50px;
             }
@@ -228,12 +228,16 @@
                 }
             }
         }
+
+        .error_content {
+            @include h6_PC;
+            color: red;
+        }
         
         .next_step {
             text-align: center;
             width: 100%;
-            button {
-                @include custom-responsive(" xs sm md lg "){
+            @include custom-responsive(" xs sm md lg "){
                     @include regularBlueBtn_MB;
                     width: 100%;
                     margin: 35px auto 110px;
@@ -242,6 +246,5 @@
                     @include regularBlueBtn_PC;
                     margin: 50px auto 0;
                 }
-            }
         }
     }

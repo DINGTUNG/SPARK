@@ -65,19 +65,19 @@ const submit = () => {
     if (enteredName === '') {
         errorContent.value = '連名字都不填，太狠了';
     } else if (!selectedNameTitle) {
-        errorContent.value = '請選擇稱謂';
+        errorContent.value = '寶貝記得選擇稱謂';
     } else if (isIDNumberShow && !IDNumberRegex.test(enteredIDNumber)) {
         errorContent.value = '身分證字號有問題喔小傻瓜';
     } else if (isCompanyNumberShow && enteredCompanyNumber.length < 8) {
         errorContent.value = '請輸入統一編號';
     } else if (selectedYear === '年份' || selectedMonth === '月份' || selectedDay === '日期') {
-        errorContent.value = '請選擇正確的生日';
+        errorContent.value = '寶貝請選擇正確的生日';
     } else if (!cellphoneRegex.test(enteredCellphone) || enteredCellphone.indexOf('09', 0) !== 0) {
         errorContent.value = '寶貝你的手機號碼^^ 是沒填還是亂填呀';
     } else if (enteredAddress === '') {
         errorContent.value = '地址沒填，是不是無家可歸QQ';
     } else if (!selectedReceipt) {
-        errorContent.value = '請選擇發票種類';
+        errorContent.value = '寶貝記得選擇發票種類';
     } else {
         alert('耶！註冊成功！可以登入囉！');
         router.push({ path: '/login' });

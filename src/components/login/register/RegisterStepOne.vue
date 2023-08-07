@@ -88,7 +88,7 @@ const nextStep = () => {
         </div>
 
         <div class="form_row">
-            <label for="account">帳號/電子信箱*</label>
+            <label for="account">帳號(電子信箱)*</label>
             <div class="form_box account">
                 <input type="email" class="account" v-model="account" id="account" placeholder="請輸入電子信箱">
                 <button @click="alertSafetyCode">

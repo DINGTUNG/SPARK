@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, reactive, computed, watch,onMounted } from 'vue'
+import axios from 'axios';
 
 export class Location {
   constructor(id, name, cost, img) {
@@ -172,9 +173,30 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     return Location.getLocationFrom(locationId).cost
   }
 
-  
 
   const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH)
+
+
+const locationList = reactive([])
+async function localConnection() {
+  try {
+    const response = await axios.post('http://localhost/SPARK_BACK/php/sponsor/sponsor_location.php')
+    console.log(response)
+
+
+    if (response.data.length > 0) {
+      response.data.forEach(element => {
+        locationList.push(element)
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+onMounted(() => {
+  localConnection()
+})
 
 
 
@@ -194,7 +216,9 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     chosenPlanType, 
     isBlurred,
     onAddToCartClick,
-    removeToCartClick
+    removeToCartClick,
+    locationList,
+    localConnection
 
 
   }

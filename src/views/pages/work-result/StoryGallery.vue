@@ -17,6 +17,8 @@ const switchClick = () => {
   picUnder()
 }
 
+
+//點擊切換指引
 let timer = null;
 const container = ref(null)
 const iconLeft = ref("0px");
@@ -37,7 +39,7 @@ const handleMouseMove = (e) => {
   }, 2000);
 }
 
-
+//封面故事切換
 const picUnderIndex = ref(1)
 const picUnder = () => {
   if (displayStory.value === 0) {
@@ -47,12 +49,21 @@ const picUnder = () => {
   }
 }
 
-const warmStory = reactive(WARM_STORY)
+
+//獲取溫馨紀事資料
+const warmStory = reactive([])
+
+fetch('http://localhost/SPARK_BACK/php/results/story/front_read_story.php')
+    .then(res => res.json())
+    .then(data => {
+      warmStory.value = data.stories
+    })
+    .catch(err => console.log(err))
 
 const storyId = ref(null)
 
-const propsId = (id) => {
-  storyId.value = id - 1
+const propsId = (no) => {
+  storyId.value = no
 }
 const closeStory = () => {
   storyId.value = null;
@@ -145,16 +156,16 @@ const scrollTo = (area) => {
         </div>
 
         <div class="story-list">
-          <div class="card" v-for="(item, id) in warmStory" :key="id">
+          <div class="card" v-for="(item, id) in warmStory.value" :key="id">
             <div class="pic">
-              <img :src="item.imgUrl" alt="故事照片" />
+              <img src="../../../../public/pictures/images/results/story-gallery/story/story_1.jpg" alt="故事照片" />
               <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
             </div>
             <div class="text">
-              <div class="date">{{ item.date }}</div>
-              <h5>{{ item.title }}</h5>
-              <p>{{ item.description }}</p>
-              <button type="button" @click="propsId(item.id)">閱讀全文</button>
+              <div class="date">{{ item.story_date }}</div>
+              <h5>{{ item.story_title }}</h5>
+              <p>{{ item.story_brief }}</p>
+              <button type="button" @click="propsId(item.story_no)">閱讀全文</button>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { reactive } from "vue";
 import { RouterView } from 'vue-router'
 import { RouterLink } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const account = ref('');
 const password = ref('');
@@ -12,6 +13,8 @@ const errorContent = ref('');
 
 const passwordField = ref(null);
 const showPassword = ref(true);
+
+const router = useRouter();
 
 
 function showHide() {
@@ -26,7 +29,8 @@ function showHide() {
 
 function alertSafetyCode() {
     const enteredAccount = account.value;
-    if (enteredAccount === '' || enteredAccount.indexOf('@') == -1 || enteredAccount.indexOf('com') == -1) {
+    const AccountRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (enteredAccount === '' || !AccountRegex.test(enteredAccount)) {
         alert('小寶貝，你的信箱格式有問題');
     } else {
         alert('驗證碼已經寄出囉，偷偷告訴你是「0000」');
@@ -35,22 +39,25 @@ function alertSafetyCode() {
 
 const nextStep = () => {
     const enteredAccount = account.value;
+    const AccountRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const enteredPassword = password.value;
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
     const enteredSafetyCode = safety_code.value;
     const enteredPasswordCheck = password_check.value;
 
     if (enteredAccount === '') {
         errorContent.value = '帳號欄跟你的戶頭一樣空耶';
-    } else if (enteredAccount.indexOf('@') == -1 || enteredAccount.indexOf('com') == -1) {
+    } else if (!AccountRegex.test(enteredAccount)) {
         errorContent.value = '信箱不要亂填，我都有在看^^';
     } else if (enteredSafetyCode !== '0000') {
         errorContent.value = '驗證碼要確定餒？';
-    } else if (enteredPassword.length < 8) {
-        errorContent.value = '就說密碼要8碼你在那邊！';
+    } else if (!passwordRegex.test(enteredPassword)) {
+        errorContent.value = '密碼有誤！叭叭叭！！(噴乾冰)';
     } else if (enteredPasswordCheck === '' || enteredPasswordCheck !== enteredPassword) {
         errorContent.value = '兩組密碼不一樣啦是不是老番顛';
     } else {
-        errorContent.value = '讚讚，但我不知道怎麼前往下一頁';
+
+        router.push({ path: '/register/register-step-two' });
     }
 }
 
@@ -126,9 +133,7 @@ const nextStep = () => {
             <button @click="nextStep">下一步</button>
         </RouterLink> -->
 
-        <RouterLink to="" class="next_step">
-            <button @click="nextStep">下一步</button>
-        </RouterLink>
+        <button class="next_step" @click="nextStep">下一步</button>
     </div>
 </template>
 

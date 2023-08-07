@@ -237,8 +237,7 @@
         .next_step {
             text-align: center;
             width: 100%;
-            button {
-                @include custom-responsive(" xs sm md lg "){
+            @include custom-responsive(" xs sm md lg "){
                     @include regularBlueBtn_MB;
                     width: 100%;
                     margin: 35px auto 110px;
@@ -247,6 +246,5 @@
                     @include regularBlueBtn_PC;
                     margin: 50px auto 0;
                 }
-            }
         }
     }

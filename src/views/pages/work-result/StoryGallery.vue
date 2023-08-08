@@ -181,7 +181,7 @@ const scrollTo = (area) => {
         <div class="story-list">
           <div class="card" v-for="(item, id) in displayStoryList" :key="id">
             <div class="pic">
-              <img src="../../../../public/pictures/images/results/story-gallery/story/story_1.jpg" alt="故事照片" />
+              <img :src="`pictures/images/results/story-gallery/story/${item.story_image}`" alt="故事照片" />
               <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
             </div>
             <div class="text">

@@ -37,7 +37,7 @@
           <i class="fa-regular fa-circle-xmark"></i>
         </button>
         <div class="pic">
-            <img src="../../../../public/pictures/images/results/story-gallery/story/story_1.jpg" alt="故事照片">
+            <img :src="`pictures/images/results/story-gallery/story/${story_article.value[0].story_image}`" alt="故事照片">
         </div>
         <div class="text">
             <div class="date">{{ story_article.value[0].story_date }}</div>

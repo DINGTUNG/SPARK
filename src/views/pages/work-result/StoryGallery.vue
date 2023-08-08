@@ -1,7 +1,8 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref, computed } from 'vue'
 import  Story  from '@/views/sections/work-result/Story.vue'
 import { COVER_STORY, WARM_STORY, PHOTO_ALBUM} from '@/constant/storyGallery.constant.js'
+import axios from 'axios'
 
 const coverStory = reactive(COVER_STORY)
 let displayStory = ref(0)
@@ -52,13 +53,35 @@ const picUnder = () => {
 
 //獲取溫馨紀事資料
 const warmStory = reactive([])
+async function getData () {
+  try{
+    const res = await axios.get('http://localhost/SPARK_BACK/php/results/story/front_read_story.php')
+    warmStory.value = res.data.stories
+  }
+  catch(err){
+    console.log(err)
+  }
+}
 
-fetch('http://localhost/SPARK_BACK/php/results/story/front_read_story.php')
-    .then(res => res.json())
-    .then(data => {
-      warmStory.value = data.stories
-    })
-    .catch(err => console.log(err))
+onMounted(() => {
+  getData()
+})
+
+  //分頁
+  const itemsPerPage = 6;
+    const displayStoryList = computed(() => {
+      if (warmStory.value) {
+        const startIdx = (page.value - 1) * itemsPerPage;
+        const endIdx = startIdx + itemsPerPage;
+        return reactive(warmStory.value.slice(startIdx, endIdx));
+      } else {
+        return reactive([]);
+      }
+    });
+
+    const pageCount = () => {
+      return (displayStoryList.length) / itemsPerPage + 1;
+    };
 
 const storyId = ref(null)
 
@@ -156,7 +179,7 @@ const scrollTo = (area) => {
         </div>
 
         <div class="story-list">
-          <div class="card" v-for="(item, id) in warmStory.value" :key="id">
+          <div class="card" v-for="(item, id) in displayStoryList" :key="id">
             <div class="pic">
               <img src="../../../../public/pictures/images/results/story-gallery/story/story_1.jpg" alt="故事照片" />
               <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">

@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
 import { ref, reactive } from 'vue'
+import axios from 'axios';
 export const useMessageBoardStore = defineStore('message-board', () => {
   const messages = reactive([])
 
   const autoId = ref(0)
 
   const currentDisplayMessages = reactive(new Map())
-  // console.log(currentDisplayMessages)
 
   const addNewMessage = (messageObject) => {
     messages.push(messageObject)
@@ -18,7 +18,6 @@ export const useMessageBoardStore = defineStore('message-board', () => {
       message_content: message,
       imgSrc: 'pictures/decorations/illustration/little_star_yellow.svg'
     }
-
     createDisplayMessage(messageObject)
     addNewMessage(messageObject)
   }
@@ -36,12 +35,10 @@ export const useMessageBoardStore = defineStore('message-board', () => {
   }
 
 
-  function createMessageBackend(sparkActivityNo,messageContent,memberNo) {
+  function createMessageBackend(messageContent) {
     // prepare data 
     const payLoad = new FormData();
-    payLoad.append("spark_activity_no", sparkActivityNo);
     payLoad.append("message_content", messageContent);
-    payLoad.append("member_no", memberNo);
 
     // make a request
     const request = {
@@ -79,6 +76,7 @@ export const useMessageBoardStore = defineStore('message-board', () => {
     removeOldestMessage,
     createDisplayMessage,
     removeDisplayMessage,
-    addNewMessageAndDisplayInstantly
+    addNewMessageAndDisplayInstantly,
+    createMessageBackend
   }
 })

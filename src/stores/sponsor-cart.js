@@ -181,7 +181,7 @@ const locationList = reactive([])
 async function localConnection() {
   try {
     const response = await axios.post('http://localhost/SPARK_BACK/php/sponsor/sponsor_location.php')
-    console.log(response)
+    // console.log(response)
 
 
     if (response.data.length > 0) {

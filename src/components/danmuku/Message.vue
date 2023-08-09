@@ -3,7 +3,7 @@ import { ref, onMounted, computed, defineEmits } from 'vue';
 import { defineProps } from 'vue'
 
 const props = defineProps({
-  content: String,
+  message_content: String,
   color: String,
   imgSrc: String
 })
@@ -45,7 +45,7 @@ function getRandom(min, max) {
     </div>
 
     <span class="message" :class="props.color">
-      {{ props.content }}
+      {{ props.message_content }}
     </span>
 
   </div>
@@ -58,6 +58,14 @@ div.message_wrap {
   position: absolute;
   @include flex_vm;
 
+  &:hover {
+    div.img_wrap {
+
+      img {
+        transform: scale(1.5);
+      }
+    }
+  }
 
   span.message {
     cursor: pointer;
@@ -71,24 +79,22 @@ div.message_wrap {
   }
 
   div.img_wrap {
-    // border: 1px solid black;
-    width: 8vw;
-    height: 8vw;
-    z-index: -10;
+    width: 2vw;
+    height: 2vw;
+    z-index: 100;
     position: absolute;
-    top: -23vh;
+    top: -1vh;
+    left: -0.5vw;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     cursor: pointer;
 
     img {
-      transform: translateY(50%);
-      width: 8vw;
+      width: 2.5vw;
+      transform: rotate(-15deg);
 
-      &:hover {
-        transform: scale(5);
-      }
+
 
     }
 
@@ -163,6 +169,7 @@ div.message_wrap {
   background-color: rgb(244, 255, 32);
   color: rgb(0, 0, 0);
 }
+
 .phone_phone {
   background-color: rgb(255, 0, 0);
   color: rgb(255, 255, 255);
@@ -177,11 +184,9 @@ div.message_wrap {
   background-color: rgb(9, 158, 46);
   color: rgb(243, 139, 28);
 }
+
 .float_bomb {
   background-color: rgb(228, 236, 22);
   color: rgb(100, 199, 8);
 }
-
-
-
 </style>

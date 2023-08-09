@@ -181,7 +181,7 @@ const scrollTo = (area) => {
         <div class="story-list">
           <div class="card" v-for="(item, id) in displayStoryList" :key="id">
             <div class="pic">
-              <img :src="`pictures/images/results/story-gallery/story/${item.story_image}`" alt="故事照片" />
+              <img :src="`http://localhost/SPARK_BACK/images/story/${item.story_image}`" alt="故事照片" />
               <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
             </div>
             <div class="text">
@@ -197,6 +197,7 @@ const scrollTo = (area) => {
             v-model="page"
             :length="3"
             rounded="circle"
+            @click="scrollTo(container1)"
           ></v-pagination>
         </div>
       </section>

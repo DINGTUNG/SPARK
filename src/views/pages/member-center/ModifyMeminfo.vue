@@ -83,7 +83,9 @@ const handleFileChange = (event) => {
                 
                 <div class="form_item">
                     <label for="account">帳號：</label>
-                    <input type="text" placeholder="TouGua0919" disabled>
+                    <input type="text"
+                    class="account_input"
+                    placeholder="TouGua0919" disabled>
                 </div>
                 <div class="form_item">
                     <label for="name">姓名*：</label>

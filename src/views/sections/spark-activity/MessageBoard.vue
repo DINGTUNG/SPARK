@@ -11,11 +11,21 @@ const userMessage = ref("")
 const submitMessage = () => {
   if (userMessage.value == '')
     return
-
+  createMessage(userMessage.value)
+  console.log(messageBoardStore.messages);
   messageBoardStore.addNewMessageAndDisplayInstantly(userMessage.value)
   userMessage.value = ''
-
 }
+
+async function createMessage(userMessage) {
+  try {
+    await messageBoardStore.createMessageBackend(userMessage)
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 
 </script>
 
@@ -27,8 +37,12 @@ const submitMessage = () => {
   </div>
 
   <div class="input_text">
-    <input class="input" id="input" type="text" placeholder="歡迎留下鼓勵孩子們勇敢追夢的話吧！" v-model="userMessage" autocomplete="on" @keyup.enter="submitMessage">
-    <button type="submit" @click="submitMessage" class="send">Go!</button>
+    <form action="http://localhost/SPARK_BACK/php/activity/message-board/update_message.php" method="post"
+      @submit.prevent="submitMessage">
+      <input class="input" id="input" type="text" name="message_content" placeholder="歡迎留下鼓勵孩子們勇敢追夢的話吧！"
+        v-model="userMessage" autocomplete="on" @keyup.enter="submitMessage">
+      <button type="submit" class="send">Go!</button>
+    </form>
   </div>
 </template>
 

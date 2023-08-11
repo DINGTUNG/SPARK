@@ -47,7 +47,8 @@ export default defineConfig({
   },
 
   // base: "/chd102/g3/", //緯育
-  // base: "/SPARK/", //github pages
+  base: "/SPARK/", //github pages
+  // base: "/", //firebase
 
 
   

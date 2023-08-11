@@ -2,6 +2,18 @@
 import { ref } from 'vue';
 import { reactive } from "vue";
 import { RouterView } from 'vue-router'
+import { useRouter } from 'vue-router';
+
+const name = ref('');
+const id_number = ref('');
+const company_number = ref('');
+const cellphone = ref('');
+const local_phone = ref('');
+const work_phone = ref('');
+const address = ref('');
+const errorContent = ref('');
+
+const router = useRouter();
 
 
 const Years = reactive([
@@ -13,6 +25,65 @@ const Months = reactive([
 const Days = reactive([
     '日期', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
 ])
+
+function showIDNumber() {
+    document.getElementById("id_number_row").style.display = "block";
+    document.getElementById("company_number_row").style.display = "none";
+}
+
+function showCompanyNumber() {
+    document.getElementById("id_number_row").style.display = "none";
+    document.getElementById("company_number_row").style.display = "block";
+}
+
+const selectedFile = ref(null);
+const imageUrl = ref('');
+
+const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    selectedFile.value = file;
+    imageUrl.value = URL.createObjectURL(file);
+};
+
+const submit = () => {
+    const enteredName = name.value;
+    const selectedNameTitle = document.querySelector('input[name="name_title"]:checked');
+    const enteredIDNumber = id_number.value;
+    const IDNumberRegex = /^[A-Z][1-2]\d{8}$/; //正規表達式，第一碼需大寫英文、第二碼1或2的10位數
+    const enteredCompanyNumber = company_number.value;
+    const selectedYear = document.getElementById('year').value;
+    const selectedMonth = document.getElementById('month').value;
+    const selectedDay = document.getElementById('day').value;
+    const enteredCellphone = cellphone.value;
+    const cellphoneRegex = /^[0-9]{10}$/; //正規表達式，代表0-9數字的10位數
+    const enteredAddress = address.value;
+    const selectedReceipt = document.querySelector('input[name="receipt"]:checked');
+
+    const isIDNumberShow = document.getElementById('id_number_row').style.display !== 'none';
+    const isCompanyNumberShow = document.getElementById('company_number_row').style.display !== 'none';
+
+    if (enteredName === '') {
+        errorContent.value = '連名字都不填，太狠了';
+    } else if (!selectedNameTitle) {
+        errorContent.value = '寶貝記得選擇稱謂';
+    } else if (isIDNumberShow && !IDNumberRegex.test(enteredIDNumber)) {
+        errorContent.value = '身分證字號有問題喔小傻瓜';
+    } else if (isCompanyNumberShow && enteredCompanyNumber.length < 8) {
+        errorContent.value = '請輸入統一編號';
+    } else if (selectedYear === '年份' || selectedMonth === '月份' || selectedDay === '日期') {
+        errorContent.value = '寶貝請選擇正確的生日';
+    } else if (!cellphoneRegex.test(enteredCellphone) || enteredCellphone.indexOf('09', 0) !== 0) {
+        errorContent.value = '寶貝你的手機號碼^^ 是沒填還是亂填呀';
+    } else if (enteredAddress === '') {
+        errorContent.value = '地址沒填，是不是無家可歸QQ';
+    } else if (!selectedReceipt) {
+        errorContent.value = '寶貝記得選擇發票種類';
+    } else {
+        alert('耶！註冊成功！可以登入囉！');
+        router.push({ path: '/login' });
+    }
+
+}
 
 </script>
 
@@ -41,25 +112,33 @@ const Days = reactive([
             <h4>填寫基本資料</h4>
         </div>
         <div class="form_row">
-            <label for="name">姓名*</label>
+            <label for="name">姓名/公司名*</label>
             <div class="form_box name">
-                <input type="text" class="name" v-model="name" id="name" placeholder="請輸入姓名" maxlength="30">
+                <input type="text" class="name" v-model="name" id="name" placeholder="請輸入姓名/公司名" maxlength="30">
                 <div class="label_radio_wrap">
-                    <label class="label_radio"><input type="radio" name="name_title" value="male"
-                            class="input_radio">先生</label>
-                    <label class="label_radio"><input type="radio" name="name_title" value="female"
-                            class="input_radio">小姐</label>
-                    <label class="label_radio"><input type="radio" name="name_title" value="company"
-                            class="input_radio">公司</label>
+                    <label class="label_radio"><input type="radio" name="name_title" value="male" class="input_radio"
+                            @click="showIDNumber">先生</label>
+                    <label class=" label_radio"><input type="radio" name="name_title" value="female" class="input_radio"
+                            @click="showIDNumber">小姐</label>
+                    <label class="label_radio"><input type="radio" name="name_title" value="company" class="input_radio"
+                            @click="showCompanyNumber">公司</label>
                 </div>
             </div>
         </div>
 
-        <div class="form_row">
+        <div class="form_row" id="id_number_row">
             <label for="id_number">身分證字號*</label>
             <div class="form_box id_number">
                 <input type="text" class="id_number" v-model="id_number" id="id_number" placeholder="請輸入身分證字號"
                     maxlength="10">
+            </div>
+        </div>
+
+        <div class="form_row" id="company_number_row" style="display: none;">
+            <label for="company_number">統一編號*</label>
+            <div class="form_box company_number">
+                <input type="text" class="company_number" v-model="company_number" id="company_number" placeholder="請輸入統一編號"
+                    maxlength="8">
             </div>
         </div>
 
@@ -87,13 +166,7 @@ const Days = reactive([
 
             </div>
         </div>
-        <!-- <div class="form_box email_check">
-            <label for="email_check">E-mail*</label>
-            <input type="email" class="email_check" id="email_check" value="spark@gmail.com" disabled>
-            <button>
-                <i class="fa-solid fa-paper-plane"></i>已驗證
-            </button>
-        </div> -->
+
         <div class="form_row">
             <label for="cellphone">手機*</label>
             <div class="form_box cellphone">
@@ -139,14 +212,21 @@ const Days = reactive([
         <div class="form_row">
             <h5>會員頭貼</h5>
             <label class="label_up_file">
-                <input type="file" name="up_file" id="up_file" style="display:none">
-                <div class="up_file_text">
+                <input type="file" name="up_file" id="up_file" style="display:none"
+                    accept="image/gif, image/jpeg, image/png" @change="handleFileChange">
+                <div v-if="!imageUrl" class="up_file_text">
                     <i class="fa-solid fa-file-arrow-up"></i>
                     <p>點擊以上傳圖片</p>
                 </div>
+                <img v-show="imageUrl" :src="imageUrl" />
             </label>
         </div>
-        <button type="submit" class="submit">送出</button>
+
+        <div v-if="errorContent" class="error_content">
+            {{ errorContent }}
+        </div>
+
+        <button type="submit" class="submit" @click="submit">送出</button>
     </div>
 </template>
 

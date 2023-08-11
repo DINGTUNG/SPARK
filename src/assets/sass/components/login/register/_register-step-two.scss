@@ -261,13 +261,26 @@
             .up_file_text {
                 padding: 60px 0 0 0;
                 i {
-                    font-size: 40px;
+                    font-size: 2.5rem;
                     color: $primaryBrandBlue;
                 }
                 p {
                     color: $primaryBrandBlue;
                 }
             }
+
+            img {
+              display: block;
+              padding: 20px 0;
+              width: 100%; 
+              height: 100%; 
+              object-fit: contain; 
+            }
+        }
+
+        .error_content {
+            @include h6_PC;
+            color: red;
         }
 
         .submit {

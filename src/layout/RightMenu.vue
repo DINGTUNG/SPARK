@@ -50,7 +50,9 @@ const top = () => {
             <Images :imgSrc="'pictures/icons/right-menu/letter.png'" alt="感謝信"/>
         </div>
         <div class="icon">
-            <Images :imgSrc="'pictures/icons/right-menu/message.png'" alt="message"/>
+            <a href="https://m.me/sparkassociationorg" _blank>
+                <Images :imgSrc="'pictures/icons/right-menu/message.png'" alt="message"/>
+            </a>
         </div>
         <div class="icon">
             <button id="top" @click="top">

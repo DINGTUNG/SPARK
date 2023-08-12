@@ -16,7 +16,7 @@
         `http://localhost/SPARK_BACK/php/results/story/front_read_entire_story.php?story_no=${props.storyId}`
       );
       const data = await res.json();
-      story_article.value = data.stories;
+      story_article.value = data;
     } catch (err) {
       console.log(err);
     }

@@ -265,7 +265,7 @@
                   margin: 7% 3% 0 0;
               }           
             }
-        }
+          }
         
     }
     input {
@@ -290,4 +290,11 @@
           @include h6_PC;
           color: rgb(99, 99, 99, 0.35);
       }
-  }
+    }
+    .account_input{
+      // border: 1px solid $functionalLightGrey3;
+      border-radius: 10px;
+      padding: 10px;      
+      box-sizing: border-box;
+      // background-color: #f9f9f9;
+    }

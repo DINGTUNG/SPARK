@@ -4,6 +4,7 @@ import News from '@/views/sections/home/News.vue';
 import { ref, onMounted } from 'vue';
 import Loading from '@/layout/Loading.vue';
 // import { query } from 'express';
+import axios from 'axios'
 
 const route = useRoute();
 const router = useRouter();
@@ -35,6 +36,16 @@ onMounted(() => {
     isLoading.value = false;
   }, 1500);
 });
+
+async function show() {
+  try {
+        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/get_member_info.php')
+        console.log(res.data)
+    } catch (error) {
+        console.error('網路請求錯誤:', error);
+        alert('網路請求錯誤');
+    }
+};
 </script>
 
 <template>
@@ -80,7 +91,7 @@ onMounted(() => {
         <div class="intro">
           <div class="intro_title">
             <img :src="'pictures/decorations/illustration/pigeon.svg'" alt="pigeon">
-            <h1>星火30，感謝有您</h1>
+            <h1 @click="show">星火30，感謝有您</h1>
           </div>
           <div class="intro_text">
             30年前，星火成立，三十年來，風風雨雨，在愛心捐助與認養兒童的這份慈善事業中，星火一直致力於這份偉大的事業中，只為了讓社會中每顆幼小的火苗能成為照亮自己和他人的燎原之光，在這三十年間，幫助了數以千計的孩子找到合適的認養人，並且在提升弱勢兒童的福祉上努力的不落人後，如今星火成立30年，感謝各界的善心支持，願你我能讓星火能永遠相傳。

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref,reactive } from 'vue'
+import { ref, reactive } from 'vue'
+import axios from 'axios'
 
 export class DreamStarList {
   constructor(id, imgSrc, routingLink, title, subTitle) {
@@ -94,23 +95,59 @@ export class DreamStarList {
 export const useDreamStarStore = defineStore('dream-star', () => {
   const voteRecord = reactive(new Map())
 
-  const voteThisProject = (dreamStarId, addCount) => {
-    let curCount = getCurrentCountInVoteRecord(dreamStarId)
-    voteRecord.set(dreamStarId, curCount + addCount)
+  // dummy data
+  // const voteThisProject = (dreamStarId, addCount) => {
+  //   let curCount = getCurrentCountInVoteRecord(dreamStarId)
+  //   voteRecord.set(dreamStarId, curCount + addCount)
 
-    console.log(voteRecord)
-  }
+  //   console.log(voteRecord)
+  // }
 
-  const getCurrentCountInVoteRecord = (dreamStarId) => {
-    return voteRecord.has(dreamStarId) ? voteRecord.get(dreamStarId) : 0
+  // const getCurrentCountInVoteRecord = (dreamStarId) => {
+  //   return voteRecord.has(dreamStarId) ? voteRecord.get(dreamStarId) : 0
+  // }
+
+  // db
+
+  function voteThisProjectBackend(dreamStarNo) {
+    // prepare data
+    const payLoad = new FormData()
+    payLoad.append('dream_star_no', dreamStarNo)
+
+    // make a request
+    const request = {
+      method: 'POST',
+      url: `http://localhost/SPARK_BACK/php/activity/dream-star/update_dream_star_vote_front.php`,
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      data: payLoad
+    }
+
+    // send request to backend server
+    return new Promise((resolve, reject) => {
+      axios(request)
+        .then((response) => {
+          const createResult = response.data
+          resolve(createResult)
+        })
+        .catch((error) => {
+          console.log('From voteThisProjectBackend:', error)
+          reject(error)
+        })
+    })
   }
 
   const selectedDreamStar = ref('DS003')
 
+  const dreamStarPool = reactive([])
+
   return {
     voteRecord,
-    voteThisProject,
-    getCurrentCountInVoteRecord,
-    selectedDreamStar
+    // voteThisProject,
+    // getCurrentCountInVoteRecord,
+    voteThisProjectBackend,
+    selectedDreamStar,
+    dreamStarPool
   }
 })

@@ -12,7 +12,6 @@ const user = useCurrentUser();
 const router = useRouter();
 const error = ref(null)// display errors if any(如果有的話就顯示錯誤)
 const googleAuthProvider = new GoogleAuthProvider()
-// const logStore = useLogStore();//假帳號js
 
 
 //登入跳轉函式，會跳轉到google的帳號頁面
@@ -96,8 +95,7 @@ const handleLogin = async () => {
         const loginForm = document.querySelector('#login_form');
         const formData = new FormData(loginForm); 
 
-        const res = await axios.post('http://localhost/SPARK_BACK/php/member/membership_system/handle_login.php', formData);
-
+        const res = await axios.post('http://localhost/SPARK_BACK/php/member/membership_system/handle_login.php', formData,{ withCredentials: true});
         if (res.data.status === "ok") {
             router.push({ path: '/home' });
         } else {

@@ -86,7 +86,11 @@ const top = () => {
         </ul>
     </ul>
         <button id="top" @click="top">
+<<<<<<< HEAD
+            <img src="http://localhost:5173/chd102/g3/pictures/icons/right-menu/TOP_icon.png" alt="TOP">
+=======
             <img :src="'pictures/icons/right-menu/TOP_icon.png'" alt="TOP">
+>>>>>>> 598e74d4a0f820a9109acef0d60a5dcbe55ba7e4
         </button>
   </div>
   <SponsorCheckoutSideList />

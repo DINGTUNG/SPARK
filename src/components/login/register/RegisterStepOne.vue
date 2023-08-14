@@ -4,6 +4,7 @@ import { reactive } from "vue";
 import { RouterView } from 'vue-router'
 import { RouterLink } from 'vue-router';
 import { useRouter } from 'vue-router';
+import axios from 'axios';
 
 const account = ref('');
 const password = ref('');
@@ -33,9 +34,51 @@ function alertSafetyCode() {
     if (enteredAccount === '' || !AccountRegex.test(enteredAccount)) {
         alert('小寶貝，你的信箱格式有問題');
     } else {
-        alert('驗證碼已經寄出囉，偷偷告訴你是「0000」');
+        verifyOne();
     }
 }
+
+//連接會員 email 驗證 API
+
+async function verifyOne () {
+  try {
+        const verify_form = document.querySelector('#verify_form');
+        const formData = new FormData(verify_form);
+        const res = await axios.post('http://localhost/SPARK_BACK/php/member/membership_system/verification_letter.php', formData ,{ withCredentials: true})
+        if (res.data.status === 'ok') {
+            alert('驗證碼已經寄出囉，偷偷告訴你是「0000」');
+        } else {
+            const msg = res.data.msg;
+            alert(msg);
+        }
+    } catch (error) {
+        console.error('網路請求錯誤:', error);
+        alert('網路請求錯誤');
+    }
+};
+
+//連接會員驗證碼 API
+const verifySecond = (safety_code) => {
+    const verification_code = getCookie('verification_code');
+    if( safety_code == verification_code) {
+        alert('驗證成功，請繼續填寫資料');
+        deleteCookie('verification_code');
+    } else {
+        alert('驗證碼錯誤');
+    }
+}
+//抓對應的 cookie
+function getCookie(name) {
+  const value = "; " + document.cookie;
+  const parts = value.split("; " + name + "=");
+  if (parts.length === 2) {
+    return parts.pop().split(";").shift();
+  }
+}
+function deleteCookie(name) {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
 
 const nextStep = () => {
     const enteredAccount = account.value;
@@ -60,6 +103,7 @@ const nextStep = () => {
         router.push({ path: '/register/register-step-two' });
     }
 }
+
 
 </script>
 
@@ -90,21 +134,23 @@ const nextStep = () => {
         <div class="form_row">
             <label for="account">帳號(電子信箱)*</label>
             <div class="form_box account">
-                <input type="email" class="account" v-model="account" id="account" placeholder="請輸入電子信箱">
-                <button @click="alertSafetyCode">
-                    <i class="fa-solid fa-paper-plane"></i>寄送驗證碼
-                </button>
+                <form id="verify_form" method="POST" action="http://localhost/SPARK_BACK/php/member/membership_system/verification_letter.php">
+                    <input type="email" class="account" name="member_account" v-model="account" id="account" placeholder="請輸入電子信箱">
+                    <button type="button" @click="alertSafetyCode">
+                        <i class="fa-solid fa-paper-plane"></i>寄送驗證碼
+                    </button>
+                </form>
             </div>
         </div>
 
         <div class="form_box safety_code">
-            <input type="text" class="safety_code" v-model="safety_code" id="safety_code" placeholder="請輸入信箱收到之驗證碼">
+            <input type="text" class="safety_code" v-model="safety_code" id="safety_code" @keyup.enter="verifySecond(safety_code)" placeholder="請輸入信箱收到之驗證碼">
         </div>
 
         <div class="form_row">
             <label for="password">密碼*</label>
             <div class="form_box password" ref="passwordField">
-                <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password" id="password"
+                <input name="member_password" :type="showPassword ? 'password' : 'text'" class="password" v-model="password" id="password"
                     placeholder="請輸入英數字8至20字元" minlength="8" maxlength="20">
                 <span class="toggle" @click="showHide">
                     <img v-if="showPassword" :src="'pictures/images/login/eye_hide.svg'" alt="hide" />

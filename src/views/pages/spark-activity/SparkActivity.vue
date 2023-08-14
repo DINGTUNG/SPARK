@@ -11,27 +11,26 @@ async function getSparkActivity() {
     const response = await axios.post('http://localhost/SPARK_BACK/php/activity/spark-activity/get_spark_activity_front.php')
 
     response.data.forEach(element => {
-        const activity = {
-          spark_activity_name: element.spark_activity_name,
-          spark_activity_description:element.spark_activity_description,
-          spark_activity_start_date:element.spark_activity_start_date,
-          spark_activity_end_date:element.spark_activity_end_date,
-        
-        }
-        sparkActivityPool.push(activity)
-      
-      });
+      const activity = {
+        spark_activity_name: element.spark_activity_name,
+        spark_activity_description: element.spark_activity_description,
+        spark_activity_start_date: element.spark_activity_start_date,
+        spark_activity_end_date: element.spark_activity_end_date,
+      }
+      sparkActivityPool.push(activity)
+      console.log(activity);
+    });
 
   } catch (error) {
     console.error(error);
   }
 }
 
+
+
 onMounted(() => {
   getSparkActivity()
 })
-
-console.log(sparkActivityPool);
 
 
 const btnList = reactive([{
@@ -82,7 +81,7 @@ const scrollToElement = (refName) => {
 
         <div class="img_wrap">
           <div class="cloud_wrap">
-            <img class="cloud" :src="'pictures/spark_activity/header_cloud.svg'" alt="">
+            <img class="cloud" :src="'pictures/spark_activity/header_cloud.png'" alt="">
           </div>
           <img class="boy_holding_ballon" :src="'pictures/spark_activity/boy_holding_ballon.svg'" alt="">
         </div>
@@ -96,14 +95,13 @@ const scrollToElement = (refName) => {
 
         </div>
 
-        <div class="text" ref="begin" id="begin">
+        <div class="text" ref="begin" id="begin" v-for="activity in sparkActivityPool" :key="activity.no">
           <div class="title_wrap">
-            <h2 class="title">喚醒孩子們內心的夢想</h2>
+            <h2 class="title">{{ activity.spark_activity_name }}</h2>
             <img :src="'pictures/spark_activity/deco_line.svg'" alt="">
+            <p class="date">活動日期 : {{ activity.spark_activity_start_date }} 至 {{ activity.spark_activity_end_date }}</p>
           </div>
-          <p class="content">
-            &emsp;&emsp;在本屆的圓夢計畫中，「星火」兒童認養協會將邀請孩子們提出他們的夢想計畫。透過這個計畫，我們希望這些平時少有機會表達意見的孩子們能在夢想的世界中，探索自我，勇敢地為自己發聲。我們將傾聽他們的想法，支持他們追尋夢想的過程，讓他們感受到自己的價值和重要性。這是一個讓孩子們對未來充滿希望的機會，「星火」兒童認養協會將竭盡所能，陪伴他們實現屬於他們自己的夢想。<br><br>
-            &emsp;&emsp;我們相信，當一個孩子的夢想實現時，不僅對他們個人意義重大，也對整個社會產生積極而持久的影響。藉由這個計畫，我們共同創造一個更美好、更關懷的社會，讓每個孩子都能夠實現他們內心最璀璨的夢想！在浩瀚宇宙中，浮現幾顆神秘的星球，它們彷彿蘊藏著無盡可能，迫不及待地想要透過望遠鏡洞察星球的面貌！每顆星球代表著一組孩子們的夢想計畫，在<span>7月20日至9月20日</span>期間，按下「為我加油」按鈕，投給你最愛的組別，並為該組別爭取「夢想成真」獎金！讓我們一同以熱情激勵，為孩子們的夢想點燃璀璨星火。
+          <p class="content" v-html="activity.spark_activity_description">
           </p>
         </div>
 

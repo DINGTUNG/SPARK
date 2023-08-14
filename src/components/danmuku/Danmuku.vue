@@ -53,5 +53,5 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/components/danmuku/danmuku.scss';
+
 </style>

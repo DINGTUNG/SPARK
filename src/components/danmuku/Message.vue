@@ -52,8 +52,6 @@ function getRandom(min, max) {
 </template>
 
 <style scoped lang="scss">
-@import'@/assets/sass/components/danmuku/message.scss';
-
 div.message_wrap {
   position: absolute;
   @include flex_vm;

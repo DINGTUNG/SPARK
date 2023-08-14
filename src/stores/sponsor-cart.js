@@ -180,9 +180,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 const locationList = reactive([])
 async function localConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/sponsor/sponsor_location.php')
-    // console.log(response)
-
+    const response = await axios.post('http://localhost/SPARK_BACK/php/sponsor/sponsor-location/get_sponsor_location.php')
 
     if (response.data.length > 0) {
       response.data.forEach(element => {

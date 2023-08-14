@@ -22,8 +22,7 @@ const router = useRouter();
       </div>
 
       <div class="portal_img_back">
-        <!-- <a href="https://tibamef2e.com/chd102/g3/back-end/"> -->
-        <a href="http://localhost:5173/chd102/g3/back-end/">
+        <a href="https://tibamef2e.com/chd102/g3/back-end/login">
           <div class="box">
             <img :src="'pictures/portal/back2.svg'" alt="back2" class="back2 img">
             <img :src="'pictures/portal/back.png'" alt="back" class="back1 img">

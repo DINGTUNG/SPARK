@@ -65,28 +65,28 @@ function showHide() {
     // 切換顯示密碼圖標
     showPassword.value = !showPassword.value;
 }
-const login = () => {
-    const enteredAccount = account.value; // 獲取用戶的帳密
-    const enteredPassword = password.value;
-    // 進行驗證
-    if (enteredAccount === '' || enteredPassword === '') {
-        errorAccount.value = '請輸入帳號或密碼';
-    } else if (!isValidToken.value) {
-        errorAccount.value = '請進行驗證';
-    } else {
-        const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
-        if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
-            logStore.log.forEach((item) => {
-                item.state = false
-            });
-            logStore.log[userIndex].state = true;
-            logStore.token = userIndex;
-            errorAccount.value = '';
-            alert(`登入成功：${logStore.log[userIndex].name}`);
-            router.push({ path: '/home' });
-            account.value = '';
-            password.value = '';}
-        }
+// const login = () => {
+//     const enteredAccount = account.value; // 獲取用戶的帳密
+//     const enteredPassword = password.value;
+//     // 進行驗證
+//     if (enteredAccount === '' || enteredPassword === '') {
+//         errorAccount.value = '請輸入帳號或密碼';
+//     } else if (!isValidToken.value) {
+//         errorAccount.value = '請進行驗證';
+//     } else {
+//         const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
+//         if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
+//             logStore.log.forEach((item) => {
+//                 item.state = false
+//             });
+//             logStore.log[userIndex].state = true;
+//             logStore.token = userIndex;
+//             errorAccount.value = '';
+//             alert(`登入成功：${logStore.log[userIndex].name}`);
+//             router.push({ path: '/home' });
+//             account.value = '';
+//             password.value = '';}
+//         }
 
 
 // //連接會員登入 API
@@ -115,10 +115,6 @@ if (loginForm) {
         handleLogin();
     });
 }
-
-
-
-
 
 // const login = () => {
 //     const enteredAccount = account.value; // 獲取用戶的帳密

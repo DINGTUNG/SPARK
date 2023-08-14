@@ -118,7 +118,7 @@ div.container {
 
         div.article {
             div.article_block {
-                @include custom-responsive("xx-l") {
+                @include custom-responsive("xl xx-l") {
                     display: flex;
                     padding-bottom: 30px;
                 }
@@ -126,7 +126,7 @@ div.container {
                 div.article_block_img {
                     img {
 
-                        @include custom-responsive(" xs sm") {
+                        @include custom-responsive("xs sm") {
                             border-radius: $br_MB;
                             width: 100%;
                         }
@@ -150,7 +150,7 @@ div.container {
                         padding-bottom: 50px;
                     }
 
-                    @include custom-responsive(" xx-l") {
+                    @include custom-responsive("xl xx-l") {
                         padding: 0 0 0 80px;
                     }
 
@@ -179,7 +179,6 @@ div.container {
                     }
                 }
             }
-
             div.article_block:nth-child(2),
             div.article_block:nth-child(4) {
                 div.article_block_img{
@@ -191,8 +190,6 @@ div.container {
                     }
                 }
             }
-
-
         }
     }
 

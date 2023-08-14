@@ -39,7 +39,7 @@ const vuetify = createVuetify({
   directives
 })
 
-axios.defaults.withCredentials = true
+
 
 app.use(router)
 app.use(pinia)

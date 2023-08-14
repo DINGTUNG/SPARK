@@ -56,7 +56,6 @@ const warmStory = reactive([])
 async function getData () {
   try{
     const res = await axios.get('http://localhost/SPARK_BACK/php/results/story/front_read_story.php')
-    console.log(res.data);
     warmStory.value = res.data
   }
   catch(error){

@@ -39,7 +39,7 @@ onMounted(() => {
 
 async function show() {
   try {
-        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/get_member_info.php')
+        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/get_member_info.php', { withCredentials: true})
         console.log(res.data)
     } catch (error) {
         console.error('網路請求錯誤:', error);

@@ -6,7 +6,7 @@ import { useLogStore } from '@/stores/login-dummy-data.js'
 import axios from 'axios'
 
 //【header logo change for PC & MB】
-const imgSrc = ref('pictures/logo/logo_white.svg') // Default
+const imgSrc = ref('http://localhost:5173/SPARK/pictures/logo/logo_white.svg') // Default
 const currentRoute = useRoute()
 //mediaQuery for PC & MB
 const mediaQuery1200 = window.matchMedia('(max-width: 1200px)')
@@ -14,18 +14,18 @@ const mediaQuery1201to1399 = window.matchMedia('(min-width: 1201px) and (max-wid
 
 const updateImageSource = (newRouteName) => {
   if (mediaQuery1200.matches) {
-    imgSrc.value = 'pictures/logo/logo_white.svg'
+    imgSrc.value = 'http://localhost:5173/SPARK/pictures/logo/logo_white.svg'
   } else if (mediaQuery1201to1399.matches) {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white_second.svg';
+      imgSrc.value = 'http://localhost:5173/SPARK/pictures/logo/logo_white_second.svg';
     } else {
-      imgSrc.value = 'pictures/logo/logo_blue_second.svg';
+      imgSrc.value = 'http://localhost:5173/SPARK/pictures/logo/logo_blue_second.svg';
     }
   } else {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white.svg';
+      imgSrc.value = 'http://localhost:5173/SPARK/pictures/logo/logo_white.svg';
     } else {
-      imgSrc.value = 'pictures/logo/logo_blue.svg';
+      imgSrc.value = 'http://localhost:5173/SPARK/pictures/logo/logo_blue.svg';
     }
   }
 }
@@ -190,7 +190,7 @@ onMounted(() => {
 
 async function logout() {
   try {
-        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/handle_logout.php')
+        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/handle_logout.php' ,{ withCredentials: true})
         console.log(res.data)
         if (res.data.status === 'ok') {
             window.location.href = 'http://localhost:5173/SPARK/home'
@@ -209,7 +209,7 @@ async function logout() {
   <header class="header_PC">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo" />
+      <img id="logo" :src="imgSrc" alt="Sparklogo">
     </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>

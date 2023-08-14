@@ -38,7 +38,9 @@ onMounted(() => {
 
     <div class="dream_star_wrap">
       <DreamStarCard v-for="dreamStar in dreamStarStore.dreamStarPool" :key="dreamStar.dream_star_id"
-        :dream_star_no="parseInt(dreamStar.dream_star_no)" :dream_star_name="dreamStar.dream_star_name"
+        :dream_star_no="parseInt(dreamStar.dream_star_no)" 
+        :dream_star_id="dreamStar.dream_star_id"
+        :dream_star_name="dreamStar.dream_star_name"
         :dream_star_image='dreamStar.dream_star_image' :dream_star_url="dreamStar.dream_star_url"
         :dream_star_votes="parseInt(dreamStar.dream_star_votes)" />
 

@@ -107,12 +107,16 @@ export const useDreamStarStore = defineStore('dream-star', () => {
   //   return voteRecord.has(dreamStarId) ? voteRecord.get(dreamStarId) : 0
   // }
 
-  // db
+  const selectedDreamStar = ref('DS003')
 
-  function voteThisProjectBackend(dreamStarNo) {
+  const dreamStarPool = reactive([])
+
+  // db
+  function voteThisProjectBackend(dreamStarNo,dreamStarId) {
     // prepare data
     const payLoad = new FormData()
     payLoad.append('dream_star_no', dreamStarNo)
+    payLoad.append('dream_star_id', dreamStarId)
 
     // make a request
     const request = {
@@ -138,26 +142,53 @@ export const useDreamStarStore = defineStore('dream-star', () => {
     })
   }
 
-  const voteThisProjectFromDreamStarPool = (dreamStarNo) => {
+  const voteThisProjectFromDreamStarPool = (dreamStarNo, dreamStarId) => {
     for (let i = 0; i < dreamStarPool.length; i++) {
       if (dreamStarPool[i].dream_star_no == dreamStarNo) {
+        dreamStarPool[i].dream_star_id = dreamStarId
         dreamStarPool[i].dream_star_votes = parseInt(dreamStarPool[i].dream_star_votes) + 1
-        console.log(dreamStarPool[i].dream_star_votes)
       }
     }
   }
 
-  const selectedDreamStar = ref('DS003')
+  // insert vote record
+  function insertVoteRecordBackend(dreamStarId) {
+    // prepare data
+    const payLoad = new FormData()
+    payLoad.append('dream_star_id', dreamStarId)
 
-  const dreamStarPool = reactive([])
+    // make a request
+    const request = {
+      method: 'POST',
+      url: `http://localhost/SPARK_BACK/php/activity/dream-star-vote/create_dream_star_vote_front.php`,
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      data: payLoad
+    }
+
+    // send request to backend server
+    return new Promise((resolve, reject) => {
+      axios(request)
+        .then((response) => {
+          const createResult = response.data
+          resolve(createResult)
+        })
+        .catch((error) => {
+          console.log('From insertVoteRecordBackend:', error)
+          reject(error)
+        })
+    })
+  }
 
   return {
     voteRecord,
     // voteThisProject,
     // getCurrentCountInVoteRecord,
+    dreamStarPool,
     voteThisProjectBackend,
     voteThisProjectFromDreamStarPool,
     selectedDreamStar,
-    dreamStarPool
+    insertVoteRecordBackend
   }
 })

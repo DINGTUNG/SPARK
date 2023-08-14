@@ -219,6 +219,7 @@ div.spark_activity_container {
 
           h2 {
             color: $secondaryLightBlue3;
+            font-size: 1.8vw;
           }
 
           img {
@@ -247,7 +248,7 @@ div.spark_activity_container {
 
           span {
             color: $decorativeOrange;
-            font-weight: bold
+            font-weight: bold;
           }
         }
       }
@@ -304,4 +305,11 @@ div.spark_activity_container {
     }
 
   }
+}
+
+p.date {
+  margin-top: 2vh ;
+  color: $decorativeOrange;
+  font-weight: bold;
+  font-size: 1.5vw;
 }

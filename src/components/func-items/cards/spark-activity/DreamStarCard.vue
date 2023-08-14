@@ -7,14 +7,32 @@ const emits = defineEmits(['watchMore'])
 const dreamStarStore = useDreamStarStore()
 
 const props = defineProps({
-  id: String,
-  imgSrc: String,
-  routingLink: String,
-  vote: Number,
-  title: String,
-  subTitle: String
+  dream_star_no: Number,
+  dream_star_id: String,
+  dream_star_name: String,
+  dream_star_image: String,
+  dream_star_votes: Number,
+  dream_star_url: String
 })
 
+async function voteThisProject(dream_star_no, dream_star_id) {
+  try {
+    if (dream_star_no == null) {
+      throw new Error("dream_star_no not found!")
+    }
+    if (dream_star_id == null) {
+      throw new Error("dream_star_id not found!")
+    }
+    await dreamStarStore.voteThisProjectBackend(props.dream_star_no)
+    dreamStarStore.voteThisProjectFromDreamStarPool(props.dream_star_no)
+    console.log(props.dream_star_id);
+    await dreamStarStore.insertVoteRecordBackend(props.dream_star_id)
+    window.alert(`投票成功!`);
+  } catch (error) {
+    console.error(error);
+    window.alert(`http status : ${error.response.data} 編輯失敗!請聯絡管理員!`);
+  }
+}
 
 </script>
 <template>
@@ -24,25 +42,27 @@ const props = defineProps({
       <img class="dream_star_background" :src="'pictures/spark_activity/dream_star_background.svg'" alt="">
 
       <div class="img_wrap">
-        <img :src="props.imgSrc" alt="">
+        <img :src="props.dream_star_image" alt="">
       </div>
 
     </div>
 
-    <RouterLink :to="props.routingLink" class="link watch_more">
+    <RouterLink :to="props.dream_star_url" class="link watch_more">
       <button class="watch_more" @click="emits('watchMore')">點我探索
         <img :src="'pictures/spark_activity/arrow.svg'" alt="">
       </button>
     </RouterLink>
     <p class="vote">
-      <img class="vote_icon" :src="'pictures/spark_activity/vote_icon.svg'" alt="vote_icon"><span>{{ props.vote }}</span>
+      <img class="vote_icon" :src="'pictures/spark_activity/vote_icon.svg'"
+        alt="vote_icon"><span>{{ props.dream_star_votes }}</span>
     </p>
 
     <div class="title_wrap">
-      <p class="title">{{ props.title }}</p>
-      <p class="sub_title">{{ props.subTitle }}</p>
+      <p class="title" v-html="props.dream_star_name"></p>
+      <!-- <p class="sub_title">{{ props.subTitle }}</p> -->
     </div>
-    <button @click="dreamStarStore.voteThisProject(props.id, 1)" class="vote_btn">為我加油</button>
+    <button @click="voteThisProject(props.dream_star_no,props.dream_star_id)" class="vote_btn">為我加油</button>
+    <!-- <button @click="dreamStarStore.voteThisProject(props.id, 1)" class="vote_btn">為我加油</button> -->
 
   </div>
 </template>

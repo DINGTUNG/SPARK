@@ -1,10 +1,37 @@
 <script setup>
-
 import DreamStar from '@/views/sections/spark-activity/DreamStar.vue';
 import MessageBoard from '@/views/sections/spark-activity/MessageBoard.vue';
 import ActivityDonate from '@/views/sections/spark-activity/ActivityDonate.vue';
+import axios from 'axios';
+import { reactive, ref, onMounted } from 'vue';
 
-import { reactive, ref } from 'vue';
+const sparkActivityPool = reactive([])
+async function getSparkActivity() {
+  try {
+    const response = await axios.post('http://localhost/SPARK_BACK/php/activity/spark-activity/get_spark_activity_front.php')
+
+    response.data.forEach(element => {
+        const activity = {
+          spark_activity_name: element.spark_activity_name,
+          spark_activity_description:element.spark_activity_description,
+          spark_activity_start_date:element.spark_activity_start_date,
+          spark_activity_end_date:element.spark_activity_end_date,
+        
+        }
+        sparkActivityPool.push(activity)
+      
+      });
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+onMounted(() => {
+  getSparkActivity()
+})
+
+console.log(sparkActivityPool);
 
 
 const btnList = reactive([{

@@ -70,7 +70,7 @@ const newsList = reactive([])
 
 async function newsConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/news/news.php')
+    const response = await axios.post('http://localhost/SPARK_BACK/php/news/get_news.php')
     console.log(response)
     if (response.data.length > 0) {
       response.data.forEach(element => {
@@ -105,7 +105,7 @@ onMounted(() => {
         <div class="article">
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_first}`">
+              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_first}`">
             </div>
             <div class="article_block_text">
               <p>{{ item.news_content_first }}</p>
@@ -113,7 +113,7 @@ onMounted(() => {
           </div>
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_second}`">
+              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_second}`">
             </div>
             <div class="article_block_text">
               <p>{{ item.news_content_second }}</p>
@@ -121,7 +121,7 @@ onMounted(() => {
           </div>
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_third}`">
+              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_third}`">
             </div>
             <div class="article_block_text">
               <p>{{ item.news_content_third }}</p>
@@ -129,7 +129,7 @@ onMounted(() => {
           </div>
           <div class="article_block">
             <div class="article_block_img">
-              <img :src="`pictures/images/home/news/single-news-page/${item.news_image_fourth}`">
+              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_fourth}`">
             </div>
             <div class="article_block_text">
               <p>{{ item.news_content_fourth }}</p>
@@ -164,9 +164,6 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
-
-
 <style scoped lang="scss">
 @import "@/assets/sass/pages/home/news/single-news";
 </style>

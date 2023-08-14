@@ -66,7 +66,7 @@ onMounted(() => {
               <div class="year_text">
                 <p>{{ item.report_year }}年</p>
                 <p>{{ item.report_title }}</p>
-                <button>下載檔案</button>
+                <a :href="`PDF/${item.reports_file_path}`" download><button>下載檔案</button></a>
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@ onMounted(() => {
                   <p>{{ item.report_title }}</p>
                 </div>
               </div>
-              <button>下載檔案</button>
+              <a :href="`PDF/${item.reports_file_path}`" download><button>下載檔案</button></a>
             </div>
           </div>
         </div>

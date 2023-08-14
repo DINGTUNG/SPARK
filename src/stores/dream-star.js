@@ -138,6 +138,15 @@ export const useDreamStarStore = defineStore('dream-star', () => {
     })
   }
 
+  const voteThisProjectFromDreamStarPool = (dreamStarNo) => {
+    for (let i = 0; i < dreamStarPool.length; i++) {
+      if (dreamStarPool[i].dream_star_no == dreamStarNo) {
+        dreamStarPool[i].dream_star_votes = parseInt(dreamStarPool[i].dream_star_votes) + 1
+        console.log(dreamStarPool[i].dream_star_votes)
+      }
+    }
+  }
+
   const selectedDreamStar = ref('DS003')
 
   const dreamStarPool = reactive([])
@@ -147,6 +156,7 @@ export const useDreamStarStore = defineStore('dream-star', () => {
     // voteThisProject,
     // getCurrentCountInVoteRecord,
     voteThisProjectBackend,
+    voteThisProjectFromDreamStarPool,
     selectedDreamStar,
     dreamStarPool
   }

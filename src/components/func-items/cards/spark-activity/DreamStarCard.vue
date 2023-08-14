@@ -7,13 +7,27 @@ const emits = defineEmits(['watchMore'])
 const dreamStarStore = useDreamStarStore()
 
 const props = defineProps({
+  dream_star_no: Number,
   dream_star_id: String,
   dream_star_name: String,
   dream_star_image: String,
-  dream_star_votes: String,
+  dream_star_votes: Number,
   dream_star_url: String
 })
 
+async function voteThisProject(dream_star_no) {
+  try {
+    if (dream_star_no == null) {
+      throw new Error("dream_star_no not found!")
+    }
+    await dreamStarStore.voteThisProjectBackend(props.dream_star_no)
+    dreamStarStore.voteThisProjectFromDreamStarPool(props.dream_star_no)
+    window.alert(`投票成功!`);
+  } catch (error) {
+    console.error(error);
+    window.alert(`http status : ${error.response.data} 編輯失敗!請聯絡管理員!`);
+  }
+}
 
 </script>
 <template>
@@ -42,7 +56,7 @@ const props = defineProps({
       <p class="title" v-html="props.dream_star_name"></p>
       <!-- <p class="sub_title">{{ props.subTitle }}</p> -->
     </div>
-    <button @click="dreamStarStore.voteThisProject(dreamStarNo)" class="vote_btn">為我加油</button>
+    <button @click="voteThisProject(props.dream_star_no)" class="vote_btn">為我加油</button>
     <!-- <button @click="dreamStarStore.voteThisProject(props.id, 1)" class="vote_btn">為我加油</button> -->
 
   </div>

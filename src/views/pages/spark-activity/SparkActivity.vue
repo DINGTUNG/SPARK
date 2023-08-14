@@ -18,7 +18,6 @@ async function getSparkActivity() {
         spark_activity_end_date: element.spark_activity_end_date,
       }
       sparkActivityPool.push(activity)
-      console.log(activity);
     });
 
   } catch (error) {

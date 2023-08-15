@@ -13,7 +13,6 @@ const sponsorOrders = []
 getNewSponsorOrderData()
 createSponsorOrders()
 
-
 function createSponsorOrder(locationId, price, paymentPlan, paymentMethod) {
 
   try {
@@ -34,23 +33,19 @@ function getNewSponsorOrderData() {
         paymentMethod: ''
       }
       sponsorOrderForCreate.locationId = [...sponsorCartStore.cart][i][0]
-      sponsorOrderForCreate.price = 2000 * sponsorCartStore.chosenPlanType.period
+      sponsorOrderForCreate.price = sponsorCartStore.getLocationCost * sponsorCartStore.chosenPlanType.period
       sponsorOrderForCreate.paymentPlan = sponsorCartStore.chosenPlanType.display
       sponsorOrderForCreate.paymentMethod = paymentStore.chosenMethodType.display
       sponsorOrders.push(sponsorOrderForCreate)
-
-      console.log(sponsorOrderForCreate);
     }
-
   }
-  console.log(sponsorOrders);
-
 }
 
 function createSponsorOrders() {
   sponsorOrders.forEach(sponsorOrder => {
     createSponsorOrder(sponsorOrder.locationId, sponsorOrder.price, sponsorOrder.paymentPlan, sponsorOrder.paymentMethod)
   });
+
 }
 </script>
 

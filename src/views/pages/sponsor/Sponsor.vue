@@ -34,6 +34,7 @@ async function getSponsorLocation() {
 
 onMounted(() => {
   getSponsorLocation()
+  sponsorCartStore.cart.clear()
 })
 
 

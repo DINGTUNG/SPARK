@@ -27,14 +27,15 @@ const goToCheckoutPageAndCloseSideList = () => {
     <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">請選擇認養地區</p>
     <div class="location_card_inner">
       <div class="location_card" v-for="[locationId] in [...sponsorCartStore.cart]" :key="locationId">
+        <!-- <div class="location_card" v-for="location in sponsorCartStore.sponsorLocationList" :key="location.location_id"> -->
         <div class="sponsor_inner">
-          <h5>{{ Location.getLocationFrom(locationId).name }}</h5>
+          <h5>{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</h5>
           <div class="card_count">
             <i class="fa-solid fa-circle-minus" @click="sponsorCartStore.removeFromCart(locationId, 1)"></i>
             <p>{{ sponsorCartStore.getCurrentCountInCart(locationId) }}</p>
             <i class="fa-solid fa-circle-plus" @click="sponsorCartStore.addToCart(locationId, 1)"></i>
           </div>
-          <h5>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</h5>
+          <h5>NTD {{ sponsorCartStore.getLocationTotalCost(locationId ) }}</h5>
         </div>
       </div>
     </div>

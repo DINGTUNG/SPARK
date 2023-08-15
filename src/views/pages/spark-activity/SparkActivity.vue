@@ -25,8 +25,6 @@ async function getSparkActivity() {
   }
 }
 
-
-
 onMounted(() => {
   getSparkActivity()
 })

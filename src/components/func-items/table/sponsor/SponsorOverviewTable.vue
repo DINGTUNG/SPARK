@@ -33,7 +33,7 @@ function getNewSponsorOrderData() {
         paymentMethod: ''
       }
       sponsorOrderForCreate.locationId = [...sponsorCartStore.cart][i][0]
-      sponsorOrderForCreate.price = sponsorCartStore.getLocationCost * sponsorCartStore.chosenPlanType.period
+      sponsorOrderForCreate.price = sponsorCartStore.getLocationCost() * sponsorCartStore.chosenPlanType.period
       sponsorOrderForCreate.paymentPlan = sponsorCartStore.chosenPlanType.display
       sponsorOrderForCreate.paymentMethod = paymentStore.chosenMethodType.display
       sponsorOrders.push(sponsorOrderForCreate)

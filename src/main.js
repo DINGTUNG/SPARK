@@ -30,12 +30,16 @@ import { firebaseApp } from './firebase'
 import VueReCaptcha from 'vue3-recaptcha2'
 import Images from '@/components/func-items/images/Images.vue'
 
+import axios from 'axios'
+
 const app = createApp(App)
 const pinia = createPinia()
 const vuetify = createVuetify({
   components,
   directives
 })
+
+
 
 app.use(router)
 app.use(pinia)

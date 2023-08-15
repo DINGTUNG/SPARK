@@ -81,7 +81,9 @@
               height: 1px;
               background-color: $functionalLightGrey3;
               position: absolute;
-              bottom: 6%;
+              transform: translate(-50%, -50%);
+              left: 50%;
+              bottom: 8%;
             }
 
             h3 {
@@ -326,6 +328,7 @@
 
       section.location {
         width: 100%;
+        margin-bottom: 5%;
         .card {
           width: 28%;
           &:hover {

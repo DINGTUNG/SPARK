@@ -46,6 +46,7 @@ div.dream_star_card_container {
 
       img {
         @include imgEffect;
+        width: 100%;
 
       }
 
@@ -89,6 +90,7 @@ p.vote {
 
 
   img {
+ 
     cursor: pointer;
 
     &:hover {
@@ -115,6 +117,7 @@ div.title_wrap {
   }
 
   p.title {
+    text-align: center;
     font-size: $h4Fs_PC;
     font-weight: bold;
     color: $primaryBrandBlue;

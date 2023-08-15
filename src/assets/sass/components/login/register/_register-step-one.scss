@@ -186,6 +186,34 @@
             @include custom-responsive(" xl xx-l "){
                 padding-top: 0;
             }
+            button {  
+                color: white;
+                background-color: $primaryBrandBlue;
+                border: none;
+                position: absolute;
+
+                @include custom-responsive(" xs sm md lg "){
+                    @include h5_MB;
+                    width: 155px;
+                    padding: 6px;
+                    border-radius: 20px;
+                    bottom: -51px;
+                    right: 0;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include h5_PC;
+                    width: 155px;
+                    padding: 11px;
+                    border-radius: 0 10px 10px 0;
+                    bottom: 0;
+                    right: 0;
+                }
+
+                i.fa-solid {
+                    color: white;
+                    padding: 0 10px 0 0;
+                }
+            }
         }
 
         h4 {
@@ -237,8 +265,7 @@
         .next_step {
             text-align: center;
             width: 100%;
-            button {
-                @include custom-responsive(" xs sm md lg "){
+            @include custom-responsive(" xs sm md lg "){
                     @include regularBlueBtn_MB;
                     width: 100%;
                     margin: 35px auto 110px;
@@ -247,6 +274,5 @@
                     @include regularBlueBtn_PC;
                     margin: 50px auto 0;
                 }
-            }
         }
     }

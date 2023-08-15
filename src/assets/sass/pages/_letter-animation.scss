@@ -1,22 +1,33 @@
 .bg-wrapper {
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgb(31, 31, 31, .4);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(31, 31, 31, .4);
 
-    .letter-wrapper{
+    .letter-wrapper {
+        display: flex;
+        flex-direction: column;
         position: relative;
+        top: 12vh;
 
-        .letter{
+        .letter {
             position: relative;
-            width: 35vw;
+            margin: auto;
             margin-top: 220px;
             z-index: 1;
             background: #ffffff;
             animation: bounceIn 1s;
 
-            &::before{
+            @include custom-responsive(" xs sm ") {
+                width: 90vw;
+            }
+
+            @include custom-responsive(" xl xx-l ") {
+                width: 35vw;
+            }
+
+            &::before {
                 content: "";
                 width: 100%;
                 height: 55%;
@@ -27,22 +38,22 @@
                 transform-origin: top;
                 transition: all 0.7s ease-in-out 0.7s;
             }
-            
 
-            .card{
-                position:absolute;         
-                bottom:20%;
+
+            .card {
+                position: absolute;
+                bottom: 20%;
                 width: 30%;
                 left: 35%;
                 z-index: -1;
                 text-align: center;
                 transition: all 0.5s ease-in-out;
 
-                img.child_letter{
-                    width: 100%;                          
+                img.child_letter {
+                    width: 100%;
                 }
 
-                .close-icon{
+                .close-icon {
                     position: absolute;
                     right: 5%;
                     top: 6%;
@@ -52,29 +63,44 @@
                     cursor: pointer;
                 }
             }
+
+            img.letter_front {
+                vertical-align: bottom;
+            }
         }
-        .text{
-           @include h5_PC;
-            position: absolute;
-            bottom: -15%;
-            left: 50%;
-            color:white;
-            transform: translate(-50%, -50%);
+
+        .text {
+            color: white;
             z-index: 2;
             width: 100%;
+
+            @include custom-responsive(" xs sm lg ") {
+                @include h5_MB;
+            }
+
+            @include custom-responsive(" xl xx-l ") {
+                @include h5_PC;
+            }
+
         }
-        .notice{
+
+        .notice {
             font-size: 0.875rem;
             letter-spacing: .05rem;
-            position: absolute;
-            bottom: -17%;
-            left: 50%;
             color: $primaryBrandBlue;
-            transform: translate(-50%, -50%);
             z-index: 2;
             width: 100%;
+
+            @include custom-responsive(" xs sm lg ") {
+                @include h6_MB;
+            }
+
+            @include custom-responsive(" xl xx-l ") {
+                @include h6_PC;
+            }
         }
-        .open_icon{
+
+        .open_icon {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -82,30 +108,30 @@
             z-index: 4;
             transform: translate(-50%, -10%);
             transition: transform 0.4s ease-in-out 1.3s;
-            cursor: pointer;       
+            cursor: pointer;
         }
     }
 }
 
-.bg-wrapper .flap .letter{
-    &::before{
+.bg-wrapper .flap .letter {
+    &::before {
         transform: rotateX(180deg);
         z-index: -1;
     }
 
-    .card{
+    .card {
         transform: translateY(-90%) scale(3);
         transition-delay: 1.3s;
         // z-index: 2;
 
-        .close-icon{
+        .close-icon {
             transform: translateY(-50%) scale(0.5);
         }
     }
 }
 
 .bg-wrapper .flap .open_icon {
-  transform: rotate(45deg);
-  transition-delay: 0.5s;
-//   z-index: initial;
+    transform: rotate(45deg);
+    transition-delay: 0.5s;
+    //   z-index: initial;
 }

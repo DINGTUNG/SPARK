@@ -1,7 +1,8 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref, computed } from 'vue'
 import  Story  from '@/views/sections/work-result/Story.vue'
 import { COVER_STORY, WARM_STORY, PHOTO_ALBUM} from '@/constant/storyGallery.constant.js'
+import axios from 'axios'
 
 const coverStory = reactive(COVER_STORY)
 let displayStory = ref(0)
@@ -17,6 +18,8 @@ const switchClick = () => {
   picUnder()
 }
 
+
+//點擊切換指引
 let timer = null;
 const container = ref(null)
 const iconLeft = ref("0px");
@@ -37,7 +40,7 @@ const handleMouseMove = (e) => {
   }, 2000);
 }
 
-
+//封面故事切換
 const picUnderIndex = ref(1)
 const picUnder = () => {
   if (displayStory.value === 0) {
@@ -47,12 +50,43 @@ const picUnder = () => {
   }
 }
 
-const warmStory = reactive(WARM_STORY)
+
+//獲取溫馨紀事資料
+const warmStory = reactive([])
+async function getData () {
+  try{
+    const res = await axios.get('http://localhost/SPARK_BACK/php/results/story/front_read_story.php')
+    warmStory.value = res.data
+  }
+  catch(error){
+    console.log(error);
+  }
+}
+
+onMounted(() => {
+  getData()
+})
+
+  //分頁
+  const itemsPerPage = 6;
+    const displayStoryList = computed(() => {
+      if (warmStory.value) {
+        const startIdx = (page.value - 1) * itemsPerPage;
+        const endIdx = startIdx + itemsPerPage;
+        return reactive(warmStory.value.slice(startIdx, endIdx));
+      } else {
+        return reactive([]);
+      }
+    });
+
+    const pageCount = () => {
+      return (displayStoryList.length) / itemsPerPage + 1;
+    };
 
 const storyId = ref(null)
 
-const propsId = (id) => {
-  storyId.value = id - 1
+const propsId = (no) => {
+  storyId.value = no
 }
 const closeStory = () => {
   storyId.value = null;
@@ -145,16 +179,16 @@ const scrollTo = (area) => {
         </div>
 
         <div class="story-list">
-          <div class="card" v-for="(item, id) in warmStory" :key="id">
+          <div class="card" v-for="(item, id) in displayStoryList" :key="id">
             <div class="pic">
-              <img :src="item.imgUrl" alt="故事照片" />
+              <img :src="`http://localhost/SPARK_BACK/images/story/${item.story_image}`" alt="故事照片" />
               <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
             </div>
             <div class="text">
-              <div class="date">{{ item.date }}</div>
-              <h5>{{ item.title }}</h5>
-              <p>{{ item.description }}</p>
-              <button type="button" @click="propsId(item.id)">閱讀全文</button>
+              <div class="date">{{ item.story_date }}</div>
+              <h5>{{ item.story_title }}</h5>
+              <p>{{ item.story_brief }}</p>
+              <button type="button" @click="propsId(item.story_no)">閱讀全文</button>
             </div>
           </div>
         </div>
@@ -163,6 +197,7 @@ const scrollTo = (area) => {
             v-model="page"
             :length="3"
             rounded="circle"
+            @click="scrollTo(container1)"
           ></v-pagination>
         </div>
       </section>

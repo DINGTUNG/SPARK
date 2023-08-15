@@ -29,20 +29,15 @@ const sponsorCartStore = useSponsorCartStore();
       </div>
       <div class="sponsor_block">
         <div class="sponsor_img">
-          <swiper :spaceBetween="30" 
-          :effect="'fade'" 
-          :navigation="false" 
-          :autoplay="{
+          <swiper :spaceBetween="30" :effect="'fade'" :navigation="false" :autoplay="{
             delay: 2000,
             disableOnInteraction: false,
-          }" 
-          :pagination="false"
-           :modules="modules" class="mySwiper">
+          }" :pagination="false" :modules="modules" class="mySwiper">
             <swiper-slide><img :src="'pictures/images/sponsor/introduction.jpg'" alt=""></swiper-slide>
             <swiper-slide><img :src="'pictures/images/sponsor/introduction2.jpg'" /></swiper-slide>
             <swiper-slide><img :src="'pictures/images/sponsor/introduction3.jpg'" /></swiper-slide>
             <swiper-slide><img :src="'pictures/images/sponsor/introduction4.jpg'" /></swiper-slide>
-          </swiper>    
+          </swiper>
         </div>
         <div class="sponsor_text">
           <h4>認養兒童方案</h4>

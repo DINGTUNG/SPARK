@@ -3,6 +3,7 @@
 import { ref, watch, onMounted, onUnmounted, watchEffect } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { useLogStore } from '@/stores/login-dummy-data.js'
+import axios from 'axios'
 
 //【header logo change for PC & MB】
 const imgSrc = ref('pictures/logo/logo_white.svg') // Default
@@ -173,35 +174,31 @@ router.afterEach(() => {
 });
 
 //【會員登入後，變成會員中心】
-const logStore = useLogStore();
 const loginLabel = ref('會員登入');
 const linkTo = ref('/login');
+const loggedIn = document.cookie.includes('PHPSESSID');
 
 const updateLoginState = (loggedIn) => {
   loginLabel.value = loggedIn ? '會員中心' : '會員登入';
   linkTo.value = loggedIn ? '/member-center' : '/login';
-  localStorage.setItem('loggedInUserState', loggedIn.toString());
 };
-
-onMounted(async () => {
-  // 等待 logStore 初始化完成
-  await logStore.ready;
-  const loggedInUserState = localStorage.getItem('loggedInUserState') === 'true';
-  updateLoginState(loggedInUserState);
+onMounted(() => {
+  updateLoginState(loggedIn);
 });
 
-watchEffect(() => {
-  const loggedInUserState = logStore.log.some(item => item.state);
-  updateLoginState(loggedInUserState);
-});
 
-const logout = () => {
-  const loggedOutUserState = logStore.log.some(item => item.state=false);
-  updateLoginState(loggedOutUserState);
-  console.log(loggedOutUserState)
 
-  const router = useRouter();
-  router.push('/home');
+async function logout() {
+  try {
+        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/handle_logout.php' ,{ withCredentials: true})
+        console.log(res.data)
+        if (res.data.status === 'ok') {
+            window.location.href = 'http://localhost:5174/chd102/g3/home'
+        }
+    } catch (error) {
+        console.error('網路請求錯誤:', error);
+        alert('網路請求錯誤');
+    }
 };
 </script>
 
@@ -212,7 +209,7 @@ const logout = () => {
   <header class="header_PC">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo" />
+      <img id="logo" :src="imgSrc" alt="Sparklogo">
     </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>
@@ -238,7 +235,7 @@ const logout = () => {
             <RouterLink to="/member-center/donate-record">捐款紀錄</RouterLink>
             <RouterLink to="/member-center/letter-record">感謝函專區</RouterLink>
             <RouterLink to="/member-center/modify-meminfo">修改基本資料</RouterLink>
-            <a href="#" @click.prevent="logout">登出</a>
+            <a @click="logout()">登出</a>
           </div>
         </li>
       </ul>
@@ -280,7 +277,7 @@ const logout = () => {
             <RouterLink to="/member-center/donate-record" class="link" @click="navVisible = !navVisible">捐款紀錄</RouterLink>
             <RouterLink to="/member-center/letter-record" class="link" @click="navVisible = !navVisible">感謝函專區</RouterLink>
             <RouterLink to="/member-center/modify-meminfo" class="link" @click="navVisible = !navVisible">修改基本資料</RouterLink>
-            <a href="#" @click.prevent="logout" class="link">登出</a>
+            <a @click.prevent="logout()" class="link">登出</a>
           </div>
         </li>
       </ul>

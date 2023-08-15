@@ -1,22 +1,6 @@
 <script setup>
 import { useMemberDataStore } from '@/stores/member-data.js';
 const memberDataStore = useMemberDataStore();
-
-// import { Form, Field } from 'vee-validate';
-  
-// const schema = {
-//   document: (value) => {
-//     if (value.length == 2) {
-//       return true;
-//     }
-//       // alert( '請閱讀隱私權政策與認養注意事項並勾選。');
-//   },
-// };
-
-// function onSubmit(values) {
-//   console.log(JSON.stringify(values, null, 2));
-// }
-
 </script>
 
 
@@ -94,11 +78,11 @@ const memberDataStore = useMemberDataStore();
 
   <form action="">
     <div>
-      <input type="checkbox" v-validate="'required'">
+      <input type="checkbox" >
       <label for="">當您勾選後，即視同您已同意遵守本網站個人<span>隱私權政策</span>及交易安全宣告與其他有關著作權、版權、商標專用權、網路智慧財產權等之法律規定。</label>
     </div>
     <div>
-      <input type="checkbox" v-validate="'required'">
+      <input type="checkbox" >
       <label for="">當您勾選後，即視同您已同意遵守本會<span>認養注意事項</span>。</label>
     </div>
 

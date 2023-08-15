@@ -69,10 +69,10 @@ export class PaymentPlan {
   }
 
   static TYPE = {
-    MONTH: new PaymentPlan('月', 1),
-    QUARTER: new PaymentPlan('季', 3),
-    HALF_YEAR: new PaymentPlan('半年', 6),
-    YEAR: new PaymentPlan('年', 12)
+    MONTH: new PaymentPlan('月繳', 1),
+    QUARTER: new PaymentPlan('季繳', 3),
+    HALF_YEAR: new PaymentPlan('半年繳', 6),
+    YEAR: new PaymentPlan('年繳', 12)
   }
 
   static TYPES = [
@@ -168,6 +168,8 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
 
   const cart = reactive(new Map())
 
+
+
   const isCartEmpty = computed(() => {
     return cart.size === 0
   })
@@ -179,7 +181,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   const addToCart = (locationId, addCount) => {
     let curCount = getCurrentCountInCart(locationId)
     cart.set(locationId, curCount + addCount)
-    console.log(cart)
   }
 
   const removeFromCart = (locationId, removeCount) => {
@@ -224,6 +225,41 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     }
   }
 
+  // create
+  function createSponsorOrderBackend(locationId,price,paymentPlan,paymentMethod) {
+    // prepare data 
+    const payLoad = new FormData();
+    payLoad.append("location_id", locationId);
+    payLoad.append("price", price);
+    payLoad.append("payment_plan", paymentPlan);
+    payLoad.append("payment_method", paymentMethod);
+
+
+    // make a request
+    const request = {
+      method: "POST",
+      url: `http://localhost/SPARK_BACK/php/sponsor/sponsor-order/create_sponsor_order_front.php`,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      data: payLoad,
+    };
+
+    // send request to backend server
+    return new Promise((resolve, reject) => {
+      axios(request)
+        .then((response) => {
+          const createResult = response.data;
+          resolve(createResult);
+        })
+        .catch((error) => {
+          console.log("From createSponsorOrderBackend:", error);
+          reject(error);
+        });
+    });
+  }
+
+
   return {
     isSideListShow,
     showSideList,
@@ -242,6 +278,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     onAddToCartClick,
     removeToCartClick,
     sponsorLocationList,
-    getLocationFromSponsorLocationList
+    getLocationFromSponsorLocationList,
+    createSponsorOrderBackend
   }
 })

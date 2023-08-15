@@ -19,7 +19,8 @@ const sponsorCartStore = useSponsorCartStore();
 
           <span class="name">{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</span>
           <span class="count">共 {{ sponsorCartStore.getCurrentCountInCart(locationId) }} 位</span>
-          <span class="cost">NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</span>
+          <span class="cost">NTD
+            {{ sponsorCartStore.getLocationTotalCost(locationId) * sponsorCartStore.chosenPlanType.period }}</span>
         </div>
 
       </div>
@@ -28,8 +29,8 @@ const sponsorCartStore = useSponsorCartStore();
 
     <div class="payment">
       <div class="payment_info">
-        <span class="payment_title">認養費({{ sponsorCartStore.chosenPlanType.display}})</span>
-        <span class="total_price">NTD {{ sponsorCartStore.totalCost*sponsorCartStore.chosenPlanType.period }} </span>
+        <span class="payment_title">認養費({{ sponsorCartStore.chosenPlanType.display }})</span>
+        <span class="total_price">NTD {{ sponsorCartStore.totalCost * sponsorCartStore.chosenPlanType.period }} </span>
       </div>
     </div>
 

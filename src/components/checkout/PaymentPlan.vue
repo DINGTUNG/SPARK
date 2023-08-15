@@ -26,7 +26,7 @@ const selectPlan = (planType) => {
 
       <!-- paymentPlan.isChosen === true ? 'chosen' : '' -->
 
-      {{ planType.display }}繳
+      {{ planType.display }}
     </div>
   </div>
 </template>

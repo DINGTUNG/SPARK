@@ -18,7 +18,7 @@ import axios from 'axios';
 async function getSponsorLocation() {
   try {
     const response = await axios.post('http://localhost/SPARK_BACK/php/sponsor/sponsor-location/get_sponsor_location_front.php')
-
+    sponsorCartStore.sponsorLocationList.splice(0);
     response.data.forEach(element => {
       const location = {
         location_id: element.location_id,

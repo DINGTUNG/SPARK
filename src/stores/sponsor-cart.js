@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref, reactive, computed, watch,onMounted } from 'vue'
-import axios from 'axios';
+import { ref, reactive, computed, watch } from 'vue'
+import axios from 'axios'
 
 export class Location {
   constructor(id, name, cost, img) {
@@ -35,12 +35,7 @@ export class Location {
       2000,
       'pictures/decorations/illustration/location.svg'
     ),
-    TANUKILAND: new Location(
-      'tanukiland',
-      '星之狸貓',
-      520,
-      'pictures/test/禿頭海豹貓嘴2.png'
-    ),
+    TANUKILAND: new Location('tanukiland', '星之狸貓', 520, 'pictures/test/禿頭海豹貓嘴2.png'),
     UNKNOWN: new Location(
       'unknown-type',
       '未知',
@@ -63,7 +58,7 @@ export class Location {
         return Location.TYPES[i]
       }
     }
-    return Location.TYPE.UNKNOWN;
+    return Location.TYPE.UNKNOWN
   }
 }
 
@@ -88,27 +83,22 @@ export class PaymentPlan {
   ]
 }
 
-
 export const useSponsorCartStore = defineStore('sponsor-cart', () => {
-
-  const isBlurred = ref(false);
+  const isBlurred = ref(false)
 
   const onAddToCartClick = () => {
-    isBlurred.value = !isBlurred.value;
+    isBlurred.value = !isBlurred.value
     // isSideListShow = isBlurred.value;
-  };
+  }
 
   // 在 SponsorCheckoutSideList 關閉時，移除模糊效果
   const removeToCartClick = () => {
-    isBlurred.value = false;
-  };
-
+    isBlurred.value = false
+  }
 
   //判斷購物車收合
   const isSideListShow = ref(false)
-  watch(isSideListShow, (nVal) => {
-
-  })
+  watch(isSideListShow, (nVal) => {})
 
   const showSideList = () => {
     isSideListShow.value = true
@@ -119,6 +109,62 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     isSideListShow.value = false
     removeToCartClick()
   }
+
+  // const cart = reactive(new Map())
+
+  // const isCartEmpty = computed(() => {
+  //   return cart.size === 0
+  // })
+
+  // const isCartNotEmpty = computed(() => {
+  //   return cart.size !== 0
+  // })
+
+  // const addToCart = (locationId, addCount) => {
+  //   let curCount = getCurrentCountInCart(locationId)
+  //   cart.set(locationId, curCount + addCount)
+  // }
+
+  // const removeFromCart = (locationId, removeCount) => {
+  //   let curCount = getCurrentCountInCart(locationId)
+  //   let remainCount = curCount - removeCount
+
+  //   if (remainCount > 0) {
+  //     cart.set(locationId, remainCount)
+  //   } else {
+  //     cart.delete(locationId)
+  //   }
+  // }
+
+  // const getCurrentCountInCart = (locationId) => {
+  //   return cart.has(locationId) ? cart.get(locationId) : 0
+  // }
+
+  // const totalCost = computed(() => {
+  //   let cost = 0
+
+  //   cart.forEach((count, locationId) => {
+  //     cost += getLocationTotalCost(locationId)
+  //   })
+  //   return cost
+  // })
+
+  // const getLocationTotalCost = (locationId) => {
+  //   let count = getCurrentCountInCart(locationId)
+  //   let locationCost = getLocationCost()
+  //   return count * locationCost
+  // }
+
+  // const getLocationCost = (locationId) => {
+  //   return Location.getLocationFrom(locationId).cost
+  // }
+
+  const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH)
+
+  //////////////// connect ////////////////////
+
+  const sponsorLocationList = reactive([])
+  // const getLocationFromSponsorCart =
 
   const cart = reactive(new Map())
 
@@ -133,7 +179,7 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
   const addToCart = (locationId, addCount) => {
     let curCount = getCurrentCountInCart(locationId)
     cart.set(locationId, curCount + addCount)
-  
+    console.log(cart)
   }
 
   const removeFromCart = (locationId, removeCount) => {
@@ -145,7 +191,6 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     } else {
       cart.delete(locationId)
     }
-    
   }
 
   const getCurrentCountInCart = (locationId) => {
@@ -156,47 +201,28 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     let cost = 0
 
     cart.forEach((count, locationId) => {
-      // console.log(count, (locationId));
       cost += getLocationTotalCost(locationId)
     })
-
     return cost
   })
 
   const getLocationTotalCost = (locationId) => {
     let count = getCurrentCountInCart(locationId)
-    let locationCost = getLocationCost(locationId)
+    let locationCost = getLocationCost()
     return count * locationCost
   }
 
-  const getLocationCost = (locationId) => {
-    return Location.getLocationFrom(locationId).cost
+  const getLocationCost = () => {
+    return 2000
   }
 
-
-  const chosenPlanType = reactive(PaymentPlan.TYPE.MONTH)
-
-
-const locationList = reactive([])
-async function localConnection() {
-  try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/sponsor/sponsor-location/get_sponsor_location.php')
-
-    if (response.data.length > 0) {
-      response.data.forEach(element => {
-        locationList.push(element)
-      });
+  const getLocationFromSponsorLocationList = (locationId) => {
+    for (let i = 0; i < sponsorLocationList.length; i++) {
+      if (sponsorLocationList[i].location_id == locationId) {
+        return sponsorLocationList[i].location_name
+      }
     }
-  } catch (error) {
-    console.error(error);
   }
-}
-
-onMounted(() => {
-  localConnection()
-})
-
-
 
   return {
     isSideListShow,
@@ -211,13 +237,11 @@ onMounted(() => {
     totalCost,
     getLocationTotalCost,
     getLocationCost,
-    chosenPlanType, 
+    chosenPlanType,
     isBlurred,
     onAddToCartClick,
     removeToCartClick,
-    locationList,
-    localConnection
-
-
+    sponsorLocationList,
+    getLocationFromSponsorLocationList
   }
 })

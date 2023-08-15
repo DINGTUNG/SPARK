@@ -1,5 +1,5 @@
 <script setup>
-import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -17,7 +17,7 @@ const sponsorCartStore = useSponsorCartStore();
 
         <div class="checkout_data">
 
-          <span class="name">{{ Location.getLocationFrom(locationId).name }}</span>
+          <span class="name">{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</span>
           <span class="count">共 {{ sponsorCartStore.getCurrentCountInCart(locationId) }} 位</span>
           <span class="cost">NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</span>
         </div>

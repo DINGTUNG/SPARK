@@ -18,207 +18,129 @@
             flex-direction: column;
             text-align: left;
         }
-
-     
-        h1 {
-            color: $primaryBrandBlue;
-            font-size: $h1Fs_PC;
-            padding: 40px 0px;
-            text-align: center;
-        }
-
-        label {
-            @include h5_PC;
-        }
-
-        input {
-
-            &:focus {
-                outline: 1px solid;
-            }
-
-            &::placeholder {
-                @include h6_PC;
-                color: rgb(99, 99, 99, 0.35);
-            }
-
-            @include custom-responsive("xs sm ") {
-                width: 100%;
-                @include h5_MB;
-                border: 1px solid $functionalLightGrey3;
-                border-radius: 10px;
-                padding: 15px 60px 15px 15px;
-                background-color: #f9f9f9;
-                
-            }
-
-            @include custom-responsive("xl xx-l") {
-                width: 100%;
-                @include h5_PC;
-                border: 1px solid $functionalLightGrey3;
-                border-radius: 10px;
-                padding: 10px;
-                background-color: #f9f9f9;
-            }
-        }
-
-        input.email {
-            margin: 0 0 20px 0;
-        }
-
-        input.password {
-            margin: 0 0 20px 0;
-        }
-
-        .recaptcha_forget_block {
-            @include custom-responsive("xs sm ") {
-                display: block;
-            }
-
-            @include custom-responsive("xl xx-l") {
-                display: flex;
-            }
-
-            div.forgot_psw {
-                @include h6_PC;
-
-
-                i {
-                    color: $secondaryLightBlue2;
-                    font-size: $h5Fs_PC;
-                    margin-right: 5px;
-                }
-
-                a {
-                    text-decoration: none;
-                }
-
-                @include custom-responsive("xs sm ") {
-                    padding: 10px 0 0 0;
-                }
-
-                @include custom-responsive("xl xx-l") {
-                    padding-left: 30px;
-                }
-            }
-        }
-
-        div.error_account {
-            display: block;
-        }
-
-        button.login_button {
-            @include h5_PC;
-            display: block;
-            background-color: $primaryAccentGold;
-            color: $primaryBrandWhite;
-            border-radius: $br_PC;
-            border: 1px solid $primaryBrandWhite;
-            height: 55px;
-            width: 100%;
-            margin-top: 50px;
-
-            @include custom-responsive("xs sm ") {
-                margin-top: 20px;
-            }
-        }
-
-        div.error_account {
+        .error_account {
+            @include h6_PC;
             color: red;
-            margin-top: 10px;
         }
-
-        div.password_wrapper {
-           
-            div.password_block{
-                 position: relative;
-                display: flex;
-            }
-
-            img {
-                position: absolute;            
-                width: 25px;
-                top: 0;
-                cursor: pointer;
-                padding: 25px 0;
-                @include custom-responsive("xs sm ") {
-                    right: 6%;
-                }
-
-                @include custom-responsive("xl xx-l") {
-                    right: 8%;
-                }
-            }
-
-
+        div.form_box {
+            position: relative;
+            margin: 30px 0 0 0;
         }
+        div.form_box.account {
+            // margin: 50px 0 0 0;
+            position: relative;
+            button {  
+                color: white;
+                background-color: $primaryBrandBlue;
+                border: none;
+                position: absolute;
 
-        div.login_methods {
-            align-items: center;
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-top: 30px;
-            
-
-            h6 {
-                color: #bebdbd;
-            }
-
-            div.line {
-
-                @include custom-responsive("xs sm ") {
-                    width: 25%;
+                @include custom-responsive(" xs sm md lg "){
+                    @include h5_MB;
+                    width: 155px;
+                    padding: 6px;
+                    border-radius: 20px;
+                    bottom: -51px;
+                    right: 0;
                 }
                 @include custom-responsive(" xl xx-l "){
-                    width: 35%;
-                    height: 1px;
-                    background-color: #bebdbd;
+                    @include h5_PC;
+                    width: 155px;
+                    padding: 11px;
+                    border-radius: 0 10px 10px 0;
+                    bottom: 0;
+                    right: 0;
+                }
+
+                i.fa-solid {
+                    color: white;
+                    padding: 0 10px 0 0;
                 }
             }
         }
+        div.form_box.safety_code {
+            @include custom-responsive(" xs sm md lg "){
+                padding-top: 50px;
+            }
+            @include custom-responsive(" xl xx-l "){
+                padding-top: 0;
+            }
+            button {  
+                color: white;
+                background-color: $primaryBrandBlue;
+                border: none;
+                position: absolute;
 
-        div.error_account {
-            color: red;
-            margin: 10px 0 10px 10px;
+                @include custom-responsive(" xs sm md lg "){
+                    @include h5_MB;
+                    width: 155px;
+                    padding: 6px;
+                    border-radius: 20px;
+                    bottom: -51px;
+                    right: 0;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include h5_PC;
+                    width: 155px;
+                    padding: 11px;
+                    border-radius: 0 10px 10px 0;
+                    bottom: 0;
+                    right: 0;
+                }
+
+                i.fa-solid {
+                    color: white;
+                    padding: 0 10px 0 0;
+                }
+            }
         }
-        button.google_login {
-            @include h5_PC;
-            display: block;
-            background-color: $primaryBgBlue;
-            color: $primaryBrandWhite;
-            border-radius: $br_PC;
-            border: 1px solid $primaryBrandBlue;
-            height: 55px;
+        input{
+            border: 1px solid $functionalLightGrey3;
+            border-radius: 10px;
+            padding: 10px;
             width: 100%;
-            margin-top: 30px;
-
-            i{
-                color: $primaryBrandWhite;
-                margin-right: 5px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            @include custom-responsive(" xs sm md lg "){
+                @include h5_MB;
             }
-
+            @include custom-responsive(" xl xx-l "){
+                @include h5_PC;
+            }
+        
+            &:focus{
+                outline: 1px solid ;
+            }
+            &::placeholder{
+                color: rgb(99, 99, 99,0.35);
+                @include custom-responsive(" xs sm md lg "){
+                    @include h6_MB;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include h6_PC;
+                }
+            }
         }
-
-        div.signup{
-            text-align: right;
-            margin-top: 10px;
-
-            @include custom-responsive("xs sm ") {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 60px;
-            }
-
-            
-
-            i{
-                color: $secondaryLightBlue2;
-                margin-right: 5px;
-            }
-            .signup_link{
-                color: $secondaryLightBlue2;
-            }
-
+        div.form_box.password img, div.form_box.password_check img {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            width: 25px;
+            cursor: pointer;
+            transform: translate(0,-50%);
+        }
+        button.next_step {
+            text-align: center;
+            width: 100%;
+            background-color: $primaryAccentGold;
+            @include custom-responsive(" xs sm md lg "){
+                    @include regularBlueBtn_MB;
+                    width: 100%;
+                    margin: 35px auto 110px;
+                }
+                @include custom-responsive(" xl xx-l "){
+                    @include regularBlueBtn_PC;
+                    margin: 50px auto 0;
+                }
         }
     }

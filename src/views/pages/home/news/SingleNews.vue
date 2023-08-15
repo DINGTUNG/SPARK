@@ -1,8 +1,6 @@
 <script setup>
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, ref ,computed} from 'vue';
 import axios from 'axios'
-
-
 // const article = reactive(
 //   [
 //     {
@@ -36,38 +34,43 @@ import axios from 'axios'
 //     },
 //   ]
 // );
-const news = reactive(
-  [
-    {
-      img: "pictures/images/home/news/single-news-page/singlenewone.png",
-      index: 1,
-      title: '星火30，感謝有您',
-      article: '星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火感謝各界人士的鼎力相助，願我們能一同往前，迎接更美好的明天。',
-      time: '2023.07.23',
-      href: '#'
-    },
-    {
-      img: "pictures/images/home/news/single-news-page/singlenewtwo.png",
-      index: 2,
-      title: '東部星火服務據點設立',
-      article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，一同於東部創辦中心，提供服務。',
-      time: '2023.07.15',
-      href: '#'
-    },
-    {
-      img: "pictures/images/home/news/single-news-page/singlenewseven.png",
-      index: 3,
-      title: '暑假兒童營養午餐提供',
-      article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，希望各方善心人士能一起參與這項活動，為偏鄉兒童提供豐富美味的午餐',
-      time: '2023.06.30',
-      href: '#'
-    }
-  ]
-);
-
+// const news = reactive(
+//   [
+//     {
+//       img: "pictures/images/home/news/single-news-page/singlenewone.png",
+//       index: 1,
+//       title: '星火30，感謝有您',
+//       article: '星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火感謝各界人士的鼎力相助，願我們能一同往前，迎接更美好的明天。',
+//       time: '2023.07.23',
+//       href: '#'
+//     },
+//     {
+//       img: "pictures/images/home/news/single-news-page/singlenewtwo.png",
+//       index: 2,
+//       title: '東部星火服務據點設立',
+//       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，一同於東部創辦中心，提供服務。',
+//       time: '2023.07.15',
+//       href: '#'
+//     },
+//     {
+//       img: "pictures/images/home/news/single-news-page/singlenewseven.png",
+//       index: 3,
+//       title: '暑假兒童營養午餐提供',
+//       article: '偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，希望各方善心人士能一起參與這項活動，為偏鄉兒童提供豐富美味的午餐',
+//       time: '2023.06.30',
+//       href: '#'
+//     }
+//   ]
+// );
 
 const newsList = reactive([])
+const moreNewsList = reactive([])
+const activeId = ref('');
+const selectedNewsId = computed(() =>{
+  return newsList.find(v => v.news_id === activeId.value) ?? null;
+})
 
+let count = 0;
 async function newsConnection() {
   try {
     const response = await axios.post('http://localhost/SPARK_BACK/php/news/get_news.php')
@@ -75,21 +78,32 @@ async function newsConnection() {
     if (response.data.length > 0) {
       response.data.forEach(element => {
         newsList.push(element)
-      });
+        if (count < 3) {
+          moreNewsList.push(element)
+          count++;
+        }
+      })
     }
   } catch (error) {
     console.error(error);
   }
+  console.log(newsList)
 }
 onMounted(() => {
+  const id = window.location.search.split('?id=')?.[1];
+  if (id) activeId.value = id;
   newsConnection()
 })
+
+function handleMoreNewsClick(id) {
+  activeId.value = id;
+}
 
 
 </script>
 <template>
   <div class="title_img">
-    <img :src="'pictures/images/home/news/single-news-page/banner.png'" alt="">
+    <img :src="'pictures/images/home/news/single-news-page/banner.png'" alt="banner">
   </div>
   <div class="container">
     <div class="main_body">
@@ -97,42 +111,44 @@ onMounted(() => {
         <h1>消息內容</h1>
         <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
       </div>
-      <div class="main_article" v-for="(item, index) in newsList" :key="item.index">
-        <div class="article_title">
-          <h2>{{ item.news_title}}</h2>
-          <span>{{ item.news_date}}</span>
-        </div>
-        <div class="article">
-          <div class="article_block">
-            <div class="article_block_img">
-              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_first}`">
-            </div>
-            <div class="article_block_text">
-              <p>{{ item.news_content_first }}</p>
-            </div>
+      <div class="main_article">
+        <div v-if="selectedNewsId !== null">
+          <div class="article_title">
+            <h2>{{ selectedNewsId.news_title }}</h2>
+            <span>{{ selectedNewsId.news_date }}</span>
           </div>
-          <div class="article_block">
-            <div class="article_block_img">
-              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_second}`">
+          <div class="article">
+            <div class="article_block">
+              <div class="article_block_img">
+                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_first}`">
+              </div>
+              <div class="article_block_text">
+                <p>{{ selectedNewsId.news_content_first }}</p>
+              </div>
             </div>
-            <div class="article_block_text">
-              <p>{{ item.news_content_second }}</p>
+            <div class="article_block">
+              <div class="article_block_img">
+                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_second}`">
+              </div>
+              <div class="article_block_text">
+                <p>{{ selectedNewsId.news_content_second }}</p>
+              </div>
             </div>
-          </div>
-          <div class="article_block">
-            <div class="article_block_img">
-              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_third}`">
+            <div class="article_block">
+              <div class="article_block_img">
+                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_third}`">
+              </div>
+              <div class="article_block_text">
+                <p>{{ selectedNewsId.news_content_third }}</p>
+              </div>
             </div>
-            <div class="article_block_text">
-              <p>{{ item.news_content_third }}</p>
-            </div>
-          </div>
-          <div class="article_block">
-            <div class="article_block_img">
-              <img :src="`http://localhost/SPARK_BACK/images/news/origin/${item.news_image_fourth}`">
-            </div>
-            <div class="article_block_text">
-              <p>{{ item.news_content_fourth }}</p>
+            <div class="article_block">
+              <div class="article_block_img">
+                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_fourth}`">
+              </div>
+              <div class="article_block_text">
+                <p>{{ selectedNewsId.news_content_fourth }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -143,17 +159,17 @@ onMounted(() => {
           </div>
           <div>
             <div class="card_group">
-              <div class="news_card" v-for="item in news" :key="item.index">
-                <a :href="item.href">
+              <div class="news_card" v-for="item in moreNewsList" :key="item.index">
+                <a @click="handleMoreNewsClick(item.news_id)">
                   <div class="card_img">
-                    <img :src="item.img">
+                    <img :src="`http://localhost/SPARK_BACK/images/news/${item.news_image_first}`">
                     <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic"
                       class="card_hover_pic">
                   </div>
                   <div class="card_word">
-                    <h5>{{ item.time }}</h5>
-                    <h4>{{ item.title }}</h4>
-                    <p>{{ item.article }}</p>
+                    <h5>{{ item.news_date }}</h5>
+                    <h4>{{ item.news_title }}</h4>
+                    <p>{{ item.news_content_first }}</p>
                   </div>
                 </a>
               </div>

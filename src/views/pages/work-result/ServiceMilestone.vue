@@ -1,6 +1,7 @@
 <script setup> 
 //【引入】
-import { ref, onMounted, onBeforeUnmount, onUnmounted, computed, watchEffect } from 'vue';
+import { ref, onMounted, onBeforeUnmount, onUnmounted, computed, watchEffect, reactive } from 'vue';
+import axios from 'axios';
 
 //【 一顆星星代表的數量】
 const peopleCount = ref(100);
@@ -96,7 +97,7 @@ const getEventHandlers = (blockKey) => {
 };
 
 //【輪播圖數據】
-const carouselData = [
+const carouselData = [ 
   {
     image: 'pictures/images/results/service-milestone/card_first.png',
     alt: '暖心聖誕',
@@ -134,11 +135,11 @@ const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.p
 let currentSlide = ref(0)
 
 const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % carouselData.length
+  currentSlide.value = (currentSlide.value + 1) % carouselData.length  //carouselData更改為milestoneList
 }
 
 const previousSlide = () => {
-  currentSlide.value = (currentSlide.value + carouselData.length - 1) % carouselData.length
+  currentSlide.value = (currentSlide.value + carouselData.length - 1) % carouselData.length //carouselData更改為milestoneList
 }
 
 let intervalId
@@ -156,9 +157,32 @@ onUnmounted(() => {
 const visibleSlides = computed(() => {
   let slides = []
   for (let i = 0; i < 3; i++) {
-    slides.push(carouselData[(currentSlide.value + i) % carouselData.length])
+    slides.push(carouselData[(currentSlide.value + i) % carouselData.length]) //carouselData更改為milestoneList
   }
   return slides
+})
+
+//【引入後台資料】
+const milestoneList = reactive([])
+async function milestoneConnection() {
+  try {
+    const response = await axios.post('http://localhost/SPARK_BACK/php/results/milestone/milestone.php')
+    console.log(response)
+
+
+    if (response.data.length > 0) {
+      response.data.forEach(element => {
+        milestoneList.push(element)
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+console.log(milestoneList)
+
+onMounted(() => {
+  milestoneConnection()
 })
 </script>
 

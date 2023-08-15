@@ -5,6 +5,7 @@ import { ref, onMounted } from 'vue';
 import Loading from '@/layout/Loading.vue';
 // import { query } from 'express';
 import axios from 'axios'
+import letterAnimation from '@/components/letter-animation/LetterAnimation.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -51,7 +52,12 @@ async function show() {
 <template>
   <Loading v-if="route.query.showLoading" />
   <div v-else>
+    
     <div class="banner_container">
+
+      <!-- <div class="letter_animation">
+        <letterAnimation />
+      </div> -->
       <div class="banner">
         <!-- <img :src="'pictures/images/home/home_banner_bg.png'" alt="home_banner_bg" class="home_banner_bg"> -->
         <div class="banner_center">

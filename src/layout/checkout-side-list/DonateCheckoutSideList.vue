@@ -61,12 +61,16 @@ const goToCheckoutPage = () => {
         </div>
       </div>
       <input type="number" placeholder="請輸入金額（最低金額100元）" min="100" v-model="price" @blur="limitPrice">
-
-
     </div>
     <div class="img">
+      <Images :imgSrc="'pictures/decorations/illustration/stars.svg'" :alt="'星星'" id="stars"/>
       <Images :imgSrc="'pictures/decorations/illustration/blue_shooting_stars.svg'" :alt="'流星'" id="star"/>
       <Images :imgSrc="'pictures/characters/star/star_superman.svg'" :alt="'超人'" id="man"/>
+      <Images :imgSrc="'pictures/decorations/illustration/golden_star_3.svg'" :alt="'金星'" id="gold-stars"/>
+    </div>
+    <div class="img_bottom">
+      <Images :imgSrc="'../../../public/pictures/decorations/illustration/sprout.svg'" :alt="'草'" id="sprout"/>
+      <Images :imgSrc="'pictures/decorations/illustration/flower.svg'" :alt="'花'" id="flower"/>
     </div>
     <div class="donate_total">
       <div class="total_price">

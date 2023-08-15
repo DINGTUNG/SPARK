@@ -193,7 +193,7 @@ async function logout() {
         const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/handle_logout.php' ,{ withCredentials: true})
         console.log(res.data)
         if (res.data.status === 'ok') {
-            window.location.href = 'http://localhost:5173/chd102/g3/home'
+            window.location.href = 'http://localhost:5174/chd102/g3/home'
         }
     } catch (error) {
         console.error('網路請求錯誤:', error);

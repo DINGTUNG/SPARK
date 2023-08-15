@@ -135,8 +135,6 @@ async function show() {
   <RouterLink to="/test">測試頁面</RouterLink>
   <br>
   <RouterLink to="/member-center">會員中心</RouterLink>
-  <br>
-  <RouterLink to="/letter-animation">感謝函彈窗</RouterLink>
 </template>
 
 

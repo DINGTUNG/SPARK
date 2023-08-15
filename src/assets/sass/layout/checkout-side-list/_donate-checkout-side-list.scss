@@ -129,19 +129,48 @@ div.img {
     margin-right: 30px;
   }
 
-  #star {
+  #stars {
+    top: 55%;
+    left: 10%;
     width: 20%;
     height: 100px;
   }
 
-  #man {
+  #star {
     width: 20%;
     height: 100px;
+    animation: shooting_star 5s infinite;
+  }
+
+  #man {
+    bottom: 30%;
+    left: 40%;
+    width: 20%;
+    height: 150px;
+    animation: bubble 3s infinite;
+  }
+  #gold-stars{
+    width: 10%;
+    top: 60%;
+    left: 75%;
+  }
+}
+.img_bottom{
+  display: flex;
+  justify-content: space-between;
+  #flower{
+    height: 80px;
+    display: flex;
+  
+  }
+  #sprout{
+    height: 80px;
+    display: flex;
+   
   }
 }
 
 div.title {
-  padding: 20px;
   display: flex;
   justify-content: space-between;
 
@@ -286,4 +315,39 @@ div.blur-background.show {
   visibility: visible;
   backdrop-filter: blur(5px);
 
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(35px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes shooting_star {
+  0% {
+    display: none;
+    top: 40%;
+    left: 100%;
+  }
+
+  75% {
+    top: 40%;
+    left: 100%;
+  }
+
+  100% {
+    top: 90%;
+    left: 0%;
+    z-index: -1;
+  }
 }

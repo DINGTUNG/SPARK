@@ -105,6 +105,7 @@ div.portal_container {
           width: 15vw;
           cursor: pointer;
           transition: opacity .2s ease-in-out;
+
         }
 
 
@@ -113,7 +114,10 @@ div.portal_container {
           &:hover {
             opacity: 0;
           }
-
+        }
+        img.front2_img,
+        img.front1_img{
+          bottom: 30px;
         }
       }
 

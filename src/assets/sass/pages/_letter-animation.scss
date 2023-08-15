@@ -3,20 +3,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(31, 31, 31, .4);
+    background-image: url('/pictures/images/letter-animation/bgc.jpg');
+    // opacity: 0.5;
+    // background-color: rgba(31, 31, 31, 0.4);
+    background-size: cover;
 
     .letter-wrapper {
         display: flex;
         flex-direction: column;
         position: relative;
-        top: 12vh;
+        top: 11vh;
 
         .letter {
             position: relative;
             margin: auto;
-            margin-top: 220px;
+            margin-top: 20vh;
             z-index: 1;
-            background: #ffffff;
+            background-color:white;
             animation: bounceIn 1s;
 
             @include custom-responsive(" xs sm ") {
@@ -73,13 +76,14 @@
             color: white;
             z-index: 2;
             width: 100%;
+            margin-top:2vh ;
 
             @include custom-responsive(" xs sm lg ") {
                 @include h5_MB;
             }
 
             @include custom-responsive(" xl xx-l ") {
-                @include h5_PC;
+                @include h5_B_PC;
             }
 
         }
@@ -87,7 +91,7 @@
         .notice {
             font-size: 0.875rem;
             letter-spacing: .05rem;
-            color: $primaryBrandBlue;
+            color:  white;
             z-index: 2;
             width: 100%;
 
@@ -96,7 +100,7 @@
             }
 
             @include custom-responsive(" xl xx-l ") {
-                @include h6_PC;
+                @include h5_B_PC;
             }
         }
 

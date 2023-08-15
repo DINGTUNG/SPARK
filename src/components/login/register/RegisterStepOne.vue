@@ -109,25 +109,21 @@ const nextStep = () => {
     const AccountRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const enteredPassword = password.value;
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
-    const enteredSafetyCode = safety_code.value;
     const enteredPasswordCheck = password_check.value;
 
     if (enteredAccount === '') {
         errorContent.value = '帳號欄跟你的戶頭一樣空耶';
     } else if (!AccountRegex.test(enteredAccount)) {
         errorContent.value = '信箱不要亂填，我都有在看^^';
+    } else if (!passwordRegex.test(enteredPassword)) {
+        errorContent.value = '密碼有誤！叭叭叭！！(噴乾冰)';
     } else if (enteredPasswordCheck === '' || enteredPasswordCheck !== enteredPassword) {
         errorContent.value = '兩組密碼不一樣啦是不是老番顛';
     } else {
         registerStepOne ();
     }
 }
-// else if (enteredSafetyCode !== '0000') {
-//         errorContent.value = '驗證碼要確定餒？';
-//     } 
-// else if (!passwordRegex.test(enteredPassword)) {
-//         errorContent.value = '密碼有誤！叭叭叭！！(噴乾冰)';
-//     }
+
 
 
 </script>
@@ -200,11 +196,6 @@ const nextStep = () => {
             <div v-if="errorContent" class="error_content">
                 {{ errorContent }}
             </div>
-
-            <!-- <RouterLink to="/register/register-step-two" class="next_step">
-                <button @click="nextStep">下一步</button>
-            </RouterLink> -->
-
             <button class="next_step" type="button" @click.prevent="nextStep">下一步</button>
         </div>
 

@@ -54,42 +54,20 @@ const instance_vueRecaptchaV2 = reactive({
 });
 
 
-
-
+const passwordField = ref(null);
+const showPassword = ref("password")
 function showHide() {
-    if (passwordField.value.type === 'password') {
-        passwordField.value.type = 'password';
-    } else {
+    if ( showPassword.value === "password") {
         passwordField.value.type = 'text';
+    } else {
+        passwordField.value.type = 'password';
     }
     // 切換顯示密碼圖標
     showPassword.value = !showPassword.value;
 }
-// const login = () => {
-//     const enteredAccount = account.value; // 獲取用戶的帳密
-//     const enteredPassword = password.value;
-//     // 進行驗證
-//     if (enteredAccount === '' || enteredPassword === '') {
-//         errorAccount.value = '請輸入帳號或密碼';
-//     } else if (!isValidToken.value) {
-//         errorAccount.value = '請進行驗證';
-//     } else {
-//         const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
-//         if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
-//             logStore.log.forEach((item) => {
-//                 item.state = false
-//             });
-//             logStore.log[userIndex].state = true;
-//             logStore.token = userIndex;
-//             errorAccount.value = '';
-//             alert(`登入成功：${logStore.log[userIndex].name}`);
-//             router.push({ path: '/home' });
-//             account.value = '';
-//             password.value = '';}
-//         }
 
-
-// //連接會員登入 API
+const errorContent = ref('');
+//連接會員登入 API
 const handleLogin = async () => {
     try {
         const loginForm = document.querySelector('#login_form');
@@ -100,7 +78,7 @@ const handleLogin = async () => {
             router.push({ path: '/home' });
         } else {
             const msg = res.data.msg;
-            alert(msg);
+            errorContent.value = msg;
         }
     } catch (error) {
         console.error('網路請求錯誤:', error);
@@ -115,50 +93,18 @@ if (loginForm) {
         handleLogin();
     });
 }
-
-// const login = () => {
-//     const enteredAccount = account.value; // 獲取用戶的帳密
-//     const enteredPassword = password.value;
-//     // 進行驗證
-//     if (enteredAccount === '' || enteredPassword === '') {
-//         errorAccount.value = '請輸入帳號或密碼';
-//     } else if (!isValidToken.value) {
-//         errorAccount.value = '請進行驗證';
-//     } else {
-//         const userIndex = logStore.log.findIndex((item) => item.name === enteredAccount);
-//         if (userIndex !== -1 && logStore.log[userIndex].pass === enteredPassword) {
-//             logStore.log.forEach((item) => {
-//                 item.state = false
-//             });
-//             logStore.log[userIndex].state = true;
-//             logStore.token = userIndex;
-//             errorAccount.value = '';
-//             alert(`登入成功：${logStore.log[userIndex].name}`);
-//             console.log(logStore.log[userIndex].state)
-//             router.push({ path: '/home' });
-//             account.value = '';
-//             password.value = '';
-
-//         } else {
-//             errorAccount.value = '帳號或密碼不正確';
-//         }
-//     }
-// };
-
 </script>
 <template>
     <div class="login">
         <h1>會員登入</h1>
         <form method="POST" id="login_form" action="http://localhost/SPARK_BACK/php/member/membership_system/handle_login.php" @submit.prevent="handleLogin()">
             <label for="account">帳號
-                <input type="text" name="member_account" class="account" v-model="account" placeholder="輸入您的帳號或信箱"
-                    :class="{ 'animate__animated animate__headShake': errorAccount }" autocomplete="username">
+                <input type="text" name="member_account" class="account" placeholder="輸入您的帳號或信箱" autocomplete="username">
             </label>
             <label for="password">密碼
-                <div class="password_wrapper" ref="passwordField"
-                    :class="{ 'animate__animated animate__headShake': errorAccount }">
+                <div class="password_wrapper" ref="passwordField">
                     <div class="password_block">
-                        <input :type="showPassword ? 'password' : 'text'" class="password" v-model="password"
+                        <input :type="showPassword ? 'password' : 'text'" class="password"
                             placeholder="輸入您的密碼" name="member_password" autocomplete="current-password">
                         <span class="toggle" @click="showHide"><img v-if="showPassword"
                                 :src="'pictures/images/login/eye_hide.svg'" alt="hide" />
@@ -166,6 +112,9 @@ if (loginForm) {
                     </div>
                 </div>
             </label>
+            <div class="error_account">
+                {{ errorContent }}
+            </div>
             <div class="recaptcha_forget_block">
                 <vue-recaptcha :sitekey="instance_vueRecaptchaV2.data_v2SiteKey" size="normal" theme="light" hl="zh-TW"
                     @verify="instance_vueRecaptchaV2.recaptchaVerified" @expire="instance_vueRecaptchaV2.recaptchaExpired"
@@ -176,10 +125,6 @@ if (loginForm) {
                     <router-link to="/login-forget">忘記密碼</router-link>
                     <router-view />
                 </div>
-            </div>
-
-            <div v-if="errorAccount" class="error_account">
-                {{ errorAccount }}
             </div>
             <button class="login_button" type="submit">登入</button>
             <div class="login_methods">

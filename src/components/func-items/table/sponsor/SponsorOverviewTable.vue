@@ -27,7 +27,7 @@ const memberDataStore = useMemberDataStore();
       <tbody v-for="([locationId], index) in [...sponsorCartStore.cart]" :key="locationId">
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ Location.getLocationFrom(locationId).name }}</td>
+          <td>{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</td>
           <td class="add_and_remove">
             <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(locationId) }}</span>
           </td>

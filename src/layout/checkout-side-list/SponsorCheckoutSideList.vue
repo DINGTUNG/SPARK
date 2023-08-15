@@ -27,7 +27,6 @@ const goToCheckoutPageAndCloseSideList = () => {
     <p class="none" v-if="!sponsorCartStore.isCartNotEmpty">請選擇認養地區</p>
     <div class="location_card_inner">
       <div class="location_card" v-for="[locationId] in [...sponsorCartStore.cart]" :key="locationId">
-        <!-- <div class="location_card" v-for="location in sponsorCartStore.sponsorLocationList" :key="location.location_id"> -->
         <div class="sponsor_inner">
           <h5>{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</h5>
           <div class="card_count">

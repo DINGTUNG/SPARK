@@ -11,7 +11,7 @@ div.sponsor_checkout_container {
   }
 
   @include custom-responsive("xx-l") {
-    height: 120vh;
+    height: 126vh;
   }
 
 
@@ -85,7 +85,8 @@ div.sponsor_checkout_container {
         display: block;
         width: 25vw;
         right: 2vw;
-        top: 85vh;
+        top: 90vh;
+        z-index: -10;
       }
     }
   }

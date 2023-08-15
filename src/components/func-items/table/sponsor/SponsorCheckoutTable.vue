@@ -1,5 +1,5 @@
 <script setup>
-import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -24,7 +24,7 @@ const sponsorCartStore = useSponsorCartStore();
 
     <tbody v-for="[locationId] in [...sponsorCartStore.cart]" :key="locationId" >
       <tr>
-        <td>{{ Location.getLocationFrom(locationId).name }}</td>
+        <td>{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</td>
 
         <td class="add_and_remove">
           

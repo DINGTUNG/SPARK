@@ -62,6 +62,7 @@ div.service_milestone_container{
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            cursor: pointer;
 
             div.number_block{
                 letter-spacing: .05rem;
@@ -335,6 +336,7 @@ div.service_milestone_container{
             }
 
             div.arrow_left{
+                cursor: pointer;
                 @include custom-responsive("xs"){
                     left: 0%;
                 }
@@ -344,6 +346,7 @@ div.service_milestone_container{
             }
 
             div.arrow_right{
+                cursor: pointer;
                 @include custom-responsive("xs"){
                     right: 0%;
                 }

@@ -265,6 +265,7 @@
         .next_step {
             text-align: center;
             width: 100%;
+            background-color: $primaryAccentGold;
             @include custom-responsive(" xs sm md lg "){
                     @include regularBlueBtn_MB;
                     width: 100%;

@@ -1,11 +1,35 @@
 <script setup>
-import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
+import { onMounted } from 'vue';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 import { useMemberDataStore } from '@/stores/member-data.js';
 import { usePaymentStore } from '@/stores/payment.js';
 
 const paymentStore = usePaymentStore()
 const sponsorCartStore = useSponsorCartStore();
 const memberDataStore = useMemberDataStore();
+
+import axios from 'axios';
+
+async function insertSponsorOrder() {
+  try {
+    const response = await axios.post('http://localhost/SPARK_BACK/php/sponsor/sponsor-location/get_sponsor_location_front.php')
+
+    response.data.forEach(element => {
+      const location = {
+        location_id: element.location_id,
+        location_name: element.location_name
+      }
+      sponsorCartStore.sponsorLocationList.push(location)
+    });
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+onMounted(() => {
+  insertSponsorOrder()
+})
 
 </script>
 

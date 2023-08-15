@@ -1,7 +1,7 @@
 <script setup>
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
 import { onMounted } from 'vue';
-import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 const sponsorCartStore = useSponsorCartStore();
 import { Swiper, SwiperSlide } from 'swiper/vue';
 

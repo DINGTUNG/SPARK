@@ -9,7 +9,6 @@ const router = useRouter();
     <img :src="'pictures/portal/logo.png'" alt="logo" class="logo">
     <img :src="'pictures/portal/shooting_star_gold.png'" alt="shooting_star_gold" class="shooting_star_gold">
     <img :src="'pictures/portal/three_stars.svg'" alt="three_stars" class="three_stars">
-
     <div class="portal_img_wrap">
       <div class="portal_img_front">
         <div class="box">
@@ -20,7 +19,6 @@ const router = useRouter();
         </div>
         <h2>前台</h2>
       </div>
-
       <div class="portal_img_back">
         <a href="https://tibamef2e.com/chd102/g3/back-end/">
           <div class="box">
@@ -34,7 +32,6 @@ const router = useRouter();
 
   </div>
 </template>
-
 <style scoped lang="scss">
 @import "@/assets/sass/pages/portal";
 </style>

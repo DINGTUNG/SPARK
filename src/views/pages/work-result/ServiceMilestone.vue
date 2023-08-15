@@ -162,28 +162,26 @@ const visibleSlides = computed(() => {
   return slides
 })
 
-//【引入後台資料】
-const milestoneList = reactive([])
+//【串接資料庫】
+const MilestoneList = reactive([]);
+
 async function milestoneConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/results/milestone/milestone.php')
-    console.log(response)
-
+    const response = await axios.post('http://localhost/SPARK_BACK/php/results/milestone/get_milestone.php')
 
     if (response.data.length > 0) {
       response.data.forEach(element => {
-        milestoneList.push(element)
+        MilestoneList.push(element)
       });
     }
   } catch (error) {
     console.error(error);
   }
 }
-console.log(milestoneList)
-
 onMounted(() => {
   milestoneConnection()
 })
+
 </script>
 
 

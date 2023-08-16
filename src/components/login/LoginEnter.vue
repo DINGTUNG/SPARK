@@ -1,5 +1,4 @@
 <script setup>
-import { useLogStore } from '@/stores/login-dummy-data.js'
 import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import VueRecaptcha from 'vue3-recaptcha2';
@@ -147,5 +146,5 @@ if (loginForm) {
     </div>
 </template>
 <style scoped lang="scss">
-@import "../../assets/sass/components/login/login-enter";
+@import "@/assets/sass/components/login/login-enter";
 </style>

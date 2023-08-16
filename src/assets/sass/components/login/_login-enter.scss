@@ -74,8 +74,11 @@
             @include custom-responsive("xs sm ") {
                 display: block;
             }
+            @include custom-responsive(" md lg xl"){
+                display: block;
+            }
 
-            @include custom-responsive("xl xx-l") {
+            @include custom-responsive("xx-l") {
                 display: flex;
             }
 

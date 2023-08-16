@@ -91,8 +91,6 @@ div.portal_container {
     div.portal_img_front,
     div.portal_img_back {
       @include flex_vm;
-
-
       div.box {
         position: relative;
         @include flex_hm;
@@ -105,12 +103,9 @@ div.portal_container {
           width: 15vw;
           cursor: pointer;
           transition: opacity .2s ease-in-out;
-
         }
-
-
-        img.front1,
-        img.back1 {
+        img.front1_img,
+        img.back1_img {
           &:hover {
             opacity: 0;
           }

@@ -49,7 +49,7 @@ onMounted(() => {
     <div class="donate_content_card" v-for="(item, index) in donateCartStore.DonateList" :key="index"
       :ref="item.donate_project_id" :id="item.donate_project_id">
       <div class="card_pic">
-        <img :src="`http://localhost/SPARK_BACK/images/donate-project/${item.donate_project_image}`"
+        <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/donate-project/${item.donate_project_image}`"
           :alt="item.donate_project_name">
       </div>
       <div class="card_content">

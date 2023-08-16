@@ -209,8 +209,8 @@ async function logout() {
   <header class="header_PC">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <img id="logo" :src="'imgSrc'" alt="Sparklogo">
-    </RouterLink>
+      <img id="logo" :src="imgSrc" alt="Sparklogo">
+`   </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>
       <ul>

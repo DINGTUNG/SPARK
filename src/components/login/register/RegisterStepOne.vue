@@ -1,8 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import { reactive } from "vue";
-import { RouterView } from 'vue-router'
-import { RouterLink } from 'vue-router';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
 
@@ -43,7 +40,7 @@ function alertSafetyCode() {
 async function verifyOne () {
     try{
         const member_account = account.value;
-        const res = await axios.get(`http://localhost/SPARK_BACK/php/member/membership_system/verification_letter.php?member_account=${member_account}`, { withCredentials: true })
+        const res = await axios.get(`https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/verification_letter.php?member_account=${member_account}`, { withCredentials: true })
         if (res.data.status === "ok") {
             alert('驗證碼已寄出，請至信箱收取');
         } else {
@@ -88,11 +85,11 @@ async function registerStepOne () {
   try {
         const main_form = document.querySelector('#main_form');
         const formData = new FormData(main_form);
-        const res = await axios.post('http://localhost/SPARK_BACK/php/member/membership_system/registerStepOne.php', formData, { withCredentials: true })
+        const res = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/registerStepOne.php', formData, { withCredentials: true })
         console.log(res.data);
         if (res.data.status === 'ok') {
             console.log(res.data);
-            window.location.href = 'http://localhost:5174/chd102/g3/register/register-step-two';
+            window.location.href = 'https://tibamef2e.com/chd102/g3/register/register-step-two';
         } else {
             const msg = res.data.msg;
             alert(msg);
@@ -146,7 +143,7 @@ const nextStep = () => {
             完成註冊後，帳號、姓名和身分證/統一編號將無法變更，為避免影響您權益，請正確填寫，有任何問題請來電洽詢。
         </p>
     </div>
-    <form id="main_form" method="POST" action="http://localhost/SPARK_BACK/php/member/membership_system/registerStepOne.php">
+    <form id="main_form" method="POST" action="https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/registerStepOne.php">
         <div class="main_form">
             <div class="form_title">
                 <i class="fa-solid fa-circle-user"></i>

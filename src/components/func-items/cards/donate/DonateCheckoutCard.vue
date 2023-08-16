@@ -12,7 +12,7 @@ const donateCartStore = useDonateCartStore();
     <div class="checkout_datalist">
       <div class="check_out_data">
         <div class="chosen_donate_project_wrap">
-          <span class="chosen_donate_project">{{ donateCartStore.chosenDonateProject.title }}</span>
+          <span class="chosen_donate_project">{{ donateCartStore.donateCart[0].donate_project_name }}</span>
           <span class="chosen_donate_project">NTD {{ donateCartStore.chosenPrice }}</span>
         </div>
       </div>

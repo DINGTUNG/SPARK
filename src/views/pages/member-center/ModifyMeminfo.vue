@@ -1,5 +1,6 @@
 <script setup>
 import { ref,reactive, onMounted } from 'vue';
+import axios from 'axios';
 
 const memberData = ref({
     name: '蔡頭瓜',
@@ -11,24 +12,21 @@ const memberData = ref({
     address: '320桃園市中壢區復興路46號9樓',
     receipt: 'donate'
 });
-const isEditMode = ref(false);
 
-const toggleEditMode = () => {
-  isEditMode.value = !isEditMode.value;
-};
-const saveData = () => {
-  localStorage.setItem('memberData', JSON.stringify(memberData.value));
-  toggleEditMode();
-};
-const cancelEdit = () => {
-  const data = JSON.parse(localStorage.getItem('memberData') || '{}');
-  Object.assign(memberData.value, data);
-  toggleEditMode();
-};
-onMounted(() => {
-  const data = JSON.parse(localStorage.getItem('memberData') || '{}');
-  Object.assign(memberData.value, data);
-});
+
+// const saveData = () => {
+//   localStorage.setItem('memberData', JSON.stringify(memberData.value));
+//   toggleEditMode();
+// };
+// const cancelEdit = () => {
+//   const data = JSON.parse(localStorage.getItem('memberData') || '{}');
+//   Object.assign(memberData.value, data);
+//   toggleEditMode();
+// };
+// onMounted(() => {
+//   const data = JSON.parse(localStorage.getItem('memberData') || '{}');
+//   Object.assign(memberData.value, data);
+// });
 
 
 const Years = reactive([
@@ -50,6 +48,28 @@ const handleFileChange = (event) => {
   imageUrl.value = URL.createObjectURL(file);
 };
 
+let member = reactive({})
+async function getMemberInfo() {
+  try {
+    const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/get_member_info.php', { withCredentials: true })
+    console.log(res)
+    member = res.data;
+    console.log(member);
+
+  } catch (error) {
+    console.error('網路請求錯誤:', error);
+    alert('網路請求錯誤');
+  }
+};
+
+onMounted(async () => {
+  await getMemberInfo(); // 等待資料讀取完成
+});
+const isEditMode = ref(false);
+
+const toggleEditMode = () => {
+    isEditMode.value = !isEditMode.value;
+};
 </script>
 <template>
     <div class="container">
@@ -91,9 +111,10 @@ const handleFileChange = (event) => {
                     <label for="name">姓名*：</label>
                     <input v-if="isEditMode"
                     type="text" class="name" id="name"
-                    v-model="memberData.name"
+                   
+                    :value="member.member_name"
                     maxlength="30">
-                    <span v-else>{{ memberData.name }}</span>
+                    <span v-else>{{ member.member_name }}</span>
                     <div class="label_radio_wrap name_title">
                         <div class="radio_item">
                             <label class="label_radio"><input type="radio" name="name_title" value="male"
@@ -200,13 +221,13 @@ const handleFileChange = (event) => {
 
                 <div class="confirm_button">
                     <button class="confirm" type="button"
-                    :class="{ gold : isEditMode }"  @click="saveData">
+                    :class="{ gold : isEditMode }"  @click="toggleEditMode">
                     {{ isEditMode ? '確認修改' : '修改基本資料' }}
                     </button>
                     <button v-if="isEditMode"
                         class="cancel"
                         type="button"
-                        @click="cancelEdit">取消
+                        @click="toggleEditMode">取消
                     </button>
                 </div>
             </div>

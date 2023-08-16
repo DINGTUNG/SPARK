@@ -121,7 +121,7 @@ export const useDreamStarStore = defineStore('dream-star', () => {
     // make a request
     const request = {
       method: 'POST',
-      url: `http://localhost/SPARK_BACK/php/activity/dream-star/update_dream_star_vote_front.php`,
+      url: `https://tibamef2e.com/chd102/g3/back-end/php/activity/dream-star/update_dream_star_vote_front.php`,
       headers: {
         'Content-Type': 'multipart/form-data'
       },
@@ -160,7 +160,7 @@ export const useDreamStarStore = defineStore('dream-star', () => {
     // make a request
     const request = {
       method: 'POST',
-      url: `http://localhost/SPARK_BACK/php/activity/dream-star-vote/create_dream_star_vote_front.php`,
+      url: `https://tibamef2e.com/chd102/g3/back-end/php/activity/dream-star-vote/create_dream_star_vote_front.php`,
       headers: {
         'Content-Type': 'multipart/form-data'
       },

@@ -190,10 +190,10 @@ onMounted(() => {
 
 async function logout() {
   try {
-        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/handle_logout.php' ,{ withCredentials: true})
+        const res = await axios.get('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/handle_logout.php' ,{ withCredentials: true})
         console.log(res.data)
         if (res.data.status === 'ok') {
-            window.location.href = 'http://localhost:5174/chd102/g3/home'
+            window.location.href = 'https://tibamef2e.com/chd102/g3/home'
         }
     } catch (error) {
         console.error('網路請求錯誤:', error);
@@ -209,8 +209,8 @@ async function logout() {
   <header class="header_PC">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <img id="logo" :src="'imgSrc'" alt="Sparklogo">
-    </RouterLink>
+      <img id="logo" :src="imgSrc" alt="Sparklogo">
+`   </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>
       <ul>

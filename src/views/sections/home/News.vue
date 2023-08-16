@@ -1,5 +1,5 @@
 <script setup>
-import { reactive,onMounted  } from 'vue';
+import { reactive, onMounted } from 'vue';
 import { RouterLink } from 'vue-router'
 import axios from 'axios'
 // const newsList = reactive([
@@ -73,7 +73,8 @@ onMounted(() => {
     <div class="news_content_card" v-for="newsContentCard in newsList" :key="newsList.news_id">
       <RouterLink :to="`/single-news?id=${newsContentCard.news_id}`" class="news_card_link">
         <div class="card_pic">
-          <img :src="`http://localhost/SPARK_BACK/images/news/${newsContentCard.news_image_first}`" :alt="newsContentCard.title">
+          <img :src="`http://localhost/SPARK_BACK/images/news/${newsContentCard.news_image_first}`"
+            :alt="newsContentCard.title">
           <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
         </div>
         <div class="card_content">
@@ -111,8 +112,13 @@ onMounted(() => {
       padding: 0 4% 0 0;
     }
 
-    @include custom-responsive("sm md lg xl xx-l") {
-      width: 2.5%;
+    @include custom-responsive("sm md lg xl") {
+      width: 5%;
+      padding: 0 1.5% 0 0;
+    }
+
+    @include custom-responsive("xx-l") {
+      width: 4%;
       padding: 0 1.5% 0 0;
     }
   }

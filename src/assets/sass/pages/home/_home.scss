@@ -417,6 +417,7 @@
         }
     }
 .intro_map {
+    // outline: 1px solid red;
     position: relative;
     @include custom-responsive("xs sm md") {
                 padding: 0 0 40%;
@@ -564,6 +565,42 @@
             }
         }
     }
+
+.dot_note {
+    position: absolute;
+    color: $primaryBrandBlue;
+    background-color: $decorativeYellow;
+    border-radius: 50px;
+
+    @include custom-responsive("xs sm md") {
+        display: none;
+    }
+    @include custom-responsive("md") {
+        top: 19.2vw;
+        right: 36vw;
+        padding: 8px 15px;
+        display: inline-block;
+        @include h6_PC;
+    }
+    @include custom-responsive("lg") {
+        top: -5vw;
+        right: 38vw;
+        @include h6_PC;
+        padding: 8px 15px;
+    }
+    @include custom-responsive("xl xx-l") {
+        top: -5vw;
+        right: 41vw;
+        @include h5_B_PC;
+        padding: 10px 18px;
+    }
+
+}
+
+.animate__animated.animate__fadeInUp {
+    --animate-duration: 2s;
+}
+
 }
 .girl_bubbling {
     width: 24%;
@@ -578,6 +615,60 @@
         display: block;
     }
 }
+
+.three_stars_group {
+    position: absolute;
+
+    @include custom-responsive("xs sm") {
+        display: none;
+    }
+
+    @include custom-responsive("md") {
+        display: block;
+        width: 14vw;
+        top: 19vw;
+        left: 7vw;
+    }
+    @include custom-responsive("lg") {
+        width: 15vw;
+        top: 19vw;
+        left: 6vw;
+    }
+    @include custom-responsive("xl xx-l") {
+        width: 10vw;
+        top: 19vw;
+        left: 7vw;
+    }
+}
+
+.blue_octagonal_star {
+    position: absolute;
+
+    @include custom-responsive("xs sm") {
+        display: none;
+    }
+    @include custom-responsive("md") {
+        display: block;
+        width: 7vw;
+        top: 0;
+        right: 13vw;
+    }
+    @include custom-responsive("lg") {
+        width: 7vw;
+        top: 0;
+        right: 12vw;
+    }
+    @include custom-responsive("xl xx-l") {
+        width: 5vw;
+        top: 0;
+        right: 12vw;
+    }
+}
+
+.animate__animated.animate__pulse {
+    --animate-duration: 3.2s;
+}
+
 }
 
 .section_news {

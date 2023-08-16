@@ -89,7 +89,7 @@ const projectChosen = () => {
       <Images :imgSrc="'pictures/decorations/illustration/golden_star_3.svg'" :alt="'金星'" id="gold-stars" />
     </div>
     <div class="img_bottom">
-      <Images :imgSrc="'../../../public/pictures/decorations/illustration/sprout.svg'" :alt="'草'" id="sprout" />
+      <Images :imgSrc="'pictures/decorations/illustration/sprout.svg'" :alt="'草'" id="sprout" />
       <Images :imgSrc="'pictures/decorations/illustration/flower.svg'" :alt="'花'" id="flower" />
     </div>
     <div class="donate_total">

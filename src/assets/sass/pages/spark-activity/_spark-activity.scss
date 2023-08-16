@@ -18,11 +18,11 @@ div.spark_activity_container {
   }
 
   @include custom-responsive("xl") {
-    height: 530vh;
+    height: 540vh;
   }
 
   @include custom-responsive("xx-l") {
-    height: 510vh;
+    height: 520vh;
   }
 
 
@@ -301,7 +301,7 @@ div.spark_activity_container {
     @include custom-responsive("xl xx-l") {
       right: 15vw;
       width: 15vw;
-      bottom: 10vh;
+      bottom: 7vh;
     }
 
   }

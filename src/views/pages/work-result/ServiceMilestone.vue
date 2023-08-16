@@ -1,4 +1,4 @@
-<script setup> 
+<script setup>
 //【引入】
 import { ref, onMounted, onBeforeUnmount, onUnmounted, computed, watchEffect, reactive } from 'vue';
 import axios from 'axios';
@@ -14,7 +14,7 @@ const numberBlocks = [
     imageSrc: 'pictures/images/results/service-milestone/star_education.png',
     altText: '教育補助',
     title: '教育補助人數',
-    number: 955 
+    number: 955
   },
   {
     id: 2,
@@ -46,11 +46,11 @@ const numberBlocks = [
 const baseBannerPath = 'pictures/images/results/service-milestone/';
 
 const banners = {
-    default: `${baseBannerPath}banner.jpg`,
-    education: `${baseBannerPath}banner_education.jpg`,
-    nutrition: `${baseBannerPath}banner_nutrition.jpg`,
-    foster: `${baseBannerPath}banner_foster.jpg`,
-    childProtection: `${baseBannerPath}banner_child.jpg`
+  default: `${baseBannerPath}banner.jpg`,
+  education: `${baseBannerPath}banner_education.jpg`,
+  nutrition: `${baseBannerPath}banner_nutrition.jpg`,
+  foster: `${baseBannerPath}banner_foster.jpg`,
+  childProtection: `${baseBannerPath}banner_child.jpg`
 };
 
 const initialBanner = 'default';
@@ -97,7 +97,7 @@ const getEventHandlers = (blockKey) => {
 };
 
 //【輪播圖數據】
-// const carouselData = [ 
+// const carouselData = [
 //   {
 //     image: 'pictures/images/results/service-milestone/card_first.png',
 //     alt: '暖心聖誕',
@@ -128,25 +128,12 @@ const getEventHandlers = (blockKey) => {
 //   },
 // ];
 
-const leftArrowImage = 'pictures/images/results/service-milestone/arrow_left.png';
-const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.png';
-
-//【輪播圖動畫】
-let currentSlide = ref(0)
-
-const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % MilestoneList.length  //carouselData更改為milestoneList
-}
-
-const previousSlide = () => {
-  currentSlide.value = (currentSlide.value + MilestoneList.length - 1) % MilestoneList.length //carouselData更改為milestoneList
-}
-
 let intervalId
-
 onMounted(() => {
+  milestoneConnection()
   // 每三秒自動轉到下一頁
   intervalId = setInterval(nextSlide, 3000)
+
 })
 
 onUnmounted(() => {
@@ -154,99 +141,120 @@ onUnmounted(() => {
   clearInterval(intervalId)
 })
 
-const visibleSlides = computed(() => {
-  let slides = []
-  for (let i = 0; i < 3; i++) {
-    slides.push(MilestoneList[(currentSlide.value + i) % MilestoneList.length]) //carouselData更改為milestoneList
-  }
-  
-  return slides
-})
-
 //【串接資料庫】你好
-const MilestoneList = reactive([]);
+const MilestoneList = [];
 
+let currentSlide = ref(0)
 async function milestoneConnection() {
   try {
     const response = await axios.post('http://localhost/SPARK_BACK/php/results/milestone/get_milestone.php')
+    if (response.data.length > 0) {
       response.data.forEach(element => {
-        MilestoneList.push(element)
-        console.log(MilestoneList)
+
+        const milestone = {
+          milestone_title: element.milestone_title,
+          milestone_content: element.milestone_content,
+          milestone_date: element.milestone_date,
+          milestone_image: element.milestone_image
+        }
+        MilestoneList.push(milestone)
       });
+    }
 
   } catch (error) {
     console.error(error);
   }
 }
-onMounted(() => {
-  milestoneConnection()
-})
+
+const visibleSlides = computed(() => {
+  let slides = []
+  for (let i = 0; i < 3; i++) {
+    slides.push(MilestoneList[(currentSlide.value + i) % MilestoneList.length]) //carouselData更改為milestoneList
+  }
+  return slides
+});
+
+const leftArrowImage = 'pictures/images/results/service-milestone/arrow_left.png';
+const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.png';
+
+//【輪播圖動畫】
+
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % MilestoneList.length  //carouselData更改為milestoneList
+    ;
+}
+
+const previousSlide = () => {
+  currentSlide.value = (currentSlide.value + MilestoneList.length - 1) % MilestoneList.length //carouselData更改為milestoneList
+}
 
 </script>
 
 
 <template>
-<!-- banner -->
-    <div class="service_milestone_banner">
-        <img :src="currentBanner" alt="服務里程碑封面">
+  <!-- banner -->
+  <div class="service_milestone_banner">
+    <img :src="currentBanner" alt="服務里程碑封面">
+  </div>
+  <!-- 一顆發光星星代表 -->
+  <div class="service_milestone_star_info">
+    <div class="picture">
+      <img :src="'pictures/images/results/service-milestone/star_info.png'" alt="星星代表資訊">
     </div>
-<!-- 一顆發光星星代表 -->
-    <div class="service_milestone_star_info">
-        <div class="picture">
-            <img :src="'pictures/images/results/service-milestone/star_info.png'" alt="星星代表資訊">
-        </div>
-        <div class="info">
-            <span>一顆發光星星代表</span>
-            <br>
-            <span class="number">{{peopleCount}}<span>人次</span></span>     
-        </div>
+    <div class="info">
+      <span>一顆發光星星代表</span>
+      <br>
+      <span class="number">{{ peopleCount }}<span>人次</span></span>
     </div>
-<!--  -->
-    <div class="service_milestone_container">
-        <div class="main_body">
-<!-- 贊助人數 -->
-            <div class="number_of_people" @mouseleave="resetBanner">
-                <div v-for="block in numberBlocks" :key="block.id" class="number_block" v-on="getEventHandlers(block.key)">
-                    <img :src="block.imageSrc" :alt="block.altText">
-                    <h5>{{ block.title }}</h5>
-                    <br>
-                    <span class="number">{{ block.number }}<span>人次</span></span>
-                </div>
-            </div>
-<!-- 裝飾線 -->
-            <div class="title_block">
-                <h1>服務里程碑</h1>
-                <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
-            </div>
-<!-- 輪播圖 -->
-            <div class="carousel">
-              <!-- spark小插圖 -->
-              <img :src="'pictures/images/results/service-milestone/spark.png'" alt="Spark Image" class="spark_image">
+  </div>
+  <!--  -->
+  <div class="service_milestone_container">
+    <div class="main_body">
+      <!-- 贊助人數 -->
+      <div class="number_of_people" @mouseleave="resetBanner">
+        <div v-for="block in numberBlocks" :key="block.id" class="number_block" v-on="getEventHandlers(block.key)">
+          <img :src="block.imageSrc" :alt="block.altText">
+          <h5>{{ block.title }}</h5>
+          <br>
+          <span class="number">{{ block.number }}<span>人次</span></span>
+        </div>
+      </div>
+      <!-- 裝飾線 -->
+      <div class="title_block">
+        <h1>服務里程碑</h1>
+        <img class="deco_line" :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線">
+      </div>
+      <!-- 輪播圖 -->
+      <div class="carousel">
+        <!-- spark小插圖 -->
+        <img :src="'pictures/images/results/service-milestone/spark.png'" alt="Spark Image" class="spark_image">
 
-              <div v-for="(card, index) in visibleSlides" :key="index" :class="`card card_${index + 1} size_${index + 1}`" :ref="card.milestone_id" :id="card.milestone_id">
-                <img :src="`http://localhost/SPARK_BACK/images/milestone/${item.milestone_image}`" :alt="item.milestone_name">
-                <span>{{ card.milestone_date }}</span>
-                <h4>{{ card.milestone_title }}</h4>
-                <h5>{{ card.milestone_content }}</h5>
-                <!-- 卡片中的小插圖 -->
-                <img :src="card.starImage" :alt="`Star Image ${index + 1}`" class="star_image">
-                <img :src="card.meteorImage" :alt="`Meteor Image ${index + 1}`" class="meteor_image">    
-              </div>
-
-              <div class="arrow arrow_left" @click="previousSlide">
-                <img :src="leftArrowImage" alt="左箭頭">
-              </div>
-
-              <div class="arrow arrow_right" @click="nextSlide">
-                <img :src="rightArrowImage" alt="右箭頭">
-              </div>
-            </div>
-            
-            
+        <div v-for="(milestone, index) in visibleSlides" :key="index" :class="`card card_${index + 1} size_${index + 1}`"
+          :ref="milestone.milestone_id" :id="milestone.milestone_id">
+          <img :src="`http://localhost:5174/chd102/g3/back-end/images/milestone/${milestone.milestone_image}`"
+            :alt="milestone.milestone_title">
+          <span>{{ milestone.milestone_date }}</span>
+          <h4>{{ milestone.milestone_title }}</h4>
+          <h5>{{ milestone.milestone_content }}</h5>
+          <!-- 卡片中的小插圖 -->
+          <img :src="'pictures/images/results/service-milestone/star.png'" :alt="`Star Image ${index + 1}`" class="star_image">
+          <img :src="'pictures/images/results/service-milestone/meteor.png'" :alt="`Meteor Image ${index + 1}`" class="meteor_image">
         </div>
 
+        <div class="arrow arrow_left" @click="previousSlide">
+          <img :src="leftArrowImage" alt="左箭頭">
+        </div>
+
+        <div class="arrow arrow_right" @click="nextSlide">
+          <img :src="rightArrowImage" alt="右箭頭">
+        </div>
+      </div>
+
+
     </div>
 
+  </div>
 </template>
 
 <style lang="scss">

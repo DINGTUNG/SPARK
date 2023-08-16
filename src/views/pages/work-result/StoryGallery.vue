@@ -52,11 +52,20 @@ const picUnder = () => {
 
 
 //獲取溫馨紀事資料
-const warmStory = reactive([])
+const warmStoryPool = reactive([])
 async function getData () {
   try{
-    const res = await axios.get('https://tibamef2e.com/chd102/g3/back-end/php/results/story/front_read_story.php')
-    warmStory.value = res.data
+    const res = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/results/story/front_read_story.php')
+    res.data.forEach((item) => {
+      const story = {
+        story_no: item.story_no,
+        story_date: item.story_date,
+        story_title: item.story_title,
+        story_brief: item.story_brief,
+        story_image: item.story_image,
+      }
+      warmStoryPool.push(story)
+    })
   }
   catch(error){
     console.log(error);
@@ -70,10 +79,10 @@ onMounted(() => {
   //分頁
   const itemsPerPage = 6;
     const displayStoryList = computed(() => {
-      if (warmStory.value) {
+      if (warmStoryPool) {
         const startIdx = (page.value - 1) * itemsPerPage;
         const endIdx = startIdx + itemsPerPage;
-        return reactive(warmStory.value.slice(startIdx, endIdx));
+        return reactive(warmStoryPool.slice(startIdx, endIdx));
       } else {
         return reactive([]);
       }
@@ -181,7 +190,7 @@ const scrollTo = (area) => {
         <div class="story-list">
           <div class="card" v-for="(item, id) in displayStoryList" :key="id">
             <div class="pic">
-              <img :src="`http://localhost/SPARK_BACK/images/story/${item.story_image}`" alt="故事照片" />
+              <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/story/${item.story_image}`" alt="故事照片" />
               <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
             </div>
             <div class="text">

@@ -98,7 +98,7 @@ if (loginForm) {
         <h1>會員登入</h1>
         <form method="POST" id="login_form" action="http://localhost/SPARK_BACK/php/member/membership_system/handle_login.php" @submit.prevent="handleLogin()">
             <label for="account">帳號
-                <input type="text" name="member_account" class="account" placeholder="輸入您的帳號或信箱" autocomplete="username">
+                <input type="text" name="member_account" class="account" :class="{ 'animate__animated animate__headShake': errorAccount }" placeholder="輸入您的帳號或信箱" autocomplete="username">
             </label>
             <label for="password">密碼
                 <div class="password_wrapper" ref="passwordField">

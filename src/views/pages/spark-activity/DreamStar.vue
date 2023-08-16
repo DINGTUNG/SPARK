@@ -18,6 +18,11 @@ const slideList = reactive([{
 },
 ])
 
+
+
+
+
+
 </script>
 
 <template>
@@ -44,7 +49,7 @@ const slideList = reactive([{
           </div>
           <div class="vote_wrap">
             <img :src="'pictures/spark_activity/dream_star/vote_star.svg'" alt="">
-            <span class="vote_number">{{ dreamStarStore.getCurrentCountInVoteRecord(dreamStarStore.selectedDreamStar) }}</span>
+            <span class="vote_number">{{ dreamStarStore.dreamStarPool[2].dream_star_votes }}</span>
           </div>
         </div>
 

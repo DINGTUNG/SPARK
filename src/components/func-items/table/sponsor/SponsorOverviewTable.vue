@@ -1,5 +1,6 @@
 <script setup>
-import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
+// import { ref, reactive } from 'vue';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 import { useMemberDataStore } from '@/stores/member-data.js';
 import { usePaymentStore } from '@/stores/payment.js';
 
@@ -7,6 +8,45 @@ const paymentStore = usePaymentStore()
 const sponsorCartStore = useSponsorCartStore();
 const memberDataStore = useMemberDataStore();
 
+const sponsorOrders = []
+
+getNewSponsorOrderData()
+createSponsorOrders()
+
+function createSponsorOrder(locationId, price, paymentPlan, paymentMethod) {
+
+  try {
+    sponsorCartStore.createSponsorOrderBackend(locationId, price, paymentPlan, paymentMethod)
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function getNewSponsorOrderData() {
+  sponsorOrders.length = 0
+  for (let i = 0; i < sponsorCartStore.cart.size; i++) {
+    for (let j = 0; j < [...sponsorCartStore.cart][i][1]; j++) {
+      const sponsorOrderForCreate = {
+        locationId: '',
+        price: null,
+        paymentPlan: '',
+        paymentMethod: ''
+      }
+      sponsorOrderForCreate.locationId = [...sponsorCartStore.cart][i][0]
+      sponsorOrderForCreate.price = sponsorCartStore.getLocationCost() * sponsorCartStore.chosenPlanType.period
+      sponsorOrderForCreate.paymentPlan = sponsorCartStore.chosenPlanType.display
+      sponsorOrderForCreate.paymentMethod = paymentStore.chosenMethodType.display
+      sponsorOrders.push(sponsorOrderForCreate)
+    }
+  }
+}
+
+function createSponsorOrders() {
+  sponsorOrders.forEach(sponsorOrder => {
+    createSponsorOrder(sponsorOrder.locationId, sponsorOrder.price, sponsorOrder.paymentPlan, sponsorOrder.paymentMethod)
+  });
+
+}
 </script>
 
 <template>
@@ -27,11 +67,11 @@ const memberDataStore = useMemberDataStore();
       <tbody v-for="([locationId], index) in [...sponsorCartStore.cart]" :key="locationId">
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ Location.getLocationFrom(locationId).name }}</td>
+          <td>{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</td>
           <td class="add_and_remove">
             <span class="count"> {{ sponsorCartStore.getCurrentCountInCart(locationId) }}</span>
           </td>
-          <td>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</td>
+          <td>NTD {{ sponsorCartStore.getLocationTotalCost(locationId) * sponsorCartStore.chosenPlanType.period }}</td>
         </tr>
       </tbody>
 
@@ -39,7 +79,8 @@ const memberDataStore = useMemberDataStore();
         <td colspan="4" class="total">
           <div>
             <img class="star" :src="'pictures/decorations/illustration/orange_asterisk_single_2.svg'"
-              alt=""><span>認養費({{ sponsorCartStore.chosenPlanType.display}})</span><span>NTD {{ sponsorCartStore.totalCost * sponsorCartStore.chosenPlanType.period }}</span>
+              alt=""><span>認養費({{ sponsorCartStore.chosenPlanType.display }})</span><span>NTD
+              {{ sponsorCartStore.totalCost * sponsorCartStore.chosenPlanType.period }}</span>
           </div>
         </td>
       </tfoot>
@@ -71,7 +112,7 @@ const memberDataStore = useMemberDataStore();
         <td class="title">Email</td>
         <td>{{ memberDataStore.memberData.email }}</td>
         <td class="title">定期繳款方案</td>
-        <td>{{ sponsorCartStore.chosenPlanType.display }}繳</td>
+        <td>{{ sponsorCartStore.chosenPlanType.display }}</td>
       </tr>
 
       <tr>

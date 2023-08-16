@@ -1,12 +1,14 @@
 <script setup>
 import SponsorOverviewTable from '@/components/func-items/table/sponsor/SponsorOverviewTable.vue'
 import { useRouter } from 'vue-router';
-
 const router = useRouter()
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+const sponsorCartStore = useSponsorCartStore();
 
 const goToHomePageTop = () => {
   router.push({ path: '/home' });
   window.scrollTo(0, 0);
+  sponsorCartStore.cart.clear()
 }
 </script>
 

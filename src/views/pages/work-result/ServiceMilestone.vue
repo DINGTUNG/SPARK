@@ -149,7 +149,7 @@ let currentSlide = ref(0)
 async function milestoneConnection() {
   try {
 
-    const response = await axios.post('http://localhost/SPARK_BACK/php/results/milestone/get_milestone.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/results/milestone/get_milestone.php')
 
     if (response.data.length > 0) {
       response.data.forEach(element => {
@@ -237,7 +237,7 @@ const previousSlide = () => {
 
         <div v-for="(milestone, index) in visibleSlides" :key="index" :class="`card card_${index + 1} size_${index + 1}`"
           :ref="milestone.milestone_id" :id="milestone.milestone_id">
-          <img :src="`http://localhost:5174/chd102/g3/back-end/images/milestone/${milestone.milestone_image}`"
+          <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/milestone/${milestone.milestone_image}`"
             :alt="milestone.milestone_title">
           <span>{{ milestone.milestone_date }}</span>
           <h4>{{ milestone.milestone_title }}</h4>

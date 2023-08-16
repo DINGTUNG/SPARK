@@ -19,7 +19,7 @@ const updateImageSource = (newRouteName) => {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
       imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_white_second.svg';
     } else {
-      imgSrc.value = 'pictures/logo/logo_blue_second.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_blue_second.svg';
     }
   } else {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
@@ -48,21 +48,21 @@ const menuItems = ref([
   {
     label: '認識星火',
     route: '/about',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '服務內容',
     route: '/service',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '成果佈告欄',
     route: '/work-result',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
     children: [
@@ -74,7 +74,7 @@ const menuItems = ref([
   {
     label: '認養計畫',
     route: '/sponsor',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
     children: [
@@ -85,7 +85,7 @@ const menuItems = ref([
   {
     label: '捐款專案',
     route: '/donate',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
     children: [
@@ -96,14 +96,14 @@ const menuItems = ref([
   {
     label: '星火之友',
     route: '/contact',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '星火活動',
     route: '/spark-activity',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },

@@ -234,7 +234,7 @@ async function logout() {
             <RouterLink to="/member-center">認養紀錄</RouterLink>
             <RouterLink to="/member-center/donate-record">捐款紀錄</RouterLink>
             <RouterLink to="/member-center/letter-record">感謝函專區</RouterLink>
-            <RouterLink to="/member-center/modify-meminfo">修改基本資料</RouterLink>
+            <RouterLink to="/member-center/modify-meminfo">會員基本資料</RouterLink>
             <a @click="logout()">登出</a>
           </div>
         </li>

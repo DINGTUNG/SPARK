@@ -97,36 +97,36 @@ const getEventHandlers = (blockKey) => {
 };
 
 //【輪播圖數據】
-const carouselData = [ 
-  {
-    image: 'pictures/images/results/service-milestone/card_first.png',
-    alt: '暖心聖誕',
-    date: '2022.12',
-    title: '暖心聖誕',
-    description: '邀請士元火鍋店為孩子們準備豐富的火鍋大餐',
-    starImage: 'pictures/images/results/service-milestone/star.png',
-    meteorImage: 'pictures/images/results/service-milestone/meteor.png',
+// const carouselData = [ 
+//   {
+//     image: 'pictures/images/results/service-milestone/card_first.png',
+//     alt: '暖心聖誕',
+//     date: '2022.12',
+//     title: '暖心聖誕',
+//     description: '邀請士元火鍋店為孩子們準備豐富的火鍋大餐',
+//     starImage: 'pictures/images/results/service-milestone/star.png',
+//     meteorImage: 'pictures/images/results/service-milestone/meteor.png',
 
-  },
-  {
-    image: 'pictures/images/results/service-milestone/card_second.png',
-    alt: '環境小尖兵',
-    date: '2023.02',
-    title: '環境小尖兵',
-    description: '帶領孩子們前往海邊淨灘，為環保盡一份心力',
-    starImage: 'pictures/images/results/service-milestone/star.png',
-    meteorImage: 'pictures/images/results/service-milestone/meteor.png',
-  },
-  {
-    image: 'pictures/images/results/service-milestone/card_third.png',
-    alt: '愛心稻田',
-    date: '2023.06',
-    title: '愛心稻田',
-    description: '疫情解封後，首次到田裡體驗務農的辛勞，學習感恩',
-    starImage: 'pictures/images/results/service-milestone/star.png',
-    meteorImage: 'pictures/images/results/service-milestone/meteor.png',
-  },
-];
+//   },
+//   {
+//     image: 'pictures/images/results/service-milestone/card_second.png',
+//     alt: '環境小尖兵',
+//     date: '2023.02',
+//     title: '環境小尖兵',
+//     description: '帶領孩子們前往海邊淨灘，為環保盡一份心力',
+//     starImage: 'pictures/images/results/service-milestone/star.png',
+//     meteorImage: 'pictures/images/results/service-milestone/meteor.png',
+//   },
+//   {
+//     image: 'pictures/images/results/service-milestone/card_third.png',
+//     alt: '愛心稻田',
+//     date: '2023.06',
+//     title: '愛心稻田',
+//     description: '疫情解封後，首次到田裡體驗務農的辛勞，學習感恩',
+//     starImage: 'pictures/images/results/service-milestone/star.png',
+//     meteorImage: 'pictures/images/results/service-milestone/meteor.png',
+//   },
+// ];
 
 const leftArrowImage = 'pictures/images/results/service-milestone/arrow_left.png';
 const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.png';
@@ -135,11 +135,11 @@ const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.p
 let currentSlide = ref(0)
 
 const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % carouselData.length  //carouselData更改為milestoneList
+  currentSlide.value = (currentSlide.value + 1) % MilestoneList.length  //carouselData更改為milestoneList
 }
 
 const previousSlide = () => {
-  currentSlide.value = (currentSlide.value + carouselData.length - 1) % carouselData.length //carouselData更改為milestoneList
+  currentSlide.value = (currentSlide.value + MilestoneList.length - 1) % MilestoneList.length //carouselData更改為milestoneList
 }
 
 let intervalId
@@ -157,23 +157,23 @@ onUnmounted(() => {
 const visibleSlides = computed(() => {
   let slides = []
   for (let i = 0; i < 3; i++) {
-    slides.push(carouselData[(currentSlide.value + i) % carouselData.length]) //carouselData更改為milestoneList
+    slides.push(MilestoneList[(currentSlide.value + i) % MilestoneList.length]) //carouselData更改為milestoneList
   }
+  
   return slides
 })
 
-//【串接資料庫】
+//【串接資料庫】你好
 const MilestoneList = reactive([]);
 
 async function milestoneConnection() {
   try {
     const response = await axios.post('http://localhost/SPARK_BACK/php/results/milestone/get_milestone.php')
-
-    if (response.data.length > 0) {
       response.data.forEach(element => {
         MilestoneList.push(element)
+        console.log(MilestoneList)
       });
-    }
+
   } catch (error) {
     console.error(error);
   }
@@ -223,11 +223,11 @@ onMounted(() => {
               <!-- spark小插圖 -->
               <img :src="'pictures/images/results/service-milestone/spark.png'" alt="Spark Image" class="spark_image">
 
-              <div v-for="(card, index) in visibleSlides" :key="card.id" :class="`card card_${index + 1} size_${index + 1}`">
-                <img :src="card.image" :alt="card.alt">
-                <span>{{ card.date }}</span>
-                <h4>{{ card.title }}</h4>
-                <h5>{{ card.description }}</h5>
+              <div v-for="(card, index) in visibleSlides" :key="index" :class="`card card_${index + 1} size_${index + 1}`" :ref="card.milestone_id" :id="card.milestone_id">
+                <img :src="`http://localhost/SPARK_BACK/images/milestone/${item.milestone_image}`" :alt="item.milestone_name">
+                <span>{{ card.milestone_date }}</span>
+                <h4>{{ card.milestone_title }}</h4>
+                <h5>{{ card.milestone_content }}</h5>
                 <!-- 卡片中的小插圖 -->
                 <img :src="card.starImage" :alt="`Star Image ${index + 1}`" class="star_image">
                 <img :src="card.meteorImage" :alt="`Meteor Image ${index + 1}`" class="meteor_image">    

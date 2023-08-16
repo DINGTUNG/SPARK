@@ -74,7 +74,7 @@ onMounted(() => {
     <div class="news_content_card" v-for="newsContentCard in newsList" :key="newsList.news_id">
       <RouterLink :to="`/single-news?id=${newsContentCard.news_id}`" class="news_card_link">
         <div class="card_pic">
-          <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${newsList.news_image_first}`" :alt=" newsContentCard.news_title">
+          <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${newsContentCard.news_image_first}`" :alt=" newsContentCard.news_title">
           <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
         </div>
         <div class="card_content">

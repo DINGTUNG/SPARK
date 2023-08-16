@@ -37,7 +37,7 @@ async function createMessage(userMessage) {
   </div>
 
   <div class="input_text">
-    <form action="http://localhost/SPARK_BACK/php/activity/message-board/update_message.php" method="post"
+    <form action="https://tibamef2e.com/chd102/g3/back-end/php/activity/message-board/update_message.php" method="post"
       @submit.prevent="submitMessage">
       <input class="input" id="input" type="text" name="message_content" placeholder="歡迎留下鼓勵孩子們勇敢追夢的話吧！"
         v-model="userMessage" autocomplete="on" @keyup.enter="submitMessage">

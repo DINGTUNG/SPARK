@@ -11,8 +11,15 @@ function openDonatePage() {
   window.open(url, '_blank');
 }
 
-function showSideList(getDonateProjectId) {
-  console.log(getDonateProjectId);
+function showSideList(donateProjectId, donateProjectName) {
+  donateCartStore.donateCart.length = 0
+  const chosenDonateProject = {
+    donate_project_id: donateProjectId,
+    donate_project_name: donateProjectName
+  }
+
+  donateCartStore.donateCart.push(chosenDonateProject)
+  console.log(donateCartStore.donateCart);
   donateCartStore.showSideList()
 }
 
@@ -50,7 +57,7 @@ onMounted(() => {
         <p>{{ item.donate_project_summarize }}</p>
         <h4>捐款累計 NTD {{ item.donate_project_amount }}</h4>
 
-        <button @click="showSideList(item.donate_project_id)">加入清單</button>
+        <button @click="showSideList(item.donate_project_id, item.donate_project_name)">加入清單</button>
         <!-- 點擊button觸發程式並帶入donateContentCard.id -->
       </div>
     </div>

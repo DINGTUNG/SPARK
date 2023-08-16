@@ -165,16 +165,17 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
   }
 
   // create
-  function createDonateOrderBackend(donateProjectId, donatePrice) {
+  function createDonateOrderBackend(donateProjectId, donateProjectName,donatePrice) {
     // prepare data
     const payLoad = new FormData()
     payLoad.append('donate_project_id', donateProjectId)
-    payLoad.append('donate_project_price', donatePrice)
+    payLoad.append('donate_project_name', donateProjectName)
+    payLoad.append('donate_price', donatePrice)
 
     // make a request
     const request = {
       method: 'POST',
-      url: `http://localhost/SPARK_BACK/php/donate/donate-order/create_donate_order_front.php`,
+      url: `https://tibamef2e.com/chd102/g3/back-end/php/donate/donate-order/create_donate_order_front.php`,
       headers: {
         'Content-Type': 'multipart/form-data'
       },

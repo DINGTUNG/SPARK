@@ -16,7 +16,7 @@ async function getDreamStar() {
         dream_star_name: element.dream_star_name,
         dream_star_image: `http://localhost:5174/chd102/g3/back-end/images/dream-star/${element.dream_star_image}`,
         dream_star_votes: element.dream_star_votes,
-        dream_star_url: '/dreamStar/'
+        dream_star_url: '/dreamStar'
         // dream_star_url: '/dreamStar/' + element.dream_star_id
       }
       dreamStarStore.dreamStarPool.push(dreamStar)

@@ -69,10 +69,10 @@ const resetBanner = () => {
 
 const isLargeScreen = ref(window.innerWidth > 1200);
 
-onMounted(() => {
-  window.addEventListener('resize', checkScreenSize);
-  checkScreenSize();
-});
+// onMounted(() => {
+//   window.addEventListener('resize', checkScreenSize);
+//   checkScreenSize();
+// });
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', checkScreenSize);
@@ -130,10 +130,11 @@ const getEventHandlers = (blockKey) => {
 
 let intervalId
 onMounted(() => {
+  window.addEventListener('resize', checkScreenSize);
+  checkScreenSize();
   milestoneConnection()
   // 每三秒自動轉到下一頁
   intervalId = setInterval(nextSlide, 3000)
-
 })
 
 onUnmounted(() => {
@@ -142,16 +143,18 @@ onUnmounted(() => {
 })
 
 //【串接資料庫】你好
-const MilestoneList = [];
+const MilestoneList = reactive([]);
 
 let currentSlide = ref(0)
 async function milestoneConnection() {
   try {
+
     const response = await axios.post('http://localhost/SPARK_BACK/php/results/milestone/get_milestone.php')
+
     if (response.data.length > 0) {
       response.data.forEach(element => {
-
         const milestone = {
+          milestone_id: element.milestone_id,
           milestone_title: element.milestone_title,
           milestone_content: element.milestone_content,
           milestone_date: element.milestone_date,
@@ -165,12 +168,14 @@ async function milestoneConnection() {
     console.error(error);
   }
 }
-
 const visibleSlides = computed(() => {
   let slides = []
-  for (let i = 0; i < 3; i++) {
-    slides.push(MilestoneList[(currentSlide.value + i) % MilestoneList.length]) //carouselData更改為milestoneList
+  if (MilestoneList.length != 0) {
+    for (let i = 0; i < 3; i++) {
+      slides.push(MilestoneList[(currentSlide.value + i) % MilestoneList.length])
+    }
   }
+
   return slides
 });
 

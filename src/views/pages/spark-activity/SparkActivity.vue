@@ -8,7 +8,7 @@ import { reactive, ref, onMounted } from 'vue';
 const sparkActivityPool = reactive([])
 async function getSparkActivity() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/activity/spark-activity/get_spark_activity_front.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/activity/spark-activity/get_spark_activity_front.php')
 
     response.data.forEach(element => {
       const activity = {

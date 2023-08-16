@@ -121,7 +121,7 @@ function handleMoreNewsClick(id) {
           <div class="article">
             <div class="article_block">
               <div class="article_block_img">
-                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_first}`">
+                <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${selectedNewsId.news_image_first}`">
               </div>
               <div class="article_block_text">
                 <p>{{ selectedNewsId.news_content_first }}</p>
@@ -129,7 +129,7 @@ function handleMoreNewsClick(id) {
             </div>
             <div class="article_block">
               <div class="article_block_img">
-                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_second}`">
+                <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${selectedNewsId.news_image_second}`">
               </div>
               <div class="article_block_text">
                 <p>{{ selectedNewsId.news_content_second }}</p>
@@ -137,7 +137,7 @@ function handleMoreNewsClick(id) {
             </div>
             <div class="article_block">
               <div class="article_block_img">
-                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_third}`">
+                <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${selectedNewsId.news_image_third}`">
               </div>
               <div class="article_block_text">
                 <p>{{ selectedNewsId.news_content_third }}</p>
@@ -145,7 +145,7 @@ function handleMoreNewsClick(id) {
             </div>
             <div class="article_block">
               <div class="article_block_img">
-                <img :src="`http://localhost/SPARK_BACK/images/news/${selectedNewsId.news_image_fourth}`">
+                <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${selectedNewsId.news_image_fourth}`">
               </div>
               <div class="article_block_text">
                 <p>{{ selectedNewsId.news_content_fourth }}</p>
@@ -163,7 +163,7 @@ function handleMoreNewsClick(id) {
               <div class="news_card" v-for="item in moreNewsList" :key="item.index">
                 <a @click="handleMoreNewsClick(item.news_id)">
                   <div class="card_img">
-                    <img :src="`http://localhost/SPARK_BACK/images/news/${item.news_image_first}`">
+                    <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${item.news_image_first}`">
                     <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic"
                       class="card_hover_pic">
                   </div>

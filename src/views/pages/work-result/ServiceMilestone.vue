@@ -243,8 +243,8 @@ const previousSlide = () => {
           <h4>{{ milestone.milestone_title }}</h4>
           <h5>{{ milestone.milestone_content }}</h5>
           <!-- 卡片中的小插圖 -->
-          <!-- <img :src="card.starImage" :alt="`Star Image ${index + 1}`" class="star_image">
-          <img :src="card.meteorImage" :alt="`Meteor Image ${index + 1}`" class="meteor_image"> -->
+          <img :src="'pictures/images/results/service-milestone/star.png'" :alt="`Star Image ${index + 1}`" class="star_image">
+          <img :src="'pictures/images/results/service-milestone/meteor.png'" :alt="`Meteor Image ${index + 1}`" class="meteor_image">
         </div>
 
         <div class="arrow arrow_left" @click="previousSlide">

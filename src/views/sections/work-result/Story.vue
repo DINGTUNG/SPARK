@@ -14,7 +14,7 @@
   const getStory = async () => {
     try {
       const res = await axios.post(
-        `http://localhost/SPARK_BACK/php/results/story/front_read_entire_story.php?story_no=${props.storyId}`
+        `https://tibamef2e.com/chd102/g3/back-end/php/results/story/front_read_entire_story.php?story_no=${props.storyId}`
       );
       story_article.value = res.data[0];
     } catch (err) {
@@ -36,7 +36,7 @@
           <i class="fa-regular fa-circle-xmark"></i>
         </button>
         <div class="pic">
-            <img :src="`http://localhost/SPARK_BACK/images/story/${story_article.value.story_image}`" alt="故事照片">
+            <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/story/${story_article.value.story_image}`" alt="故事照片">
         </div>
         <div class="text">
             <div class="date">{{ story_article.value.story_date }}</div>

@@ -7,7 +7,8 @@ import axios from 'axios'
 const reportsYearList = reactive([])
 async function reportsYearConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/results/report/report_year.php')
+    // const response = await axios.post('http://localhost/SPARK_BACK/php/results/report/report_year.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/results/report/report_year.php')
     console.log(response)
 
     if (response.data.length > 0) {
@@ -23,7 +24,9 @@ async function reportsYearConnection() {
 const reportsFinancialList = reactive([])
 async function reportsFinancialConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/results/report/report_financial.php')
+    // const response = await axios.post('http://localhost/SPARK_BACK/php/results/report/report_financial.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/results/report/report_financial.php')
+    
     console.log(response)
 
     if (response.data.length > 0) {

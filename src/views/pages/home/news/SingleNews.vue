@@ -73,7 +73,8 @@ const selectedNewsId = computed(() =>{
 let count = 0;
 async function newsConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/news/get_news.php')
+    // const response = await axios.post('http://localhost/SPARK_BACK/php/news/get_news.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/news/get_news.php')
     console.log(response)
     if (response.data.length > 0) {
       response.data.forEach(element => {

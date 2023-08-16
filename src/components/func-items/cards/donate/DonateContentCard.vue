@@ -19,7 +19,7 @@ function showSideList(getDonateProjectId) {
 // 串接資料庫
 async function donateConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/donate/donate-project/get_donate_project.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/donate/donate-project/get_donate_project.php')
 
     if (response.data.length > 0) {
       response.data.forEach(element => {
@@ -39,10 +39,10 @@ onMounted(() => {
 
 <template>
   <div class="donate_content_card_list">
-    <div class="donate_content_card" v-for="(item, index) in donateCartStore.DonateList" :key="index" :ref="item.donate_project_id"
-      :id="item.donate_project_id">
+    <div class="donate_content_card" v-for="(item, index) in donateCartStore.DonateList" :key="index"
+      :ref="item.donate_project_id" :id="item.donate_project_id">
       <div class="card_pic">
-        <img :src="`http://localhost/SPARK_BACK/images/donate-project/${item.donate_project_image}`"
+        <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/donate-project/${item.donate_project_image}`"
           :alt="item.donate_project_name">
       </div>
       <div class="card_content">

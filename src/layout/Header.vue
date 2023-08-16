@@ -6,7 +6,7 @@ import { useLogStore } from '@/stores/login-dummy-data.js'
 import axios from 'axios'
 
 //【header logo change for PC & MB】
-const imgSrc = ref('pictures/logo/logo_white.svg') // Default
+const imgSrc = ref('https://tibamef2e.com/chd102/g3/pictures/logo/logo_white.svg') // Default
 const currentRoute = useRoute()
 //mediaQuery for PC & MB
 const mediaQuery1200 = window.matchMedia('(max-width: 1200px)')
@@ -14,18 +14,18 @@ const mediaQuery1201to1399 = window.matchMedia('(min-width: 1201px) and (max-wid
 
 const updateImageSource = (newRouteName) => {
   if (mediaQuery1200.matches) {
-    imgSrc.value = 'pictures/logo/logo_white.svg'
+    imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_white.svg'
   } else if (mediaQuery1201to1399.matches) {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white_second.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_white_second.svg';
     } else {
       imgSrc.value = 'pictures/logo/logo_blue_second.svg';
     }
   } else {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_white.svg';
     } else {
-      imgSrc.value = 'pictures/logo/logo_blue.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_blue.svg';
     }
   }
 }
@@ -209,7 +209,7 @@ async function logout() {
   <header class="header_PC">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <img id="logo" :src="imgSrc" alt="Sparklogo">
+      <img id="logo" :src="'imgSrc'" alt="Sparklogo">
     </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>

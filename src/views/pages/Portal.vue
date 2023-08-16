@@ -4,7 +4,7 @@ const router = useRouter();
 </script>
 
 <template>
-  <div class="portal_container" >
+  <div class="portal_container">
     <img :src="'pictures/portal/shooting_star_white.svg'" alt="shooting_star_white" class="shooting_star_white">
     <img :src="'pictures/portal/logo.png'" alt="logo" class="logo">
     <img :src="'pictures/portal/shooting_star_gold.png'" alt="shooting_star_gold" class="shooting_star_gold">
@@ -29,7 +29,9 @@ const router = useRouter();
         <h2>後台</h2>
       </div>
     </div>
-
+    <p class="wrang">
+      本網站為緯育TibaMe_前端設計工程師班第83期學員專題成果作品,本平台僅供學習、展示之用。若有抵觸有關著作權,或有第三人主張侵害智慧財產權等情事,均由學員負法律上責任,緯育公司概不負責。若有侵權疑慮,您可以私訊<a href="https://www.facebook.com/TibaMe">[緯育TibaMe]</a>,後續會由專人協助處理。
+    </p>
   </div>
 </template>
 <style scoped lang="scss">

@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 import axios from 'axios';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -36,7 +35,7 @@ function showHide() {
 async function verifyLetter () {
     try{
         const member_account = account.value;
-        const res = await axios.get(`http://localhost/SPARK_BACK/php/member/membership_system/forget_verification_letter.php?member_account=${member_account}`, { withCredentials: true })
+        const res = await axios.get(`https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/forget_verification_letter.php?member_account=${member_account}`, { withCredentials: true })
         if (res.data.status === "ok") {
             alert('驗證碼已寄出，請至信箱收取');
         } else {
@@ -81,11 +80,11 @@ async function resetPassword () {
   try {
         const main_form = document.querySelector('#main_form');
         const formData = new FormData(main_form);
-        const res = await axios.post('http://localhost/SPARK_BACK/php/member/membership_system/update_password.php', formData)
+        const res = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/update_password.php', formData)
         console.log(res.data);
         if (res.data.status === 'ok') {
             alert('密碼修改成功，請重新登入');
-            window.location.href = 'http://localhost:5174/chd102/g3/home'
+            window.location.href = 'https://tibamef2e.com/chd102/g3/home'
         } else {
             const msg = res.data.msg;
             alert(msg);
@@ -103,7 +102,7 @@ async function resetPassword () {
   <div class="login">
     <h1>忘記密碼</h1>
       <label for="account">請輸入您的信箱以進行驗證</label>
-      <form id="main_form" method="POST" action="http://localhost/SPARK_BACK/php/member/membership_system/update_password.php">
+      <form id="main_form" method="POST" action="https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/update_password.php">
           <div class="form_box account">
             <input type="email" class="account" :class="{ 'animate__animated animate__headShake': errorAccount }" name="member_account" v-model="account" placeholder="請輸入電子信箱">
             <button type="button" @click="sendEmail">

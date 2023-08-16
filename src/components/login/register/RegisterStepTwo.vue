@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import { reactive } from "vue";
-import { RouterView } from 'vue-router'
 import { useRouter } from 'vue-router';
 import axios from 'axios';
 
@@ -86,7 +85,7 @@ async function registerStepTwo () {
   try {
         const main_form = document.querySelector('#main_form');
         const formData = new FormData(main_form);
-        const res = await axios.post('http://localhost/SPARK_BACK/php/member/membership_system/registerStepTwo.php', formData, { withCredentials: true })
+        const res = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/registerStepTwo.php', formData, { withCredentials: true })
         if (res.data.status === 'ok') {
             console.log(res.data);
             alert('耶！註冊成功！可以登入囉！');
@@ -121,7 +120,7 @@ async function registerStepTwo () {
                 完成註冊後，帳號、姓名和身分證/統一編號將無法變更，為避免影響您權益，請正確填寫，有任何問題請來電洽詢。
             </p>
         </div>
-        <form id="main_form" method="POST" action="http://localhost/SPARK_BACK/php/member/membership_system/registerStepTwo.php">
+        <form id="main_form" method="POST" action="https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/registerStepTwo.php">
             <div class="main_form">
             <div class="form_title">
                 <i class="fa-solid fa-clipboard-list"></i>

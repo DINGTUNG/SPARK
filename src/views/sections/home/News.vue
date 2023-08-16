@@ -44,7 +44,7 @@ import axios from 'axios'
 const newsList = reactive([])
 async function newsConnection() {
   try {
-    // const response = await axios.post('http://localhost/SPARK_BACK/php/news/get_news.php')
+    // const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/news/get_news.php')
     const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/news/get_news.php')
     console.log(response)
     if (response.data.length > 0) {

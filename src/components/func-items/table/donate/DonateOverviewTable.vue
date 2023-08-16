@@ -4,9 +4,19 @@ import { useMemberDataStore } from '@/stores/member-data.js';
 import { usePaymentStore } from '@/stores/payment.js';
 
 const paymentStore = usePaymentStore()
-
 const donateCartStore = useDonateCartStore();
 const memberDataStore = useMemberDataStore();
+
+createDonateOrder(donateCartStore.donateCart[0].donate_project_id, donateCartStore.donateCart[0].donate_project_name, donateCartStore.chosenPrice)
+
+function createDonateOrder(donateProjectId, donateProjectName, donatePrice) {
+
+  try {
+    donateCartStore.createDonateOrderBackend(donateProjectId, donateProjectName, donatePrice)
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 </script>
 
@@ -27,7 +37,7 @@ const memberDataStore = useMemberDataStore();
       <tbody>
         <tr>
           <td>1</td>
-          <td>{{ donateCartStore.chosenDonateProject.title }}</td>
+          <td>{{ donateCartStore.donateCart[0].donate_project_name }}</td>
           <td>NTD {{ donateCartStore.chosenPrice }}</td>
         </tr>
       </tbody>

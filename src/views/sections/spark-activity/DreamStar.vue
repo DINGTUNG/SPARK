@@ -7,7 +7,7 @@ const dreamStarStore = useDreamStarStore()
 
 async function getDreamStar() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/activity/dream-star/get_dream_star_front.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/activity/dream-star/get_dream_star_front.php')
 
     response.data.forEach(element => {
       const dreamStar = {

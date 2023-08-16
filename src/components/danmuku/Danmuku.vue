@@ -20,7 +20,7 @@ const createDisplayMessages = () => {
 
 async function getData() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/activity/message-board/get_message.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/activity/message-board/get_message.php')
 
     if (response.data.length > 0) {
       response.data.forEach(element => {

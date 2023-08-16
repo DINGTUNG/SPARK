@@ -175,7 +175,6 @@ const visibleSlides = computed(() => {
       slides.push(MilestoneList[(currentSlide.value + i) % MilestoneList.length])
     }
   }
-
   return slides
 });
 
@@ -183,8 +182,6 @@ const leftArrowImage = 'pictures/images/results/service-milestone/arrow_left.png
 const rightArrowImage = 'pictures/images/results/service-milestone/arrow_right.png';
 
 //【輪播圖動畫】
-
-
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % MilestoneList.length  //carouselData更改為milestoneList
     ;

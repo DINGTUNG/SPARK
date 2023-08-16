@@ -225,39 +225,39 @@ export const useSponsorCartStore = defineStore('sponsor-cart', () => {
     }
   }
 
-  // create
-  function createSponsorOrderBackend(locationId,price,paymentPlan,paymentMethod) {
-    // prepare data 
-    const payLoad = new FormData();
-    payLoad.append("location_id", locationId);
-    payLoad.append("price", price);
-    payLoad.append("payment_plan", paymentPlan);
-    payLoad.append("payment_method", paymentMethod);
+    // create
+    function createSponsorOrderBackend(locationId,price,paymentPlan,paymentMethod) {
+      // prepare data 
+      const payLoad = new FormData();
+      payLoad.append("location_id", locationId);
+      payLoad.append("price", price);
+      payLoad.append("payment_plan", paymentPlan);
+      payLoad.append("payment_method", paymentMethod);
 
 
-    // make a request
-    const request = {
-      method: "POST",
-      url: `http://localhost/SPARK_BACK/php/sponsor/sponsor-order/create_sponsor_order_front.php`,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      data: payLoad,
-    };
+      // make a request
+      const request = {
+        method: "POST",
+        url: `https://tibamef2e.com/chd102/g3/back-end/php/sponsor/sponsor-order/create_sponsor_order_front.php`,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        data: payLoad,
+      };
 
-    // send request to backend server
-    return new Promise((resolve, reject) => {
-      axios(request)
-        .then((response) => {
-          const createResult = response.data;
-          resolve(createResult);
-        })
-        .catch((error) => {
-          console.log("From createSponsorOrderBackend:", error);
-          reject(error);
-        });
-    });
-  }
+      // send request to backend server
+      return new Promise((resolve, reject) => {
+        axios(request)
+          .then((response) => {
+            const createResult = response.data;
+            resolve(createResult);
+          })
+          .catch((error) => {
+            console.log("From createSponsorOrderBackend:", error);
+            reject(error);
+          });
+      });
+    }
 
 
   return {

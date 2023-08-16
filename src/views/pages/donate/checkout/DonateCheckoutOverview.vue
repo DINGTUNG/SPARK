@@ -1,12 +1,15 @@
 <script setup>
 import DonateOverviewTable from '@/components/func-items/table/donate/DonateOverviewTable.vue'
 import { useRouter } from 'vue-router';
+import { useDonateCartStore} from '@/stores/donate-cart.js';
+const donateCartStore = useDonateCartStore();
 
 const router = useRouter()
 
 const goToHomePageTop = () => {
   router.push({ path: '/home' });
   window.scrollTo(0, 0);
+  donateCartStore.donateCart.length = 0
 }
 
 

@@ -55,7 +55,7 @@ const picUnder = () => {
 const warmStory = reactive([])
 async function getData () {
   try{
-    const res = await axios.get('http://localhost/SPARK_BACK/php/results/story/front_read_story.php')
+    const res = await axios.get('https://tibamef2e.com/chd102/g3/back-end/php/results/story/front_read_story.php')
     warmStory.value = res.data
   }
   catch(error){

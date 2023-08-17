@@ -53,7 +53,7 @@ const top = () => {
                 </RouterLink>
             </div>
             <div class="icon">
-                <a href="https://m.me/sparkassociationorg" _blank>
+                <a href="https://m.me/sparkassociationorg" target="_blank">
                     <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/message.png" alt="message">
                 </a>
             </div>

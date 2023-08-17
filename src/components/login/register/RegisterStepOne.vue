@@ -39,8 +39,11 @@ function alertSafetyCode() {
 
 async function verifyOne () {
     try{
-        const member_account = account.value;
-        const res = await axios.get(`https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/verification_letter.php?member_account=${member_account}`, { withCredentials: true })
+        // http://localhost/SPARK_BACK/php/member/membership_system/verification_letter.php
+        // https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/verification_letter.php
+        const formData = new FormData();
+        formData.append('member_account', account.value);
+        const res = await axios.post(`https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/verification_letter.php`, formData , { withCredentials: true })
         if (res.data.status === "ok") {
             alert('驗證碼已寄出，請至信箱收取');
         } else {
@@ -151,7 +154,7 @@ const nextStep = () => {
             </div>
             <div class="form_row">
                 <label for="account">帳號(電子信箱)*</label>
-                <div class="form_box account">
+                    <div class="form_box account">
                     <input type="email" class="account" name="member_account" v-model="account" id="account" placeholder="請輸入電子信箱">
                     <button type="button" @click="alertSafetyCode">
                         <i class="fa-solid fa-paper-plane"></i>寄送驗證碼

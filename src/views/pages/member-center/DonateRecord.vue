@@ -1,6 +1,23 @@
 <script setup>
-import { ref,reactive } from 'vue';
-const date = ref();
+import { ref , reactive , computed  } from 'vue';
+
+const startDate = ref(null);
+const endDate = ref(null);
+
+const filteredData = ref([]);
+
+const showNoDataMessage = computed(() => {
+  return !startDate.value || !endDate.value;
+});
+
+const endDateMax = ref(null);
+const updateEndDateMax = () => {
+  if (startDate.value) {
+    const oneYearLater = new Date(startDate.value);
+    oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+    endDateMax.value = oneYearLater.toISOString().split('T')[0];
+  }
+};
 
 
 const donateData = reactive([
@@ -62,6 +79,27 @@ const donateData = reactive([
   },
 ])
 
+const filterData = () => {
+  if ((!startDate.value && !endDate.value) || (!startDate.value && endDate.value) || (startDate.value && !endDate.value)) {
+    filteredData.value = [];
+    return;
+  }
+
+  const startDateObj = new Date(startDate.value);
+  const endDateObj = new Date(endDate.value);
+
+  filteredData.value = donateData.filter(data => {
+    const dataDate = new Date(data.date);
+    return dataDate >= startDateObj && dataDate <= endDateObj;
+  });
+
+  if (endDateObj > oneYearLaterDate) {
+    filteredData.value = [];
+    return;
+  }
+};
+
+
 
 </script>
 
@@ -88,10 +126,12 @@ const donateData = reactive([
           <div class="date_picker">
             <span>選擇日期區間</span>
             <div class="date_choose">
-                <VueDatePicker v-model="date" range max-range="365"  :enable-time-picker="false"/>
+              <input class="date" v-model="startDate" type="date" id="start" @change="updateEndDateMax">
+              <span class="wave">～</span>
+              <input class="date" v-model="endDate" type="date" id="end" :max="endDateMax" @change="filterData">
             </div>
             <div class="search">
-              <button>查詢</button>
+              <button @click="filterData">查詢</button>
             </div>
           </div>
           <h6>親愛的會員您好，本會提供近付款狀態查詢，查詢區間以一年為限。若有任何問題請您來電04-22012345轉881、880由專人為您服務。</h6>
@@ -109,7 +149,7 @@ const donateData = reactive([
           </thead>
 
           <tbody>
-            <tr class="info" v-for="data in  donateData" :key="data.count">
+            <tr class="info" v-for="data in  filteredData" :key="data.count">
               <td data-title="筆數" class="count">{{ '第' + data.count + '筆' }}</td>
               <td data-title="捐款專案">{{ data.project }}</td>
               <td data-title="金額">{{ data.price }}</td>
@@ -118,6 +158,10 @@ const donateData = reactive([
             </tr>
           </tbody>
         </table>
+        
+        <div v-if="showNoDataMessage" class="no_data_message">
+              請選擇日期區間以查詢資料
+        </div>
       </div>
     </div>
   </div>

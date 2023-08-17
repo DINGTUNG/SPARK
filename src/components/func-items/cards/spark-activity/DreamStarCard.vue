@@ -30,7 +30,7 @@ async function voteThisProject(dream_star_no, dream_star_id) {
     window.alert(`投票成功!`);
   } catch (error) {
     console.error(error);
-    window.alert(`http status : ${error.response.data} 編輯失敗!請聯絡管理員!`);
+    window.alert(`http status : ${error.response.data} 您已經投過票囉~明天再來吧!`);
   }
 }
 

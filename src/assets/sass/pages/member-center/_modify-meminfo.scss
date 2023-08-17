@@ -44,14 +44,15 @@
           label.label_up_file {
             display: block;
             background-color: #F8F7F6;
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border: 2px dashed $functionalLightGrey3;
             border-radius: 50%;
             text-align: center;
             margin: 0px auto 30px;
             overflow: hidden; 
             cursor: pointer;
+            position: relative;
 
             @include custom-responsive(" xs sm md lg "){
                 margin-top: 10px;
@@ -62,7 +63,15 @@
 
             .up_file_text {
               padding: 60px 0 0;
-
+              position: absolute;
+              top: 44%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              opacity: 0.5;
+              transition: all 0.3s ease-in-out;
+              &:hover{
+                opacity: 1;
+              }
                 i {
                     font-size: 2.5rem;
                     color: $primaryBrandBlue;
@@ -71,7 +80,6 @@
                     color: $primaryBrandBlue;
                 }
             }
-
             img {
               display: block;
               width: 100%; 
@@ -224,6 +232,11 @@
                         right: 0px;
                         font-size: 16px;
                         transform: translate(0,-50%);
+                    }
+                    span{
+                      display: inline-block;
+                      text-align: center;
+                      width: 50px;
                     }
                 }   
             }

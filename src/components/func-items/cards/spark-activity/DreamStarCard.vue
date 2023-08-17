@@ -25,12 +25,11 @@ async function voteThisProject(dream_star_no, dream_star_id) {
     }
     await dreamStarStore.voteThisProjectBackend(props.dream_star_no)
     dreamStarStore.voteThisProjectFromDreamStarPool(props.dream_star_no)
-    console.log(props.dream_star_id);
-    await dreamStarStore.insertVoteRecordBackend(props.dream_star_id)
+    dreamStarStore.insertVoteRecordBackend(props.dream_star_id)
     window.alert(`投票成功!`);
   } catch (error) {
     console.error(error);
-    window.alert(`http status : ${error.response.data} 您已經投過票囉~明天再來吧!`);
+    window.alert(`您已經投過票囉~明天再來吧!`);
   }
 }
 

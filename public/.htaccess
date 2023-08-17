@@ -1,7 +1,9 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /chd102/g3/
-  RewriteRule ^(back-end)/([0-9]+/.+)$ /chd102/g3/back-end/index.html [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(back-end)/(.*)$ /chd102/g3/back-end/index.html [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ /chd102/g3/index.html [L]

@@ -161,7 +161,7 @@ function handleMoreNewsClick(id) {
           <div>
             <div class="card_group">
               <div class="news_card" v-for="item in moreNewsList" :key="item.index">
-                <RouterLink :to="`/single-news?id=${newsContentCard.news_id}`" class="news_card_link">
+                <RouterLink :to="`/single-news?id=${moreNewsList.news_id}`" class="news_card_link">
                 <!-- <a @click="handleMoreNewsClick(item.news_id)"> -->
                   <div class="card_img">
                     <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${item.news_image_first}`">

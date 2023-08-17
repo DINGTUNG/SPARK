@@ -39,6 +39,8 @@ function alertSafetyCode() {
 
 async function verifyOne () {
     try{
+        // http://localhost/SPARK_BACK/php/member/membership_system/verification_letter.php
+        // https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/verification_letter.php
         const formData = new FormData();
         formData.append('member_account', account.value);
         const res = await axios.post(`https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/verification_letter.php`, formData , { withCredentials: true })

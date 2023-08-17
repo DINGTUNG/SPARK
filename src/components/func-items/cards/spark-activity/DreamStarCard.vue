@@ -23,9 +23,10 @@ async function voteThisProject(dream_star_no, dream_star_id) {
     if (dream_star_id == null) {
       throw new Error("dream_star_id not found!")
     }
+    await dreamStarStore.insertVoteRecordBackend(props.dream_star_id)
     await dreamStarStore.voteThisProjectBackend(props.dream_star_no)
     dreamStarStore.voteThisProjectFromDreamStarPool(props.dream_star_no)
-    dreamStarStore.insertVoteRecordBackend(props.dream_star_id)
+
     window.alert(`投票成功!`);
   } catch (error) {
     console.error(error);
@@ -60,7 +61,7 @@ async function voteThisProject(dream_star_no, dream_star_id) {
       <p class="title" v-html="props.dream_star_name"></p>
       <!-- <p class="sub_title">{{ props.subTitle }}</p> -->
     </div>
-    <button @click="voteThisProject(props.dream_star_no,props.dream_star_id)" class="vote_btn">為我加油</button>
+    <button @click="voteThisProject(props.dream_star_no, props.dream_star_id)" class="vote_btn">為我加油</button>
     <!-- <button @click="dreamStarStore.voteThisProject(props.id, 1)" class="vote_btn">為我加油</button> -->
 
   </div>

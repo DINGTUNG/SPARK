@@ -88,7 +88,7 @@ onMounted(() => {
                   <p>{{ item.report_title }}</p>
                 </div>
               </div>
-              <a :href="`PDF/${item.reports_file_path}`" download><button>下載檔案</button></a>
+              <a :href="`https://tibamef2e.com/chd102/g3/back-end/PDF/${item.report_file_path}`" download><button>下載檔案</button></a>
             </div>
           </div>
         </div>

@@ -72,7 +72,7 @@ const handleLogin = async () => {
         const loginForm = document.querySelector('#login_form');
         const formData = new FormData(loginForm); 
 
-        const res = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/handle_login.php', formData,{ withCredentials: true});
+        const res = await axios.post('http://localhost:8888/member/membership_system/handle_login.php', formData,{ withCredentials: true});
         if (res.data.status === "ok") {
             router.push({ path: '/home' });
         } else {
@@ -96,7 +96,7 @@ if (loginForm) {
 <template>
     <div class="login">
         <h1>會員登入</h1>
-        <form method="POST" id="login_form" action="https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/handle_login.php" @submit.prevent="handleLogin()">
+        <form method="POST" id="login_form" action="http://localhost:8888/member/membership_system/handle_login.php" @submit.prevent="handleLogin()">
             <label for="account">帳號
                 <input type="text" name="member_account" class="account" :class="{ 'animate__animated animate__headShake': errorAccount }" placeholder="輸入您的帳號或信箱" autocomplete="username">
             </label>

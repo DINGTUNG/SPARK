@@ -161,8 +161,8 @@ function handleMoreNewsClick(id) {
           <div>
             <div class="card_group">
               <div class="news_card" v-for="item in moreNewsList" :key="item.index">
-                <RouterLink :to="`/single-news?id=${moreNewsList.news_id}`" class="news_card_link">
-                <!-- <a @click="handleMoreNewsClick(item.news_id)"> -->
+                <!-- <RouterLink :to="`/single-news?id=${moreNewsList.news_id}`" class="news_card_link"> -->
+                <a @click="handleMoreNewsClick(item.news_id)">
                   <div class="card_img">
                     <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${item.news_image_first}`">
                     <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic"
@@ -173,8 +173,8 @@ function handleMoreNewsClick(id) {
                     <h4>{{ item.news_title }}</h4>
                     <p>{{ item.news_content_first }}</p>
                   </div>
-                   <!-- </a> -->
-                </RouterLink>
+                   </a>
+                <!-- </RouterLink> -->
               </div>
             </div>
           </div>

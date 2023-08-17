@@ -1,5 +1,5 @@
 <script setup>
-import { useSponsorCartStore,Location } from '@/stores/sponsor-cart.js';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
 
 const sponsorCartStore = useSponsorCartStore();
 
@@ -17,9 +17,10 @@ const sponsorCartStore = useSponsorCartStore();
 
         <div class="checkout_data">
 
-          <span class="name">{{ Location.getLocationFrom(locationId).name }}</span>
+          <span class="name">{{ sponsorCartStore.getLocationFromSponsorLocationList(locationId) }}</span>
           <span class="count">共 {{ sponsorCartStore.getCurrentCountInCart(locationId) }} 位</span>
-          <span class="cost">NTD {{ sponsorCartStore.getLocationTotalCost(locationId) }}</span>
+          <span class="cost">NTD
+            {{ sponsorCartStore.getLocationTotalCost(locationId) * sponsorCartStore.chosenPlanType.period }}</span>
         </div>
 
       </div>
@@ -28,8 +29,8 @@ const sponsorCartStore = useSponsorCartStore();
 
     <div class="payment">
       <div class="payment_info">
-        <span class="payment_title">認養費({{ sponsorCartStore.chosenPlanType.display}})</span>
-        <span class="total_price">NTD {{ sponsorCartStore.totalCost*sponsorCartStore.chosenPlanType.period }} </span>
+        <span class="payment_title">認養費({{ sponsorCartStore.chosenPlanType.display }})</span>
+        <span class="total_price">NTD {{ sponsorCartStore.totalCost * sponsorCartStore.chosenPlanType.period }} </span>
       </div>
     </div>
 

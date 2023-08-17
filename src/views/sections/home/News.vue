@@ -1,45 +1,65 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 import { RouterLink } from 'vue-router'
+import axios from 'axios'
+// const newsList = reactive([
+//   {
+//     imgSrc: "pictures/images/home/news/news_1.jpg",
+//     date: "2023.08.20",
+//     title: "星火30，感謝有您",
+//     content: "星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火感謝各界人士的鼎力相助，願我們能一同往前，迎接更美好的明天。",
+//   },
+//   {
+//     imgSrc: "pictures/images/home/news/news_2.jpg",
+//     date: "2023.08.04",
+//     title: "東部星火服務據點設立",
+//     content: "偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，一同於東部創辦中心，提供服務。",
+//   },
+//   {
+//     imgSrc: "pictures/images/home/news/news_3.jpg",
+//     date: "2023.07.13",
+//     title: "暑假兒童營養午餐提供",
+//     content: "星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火感謝各界人士的鼎力相助，願我們能一同往前，迎接更美好的明天。",
+//   },
+//   {
+//     imgSrc: "pictures/images/home/news/news_4.jpg",
+//     date: "2023.06.30",
+//     title: "小心詐騙，拒絕詐騙",
+//     content: "近日詐騙集團猖獗，多利用各式通訊軟體或是社群媒體作為管道進行詐騙，是最為常見的手法，本會提醒各位多多注意。",
+//   },
+//   {
+//     imgSrc: "pictures/images/home/news/news_5.jpg",
+//     date: "2023.06.02",
+//     title: "溫馨故事｜我推的孩子",
+//     content: "每一個在星火會員幫助之下的孩子，都將是未來閃耀的一顆晨星，即使相隔數百公里，但是藉由書信往返的真摯關懷總能傳遞滿滿的溫暖。",
+//   },
+//   {
+//     imgSrc: "pictures/images/home/news/news_6.jpg",
+//     date: "2023.04.27",
+//     title: "溫馨故事｜久久的奇妙冒險",
+//     content: "曾經的久久因為家境問題而長期接受協會認養人的每月認養，如今的久久已經是一名優秀的冒險家，為了感謝認養人，久久決定不當人類了",
+//   },
+// ])
 
-const newsContentCardList = reactive([
-  {
-    imgSrc: "pictures/images/home/news/news_1.jpg",
-    date: "2023.08.20",
-    title: "星火30，感謝有您",
-    content: "星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火感謝各界人士的鼎力相助，願我們能一同往前，迎接更美好的明天。",
-  },
-  {
-    imgSrc: "pictures/images/home/news/news_2.jpg",
-    date: "2023.08.04",
-    title: "東部星火服務據點設立",
-    content: "偏鄉服務不落後!!東部星火據點全新設立，為照顧偏遠地區弱勢兒童，星火協會召集各方善心人士相助，一同於東部創辦中心，提供服務。",
-  },
-  {
-    imgSrc: "pictures/images/home/news/news_3.jpg",
-    date: "2023.07.13",
-    title: "暑假兒童營養午餐提供",
-    content: "星火兒童認養協會已經在台默默耕耘30年~一路走來感謝大家對星火的肯定與支持，30年前從零到有，星火感謝各界人士的鼎力相助，願我們能一同往前，迎接更美好的明天。",
-  },
-  {
-    imgSrc: "pictures/images/home/news/news_4.jpg",
-    date: "2023.06.30",
-    title: "小心詐騙，拒絕詐騙",
-    content: "近日詐騙集團猖獗，多利用各式通訊軟體或是社群媒體作為管道進行詐騙，是最為常見的手法，本會提醒各位多多注意。",
-  },
-  {
-    imgSrc: "pictures/images/home/news/news_5.jpg",
-    date: "2023.06.02",
-    title: "溫馨故事｜我推的孩子",
-    content: "每一個在星火會員幫助之下的孩子，都將是未來閃耀的一顆晨星，即使相隔數百公里，但是藉由書信往返的真摯關懷總能傳遞滿滿的溫暖。",
-  },
-  {
-    imgSrc: "pictures/images/home/news/news_6.jpg",
-    date: "2023.04.27",
-    title: "溫馨故事｜久久的奇妙冒險",
-    content: "曾經的久久因為家境問題而長期接受協會認養人的每月認養，如今的久久已經是一名優秀的冒險家，為了感謝認養人，久久決定不當人類了",
-  },
-])
+const newsList = reactive([])
+async function newsConnection() {
+  try {
+    // const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/news/get_news.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/news/get_news.php')
+    console.log(response)
+    if (response.data.length > 0) {
+      response.data.forEach(element => {
+        newsList.push(element)
+      })
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  console.log(newsList)
+}
+onMounted(() => {
+  newsConnection()
+})
 
 
 </script>
@@ -51,20 +71,18 @@ const newsContentCardList = reactive([
   </div>
   <div class="news_content_card_list">
 
-    <div class="news_content_card" v-for="newsContentCard in newsContentCardList" :key="newsContentCardList.id">
-
-      <RouterLink to="/single-news" class="news_card_link">
+    <div class="news_content_card" v-for="newsContentCard in newsList" :key="newsList.news_id">
+      <RouterLink :to="`/single-news?id=${newsContentCard.news_id}`" class="news_card_link">
         <div class="card_pic">
-          <img :src="newsContentCard.imgSrc" :alt="newsContentCard.title">
+          <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${newsContentCard.news_image_first}`" :alt=" newsContentCard.news_title">
           <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
         </div>
         <div class="card_content">
-          <h5>{{ newsContentCard.date }}</h5>
-          <h4>{{ newsContentCard.title }}</h4>
-          <p>{{ newsContentCard.content }}</p>
+          <h5>{{ newsContentCard.news_date }}</h5>
+          <h4>{{ newsContentCard.news_title }}</h4>
+          <p>{{ newsContentCard.news_content_first }}</p>
         </div>
       </RouterLink>
-
     </div>
   </div>
 </template>
@@ -93,8 +111,13 @@ const newsContentCardList = reactive([
       padding: 0 4% 0 0;
     }
 
-    @include custom-responsive("sm md lg xl xx-l") {
-      width: 2.5%;
+    @include custom-responsive("sm md lg xl") {
+      width: 5%;
+      padding: 0 1.5% 0 0;
+    }
+
+    @include custom-responsive("xx-l") {
+      width: 4%;
       padding: 0 1.5% 0 0;
     }
   }

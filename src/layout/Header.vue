@@ -6,7 +6,7 @@ import { useLogStore } from '@/stores/login-dummy-data.js'
 import axios from 'axios'
 
 //【header logo change for PC & MB】
-const imgSrc = ref('pictures/logo/logo_white.svg') // Default
+const imgSrc = ref('https://tibamef2e.com/chd102/g3/pictures/logo/logo_white.svg') // Default
 const currentRoute = useRoute()
 //mediaQuery for PC & MB
 const mediaQuery1200 = window.matchMedia('(max-width: 1200px)')
@@ -14,18 +14,18 @@ const mediaQuery1201to1399 = window.matchMedia('(min-width: 1201px) and (max-wid
 
 const updateImageSource = (newRouteName) => {
   if (mediaQuery1200.matches) {
-    imgSrc.value = 'pictures/logo/logo_white.svg'
+    imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_white.svg'
   } else if (mediaQuery1201to1399.matches) {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white_second.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_white_second.svg';
     } else {
-      imgSrc.value = 'pictures/logo/logo_blue_second.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_blue_second.svg';
     }
   } else {
     if (newRouteName === "portal" || newRouteName === "home" || newRouteName === "about" || newRouteName === "service" || newRouteName === "work-result" || newRouteName === "service-milestone" || newRouteName === "sponsor-location" || newRouteName === "donate-list") {
-      imgSrc.value = 'pictures/logo/logo_white.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_white.svg';
     } else {
-      imgSrc.value = 'pictures/logo/logo_blue.svg';
+      imgSrc.value = 'https://tibamef2e.com/chd102/g3/pictures/logo/logo_blue.svg';
     }
   }
 }
@@ -48,21 +48,21 @@ const menuItems = ref([
   {
     label: '認識星火',
     route: '/about',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '服務內容',
     route: '/service',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '成果佈告欄',
     route: '/work-result',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
     children: [
@@ -74,7 +74,7 @@ const menuItems = ref([
   {
     label: '認養計畫',
     route: '/sponsor',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
     children: [
@@ -85,7 +85,7 @@ const menuItems = ref([
   {
     label: '捐款專案',
     route: '/donate',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
     children: [
@@ -96,14 +96,14 @@ const menuItems = ref([
   {
     label: '星火之友',
     route: '/contact',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
   {
     label: '星火活動',
     route: '/spark-activity',
-    image: 'pictures/decorations/layout/little_star.png',
+    image: 'https://tibamef2e.com/chd102/g3/pictures/decorations/layout/little_star.png',
     active: false,
     clicked: false,
   },
@@ -190,10 +190,10 @@ onMounted(() => {
 
 async function logout() {
   try {
-        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/handle_logout.php' ,{ withCredentials: true})
+        const res = await axios.get('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/handle_logout.php' ,{ withCredentials: true})
         console.log(res.data)
         if (res.data.status === 'ok') {
-            window.location.href = 'http://localhost:5174/chd102/g3/home'
+            window.location.href = 'https://tibamef2e.com/chd102/g3/home'
         }
     } catch (error) {
         console.error('網路請求錯誤:', error);
@@ -210,7 +210,7 @@ async function logout() {
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
       <img id="logo" :src="imgSrc" alt="Sparklogo">
-    </RouterLink>
+`   </RouterLink>
     <!-- 【Navigation bar】 -->
     <nav>
       <ul>
@@ -234,7 +234,7 @@ async function logout() {
             <RouterLink to="/member-center">認養紀錄</RouterLink>
             <RouterLink to="/member-center/donate-record">捐款紀錄</RouterLink>
             <RouterLink to="/member-center/letter-record">感謝函專區</RouterLink>
-            <RouterLink to="/member-center/modify-meminfo">修改基本資料</RouterLink>
+            <RouterLink to="/member-center/modify-meminfo">會員基本資料</RouterLink>
             <a @click="logout()">登出</a>
           </div>
         </li>

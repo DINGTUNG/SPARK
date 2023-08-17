@@ -7,16 +7,16 @@ const dreamStarStore = useDreamStarStore()
 
 async function getDreamStar() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/activity/dream-star/get_dream_star_front.php')
-
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/activity/dream-star/get_dream_star_front.php')
+    dreamStarStore.dreamStarPool.splice(0);
     response.data.forEach(element => {
       const dreamStar = {
         dream_star_no: element.dream_star_no,
         dream_star_id: element.dream_star_id,
         dream_star_name: element.dream_star_name,
-        dream_star_image: 'http://localhost:5173/chd102/g3/back-end/images/dream-star/' + element.dream_star_image,
+        dream_star_image: `https://tibamef2e.com/chd102/g3/back-end/images/dream-star/${element.dream_star_image}`,
         dream_star_votes: element.dream_star_votes,
-        dream_star_url: '/dreamStar/'
+        dream_star_url: '/dreamStar'
         // dream_star_url: '/dreamStar/' + element.dream_star_id
       }
       dreamStarStore.dreamStarPool.push(dreamStar)
@@ -38,11 +38,9 @@ onMounted(() => {
 
     <div class="dream_star_wrap">
       <DreamStarCard v-for="dreamStar in dreamStarStore.dreamStarPool" :key="dreamStar.dream_star_id"
-        :dream_star_no="parseInt(dreamStar.dream_star_no)" 
-        :dream_star_id="dreamStar.dream_star_id"
-        :dream_star_name="dreamStar.dream_star_name"
-        :dream_star_image='dreamStar.dream_star_image' :dream_star_url="dreamStar.dream_star_url"
-        :dream_star_votes="parseInt(dreamStar.dream_star_votes)" />
+        :dream_star_no="parseInt(dreamStar.dream_star_no)" :dream_star_id="dreamStar.dream_star_id"
+        :dream_star_name="dreamStar.dream_star_name" :dream_star_image='dreamStar.dream_star_image'
+        :dream_star_url="dreamStar.dream_star_url" :dream_star_votes="parseInt(dreamStar.dream_star_votes)" />
 
       <!-- <DreamStarCard v-for="dreamStar in DreamStarList.TOPICS" :key="dreamStar.id" :imgSrc="dreamStar.imgSrc"
         :routingLink="dreamStar.routingLink" :vote="dreamStarStore.getCurrentCountInVoteRecord(dreamStar.id)"

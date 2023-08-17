@@ -1,8 +1,8 @@
 <script setup>
 import SponsorCheckoutSideList from '@/layout/checkout-side-list/SponsorCheckoutSideList.vue';
-import { useSponsorCartStore, Location } from '@/stores/sponsor-cart.js';
-
-
+import { onMounted } from 'vue';
+import { useSponsorCartStore } from '@/stores/sponsor-cart.js';
+const sponsorCartStore = useSponsorCartStore();
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
@@ -13,8 +13,28 @@ import 'swiper/css/pagination';
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 const modules = [EffectFade, Navigation, Pagination, Autoplay];
 
+import axios from 'axios';
 
-const sponsorCartStore = useSponsorCartStore();
+async function getSponsorLocation() {
+  try {
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/sponsor/sponsor-location/get_sponsor_location_front.php')
+    sponsorCartStore.sponsorLocationList.splice(0);
+    response.data.forEach(element => {
+      sponsorCartStore.sponsorLocationList.push(element)
+    });
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+onMounted(() => {
+  getSponsorLocation()
+  sponsorCartStore.cart.clear()
+})
+
+
+
 </script>
 
 <template>
@@ -52,15 +72,15 @@ const sponsorCartStore = useSponsorCartStore();
       <div class="sponsor_location">
         <h3>認養地區</h3>
         <div class="sponsor_location_inner">
-          <div class="location_card" v-for="location in Location.TYPES" :key="location.id">
+          <div class="location_card" v-for="location in sponsorCartStore.sponsorLocationList" :key="location.location_id">
             <div class="card_title">
-              <img :src="location.img" alt="stat">
-              <h5>{{ location.name }}</h5>
+              <img :src="'pictures/decorations/illustration/location.svg'" alt="stat">
+              <h5>{{ location.location_name }}</h5>
             </div>
             <div class="card_count">
-              <i class="fa-solid fa-minus" @click="sponsorCartStore.removeFromCart(location.id, 1)"></i>
-              <p>{{ sponsorCartStore.getCurrentCountInCart(location.id) }}</p>
-              <i class="fa-solid fa-plus" @click="sponsorCartStore.addToCart(location.id, 1)"></i>
+              <i class="fa-solid fa-minus" @click="sponsorCartStore.removeFromCart(location.location_id, 1)"></i>
+              <p>{{ sponsorCartStore.getCurrentCountInCart(location.location_id) }}</p>
+              <i class="fa-solid fa-plus" @click="sponsorCartStore.addToCart(location.location_id, 1)"></i>
             </div>
           </div>
         </div>

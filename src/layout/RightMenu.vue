@@ -19,21 +19,21 @@ const top = () => {
             <li>
                 <RouterLink to="/sponsor" class="link sponsor">
                     <div class="icon">
-                        <img :src="'pictures/icons/right-menu/sponsor_icon.png'" alt="領養icon">
+                        <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/sponsor_icon.png" alt="領養icon">
                     </div>
                     我要認養
                 </RouterLink>
             </li>
             <li @click="sponsorCartStore.showSideList">
                 <div class="icon">
-                    <img :src="'pictures/icons/right-menu/sponsor_list_icon.png'" alt="領養清單icon">
+                    <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/sponsor_list_icon.png" alt="領養清單icon">
                 </div>
                 認養清單
             </li>
             <li>
                 <RouterLink to="/donate" class="link donate">
                     <div class="icon">
-                        <img :src="'pictures/icons/right-menu/donate_icon.png'" alt="捐款icon">
+                        <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/donate_icon.png" alt="捐款icon">
                     </div>
                     我要捐款
                 </RouterLink>
@@ -41,7 +41,7 @@ const top = () => {
             </li>
             <li @click="donateCartStore.showSideList">
                 <div class="icon">
-                    <img :src="'pictures/icons/right-menu/donate_list_icon.png'" alt="捐款清單icon">
+                    <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/donate_list_icon.png" alt="捐款清單icon">
                 </div>
                 捐款清單
             </li>
@@ -49,17 +49,17 @@ const top = () => {
         <div class="other">
             <div class="icon">
                 <RouterLink to="/letter-animation">
-                    <img :src="'pictures/icons/right-menu/letter.png'" alt="感謝信">
+                    <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/letter.png" alt="感謝信">
                 </RouterLink>
             </div>
             <div class="icon">
-                <a href="https://m.me/sparkassociationorg" _blank>
-                    <img :src="'pictures/icons/right-menu/message.png'" alt="message">
+                <a href="https://m.me/sparkassociationorg" target="_blank">
+                    <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/message.png" alt="message">
                 </a>
             </div>
             <div class="icon">
                 <button id="top" @click="top">
-                    <img :src="'pictures/icons/right-menu/TOP_icon.png'" alt="TOP">
+                    <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/TOP_icon.png" alt="TOP">
                 </button>
             </div>
         </div>
@@ -89,7 +89,7 @@ const top = () => {
             </ul>
         </ul>
         <button id="top" @click="top">
-            <img :src="'pictures/icons/right-menu/TOP_icon.png'" alt="TOP">
+            <img src="https://tibamef2e.com/chd102/g3/pictures/icons/right-menu/TOP_icon.png" alt="TOP">
         </button>
     </div>
     <SponsorCheckoutSideList />

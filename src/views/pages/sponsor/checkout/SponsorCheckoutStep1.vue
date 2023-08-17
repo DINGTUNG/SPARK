@@ -24,7 +24,7 @@ import CheckoutButtons from '@/components/func-items/buttons/CheckoutButtons.vue
         </div>
       </div>
 
-      <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'"  :class="filter-gold" alt="">
+      <img :src="'pictures/decorations/illustration/rocket_with_gold_fire.svg'"  alt="">
 
     </div>
 

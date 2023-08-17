@@ -43,7 +43,7 @@ export const useMessageBoardStore = defineStore('message-board', () => {
     // make a request
     const request = {
       method: "POST",
-      url: `http://localhost/SPARK_BACK/php/activity/message-board/create_message.php`,
+      url: `https://tibamef2e.com/chd102/g3/back-end/php/activity/message-board/create_message.php`,
       headers: {
         "Content-Type": "multipart/form-data",
       },

@@ -22,7 +22,7 @@ const donateCartStore = useDonateCartStore();
 
     <tbody>
       <tr>
-        <td>{{ donateCartStore.chosenDonateProject.title }}</td>
+        <td>{{ donateCartStore.donateCart[0].donate_project_name }}</td>
 
         <td>NTD {{ donateCartStore.chosenPrice }}</td>
       </tr>

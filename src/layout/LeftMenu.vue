@@ -152,7 +152,7 @@ watch(() => currentRoute.name, (newRouteName) => {
       },
       {
         id: 4,
-        title: "修改基本資料",
+        title: "會員基本資料",
         routeName: "modify-meminfo",
       },
     ];

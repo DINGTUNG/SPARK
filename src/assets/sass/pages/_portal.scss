@@ -91,8 +91,6 @@ div.portal_container {
     div.portal_img_front,
     div.portal_img_back {
       @include flex_vm;
-
-
       div.box {
         position: relative;
         @include flex_hm;
@@ -105,12 +103,9 @@ div.portal_container {
           width: 15vw;
           cursor: pointer;
           transition: opacity .2s ease-in-out;
-
         }
-
-
-        img.front1,
-        img.back1 {
+        img.front1_img,
+        img.back1_img {
           &:hover {
             opacity: 0;
           }
@@ -124,6 +119,16 @@ div.portal_container {
       h2 {
         color: $primaryBrandWhite;
       }
+    }
+  }
+  p.wrang{
+    @include h6_MB;
+    padding-top: 1rem;
+    width: 50vw;
+    margin: auto;
+    color: $primaryBrandWhite;
+    a{
+      color: $decorativeYellow;
     }
   }
 }

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-
+import axios from 'axios'
 export class DonateProject {
   constructor(id, ref, imgSrc, title, content, fundSum) {
     this.id = id
@@ -154,7 +154,47 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
 
   const chosenPrice = ref(100)
 
+  ////////////////////  db ver. ////////////////////////
+  const DonateList = reactive([])
+  const donateCart = []
+  const getDonateProject = () => {
+    DonateList.forEach((project) => {
+      console.log(project)
+      return project
+    })
+  }
 
+  // create
+  function createDonateOrderBackend(donateProjectId, donateProjectName,donatePrice) {
+    // prepare data
+    const payLoad = new FormData()
+    payLoad.append('donate_project_id', donateProjectId)
+    payLoad.append('donate_project_name', donateProjectName)
+    payLoad.append('donate_price', donatePrice)
+
+    // make a request
+    const request = {
+      method: 'POST',
+      url: `https://tibamef2e.com/chd102/g3/back-end/php/donate/donate-order/create_donate_order_front.php`,
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      data: payLoad
+    }
+
+    // send request to backend server
+    return new Promise((resolve, reject) => {
+      axios(request)
+        .then((response) => {
+          const createResult = response.data
+          resolve(createResult)
+        })
+        .catch((error) => {
+          console.log('From createDonateOrderBackend:', error)
+          reject(error)
+        })
+    })
+  }
 
   return {
     isSideListShow,
@@ -165,6 +205,10 @@ export const useDonateCartStore = defineStore('donate-cart', () => {
     isBlurred,
     onAddToCartClick,
     removeToCartClick,
-    showSideListForActivityDonate
+    showSideListForActivityDonate,
+    DonateList,
+    donateCart,
+    getDonateProject,
+    createDonateOrderBackend
   }
 })

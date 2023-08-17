@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, reactive, ref, computed } from 'vue'
-import  Story  from '@/views/sections/work-result/Story.vue'
-import { COVER_STORY, WARM_STORY, PHOTO_ALBUM} from '@/constant/storyGallery.constant.js'
+import Story from '@/views/sections/work-result/Story.vue'
+import { COVER_STORY, WARM_STORY, PHOTO_ALBUM } from '@/constant/storyGallery.constant.js'
 import axios from 'axios'
 
 const coverStory = reactive(COVER_STORY)
@@ -28,7 +28,7 @@ const iconDisplay = ref('none')
 
 const handleMouseMove = (e) => {
   clearTimeout(timer);
-  if (container.value.contains(e.target)){
+  if (container.value.contains(e.target)) {
     iconLeft.value = e.pageX + 20 + "px";
     iconTop.value = e.pageY + 15 + "px";
     iconDisplay.value = "block"
@@ -52,13 +52,22 @@ const picUnder = () => {
 
 
 //獲取溫馨紀事資料
-const warmStory = reactive([])
-async function getData () {
-  try{
-    const res = await axios.get('http://localhost/SPARK_BACK/php/results/story/front_read_story.php')
-    warmStory.value = res.data
+const warmStoryPool = reactive([])
+async function getData() {
+  try {
+    const res = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/results/story/front_read_story.php')
+    res.data.forEach((item) => {
+      const story = {
+        story_no: item.story_no,
+        story_date: item.story_date,
+        story_title: item.story_title,
+        story_brief: item.story_brief,
+        story_image: item.story_image,
+      }
+      warmStoryPool.push(story)
+    })
   }
-  catch(error){
+  catch (error) {
     console.log(error);
   }
 }
@@ -67,21 +76,21 @@ onMounted(() => {
   getData()
 })
 
-  //分頁
-  const itemsPerPage = 6;
-    const displayStoryList = computed(() => {
-      if (warmStory.value) {
-        const startIdx = (page.value - 1) * itemsPerPage;
-        const endIdx = startIdx + itemsPerPage;
-        return reactive(warmStory.value.slice(startIdx, endIdx));
-      } else {
-        return reactive([]);
-      }
-    });
+//分頁
+const itemsPerPage = 6;
+const displayStoryList = computed(() => {
+  if (warmStoryPool) {
+    const startIdx = (page.value - 1) * itemsPerPage;
+    const endIdx = startIdx + itemsPerPage;
+    return reactive(warmStoryPool.slice(startIdx, endIdx));
+  } else {
+    return reactive([]);
+  }
+});
 
-    const pageCount = () => {
-      return (displayStoryList.length) / itemsPerPage + 1;
-    };
+const pageCount = () => {
+  return (displayStoryList.length) / itemsPerPage + 1;
+};
 
 const storyId = ref(null)
 
@@ -102,22 +111,22 @@ const photoSelected = (index) => {
 const photoAlbum = reactive(PHOTO_ALBUM)
 
 const container1 = ref(null)
-const container2 = ref(null) 
+const container2 = ref(null)
 
 const scrollTo = (area) => {
-   if( area == container1.value) {
+  if (area == container1.value) {
     container1.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
-   } else if ( area == container2.value ) {
+  } else if (area == container2.value) {
     container2.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
-   }
+  }
 }
 </script>
 
 <template>
-    <div class="mouse" :style="{ left: iconLeft, top: iconTop , display:iconDisplay }">
-      <i class="fa-solid fa-computer-mouse" id="icon"></i>
-      <span>點擊切換</span>    
-    </div>
+  <div class="mouse" :style="{ left: iconLeft, top: iconTop, display: iconDisplay }">
+    <i class="fa-solid fa-computer-mouse" id="icon"></i>
+    <span>點擊切換</span>
+  </div>
 
   <div class="banner">
     <img class="PC" :src="'pictures/images/results/story-gallery/banner.jpg'" alt="banner" />
@@ -166,11 +175,8 @@ const scrollTo = (area) => {
         <div class="title">
           <div class="name">
             <h2>溫馨事紀</h2>
-            <img
-              class="title_decorate"
-              :src="'pictures/images/results/story-gallery/story/title_decorate.png'"
-              alt="標題裝飾"
-            />
+            <img class="title_decorate" :src="'pictures/images/results/story-gallery/story/title_decorate.png'"
+              alt="標題裝飾" />
           </div>
 
           <div class="decorative_line">
@@ -181,7 +187,10 @@ const scrollTo = (area) => {
         <div class="story-list">
           <div class="card" v-for="(item, id) in displayStoryList" :key="id">
             <div class="pic">
-              <img :src="`http://localhost/SPARK_BACK/images/story/${item.story_image}`" alt="故事照片" />
+
+              <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/story/${item.story_image}`"
+                alt="故事照片" />
+
               <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
             </div>
             <div class="text">
@@ -193,18 +202,13 @@ const scrollTo = (area) => {
           </div>
         </div>
         <div class="text-center">
-          <v-pagination
-            v-model="page"
-            :length="3"
-            rounded="circle"
-            @click="scrollTo(container1)"
-          ></v-pagination>
+          <v-pagination v-model="page" :length="3" rounded="circle" @click="scrollTo(container1)"></v-pagination>
         </div>
       </section>
 
-        <Story :storyId="storyId" @closeStory="closeStory" />
+      <Story :storyId="storyId" @closeStory="closeStory" />
 
-      
+
       <section class="photo-album" ref="container2">
         <div class="deco">
           <img :src="'pictures/characters/girl/girl_hugging_star.svg'" alt="" />
@@ -215,11 +219,8 @@ const scrollTo = (area) => {
         <div class="title">
           <div class="name">
             <h2>星火寫真</h2>
-            <img
-              class="title_decorate"
-              :src="'pictures/images/results/story-gallery/story/title_decorate.png'"
-              alt="標題裝飾"
-            />
+            <img class="title_decorate" :src="'pictures/images/results/story-gallery/story/title_decorate.png'"
+              alt="標題裝飾" />
           </div>
           <div class="decorative_line">
             <img :src="'pictures/decorations/illustration/decorative_line.svg'" alt="裝飾線" />
@@ -241,13 +242,8 @@ const scrollTo = (area) => {
         </transition>
 
         <div class="photoSelect">
-          <div
-            class="pic"
-            v-for="(item, index) in photoAlbum"
-            :key="index"
-            @click="photoSelected(index)"
-            :class="{ gray: index !== photoDisplay }"
-          >
+          <div class="pic" v-for="(item, index) in photoAlbum" :key="index" @click="photoSelected(index)"
+            :class="{ gray: index !== photoDisplay }">
             <img :src="item.imgUrl" alt="星火寫真照片" />
           </div>
         </div>
@@ -259,38 +255,44 @@ const scrollTo = (area) => {
 <style scoped lang="scss">
 @import '@/assets/sass/pages/work-result/story-gallery';
 
-.mouse{
+.mouse {
   position: absolute;
-  span{
+
+  span {
     color: $primaryBrandBlue;
     margin-left: 1vw;
     font-weight: bold;
   }
-  #icon{
+
+  #icon {
     color: $primaryBrandBlue;
     font-size: 20px;
   }
+
   z-index: 22;
 }
 
-.fade-enter-from{
-  opacity:0
+.fade-enter-from {
+  opacity: 0
 }
-.fade-enter-to{
-  opacity:1
+
+.fade-enter-to {
+  opacity: 1
 }
-.fade-enter-active{
+
+.fade-enter-active {
   transition: opacity .5s ease-in;
 }
 
-.fade-leave-from{
-  opacity:1
-}
-.fade-leave-to{
-  opacity:0
-}
-.fade-leave-active{
-  transition: opacity .3s ease-in;
+.fade-leave-from {
+  opacity: 1
 }
 
+.fade-leave-to {
+  opacity: 0
+}
+
+.fade-leave-active {
+  transition: opacity .3s ease-in;
+}
 </style>

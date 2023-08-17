@@ -27,10 +27,8 @@ import { VueFire, VueFireAuth } from 'vuefire'
 import { firebaseApp } from './firebase'
 
 //VueReCaptcha
-import VueReCaptcha from 'vue3-recaptcha2'
+// import VueReCaptcha from 'vue3-recaptcha2'
 import Images from '@/components/func-items/images/Images.vue'
-
-import axios from 'axios'
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -48,11 +46,13 @@ app.use(vuetify)
 app.component('VueDatePicker', VueDatePicker)
 app.component('Images', Images)
 
+// app.use(VueReCaptcha, { siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr' })
+
 app.use(VueFire, { 
   firebaseApp, 
   modules: [
     VueFireAuth()
   ] })
-app.use(VueReCaptcha, { siteKey: '6LdCGEwnAAAAAD5ILm-sPl_6mswpIfvMKY89E-hr' })
+
 
 app.mount('#app')

@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import axios from 'axios'
 import { useDonateCartStore, DonateProject } from '@/stores/donate-cart.js';
 const donateCartStore = useDonateCartStore();
@@ -11,22 +11,27 @@ function openDonatePage() {
   window.open(url, '_blank');
 }
 
-function showSideList(donateProject) {
-  donateCartStore.chosenDonateProject = donateProject
+function showSideList(donateProjectId, donateProjectName) {
+  donateCartStore.donateCart.length = 0
+  const chosenDonateProject = {
+    donate_project_id: donateProjectId,
+    donate_project_name: donateProjectName
+  }
+
+  donateCartStore.donateCart.push(chosenDonateProject)
+  console.log(donateCartStore.donateCart);
   donateCartStore.showSideList()
 }
 
-
 // 串接資料庫
-const DonateList = reactive([]);
-
 async function donateConnection() {
   try {
-    const response = await axios.post('http://localhost/SPARK_BACK/php/donate/donate-project/get_donate_project.php')
-
+    // const response = await axios.post('http://localhost/SPARK_BACK/php/donate/donate-project/get_donate_project.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/donate/donate-project/get_donate_project.php')
+    donateCartStore.DonateList.splice(0)
     if (response.data.length > 0) {
       response.data.forEach(element => {
-        DonateList.push(element)
+        donateCartStore.DonateList.push(element)
       });
     }
   } catch (error) {
@@ -37,24 +42,25 @@ onMounted(() => {
   donateConnection()
 })
 
-
 </script>
 
 
 <template>
   <div class="donate_content_card_list">
-    <div class="donate_content_card" v-for="(item, index) in DonateList" :key="item.index" :ref="item.donate_project_id"
-      :id="item.donate_project_id">
+    <div class="donate_content_card" v-for="(item, index) in donateCartStore.DonateList" :key="index"
+      :ref="item.donate_project_id" :id="item.donate_project_id">
       <div class="card_pic">
-        <img :src="`http://localhost/SPARK_BACK/images/donate-project/${item.donate_project_image}`"
+        <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/donate-project/${item.donate_project_image}`"
           :alt="item.donate_project_name">
+        <!-- <img :src="`http://localhost/SPARK_BACK/images/donate-project/${item.donate_project_image}`"
+          :alt="item.donate_project_name"> -->
       </div>
       <div class="card_content">
         <h3>{{ item.donate_project_name }}</h3>
         <p>{{ item.donate_project_summarize }}</p>
         <h4>捐款累計 NTD {{ item.donate_project_amount }}</h4>
 
-        <button @click="showSideList(donateProject)">加入清單</button>
+        <button @click="showSideList(item.donate_project_id, item.donate_project_name)">加入清單</button>
         <!-- 點擊button觸發程式並帶入donateContentCard.id -->
       </div>
     </div>

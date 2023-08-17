@@ -1,5 +1,4 @@
 <script setup>
-import { useLogStore } from '@/stores/login-dummy-data.js'
 import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import VueRecaptcha from 'vue3-recaptcha2';
@@ -73,7 +72,7 @@ const handleLogin = async () => {
         const loginForm = document.querySelector('#login_form');
         const formData = new FormData(loginForm); 
 
-        const res = await axios.post('http://localhost/SPARK_BACK/php/member/membership_system/handle_login.php', formData,{ withCredentials: true});
+        const res = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/handle_login.php', formData,{ withCredentials: true});
         if (res.data.status === "ok") {
             router.push({ path: '/home' });
         } else {
@@ -97,9 +96,9 @@ if (loginForm) {
 <template>
     <div class="login">
         <h1>會員登入</h1>
-        <form method="POST" id="login_form" action="http://localhost/SPARK_BACK/php/member/membership_system/handle_login.php" @submit.prevent="handleLogin()">
+        <form method="POST" id="login_form" action="https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/handle_login.php" @submit.prevent="handleLogin()">
             <label for="account">帳號
-                <input type="text" name="member_account" class="account" placeholder="輸入您的帳號或信箱" autocomplete="username">
+                <input type="text" name="member_account" class="account" :class="{ 'animate__animated animate__headShake': errorAccount }" placeholder="輸入您的帳號或信箱" autocomplete="username">
             </label>
             <label for="password">密碼
                 <div class="password_wrapper" ref="passwordField">
@@ -147,5 +146,5 @@ if (loginForm) {
     </div>
 </template>
 <style scoped lang="scss">
-@import "../../assets/sass/components/login/login-enter";
+@import "@/assets/sass/components/login/login-enter";
 </style>

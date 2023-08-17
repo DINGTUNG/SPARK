@@ -1,9 +1,10 @@
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, onMounted } from 'vue';
+import axios from 'axios';
 const page = ref(1)
 const modalImageSrc = ref('');
 const infoModal = ref(null);
-
+const thanksLetterList = reactive([]);
 
 function openModal(imageSrc) {
   modalImageSrc.value = imageSrc;
@@ -23,134 +24,154 @@ const displayedLetterData = computed(() => {
   return letterData.slice(startIdx, endIdx);
 });
 
-const letterData = reactive([
-  {
-    childId: "00001",
-    date: "2023.07.01",
-    location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00008",
-    date: "2023.09.05",
-    location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter_2.png",
-  },
-  {
-    childId: "00030",
-    date: "2023.10.11",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00045",
-    date: "2023.11.19",
-    location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00066",
-    date: "2023.12.28",
-    location: "台南星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00080",
-    date: "2024.01.11",
-    location: "台東星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00103",
-    date: "2024.03.22",
-    location: "台東星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00146",
-    date: "2024.04.09",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00160",
-    date: "2024.06.07",
-    location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00178",
-    date: "2024.07.28",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00200",
-    date: "2024.08.28",
-    location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00211",
-    date: "2024.10.05",
-    location: "台北星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00235",
-    date: "2024.10.14",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00256",
-    date: "2024.11.01",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00265",
-    date: "2024.11.20",
-    location: "台東星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00289",
-    date: "2024.11.29",
-    location: "台南星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00291",
-    date: "2024.12.06",
-    location: "台南星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00312",
-    date: "2024.12.18",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00345",
-    date: "2024.12.31",
-    location: "台南星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00349",
-    date: "2025.02.31",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-  {
-    childId: "00367",
-    date: "2025.03.06",
-    location: "台中星火中心",
-    jpgPath: "pictures/images/member-center/child_letter.png",
-  },
-])
+// const letterData = reactive([
+//   {
+//     childId: "00001",
+//     date: "2023.07.01",
+//     location: "台北星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00008",
+//     date: "2023.09.05",
+//     location: "台北星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter_2.png",
+//   },
+//   {
+//     childId: "00030",
+//     date: "2023.10.11",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00045",
+//     date: "2023.11.19",
+//     location: "台北星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00066",
+//     date: "2023.12.28",
+//     location: "台南星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00080",
+//     date: "2024.01.11",
+//     location: "台東星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00103",
+//     date: "2024.03.22",
+//     location: "台東星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00146",
+//     date: "2024.04.09",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00160",
+//     date: "2024.06.07",
+//     location: "台北星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00178",
+//     date: "2024.07.28",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00200",
+//     date: "2024.08.28",
+//     location: "台北星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00211",
+//     date: "2024.10.05",
+//     location: "台北星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00235",
+//     date: "2024.10.14",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00256",
+//     date: "2024.11.01",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00265",
+//     date: "2024.11.20",
+//     location: "台東星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00289",
+//     date: "2024.11.29",
+//     location: "台南星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00291",
+//     date: "2024.12.06",
+//     location: "台南星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00312",
+//     date: "2024.12.18",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00345",
+//     date: "2024.12.31",
+//     location: "台南星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00349",
+//     date: "2025.02.31",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+//   {
+//     childId: "00367",
+//     date: "2025.03.06",
+//     location: "台中星火中心",
+//     jpgPath: "pictures/images/member-center/child_letter.png",
+//   },
+// ])
+
+async function getThanksLetter() {
+  try {
+    const response = await axios.post('http://localhost/SPARK_BACK/php/member/thanks-letter/get_thanks_letter.php')
+    // const response = await axios.post('http://localhost:8888/member/thanks-letter/thanks_letter.php')
+    thanksLetterList.splice(0);
+    if (response.data.length > 0) {
+      response.data.forEach(element => {
+        thanksLetterList.push(element)
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  console.log(thanksLetterList);
+};
+
+onMounted(() => {
+  getThanksLetter()
+});
 
 
 </script>
@@ -195,12 +216,14 @@ const letterData = reactive([
           </thead>
 
           <tbody>
-            <tr class="info" v-for="data in displayedLetterData" :key="data.childId">
-              <td data-title="兒童編號" class="child_id">{{ data.childId }}</td>
-              <td data-title="收件日期">{{ data.date }}</td>
+            <tr class="info" v-for="data in thanksLetterList" :key="data.childId">
+              <td data-title="兒童編號" class="child_id">{{ data.children_id
+ }}</td>
+              <td data-title="收件日期">{{ data.receive_date }}</td>
               <td data-title="所屬據點">{{ data.location }}</td>
-              <td data-title="感謝函" class="click_jpg" @click="openModal(data.jpgPath)" style="cursor: pointer;">
-                {{ '來自' + data.childId + '的感謝信.jpg ' }}
+              <td data-title="感謝函" class="click_jpg" @click="openModal(data.thanks_letter_file
+)" style="cursor: pointer;">
+                {{ '來自' + data.children_id + '的感謝信.jpg ' }}
               </td>
             </tr>
           </tbody>

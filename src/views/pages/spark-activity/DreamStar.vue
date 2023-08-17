@@ -1,8 +1,12 @@
 <script setup>
 import { reactive } from 'vue';
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { useDreamStarStore } from '@/stores/dream-star.js';
+import { useDonateCartStore, DonateProject } from '@/stores/donate-cart.js';
+
 const dreamStarStore = useDreamStarStore()
+const donateCartStore = useDonateCartStore();
 
 const slideList = reactive([{
   imgSrc: 'pictures/images/spark-activity/dream-star/slide_pic_1.png',
@@ -17,6 +21,31 @@ const slideList = reactive([{
   title: 'slide_pic_3'
 },
 ])
+
+const router = useRouter()
+const goToDonatePageAndScrollToBottom = () => {
+  router.push({ path: '/donate' });
+  // setTimeout(() => {
+  //   window.scrollTo({
+  //     top: 2900,
+  //     left: 0,
+  //     behavior: "smooth",
+  //   })
+  // }, 0)
+
+  donateCartStore.showSideListForActivityDonate();
+  donateCartStore.chosenDonateProject = reactive(DonateProject.TYPE.SPARK_ACTIVITY)
+  scrollToElement();
+}
+
+const scrollToElement = () => {
+  setTimeout(() => {
+    const D007 = document.getElementById(DonateProject.TYPES[6].id)
+    D007.scrollIntoView({ behavior: 'smooth' })
+  }, 500)
+}
+
+
 
 </script>
 
@@ -44,7 +73,7 @@ const slideList = reactive([{
           </div>
           <div class="vote_wrap">
             <img :src="'pictures/spark_activity/dream_star/vote_star.svg'" alt="">
-            <span class="vote_number">{{ dreamStarStore.getCurrentCountInVoteRecord(dreamStarStore.selectedDreamStar) }}</span>
+            <span class="vote_number">{{ dreamStarStore.dreamStarPool[2].dream_star_votes }}</span>
           </div>
         </div>
 
@@ -105,7 +134,7 @@ const slideList = reactive([{
           <RouterLink to="/spark-activity">
             <button class="button_start">夢想起點</button>
           </RouterLink>
-          <button class="button_support">點我支持夢想</button>
+          <button class="button_support" @click="goToDonatePageAndScrollToBottom">點我支持夢想</button>
 
         </div>
       </div>

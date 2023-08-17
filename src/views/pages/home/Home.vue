@@ -5,6 +5,7 @@ import { ref, onMounted } from 'vue';
 import Loading from '@/layout/Loading.vue';
 // import { query } from 'express';
 import axios from 'axios'
+import 'animate.css';
 import letterAnimation from '@/components/letter-animation/LetterAnimation.vue';
 
 const route = useRoute();
@@ -40,19 +41,19 @@ onMounted(() => {
 
 async function show() {
   try {
-        const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/get_member_info.php', { withCredentials: true})
-        console.log(res.data)
-    } catch (error) {
-        console.error('網路請求錯誤:', error);
-        alert('網路請求錯誤');
-    }
+    const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/get_member_info.php', { withCredentials: true })
+    console.log(res.data)
+  } catch (error) {
+    console.error('網路請求錯誤:', error);
+    alert('網路請求錯誤');
+  }
 };
 </script>
 
 <template>
   <Loading v-if="route.query.showLoading" />
   <div v-else>
-    
+
     <div class="banner_container">
 
       <!-- <div class="letter_animation">
@@ -108,6 +109,8 @@ async function show() {
 
           <div class="branch_dot" v-for="(branch, index) in branches" @click="showBranch(index)"></div>
 
+          <span class="dot_note animate__animated animate__fadeInUp animate__infinite	infinite">點擊圓點觀看服務人數</span>
+
 
           <transition>
             <div class="branch_info" v-if="curIndex != null">
@@ -123,6 +126,10 @@ async function show() {
 
         </div>
         <img :src="'pictures/characters/girl/girl_bubbling.svg'" alt="girl_bubbling" class="girl_bubbling">
+        <img :src="'pictures/decorations/illustration/three_stars_group.svg'" alt="three_stars_group"
+          class="three_stars_group animate__animated animate__pulse animate__infinite	infinite">
+        <img :src="'pictures/decorations/illustration/blue_octagonal_star.svg'" alt="blue_octagonal_star"
+          class="blue_octagonal_star animate__animated animate__pulse animate__infinite	infinite">
       </div>
 
       <div class="section_news">
@@ -131,9 +138,6 @@ async function show() {
 
     </div>
   </div>
-
-  <RouterLink to="/test">測試頁面</RouterLink>
-  <br>
 </template>
 
 

@@ -12,34 +12,34 @@ const colors = {
 };
 
 const texts = {
-  personal: ['彭凱煒', '彭凱煒', '彭凱煒', '彭凱煒', '彭凱煒', '彭凱煒', '彭凱煒', '彭凱煒', '彭凱煒', '彭凱煒'],
+  personal: ['亞古獸', '加布獸', '甲蟲獸', '比丘獸', '哥瑪獸', '巴魯獸', '巴達獸', '迪路獸', 'V仔獸', '大耳獸'],
   company: ['緯育', '緯育', '緯育', '緯育', '緯育', '緯育', '緯育', '緯育', '緯育', '緯育'],
 };
 
 const images = {
   personal: [ // 添加其他「個人」類別的圖片路徑
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',
-    'pictures/images/donate/donate-list/profile_picture.jpg',  
+    'pictures/images/donate/donate-list/Agumon.png',
+    'pictures/images/donate/donate-list/Gabumon.png',
+    'pictures/images/donate/donate-list/Motimon.png',
+    'pictures/images/donate/donate-list/Piyomon.png',
+    'pictures/images/donate/donate-list/Gomamon.png',
+    'pictures/images/donate/donate-list/Palmon.png',
+    'pictures/images/donate/donate-list/Patamon.png',
+    'pictures/images/donate/donate-list/Tailmon.png',
+    'pictures/images/donate/donate-list/Veemon.png',
+    'pictures/images/donate/donate-list/Terriermon.png',  
   ],
   company: [ // 添加其他「公司」類別的圖片路徑
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
-    'pictures/images/donate/donate-list/company_picture.jpg',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
+    'pictures/images/donate/donate-list/tibame.png',
   ],
 };
 

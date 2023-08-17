@@ -22,6 +22,7 @@ const handleFileChange = (event) => {
 
 const member = reactive({});
 async function getMemberInfo() {
+    // http://localhost/php/member/membership_system/get_member_info.php
     try {
     const res = await axios.get('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/get_member_info.php', { withCredentials: true });
     Object.assign(member, res.data);

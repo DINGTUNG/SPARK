@@ -1,42 +1,14 @@
 <script setup>
 import { ref,reactive, onMounted } from 'vue';
 import axios from 'axios';
-
-const memberData = ref({
-    name: '蔡頭瓜',
-    id_number: 'T123008889',
-    birthday: '1991-09-19',
-    cellphone: '0978099123',
-    local_phone: '02-12345678',
-    work_phone: '03-425-1108',
-    address: '320桃園市中壢區復興路46號9樓',
-    receipt: 'donate'
-});
-
-
-// const saveData = () => {
-//   localStorage.setItem('memberData', JSON.stringify(memberData.value));
-//   toggleEditMode();
-// };
-// const cancelEdit = () => {
-//   const data = JSON.parse(localStorage.getItem('memberData') || '{}');
-//   Object.assign(memberData.value, data);
-//   toggleEditMode();
-// };
-// onMounted(() => {
-//   const data = JSON.parse(localStorage.getItem('memberData') || '{}');
-//   Object.assign(memberData.value, data);
-// });
-
-
 const Years = reactive([
-    2005, '請選擇年份', 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
+    '請選擇年份', 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
 ])
 const Months = reactive([
-    9, '請選擇月份', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+    '請選擇月份', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 ])
 const Days = reactive([
-    19, '請選擇日期', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+    '請選擇日期', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
 ])
 
 const selectedFile = ref(null);
@@ -48,28 +20,35 @@ const handleFileChange = (event) => {
   imageUrl.value = URL.createObjectURL(file);
 };
 
-let member = reactive({})
+const member = reactive({});
 async function getMemberInfo() {
-  try {
-    const res = await axios.get('http://localhost/SPARK_BACK/php/member/membership_system/get_member_info.php', { withCredentials: true })
-    console.log(res)
-    member = res.data;
-    console.log(member);
-
-  } catch (error) {
+    // http://localhost/php/member/membership_system/get_member_info.php
+    try {
+    const res = await axios.get('https://tibamef2e.com/chd102/g3/back-end/php/member/membership_system/get_member_info.php', { withCredentials: true });
+    Object.assign(member, res.data);
+    } catch (error) {
     console.error('網路請求錯誤:', error);
     alert('網路請求錯誤');
-  }
-};
+    }
+}
 
 onMounted(async () => {
   await getMemberInfo(); // 等待資料讀取完成
+  selectedReceiptType.value = member.receipt_class;
 });
+
+
 const isEditMode = ref(false);
 
 const toggleEditMode = () => {
     isEditMode.value = !isEditMode.value;
 };
+const selectedReceiptType = ref('個人');
+
+const isReceiptSelected = (value) => {
+    return member.receipt_class === value;
+};
+
 </script>
 <template>
     <div class="container">
@@ -82,7 +61,7 @@ const toggleEditMode = () => {
                 </div>
                 <div class="title">
                     <h1>會員基本資料</h1>
-                    <h5>會員編號 A330</h5>
+                    <h5>會員編號 {{ member.member_id }}</h5>
                 </div>
 
                 <!-- 上傳大頭照 -->
@@ -93,6 +72,7 @@ const toggleEditMode = () => {
                     id="up_file"
                     style="display:none"
                     accept="image/gif, image/jpeg, image/png" @change="handleFileChange">
+                    <img v-if="!imageUrl" :src="`https://tibamef2e.com/chd102/g3/back-end/images/member-info/${member.member_img}`" id="origin_img" alt="會員頭像">
                     <div v-if="!imageUrl" class="up_file_text">
                         <i class="fa-solid fa-file-arrow-up"></i>
                         <p>點擊上傳圖片</p>
@@ -105,13 +85,12 @@ const toggleEditMode = () => {
                     <label for="account">帳號：</label>
                     <input type="text"
                     class="account_input"
-                    placeholder="TouGua0919" disabled>
+                    :placeholder="member.member_account" disabled>
                 </div>
                 <div class="form_item">
                     <label for="name">姓名*：</label>
                     <input v-if="isEditMode"
                     type="text" class="name" id="name"
-                   
                     :value="member.member_name"
                     maxlength="30">
                     <span v-else>{{ member.member_name }}</span>
@@ -134,7 +113,7 @@ const toggleEditMode = () => {
 
                 <div class="form_item">
                     <label for="id_number">身分證字號*：</label>
-                    <input type="text" class="id_number" v-model="id_number" id="id_number" placeholder="T123008889"
+                    <input type="text" class="id_number" id="id_number" :placeholder="member.member_id_card"
                     disabled
                     maxlength="10">
                 </div>
@@ -143,22 +122,25 @@ const toggleEditMode = () => {
                     <label for="birthday">生日*：</label>
                     <div class="birthday_wrap">
                         <div class="birthday_select">
-                            <select  name="year" id="year">
-                                <option  v-for="(year,index) in Years" :key="index">{{ year }}</option>
+                            <select v-if="isEditMode" name="year" id="year">
+                                <option  v-for="(year,index) in Years" :key="index" :value="member.member_birthyear">{{ year }}</option>
                             </select>
-                            <i class="fa-solid fa-chevron-down"></i>
+                            <i v-if="isEditMode" class="fa-solid fa-chevron-down"></i>
+                            <span v-if="!isEditMode">{{ member.member_birthyear }}</span>
                         </div>
                         <div class="birthday_select">
-                            <select name="month" id="month">
-                                <option v-for="(month, index) in Months" :key="index">{{ month }}</option>
+                            <select v-if="isEditMode" name="month" id="month">
+                                <option v-for="(month, index) in Months" :key="index" :value="member.member_birthmonth">{{ month }}</option>
                             </select>
-                            <i class="fa-solid fa-chevron-down"></i>
+                            <i v-if="isEditMode" class="fa-solid fa-chevron-down"></i>
+                            <span v-if="!isEditMode">{{ member.member_birthmonth }}</span>
                         </div>
                         <div class="birthday_select">
-                            <select name="day" id="day">
-                                <option v-for="(day, index) in Days" :key="index">{{ day }}</option>
+                            <select v-if="isEditMode" name="day" id="day">
+                                <option v-for="(day, index) in Days" :key="index" :value="member.member_birthday">{{ day }}</option>
                             </select>
-                            <i class="fa-solid fa-chevron-down"></i>
+                            <i v-if="isEditMode" class="fa-solid fa-chevron-down"></i>
+                            <span v-if="!isEditMode">{{ member.member_birthday }}</span>
                         </div>
                         </div>
                 </div>
@@ -166,57 +148,54 @@ const toggleEditMode = () => {
                 <div class="form_item">
                     <label for="cellphone">手機*：</label>
                     <input v-if="isEditMode"
-                    v-model="memberData.cellphone"
                     type="text"
                     id="cellphone"
+                    :value="member.member_mobile"
                     maxlength="10">
-                    <span v-else>{{ memberData.cellphone }}</span>
+                    <span v-else>{{ member.member_mobile }}</span>
                 </div>
          
         
                 <div class="form_item">
                     <label for="local_phone">住家電話：</label>
                     <input v-if="isEditMode" type="text" 
-                    v-model="memberData.local_phone"
                     id="local_phone"
+                    :value="member.member_home_phone"
                     placeholder="請輸入住家電話">
-                    <span v-else>{{ memberData.local_phone }}</span>
+                    <span v-else>{{ member.member_home_phone }}</span>
                 </div>
        
                 <div class="form_item">
                     <label for="work_phone">公司電話：</label>
                     <input v-if="isEditMode" type="text"
-                    v-model="memberData.work_phone"
+                    :value="member.member_business_phone"
                     id="work_phone">
-                    <span v-else>{{ memberData.work_phone }}</span>
+                    <span v-else>{{ member.member_business_phone }}</span>
                 </div>
         
                 <div class="form_item">
                     <label for="address">地址*：</label>
                     <input v-if="isEditMode" type="text"
-                    id="address"
-                    v-model="memberData.address">
-                    <span v-else>{{ memberData.address }}</span>
+                    :value="member.member_address"
+                    id="address">
+                    <span v-else>{{ member.member_address }}</span>
                 </div>
                 <div class="form_item">
                     <label for="receipt">發票種類*：</label>
-                        <div class="label_radio_wrap receipt">
-                            <label class="receipt">
-                                <input type="radio" name="receipt" value="personal"
-                                class="input_radio">個人發票
-                            </label>
-                            <label class="receipt">
-                                <input type="radio" name="receipt" value="tax_id"
-                                class="input_radio">統編發票
-                            </label>
-                            <label class="receipt">
-                                <input type="radio" name="receipt" value="donate" checked
-                                class="input_radio">捐贈發票
-                            </label>
-                            <label class="receipt">
-                                <input type="radio" name="receipt" value="paper" class="input_radio">紙本發票
-                            </label>
-                        </div>
+                    <div class="label_radio_wrap receipt">
+                        <label class="receipt">
+                        <input type="radio" name="receipt" value="個人" class="input_radio" v-model="selectedReceiptType" :disabled="isReceiptSelected('個人')">個人發票
+                        </label>
+                        <label class="receipt">
+                        <input type="radio" name="receipt" value="統編" class="input_radio" v-model="selectedReceiptType" :disabled="isReceiptSelected('統編')">統編發票
+                        </label>
+                        <label class="receipt">
+                        <input type="radio" name="receipt" value="捐贈" class="input_radio" v-model="selectedReceiptType" :disabled="isReceiptSelected('捐贈')">捐贈發票
+                        </label>
+                        <label class="receipt">
+                        <input type="radio" name="receipt" value="電子" class="input_radio" v-model="selectedReceiptType" :disabled="isReceiptSelected('捐贈')">電子發票
+                        </label>
+                    </div>
                 </div>
 
                 <div class="confirm_button">

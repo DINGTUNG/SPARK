@@ -2,11 +2,6 @@
 import { defineProps } from 'vue'
 import { publicPath } from '@/plugins/dynamic-url.js'
 
-// const props = defineProps(['className', 'imgURL', 'alt'])
-
-// onMounted(() => {
-//   console.log("testPath", testPath);
-// })
 
 const props = defineProps({
   class: String,

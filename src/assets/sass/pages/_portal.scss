@@ -48,6 +48,7 @@
 div.portal_container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
   width: 100%;
   background-image: url('/pictures/portal/background.png');
@@ -78,19 +79,22 @@ div.portal_container {
 
   img.three_stars {
     @include shine(star_shine, 2.5s, 0.5s);
-    width: 15vw;
+    width: 13vw;
     position: absolute;
-    top: 60vh;
-    left: 5vw;
+    top: 65vh;
+    left: 3vw;
   }
 
   div.portal_img_wrap {
+    position: relative;
+    top: -5vh;
     @include flex_hm;
     gap: 8vw;
 
     div.portal_img_front,
     div.portal_img_back {
       @include flex_vm;
+
       div.box {
         position: relative;
         @include flex_hm;
@@ -104,30 +108,33 @@ div.portal_container {
           cursor: pointer;
           transition: opacity .2s ease-in-out;
         }
+
         img.front1_img,
         img.back1_img {
           &:hover {
             opacity: 0;
           }
         }
+
         img.front2_img,
-        img.front1_img{
+        img.front1_img {
           bottom: 30px;
         }
       }
 
       h2 {
+        font-size: 1.5vw;
         color: $primaryBrandWhite;
       }
     }
   }
-  p.wrang{
-    @include h6_MB;
-    padding-top: 1rem;
-    width: 50vw;
-    margin: auto;
+  p.wrang {
+    font-size: 0.9vw;
+    width: 59vw;
+    margin:8vh 0;
     color: $primaryBrandWhite;
-    a{
+  
+    a {
       color: $decorativeYellow;
     }
   }

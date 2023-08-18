@@ -44,7 +44,7 @@ import axios from 'axios'
 const newsList = reactive([])
 async function newsConnection() {
   try {
-    // const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/news/get_news.php')
+    // const response = await axios.post('http://localhost/SPARK_BACK/php/news/get_news.php')
     const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/news/get_news.php')
     console.log(response)
     if (response.data.length > 0) {
@@ -74,7 +74,10 @@ onMounted(() => {
     <div class="news_content_card" v-for="newsContentCard in newsList" :key="newsList.news_id">
       <RouterLink :to="`/single-news?id=${newsContentCard.news_id}`" class="news_card_link">
         <div class="card_pic">
-          <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${newsContentCard.news_image_first}`" :alt=" newsContentCard.news_title">
+          <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${newsContentCard.news_image_first}`"
+            :alt="newsContentCard.news_title">
+          <!-- <img :src="`http://localhost/SPARK_BACK/images/news/${newsContentCard.news_image_first}`"
+            :alt="newsContentCard.news_title"> -->
           <img :src="'pictures/characters/boy/boy_lighting_up_white.svg'" alt="card_hover_pic" class="card_hover_pic">
         </div>
         <div class="card_content">
@@ -130,15 +133,15 @@ onMounted(() => {
 div.news_content_card_list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 
   @include custom-responsive("xs sm") {
-    gap: 7vw 0;
+    justify-content: start;
+    gap: 7vw 1vw;
   }
 
   @include custom-responsive("md lg xl xx-l") {
-    justify-content: space-between;
-    gap: 3.5vw 0;
+    justify-content: start;
+    gap: 3.5vw 2vw;
   }
 
   div.news_content_card {
@@ -152,6 +155,7 @@ div.news_content_card_list {
 
     @include custom-responsive("md lg xl") {
       width: 45%;
+      border-radius: $br_PC;
     }
 
     @include custom-responsive("xx-l") {

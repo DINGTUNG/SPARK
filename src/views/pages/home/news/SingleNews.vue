@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, onMounted, ref ,computed} from 'vue';
+import { reactive, onMounted, ref ,computed,watch} from 'vue';
 import axios from 'axios'
 import { useRoute, useRouter } from 'vue-router';
 // const article = reactive(
@@ -100,7 +100,8 @@ onMounted(() => {
 })
 
 function handleMoreNewsClick(id) {
-  router.push({ query: { id: id } });
+  activeId.value = id; // 先更新 activeId
+  router.push({ query: { id: id } }); // 再進行路由跳轉
 }
 
 

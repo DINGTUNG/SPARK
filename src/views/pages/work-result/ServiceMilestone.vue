@@ -149,7 +149,7 @@ let currentSlide = ref(0)
 async function milestoneConnection() {
   try {
 
-    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/results/milestone/get_milestone.php')
+    const response = await axios.post('https://tibamef2e.com/chd102/g3/back-end/php/results/milestone/get_milestone_front.php')
 
     if (response.data.length > 0) {
       response.data.forEach(element => {

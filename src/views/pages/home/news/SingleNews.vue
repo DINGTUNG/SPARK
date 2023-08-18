@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, onMounted, ref ,computed} from 'vue';
 import axios from 'axios'
+import { useRoute, useRouter } from 'vue-router';
 // const article = reactive(
 //   [
 //     {
@@ -69,6 +70,8 @@ const activeId = ref('');
 const selectedNewsId = computed(() =>{
   return newsList.find(v => v.news_id === activeId.value) ?? null;
 })
+const route = useRoute();
+const router = useRouter();
 
 let count = 0;
 async function newsConnection() {
@@ -97,7 +100,7 @@ onMounted(() => {
 })
 
 function handleMoreNewsClick(id) {
-  activeId.value = id;
+  router.push({ query: { id: id } });
 }
 
 
@@ -161,7 +164,6 @@ function handleMoreNewsClick(id) {
           <div>
             <div class="card_group">
               <div class="news_card" v-for="item in moreNewsList" :key="item.index">
-                <!-- <RouterLink :to="`/single-news?id=${moreNewsList.news_id}`" class="news_card_link"> -->
                 <a @click="handleMoreNewsClick(item.news_id)">
                   <div class="card_img">
                     <img :src="`https://tibamef2e.com/chd102/g3/back-end/images/news/${item.news_image_first}`">
@@ -174,7 +176,6 @@ function handleMoreNewsClick(id) {
                     <p>{{ item.news_content_first }}</p>
                   </div>
                    </a>
-                <!-- </RouterLink> -->
               </div>
             </div>
           </div>

@@ -1,14 +1,5 @@
 div.about_banner{
-
-    @include custom-responsive("xs sm") {
-        margin-top: 85px;
-        width: 100%;
-    }
-
-    @include custom-responsive("xl xxl") {
-       width: 100%;
-    }
-
+    width: 100%;
     
     img{
         width: 100%;

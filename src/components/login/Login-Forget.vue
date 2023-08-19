@@ -84,7 +84,7 @@ async function resetPassword () {
         console.log(res.data);
         if (res.data.status === 'ok') {
             alert('密碼修改成功，請重新登入');
-            window.location.href = 'https://tibamef2e.com/chd102/g3/home'
+            window.location.href = 'https://tibamef2e.com/chd102/g3/login'
         } else {
             const msg = res.data.msg;
             alert(msg);

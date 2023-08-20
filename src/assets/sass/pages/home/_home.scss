@@ -672,7 +672,7 @@
 }
 
 .section_news {
-    margin: auto;
+    margin:0 auto 50px;
     padding: 6% 0;
         @include custom-responsive("xs sm md") {
         @include body_space_MB;

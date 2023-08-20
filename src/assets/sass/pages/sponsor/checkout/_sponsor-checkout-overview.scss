@@ -5,6 +5,7 @@ div.sponsor_checkout_overview_container {
   @include custom-responsive("xs sm") {
     margin-top: -5vh;
     height: 155vh;
+    margin-bottom: 80px;
   }
 
   @include custom-responsive("xl") {

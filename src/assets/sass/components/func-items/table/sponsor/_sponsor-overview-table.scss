@@ -81,7 +81,7 @@ div.table_wrap {
       @include custom-responsive("xs sm") {
         @include h6_MB;
         font-weight: bold;
-        padding-left: 5vw;
+        padding: 2vw;
       }
 
       @include custom-responsive("xl xx-l") {
@@ -101,10 +101,12 @@ div.table_wrap {
         @include custom-responsive("xs sm") {
           @include h6_MB;
           font-weight: bold;
+          padding: 10px 0;
         }
 
         @include custom-responsive("xl xx-l") {
           @include h4_B_PC;
+          padding: 0;
         }
 
 

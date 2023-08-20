@@ -79,14 +79,14 @@ div.container {
   }
 
   div.sponsor_block {
-    padding: 50px 0;
-
     @include custom-responsive(" xs sm") {
       @include h1_MB;
+      padding: 0;
     }
 
     @include custom-responsive(" xl xx-l") {
       display: flex;
+      padding: 50px 0;
     }
 
     .sponsor_img {
@@ -142,7 +142,7 @@ div.container {
       h4 {
 
         @include custom-responsive(" xs sm") {
-          padding: 10px 0;
+          padding: 30px 0 10px 0;
           @include h4_B_MB;
           font-size: 20px;
         }

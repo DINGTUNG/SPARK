@@ -303,6 +303,14 @@ div.container {
                         display: contents;
                     }
                 }
+                a{
+                    @include custom-responsive(" xs sm") {
+                       display: contents;
+                    }
+    
+                    @include custom-responsive(" xl xx-l") {
+                    }
+                }
 
                 div.financial_img {
 

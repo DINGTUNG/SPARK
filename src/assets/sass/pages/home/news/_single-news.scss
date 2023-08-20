@@ -17,8 +17,13 @@ div.container {
     width: 100%;
 
     div.main_body {
-        width: 62.5vw;
-        margin: auto;
+            @include custom-responsive("xs sm") {
+              @include body_space_MB;
+            }
+          
+            @include custom-responsive("xl xxl") {
+              @include body_space_PC;
+            }
     }
 
     div.title_block {
@@ -116,7 +121,7 @@ div.container {
         div.article {
             div.article_block {
                 @include custom-responsive("xs sm") {
-                    padding-bottom: 40px;
+                    padding-bottom: 20px;
                 }
                 @include custom-responsive("xl xx-l") {
                     display: flex;
@@ -186,13 +191,14 @@ div.container {
 
                     p {
                         color: $basicFontColor;
-
                         @include custom-responsive(" xs sm") {
                             @include h6_MB;
+                            margin-top: 30px
                         }
 
                         @include custom-responsive(" xl xx-l") {
                             @include h6_PC;
+                            margin-top: 0;
                         }
 
 
@@ -203,7 +209,7 @@ div.container {
             div.article_block:nth-child(2),
             div.article_block:nth-child(4) {
                 @include custom-responsive(" xs sm md lg") {
-                    padding-bottom: 50px;
+                    padding-bottom: 20px;
                 }
 
                 div.article_block_img {
@@ -361,11 +367,12 @@ div.container {
 
                         @include custom-responsive("xs sm ") {
                             @include h6_MB;
+                            margin-top: 30px
                         }
 
                         @include custom-responsive("xl xx-l") {
                             @include h6_PC;
-
+                            margin-top: 0;
                         }
                     }
 

@@ -100,7 +100,7 @@ div.container{
           @include custom-responsive("xs sm"){
             @include h1_MB;
             width: fit-content;
-            margin:3% auto 8%;
+            margin:60px auto 15px;
           }
           @include custom-responsive("xl xx-l") {
               @include h1_PC;

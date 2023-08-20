@@ -137,7 +137,7 @@ div.spark_activity_container {
             gap: 2vw;
             justify-content: flex-start;
             padding-left: 6vw;
-            font-size: 1vw;
+            border-radius: 30px;
           }
 
           @include custom-responsive("xl xx-l") {

@@ -1,9 +1,9 @@
 p.text {
-  text-align: center;
   color: $primaryBrandBlue;
   width: 80vw;
   @include h4_B_PC;
-  margin: auto;
+  line-height: 24px;
+  margin: 30px auto;
 }
 
 div.danmaku {
@@ -71,7 +71,7 @@ div.input_text {
 
 
       @include custom-responsive("xs sm") {
-        width: 80vw;
+        width: 70vw;
         height: 7vh;
         text-align: center;
         outline: 1vw solid $decorativeYellow;
@@ -105,10 +105,12 @@ div.input_text {
       background-color: $decorativeYellow;
 
       @include custom-responsive("xs sm") {
-        width: 25vw;
-        height: 25vw;
+        width: 15vw;
+        height: 15vw;
         border: 1.2vw solid $primaryBrandWhite;
         outline: 0.8vw solid $decorativeYellow;
+        font-size: 20px;
+        box-sizing: border-box;
       }
 
       @include custom-responsive("xl xx-l") {

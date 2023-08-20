@@ -2,7 +2,6 @@ div.activity_donate {
   @include flex_vm;
 
   p {
-    text-align: center;
     color: $primaryBrandBlue;
 
     @include custom-responsive("xs sm") {

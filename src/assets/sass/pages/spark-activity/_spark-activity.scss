@@ -219,7 +219,9 @@ div.spark_activity_container {
 
           h2 {
             color: $secondaryLightBlue3;
-            font-size: 1.8vw;
+            @include custom-responsive("xs sm") {
+              font-size: 32px;
+            }
           }
 
           img {
@@ -311,5 +313,5 @@ p.date {
   margin-top: 2vh ;
   color: $decorativeOrange;
   font-weight: bold;
-  font-size: 1.5vw;
+  font-size: 16px;
 }

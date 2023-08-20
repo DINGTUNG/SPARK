@@ -247,7 +247,7 @@ async function logout() {
   <header class="header_MB">
     <!-- 【logo】 -->
     <RouterLink to="/home" class="link_home">
-      <Images id="logo" :imgSrc="imgSrc" alt="Sparklogo" />
+      <img id="logo" :src="imgSrc" alt="Sparklogo">
     </RouterLink>
     <!-- hamburger -->
     <button class="nav_toggle" @click="navVisible = !navVisible"> <!--turn on & turn off -->

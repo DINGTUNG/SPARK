@@ -123,6 +123,9 @@ div.container {
                 @include custom-responsive("xs sm") {
                     padding-bottom: 20px;
                 }
+                @include custom-responsive("md lg") {
+                    padding-bottom: 30px;
+                }
                 @include custom-responsive("xl xx-l") {
                     display: flex;
                     padding-bottom: 100px;
@@ -328,8 +331,7 @@ div.container {
                 }
 
                 div.card_word {
-                    padding: 1vw 1.8vw 1.6vw;
-
+                    padding: 5vw 5vw 6vw;
 
                     h5 {
                         color: $functionalLightGrey4;
